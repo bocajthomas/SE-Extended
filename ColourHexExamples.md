@@ -1,4 +1,5 @@
 # Colors Feature
+# 140 Colours 
 > **Simply Copy & Paste The `Hex Codes`** 
 
 ## Example Hex Codes 
