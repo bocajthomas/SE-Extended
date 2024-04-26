@@ -252,154 +252,152 @@
 ### Pale Green
 > - `#98FB98`
 
-### To Do 
-
 ### Dark Violet
 > - `#9400D3`
 
 ### Medium Purple
-`#9370DB`
+> - `#9370DB`
 
 ### Light Green
-`#90EE90`
+> - `#90EE90`
 
 ### Dark Sea Green
-`#8FBC8F`
+> - `#8FBC8F`
 
 ### Saddle Brown
-`#8B4513`
+> - `#8B4513`
 
 ### Dark Magenta
-`#8B008B`
+> - `#8B008B`
 
 ### Dark Red
-`#8B0000`
+> - `#8B0000`
 
 ### Blue Violet
-`#8A2BE2`
+> - `#8A2BE2`
 
 ### Light Sky Blue
-`#87CEFA`
+> - `#87CEFA`
 
 ### Sky Blue
-`#87CEEB`
+> - `#87CEEB`
 
 ### Gray
-`#808080`
+> - `#808080`
 
 ### Olive
-`#808000`
+> - `#808000`
 
-purple
-`#800080`
+### Purple
+> - `#800080`
 
-maroon
-`#800000`
+### Maroon
+> - `#800000`
 
-aquamarine
-`#7FFFD4`
+### Aquamarine
+> - `#7FFFD4`
 
-chartreuse
-`#7FFF00`
+### Chartreuse
+> - `#7FFF00`
 
-lawn green
-`#7CFC00`
+### Lawn Green
+> - `#7CFC00`
 
-medium slate blue
-`#7B68EE`
+### Medium Slate Blue
+> - `#7B68EE`
 
-light slate gray
-`#778899`
+### Light Slate Gray
+> - `#778899`
 
-slate gray
-`#708090`
+### Slate Gray
+> - `#708090`
 
-olive drab
-`#6B8E23`
+### Olive Drab
+> - `#6B8E23`
 
-slate blue
-`#6A5ACD`
+### Slate blue
+> - `#6A5ACD`
 
-dim gray
-`#696969`
+### Dim Gray
+> - `#696969`
 
-medium aquamarine
-`#66CDAA`
+### Medium Aquamarine
+> - `#66CDAA`
 
-cornflower blue
-`#6495ED`
+### Cornflower Blue
+> - `#6495ED`
 
-cadet blue
-`#5F9EA0`
+### Cadet Blue
+> - `#5F9EA0`
 
-dark olive green
-`#556B2F`
+### Dark Olive Green
+> - `#556B2F`
 
-indigo
-`#4B0082`
+### Indigo
+> - `#4B0082`
 
-medium turquoise
-`#48D1CC`
+### Medium Turquoise
+> - `#48D1CC`
 
-dark slate blue
-`#483D8B`
+### Dark Slate Blue
+> - `#483D8B`
 
-steel blue
-`#4682B4`
+### Steel Blue
+> - `#4682B4`
 
-royal blue
-`#4169E1`
+### Royal Blue
+> - `#4169E1`
 
-turquoise
-`#40E0D0`
+### Turquoise
+> - `#40E0D0`
 
-medium sea green
-`#3CB371`
+### Medium Sea Green
+> - `#3CB371`
 
-lime green
-`#32CD32`
+### Lime Green
+> - `#32CD32`
 
-dark slate gray
-`#2F4F4F`
+### Dark Slate Gray
+> - `#2F4F4F`
 
-sea green
-`#2E8B57`
+### Sea Green
+> - `#2E8B57`
 
-forest green
-`#228B22`
+### Forest Green
+> - `#228B22`
 
-light sea green
-`#20B2AA`
+### Light Sea Green
+> - `#20B2AA`
 
-dodger blue
-`#1E90FF`
+### Dodger Blue
+> - `#1E90FF`
 
-midnight blue
-`#191970`
+### Midnight Blue
+> - `#191970`
 
-aqua
-`#00FFFF`
+### Aqua
+> - `#00FFFF`
 
-### cyan
-`#00FFFF`
+### Cyan
+> - `#00FFFF`
 
-### spring green
-`#00FF7F`
+### Spring Green
+> - `#00FF7F`
 
-### lime
-`#00FF00`
+### Lime
+> - `#00FF00`
 
-### medium spring green
-#00FA9A
+### Medium Spring Green
+> - `#00FA9A`
 
-### dark turquoise
-#00CED1
+### Dark Turquoise
+> - `#00CED1`
 
-### deep sky blue
-#00BFFF
+### Deep Sky Blue
+> - `#00BFFF`
 
-### dark cyan
-#008B8B
+### Dark Cyan
+> - `#008B8B`
 
 ### Teal
 > - `#008080`
