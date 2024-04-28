@@ -1,8 +1,8 @@
 # Colors Feature
 
-> **Simply Copy & Paste The `Hex Codes`** 
+> **Simply Copy & Paste The `Hex Color Codes`** 
 
-## 140 Example Hex Codes 
+## 140 Example Hex Color Codes 
 
 ### White 
 > - `#FFFFFF`
