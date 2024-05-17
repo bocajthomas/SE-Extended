@@ -391,16 +391,16 @@ Allows users to Override Bootstrap UserInterface Settings
 
 ### Bootstrap Override Settings Include
 
-## app Appearance
-`Always Light`
-`Always Dark`
+## App Appearance
+ - `Always Light`
+ - `Always Dark`
 
 ## Home tab
-`Map`
-`Chat`
-`Camera`
-`Discover`
-`Spotlight`
+ - `Map`
+ - `Chat`
+ - `Camera`
+ - `Discover`
+ - `Spotlight`
 
 ### How to enable
  1. Open the SnapEnhance app
@@ -484,7 +484,7 @@ you will need to Use the social tab to Manage This Feature
  5. Press on that Friend
  6. Toggle on `Hide from Friend Feed`
  7. Open Snapchat
- 8. you will now see that Person has Disappeared / Hidden 
+ 8. You will now see that Person has Disappeared / Hidden 
   
 
 
@@ -540,7 +540,7 @@ Allows users to Hide Suggestions from the Stories Page
 ### How to use
   1. Open Snapchat
   2. Go to the Story Page
-  3. you will see your preferred choice is ino longer visible 
+  3. You will see your preferred choice is ino longer visible 
 
 
 ## Hide UI Components
@@ -565,7 +565,7 @@ Allows users to Hide UserInterface Components
 
 ### How to use
  1. Open Snapchat
- 2. you can now see your preferred choice is ino longer visible 
+ 2. You can now see your preferred choice is ino longer visible 
 
 
 ## Opera Media Quick Info
@@ -583,7 +583,7 @@ Allows users to Show Useful Information of Media in Opera Viewer Context Menu
  1. Open Snapchat
  2. Tap a Snap Or a Story
  3. Tap 3 Dots ( Top right ) 
- 4. you will now see Some Information
+ 4. You will now see Some Information
 
 
 ## Old Bitmoji Selfie
@@ -949,6 +949,23 @@ Allows users to Show a Confirmation Dialog when Starting a Call
  2. Make a Call
  3. you should now get a Call Confirmation Dialog
 
+## Unlimited Conversation Pinning 
+
+### Explanation
+Allows users To pin an unlimited amount of conversations locally 
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `Unlimited Conversation Pinning`
+
+### How to use
+ 1. Open Snapchat
+ 2. On the friend feed hold down on a friend
+ 3. Tap chat and notifications settings
+ 4. Tap pin conversation
+ 5. You can now do this as many times as you want
 
 ## Auto Save messages
 
@@ -1064,6 +1081,7 @@ Allows users to Select Which notifications should get Blocked
  - `Chat Reply`
  - `typing`
  - `Stories`
+ - `Speaking`
  - `DM Reaction`
  - `Group Reaction`
  - `Incoming Audio Call`
@@ -1109,6 +1127,12 @@ Allows users to Spoof the Media Source when sending from the Gallery
 ### Note
  - This Feature requires Experimental `Native Hooks` to work correctly
 
+### Gallery Media Send Override Includes
+ - `Always Ask`
+ - `Snap`
+ - `Audio Note`
+ - `Savable Snap`
+
 ### Media Sources Include 
  - `Original`
  - `Snap`
@@ -1118,7 +1142,8 @@ Allows users to Spoof the Media Source when sending from the Gallery
  1. Open SnapEnhance app 
  2. Go to `Features` tab 
  3. Tap `Messaging`
- 4. Toggle on `Gallery Media Send Override`
+ 4. Tap the icon next to `Gallery Media Send Override`
+ 5. Tap your preferred choice
 
 ### How to use
  1. Open a Chat
@@ -1208,6 +1233,7 @@ Allows users to Enhance the Snapchat Location
 ### Better Location Includes 
  - `Spoof Location`
  - `Coordinates`
+ - `Walk Radius`
  - `Always Update Location`
  - `Suspend Location Updates`
  - `Spoof Battery Level`
@@ -1242,6 +1268,26 @@ Some Server-Sided Features May not work
  1. Open Snapchat
  2. Tap your Bitmoji
  3. Go to Snapchat+
+
+## Media Upload Quality 
+
+### Explanation
+Allows users to override the media upload quality 
+
+### Media Upload Quality Includes
+ - `Force Video Upload Source Quality`
+ - `Disable Image Compression`
+ - `Custom image Upload Format`
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Tap `Media Upload Quality`
+
+### How to use
+ 1. Open Snapchat
+ 2. Send a photo or video
 
 
 ## Disable Confirmation Dialogs
@@ -1323,6 +1369,20 @@ Prevent Advertisements from being displayed
  1. Open Snapchat
  2. it should now Block All Ads 
 
+## Disable Custom Tabs
+
+### Explanation
+Allows users to open links in a supported applications reather then in the web browser 
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Toggle on `Disable Custom Tabs`
+
+### How to use
+ 1. Open Snapchat
+ 2. Open a link 
 
 ## Disable Permission Requests
 
@@ -1462,27 +1522,6 @@ Allows users to prevent Google Play Services Availability Dialogs from being Sho
 ### How to use
  1. Open Snapchat
  2. Google play Service Dialogs will now not be Shown 
-
-
-## Force Upload Source Quality
-
-### Explanation
-Allows users to Force Snapchat to Upload Media in the Original Quality
-
-### Note 
-This May not Remove Metadata from Media
-
-### How to enable
- 1. Open SnapEnhance app 
- 2. Go to `Features` tab 
- 3. Tap `Global`
- 4. Toggle on `Force Upload Source Quality`
-
-### How to use
- 1. Open Snapchat
- 2. Send a Photo
- 3. This should now Upload in High Quality 
-
 
 ## Default Volume Controls
 
@@ -1872,53 +1911,51 @@ the Custom Resolution Must be Supported by your Device
 
 ### Explanation
 Allows users to Override the Camera Resolution for the Front Camera
-<details closed>
-  <summary>Resolutions</summary>
 
-    4000х3000
-    3648x2736
-    4000х2252
-    З840х2160
-    27З6х27З6
-    З648х2048
-    З648х1640
-    2560х1440
-    1920х1440
-    2400x1080
-    2З20х1080
-    1920х1080
-    1920x824
-    1440x1080
-    1088x1088
-    1280x720
-    960x720
-    720x480
-    640x480
-    640x360
-    352x288
-    320x240
-    176x144
-    3392x2544
-    3392x1908
-    2208x2208
-    2560x1440
-    1920x1440
-    2400x1080
-    2320x1080
-    1920x1080
-    1920x824
-    1440x1080
-    1440x980
-    1088x1088
-    1280x720
-    960x720
-    720x480
-    640x480
-    640x360
-    352x288
-    320x240
-    176x144
-</details> 
+### Camera Resolutions Include
+ - `4000х3000`
+ - `3648x2736`
+ - `4000х2252`
+ - `З840х2160`
+ - `27З6х27З6`
+ - `З648х2048`
+ - `З648х1640`
+ - `2560х1440`
+ - `1920х1440`
+ - `2400x1080`
+ - `2З20х1080`
+ - `1920х1080`
+ - `1920x824`
+ - `1440x1080`
+ - `1088x1088`
+ - `1280x720`
+ - `960x720`
+ - `720x480`
+ - `640x480`
+ - `640x360`
+ - `352x288`
+ - `320x240`
+ - `176x144`
+ - `3392x2544`
+ - `3392x1908`
+ - `2208x2208`
+ - `2560x1440`
+ - `1920x1440`
+ - `2400x1080`
+ - `2320x1080`
+ - `1920x1080`
+ - `1920x824`
+ - `1440x1080`
+ - `1440x980`
+ - `1088x1088`
+ - `1280x720`
+ - `960x720`
+ - `720x480`
+ - `640x480`
+ - `640x360`
+ - `352x288`
+ - `320x240`
+ - `176x144`
 
 ### How to enable
  1. Open SnapEnhance app 
@@ -2065,32 +2102,6 @@ Allows users to Use Unsafe Features that Hook into Snapchat's Native Code
  1. Open Snapchat
  2. you will see your preferred choice Working 
 
-
-## Session Events
-
-### Explanation
-Allows users to Record Session Events
-
-### Note 
-This Feature requires Experimental `Native Hooks` to work correctly
-
-### Session Events Includes
- - `Capture Duplex Events`
- - `allow Running in Background`
-
-### How to enable
- 1. Open SnapEnhance app 
- 2. Go to `Features` tab
- 3. Tap `Experimental`
- 4. Toggle on `Session Events`
- 5. Tap `Session Events`
- 6. Toggle on your preferred choice
-
-### How to use
- 1. Open Snapchat
- 2. `Currently Unknown`
-
-
 ## Spoof
 
 ### Explanation
@@ -2157,7 +2168,7 @@ Allows users to Use the New Chat Action Menu Drawer
  4. you will now see the New Chat Action Menu
 
 
-## Media file Picker
+## Media File Picker
 
 ### Explanation
 Allows users to pick any Video/Audio file from the Gallery
@@ -2188,8 +2199,6 @@ Allows users to Save a History of Friends Stories
 
 ### How to use
  1. `Currently Unknown`
-
-
 
 ## Call Recorder
 
@@ -2249,7 +2258,7 @@ Allows users to Edit messages in Conversations
  8. Your Message should now change
 
 
-## app Lock
+## App Lock
 
 ### Explanation
 Allows users to prevent Access to Snapchat Without a Passcode
@@ -2301,7 +2310,7 @@ This will Only work If the Passcode has Been Entered correctly before
  3. you can now Input any Number to Give you Access
 
 
-## ino Friend Score Delay
+## No Friend Score Delay
 
 ### Explanation
 Allows users to Remove the Delay when Viewing a Friends Score
@@ -2310,12 +2319,30 @@ Allows users to Remove the Delay when Viewing a Friends Score
  1. Open SnapEnhance app 
  2. Go to `Features` tab
  3. Tap `Experimental`
- 4. Toggle on `ino Friend Score Delay`
+ 4. Toggle on `No Friend Score Delay`
 
 ### How to use
  1. Open Snapchat
  2. you will now see other People's Snapscore change Instantly
 
+## Best Friend Pinning 
+
+### Explanation
+Allows the user to pin a friend as the number one best friend 
+
+### Note
+Only the user can see there pinned best friend 
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `Best Friend Pinning`
+
+### How to use
+ 1. Open Snapchat
+ 2. On the friend feed hold down on a friend
+ 3. Tab pin .... as your No.1 BFF 
 
 ## End-to-End Encryption
 
@@ -2385,7 +2412,6 @@ you will need `Show Streak Expiration Info` Toggled on
  2. you will now see Some Changes on the End of a Friend on the Friend Feed 
 
 
-
 ## Add Friend Source Spoof
 
 ### Explanation
@@ -2409,7 +2435,6 @@ Allows users to Spoof the Source of a Friend Request
  1. Open Snapchat
  2. Add Someone
  3. it will now Spoof your Request from your preferred choice 
-
 
 
 ## Prevent Forced Logout
