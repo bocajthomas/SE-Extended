@@ -324,7 +324,7 @@ Allows users to Customize Snapchats Colors From ether the Theme Picker or Custom
 
 ### Custom Colors Include
  - `Main Text Color`
- - `Main Friend Text Color`
+ - `Main Friend Feed Text Color`
  - `Secondary Friend Feed Text Color`
  - `Snaps With Sound Text Color`
  - `Snaps Without Sound Text Color`
