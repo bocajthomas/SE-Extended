@@ -1,2667 +1,2510 @@
-# Updated V2.0.2
+Work-in-progress, may be incomplete.
 
-## Note 
-> **Currently Work In Progress**
-
-> **So Some Features Maybe Incorrect/Changed**
-
-## Downloader
-<details closed>
-  <summary>Save Folder</summary>
+# Downloader
+## Save Folder
 
 ### Explanation 
-> **Allows The User To Pick A Folder Were All The Downloads Save To**
+Allows the user to pick a Folder where all Downloads will be saved to
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Downloader" 
->  4. Tap "Save Folder"
->  5. Now Pick Or Create A Folder 
->  6. Tap "Use This Folder"
+### How to enable
+ 1. Open the SnapEnhance app 
+ 2. Go to the `Features` tab 
+ 3. Select `Downloader` 
+ 4. Select `Save Folder`
+ 5. Now pick or create a Folder 
+ 6. Select `Use this Folder`
   
-### How To Use
->  1. Simply Download Something 
->  2. Now Check That Folder 
->  3. You Should Now Have That Download In That Folder 
-</details> 
+### How to use
+ 1. Download any type of media
+ 2. Media will show up in the specified folder
 
-<details closed>
-  <summary>Auto Download Sources</summary>
+
+## Auto Download Sources
 
 ### Explanation
-> **Allows Users To Automatically Download From User Selected Sources**
+Allows users to automatically Download from user Selected Sources
 
 ### Sources Include
->  - `Friend Snaps`
->  - `Friend Stories`
->  - `Public Stories`
->  - `Spotlight`
+ - `Friend Snaps`
+ - `Friend Stories`
+ - `Public Stories`
+ - `Spotlight`
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "Downloader"
->  4. Tap The Icon Next To "Auto Download Sources" 
->  5. Toggle On The Sources You Would Like To Auto Download
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `Downloader`
+ 4. Tap the icon next to `Auto Download Sources` 
+ 5. Toggle on the Sources you would like to Auto Download
 
-### How To Use
->  1. Tap On Snaps,Storys Or Spotlights
->  2. You Will See It Download Automatically
-</details>
+### How to use
+ 1. Tap on Snaps, Storys Or Spotlights
+ 2. You will see it Download automatically
 
-<details closed>
-  <summary>Prevent Self Auto Download</summary>
 
-### Explanation
-> **Prevents The Users Own Snaps From Being Automatically Downloaded** 
-
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "Downloader" 
->  4. Toggle On "Prevent Self Auto Download" 
-
-### How To Use
-  1. Open Snapchat
-  2. Try Download Your Own Snaps
-  3. You Will See That You Can Not
-</details>
-
-<details closed>
-  <summary>Path Format</summary>
+## Prevent Self Auto Download
 
 ### Explanation
-> **Allows Users To Specify The File Path Format Used In The Folder That The User Picked**
+Prevents the users own Snaps from being automatically downloaded
+
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `Downloader` 
+ 4. Toggle on `prevent Self Auto Download` 
+
+### How to use
+ 1. Open Snapchat
+ 2. Try Download your own Snaps
+ 3. you will see that you can not
+
+
+## Path Format
+
+### Explanation
+Allows users to specify the file Path Format Used in the Folder that the user picked
 
 ### Path Formats includes
->  - `Create folder for fach author`
->  - `Create folder for each media source type`
->  - `Add a unique hash to the file name`
->  - `Add the media source to the file name`
->  - `Add the username to the file name`
->  - `Add the date and time to the file name`
+ - `Create folder for fach author`
+ - `Create folder for each media source type`
+ - `Add a unique hash to the file name`
+ - `Add the media source to the file name`
+ - `Add the username to the file name`
+ - `Add the date and time to the file name`
 
-### How To Enable/Setup 
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "Downloader"
->  4. Tap The Icon Next To "Path Format" 
->  5. Toggle On Any Path Format
+### How to enable 
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `Downloader`
+ 4. Tap the icon next to `Path format` 
+ 5. Toggle on any Path format
 
-### How To Use
->  1. Download Something 
->  2. Check Your Download Folder 
-</details>
 
-<details closed>
-  <summary>Allow Duplicate</summary>
+## Allow Duplicate
 
 ### Explanation
-> **Allows The User To Download The Same Media Multiple Times**
+Allows the user to Download the Same Media Multiple Times
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "Downloader"
->  4. Toggle On "Allow Duplicate"
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `Downloader`
+ 4. Toggle on `Allow Duplicate`
 
-### How To Use
->  1. Open Snapchat
->  2. Download A Snapchat Multiple Times 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Download a Snapchat Multiple Times 
 
-<details closed>
-  <summary>Merge Overlays</summary>
 
-### Explanation
-> **Allows Users To Combine Text & The Snap Into A Single File**
-
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "Downloader"
->  4. Toggle On "Merge Overlays"
-
-### How To Use
->  1. Download A Snap That Has Text
->  2. Check The File
-</details>
-
-<details closed>
-  <summary>Force Image Format</summary>
+## Merge Overlays
 
 ### Explanation
-> **Allows Users To Force An Image Format**
+Allows users to combine Text and the Snap into a single file
+
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `Downloader`
+ 4. Toggle on `Merge Overlays`
+
+### How to use
+ 1. Download a Snap that has Text
+ 2. Check the file
+
+
+## Force Image format
+
+### Explanation
+Allows users to Force An Image format
 
 ### Formats Include
->  - `jpg`
->  - `png`
->  - `webp`
+ - `jpg`
+ - `png`
+ - `webp`
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "Downloader"
->  4. Tap The Icon Next To "Force Image Format" 
->  5. Select Your Prefered Format 
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `Downloader`
+ 4. Tap the icon next to `Force Image format` 
+ 5. Select your preferred format 
 
-### How To Use
->  1. Download A Snap 
->  2. Check The End Of The File Name 
-</details>
+### How to use
+ 1. Download a Snap 
+ 2. Check the End of the file Name 
 
-<details closed>
-  <summary>Force Voice Note Format</summary>
+
+## Force Voice Note format
 
 ### Explanation
-> **Allows Users To Force A Voice Note Format**
+Allows users to Force a Voice Note format
 
 ### Formats Include
->  - `aac`
->  - `mp3`
->  - `opus`
+ - `aac`
+ - `mp3`
+ - `opus`
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "Downloader"
->  4. Tap The Icon Next To "Force Note Format" 
->  5. Select Your Prefered Format 
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `Downloader`
+ 4. Tap the icon next to `Force Note format` 
+ 5. Select your preferred format 
 
-### How To Use
->  1. Download A Snap 
->  2. Check The End Of The File Name
-</details>
+### How to use
+ 1. Download a Snap 
+ 2. Check the End of the file Name
 
-<details closed>
-  <summary>Download Profile Pictures</summary>
 
-### Explanation
-> **Allows Users To Download Profile Pictures From The Profile Page**
-
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "Downloader"
->  4. Toggle On "Download Profile Pictures" 
-
-### How To Use
->  1. Open Snapchat 
->  2. Tap On A Users Profile
->  3. Tap "Public Profile"
->  4. Tap "Download Profile Picture"
->  5. Tap "Avatar"
-</details>
-
-<details closed>
-  <summary>Opera Download Button</summary>
+## Download Profile Pictures
 
 ### Explanation
-> **Allows Users To Download Any Snap,Story By Adding A Download Icon On The Snap, Story**
+Allows users to Download Profile Pictures from the Profile Page
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "Downloader"
->  4. Toggle On "Opera Download Button" 
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `Downloader`
+ 4. Toggle on `Download Profile Pictures` 
 
-### How To Use
->  1. Open Snapchat 
->  2. Open A Snap or A Story 
->  3. Tap The "Download" Icon 
-</details>
+### How to use
+ 1. Open Snapchat 
+ 2. Tap on a users Profile
+ 3. Tap `Public Profile`
+ 4. Tap `Download Profile Picture`
+ 5. Tap `Avatar`
 
-<details closed>
-  <summary>Download Context Menu</summary>
+
+## Opera Download Button
 
 ### Explanation
-> **Allows Users To Download & Preview Messages Or Snaps Directly From The Context Menu**
+Allows users to Download any Snap,Story by Adding a Download icon on the Snap, Story
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "Downloader"
->  4. Toggle On "Download Context Menu"
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `Downloader`
+ 4. Toggle on `Opera Download Button` 
 
-### How To Use
->  1. Open Snapchat 
->  2. Open A Chat 
->  3. Hold Down On A Snap Or Message 
->  4. Press Preview Or Download 
+### How to use
+ 1. Open Snapchat 
+ 2. Open a Snap or a Story 
+ 3. Tap the `Download` icon 
+
+
+## Download Context Menu
+
+### Explanation
+Allows users to Download & Preview messages Or Snaps Directly from the Context Menu
+
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `Downloader`
+ 4. Toggle on `Download Context Menu`
+
+### How to use
+ 1. Open Snapchat 
+ 2. Open a Chat 
+ 3. Hold down on a Snap Or Message 
+ 4. Press Preview Or Download 
  
-</details>
 
-<details closed>
-  <summary>FFmpeg Options</summary>
+
+## FFmpeg Options
 
 ### Explanation
-> **Allows Users To Adjust FFmpeg Options**
+Allows users to Adjust FFmpeg Options
 
 ### FFmpeg Options Include 
->  - `Threads`
->  - `Preset`
->  - `Constant Rate Factor`
->  - `Video Bitrate`
->  - `Audio Bitrate`
->  - `Custom Video Codec`
->  - `Custom Audio Codec`
-</details>
+ - `Threads`
+ - `Preset`
+ - `Constant Rate Factor`
+ - `Video Bitrate`
+ - `Audio Bitrate`
+ - `Custom Video Codec`
+ - `Custom Audio Codec`
 
-<details closed>
-  <summary>Logging</summary>
+
+## Logging
 
 ### Explanation
-> **Allows Users To See Download Information**
+Allows users to see Download Information
 
 ### Information Includes
->  - `Started`
->  - `Success`
->  - `Progress`
->  - `Failure`
+ - `Started`
+ - `Success`
+ - `Progress`
+ - `Failure`
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "Downloader"
->  4. Tap The Icon Next To "Logging"
->  5. Toggle On Your Prefered Choice
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `Downloader`
+ 4. Tap the icon next to `Logging`
+ 5. Toggle on your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. Download A Snap 
->  3. The Toast Will Pop Up 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Download a Snap 
+ 3. the Toast will Pop Up 
 
-<details closed>
-  <summary>Custom Path Format</summary>
+
+## Custom Path Format
 
 ### Explanation
-> **Allows Users To Specify A Custom Path Format For Downloaded Media**
+Allows users to specify a Custom Path format for downloaded media
 
 ### Available Variables Include
->  - `%username%`
->  - `%source%`
->  - `%hash%`
->  - `%date_time%`
+ - `%username%`
+ - `%source%`
+ - `%hash%`
+ - `%date_time%`
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "Downloader"
->  4. Tap The Icon Next To "Custom Path Format" 
->  5. Type Any Of The Available Variables
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `Downloader`
+ 4. Tap the icon next to `Custom Path format` 
+ 5. Type any of the Available Variables
 
-### How To Use
->  1. Download A Snap
->  2. Check The File Name 
-</details>
+### How to use
+ 1. Download a Snap
+ 2. Check the file Name 
 
-## User Interface
-<details closed>
-  <summary>Friend Feed Menu Buttons</summary>
+
+# User Interface
+## Friend Feed Menu Buttons
 
 ### Explanation
-> **Allows Users To Add Buttons To The Friend Feed Menu**
+Allows users to add Buttons to the Friend Feed Menu
 
 ### Buttons Include
->  - `Conversation Info`
->  - `Mark Snaps as seen`
->  - `Mark Stories as seen locally`
->  - `Stealth Mode`
->  - `Auto Download`
->  - `Auto Save Messages`
->  - `Auto Open Snaps`
->  - `Unsaveable Messages`
->  - `Use E2E Encryption`
+ - `Conversation Info`
+ - `Mark Snaps as seen`
+ - `Mark Stories as seen locally`
+ - `Stealth Mode`
+ - `Auto Download`
+ - `Auto Save messages`
+ - `Auto Open Snaps`
+ - `Unsaveable messages`
+ - `Use E2E Encryption`
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Tap The Icon Next To "Friend Feed Menu Buttons"
->  5. Toggle On Your Prefered Choice
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Tap the icon next to `Friend Feed Menu Buttons`
+ 5. Toggle on your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. Hold Down On A Users Bitmoji On The Chat Page 
+### How to use
+ 1. Open Snapchat
+ 2. Hold down on a users Bitmoji on the Chat Page 
   
-</details>
 
-<details closed>
-  <summary>AMOLED Dark Mode</summary>
 
-### Explanation
-> **Allows Users To Make Snapchats Dark Mode AMOLED Black**
-
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Toggle On "AMOLED Dark Mode"
-
-### How To Use
->  1. Simply Open Snapchat 
-</details>
-
-<details closed>
-  <summary>Friend Feed Message Preview</summary>
+## Colors
 
 ### Explanation
-> **Allows The User To Show Previews Of Messages Directly On The Friend Feed**
+Allows users to Customize Snapchats Colors From ether the Theme Picker or Custom Colors
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Tap "Friend Feed Message Preview"
->  5. Tap The Number Next To "Amount" 
->  6. Type How many Numbers Of Messages To get Previewed 
->  7. Back Out Of The Page 
->  8. Toggle On " Friend Feed Message Preview "
+### ThemePicker Includes
+ - `Custom Colors`
+ - `AMOLED Dark Mode`
+ - `Materal You (Android 12+)`
+ - `Light Blue`
+ - `Dark Blue`
+ - `Earthy Autumn`
+ - `Mint Chocolate`
+ - `Ginger Snap`
+ - `Lemon Meringue`
+ - `Lava Flow`
+ - `Ocean Fog`
+ - `Alien Landscape`
 
-## How To Use
->  1. Open Snapchat 
->  2. Users Will See Messages Previews 
-</details>
+### Custom Colors Include
+ - `Main Text Color`
+ - `Main Friend Text Color`
+ - `Secondary Friend Feed Text Color`
+ - `Snaps With Sound Text Color`
+ - `Snaps Without Sound Text Color`
+ - `Background Color`
+ - `Background Surface Color`
+ - `Conversations Line Color`
+ - `Action Menu Background Color`
+ - `Action Menu Round Background Color`
+ - `Camera Gridlines Color` 
 
-<details closed>
-  <summary>Snap Preview</summary>
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Tap `Colors`
+ 5. Tap the Icon Next to `Theme Picker`
+ 6. Choose your preferred Choice 
 
-### Explanation
-> **Allows Users To See A Small Preview Of A Snap Next To Unseen Messages**
+### How to use
+ 1. Simply Open Snapchat
+ 2. You Will See Snapchats Colors have now changed 
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Toggle On "Snap Preview"
 
-### How To Use
->  1. Open Snapchat
->  2. A Small Preview Will Show
-</details>
-
-<details closed>
-  <summary>Bootstrap Override</summary>
-
-### Explanation
-> **Allows Users To Override Bootstrap UserInterface Settings**
-
-### **Bootstrap Override Settings Include**
-
-> ## App Appearance
-> `Always Light`
-> `Always Dark`
-
-> ## Home Tab
-> `Map`
-> `Chat`
-> `Camera`
-> `Discover`
-> `Spotlight`
-
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Tap "Bootstrap Override"
->  5. Tap Choose To Your Liking
-
-### How To Use
->  1. Open Snapchat
->  2. You Will See It Will Switch To What You Picked 
-</details>
-
-<details closed>
-  <summary>Enhance Friend Map Nametags</summary>
+## Friend Feed Message Preview
 
 ### Explanation
-> **Allows Users To Improve The Nametags Of Friends On The Snapmap**
+Allows the user to Show Previews of messages Directly on the Friend Feed
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Toggle On "Enhance Friend Map Nametags"
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Tap `Friend Feed Message Preview`
+ 5. Tap the Number next to `Amount` 
+ 6. Type How many Numbers of messages to get Previewed 
+ 7. Back Out of the Page 
+ 8. Toggle on ` Friend Feed Message Preview `
 
-### How To Use
->  1. Open Snapchat
->  2. Check The Snapmap 
-</details>
+## How to Use
+ 1. Open Snapchat 
+ 2. users will see messages Previews 
 
-<details closed>
-  <summary>Prevent Message List Auto Scroll</summary>
 
-### Explanation
-> **Allows Users To Prevent Message List Scrolling To The Bottom When Sending/Receiving A Message**
-
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Toggle On "Prevent Message List Auto Scroll"
-
-### How To Use
->  1. Open Snapchat
->  2. Send A Message
->  3. It Should Now Stop Message Scrolling 
-</details>
-
-<details closed>
-  <summary>Show Streak Expiration Info</summary>
+## Snap Preview
 
 ### Explanation
-> **Allows Users To Add Expiration Info On The Friend Feed Page**
+Allows users to see a small Preview of a Snap next to Unseen messages
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Toggle On "Show Streak Expiration Info"
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Toggle on `Snap Preview`
 
-### How To Use
->  1. Open Snapchat
->  2. Go To The Friend Feed Page
->  3. You Should Now See The Hours Your Streak With That Person Goes 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. a small Preview will Show
 
-<details closed>
-  <summary>Hide Friend Feed Entry </summary>
+
+## Bootstrap Override
 
 ### Explanation
-> **Allows Users To Hide specific friend from the Friend Feed**
+Allows users to Override Bootstrap UserInterface Settings
+
+### Bootstrap Override Settings Include
+
+## app Appearance
+`Always Light`
+`Always Dark`
+
+## Home tab
+`Map`
+`Chat`
+`Camera`
+`Discover`
+`Spotlight`
+
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Tap `Bootstrap Override`
+ 5. Tap Choose to your Liking
+
+### How to use
+ 1. Open Snapchat
+ 2. you will see it will Switch to What you picked 
+
+
+## Enhance Friend Map Nametags
+
+### Explanation
+Allows users to Improve the Nametags of Friends on the Snapmap
+
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Toggle on `Enhance Friend Map Nametags`
+
+### How to use
+ 1. Open Snapchat
+ 2. Check the Snapmap 
+
+
+## Prevent Message List Auto Scroll
+
+### Explanation
+Allows Users to prevent Message List Scrolling to the bottom when sending or receiving a Message
+
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Toggle on `prevent Message List Auto Scroll`
+
+### How to use
+ 1. Open Snapchat
+ 2. Send a Message
+
+
+## Show Streak Expiration Info
+
+### Explanation
+Allows users to add Expiration Info on the Friend Feed Page
+
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Toggle on `Show Streak Expiration Info`
+
+### How to use
+ 1. Open Snapchat
+ 2. Go to the Friend Feed Page
+ 3. you should now see the Hours your Streak with that Person Goes 
+
+
+## Hide Friend Feed Entry 
+
+### Explanation
+Allows users to Hide specific friend from the Friend Feed
 ### Note 
-> **You Will Need To Use the social Tab To Manage This Feature**
+you will need to Use the social tab to Manage This Feature
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Toggle On "Hide Friend Feed Entry"
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Toggle on `Hide Friend Feed Entry`
 
-### How To Use
->  1. Open The SnapEnhance App
->  2. Tap The Social Tab
->  3. Press "+"
->  4. Pick A Friend
->  5. Press On That Friend
->  6. Toggle On "Hide from Friend Feed"
->  7. Open Snapchat
->  8. You Will Now See That Person Has Disappeared / Hidden 
+### How to use
+ 1. Open the SnapEnhance app
+ 2. Tap the Social tab
+ 3. Press `+`
+ 4. pick a Friend
+ 5. Press on that Friend
+ 6. Toggle on `Hide from Friend Feed`
+ 7. Open Snapchat
+ 8. you will now see that Person has Disappeared / Hidden 
   
-</details>
 
-<details closed>
-  <summary>Hide Streak Restore</summary>
 
-### Explanation
-> **Allows Users To Hide The Streak Restore Button**
-
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Toggle On "Hide Streak Restore"
-
-### How To Use
->  1. Open Snapchat
->  2. You Will Now See The "Restore Streaks Button" Is No Longer Visible 
-</details>
-
-<details closed>
-  <summary>Hide Quick Add In Friend Feed</summary>
+## Hide Streak Restore
 
 ### Explanation
-> **Allows Users To Hide The Quick Add In Friend Feed**
+Allows users to Hide the Streak Restore Button
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Toggle On "Hide Quick Add In Friend Feed"
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Toggle on `Hide Streak Restore`
 
-### How To Use
->  1. Open Snapchat
->  2. You Will Now See The "QuickAdd" Is No Longer Visible 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. you will now see the `Restore Streaks Button` is ino longer visible 
 
-<details closed>
-  <summary>Hide Story Suggestions</summary>
+
+## Hide Quick Add in Friend Feed
 
 ### Explanation
-> **Allows Users To Hide Suggestions From The Stories Page**
+Allows users to Hide the Quick add in Friend Feed
+
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Toggle on `Hide Quick add in Friend Feed`
+
+### How to use
+ 1. Open Snapchat
+ 2. you will now see the `QuickAdd` is ino longer visible 
+
+
+## Hide Story Suggestions
+
+### Explanation
+Allows users to Hide Suggestions from the Stories Page
 
 ### Story Suggestions Include
->  - `Hide friend suggestions`
->  - `Hide suggested friend stories`
->  - `Hide My Stories`
+ - `Hide friend suggestions`
+ - `Hide suggested friend stories`
+ - `Hide My Stories`
 
-### How To Enable/Setup
-  1. Open The SnapEnhance App
-  2. Go To "Features" Tab 
-  3. Tap "User Interface"
-  4. Tap The Icon Next To "Hide Story Suggestions"
-  5. Toggle On Your Prefered Choice
+### How to enable
+  1. Open the SnapEnhance app
+  2. Go to `Features` tab 
+  3. Tap `user Interface`
+  4. Tap the icon next to `Hide Story Suggestions`
+  5. Toggle on your preferred choice
 
-### How To Use
+### How to use
   1. Open Snapchat
-  2. Go To The Story Page
-  3. You Will See Your Prefered Choice Is No Longer Visible 
-</details>
+  2. Go to the Story Page
+  3. you will see your preferred choice is ino longer visible 
 
-<details closed>
-  <summary>Hide UI Components</summary>
+
+## Hide UI Components
 
 ### Explanation
-> **Allows Users To Hide UserInterface Components**
+Allows users to Hide UserInterface Components
 
 ### Components Include
->  - `Remove Voice Record Button`
->  - `Remove Stickers Button`
->  - `Remove Live Location Share Button`
->  - `Remove Chat Call Buttons`
->  - `Remove Profile Call Buttons`
->  - `Remove Unread Chat Hint`
+ - `Remove Voice Record Button`
+ - `Remove Stickers Button`
+ - `Remove Live Location Share Button`
+ - `Remove Chat Call Buttons`
+ - `Remove Profile Call Buttons`
+ - `Remove Unread Chat Hint`
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Tap The Icon Next To "Hide UI Components"
->  5. Toggle On Your Prefered Choice
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Tap the icon next to `Hide UI Components`
+ 5. Toggle on your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. You Can Now See Your Prefered Choice Is No Longer Visible 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. you can now see your preferred choice is ino longer visible 
 
-<details closed>
-  <summary>Opera Media Quick Info</summary>
 
-### Explanation
-> **Allows Users To Show Useful Information Of Media In Opera Viewer Context Menu**
-
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Toggle On "Opera Media Quick Info"
-
-### How To Use
->  1. Open Snapchat
->  2. Tap A Snap Or A Story
->  3. Tap 3 Dots ( Top Right ) 
->  4. You Will Now See Some Information
-</details>
-
-<details closed>
-  <summary>Old Bitmoji Selfie</summary>
+## Opera Media Quick Info
 
 ### Explanation
-> **Allows Users To Bring Back The Bitmoji Selfies From Older Snapchat Versions**
+Allows users to Show Useful Information of Media in Opera Viewer Context Menu
+
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Toggle on `Opera Media Quick Info`
+
+### How to use
+ 1. Open Snapchat
+ 2. Tap a Snap Or a Story
+ 3. Tap 3 Dots ( Top right ) 
+ 4. you will now see Some Information
+
+
+## Old Bitmoji Selfie
+
+### Explanation
+Allows users to Bring Back the Bitmoji Selfies from Older Snapchat Versions
 
 ### Bitmoji Selifes Include
->  `2D Bitmoji`
->  `3D Bitmoji`
+ `2D Bitmoji`
+ `3D Bitmoji`
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Tap Next To "Old Bitmoji Selfie"
->  5. Tap Your Prefered Choice
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Tap next to `Old Bitmoji Selfie`
+ 5. Tap your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. Tap Your Profile
->  3. You Should Now See Your Prefered Choice 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Tap your Profile
+ 3. you should now see your preferred choice 
 
-<details closed>
-  <summary>Disable Spotlight</summary>
 
-### Explanation
-> **Allows Users To Disable The Spotlight Page**
-
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Toggle On "Disable Spotlight"
-
-### How To Use 
->  1. Open Snapchat
->  2. You Should Now See The Spotlight Page Is No Longer Visible 
-</details>
-
-<details closed>
-  <summary>Hide Settings Gear</summary>
+## Disable Spotlight
 
 ### Explanation
-> **Allows Users To Hide The SnapEnhance Settings Icon**
+Allows users to disable the Spotlight Page
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Toggle On "Hide Settings Gear"
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Toggle on `disable Spotlight`
 
-### How To Use
->  1. Open Snapchat
->  2. You Should Now See The Settings Icon Is No Longer Visible 
-</details>
+### How to use 
+ 1. Open Snapchat
+ 2. you should now see the Spotlight Page is ino longer visible 
 
-<details closed>
-  <summary>Vertical Story Viewer</summary>
 
-### Explanation
-> **Allows Users To Enable The Vertical Story Viewer For All Stories**
-
-### How To Enable/Setup 
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Toggle On "Vertical Story Viewer"
-
-### How To Use
->  1. Open Snapchat
->  2. Tap A Story
->  3. Now You will Be Able To
->  ### Swipe
-> - `Left & Right` To Exit
-> -  `Up & Down` To Switch To Next Story 
-</details>
-
-<details closed>
-  <summary>Message Indicators</summary>
+## Hide Settings Gear
 
 ### Explanation
-> **Allows Users To Add Specific Indicators Icons To Messages**
+Allows users to Hide the SnapEnhance Settings icon
 
-## Note
-> **Indicators Might Not Be 100% Accurate**
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Toggle on `Hide Settings Gear`
+
+### How to use
+ 1. Open Snapchat
+ 2. you should now see the Settings icon is ino longer visible 
+
+
+## Vertical Story Viewer
+
+### Explanation
+Allows users to Enable the Vertical Story Viewer for All Stories
+
+### How to enable 
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Toggle on `Vertical Story Viewer`
+
+### How to use
+ 1. Open Snapchat
+ 2. Tap a Story
+ 3. now you will be Able to
+ ### Swipe
+- `Left & right` to Exit
+-  `Up & down` to Switch to next Story 
+
+
+## Message Indicators
+
+### Explanation
+Allows users to add Specific Indicators Icons to messages
+
+#### Note
+Indicators Might not be 100% Accurate
 
 ### Message Indicators Include 
->  - `Adds a 🔒 icon next to messages that have been sent only to you`
->  - `Adds the platform icon from which a media was sent (e.g. Android, ioS, Web)`
->  - `Adds a 📍 icon to snaps when they have been sent with location enabled`
->  - `Indicates if a snap has been sent using OVF Editor`
->  - `Adds a ✏️ icon to snaps when they have been sent using Director Mode, which can be used to send gallery images as snaps`
+ - `Adds a 🔒 icon next to messages that have been sent only to you`
+ - `Adds the platform icon from which a media was sent (e.g. Android, iOS, Web)`
+ - `Adds a 📍 icon to snaps when they have been sent with location enabled`
+ - `Indicates if a snap has been sent using OVF Editor`
+ - `Adds a ✏️ icon to snaps when they have been sent using Director Mode, which can be used to send gallery images as snaps`
 
-### How To Enable/Setup
-  1. Open The SnapEnhance App
-  2. Go To "Features" Tab 
-  3. Tap "User Interface"
-  4. Tap The Icon Next To "Message Indicators"
-  5. Toggle On Your Prefered Choice 
+### How to enable
+  1. Open the SnapEnhance app
+  2. Go to `Features` tab 
+  3. Tap `user Interface`
+  4. Tap the icon next to `Message Indicators`
+  5. Toggle on your preferred choice 
 
-### How To Use
+### How to use
   1. Open Snapchat
-  2. Look In Chat At A Snap
-  3. You Will See These Icons 
-</details>
+  2. Look in Chat At a Snap
+  3. You will see These Icons 
 
-<details closed>
-  <summary>Stealth Mode Indicator</summary>
 
-### Explanation
-> **Allows Users To Add A 👻 Emoji Next To Conversations When Users Turn On Stealth Mode**
-
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Toggle On "Stealth Mode Indicator"
-
-### How To Use
->  1. Open Snapchat
->  2. The Emoji Will Be There Only If You Have SetUp "Friend Feed Menu Buttons" & You Have Toggled Stealth Mode On For That Friend
-</details>
-
-<details closed>
-  <summary>Edit Text Override</summary>
+## Stealth Mode Indicator
 
 ### Explanation
-> **Allows Users To Override Text Field Behavior**
+Allows users to add a 👻 Emoji next to Conversations when users Turn on Stealth Mode
+
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `user Interface`
+ 4. Toggle on `Stealth Mode Indicator`
+
+### How to use
+ 1. Open Snapchat
+ 2. the Emoji will be there Only If you Have SetUp `Friend Feed Menu Buttons` & you Have Toggled Stealth Mode on for that Friend
+
+
+## Edit Text Override
+
+### Explanation
+Allows users to Override Text Field Behavior
 
 ### Text Fields Include
->  - `Multi Line Chat Input`
->  - `Bypass Text Input Limit`
+ - `Multi Line Chat Input`
+ - `Bypass Text Input Limit`
 
-### How To Enable/Setup
->  1. Open The SnapEnhance App
->  2. Go To "Features" Tab 
->  3. Tap "User Interface"
->  4. Tap The Icon Next To "Edit Text Override"
->  5. Toggle On Your Prefered Choice
+### How to enable
+ 1. Open the SnapEnhance app
+ 2. Go to `Features` tab 
+ 3. Tap `User Interface`
+ 4. Tap the icon next to `Edit Text Override`
+ 5. Toggle on your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. Start Typing
->  3. You Will See You Prefered Choice 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Start typing
+ 3. You will see your preferred choice 
 
-## Messaging
-<details closed>
-  <summary>Bypass Screenshot Detection</summary>
 
-### Explanation
-> **Allows Users To Prevent Snapchat From Detecting When You Take A Screenshot**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Toggle On "Bypass Screenshot Detection"
-
-### How To Use
->  1. Open Snapchat
->  2. Go On To A Chat
->  3. Take A Screenshot
->  4. It Should Now Not Say "... Has Taken A Screenshot" 
-</details>
-
-<details closed>
-  <summary>Anonymous Story Viewing</summary>
+# Messaging
+## Bypass Screenshot Detection
 
 ### Explanation
-> **Allows Users To Prevent Anyone From Knowing You've Seen Their Story**
+Allows users to prevent Snapchat from Detecting when you take a Screenshot
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Toggle On "Anonymous Story Viewing"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `Bypass Screenshot Detection`
 
-### How To Use
->  1. Open Snapchat
->  2. View A Story
->  3. It Should Now Not Tell The Other User You've Viewed There Story
+### How to use
+ 1. Open Snapchat
+ 2. Go on to a Chat
+ 3. Take a Screenshot
 
-</details>
 
-<details closed>
-  <summary>Prevent Story Rewatch Indicator</summary>
+## Anonymous Story Viewing
 
 ### Explanation
-> **Allows Users To Prevent Anyone From Knowing You've Rewatched Their Story**
+Allows users to prevent Anyone from knowing you've Seen Their Story
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Toggle On "Prevent Story Rewatch Indicator"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `Anonymous Story Viewing`
 
-### How To Use
->  1. Open Snapchat
->  2. View A Story
->  3. View That Same Story Again
->  4. It Should Now Not Tell The Other User You Have Rewatched That Story Again 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. View a Story
 
-<details closed>
-  <summary>Hide Peek-a-Peek</summary>
+
+
+## Prevent Story Rewatch Indicator
 
 ### Explanation
-> **Allows Users To Prevent Notification From Being Sent When You Half Swipe Into A Chat**
+Allows users to prevent Anyone from knowing you've Rewatched Their Story
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Toggle On "Hide Peek-a-Peek"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `prevent Story Rewatch Indicator`
 
-### How To Use
->  1. Open Snapchat
->  2. Half Swipe Into A Chat
->  3. It Should Now Not Tell The Other User You have Half Swiped Into There Chat 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. View a Story
+ 3. View that Same Story Again
 
-<details closed>
-  <summary>Hide Bitmoji Presence</summary>
 
-### Explanation
-> **Allows Users To Prevent Your Bitmoji From Popping Up While In Chat**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Toggle On "Hide Bitmoji Presence"
-
-### How To Use
->  1. Open Snapchat
->  2. Go On To A Chat
->  3. It Should Now Not Tell The Other User You're On Chat 
-</details>
-
-<details closed>
-  <summary>Hide Typing Notifications</summary>
+## Hide Peek-a-Peek
 
 ### Explanation
-> **Allows Users To Prevent Anyone From Knowing You're Typing A Message**
+Allows users to prevent Notification from being Sent when you Half Swipe into a Chat
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Toggle On "Hide Typing Notifications"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `Hide Peek-a-Peek`
 
-### How To Use
->  1. Open Snapchat
->  2. Go On A Chat
->  3. Start Typing
->  4. It Should Now Not Tell The Other User You're Typing 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Half Swipe into a Chat
 
-<details closed>
-  <summary>Unlimited Snap View Time</summary>
+
+## Hide Bitmoji Presence
 
 ### Explanation
-> **Allows Users To Remove The Time Limit For Viewing Snaps**
+Allows users to prevent your Bitmoji from Popping Up While in Chat
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Toggle On "Unlimited Snap View Time"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `Hide Bitmoji Presence`
 
-### How To Use
->  1. Open Snapchat
->  2. Open A Snap
->  3. It Should Now Remove The Time Limit 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Go on to a Chat
 
-<details closed>
-  <summary>Auto Mark as Read</summary>
+
+## Hide Typing Notifications
 
 ### Explanation
-> **Allows Users To Automatically Marks Messages/Snaps As Read Even When Stealth Mode Is Enabled**
+Allows users to prevent Anyone from knowing you're typing a Message
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `Hide Typing Notifications`
+
+### How to use
+ 1. Open Snapchat
+ 2. Go on a Chat
+ 3. Start typing
+
+
+## Unlimited Snap View Time
+
+### Explanation
+Allows users to Remove the Time Limit for Viewing Snaps
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `Unlimited Snap View Time`
+
+### How to use
+ 1. Open Snapchat
+ 2. Open a Snap
+
+
+## Auto Mark as Read
+
+### Explanation
+Allows users to automatically Marks messages/Snaps as Read Even when Stealth Mode is enabled
 
 ### Auto Mark Includes 
->  - `Mark snaps as read when replying to them`
->  - `Mark conversation as read when sending a message`
+ - `Mark snaps as read when replying to them`
+ - `Mark conversation as read when sending a message`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Tap Next To "Auto Mark as Read"
->  5. Toggle On You're Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Tap next to `Auto Mark as Read`
+ 5. Toggle on your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. You Can See Messages Will Get Auto Marked As Read 
+### How to use
+ 1. Open Snapchat
+ 2. Messages will automatically get marked as read
 
-</details>
 
-<details closed>
-  <summary>Loop Media Playback</summary>
 
-### Explanation
-> **Allows Users To Loop Media Playback When Viewing Snaps / Stories**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Toggle On "Loop Media Playback"
-
-### How To Use
->  1. Open Snapchat
->  2. Open A Snap
->  3. It Should Now Loop That Snap
-</details>
-
-<details closed>
-  <summary>Disable Replay in FF</summary>
+## Loop Media Playback
 
 ### Explanation
-> **Allows Users To Disable The Ability To Replay With A Long Press From The Friend Feed**
+Allows users to Loop Media Playback when Viewing Snaps / Stories
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Toggle On "Disable Replay in FF"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `Loop Media Playback`
 
-### How To Use
->  1. Open Snapchat
->  2. Open A Snap
->  3. It Should Now Disable The Ability To Replay On The Friend Feed 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Open a Snap
 
-<details closed>
-  <summary>Half Swipe Notifier</summary>
+
+## Disable Replay in FF
 
 ### Explanation
-> **Allows Users To Notify You When Someone Half Swipes Into A Conversation**
+Allows users to disable the Ability to Replay with a Long Press from the Friend Feed
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `disable Replay in FF`
+
+### How to use
+ 1. Open Snapchat
+ 2. Open a Snap
+
+
+## Half Swipe Notifier
+
+### Explanation
+Allows users to Notify you when Someone Half Swipes into a Conversation
 
 ### Half Swipe Notifier Includes
->  - `Minimum Duration`
->  - `Maximum Duration`
+ - `Minimum Duration`
+ - `Maximum Duration`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Toggle On "Half Swipe Notifier"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `Half Swipe Notifier`
 
-### How To Use
-> 1. It Will Show You A Notification
-</details>
 
-<details closed>
-  <summary>Message Preview Length</summary>
+
+## Message Preview Length
 
 ### Explanation
-> **Allows Users To Specify The Amount Of Messages To Get Previewed**
+Allows users to specify the Amount of messages to get Previewed
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Tap The Number Next To "Message Preview Length"
->  5. Input A Number 
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Tap the Number next to `Message Preview Length`
+ 5. Input a Number 
 
-### How To Use
->  1. Open Snapchat
->  2. Hold Down On A Friends 
->  3. Tap Preview ( You Need To Setup `Download Context Menu` First
->  4. You Should Now See Some Messages 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Hold down on a Friends 
+ 3. Tap Preview (You need to Setup `Download Context Menu` First
+ 4. you should now see Some messages 
 
-<details closed>
-  <summary>Call Start Confirmation</summary>
 
-### Explanation
-> **Allows Users To Show A Confirmation Dialog When Starting A Call**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Toggle On "Call Start Confirmation"
-
-### How To Use
->  1. Open Snapchat
->  2. Make A Call
->  3. You Should Now Get A Call Confirmation Dialog
-</details>
-
-<details closed>
-  <summary>Auto Save Messages</summary>
+## Call Start Confirmation
 
 ### Explanation
-> **Allows Users To Automatically Save Every Message In Conversations**
+Allows users to Show a Confirmation Dialog when Starting a Call
 
-### Messages Include
->  - `Chat`
->  - `Snap`
->  - `Audio Note`
->  - `External Media`
->  - `Sticker`
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `Call Start Confirmation`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Tap The Icon Next To "Auto Save Messages"
->  5. Toggle On Your Prefered Choice 
+### How to use
+ 1. Open Snapchat
+ 2. Make a Call
+ 3. you should now get a Call Confirmation Dialog
 
-### How To Use
->  1. Open Snapchat
->  2. Send A Message/Snap/Media
->  3. It Should Now Automatically Save 
-</details>
 
-<details closed>
-  <summary>Prevent Message Sending</summary>
+## Auto Save messages
 
 ### Explanation
-> **Allows Users To Prevent Sending Certain Types Of Messages**
+Allows users to automatically Save Every Message in Conversations
+
+### messages Include
+ - `Chat`
+ - `Snap`
+ - `Audio Note`
+ - `External Media`
+ - `Sticker`
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Tap the icon next to `Auto Save messages`
+ 5. Toggle on your preferred choice 
+
+### How to use
+ 1. Open Snapchat
+ 2. Send a Message/Snap/Media
+ 3. it should now automatically Save 
+
+
+## Prevent Message Sending
+
+### Explanation
+Allows users to prevent sending Certain Types of messages
 
 ### Note
->  - **This Feature Requires Experimental `Native Hooks` To Work Correctly**
+ - This Feature requires Experimental `Native Hooks` to work correctly
 
-### Messages Include 
->  - `Screenshot`
->  - `Screen Record`
->  - `Camera Roll Save`
->  - `Snap Replay`
->  - `Missed Audio Call`
->  - `Missed Video Call`
+### messages Include 
+ - `Screenshot`
+ - `Screen Record`
+ - `Camera Roll Save`
+ - `Snap Replay`
+ - `Missed Audio Call`
+ - `Missed Video Call`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Tap The Icon Next To "Prevent Message Sending"
->  5. Toggle On Your Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Tap the icon next to `Prevent Message Sending`
+ 5. Toggle on your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. It Should Now Not Tell The Other User What You Toggled On
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. it should now not tell the other user What you Toggled on
 
-<details closed>
-  <summary>Friend Mutation Notifier</summary>
+
+## Friend Mutation Notifier
 
 ### Explanation
-> **Allows Users To Get Notifications When Something Changes In A Friend's Profile**
+Allows users to get Notifications when Something Changes in a Friend's Profile
 
 ### Friend Mutation Notifier Includes 
->  - `Notify when someone removes you as a friend`
->  - `Notify when someone changes their birthday`
->  - `Notify when someone changes their Bitmoji selfie`
->  - `Notify when someone changes their Bitmoji avatar`
->  - `Notify when someone changes their Bitmoji background`
->  - `Notify when someone changes their Bitmoji scene`
+ - `Notify when someone removes you as a friend`
+ - `Notify when someone changes their birthday`
+ - `Notify when someone changes their Bitmoji selfie`
+ - `Notify when someone changes their Bitmoji avatar`
+ - `Notify when someone changes their Bitmoji background`
+ - `Notify when someone changes their Bitmoji scene`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Tap The Icon Next To "Friend Mutation Notifier"
->  5. Toggle On You're Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Tap the icon next to `Friend Mutation Notifier`
+ 5. Toggle on your preferred choice
 
-### How To Use
-  - You Will Get Notifications When You're Friend Changes Something On There Profile 
-</details>
-
-<details closed>
-  <summary>Better Notifications</summary>
+## Better Notifications
 
 ### Explanation
-> **Allows Users To Add More Information In Received Notifications**
+Allows users to add More Information in Received Notifications
 
 ### Information Includes 
->  - `Show a preview of chat`
->  - `Show a preview of media`
->  - `Add reply button`
->  - `Add download button`
->  - `Mark as Read button`
->  - `Save in Chat when marking as read (depends on Auto Save)`
->  - `Show friend add source`
->  - `Group notifications`
+ - `Show a preview of chat`
+ - `Show a preview of media`
+ - `Add reply button`
+ - `Add download button`
+ - `Mark as Read button`
+ - `Save in Chat when marking as read (depends on Auto Save)`
+ - `Show friend add source`
+ - `Group notifications`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Tap The Icon Next To "Better Notifications"
->  5. Toggle On Your Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Tap the icon next to `Better Notifications`
+ 5. Toggle on your preferred choice
 
-### How To Use
->  1. Wait For A Snapchat Notification
-</details>
+### How to use
+ 1. Wait for a Snapchat Notification
 
-<details closed>
-  <summary>Notification Blacklist</summary>
+
+## Notification Blacklist
 
 ### Explanation
-> **Allows Users To Select Which notifications Should Get Blocked**
+Allows users to Select Which notifications should get Blocked
 
 ### Notifications Include
->  - `Screenshot`
->  - `Screen Record`
->  - `Camera Roll Save`
->  - `Snap Replay`
->  - `Snap`
->  - `Chat`
->  - `Chat Reply`
->  - `Typing`
->  - `Stories`
->  - `DM Reaction`
->  - `Group Reaction`
->  - `Incoming Audio Call`
->  - `Incoming Video Call`
+ - `Screenshot`
+ - `Screen Record`
+ - `Camera Roll Save`
+ - `Snap Replay`
+ - `Snap`
+ - `Chat`
+ - `Chat Reply`
+ - `typing`
+ - `Stories`
+ - `DM Reaction`
+ - `Group Reaction`
+ - `Incoming Audio Call`
+ - `Incoming Video Call`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Tap The Icon Next To "Notification Blacklist"
->  5. Toggle On Your Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Tap the icon next to `Notification Blacklist`
+ 5. Toggle on your preferred choice
 
-### How To Use
->  1. Notifications Should Get Blocked 
-</details>
+### How to use
+ 1. Notifications should get Blocked 
 
-<details closed>
-  <summary>Message Logger</summary>
+
+## Message Logger
 
 ### Explanation
-> **Allows Users To Prevent Messages From Being Deleted**
+Allows users to prevent messages from being Deleted
 
 ### Message Logger Includes 
->  - `Keep My Own Messages`
->  - `Auto Purge`
->  - `Message Filter`
+ - `Keep My own messages`
+ - `Auto Purge`
+ - `Message Filter`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Toggle On "Message Logger"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `Message Logger`
 
-### How To Use
->   1. Open Snapchat
->   2. Messages Will Now Be Logged 
-</details>
+### How to use
+  1. Open Snapchat
+  2. messages will now be Logged 
 
-<details closed>
-  <summary>Gallery Media Send Override</summary>
+
+## Gallery Media Send Override
 
 ### Explanation
-> **Allows Users To Spoof The Media Source When Sending From The Gallery**
+Allows users to Spoof the Media Source when sending from the Gallery
 
 ### Note
->  - **This Feature Requires Experimental `Native Hooks` To Work Correctly**
+ - This Feature requires Experimental `Native Hooks` to work correctly
 
 ### Media Sources Include 
->  - `Original`
->  - `Snap`
->  - `Audio Note`
+ - `Original`
+ - `Snap`
+ - `Audio Note`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Toggle On "Gallery Media Send Override"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `Gallery Media Send Override`
 
-### How To Use
->  1. Open Snapchat
->  2. Go On To A Chat
->  3. Tap The Camera Roll Icon
->  4. Find A Photo Or Video To Send
->  5. Press Send
->  6. A Popup Will Appear
->  7. Tap One Of The Sources 
-</details>
+### How to use
+ 1. Open a Chat
+ 2. Tap the Camera Roll icon
+ 3. Send any type of media
 
-<details closed>
-  <summary>Strip Media Metadata</summary>
+
+## Strip Media Metadata
 
 ### Explanation
-> **Allows Users To Remove Metadata Of Media Before Sending As A Message**
+Allows users to Remove Metadata of Media before sending
 
 ### Metadata Includes
->  - `Hide Caption Text`
->  - `Hide Snap Filters`
->  - `Hide Extras (e.g. mentions)`
->  - `Remove Audio Note Duration`
->  - `Remove Audio Note Transcript Capability`
+ - `Hide Caption Text`
+ - `Hide Snap Filters`
+ - `Hide Extras (e.g. mentions)`
+ - `Remove Audio Note Duration`
+ - `Remove Audio Note Transcript Capability`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Tap The Icon Next To "Strip Media Metadata"
->  5. Toggle On Your Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Tap the icon next to `Strip Media Metadata`
+ 5. Toggle on your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. Send A Photo
->  3. It Should Now Remove Edits Done To That Photo 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Send a Photo
+ 3. it should now Remove Edits Done to that Photo 
 
-<details closed>
-  <summary>Bypass Message Retention Policy</summary>
 
-### Explanation
-> **Allows Users To Prevent Messages From Being Deleted After Viewing Them**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Toggle On "Bypass Message Retention Policy"
-
-### How To Use
->  1. Stops Messages From Being Deleted After viewing 
-</details>
-
-<details closed>
-  <summary>Bypass Message Action Restrictions</summary>
+## Bypass Message Retention Policy
 
 ### Explanation
-> **Allows Users To React To A Snap Without Having Opened It Or To Save An Unsaveable Message**
+Allows users to prevent messages from being Deleted After Viewing Them
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Toggle On "Bypass Message Action Restrictions"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `Bypass Message Retention Policy`
 
-### How To Use
->  1. Open Snapchat
->  2. Hold Down Snap
->  3. React Or Snap
-</details>
+### How to use
+ 1. Stops messages from being Deleted After viewing 
 
-<details closed>
-  <summary>Remove Groups Locked Status</summary>
+
+## Bypass Message Action Restrictions
 
 ### Explanation
-> **Allows Users To View Group Information After Being Kicked**
+Allows users to React to a Snap Without Having Opened it Or to Save An Unsaveable Message
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Messaging"
->  4. Toggle On "Remove Groups Locked Status"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `Bypass Message Action Restrictions`
 
-### How To Use
->  1. Open Snapchat
->  2. Your kicked From A Group?
->  3. Open The group Chat Even though Your Kicked 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Hold down Snap
+ 3. React Or Snap
 
-## Global 
-<details closed>
-  <summary>Better Location</summary>
+
+## Remove Groups Locked Status
 
 ### Explanation
-> **Allows Users To Enhance The Snapchat Location**
+Allows users to View Group Information After being Kicked
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Messaging`
+ 4. Toggle on `Remove Groups Locked Status`
+
+### How to use
+ 1. Open the Chat feed
+ 2. Open the group chat you've been kicked from
+
+
+# Global 
+## Better Location
+
+### Explanation
+Allows users to Enhance the Snapchat Location
 
 ### Better Location Includes 
->  - `Spoof Location`
->  - `Coordinates`
->  - `Always Update Location`
->  - `Suspend Location Updates`
->  - `Spoof Battery Level`
->  - `Spoof Headphones`
+ - `Spoof Location`
+ - `Coordinates`
+ - `Always Update Location`
+ - `Suspend Location Updates`
+ - `Spoof Battery Level`
+ - `Spoof Headphones`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Global"
->  4. Toggle On "Better Location"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Toggle on `Better Location`
 
-### How To Use
->  1. Open Snapchat
->  2. Check The Snapmap 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Check the Snapmap 
 
-<details closed>
-  <summary>Snapchat Plus</summary>
+
+## Snapchat Plus
 
 ### Explanation
-> **Allows Users To Enable Snapchat Plus Features**
+Allows users to Enable Snapchat Plus Features
 
 ### Notes 
-> **Some Server-Sided Features May Not Work**
+Some Server-Sided Features May not work
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Global"
->  4. Toggle On "Snapchat Plus"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Toggle on `Snapchat Plus`
 
-### How To Use
->  1. Open Snapchat
->  2. Tap Your Bitmoji
->  3. Go To Snapchat+
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Tap your Bitmoji
+ 3. Go to Snapchat+
 
-<details closed>
-  <summary>Disable Confirmation Dialogs</summary>
+
+## Disable Confirmation Dialogs
 
 ### Explanation
-> **Allows Users To Automatically Confirms Selected Actions**
+Allows users to automatically Confirms Selected Actions
 
 ### Actions Include
->  - `Erase Message`
->  - `Remove Friend`
->  - `Block Friend`
->  - `Ignore Friend`
->  - `Hide Friend`
->  - `Hide Conversation`
->  - `Clear Conversation from Friend Feed`
+ - `Erase Message`
+ - `Remove Friend`
+ - `Block Friend`
+ - `Ignore Friend`
+ - `Hide Friend`
+ - `Hide Conversation`
+ - `Clear Conversation from Friend Feed`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Global"
->  4. Tap The Icon Next To "Disable Confirmation Dialogs"
->  5. Toggle On Your Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Tap the icon next to `disable Confirmation Dialogs`
+ 5. Toggle on your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. It Should Now Auto Press The Dialogs 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. it should now Auto Press the Dialogs 
 
-<details closed>
-  <summary>Disable Metrics</summary>
 
-### Explanation
-> **Allows Users To Block Sending Specific Analytic Data To Snapchat**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Global"
->  4. Toggle On "Disable Metrics"
-
-### How To Use
->  1. Blocks Data From Being Sent 
-</details>
-
-<details closed>
-  <summary>Disable Story Sections</summary>
+## Disable Metrics
 
 ### Explanation
-> **Allows Users To Remove
-Sections From The Stories Page**
+Allows users to Block sending Specific Analytic Data to Snapchat
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Toggle on `disable Metrics`
+
+### How to use
+ 1. Blocks Data from being Sent 
+
+
+## Disable Story Sections
+
+### Explanation
+Allows users to Remove
+Sections from the Stories Page
 
 ### Sections Include
->  - `Friends`
->  - `Following`
->  - `Discover`
+ - `Friends`
+ - `Following`
+ - `Discover`
 
-### How To Enable/Setup
-  1. Open SnapEnhance App 
-  2. Go To "Features" Tab 
-  3. Tap "Global"
-  4. Tap The Icon Next To "Disable Story Sections"
-  5. Toggle On Your Prefered Choice
+### How to enable
+  1. Open SnapEnhance app 
+  2. Go to `Features` tab 
+  3. Tap `Global`
+  4. Tap the icon next to `disable Story Sections`
+  5. Toggle on your preferred choice
 
-### How To Use
+### How to use
   1. Open Snapchat
-  2. You will See Your Prefered Choice Is No Longer Visible 
-</details>
+  2. You will see your preferred choice is no longer visible 
 
-<details closed>
-  <summary>Block Ads</summary>
 
-### Explanation
-> **Allows Users To Prevent Advertisements From Being Displayed**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Global"
->  4. Toggle On "Block Ads"
-
-### How To Use
->  1. Open Snapchat
->  2. It Should Now Block All Ads 
-</details>
-
-<details closed>
-  <summary>Disable Permission Requests</summary>
+## Block Ads
 
 ### Explanation
-> **Allows Users To Prevent Snapchat From Asking For Specific Permissions**
+Prevent Advertisements from being displayed
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Toggle on `Block Ads`
+
+### How to use
+ 1. Open Snapchat
+ 2. it should now Block All Ads 
+
+
+## Disable Permission Requests
+
+### Explanation
+Allows users to prevent Snapchat from asking for specific Permissions
 
 ### Permissions Include
->  - `Notifications`
->  - `Read Media Images`
->  - `Read Media Video`
->  - `Camera`
->  - `Location`
->  - `Microphone`
->  - `Read Contacts`
->  - `Nearby Devices`
->  - `Phone Calls`
+ - `Notifications`
+ - `Read Media Images`
+ - `Read Media Video`
+ - `Camera`
+ - `Location`
+ - `Microphone`
+ - `Read Contacts`
+ - `Nearby Devices`
+ - `Phone Calls`
 
-### How To Enable/Setup  
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Global"
->  4. Tap The Icon Next To "Disable Permission Requests"
->  5. Toggle On You're Prefered Choice
+### How to enable  
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Tap the icon next to `disable Permission Requests`
+ 5. Toggle on your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. You Shouldn't Get Any Popups Asking For You're Choice 
-</details>
-
-<details closed>
-  <summary>Disable Memories Snap Feed</summary>
+## Disable Memories Snap Feed
 
 ### Explanation
-> **Allows Users To Prevent Snapchat From Showing Recent Memories When You Swipe Up In Camera**
+Allows users to prevent Snapchat from Showing Recent Memories when you Swipe Up in Camera
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Global"
->  4. Toggle On "Disable Memories Snap Feed"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Toggle on `disable Memories Snap Feed`
 
-### How To Use
->  1. Open Snapchat
->  2. Go To Camera
->  3. Memories Should Now Not Be Visible 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Go to Camera
+ 3. Memories should now not be visible 
 
-<details closed>
-  <summary>Spotlight Comments Username</summary>
+## Spotlight Comments Username
 
 ### Explanation
-> **Allows Users To Show Authors Username In Spotlight Comments**
+Allows users to Show Authors Username in Spotlight Comments
 
-### How To Enable/Setup
-  1. Open SnapEnhance App 
-  2. Go To "Features" Tab 
-  3. Tap "Global"
-  4. Toggle On "Spotlight Comments Username"
+### How to enable
+  1. Open SnapEnhance app 
+  2. Go to `Features` tab 
+  3. Tap `Global`
+  4. Toggle on `Spotlight Comments Username`
 
-### How To Use
+### How to use
   1. Open Snapchat
   2. Tap Spotlight Page
   3. Tap Comments
-  4. You will Now See The Username
-</details>
+  4. you will now see the Username
 
-<details closed>
-  <summary>Bypass Video Length Restrictions</summary>
+
+## Bypass Video Length Restrictions
 
 ### Explanation
-> **Allows Users To Bypass The Video Length Restriction (60 Seconds)**
+Allows users to Bypass the Video Length Restriction (60 Seconds)
 
 ### Restrictions Include
->  - `Split media`
->  - `Single media`
+ - `Split media`
+ - `single media`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Global"
->  4. Tap Next To "Bypass Video Length Restrictions"
->  5. Tap Your Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Tap next to `Bypass Video Length Restrictions`
+ 5. Tap your preferred choice
 
- ### How To Use
->  1. Open Snapchat
->  2. Send A Video Longer Than 60 Seconds 
-</details>
+ ### How to use
+ 1. Open Snapchat
+ 2. Send a Video longer Than 60 Seconds 
 
-<details closed>
-  <summary>Default Video Playback Rate</summary>
+
+## Default Video Playback Rate
 
 ### Explanation
-> **Allows Users To Set The Default Speed For The Playback Of Videos**
+Allows users to Set the Default Speed for the Playback of Videos
 
 ### Note 
-> **Value must be between 0.1 and 4.0!**
+Value must be between 0.1 and 4.0!
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Global"
->  4. Tap Next To "Default Video Playback Rate"
->  5. Input A Value, Use `Note` For Reference
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Tap next to `Default Video Playback Rate`
+ 5. Input a Value, Use `Note` for Reference
 
-### How To Use
->  1. Open Snapchat
->  2. Open A Snap ( Video )
->  3. You Will See The Video Speed Has Now Changed 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Open a Snap ( Video )
+ 3. you will see the Video Speed has now Changed 
 
-<details closed>
-  <summary>Video Playback Rate Slider</summary>
+
+## Video Playback Rate Slider
 
 ### Explanation
-> **Allows Users To Add A Slider In Opera Context Menu To Change The Video Playback Rate**
+Allows users to add a Slider in Opera Context Menu to change the Video Playback Rate
 
 ### Note 
-> **Changes only apply to subsequent videos**
+Changes only apply to subsequent videos
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Global"
->  4. Toggle On "Video Playback Rate Slider"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Toggle on `Video Playback Rate Slider`
 
-### How To Use
->  1. Open Snapchat
->  2. Open A Video
->  3. Hold Down
->  4. Use The Slider to Adjust The Speed Of That Video
->  5. Close That Video
->  6. Open That Video
->  7. The Speed Has Now Changed
->  8. Repeat Steps `3` To `6` To Change Again 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Open a Video
+ 3. Hold down
+ 4. Use the Slider to Adjust the Speed of that Video
+ 5. Close that Video
+ 6. Open that Video
+ 7. the Speed has now Changed
+ 8. Repeat Steps `3` to `6` to change Again 
 
-<details closed>
-  <summary>Disable Google Play Services Dialogs</summary>
 
-### Explanation
-> **Allows Users To Prevent Google Play Services Availability Dialogs From Being Shown**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Global"
->  4. Toggle On "Disable Google Play Services Dialogs"
-
-### How To Use
->  1. Open Snapchat
->  2. Google play Service Dialogs Will Now Not Be Shown 
-</details>
-
-<details closed>
-  <summary>Force Upload Source Quality</summary>
+## Disable Google Play Services Dialogs
 
 ### Explanation
-> **Allows Users To Force Snapchat To Upload Media In The Original Quality**
+Allows users to prevent Google Play Services Availability Dialogs from being Shown
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Toggle on `disable Google Play Services Dialogs`
+
+### How to use
+ 1. Open Snapchat
+ 2. Google play Service Dialogs will now not be Shown 
+
+
+## Force Upload Source Quality
+
+### Explanation
+Allows users to Force Snapchat to Upload Media in the Original Quality
 
 ### Note 
-> **This May Not Remove Metadata From Media**
+This May not Remove Metadata from Media
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Global"
->  4. Toggle On "Force Upload Source Quality"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Toggle on `Force Upload Source Quality`
 
-### How To Use
->  1. Open Snapchat
->  2. Send A Photo
->  3. This Should Now Upload In High Quality 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Send a Photo
+ 3. This should now Upload in High Quality 
 
-<details closed>
-  <summary>Default Volume Controls</summary>
 
-### Explanation
-> **Allows Users To Force Snapchat To Use System Volume Controls**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Global"
->  4. Toggle On "Default Volume Controls"
-
-### How To Use
->  1. Open Snapchat
->  2. Snapchat Should Now Use The System Volume 
-</details>
-
-<details closed>
-  <summary>Hide Active Music</summary>
+## Default Volume Controls
 
 ### Explanation
-> **Allows Users To Prevent Snapchat From Knowing You're Listening To Music**
+Allows users to Force Snapchat to Use System Volume Controls
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Toggle on `Default Volume Controls`
+
+### How to use
+ 1. Open Snapchat
+ 2. Snapchat should now Use the System Volume 
+
+
+## Hide Active Music
+
+### Explanation
+Allows users to prevent Snapchat from knowing your listening to Music
 
 ### Note
-> **This Will Allow You To Take Snaps Using Control Volume Buttons While Listening To Music**
+This will allow you to take Snaps using Control Volume Buttons While Listening to Music
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Global"
->  4. Toggle On "Hide Active Music"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Toggle on `Hide Active Music`
 
-### How To Use
->  1. Play Some Music
->  2. Open Snapchat
->  3. Take A Photo Using The Volume Control Buttons
-</details>
+### How to use
+ 1. Play Some Music
+ 2. Open Snapchat
+ 3. take a Photo using the Volume Control Buttons
 
-<details closed>
-  <summary>Disable Snap Splitting</summary>
+
+## Disable Snap Splitting
 
 ### Explanation
-> **Allows Users To Prevent Snaps From Being Split Into Multiple Parts**
+Allows users to prevent Snaps from being Split into Multiple Parts
 
 ### Note
-> **Pictures You Send Will Turn Into Videos**
+Pictures you Send will Turn into Videos
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Global"
->  4. Toggle On "Disable Snap Splitting"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Global`
+ 4. Toggle on `disable Snap Splitting`
 
-### How To Use
->  1. Open Snapchat
->  2. Send A Long Snap
->  3. It Should Now Not Split Into Several Parts 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Send a Long Snap
+ 3. it should now not Split into Several Parts 
 
-## Rules
-<details closed>
-  <summary>Stealth Mode</summary>
+
+# Rules
+## Stealth Mode
 
 ### Explanation
-> **Allows Users To Prevent Anyone From Knowing You've Opened Their Snaps / Chats And Conversations**
+Allows users to prevent Anyone from knowing you've Opened Their Snaps / Chats And Conversations
 
 ### Note 
-> **Use This In Combination With `Friend Feed Menu Buttons`**
+Use this in combination with `Friend Feed Menu Buttons`
 
 ### Stealth Mode Includes 
->  - `Whitelist mode`
->  - `Blacklist mode`
+ - `Whitelist mode`
+ - `Blacklist mode`
 
 ### Key
->  - `Whitelist mode` = **Allow** 
->  - `Blacklist mode` = **Do Not Allow**
+ - `Whitelist mode` = allow 
+ - `Blacklist mode` = Do not allow
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Rules"
->  4. Tap Next To "Stealth Mode"
->  5. Tap Your Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Rules`
+ 4. Tap next to `Stealth Mode`
+ 5. Tap your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. Hold Down On A Friends Bitmoji
->  3. Toggle On "Stealth Mode" 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Hold down on a Friends Bitmoji
+ 3. Toggle on `Stealth Mode` 
 
-<details closed>
-  <summary>Auto download</summary>
+
+## Auto download
 
 ### Explanation
-> **Allows Users To Automatically Download Snaps When Viewing Them**
+Allows users to automatically Download Snaps when Viewing Them
 
 ### Note 
-> **Use This In Combination With `Friend Feed Menu Buttons`**
+Use this in combination with `Friend Feed Menu Buttons`
 
 ### Auto Download Includes 
->  - `Whitelist mode`
->  - `Blacklist mode`
+ - `Whitelist mode`
+ - `Blacklist mode`
 
 ### Key
->  - `Whitelist mode` = **Allow** 
->  - `Blacklist mode` = **Do Not Allow**
+ - `Whitelist mode` = allow 
+ - `Blacklist mode` = Do not allow
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Rules"
->  4. Tap Next To "Auto Download"
->  5. Tap Your Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Rules`
+ 4. Tap next to `Auto Download`
+ 5. Tap your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. Hold Down On A Friends Bitmoji
->  3. Toggle On "Auto Download"
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Hold down on a Friends Bitmoji
+ 3. Toggle on `Auto Download`
 
-<details closed>
-  <summary>Auto Save</summary>
+
+## Auto Save
 
 ### Explanation
-> **Allows Users To Save Chat Messages When Viewing Them**
+Allows users to Save Chat messages when Viewing Them
 
 ### Note 
-> **Use This In Combination With `Friend Feed Menu Buttons`**
+Use this in combination with `Friend Feed Menu Buttons`
 
 ### Auto Save Includes 
->  - `Whitelist mode`
->  - `Blacklist mode`
+ - `Whitelist mode`
+ - `Blacklist mode`
 
 ### Key
->  - `Whitelist mode` = **Allow** 
->  - `Blacklist mode` = **Do Not Allow**
+ - `Whitelist mode` = allow 
+ - `Blacklist mode` = Do not allow
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Rules"
->  4. Tap Next To "Auto Save"
->  5. Tap Your Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Rules`
+ 4. Tap next to `Auto Save`
+ 5. Tap your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. Hold Down On A Friends Bitmoji
->  3. Toggle On "Auto Save"
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Hold down on a Friends Bitmoji
+ 3. Toggle on `Auto Save`
 
-<details closed>
-  <summary>Auto Open Snaps</summary>
+
+## Auto Open Snaps
 
 ### Explanation
-> **Allows Users To Automatically Opens Snaps When Receiving Them**
+Allows users to automatically Opens Snaps when Receiving Them
 
 ### Note 
-> **Use This In Combination With `Friend Feed Menu Buttons`**
-> **This Features Requires Experimental `Native Hooks` To Work Correctly**
+Use this in combination with `Friend Feed Menu Buttons`
+This Features requires Experimental `Native Hooks` to work correctly
 
 ### Auto Open Snaps Includes 
->  - `Whitelist mode`
->  - `Blacklist mode`
+ - `Whitelist mode`
+ - `Blacklist mode`
 
 ### Key
->  - `Whitelist mode` = **Allow** 
->  - `Blacklist mode` = **Do Not Allow**
+ - `Whitelist mode` = allow 
+ - `Blacklist mode` = Do not allow
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Rules"
->  4. Tap Next To "Auto Open Snaps"
->  5. Tap Your Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Rules`
+ 4. Tap next to `Auto Open Snaps`
+ 5. Tap your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. Hold Down On A Friends Bitmoji
->  3. Toggle On "Auto Open Snaps"
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Hold down on a Friends Bitmoji
+ 3. Toggle on `Auto Open Snaps`
 
-<details closed>
-  <summary>Unsaveable Messages</summary>
+
+## Unsaveable messages
 
 ### Explanation
-> **Allows Users To Prevent Messages From Being Saved In Chat By Other People**
+Allows users to prevent messages from being Saved in Chat by other People
 
 ### Note 
-> **Use This In Combination With `Friend Feed Menu Buttons`**
-> **This Features Requires Experimental `Native Hooks` To Work Correctly**
+Use this in combination with `Friend Feed Menu Buttons`
+This Features requires Experimental `Native Hooks` to work correctly
 
-### Unsaveable Messages Includes 
->  - `Whitelist mode`
->  - `Blacklist mode`
+### Unsaveable messages Includes 
+ - `Whitelist mode`
+ - `Blacklist mode`
 
 ### Key
->  - `Whitelist mode` = **Allow** 
->  - `Blacklist mode` = **Do Not Allow**
+ - `Whitelist mode` = allow 
+ - `Blacklist mode` = Do not allow
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Rules"
->  4. Tap Next To "Unsaveable Messages"
->  5. Tap Your Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Rules`
+ 4. Tap next to `Unsaveable messages`
+ 5. Tap your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. Hold Down On A Friends Bitmoji
->  3. Toggle On "Unsaveable Messages"
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Hold down on a Friends Bitmoji
+ 3. Toggle on `Unsaveable messages`
 
-## Camera 
-<details closed>
-  <summary>Disable Cameras</summary>
+
+# Camera 
+## Disable Cameras
 
 ### Explanation
-> **Allows Users To Prevent Snapchat From Using The Selected Cameras**
+Allows users to prevent Snapchat from using the Selected Cameras
 
 ### Selected Cameras Include
->  - `Front Camera`
->  - `Back Camera`
+ - `Front Camera`
+ - `Back Camera`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Camera"
->  4. Tap The Icon Next To "Disable Cameras"
->  5. Toggle On  You're Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Camera`
+ 4. Tap the icon next to `disable Cameras`
+ 5. Toggle on your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. Go To Camera
->  3. It Should Now Be Blank 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Go to Camera
+ 3. it should now be Blank 
 
-<details closed>
-  <summary>Immersive Preview</summary>
+
+## Immersive Preview
 
 ### Explanation
-> **Allows Users To Prevent Snapchat From Cropping The Camera Preview**
+Allows users to prevent Snapchat from Cropping the Camera Preview
 
 ### Note 
-> **This Might Cause The Camera To Flicker On Some Devices**
+This Might Cause the Camera to Flicker on Some Devices
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Camera"
->  4. Toggle On "Immersive Preview"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Camera`
+ 4. Toggle on `Immersive Preview`
 
-### How To Use
->  1. Open Snapchat
->  2. Go To Camera
->  3. You Will Now See The Preview Is Now Full Screen
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Go to Camera
+ 3. you will now see the Preview is now Full Screen
 
-<details closed>
-  <summary>Black Photos</summary>
+
+## Black Photos
 
 ### Explanation
-> **Allows Users To Replace Captured Photos With A Black Background**
+Allows users to Replace Captured Photos with a Black Background
 
 ### Note
-> **Videos Are Not Affected**
+Videos Are not Affected
 
-### How To Enable/Setup
-  1. Open SnapEnhance App 
-  2. Go To "Features" Tab 
-  3. Tap "Camera"
-  4. Toggle On "Black Photos"
+### How to enable
+  1. Open SnapEnhance app 
+  2. Go to `Features` tab 
+  3. Tap `Camera`
+  4. Toggle on `Black Photos`
 
-### How To Use
+### How to use
   1. Open Snapchat
-  2. Take A Photo
-  3. You Will Now See The Photo Is Now Black 
-</details>
+  2. take a Photo
+  3. you will now see the Photo is now Black 
 
-<details closed>
-  <summary>Front Custom Frame Rate</summary>
+
+## Front Custom Frame Rate
 
 ### Explanation
-> **Allows Users To Override The Front Camera Frame Rate**
+Allows users to Override the Front Camera Frame Rate
 
 ### Frame Rates Include
->  - `5`
->  - `10`
->  - `20`
->  - `25`
->  - `30`
->  - `48`
->  - `60`
->  - `90`
->  - `120`
+ - `5`
+ - `10`
+ - `20`
+ - `25`
+ - `30`
+ - `48`
+ - `60`
+ - `90`
+ - `120`
 
-### How To Enable/Setup
-  1. Open SnapEnhance App 
-  2. Go To "Features" Tab 
-  3. Tap "Camera"
-  4. Tap Next To "Front Custom Frame Rate"
-  5. Tap You're Prefered Choice
+### How to enable
+  1. Open SnapEnhance app 
+  2. Go to `Features` tab 
+  3. Tap `Camera`
+  4. Tap next to `Front Custom Frame Rate`
+  5. Tap your preferred choice
 
-### How To Use
+### How to use
   1. Open Snapchat
-  2. Take A Video
-  3. You Will See Your Prefered Choice In Action 
-</details>
+  2. take a Video
+  3. you will see your preferred choice in Action 
 
-<details closed>
-  <summary>Back Custom Frame Rate</summary>
+
+## Back Custom Frame Rate
 
 ### Explanation
-> **Allows Users To Override The Back Camera Frame Rate**
+Allows users to Override the Back Camera Frame Rate
 
 ### Frame Rates Include
->  - `5`
->  - `10`
->  - `20`
->  - `25`
->  - `30`
->  - `48`
->  - `60`
->  - `90`
->  - `120`
+ - `5`
+ - `10`
+ - `20`
+ - `25`
+ - `30`
+ - `48`
+ - `60`
+ - `90`
+ - `120`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Camera"
->  4. Tap Next To "Back Custom Frame Rate"
->  5. Tap You're Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Camera`
+ 4. Tap next to `Back Custom Frame Rate`
+ 5. Tap your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. Take A Video
->  3. You Will See Your Prefered Choice In Action 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. take a Video
+ 3. you will see your preferred choice in Action 
 
-<details closed>
-  <summary>HEVC Recording</summary>
 
-### Explanation
-> **Allows Users To Use HEVC `H.265` Codec For Video Recording**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Camera"
->  4. Toggle On "HEVC Recording"
-
-### How To Use
->  1. Open Snapchat
->  2. Take A Video
->  3. Check The Video Info 
-</details>
-
-<details closed>
-  <summary>Force Camera Source Encoding</summary>
+## HEVC Recording
 
 ### Explanation
-> **Allows Users To Force The Camera Source Encoding**
+Allows users to Use HEVC `H.265` Codec for Video Recording
 
-### How To Enable/Setup  
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Camera"
->  4. Toggle On "Force Camera Source Encoding"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Camera`
+ 4. Toggle on `HEVC Recording`
 
-### How To Use
->  1. Open Snapchat
->  2. Take A Video Or Photo 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. take a Video
+ 3. Check the Video Info 
 
-<details closed>
-  <summary>Custom Resolution</summary>
+
+## Force Camera Source Encoding
 
 ### Explanation
-> **Allows Users To Set A Custom Camera Resolution `Width X Height`**
+Allows users to Force the Camera Source Encoding
+
+### How to enable  
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Camera`
+ 4. Toggle on `Force Camera Source Encoding`
+
+### How to use
+ 1. Open Snapchat
+ 2. take a Video Or Photo 
+
+
+## Custom Resolution
+
+### Explanation
+Allows users to Set a Custom Camera Resolution `Width X Height`
 
 ### Example 
->  - **`1920x1080`**
+ - `1920x1080`
 
 ### Note
-> **The Custom Resolution Must Be Supported By Your Device**
+the Custom Resolution Must be Supported by your Device
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Camera"
->  4. Tap The Icon Next To "Custom Resolution"
->  5. Input Your Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Camera`
+ 4. Tap the icon next to `Custom Resolution`
+ 5. Input your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. Take A Photo Or Video
->  3. Save To Your Gallery
->  4. Check The Resolution
->  5. You Should Now See The Resolution You Set 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. take a Photo Or Video
+ 3. Save to your Gallery
+ 4. Check the Resolution
+ 5. you should now see the Resolution you Set 
 
-<details closed>
-  <summary>Override Front Resolution</summary>
+
+## Override Front Resolution
 
 ### Explanation
-> **Allows Users To Override The Camera Resolution For The Front Camera**
+Allows users to Override the Camera Resolution for the Front Camera
+<details closed>
+  <summary>Resolutions</summary>
+
+    4000х3000
+    3648x2736
+    4000х2252
+    З840х2160
+    27З6х27З6
+    З648х2048
+    З648х1640
+    2560х1440
+    1920х1440
+    2400x1080
+    2З20х1080
+    1920х1080
+    1920x824
+    1440x1080
+    1088x1088
+    1280x720
+    960x720
+    720x480
+    640x480
+    640x360
+    352x288
+    320x240
+    176x144
+    3392x2544
+    3392x1908
+    2208x2208
+    2560x1440
+    1920x1440
+    2400x1080
+    2320x1080
+    1920x1080
+    1920x824
+    1440x1080
+    1440x980
+    1088x1088
+    1280x720
+    960x720
+    720x480
+    640x480
+    640x360
+    352x288
+    320x240
+    176x144
+</details> 
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Camera`
+ 4. Tap next to `Override Front Resolution`
+ 5. Choose your preferred choice
+
+### How to use
+ 1. Open Snapchat
+ 2. take a Video Or a Photo
+ 3. you will see your preferred Resolution in Action 
+
+
+## Override Back Resolution
+
+### Explanation
+Allows users to Override the Camera Resolution for the Back Camera
 
 ### Camera Resolutions Include
->  - `4000х3000`
->  - `3648x2736`
->  - `4000х2252`
->  - `З840х2160`
->  - `27З6х27З6`
->  - `З648х2048`
->  - `З648х1640`
->  - `2560х1440`
->  - `1920х1440`
->  - `2400x1080`
->  - `2З20х1080`
->  - `1920х1080`
->  - `1920x824`
->  - `1440x1080`
->  - `1088x1088`
->  - `1280x720`
->  - `960x720`
->  - `720x480`
->  - `640x480`
->  - `640x360`
->  - `352x288`
->  - `320x240`
->  - `176x144`
->  - `3392x2544`
->  - `3392x1908`
->  - `2208x2208`
->  - `2560x1440`
->  - `1920x1440`
->  - `2400x1080`
->  - `2320x1080`
->  - `1920x1080`
->  - `1920x824`
->  - `1440x1080`
->  - `1440x980`
->  - `1088x1088`
->  - `1280x720`
->  - `960x720`
->  - `720x480`
->  - `640x480`
->  - `640x360`
->  - `352x288`
->  - `320x240`
->  - `176x144`
+ - `4000х3000`
+ - `3648x2736`
+ - `4000х2252`
+ - `З840х2160`
+ - `27З6х27З6`
+ - `З648х2048`
+ - `З648х1640`
+ - `2560х1440`
+ - `1920х1440`
+ - `2400x1080`
+ - `2З20х1080`
+ - `1920х1080`
+ - `1920x824`
+ - `1440x1080`
+ - `1088x1088`
+ - `1280x720`
+ - `960x720`
+ - `720x480`
+ - `640x480`
+ - `640x360`
+ - `352x288`
+ - `320x240`
+ - `176x144`
+ - `3392x2544`
+ - `3392x1908`
+ - `2208x2208`
+ - `2560x1440`
+ - `1920x1440`
+ - `2400x1080`
+ - `2320x1080`
+ - `1920x1080`
+ - `1920x824`
+ - `1440x1080`
+ - `1440x980`
+ - `1088x1088`
+ - `1280x720`
+ - `960x720`
+ - `720x480`
+ - `640x480`
+ - `640x360`
+ - `352x288`
+ - `320x240`
+ - `176x144`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Camera"
->  4. Tap Next To "Override Front Resolution"
->  5. Choose You're Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab 
+ 3. Tap `Camera`
+ 4. Tap next to `Override Back Resolution`
+ 5. Choose your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. Take A Video Or A Photo
->  3. You Will See Your Prefered Resolution In Action 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. take a Video Or a Photo
+ 3. you will see your preferred Resolution in Action
 
-<details closed>
-  <summary>Override Back Resolution</summary>
 
-### Explanation
-> **Allows Users To Override The Camera Resolution For The Back Camera**
-
-### Camera Resolutions Include
->  - `4000х3000`
->  - `3648x2736`
->  - `4000х2252`
->  - `З840х2160`
->  - `27З6х27З6`
->  - `З648х2048`
->  - `З648х1640`
->  - `2560х1440`
->  - `1920х1440`
->  - `2400x1080`
->  - `2З20х1080`
->  - `1920х1080`
->  - `1920x824`
->  - `1440x1080`
->  - `1088x1088`
->  - `1280x720`
->  - `960x720`
->  - `720x480`
->  - `640x480`
->  - `640x360`
->  - `352x288`
->  - `320x240`
->  - `176x144`
->  - `3392x2544`
->  - `3392x1908`
->  - `2208x2208`
->  - `2560x1440`
->  - `1920x1440`
->  - `2400x1080`
->  - `2320x1080`
->  - `1920x1080`
->  - `1920x824`
->  - `1440x1080`
->  - `1440x980`
->  - `1088x1088`
->  - `1280x720`
->  - `960x720`
->  - `720x480`
->  - `640x480`
->  - `640x360`
->  - `352x288`
->  - `320x240`
->  - `176x144`
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab 
->  3. Tap "Camera"
->  4. Tap Next To "Override Back Resolution"
->  5. Choose You're Prefered Choice
-
-### How To Use
->  1. Open Snapchat
->  2. Take A Video Or A Photo
->  3. You Will See Your Prefered Resolution In Action
-</details>
-
-## Streak Reminder
-<details closed>
-  <summary>Interval</summary>
+# Streak Reminder
+## Interval
 
 ### Explanation
-> **Allows Users To Pick The Interval Between Each Reminder In Hours**
+Allows users to pick the Interval Between Each Reminder in Hours
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Toggle On "Streak Reminder" 
->  4. Tap "Streak Reminder"
->  5. Tap Next To "Interval"
->  6. Input Your Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Toggle on `Streak Reminder` 
+ 4. Tap `Streak Reminder`
+ 5. Tap next to `Interval`
+ 6. Input your preferred choice
 
-### How To Use
->  1. You Will Get Notification Each ( From you're Input )
-</details>
 
-<details closed>
-  <summary>Remaining Time</summary>
+## Remaining Time
 
 ### Explanation
-> **Allows Users To Pick The Remaining Amount Of Time Before The Notification Is Shown In Hours**
+Allows users to pick the Remaining Amount of Time before the Notification is Shown in Hours
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Toggle On "Streak Reminder" 
->  4. Tap "Streak Reminder"
->  5. Tap Next To "Remaining Time"
->  6. Input you're Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Toggle on `Streak Reminder` 
+ 4. Tap `Streak Reminder`
+ 5. Tap next to `Remaining Time`
+ 6. Input your preferred choice
 
-### How To Use
->  1. You Will Get A Notification When The Number Of Hours Left Of That Streak ( From Your Input )
-</details>
+### How to use
+ 1. you will get a Notification when the Number of Hours Left of that Streak ( from your Input )
 
-<details closed>
-  <summary>Group Notifications</summary>
 
-### Explanation
-> **Allows Users To Force Group Notifications Into A Single One**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Toggle On "Streak Reminder" 
->  4. Tap "Streak Reminder"
->  5. Toggle On "Group Notifications"
-
-### How To Use
->  1. Group Notifications Will Be In A Single Notification 
-</details>
-
-## Experimental 
-<details closed>
-  <summary>Native Hooks</summary>
+## Group Notifications
 
 ### Explanation
-> **Allows Users To Use Unsafe Features That Hook Into Snapchat's Native Code**
+Allows users to Force Group Notifications into a single One
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Toggle on `Streak Reminder` 
+ 4. Tap `Streak Reminder`
+ 5. Toggle on `Group Notifications`
+
+### How to use
+ 1. Group Notifications will be in a single Notification 
+
+
+# Experimental 
+## Native Hooks
+
+### Explanation
+Allows users to Use Unsafe Features that Hook into Snapchat's Native Code
 
 ### Native Features Include
->  - `Disable Bitmoji`
+ - `disable Bitmoji`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "Native Hooks"
->  5. Tap "Native Hooks"
->  6. Toggle On You're Prefered Choice 
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `Native Hooks`
+ 5. Tap `Native Hooks`
+ 6. Toggle on your preferred choice 
 
-### How To Use
->  1. Open Snapchat
->  2. You Will See You're Prefered Choice Working 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. you will see your preferred choice Working 
 
-<details closed>
-  <summary>Session Events</summary>
+
+## Session Events
 
 ### Explanation
-> **Allows Users To Record Session Events**
+Allows users to Record Session Events
 
 ### Note 
-> **This Feature Requires Experimental `Native Hooks` To Work Correctly**
+This Feature requires Experimental `Native Hooks` to work correctly
 
 ### Session Events Includes
->  - `Capture Duplex Events`
->  - `Allow Running in Background`
+ - `Capture Duplex Events`
+ - `allow Running in Background`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "Session Events"
->  5. Tap "Session Events"
->  6. Toggle On Your Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `Session Events`
+ 5. Tap `Session Events`
+ 6. Toggle on your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. `Currently Unknown`
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. `Currently Unknown`
 
-<details closed>
-  <summary>Spoof</summary>
+
+## Spoof
 
 ### Explanation
-> **Allows Users To Spoof Various Information**
+Allows users to Spoof Various Information
 
 ### Information Includes 
->  - `Play Store Installer Package Name`
->  - `Device Fingerprint`
->  - `Android ID`
->  - `Remove VPN Transport Flag`
->  - `Remove Mock Location Flag`
->  - `Randomize Persistent Device Token`
+ - `Play Store Installer Package Name`
+ - `Device Fingerprint`
+ - `Android ID`
+ - `Remove VPN Transport Flag`
+ - `Remove Mock Location Flag`
+ - `Randomize Persistent Device Token`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "Spoof"
->  5. Tap Spoof
->  6. Toggle Your Prefered Choice / Tap The Icon Next To Your Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `Spoof`
+ 5. Tap Spoof
+ 6. Toggle your preferred choice / Tap the icon next to your preferred choice
 
-### How To Use
->  1. Spoofs Your Info 
-</details>
+### How to use
+ 1. Spoofs your Info 
 
-<details closed>
-  <summary>Convert Message Locally</summary>
+
+## Convert Message Locally
 
 ### Explanation
-> **Allows Users To Convert Snaps To Chat External Media Locally**
+Allows users to Convert Snaps to Chat External Media Locally
 
 ### Note 
-> **This Appears In Chat Download Context Menu**
+This Appears in Chat Download Context Menu
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "Convert Message Locally"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `Convert Message Locally`
 
-### How To Use
->  1. Open Snapchat
->  2. Go To Someone's Chat
->  3. Hold Down On A Snap
->  4. Tap "Convert message"
->  5. Tap "convert_external_media"
->  6. You Will Now See It's Converted 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Go to Someone's Chat
+ 3. Hold down on a Snap
+ 4. Tap `Convert message`
+ 5. Tap `convert_external_media`
+ 6. you will now see it's Converted 
 
-<details closed>
-  <summary>New Chat Action Menu</summary>
 
-### Explanation
-> **Allows Users To Use The New Chat Action Menu Drawer**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "New Chat Action Menu"
-
-### How To Use
->  1. Open Snapchat
->  2. Open A Chat
->  3. Hold Down On That Chat
->  4. You Will Now See The New Chat Action Menu
-</details>
-
-<details closed>
-  <summary>Media File Picker</summary>
+## New Chat Action Menu
 
 ### Explanation
-> **Allows Users To Pick Any Video/Audio File From The Gallery**
+Allows users to Use the New Chat Action Menu Drawer
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "Media File Picker"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `New Chat Action Menu`
 
-### How To Use
->  1. Open Snapchat
->  2. Go To A Chat
->  3. Tap The Camera roll Icon
->  4. You Should See An Upload Icon On The Right
->  5. Tap The Icon
->  6. Pick Something
->  7. Then Send 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Open a Chat
+ 3. Hold down on that Chat
+ 4. you will now see the New Chat Action Menu
 
-<details closed>
-  <summary>Story Logger</summary>
+
+## Media file Picker
 
 ### Explanation
-> **Allows Users To Save A History Of Friends Stories**
+Allows users to pick any Video/Audio file from the Gallery
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "Story Logger"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `Media file Picker`
 
-### How To Use
->  1. `Currently Unknown`
+### How to use
+ 1. Open Snapchat
+ 2. Go to a Chat
+ 3. Tap the Camera roll icon
+ 4. Tap the Upload icon
 
-</details>
 
-<details closed>
-  <summary>Call Recorder</summary>
-
-### Explanation
-> **Allows Users To Automatically Records Audio Calls**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "Call Recorder"
-
-### How To Use
->  1. Open Snapchat
->  2. Make A Call
->  3. It will Now Record Only The Other Users Voice 
-</details>
-
-<details closed>
-  <summary>Account Switcher</summary>
+## Story Logger
 
 ### Explanation
-> **Allows Users To Switch Between Accounts Without Logging Out**
+Allows users to Save a History of Friends Stories
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `Story Logger`
+
+### How to use
+ 1. `Currently Unknown`
+
+
+
+## Call Recorder
+
+### Explanation
+Allows users to automatically Records Audio Calls
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `Call Recorder`
+
+### How to use
+ 1. Open Snapchat
+ 2. Make a Call
+ 3. it will now Record Only the other users Voice 
+
+
+## Account Switcher
+
+### Explanation
+Allows users to Switch Between Accounts Without Logging Out
 
 ### Note 
-> **This Feature Is Experimental And Will Likely Change In The Future**
+This Feature is Experimental And will Likely change in the Future
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "Account Switcher"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `Account Switcher`
 
-### How To Use
->  1. Open Snapchat
->  2. Long Press On Search Icon ( This is Next To You're Bitmoji Profile) 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Long Press on the Search icon 
 
-<details closed>
-  <summary>Edit Messages</summary>
 
-### Explanation
-> **Allows Users To Edit Messages In Conversations**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "Edit Messages"
-
-### How To Use
->  1. Open Snapchat
->  2. Go To A Chat
->  3. Send A Message
->  4. Hold Down On That Message
->  5. Tap "Edit Message"
->  6. Edit You're Message
->  7. Tap "Save"
->  8. You're Message Should Now Change
-</details>
-
-<details closed>
-  <summary>App Lock</summary>
+## Edit messages
 
 ### Explanation
-> **Allows Users To Prevent Access To Snapchat Without A Passcode**
+Allows users to Edit messages in Conversations
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "App Lock"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `Edit messages`
 
-### How To Use
->  1. Open Snapchat
->  2. You Will Now See Snapchat Needs A Passcode/Fingerprint To Unlock
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Go to a Chat
+ 3. Send a Message
+ 4. Hold down on that Message
+ 5. Tap `Edit Message`
+ 6. Edit your Message
+ 7. Tap `Save`
+ 8. Your Message should now change
 
-<details closed>
-  <summary>Infinite Story Boost</summary>
 
-### Explanation
-> **Allows Users To Bypass The Story Boost Limit Delay**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "Infinite Story Boost"
-
-### How To Use
->  1. Open Snapchat
->  2. `Currently Unknown`
-</details>
-
-<details closed>
-  <summary>My Eyes Only Passcode Bypass</summary>
+## app Lock
 
 ### Explanation
-> **Allows Users To Bypass The My Eyes Only Passcode**
+Allows users to prevent Access to Snapchat Without a Passcode
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `app Lock`
+
+### How to use
+ 1. Open Snapchat
+ 2. you will now see Snapchat Needs a Passcode/Fingerprint to Unlock
+
+
+## Infinite Story Boost
+
+### Explanation
+Allows users to Bypass the Story Boost Limit Delay
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `Infinite Story Boost`
+
+### How to use
+ 1. Open Snapchat
+ 2. `Currently Unknown`
+
+
+## My Eyes Only Passcode Bypass
+
+### Explanation
+Allows users to Bypass the My Eyes Only Passcode
 
 ### Note 
-> **This Will Only Work If The Passcode Has Been Entered Correctly Before**
+This will Only work If the Passcode has Been Entered correctly before
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "My Eyes Only Passcode Bypass"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `My Eyes Only Passcode Bypass`
 
-### How To Use
->  1. Open Snapchat
->  2. Go To "My Eyes Only"
->  3. You Can Now Input Any Number To Give You Access
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Go to `My Eyes Only`
+ 3. you can now Input any Number to Give you Access
 
-<details closed>
-  <summary>No Friend Score Delay</summary>
 
-### Explanation
-> **Allows Users To Remove The Delay When Viewing A Friends Score**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "No Friend Score Delay"
-
-### How To Use
->  1. Open Snapchat
->  2. You Will Now See Other People's Snapscore Change Instantly
-</details>
-
-<details closed>
-  <summary>End-To-End Encryption</summary>
+## ino Friend Score Delay
 
 ### Explanation
-> **Allows Users To Encrypts Your Messages With AES Using A Shared Secret Key**
+Allows users to Remove the Delay when Viewing a Friends Score
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `ino Friend Score Delay`
+
+### How to use
+ 1. Open Snapchat
+ 2. you will now see other People's Snapscore change Instantly
+
+
+## End-to-End Encryption
+
+### Explanation
+Allows users to Encrypts your messages with AES using a Shared Secret Key
 
 ### Note 
-> **Make Sure To Save Your Key Somewhere Safe**
+Make Sure to Save your Key Somewhere Safe
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "End-To-End Encryption"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `End-to-End Encryption`
 
-### How To Use
->  1. Open Snapchat
->  2. Start Chatting Away
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Start Chatting Away
 
-<details closed>
-  <summary>Hidden Snapchat Plus Features</summary>
+
+## Hidden Snapchat Plus Features
 
 ### Explanation
-> **Allows Users To Enables Unreleased/Beta Snapchat Plus Features**
+Allows users to Enables Unreleased/Beta Snapchat Plus Features
 
 ### Note 
-> **Might Not Work On Older Snapchat Versions**
+Might not work on Older Snapchat Versions
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "Hidden Snapchat Plus Features"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `Hidden Snapchat Plus Features`
 
-### How To Use
->  1. Open Snapchat
->  2. Tap Your Profile
->  3. Tap Snapchat+ ( You Will Need `Snapchat Plus` Enabled )
->  4. You Will Now See Some New Features
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Tap on your Profile
+ 3. Tap Snapchat+
 
-<details closed>
-  <summary>Custom Streaks Expiration Format</summary>
+
+## Custom Streaks Expiration format
 
 ### Explanation
-> **Allows Users To Customize The Streaks Expiration format**
+Allows users to Customize the Streaks Expiration format
 
 ### Note
-> **You Will Need `Show Streak Expiration Info` Toggled On**
+you will need `Show Streak Expiration Info` Toggled on
 
 ### Available variables
->  - `%c`: Streaks Count 
->  - `%e`: Hourglass Emoji 
->  - `%d`: Days 
->  - `%h`: Hours 
->  - `%m`: Minutes 
->  - `%s`: Seconds 
->  - `%w`: Remaining Time
+ - `%c`: Streaks Count 
+ - `%e`: Hourglass Emoji 
+ - `%d`: Days 
+ - `%h`: Hours 
+ - `%m`: Minutes 
+ - `%s`: Seconds 
+ - `%w`: Remaining Time
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Tap The Icon Next To "Custom Streaks Expiration Format"
->  5. Input You're Prefered Choice From The `Available Variables` List
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Tap the icon next to `Custom Streaks Expiration format`
+ 5. Input your preferred choice from the `Available Variables` List
 
-### How To Use
->  1. Open Snapchat
->  2. You Will Now See Some Changes On The End Of A Friend On The Friend Feed 
+### How to use
+ 1. Open Snapchat
+ 2. you will now see Some Changes on the End of a Friend on the Friend Feed 
 
-</details>
 
-<details closed>
-  <summary>Add Friend Source Spoof</summary>
+
+## Add Friend Source Spoof
 
 ### Explanation
-> **Allows Users To Spoof The Source Of A Friend Request**
+Allows users to Spoof the Source of a Friend Request
 
 ### Spoof Sources Include
->  - `By Username`
->  - `By Mention`
->  - `By Group Chat`
->  - `By QR Code`
->  - `By Community`
+ - `by Username`
+ - `by Mention`
+ - `by Group Chat`
+ - `by QR Code`
+ - `by Community`
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Tap Next To "Add Friend Source Spoof"
->  5. Tap You're Prefered Choice
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Tap next to `Add Friend Source Spoof`
+ 5. Tap your preferred choice
 
-### How To Use
->  1. Open Snapchat
->  2. Add Someone
->  3. It Will Now Spoof Your Request From You're Prefered Choice 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Add Someone
+ 3. it will now Spoof your Request from your preferred choice 
 
-<details closed>
-  <summary>Disable Composer Modules</summary>
 
-### Explanation
-> **Allows Users To Prevent Selected Composer Modules From Being Loaded**
 
-### Note 
-> **Names Must Be Separated By A Comma**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Tap The Icon Next To "Disable Composer Modules"
->  5. Input You're Prefered Choice
-
-### How To Use
->  - It Will Hide From You're Choice 
-</details>
-
-<details closed>
-  <summary>Prevent Forced Logout</summary>
+## Prevent Forced Logout
 
 ### Explanation
-> **Allows Users To Prevent Snapchat From Logging You Out When You Login On Another Device**
+Allows users to prevent Snapchat from Logging you Out when you Login on Another Device
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Experimental"
->  4. Toggle On "Prevent Forced Logout"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Experimental`
+ 4. Toggle on `prevent Forced Logout`
 
-### How To Use
->  1. Login Into You're Account On A Another Device
->  2. It Should Not Log You Out 
-</details>
+### How to use
+ 1. Login into your Account on a Another Device
+ 2. it should not Log you Out 
 
-## Scripting
-<details closed>
-  <summary>Developer Mode</summary>
+# Scripting
+## Developer Mode
 
 ### Explanation
-> **Allows Users To Shows Debug Info On Snapchat's UI**
+Allows users to Shows Debug Info on Snapchat's UI
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Scripting"
->  4. Toggle On "Developer Mode"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Scripting`
+ 4. Toggle on `Developer Mode`
 
-### How To Use
->  1. Open Snapchat
->  2. Open A Chat
->  3. Hold Down On A Chat/Snap/Media
->  4. You Will Now See `Info`,`Refs`,`Arroyo`,`Message` Debug Info 
-</details>
+### How to use
+ 1. Open Snapchat
+ 2. Open a Chat
+ 3. Hold down on a Chat/Snap/Media
+ 4. you will now see `Info`,`Refs`,`Arroyo`,`Message` Debug Info 
 
-<details closed>
-  <summary>Module Folder</summary>
 
-> **Allows Users To Pick The Folder Where The Scripts Are Located**
-
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Scripting"
->  4. Tap "Module Folder"
->  5. Create/Pick The Folder
->  6. Tap "Use This Folder"
->  7. Tap "Allow"
-
-### How To Use
->  1. Open SnapEnhance
->  2. Go To "Scripts"
->  3. Reload By Pulling Down
->  4. You're Scripts Should Now Be There
-</details>
-
-<details closed>
-  <summary>Auto Reload</summary>
+## Module Folder
 
 ### Explanation
-> **Allows Users To Automatically Reloads Scripts When They Change**
+Allows users to pick the Folder Where the Scripts Are Located
+
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Scripting`
+ 4. Tap `Module Folder`
+ 5. Create/pick the Folder
+ 6. Tap `Use This Folder`
+ 7. Tap `allow`
+
+### How to use
+ 1. Open SnapEnhance
+ 2. Go to `Scripts`
+ 3. Reload by pulling down
+
+
+## Auto Reload
+
+### Explanation
+Automatically reloads scripts once they have been modified
 
 ### Auto Reload Includes
->  - `Snapchat Only`
->  - `All (Snapchat + SnapEnhance)`
+ - `Snapchat Only`
+ - `All (Snapchat + SnapEnhance)`
 
-### How To Enable/Setup
-  1. Open SnapEnhance App 
-  2. Go To "Features" Tab
-  3. Tap "Scripting"
-  4. Tap Next To "Auto Reload"
-  5. Tap You're Prefered Choice
+### How to enable
+  1. Open SnapEnhance app 
+  2. Go to `Features` tab
+  3. Tap `Scripting`
+  4. Tap next to `Auto Reload`
+  5. Select your preferred choice
 
-### How To Use
- - This Just Auto Reloads 
-</details>
 
-<details closed>
-  <summary>Integrated UI</summary>
+## Integrated UI
 
 ### Explanation
-> **Allows Users To Add Custom UI Components To Snapchat From Scripts**
+Allows users to add Custom UI Components to Snapchat from Scripts
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Scripting"
->  4. Toggle On "Integrated UI"
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Scripting`
+ 4. Toggle on `Integrated UI`
 
-### How To Use
->  1. Make/Use A Script That Has UI Components 
-</details>
+### How to use
+ 1. Use a script that has UI Components 
 
-<details closed>
-  <summary>Disable Log Anonymization</summary>
+
+## Disable Log Anonymization
 
 ### Explanation
-> **Allows Users To Disable The Anonymization Of Logs**
+Allows users to disable the Anonymization of Logs
 
-### How To Enable/Setup
->  1. Open SnapEnhance App 
->  2. Go To "Features" Tab
->  3. Tap "Scripting"
->  4. Toggle On "Disable Log Anonymization"
-
-### How To Use
->  - Disables Logs 
-</details>
+### How to enable
+ 1. Open SnapEnhance app 
+ 2. Go to `Features` tab
+ 3. Tap `Scripting`
+ 4. Toggle on `Disable Log Anonymization`
