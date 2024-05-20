@@ -116,7 +116,7 @@ Work in progress!
   10. Press "Ok"
   11. Press "Tick"
  
-## GrapheneOS
+## GrapheneOS (Maybe Out Of Date) 
 ### Please Note:
  - Tested On The Pixel 5,7 Pro,8<br/>
  - May Not Work On All Pixel Devices!!
