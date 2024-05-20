@@ -1,58 +1,71 @@
-# Root
-### Requirements
-> - Rooted Using `Magisk` Or `KernelSU`
-> - `LSPosed` Installed And Fully Functional
+Work in progress!
+## Root
+### Requirements:<br/>
+> - Rooted Using `Magisk` Or `KernelSU`<br/>
+> - `LSPosed` Installed And Fully Functional<br/>
 
-### Installation Guide
+<details closed>
+ <summary>Installation Guide</summary>
+
 > 1. Install The Module APK From Either This [Github repo](https://github.com/rhunk/SnapEnhance/releases) Or The [LSPosed repo](https://modules.lsposed.org/module/me.rhunk.snapenhance)
 > 2. Turn on the module in `LSPosed` and make sure `Snapchat` is in scope
 > 3. Force Stop `Snapchat`
 > 4. Open the menu by clicking the [Settings Gear Icon](https://i.imgur.com/2grm8li.png)
+</details>
 
-# Unrooted / Non-Root 
+## Unrooted / Non-Root 
 ### Requirements<br/>
-> - `LSPatch`
-> - `Shizuku` Or `SAI`
+> - `LSPatch`<br/>
+> - `Shizuku` Or `SAI`<br/>
 
-# Links
+### Links
 > - [LSPatch](https://github.com/LSPosed/LSPatch)<br/>
 > - [Shizuku](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api)<br/>
-> - [SAI](https://github.com/Aefyr/SAI)<br/>
+> - [SAI](https://github.com/Aefyr/SAI/releases/tag/4.5)<br/>
 > - [Snapchat(Google play)](https://play.google.com/store/apps/details?id=com.snapchat.android)<br/>
 
 <details closed>
- <summary>Installation Guide (LSPatch & SAI)</summary>
+ <summary>LSPatch + SAI (Recommended)</summary>
 
+<details closed> 
+   <summary>What's Needed</summary>
+  
+>   1. SnapEnhance<br/>
+>   2. LSPatch<br/> 
+>   3. SAI<br/>
+>   4. Snapchat From Google Play<br/>
+</details>
 
-### What's Needed?
-  -  `SnapEnhance`
-  -  `LSPatch`
-  -  `SAI`
-  - `Snapchat From Google Play`
+<details closed>
+  <summary> LSPatch Patching Guide</summary>
 
-### LSPatch Patching Guide
->  1. Open `LSPatch`
+  1. Open " LSPatch " 
 (It Should Say Shizuku Is Not Running This Is Fine)
->  2. Press The "Manage" Tab
->  3. Press The "Plus" Icon 
->  4. Press "Select An Installed App"
->  5. Find Snapchat (You Can Do This By search or scrolling) 
->  6. Press Snapchat 
->  7. Press "Intergrated"
->  8. Press "Embed Modules"
->  9. Press "Select apk(s) From Storage"
->  10. Find `SnapEnhance` You Just Download 
->  11. Press "Start Patch"
->  12. Wait For `LSPatch` To Patch Snapchat
->  13. Now Follow "SAI Installation Guide" 
+  2. Press The " Manage " Tab
+  3. Press The " Plus " Icon 
+  4. Press " Select An Installed App "
+  5. Find Snapchat (You Can Do This By search or scrolling) 
+  6. Press Snapchat 
+  7. Press " Intergrated "
+  8. Press " Embed Modules "
+  9. Press " Select apk(s) From Storage "
+  10. Find " SnapEnhance " You Just Download 
+  11. Press " Start Patch "
+  12. Wait For " LSPatch " To Patch Snapchat
+  13. Now Follow " SAI Installation Guide " 
+ </details>
 
-### SAI Installation Guide
->  1. Open `SAI`
->  2. Press "Install Apks"
->  3. Press "System File Picker"
->  4. Select all 4 apks That Have Just Been Patched 
->  5. Press "Install"
->  6. Now Follow "`SnapEnhance` Setup Guide"
+
+<details closed>
+   <summary> SAI Installation Guide</summary>
+
+  16. Open " SAI " 
+  17. Press " Install Apks "
+  18. Press " System File Picker "
+  19. Select all 4 apks That Have Just Been Patched 
+  20. Press " Install "
+  21. Now Follow " SnapEnhance Setup Guide  "
+</details>
 
 <details closed >
   <summary>SnapEnhance Setup Guide</summary>
@@ -72,7 +85,7 @@
 </details>
 
 <details closed>
- <summary> Installation Guide (LSPatch & Shizuku):</summary>
+ <summary>LSPatch + Shizuku</summary>
 
 <details closed> 
    <summary> What's Needed</summary>
@@ -147,7 +160,7 @@
 </details>
 
 <details closed>
-  <summary> Installation Guide (GrapheneOS):</summary>
+  <summary>GrapheneOS</summary>
 
  Please Note:<br/>
  - Tested On The Pixel 5,7  Pro,8<br/>
