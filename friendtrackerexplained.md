@@ -15,7 +15,7 @@ This Example Allows the user to track there friends entering the chat through a 
   10. Tap `+ Add Rule`
   11. Press `Custom Rule` to name the rule 
   12. Set the `scope` to `All Friends/Groups` ( Note: this rule will be for everyone. There for you may get notification spammed ) 
-  13. On the right side from Events Press `+`
+  13. On the right side from `Events` Press `+`
   14. Set The `Type` To `conversation_enter` ( This Might be set by default )
   15. Press the Box next to `PUSH_NOTIFICATION`
   16. Under `Conditions`. Press the box next to `Only when im outside conversation`  ( This means you will get the notification only when your not on that conversation ) 
