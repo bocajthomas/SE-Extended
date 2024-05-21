@@ -3,80 +3,85 @@
 
 **What's New**
 
- - fix: spotlight comments username  
- - feat: ffmpeg hardware acceleration
- - feat: app lock 
- - fix: disable confirmation dialogs 
- - refactor: move instant delete to disable confirmation dialogs 
- - fix: friend feed info menu 
- - fix: friend mutation observer 
- - feat: friend mutation observer 
- - fix: auto open snaps 
- - fix(core): relationship notifier init 
- - feat(core): relationship notifier 
- - feat(core/notifications): friend add source 
- - refactor: emoji strings
- - feat(experimental): custom streaks expiration format
- - feat(experimental): auto open snaps 
- - feat(auto_mark_as_read): snap reply
- - fix(core): dimension ktx
- - fix: suspend location updates switch
- - refactor(core/media_downloader): status toast
- - fix(core/account_switcher): button 
- - fix: client bootstrap override 
- - feat(composer_hooks): opera download button 
- - feat(composer_hooks): show first created username 
- - fix(native/composer_hook): crash 
- - feat(composer_hooks): armv7 support
- - refactor(composer_hooks): module export 
- - fix(native): remap crash 
- - fix(composer_hooks): multi select click handler hook 
- - fix(core/bulk_messaging_action): random delay 
- - feat(experimental): composer hooks 
- - fix(better_location): coordinate range check 
- - fix(media_downloader): friend messages rule 
- - fix: friend mutation observer 
- - feat(message_decoder): memories story share 
- - feat(media_downloader): quoted message support 
- - feat(core/colors): theme picker 
- - fix(core): unsaveable messages 
- - fix(manager/lspatch): duplicate filename 
- - fix(download_processor): better duplicate check 
- - feat(ui): compose color picker 
- - fix(core): e2ee 
- - fix(core/send_override): audio note transcription 
- - fix(download_processor): handle duplicates 
- - feat(notifications_blacklist): speaking 
- - feat(core/colors): camera gridlines 
- - revert: fix custom camera frame rate 
- - feat: unlimited conversation pinning 
- - fix(app/setup): auto skip 
- - perf(scripting): parcel file descriptor 
- - fix(core/unsaveable_message): content type check 
- - perf(native): startup time
- - fix(scripting): optimization level 
- - fix(ffmpeg_processor): custom video codec 
- - fix(bridge): chunked logs 
- - feat(scripting): rhino android 
- - feat(experimental): best friend pinning 
- - fix(composer_hooks): log crash 
- - refactor: colors 
- - fix(native): remap crash 
- - feat(send_override): optional override dialog 
- - feat: Random walking around in spoofed location 
- - fix: amoled Key
- - feat: optimize ffmpeg 
- - feat(core): colors 
- - refactor: remove disable composer modules 
- - fix(core): hide streak restore 
- - feat(core): bulk clean conversations 
- - feat(core): disable custom tabs 
- - feat(bulk_messaging_action): streaks filters 
- - feat: media upload quality override 
- - feat: gif, stickers, replies support 
- - fix(core/export_chat_messages): first message 
- - fix: composer hooks init 
- - fix: streak expiration info 
- - fix: friend relationship changer mapper  
- - refactor(en_US/pending_sending_text_color): fix spell 
- - feat(theme_picker): material you 
+### Changes
+- refactor: move instant delete to disable confirmation dialogs
+- refactor: emoji strings
+- refactor(core/media_downloader): status toast
+- refactor(composer_hooks): module export
+- refactor: colors
+- refactor: remove disable composer modules
+- refactor(en_US/pending_sending_text_color): fix spell
+### Features
+- feat: ffmpeg hardware acceleration
+- feat: app lock
+- feat: friend mutation observer
+- feat(core): relationship notifier
+- feat(core/notifications): friend add source
+- feat(experimental): custom streaks expiration format
+- feat(experimental): auto open snaps
+- feat(auto_mark_as_read): snap reply
+- feat(composer_hooks): opera download button 
+- feat(composer_hooks): show first created username
+- feat(composer_hooks): armv7 support
+- feat(experimental): composer hooks
+- feat(message_decoder): memories story share 
+- feat(media_downloader): quoted message support
+- feat(core/colors): theme picker
+- feat(notifications_blacklist): speaking 
+- feat(core/colors): camera gridlines
+- feat: unlimited conversation pinning
+- feat(scripting): rhino android 
+- feat(experimental): best friend pinning
+- feat(ui): compose color picker
+- feat(scripting): rhino android 
+- feat(experimental): best friend pinning
+- feat(send_override): optional override dialog 
+- feat: Random walking around in spoofed location
+- feat: optimize ffmpeg 
+- feat(core): colors  
+- feat(core): bulk clean conversations 
+- feat(core): disable custom tabs 
+- feat(bulk_messaging_action): streaks filters 
+- feat: media upload quality override 
+- feat: gif, stickers, replies support
+- feat(theme_picker): material you
+### Fixes 
+- fix: spotlight comments username  
+- fix: disable confirmation dialogs  
+- fix: friend feed info menu 
+- fix: friend mutation observer  
+- fix: auto open snaps 
+- fix(core): relationship notifier init   
+- fix(core): dimension ktx
+- fix: suspend location updates switch
+- fix(core/account_switcher): button 
+- fix: client bootstrap override 
+- fix(native/composer_hook): crash 
+- fix(native): remap crash 
+- fix(composer_hooks): multi select click handler hook 
+- fix(core/bulk_messaging_action): random delay
+- fix(better_location): coordinate range check 
+- fix(media_downloader): friend messages rule 
+- fix: friend mutation observer 
+- fix(core): unsaveable messages 
+- fix(manager/lspatch): duplicate filename 
+- fix(download_processor): better duplicate check
+- fix(core): e2ee 
+- fix(core/send_override): audio note transcription 
+- fix(download_processor): handle duplicates   
+- fix(app/setup): auto skip
+- fix(core/unsaveable_message): content type check
+- fix(scripting): optimization level 
+- fix(ffmpeg_processor): custom video codec 
+- fix(bridge): chunked logs 
+- fix(scripting): optimization level 
+- fix(ffmpeg_processor): custom video codec 
+- fix(bridge): chunked logs 
+- fix(composer_hooks): log crash 
+- fix(native): remap crash  
+- fix: amoled Key  
+- fix(core): hide streak restore 
+- fix(core/export_chat_messages): first message 
+- fix: composer hooks init 
+- fix: streak expiration info 
+- fix: friend relationship changer mapper   
