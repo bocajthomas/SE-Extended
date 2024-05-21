@@ -9,9 +9,9 @@ This Example Allows the user to track there friends entering the chat through a 
   4. Toggle on both `Record Messaging Events` & `Allow Running in Background`
   5. Toggle on `Friend Tracker` ( Make Sure You Toggle On Native Hooks Too ) 
   6. On the Home Tab, Press the 3 Dots next to `Quick Actions`
-  7. Press the box next to Friend Tracker
-  8. Tap the Friend Tracker
-  9. Press Rules
+  7. Press the box next to `Friend Tracker`
+  8. Tap the `Friend Tracker`
+  9. Press `Rules`
   10. Tap `+ Add Rule`
   11. Press `Custom Rule` to name the rule 
   12. Set the `scope` to `All Friends/Groups` ( Note: this rule will be for everyone. There for you may get notification spammed ) 
