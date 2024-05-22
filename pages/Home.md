@@ -2,7 +2,7 @@
 SnapEnhance is module that improves your Snapchat experience by using the `Xposed framework`.
 
 ## How does it work?
-Hooks and lots of Xposed magic.
+Snapenhance works by using `LSPosed` (Root), `LSPatch` (Non-Root)
 
 ## What are the different Tabs in SnapEnhance?
 
@@ -14,7 +14,10 @@ SnapEnhance is organized into different tabs to manage various functionalities:
 * **Social:** Manage your friends and groups within the SnapEnhance interface (if applicable).
 
 ## Installation Guides
-Various Installation Guides are provided [here](https://github.com/rhunk/SnapEnhance/wiki/Installation-Guide).
+Various Installation Guides are provided [here](https://github.com/bocajthomas/SnapEnhance/blob/wiki-v2/pages/InstallationGuide.md).
+
+## Changelogs
+You can view all the changes to Snapenhance [here](https://github.com/bocajthomas/SnapEnhance/blob/wiki-v2/pages/Changelogs.md)
 
 ## Features Explained
-More detailed feature explanations are provided [here](https://github.com/rhunk/SnapEnhance/wiki/Features-Explained).
+More detailed feature explanations are provided [here](https://github.com/bocajthomas/SnapEnhance/blob/wiki-v2/pages/FeaturesExplained.md).
