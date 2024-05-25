@@ -1,3 +1,5 @@
+# SnapEnhance-Fork Official Wiki
+
 ## What is SnapEnhance?
 SnapEnhance is module that improves your Snapchat experience by using the `Xposed framework`.
 
