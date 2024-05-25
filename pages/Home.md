@@ -1,4 +1,4 @@
-# SnapEnhance-Fork Official Wiki
+# SnapEnhance(Fork) Official Wiki
 
 ## What is SnapEnhance?
 SnapEnhance is module that improves your Snapchat experience by using the `Xposed framework`.
@@ -10,8 +10,8 @@ Snapenhance works by using `LSPosed` (Root), `LSPatch` (Non-Root)
 
 SnapEnhance is organized into different tabs to manage various functionalities:
 
-* **Home:** This tab provides an overview of SnapEnhance and allows you to manage its settings.
-* **Features:** Here you can enable or disable the various enhancements SnapEnhance offers. (TODO: short list)
+* **Home:** This tab provides an overview of SnapEnhance and allows you to manage its settings. 
+* **Features:** Here you can enable or disable the various enhancements SnapEnhance offers, E.g. `Bypass Screenshot Detection`,`Message Indicators`.
 * **Tasks:** This section helps you manage your downloaded snaps and stories (if the feature is enabled).
 * **Social:** Manage your friends and groups within the SnapEnhance interface (if applicable).
 
