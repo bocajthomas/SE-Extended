@@ -12,5 +12,5 @@
 **4. Can I Message The Developer**
 - Unfortunately No, we all have personal lives, If you have a question message the [Telegram Group](https://t.me/SE_Extended_Chat)
 
-**5. I have a bug / Issue 
+**5. I have a bug / Issue**
 - Open an issue [here](https://github.com/bocajthomas/SE-Extended/issues/new?assignees=&labels=bug&projects=&template=bug_report.yml&title=...)
