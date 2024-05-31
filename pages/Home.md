@@ -20,7 +20,7 @@ SE Extended is organized into different tabs to manage various functionalities:
 Various Installation Guides are provided [here](https://github.com/bocajthomas/SnapEnhance/blob/wiki-v2/pages/InstallationGuide.md).
 
 ## Changelogs
-You can view all the changes to Snapenhance [here](https://github.com/bocajthomas/SnapEnhance/blob/wiki-v2/pages/Changelogs.md)
+You can view all the changes to SE-Extended [here](https://github.com/bocajthomas/SnapEnhance/blob/wiki-v2/pages/Changelogs.md)
 
 ## Features Explained
 More detailed feature explanations are provided [here](https://github.com/bocajthomas/SnapEnhance/blob/wiki-v2/pages/FeaturesExplained.md).
