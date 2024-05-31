@@ -1,19 +1,19 @@
-# SnapEnhance(Fork) Official Wiki
+# SE Extended Official Wiki
 
-## What is SnapEnhance?
-SnapEnhance is module that improves your Snapchat experience by using the `Xposed framework`.
+## What is SE Extended?
+SE Extended is fork from the original SnapEnhance app that improves your Snapchat experience by using the `Xposed framework`.
 
 ## How does it work?
-Snapenhance works by using `LSPosed` (Root), `LSPatch` (Non-Root)
+SE Extended works by using `LSPosed` (Root), `LSPatch` (Non-Root)
 
-## What are the different Tabs in SnapEnhance?
+## What are the different Tabs in SE-Extended?
 
-SnapEnhance is organized into different tabs to manage various functionalities:
+SE Extended is organized into different tabs to manage various functionalities:
 
-* **Home:** This tab provides an overview of SnapEnhance and allows you to manage its settings. 
-* **Features:** Here you can enable or disable the various enhancements SnapEnhance offers, E.g. `Bypass Screenshot Detection`,`Message Indicators`.
+* **Home:** This tab provides an overview of SE Extended and allows you to manage its settings. 
+* **Features:** Here you can enable or disable the various enhancements SE Extended offers, E.g. `Bypass Screenshot Detection`,`Message Indicators`.
 * **Tasks:** This section helps you manage your downloaded snaps and stories (if the feature is enabled).
-* **Social:** Manage your friends and groups within the SnapEnhance interface (if applicable).
+* **Social:** Manage your friends and groups within the SE Extended interface (if applicable).
 * **Scripts:** This tab allows you to manage scripts. (TODO: more info)
 
 ## Installation Guides
@@ -24,3 +24,6 @@ You can view all the changes to Snapenhance [here](https://github.com/bocajthoma
 
 ## Features Explained
 More detailed feature explanations are provided [here](https://github.com/bocajthomas/SnapEnhance/blob/wiki-v2/pages/FeaturesExplained.md).
+
+# FAQ 
+A full list of frequently asked questions are provided [here](https://github.com/bocajthomas/SE-Extended/blob/wiki-v2/pages/faq.md)
