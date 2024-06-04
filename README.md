@@ -1,7 +1,14 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/bocajthomas/SE-Extended/dev/images/logo/SE%20Extended%20Logo.png" height="250" />
 
-# SE Extended 
+# SE Extended
+
+
+English
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-bn.md">Bangla</a>
+
+
 SE Extended is a fork from the [SnapEnhance app](https://github.com/rhunk/SnapEnhance) that uses the Xposed Framework to enhance your Snapchat experience.<br/><br/>
 Please note that this project is currently in development, so bugs and crashes may occur. If you encounter any issues, we encourage you to report them. To do this simply visit our [issues](https://github.com/bocajthomas/SE-Extended/issues/new?assignees=&labels=bug&projects=&template=bug_report.yml&title=...) page and create an issue, make sure to follow the guidelines.
 </div>
