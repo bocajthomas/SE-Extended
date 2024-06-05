@@ -2,12 +2,74 @@
   <img src="https://raw.githubusercontent.com/bocajthomas/SE-Extended/dev/images/logo/SE%20Extended%20Logo.png" height="250" />
 
 # SE Extended
-
-
-English
 &nbsp;&nbsp;| &nbsp;&nbsp;
 <a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-bn.md">Bangla</a>
-
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-da.md">Danish</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-de_DE.md">German (Germany)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-en_UK.md">English (UK)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+English (US)
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-es_ES.md">Spanish (Spain)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-fi.md">Finnish</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-fr_FR.md">French (France)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-gsw.md">Swiss German</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-gu_IN.md">Gujarati (India)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-gwi.md">Gwich'in</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-hi_IN.md">Hindi (lndia)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-hr_HR.md">Croatian (Croatia)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-hu_HU.md">Hungarian (Hungary)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-id.md">Indonesian</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-it_IT.md">Italian (Italy)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-ja_JP.md">Japanese (Japan)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-ko_KR.md">Korean (South Korea)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-la.md">Latin</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-lv_LV.md">Latvian (Latvia)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-ml_IN.md">Malayalam (India)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-nb_NO.md">Norwegian Botmal (Norway)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-nl.md">Dutch</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-pl.md">Polish</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-pt.md">Portuguese</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-ro.md">Romanian</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-ru.md">Russian</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-sl_SI.md">Slovenian (Slovenia)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-sv.md">Swedish</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-swg.md">swg</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-tr_TR.md">Turkish (Türkiye)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-uk_UA.md">Ukrainian (Ukraine)</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-wep.md">wep</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-zh_SIMPLIFIED.md">Chinese (SIMPLIFIED)</a>
 
 SE Extended is a fork from the [SnapEnhance app](https://github.com/rhunk/SnapEnhance) that uses the Xposed Framework to enhance your Snapchat experience.<br/><br/>
 Please note that this project is currently in development, so bugs and crashes may occur. If you encounter any issues, we encourage you to report them. To do this simply visit our [issues](https://github.com/bocajthomas/SE-Extended/issues/new?assignees=&labels=bug&projects=&template=bug_report.yml&title=...) page and create an issue, make sure to follow the guidelines.
