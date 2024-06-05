@@ -11,7 +11,7 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavGraphBuilder
 import me.rhunk.snapenhance.RemoteSideContext
-import me.rhunk.snapenhance.ui.manager.pages.BetterLocationRoot
+import me.rhunk.snapenhance.ui.manager.pages.location.BetterLocationRoot
 import me.rhunk.snapenhance.ui.manager.pages.FileImportsRoot
 import me.rhunk.snapenhance.ui.manager.pages.LoggerHistoryRoot
 import me.rhunk.snapenhance.ui.manager.pages.TasksRootSection

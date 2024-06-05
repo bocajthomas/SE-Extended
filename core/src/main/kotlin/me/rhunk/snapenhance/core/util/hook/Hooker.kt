@@ -2,6 +2,7 @@ package me.rhunk.snapenhance.core.util.hook
 
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedBridge
+import me.rhunk.snapenhance.common.logger.AbstractLogger
 import java.lang.reflect.Member
 import java.lang.reflect.Method
 import java.lang.reflect.Modifier
@@ -14,11 +15,19 @@ object Hooker {
     ): XC_MethodHook {
         return if (stage == HookStage.BEFORE) object : XC_MethodHook() {
             override fun beforeHookedMethod(param: MethodHookParam<*>) {
-                HookAdapter(param).takeIf(filter)?.also(consumer)
+                runCatching {
+                    HookAdapter(param).takeIf(filter)?.also(consumer)
+                }.onFailure {
+                    AbstractLogger.directError("Failed to execute before hook", it)
+                }
             }
         } else object : XC_MethodHook() {
             override fun afterHookedMethod(param: MethodHookParam<*>) {
-                HookAdapter(param).takeIf(filter)?.also(consumer)
+                runCatching {
+                    HookAdapter(param).takeIf(filter)?.also(consumer)
+                }.onFailure {
+                    AbstractLogger.directError("Failed to execute after hook", it)
+                }
             }
         }
     }

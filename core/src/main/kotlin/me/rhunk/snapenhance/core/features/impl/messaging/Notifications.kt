@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.os.Build
 import android.os.Bundle
 import android.os.UserHandle
 import de.robv.android.xposed.XposedBridge
@@ -139,6 +140,9 @@ class Notifications : Feature("Notifications", loadParams = FeatureLoadParams.IN
                 .setLabel(translations["button.reply"])
                 .build()
             it.addRemoteInput(chatReplyInput)
+            if (config.smartReplies.get()) {
+                it.setAllowGeneratedReplies(true)
+            }
         }
 
         newAction(translations["button.download"], ACTION_DOWNLOAD, {
@@ -298,7 +302,15 @@ class Notifications : Feature("Notifications", loadParams = FeatureLoadParams.IN
             }
         }
 
-        notificationData.copy(id = notificationId).also {
+        val builder = newNotificationBuilder(notificationData.notification).apply {
+            setGroup(SNAPCHAT_NOTIFICATION_GROUP)
+            setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && config.smartReplies.get()) {
+                setAllowSystemGeneratedContextualActions(true)
+            }
+        }
+
+        notificationData.copy(id = notificationId, notification = builder.build()).also {
             setupNotificationActionButtons(message.messageContent!!.contentType!!, conversationId, message, it)
         }.send()
     }
@@ -354,7 +366,6 @@ class Notifications : Feature("Notifications", loadParams = FeatureLoadParams.IN
                             setLargeIcon(bitmapPreview)
                             style = Notification.BigPictureStyle().bigPicture(bitmapPreview).bigLargeIcon(null as Bitmap?)
                         }
-
                         if (config.mediaCaption.get()) {
                             message.serialize()?.let {
                                 notificationBuilder.setContentText(it)

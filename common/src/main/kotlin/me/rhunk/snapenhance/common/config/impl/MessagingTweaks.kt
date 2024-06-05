@@ -45,6 +45,7 @@ class MessagingTweaks : ConfigContainer() {
         val stackedMediaMessages = boolean("stacked_media_messages")
         val friendAddSource = boolean("friend_add_source")
         val replyButton = boolean("reply_button") { addNotices(FeatureNotice.UNSTABLE) }
+        val smartReplies = boolean("smart_replies")
         val downloadButton = boolean("download_button")
         val markAsReadButton = boolean("mark_as_read_button") { addNotices(FeatureNotice.UNSTABLE) }
         val markAsReadAndSaveInChat = boolean("mark_as_read_and_save_in_chat") { addNotices(FeatureNotice.UNSTABLE) }

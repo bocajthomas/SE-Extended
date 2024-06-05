@@ -30,7 +30,6 @@ enum class InternalFileHandleType(
     CONFIG("config", "config.json"),
     MAPPINGS("mappings", "mappings.json"),
     MESSAGE_LOGGER("message_logger", "message_logger.db", isDatabase = true),
-    SUSPEND_LOCATION_STATE("suspend_location_state", "suspend_location_state.txt"),
     PINNED_BEST_FRIEND("pinned_best_friend", "pinned_best_friend.txt");
 
 

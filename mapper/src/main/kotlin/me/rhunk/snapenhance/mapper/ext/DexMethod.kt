@@ -6,13 +6,16 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
-fun MethodImplementation.findConstString(string: String, contains: Boolean = false): Boolean = instructions.filterIsInstance(Instruction21c::class.java).any {
+fun MethodImplementation.findConstString(
+    string: String,
+    contains: Boolean = false,
+    startsWith: Boolean = false,
+    ignoreCase: Boolean = false
+): Boolean = instructions.filterIsInstance<Instruction21c>().any {
      (it.reference as? StringReference)?.string?.let { str ->
-        if (contains) {
-            str.contains(string)
-        } else {
-            str == string
-        }
+        if (contains && str.contains(string, ignoreCase = ignoreCase)) return@any true
+        if (startsWith && str.startsWith(string, ignoreCase = ignoreCase)) return@any true
+        str == string
     } == true
 }
 

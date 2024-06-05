@@ -73,6 +73,7 @@
             },
             "tasks": {
                 "no_tasks": "No tasks",
+                "failed_to_open_file": "Failed to open file",
                 "merge_files_toast": "Merging {count} files",
                 "remove_selected_tasks_title": "Are you sure you want to remove selected tasks?",
                 "remove_all_tasks_title": "Are you sure you want to remove all tasks?",
@@ -149,13 +150,16 @@
                 "no_files_hint": "Here you can import files for use in Snapchat. Press the button below to import a file."
             },
             "better_location": {
-                "spoofed_coordinates_title": "Spoofed Coordinates\nLat {latitude}, Lng {longitude}",
+                "spoofed_coordinates_title": "Lat {latitude}, Lng {longitude}",
                 "save_coordinates_dialog_title": "Save Coordinates",
                 "saved_name_dialog_hint": "Saved Name",
+                "latitude_dialog_hint": "Latitude",
+                "longitude_dialog_hint": "Longitude",
                 "save_dialog_button": "Save",
                 "choose_location_button": "Choose Location",
                 "teleport_to_friend_button": "Teleport to Friend",
                 "spoof_location_toggle": "Spoof Location",
+                "suspend_location_updates": "Suspend Location Updates",
                 "saved_coordinates_title": "Saved Coordinates",
                 "no_saved_coordinates_hint": "No saved coordinates",
                 "delete_dialog_title": "Delete Saved Coordinate",
@@ -683,6 +687,10 @@
                                 "name": "Reply Button",
                                 "description": "Adds a reply button to the notification"
                             },
+                            "smart_replies": {
+                                "name": "Smart Replies",
+                                "description": "Adds suggested replies to notifications (Android 10+). Use in combination with Reply Button"
+                            },
                             "download_button": {
                                 "name": "Download Button",
                                 "description": "Allows you to download media from the notification"
@@ -771,7 +779,7 @@
                             },
                             "suspend_location_updates": {
                                 "name": "Suspend Location Updates",
-                                "description": "Adds a button in map settings to suspend location updates"
+                                "description": "Prevents your location from being updated"
                             },
                             "spoof_battery_level": {
                                 "name": "Spoof Battery Level",
@@ -1042,6 +1050,10 @@
                     "edit_message": {
                         "name": "Edit Messages",
                         "description": "Allows you to edit messages in conversations"
+                    },
+                    "context_menu_fix": {
+                        "name": "Context Menu Fix",
+                        "description": "Attempt to repair the Friend Feed Menu as when the device is offline it cannot be displayed correctly"
                     },
                     "app_lock": {
                         "name": "App Lock",
@@ -1613,9 +1625,6 @@
         "bitmoji_scene_changed": "{username} has changed their Bitmoji scene"
     },
 
-    "suspend_location_updates": {
-        "switch_text": "Suspend Location Updates"
-    },
     "material3_strings": {
         "date_range_picker_start_headline": "From",
         "date_range_picker_end_headline": "To",

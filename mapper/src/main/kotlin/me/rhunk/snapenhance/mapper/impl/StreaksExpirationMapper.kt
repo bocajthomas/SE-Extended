@@ -21,7 +21,7 @@ class StreaksExpirationMapper: AbstractClassMapper("StreaksExpirationMapper") {
             var streaksResultClass: String? = null
             for (clazz in classes) {
                 val toStringMethod = clazz.methods.firstOrNull { it.name == "toString" } ?: continue
-                if (toStringMethod.implementation?.findConstString("StreaksResult(", contains = true) != true) continue
+                if (toStringMethod.implementation?.findConstString("StreaksResult(", startsWith = true) != true) continue
                 streaksResultClass = clazz.type
                 break
             }

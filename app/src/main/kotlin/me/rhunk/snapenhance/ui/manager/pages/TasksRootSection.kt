@@ -1,26 +1,35 @@
 package me.rhunk.snapenhance.ui.manager.pages
 
- import android.content.Intent
+import android.content.Intent
+import android.graphics.drawable.ColorDrawable
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.OpenInNew
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.documentfile.provider.DocumentFile
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavBackStackEntry
+import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -32,13 +41,10 @@ import me.rhunk.snapenhance.common.ui.rememberAsyncMutableState
 import me.rhunk.snapenhance.common.util.ktx.longHashCode
 import me.rhunk.snapenhance.download.DownloadProcessor
 import me.rhunk.snapenhance.download.FFMpegProcessor
-import me.rhunk.snapenhance.task.PendingTask
-import me.rhunk.snapenhance.task.PendingTaskListener
-import me.rhunk.snapenhance.task.Task
-import me.rhunk.snapenhance.task.TaskStatus
-import me.rhunk.snapenhance.task.TaskType
+import me.rhunk.snapenhance.task.*
 import me.rhunk.snapenhance.ui.manager.Routes
 import me.rhunk.snapenhance.ui.util.OnLifecycleEvent
+import me.rhunk.snapenhance.ui.util.coil.cacheKey
 import java.io.File
 import java.util.UUID
 import kotlin.math.absoluteValue
@@ -137,29 +143,6 @@ class TasksRootSection : Routes.Route() {
     override val topBarActions: @Composable (RowScope.() -> Unit) = {
         var showConfirmDialog by remember { mutableStateOf(false) }
         val coroutineScope = rememberCoroutineScope()
-
-        if (taskSelection.size == 1) {
-            val selectionExists by rememberAsyncMutableState(defaultValue = false) {
-                taskSelection.firstOrNull()?.second?.exists() == true
-            }
-            if (selectionExists) {
-                taskSelection.firstOrNull()?.second?.let { documentFile ->
-                    IconButton(onClick = {
-                        runCatching {
-                            context.androidContext.startActivity(Intent(Intent.ACTION_VIEW).apply {
-                                setDataAndType(documentFile.uri, documentFile.type)
-                                flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_ACTIVITY_NEW_TASK
-                            })
-                            taskSelection.clear()
-                        }.onFailure {
-                            context.log.error("Failed to open file ${taskSelection.first().second}", it)
-                        }
-                    }) {
-                        Icon(Icons.AutoMirrored.Filled.OpenInNew, contentDescription = "Open")
-                    }
-                }
-            }
-        }
 
         if (taskSelection.size > 1) {
             val canMergeSelection by rememberAsyncMutableState(defaultValue = false, keys = arrayOf(taskSelection.size)) {
@@ -305,13 +288,45 @@ class TasksRootSection : Routes.Route() {
             }
         }
 
+        fun toggleSelection() {
+            if (isSelected) {
+                taskSelection.removeIf { it.first == task }
+                return
+            }
+            taskSelection.add(task to documentFile)
+        }
+
+        fun openFile() {
+            if (!isDocumentFileReadable || documentFile == null) return
+            runCatching {
+                context.androidContext.startActivity(Intent(Intent.ACTION_VIEW).apply {
+                    setDataAndType(documentFile!!.uri, documentFile!!.type)
+                    flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_ACTIVITY_NEW_TASK
+                })
+            }.onFailure {
+                context.log.error("Failed to open file ${documentFile?.uri}", it)
+                context.shortToast(translation["failed_to_open_file"])
+            }
+        }
+
         OutlinedCard(modifier = modifier
-            .clickable {
-                if (isSelected) {
-                    taskSelection.removeIf { it.first == task }
-                    return@clickable
-                }
-                taskSelection.add(task to documentFile)
+            .pointerInput(Unit) {
+                detectTapGestures(
+                    onTap = {
+                        if (taskSelection.size > 0) {
+                            toggleSelection()
+                            return@detectTapGestures
+                        }
+                        openFile()
+                    },
+                    onLongPress = {
+                        if (taskSelection.size > 0) {
+                            openFile()
+                            return@detectTapGestures
+                        }
+                        toggleSelection()
+                    }
+                )
             }
             .let {
                 if (isSelected) {
@@ -319,21 +334,46 @@ class TasksRootSection : Routes.Route() {
                         .border(2.dp, MaterialTheme.colorScheme.primary)
                         .clip(MaterialTheme.shapes.medium)
                 } else it
-            }) {
+            }
+        ) {
             Row(
-                modifier = Modifier.padding(15.dp),
+                modifier = Modifier.padding(12.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Column(
-                    modifier = Modifier.padding(end = 15.dp)
+                Box(
+                    modifier = Modifier
+                        .padding(end = 15.dp)
+                        .size(50.dp)
+                        .clipToBounds(),
+                    contentAlignment = Alignment.Center
                 ) {
+                    var loadFailed by remember { mutableStateOf(false) }
                     documentFile?.let {
-                        when {
-                            !isDocumentFileReadable -> Icon(Icons.Filled.DeleteOutline, contentDescription = "File not found")
-                            documentFileMimeType.contains("image") -> Icon(Icons.Filled.Image, contentDescription = "Image")
-                            documentFileMimeType.contains("video") -> Icon(Icons.Filled.Videocam, contentDescription = "Video")
-                            documentFileMimeType.contains("audio") -> Icon(Icons.Filled.MusicNote, contentDescription = "Audio")
-                            else -> Icon(Icons.Filled.FileCopy, contentDescription = "File")
+                        if (taskStatus.isFinalStage() && isDocumentFileReadable && !loadFailed && (documentFileMimeType.contains("image") || documentFileMimeType.contains("video"))) {
+                            Image(
+                                painter = rememberAsyncImagePainter(
+                                    model = ImageRequest.Builder(context.androidContext)
+                                        .data(it.uri)
+                                        .cacheKey(it.uri.toString())
+                                        .placeholder(ColorDrawable(MaterialTheme.colorScheme.surfaceVariant.toArgb()))
+                                        .build(),
+                                    imageLoader = context.imageLoader,
+                                    onError = { loadFailed = true }
+                                ),
+                                contentDescription = null,
+                                contentScale = ContentScale.FillWidth,
+                                modifier = Modifier
+                                    .size(50.dp)
+                                    .clip(MaterialTheme.shapes.medium)
+                            )
+                        } else {
+                            when {
+                                !isDocumentFileReadable -> Icon(Icons.Filled.DeleteOutline, contentDescription = "File not found")
+                                documentFileMimeType.contains("image") -> Icon(Icons.Filled.Image, contentDescription = "Image")
+                                documentFileMimeType.contains("video") -> Icon(Icons.Filled.Videocam, contentDescription = "Video")
+                                documentFileMimeType.contains("audio") -> Icon(Icons.Filled.MusicNote, contentDescription = "Audio")
+                                else -> Icon(Icons.Filled.FileCopy, contentDescription = "File")
+                            }
                         }
                     } ?: run {
                         when (task.type) {
@@ -409,12 +449,12 @@ class TasksRootSection : Routes.Route() {
     override val content: @Composable (NavBackStackEntry) -> Unit = {
         val scrollState = rememberLazyListState()
         val scope = rememberCoroutineScope()
-        recentTasks = remember { mutableStateListOf() }
-        var lastFetchedTaskId: Long? by remember { mutableStateOf(null) }
+        recentTasks = rememberSaveable { mutableStateListOf() }
+        var lastFetchedTaskId: Long? by rememberSaveable { mutableStateOf(null) }
 
         fun fetchNewRecentTasks() {
             scope.launch(Dispatchers.IO) {
-                val tasks = context.taskManager.fetchStoredTasks(lastFetchedTaskId ?: Long.MAX_VALUE)
+                val tasks = context.taskManager.fetchStoredTasks(lastFetchedTaskId ?: Long.MAX_VALUE, limit = 20)
                 if (tasks.isNotEmpty()) {
                     lastFetchedTaskId = tasks.keys.last()
                     val activeTaskIds = activeTasks.map { it.taskId }
@@ -464,7 +504,7 @@ class TasksRootSection : Routes.Route() {
                 TaskCard(modifier = Modifier.padding(8.dp), task)
             }
             item {
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(40.dp))
                 LaunchedEffect(remember { derivedStateOf { scrollState.firstVisibleItemIndex } }) {
                     fetchNewRecentTasks()
                 }

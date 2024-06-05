@@ -1,25 +1,27 @@
-package me.rhunk.snapenhance.ui.manager.pages
+package me.rhunk.snapenhance.ui.manager.pages.location
 
-import androidx.compose.foundation.clickable
+import android.os.Parcel
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.DeleteOutline
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
-import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavBackStackEntry
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import me.rhunk.snapenhance.bridge.location.FriendLocation
 import me.rhunk.snapenhance.bridge.location.LocationCoordinates
 import me.rhunk.snapenhance.common.ui.rememberAsyncMutableStateList
@@ -167,10 +169,9 @@ class BetterLocationRoot : Routes.Route() {
         val mapView = remember { mutableStateOf<MapView?>(null) }
         var spoofedCoordinates by remember(showTeleportDialog, showMap) { mutableStateOf(coordinatesProperty.value.get() as? Pair<*, *>) }
 
-        fun addSavedCoordinate(id: Int?, locationCoordinates: LocationCoordinates) {
+        fun addSavedCoordinate(id: Int?, locationCoordinates: LocationCoordinates, onSuccess: suspend (id: Int) -> Unit = {}) {
             context.coroutineScope.launch {
-                context.database.addOrUpdateLocationCoordinate(id, locationCoordinates)
-                updateDispatcher.dispatch()
+                onSuccess(context.database.addOrUpdateLocationCoordinate(id, locationCoordinates))
             }
         }
 
@@ -199,53 +200,30 @@ class BetterLocationRoot : Routes.Route() {
                     "latitude" to ((spoofedCoordinates?.first as? Double)?.toFloat() ?: "0.0").toString(),
                     "longitude" to ((spoofedCoordinates?.second as? Double)?.toFloat() ?: "0.0").toString()
                 ),
-                fontSize = 20.sp,
+                fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(12.dp)
+                    .padding(8.dp)
             )
 
             if (addSavedCoordinateDialog) {
-                var savedName by remember { mutableStateOf("") }
                 me.rhunk.snapenhance.ui.util.Dialog(
                     onDismissRequest = { addSavedCoordinateDialog = false },
                     content = {
-                        alertDialogs.DefaultDialogCard {
-                            val focusRequester = remember { FocusRequester() }
-                            Column(
-                                modifier = Modifier.padding(8.dp),
-                                verticalArrangement = Arrangement.spacedBy(8.dp)
-                            ) {
-                                Text(translation["save_coordinates_dialog_title"], fontSize = 20.sp, fontWeight = FontWeight.Bold)
-                                OutlinedTextField(
-                                    modifier = Modifier
-                                        .focusRequester(focusRequester)
-                                        .onGloballyPositioned {
-                                            focusRequester.requestFocus()
-                                        },
-                                    value = savedName,
-                                    onValueChange = { savedName = it },
-                                    label = { Text(translation["saved_name_dialog_hint"]) }
-                                )
-                                Row(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    horizontalArrangement = Arrangement.End
-                                ) {
-                                    Button(
-                                        onClick = {
-                                            addSavedCoordinateDialog = false
-                                            addSavedCoordinate(null, LocationCoordinates().apply {
-                                                this.name = savedName
-                                                this.latitude = marker.value?.position?.latitude as Double
-                                                this.longitude = marker.value?.position?.longitude as Double
-                                            })
-                                        },
-                                        enabled = savedName.isNotBlank()
-                                    ) {
-                                        Text(translation["save_dialog_button"])
-                                    }
+                        AddCoordinatesDialog(
+                            alertDialogs,
+                            translation,
+                            LocationCoordinates().apply {
+                                this.latitude = marker.value?.position?.latitude ?: 0.0
+                                this.longitude = marker.value?.position?.longitude ?: 0.0
+                            },
+                        ) { coordinates ->
+                            addSavedCoordinateDialog = false
+                            addSavedCoordinate(null, coordinates) {
+                                withContext(Dispatchers.Main) {
+                                    savedCoordinates.add(0, coordinates.apply { id = it })
                                 }
                             }
                         }
@@ -263,6 +241,11 @@ class BetterLocationRoot : Routes.Route() {
                             showMap = false
                             context.config.writeConfig()
                         }
+                        DisposableEffect(Unit) {
+                            onDispose {
+                                marker.value = null
+                            }
+                        }
                     }
                 )
             }
@@ -272,11 +255,47 @@ class BetterLocationRoot : Routes.Route() {
                     .fillMaxSize()
                     .clipToBounds()
             ) {
+
+                item {
+                    @Composable
+                    fun ConfigToggle(
+                        text: String,
+                        state: MutableState<Boolean>,
+                        onCheckedChange: (Boolean) -> Unit
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(start = 16.dp, end = 16.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(text = text)
+                            Spacer(modifier = Modifier.weight(1f))
+                            Switch(
+                                checked = state.value,
+                                onCheckedChange = {
+                                    state.value = it
+                                    onCheckedChange(it)
+                                }
+                            )
+                        }
+                    }
+                    ConfigToggle(
+                        translation["spoof_location_toggle"],
+                        remember { mutableStateOf(context.config.root.global.betterLocation.spoofLocation.get()) }
+                    ) {
+                        context.config.root.global.betterLocation.spoofLocation.set(it)
+                    }
+                    ConfigToggle(
+                        translation["suspend_location_updates"],
+                        remember { mutableStateOf(context.config.root.global.betterLocation.suspendLocationUpdates.get()) }
+                    ) {
+                        context.config.root.global.betterLocation.suspendLocationUpdates.set(it)
+                    }
+                }
                 item {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(16.dp),
+                            .padding(8.dp),
                         horizontalArrangement = Arrangement.SpaceEvenly,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
@@ -290,28 +309,26 @@ class BetterLocationRoot : Routes.Route() {
                 }
                 item {
                     Row(
-                        modifier = Modifier.padding(16.dp),
-                        verticalAlignment = Alignment.CenterVertically
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 12.dp, end = 12.dp),
+                        verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        Text(text = translation["spoof_location_toggle"])
-                        Spacer(modifier = Modifier.weight(1f))
-                        var isSpoofing by remember { mutableStateOf(context.config.root.global.betterLocation.spoofLocation.get()) }
-                        Switch(
-                            checked = isSpoofing,
-                            onCheckedChange = {
-                                isSpoofing = it
-                                context.config.root.global.betterLocation.spoofLocation.set(it)
-                            }
+                        Text(
+                            translation["saved_coordinates_title"],
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.weight(1f),
+                            lineHeight = 20.sp
                         )
+                        IconButton(
+                            onClick = {
+                                addSavedCoordinateDialog = true
+                            }
+                        ) {
+                            Icon(Icons.Default.Add, contentDescription = "Add")
+                        }
                     }
-                }
-                item {
-                    Text(
-                        translation["saved_coordinates_title"],
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(start = 16.dp)
-                    )
                 }
                 item {
                     if (savedCoordinates.isEmpty()) {
@@ -323,8 +340,19 @@ class BetterLocationRoot : Routes.Route() {
                         )
                     }
                 }
-                items(savedCoordinates) { coordinates ->
+                items(savedCoordinates, key = { it.id }) { coordinates ->
+                    var mutableCoordinates by remember { mutableStateOf(coordinates) }
+                    val isSelected = spoofedCoordinates == mutableCoordinates.latitude to mutableCoordinates.longitude
                     var showDeleteDialog by remember { mutableStateOf(false) }
+                    var showEditDialog by remember { mutableStateOf(false) }
+
+                    fun setSpoofedCoordinates() {
+                        spoofedCoordinates = mutableCoordinates.latitude to mutableCoordinates.longitude
+                        coordinatesProperty.value.setAny(spoofedCoordinates)
+                        context.coroutineScope.launch {
+                            context.config.writeConfig()
+                        }
+                    }
 
                     if (showDeleteDialog) {
                         me.rhunk.snapenhance.ui.util.Dialog(
@@ -337,7 +365,7 @@ class BetterLocationRoot : Routes.Route() {
                                         showDeleteDialog = false
                                         context.coroutineScope.launch {
                                             context.database.removeLocationCoordinate(coordinates.id)
-                                            updateDispatcher.dispatch()
+                                            savedCoordinates.remove(coordinates)
                                         }
                                     },
                                     onDismiss = { showDeleteDialog = false }
@@ -346,39 +374,87 @@ class BetterLocationRoot : Routes.Route() {
                         )
                     }
 
-                    Row(
+                    if (showEditDialog) {
+                        me.rhunk.snapenhance.ui.util.Dialog(
+                            onDismissRequest = { showEditDialog = false },
+                            content = {
+                                AddCoordinatesDialog(
+                                    alertDialogs,
+                                    translation,
+                                    mutableCoordinates
+                                ) {
+                                    val itemId = coordinates.id
+                                    context.coroutineScope.launch {
+                                        addSavedCoordinate(itemId, it)
+                                    }
+                                    Parcel.obtain().apply {
+                                        it.writeToParcel(this, 0)
+                                        setDataPosition(0)
+                                        coordinates.readFromParcel(this)
+                                        coordinates.id = itemId
+                                        recycle()
+                                    }
+                                    mutableCoordinates = it
+                                    if (isSelected) setSpoofedCoordinates()
+                                    showEditDialog = false
+                                }
+                            }
+                        )
+                    }
+
+                    ElevatedCard(
+                        onClick = {
+                            mutableCoordinates = coordinates
+                            setSpoofedCoordinates()
+                            GeoPoint(coordinates.latitude, coordinates.longitude).also {
+                                marker.value?.position = it
+                                mapView.value?.controller?.apply {
+                                    animateTo(it)
+                                    setZoom(16.0)
+                                }
+                            }
+                        },
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 16.dp, end = 16.dp),
-                        verticalAlignment = Alignment.CenterVertically
+                            .padding(5.dp),
                     ) {
-                        Text(
-                            text = "${coordinates.name} (${coordinates.latitude.toFloat()}, ${coordinates.longitude.toFloat()})",
-                            fontWeight = if (spoofedCoordinates == coordinates.latitude to coordinates.longitude) FontWeight.Bold else FontWeight.Light,
+                        Row(
                             modifier = Modifier
-                                .padding(8.dp)
-                                .weight(1f)
-                                .clickable {
-                                    spoofedCoordinates =
-                                        coordinates.latitude to coordinates.longitude
-                                    coordinatesProperty.value.setAny(spoofedCoordinates)
-                                    context.coroutineScope.launch {
-                                        context.config.writeConfig()
-                                    }
-                                    GeoPoint(coordinates.latitude, coordinates.longitude).also {
-                                        marker.value?.position = it
-                                        mapView.value?.controller?.apply {
-                                            animateTo(it)
-                                            setZoom(16.0)
-                                        }
-                                    }
-                                },
-                            fontSize = 16.sp
-                        )
-                        FilledIconButton(onClick = {
-                            showDeleteDialog = true
-                        }) {
-                            Icon(Icons.Default.DeleteOutline, contentDescription = "Delete")
+                                .fillMaxWidth()
+                                .padding(4.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Column(
+                                modifier = Modifier
+                                    .padding(2.dp)
+                                    .weight(1f)
+                            ) {
+                                Text(
+                                    text = remember(mutableCoordinates) { mutableCoordinates.name },
+                                    fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Light,
+                                    fontSize = 16.sp,
+                                    lineHeight = 20.sp,
+                                    overflow = TextOverflow.Ellipsis
+                                )
+                                Text(
+                                    text = remember(mutableCoordinates) { "(${mutableCoordinates.latitude.toFloat()}, ${mutableCoordinates.longitude.toFloat()})" },
+                                    fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Light,
+                                    fontSize = 12.sp,
+                                    lineHeight = 15.sp,
+                                    overflow = TextOverflow.Ellipsis
+                                )
+                            }
+                            FilledIconButton(onClick = {
+                                showEditDialog = true
+                            }) {
+                                Icon(Icons.Default.Edit, contentDescription = "Delete")
+                            }
+                            Spacer(modifier = Modifier.width(4.dp))
+                            FilledIconButton(onClick = {
+                                showDeleteDialog = true
+                            }) {
+                                Icon(Icons.Default.DeleteOutline, contentDescription = "Delete")
+                            }
                         }
                     }
                 }

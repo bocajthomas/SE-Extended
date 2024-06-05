@@ -107,7 +107,6 @@ class FeatureManager(
             MessageIndicators(),
             EditTextOverride(),
             PreventForcedLogout(),
-            SuspendLocationUpdates(),
             ConversationToolbox(),
             SpotlightCommentsUsername(),
             OperaViewerParamsOverride(),
@@ -129,6 +128,7 @@ class FeatureManager(
             ComposerHooks(),
             DisableCustomTabs(),
             BestFriendPinning(),
+            ContextMenuFix(),
         )
         initializeFeatures()
     }
