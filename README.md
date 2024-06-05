@@ -61,13 +61,13 @@ English (US)
 &nbsp;&nbsp;| &nbsp;&nbsp;
 <a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-sv.md">Swedish</a>
 &nbsp;&nbsp;| &nbsp;&nbsp;
-<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-swg.md">swg</a>
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-swg.md">Swg</a>
 &nbsp;&nbsp;| &nbsp;&nbsp;
 <a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-tr_TR.md">Turkish (Türkiye)</a>
 &nbsp;&nbsp;| &nbsp;&nbsp;
 <a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-uk_UA.md">Ukrainian (Ukraine)</a>
 &nbsp;&nbsp;| &nbsp;&nbsp;
-<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-wep.md">wep</a>
+<a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-wep.md">Wep</a>
 &nbsp;&nbsp;| &nbsp;&nbsp;
 <a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-zh_SIMPLIFIED.md">Chinese (SIMPLIFIED)</a>
 
