@@ -70,11 +70,11 @@ Bangla
 &nbsp;&nbsp;| &nbsp;&nbsp;
 <a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-zh_SIMPLIFIED.md">Chinese (SIMPLIFIED)</a>
 
-SE Extended is a fork from the [SnapEnhance app](https://github.com/rhunk/SnapEnhance) that uses the Xposed Framework to enhance your Snapchat experience.<br/><br/>
-Please note that this project is currently in development, so bugs and crashes may occur. If you encounter any issues, we encourage you to report them. To do this simply visit our [issues](https://github.com/bocajthomas/SE-Extended/issues/new?assignees=&labels=bug&projects=&template=bug_report.yml&title=...) page and create an issue, make sure to follow the guidelines.
+SE Extended থেকে একটি কাঁটাচামচ হয় [SnapEnhance app](https://github.com/rhunk/SnapEnhance) যেটি আপনার Snapchat অভিজ্ঞতা উন্নত করতে Xposed Framework ব্যবহার করে|<br/><br/>
+দয়া করে নোট করুন যে এই প্রকল্পটি বর্তমানে উন্নয়নের মধ্যে রয়েছে, তাই বাগ এবং ক্র্যাশ ঘটতে পারে. আপনি কোন সমস্যার সম্মুখীন হলে, আমরা আপনাকে তাদের রিপোর্ট করতে উত্সাহিত করি. এটি করতে কেবল আমাদের পরিদর্শন করুন [issues](https://github.com/bocajthomas/SE-Extended/issues/new?assignees=&labels=bug&projects=&template=bug_report.yml&title=...) পৃষ্ঠা এবং একটি সমস্যা তৈরি করুন, নির্দেশিকা অনুসরণ নিশ্চিত করুন.
 </div>
 
-## 📱 Screenshots
+## 📱 স্ক্রিনশট
 <div align="center">
 <div>
 <img src="https://github.com/bocajthomas/SE-Extended/blob/dev/images/screenshots/Screenshot-1.jpg" width="30%" />
@@ -86,24 +86,24 @@ Please note that this project is currently in development, so bugs and crashes m
 </div>
 </div>
 
-## 📖 Main Features
+## 📖 প্রধান বৈশিষ্ট্য
 <details closed>
-  <summary>⬇️ Media Downloader</summary>
+  <summary>⬇️ মিডিয়া ডাউনলোডার</summary>
   
-  - `Save Folder`
-  - `Auto Download Sources`
-  - `Prevent Self Auto Download`
-  - `Path Format`
-  - `Allow Duplicate`
-  - `Merge Overlays`
-  - `Force Image Format`
-  - `Force Voice Note Format`
-  - `Download Profile Pictures`
-  - `Opera Download Button`
-  - `Download Context Menu`
-  - `FFmpeg Options`
-  - `Logging`
-  - `Custom Path Format` 
+  - `ফোল্ডার সংরক্ষণ করুন`
+  - `স্বয়ংক্রিয় ডাউনলোড উত্স`
+  - `স্বয়ংক্রিয় ডাউনলোড প্রতিরোধ করুন`
+  - `পথ বিন্যাস`
+  - `ডুপ্লিকেট অনুমতি দিন`
+  - `ওভারলে মার্জ করুন`
+  - `ফোর্স ইমেজ ফরম্যাট`
+  - `ফোর্স ভয়েস নোট ফরম্যাট`
+  - `প্রোফাইল ছবি ডাউনলোড করুন`
+  - `অপেরা ডাউনলোড বোতাম`
+  - `প্রসঙ্গ মেনু ডাউনলোড করুন`
+  - `FFmpeg বিকল্প`
+  - `লগিং`
+  - `কাস্টম পাথ বিন্যাস` 
 </details>
 
 <details closed>
