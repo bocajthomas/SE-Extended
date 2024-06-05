@@ -2,7 +2,6 @@
   <img src="https://raw.githubusercontent.com/bocajthomas/SE-Extended/dev/images/logo/SE%20Extended%20Logo.png" height="250" />
 
 # SE Extended
-&nbsp;&nbsp;| &nbsp;&nbsp;
 <a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-bn.md">Bangla</a>
 &nbsp;&nbsp;| &nbsp;&nbsp;
 <a href="https://github.com/bocajthomas/SE-Extended/blob/read_me/readme_lan/README-da.md">Danish</a>
