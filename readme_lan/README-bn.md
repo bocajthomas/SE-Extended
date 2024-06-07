@@ -121,22 +121,22 @@ SE Extended থেকে একটি কাঁটাচামচ হয় [Sna
   - `স্ট্রিক পুনরুদ্ধার লুকান`
   - `ফ্রেন্ড ফিডে কুইক অ্যাড লুকান`
   - `গল্প বিভাগ লুকান` 
-  - `UI উপাদান লুকান` (Voice Record button, Call Buttons, Etc)
-  - `Opera Media Quick Info`
-  - `Old Bitmoji Selfie` 
-  - `Disable Spotlight` 
-  - `Hide Settings Gear`
-  - `Vertical Story Viewer` 
-  - `Message Indicators` 
-  - `Stealth Mode Indicator` 
-  - `Edit Text Override`
+  - `UI উপাদান লুকান` (ভয়েস রেকর্ড বোতাম, কল বোতাম, ইত্যাদি)
+  - `অপেরা মিডিয়া দ্রুত তথ্য`
+  - `পুরানো বিটমোজি সেলফি` 
+  - `স্পটলাইট অক্ষম করুন` 
+  - `সেটিংস গিয়ার লুকান`
+  - `উল্লম্ব গল্প দর্শক` 
+  - `বার্তা সূচক` 
+  - `স্টিলথ মোড নির্দেশক` 
+  - `টেক্সট ওভাররাইড সম্পাদনা করুন`
 </details>  
 
 <details closed>
-  <summary>💬 Messaging</summary>
+  <summary>💬 মেসেজিং</summary>
   
-  - `Bypass Screenshot Detection` 
-  - `Anonymous Story Viewing`
+  - `বাইপাস স্ক্রিনশট সনাক্তকরণ` 
+  - `বেনামী গল্প দেখা`
   - `Prevent Story Rewatch Indicator`
   - `Hide Peek-a-Peek`
   - `Hide Bitmoji Presence` 
