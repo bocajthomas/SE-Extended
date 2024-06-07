@@ -107,21 +107,21 @@ SE Extended থেকে একটি কাঁটাচামচ হয় [Sna
 </details>
 
 <details closed>
-  <summary>📲 User Interface</summary>
+  <summary>📲 ব্যবহারকারী ইন্টারফেস</summary>
   
-  - `Friend Feed Menu Buttons` 
-  - `Colors` (Theme Picker & Custom Colors)
-  - `Friend Feed Message Preview` 
-  - `Snap Preview`
-  - `Bootstrap Override` (Default Home Tab & Persistent App Appearance)
-  - `Enhance Friend Map Nametags`
-  - `Prevent Message List Auto Scroll`
-  - `Show Streak Expiration Info`
-  - `Hide Friend Feed Entry`
-  - `Hide Streak Restore`
-  - `Hide Quick Add In Friend Feed`
-  - `Hide Story Section` 
-  - `Hide UI Components` (Voice Record button, Call Buttons, Etc)
+  - `ফ্রেন্ড ফিড মেনু বোতাম` 
+  - `রং` (থিম পিকার এবং কাস্টম রং)
+  - `বন্ধু ফিড বার্তা পূর্বরূপ` 
+  - `স্ন্যাপ প্রিভিউ`
+  - `বুটস্ট্র্যাপ ওভাররাইড` (ডিফল্ট হোম ট্যাব এবং ক্রমাগত অ্যাপের উপস্থিতি)
+  - `বন্ধু মানচিত্র নাম ট্যাগ উন্নত করুন`
+  - `বার্তা তালিকা অটো প্রতিরোধ করুন`
+  - `স্ট্রিক মেয়াদ শেষ হওয়ার তথ্য দেখান`
+  - `বন্ধু ফিড এন্ট্রি লুকান`
+  - `স্ট্রিক পুনরুদ্ধার লুকান`
+  - `ফ্রেন্ড ফিডে কুইক অ্যাড লুকান`
+  - `গল্প বিভাগ লুকান` 
+  - `UI উপাদান লুকান` (Voice Record button, Call Buttons, Etc)
   - `Opera Media Quick Info`
   - `Old Bitmoji Selfie` 
   - `Disable Spotlight` 
