@@ -73,6 +73,9 @@ class MixerStories : Feature("MixerStories", loadParams = FeatureLoadParams.INIT
                                 val storyMap = mutableMapOf<String, MutableList<StoryData>>()
 
                                 firstOrNull(3)?.toReader()?.eachBuffer(3) {
+                                    val storySubType = getVarInt(23)
+                                    // ignore friends of friends stories
+                                    if (storySubType == 39L) return@eachBuffer
                                     followPath(36) {
                                         eachBuffer(1) data@{
                                             val userId = getString(8, 1) ?: return@data

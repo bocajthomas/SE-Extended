@@ -52,6 +52,7 @@ class Global : ConfigContainer() {
     val videoPlaybackRateSlider = boolean("video_playback_rate_slider") { requireRestart() }
     val disableGooglePlayDialogs = boolean("disable_google_play_dialogs") { requireRestart() }
     val defaultVolumeControls = boolean("default_volume_controls") { requireRestart() }
+    val disableTelecomFramework = boolean("disable_telecom_framework") { requireRestart() }
     val hideActiveMusic = boolean("hide_active_music") { requireRestart() }
     val disableSnapSplitting = boolean("disable_snap_splitting") { addNotices(FeatureNotice.INTERNAL_BEHAVIOR) }
 }

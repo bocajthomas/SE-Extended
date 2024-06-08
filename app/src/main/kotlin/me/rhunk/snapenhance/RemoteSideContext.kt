@@ -23,6 +23,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import me.rhunk.snapenhance.bridge.BridgeService
 import me.rhunk.snapenhance.common.BuildConfig
+import me.rhunk.snapenhance.common.Constants
+import me.rhunk.snapenhance.common.action.EnumAction
 import me.rhunk.snapenhance.common.bridge.wrapper.LocaleWrapper
 import me.rhunk.snapenhance.common.bridge.wrapper.LoggerWrapper
 import me.rhunk.snapenhance.common.bridge.wrapper.MappingsWrapper
@@ -222,5 +224,17 @@ class RemoteSideContext(
             currentContext.startActivity(this)
             return true
         }
+    }
+
+    fun launchActionIntent(action: EnumAction) {
+        val intent = androidContext.packageManager.getLaunchIntentForPackage(
+            Constants.SNAPCHAT_PACKAGE_NAME
+        )
+        if (intent == null) {
+            shortToast("Can't execute action: Snapchat is not installed")
+            return
+        }
+        intent.putExtra(EnumAction.ACTION_PARAMETER, action.key)
+        androidContext.startActivity(intent)
     }
 }

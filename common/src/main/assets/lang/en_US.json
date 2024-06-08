@@ -869,6 +869,10 @@
                         "name": "Default Volume Controls",
                         "description": "Forces Snapchat to use system volume controls"
                     },
+                    "disable_telecom_framework": {
+                        "name": "Disable Telecom Framework",
+                        "description": "Prevents Snapchat from using the Android Telecom framework\nThis allows you to listen to music while on a call"
+                    },
                     "hide_active_music": {
                         "name": "Hide Active Music",
                         "description": "Prevents Snapchat from knowing you're listening to music\nThis will allow you to take snaps using control volume buttons while listening to music"
@@ -1247,7 +1251,8 @@
                 "hide_live_location_share_button": "Remove Live Location Share Button",
                 "hide_stickers_button": "Remove Stickers Button",
                 "hide_voice_record_button": "Remove Voice Record Button",
-                "hide_unread_chat_hint": "Remove Unread Chat Hint"
+                "hide_unread_chat_hint": "Remove Unread Chat Hint",
+                "hide_post_to_story_buttons": "Remove Post to Story buttons before sending a Snap"
             },
             "hide_story_suggestions": {
                 "hide_friend_suggestions": "Hide friend suggestions",

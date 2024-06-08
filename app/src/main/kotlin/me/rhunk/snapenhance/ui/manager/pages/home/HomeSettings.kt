@@ -121,12 +121,6 @@ class HomeSettings : Routes.Route() {
         }
     }
 
-    private fun launchActionIntent(action: EnumAction) {
-        val intent = context.androidContext.packageManager.getLaunchIntentForPackage(Constants.SNAPCHAT_PACKAGE_NAME)
-        intent?.putExtra(EnumAction.ACTION_PARAMETER, action.key)
-        context.androidContext.startActivity(intent)
-    }
-
     @Composable
     private fun ShiftedRow(
         modifier: Modifier = Modifier,
@@ -151,7 +145,7 @@ class HomeSettings : Routes.Route() {
             RowTitle(title = translation["actions_title"])
             EnumAction.entries.forEach { enumAction ->
                 RowAction(key = enumAction.key) {
-                    launchActionIntent(enumAction)
+                    context.launchActionIntent(enumAction)
                 }
             }
             RowAction(key = "regen_mappings") {

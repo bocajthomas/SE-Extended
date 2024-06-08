@@ -129,6 +129,7 @@ class FeatureManager(
             DisableCustomTabs(),
             BestFriendPinning(),
             ContextMenuFix(),
+            DisableTelecomFramework(),
         )
         initializeFeatures()
     }

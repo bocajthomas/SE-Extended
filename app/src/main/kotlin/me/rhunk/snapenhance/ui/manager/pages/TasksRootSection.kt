@@ -14,7 +14,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -449,8 +448,8 @@ class TasksRootSection : Routes.Route() {
     override val content: @Composable (NavBackStackEntry) -> Unit = {
         val scrollState = rememberLazyListState()
         val scope = rememberCoroutineScope()
-        recentTasks = rememberSaveable { mutableStateListOf() }
-        var lastFetchedTaskId: Long? by rememberSaveable { mutableStateOf(null) }
+        recentTasks = remember { mutableStateListOf() }
+        var lastFetchedTaskId by remember { mutableStateOf(null as Long?) }
 
         fun fetchNewRecentTasks() {
             scope.launch(Dispatchers.IO) {

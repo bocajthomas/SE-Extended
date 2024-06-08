@@ -3,20 +3,12 @@ package me.rhunk.snapenhance.core.features.impl.experiments
 import android.os.ParcelFileDescriptor
 import android.view.View
 import android.widget.FrameLayout
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BugReport
-import androidx.compose.material3.Button
-import androidx.compose.material3.FilledIconButton
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
+import androidx.compose.material3.*
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -219,7 +211,6 @@ class ComposerHooks: Feature("ComposerHooks", loadParams = FeatureLoadParams.INI
         }
 
         findClass("com.snapchat.client.composer.NativeBridge").apply {
-            hook("createViewLoaderManager", HookStage.AFTER) { loadHooks() }
             hook("registerNativeModuleFactory", HookStage.BEFORE) { param ->
                 val moduleFactory = param.argNullable<Any>(1) ?: return@hook
                 if (moduleFactory.javaClass.getMethod("getModulePath").invoke(moduleFactory)?.toString() != "DeviceBridge") return@hook
@@ -230,6 +221,7 @@ class ComposerHooks: Feature("ComposerHooks", loadParams = FeatureLoadParams.INI
                         true
                     }
                 }
+                loadHooks()
             }
         }
     }

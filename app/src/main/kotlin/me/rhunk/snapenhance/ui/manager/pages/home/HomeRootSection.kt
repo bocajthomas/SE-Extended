@@ -53,13 +53,6 @@ class HomeRootSection : Routes.Route() {
 
     private lateinit var activityLauncherHelper: ActivityLauncherHelper
 
-    private fun launchActionIntent(action: EnumAction) {
-        val intent = context.androidContext.packageManager.getLaunchIntentForPackage(
-            Constants.SNAPCHAT_PACKAGE_NAME
-        )
-        intent?.putExtra(EnumAction.ACTION_PARAMETER, action.key)
-        context.androidContext.startActivity(intent)
-    }
 
     private val cards by lazy {
         EnumQuickActions.entries.map {
@@ -69,7 +62,7 @@ class HomeRootSection : Routes.Route() {
         }.toMutableMap().apply {
             EnumAction.entries.forEach { action ->
                 this[context.translation["actions.${action.key}.name"] to action.icon] = {
-                    launchActionIntent(action)
+                    context.launchActionIntent(action)
                 }
             }
         }
