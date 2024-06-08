@@ -19,6 +19,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
+import me.rhunk.snapenhance.common.bridge.FileHandleScope
+import me.rhunk.snapenhance.common.bridge.toWrapper
 import me.rhunk.snapenhance.common.ui.AppMaterialTheme
 import me.rhunk.snapenhance.common.ui.createComposeAlertDialog
 import me.rhunk.snapenhance.common.ui.createComposeView
@@ -193,14 +195,11 @@ class ComposerHooks: Feature("ComposerHooks", loadParams = FeatureLoadParams.INI
                 context.log.error("ComposerHooks cannot be loaded without NativeLib")
                 return
             }
-            val loaderScript = context.scriptRuntime.scripting.getScriptContent("composer/loader.js")?.let { pfd ->
-                ParcelFileDescriptor.AutoCloseInputStream(pfd).use {
-                    it.readBytes().toString(Charsets.UTF_8)
-                }
-            } ?: run {
-                context.log.error("Failed to load composer loader script")
-                return
-            }
+            val loaderScript = runCatching {
+                context.fileHandlerManager.getFileHandle(FileHandleScope.COMPOSER.key, "loader.js").toWrapper().readBytes().toString(Charsets.UTF_8)
+            }.onFailure {
+                context.log.error("Failed to load composer loader script", it)
+            }.getOrNull() ?: return
             context.native.setComposerLoader("""
                 (() => { const _getImportsFunctionName = "$getImportsFunctionName"; $loaderScript })();
             """.trimIndent().trim())

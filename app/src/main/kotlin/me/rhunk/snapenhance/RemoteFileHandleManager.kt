@@ -91,6 +91,12 @@ class RemoteFileHandleManager(
                     File(userImportFolder, name.substringAfterLast("/"))
                 )
             }
+            FileHandleScope.COMPOSER -> {
+                return AssetFileHandle(
+                    context,
+                    "composer/${name.substringAfterLast("/")}"
+                )
+            }
             else -> return null
         }
     }

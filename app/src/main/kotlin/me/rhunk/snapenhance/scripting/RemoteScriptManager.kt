@@ -193,12 +193,6 @@ class RemoteScriptManager(
     }
 
     override fun getScriptContent(moduleName: String): ParcelFileDescriptor? {
-        if (moduleName.startsWith("composer/")) {
-            return runCatching {
-                context.androidContext.assets.open("composer/${moduleName.removePrefix("composer/")}")
-                    .toParcelFileDescriptor(context.coroutineScope)
-            }.getOrNull()
-        }
         return getScriptInputStream(moduleName) { it?.toParcelFileDescriptor(context.coroutineScope) }
     }
 
