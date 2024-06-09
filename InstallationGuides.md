@@ -33,7 +33,7 @@ Work in progress!
   7. Press "Intergrated"
   8. Press "Embed Modules"
   9. Press "Select apk(s) From Storage"
-  10. Find "SnapEnhance" You Just Download 
+  10. Find "SE Extended" You Just Download 
   11. Press "Start Patch"
   12. Wait For "LSPatch" To Patch Snapchat
   13. Now Follow "SAI Installation Guid" 
