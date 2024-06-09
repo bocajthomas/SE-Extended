@@ -18,7 +18,7 @@ Work in progress!
 ## LSPatch + SAI (Recommended)
 ### What's Needed?
   Please Install The Following.
-  - `SnapEnhance`
+  - `SE Extended`
   - `LSPatch` (V0.6)
   - `SAI`
   - `Snapchat` (From Google Play)
@@ -44,15 +44,15 @@ Work in progress!
   3. Press "System File Picker"
   4. Select all 4 apks That Have Just Been Patched 
   5. Press "Install"
-  6. Now Follow "SnapEnhance Setup Guide"
+  6. Now Follow "SE Extended Setup Guide"
 
-### SnapEnhance Setup Guide
-  1. Open SnapEnhance 
+### SE Extended Setup Guide
+  1. Open SE Extended 
   2. Set Your Language (If Supported)
   3. Press ">"
   4. Allow All Requests 
   5. Press "Select Folder"
-  6. Create A Folder For SnapEnhance (This Will Allow SnapEnhance To Read And Write)
+  6. Create A Folder For SE Extended (This Will Allow SE Extended To Read And Write)
   7. Press ">"
   8. Press "Generate"
   9. Wait For It To Map 
@@ -62,7 +62,7 @@ Work in progress!
 ## LSPatch + Shizuku
 ### What's Needed?
   Please Install The Following.
-  - `SnapEnhance`
+  - `SE Extended`
   - `LSPatch` (V0.6)
   - `Shizuku`
   - `Snapchat` (From Google Play)
@@ -95,21 +95,21 @@ Work in progress!
   7. Press "Intergrated"
   8. Press "Embed Modules"
   9. Press "Select apk(s) From Storage"
-  10. Find "SnapEnhance" You Just Download 
+  10. Find "SE Extended" You Just Download 
   11. Press "Start Patch"
   12. Wait For "LSPatch" To Patch Snapchat
   13. Press "Install" 
   14. It Will Say "Due To Different Signatures You Need To Uninstall The Original App Before Installing The Patched One. Make Sure You Have Backup Personal Data"
   15. Press "Ok" (It Should Now Uninstall The Non Patched Snapchat And Install The Patched Snapchat.)
-  16. Now Follow "SnapEnhance Setup Guide"
+  16. Now Follow "SE Extended Setup Guide"
 
-### SnapEnhance Setup Guide
-  1. Open SnapEnhance 
+### SE Extended Setup Guide
+  1. Open SE Extended 
   2. Set Your Language (If Supported)
   3. Press ">"
   4. Allow All Requests 
   5. Press "Select Folder"
-  6. Create A Folder For SnapEnhance (This Will Allow SnapEnhance To Read And Write)
+  6. Create A Folder For SE Extended (This Will Allow SE Extended To Read And Write)
   7. Press ">"
   8. Press "Generate"
   9. Wait For It To Map 
@@ -123,7 +123,7 @@ Work in progress!
 
 ### What's Needed
   Please Install The Following.
-  - `SnapEnhance`
+  - `SE Extended`
   - `LSPatch` (V0.6)
   - `Shizuku`
   - `Snapchat` (From Google Play)
@@ -195,17 +195,17 @@ Work in progress!
   16. Press "Manage" Tab
   17. Press "Snapchat" 
   18. Press "Module"
-  19. Press "SnapEnhance" SnapEnhance Needs To Be Installed For This 
+  19. Press "SE Extended" SE Extended Needs To Be Installed For This 
   20. Open "Snapchat" 
-  21. Now Follow "SnapEnhance Setup Guide"
+  21. Now Follow "SE Extended Setup Guide"
 
-### SnapEnhance Setup Guide
-  1. Open SnapEnhance 
+### SE Extended Setup Guide
+  1. Open SE Extended
   2. Set Your Language (If Supported)
   3. Press ">"
   4. Allow All Requests 
   5. Press "Select Folder"
-  6. Create A Folder For SnapEnhance (This Will Allow SnapEnhance To Read And Write)
+  6. Create A Folder For SE Extended (This Will Allow SE Extended To Read And Write)
   7. Press ">"
   8. Press "Generate"
   9. Wait For It To Map 
