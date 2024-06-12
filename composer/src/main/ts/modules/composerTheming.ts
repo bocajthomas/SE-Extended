@@ -5,20 +5,20 @@ import { interceptComponent } from "../utils"
 export default defineModule({
   name: "Theme Test",
   init() {
-    const baseStyle = new style.Style({
-      backgroundColor: "#ffffff",
-      background: "#000000", 
-    });
-
     interceptComponent(
       "context_chrome_header/src/ChromeHeaderRenderer",
       "ChromeHeaderRenderer",
       {
-        onRenderBaseHeader: (config, _args, render) => {
+        onRenderBaseHeader: (config: Config, _args, render) => {
+          const baseStyle = new style.Style({
+            backgroundColor: "#ffffff",
+            background: "#000000",
+          });
           render();
           jsx.beginRender(jsx.makeNodePrototype("View"));
           jsx.setAttributeStyle("style", baseStyle);
           jsx.endRender();
+          return true; 
         },
       }
     );
