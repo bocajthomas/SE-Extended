@@ -16,16 +16,16 @@ export default defineModule({
                         dumpObject(argumentsList[1]);
                     }
                 },
-                setAttributeString({target, argumentsList}: { target: any, argumentsList: any }, thisArg) {
+                setAttributeString({target, argumentsList}: { target: any, argumentsList: any }, thisArg: any) {
                     const key = argumentsList[0];
                     if (key === "backgroundColor" || key === "background" || key === "tint") {
                         argumentsList[1] = "#ffffffff";
                     }
-                    let result = Reflect.apply(target, thisArg, argumentsList);
+                    return Reflect.apply(target, thisArg, argumentsList);
                 }
-            });
+            })
     },
-)
+})
 
 
 
