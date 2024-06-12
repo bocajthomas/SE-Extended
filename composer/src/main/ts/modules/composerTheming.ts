@@ -1,31 +1,31 @@
-import { assetCatalog, jsx, style } from "../composer";
 import { defineModule } from "../types";
-import { interceptComponent } from "../utils"
-// Composer theme test
+import {dumpObject, interceptComponent} from "../utils"
+
 export default defineModule({
-  name: "Composertheming",
-  init() {
-    interceptComponent(
-      proxyProperty(require('composer_core/src/JSX').jsx, "setAttribute", (target, thisArg, argumentsList) => {
-        const key = argumentsList[0];
-        if (key == "style") {
-          console.log("setAttribute", key);
-          dumpObject(argumentsList[1]);
-        }
-        return Reflect.apply(target, thisArg, argumentsList);
-      })
-      proxyProperty(require('composer_core/src/JSX').jsx, "setAttributeString", (target, thisArg, argumentsList) => {
-      const key = argumentsList[0];
-      if (key == "backgroundColor") {
-        argumentsList[1] = "#ffffffff";
-      }
-      if (key == "background") {
-        argumentsList[1] = "#ffffffff";
-      }
-      if (key == "tint") {
-        argumentsList[1] = "#ffffffff";
-      }
-      return Reflect.apply(target, thisArg, argumentsList);
-    })
-  }
-})
+    name: "Composer Theming",
+    enabled: config => config.composerTheming,
+    init() {
+        interceptComponent(
+            'composer_core/src/JSX',
+            'jsx',
+            {
+                setAttribute({argumentsList}: { target: any, argumentsList: any }) {
+                    const key = argumentsList[0];
+                    if (key === "style") {
+                        console.log("setAttribute", key);
+                        dumpObject(argumentsList[1]);
+                    }
+                },
+                setAttributeString({target, argumentsList}: { target: any, argumentsList: any }, thisArg) {
+                    const key = argumentsList[0];
+                    if (key === "backgroundColor" || key === "background" || key === "tint") {
+                        argumentsList[1] = "#ffffffff";
+                    }
+                    let result = Reflect.apply(target, thisArg, argumentsList);
+                }
+            });
+    },
+)
+
+
+

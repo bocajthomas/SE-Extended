@@ -28,6 +28,7 @@ class Experimental : ConfigContainer() {
         val bypassCameraRollLimit = boolean("bypass_camera_roll_limit")
         val composerConsole = boolean("composer_console")
         val composerLogs = boolean("composer_logs")
+        val composerTheming = boolean("composer_theming")
     }
 
     class NativeHooks : ConfigContainer(hasGlobalState = true) {

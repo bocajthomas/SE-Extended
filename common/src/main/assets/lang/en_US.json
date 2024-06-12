@@ -982,6 +982,10 @@
                                     "composer_logs": {
                                         "name": "Composer Logs",
                                         "description": "Redirects console logs of Composer to SE Extended"
+                                    },
+                                    "composer_theming": {
+                                        "name": "Composer Theming",
+                                        "description": "Allows you to theme the composer"
                                     }
                                 }
                             },
