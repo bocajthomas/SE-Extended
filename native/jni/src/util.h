@@ -52,14 +52,13 @@ namespace util {
         return { start_offset, end_offset - start_offset };
     }
 
-    static void remap_sections(const char* path) {
+    static void remap_sections(std::function<bool(const std::string &, size_t)> filter) {
         char buff[256];
         auto maps = fopen("/proc/self/maps", "rt");
 
         while (fgets(buff, sizeof buff, maps) != NULL) {
             int len = strlen(buff);
             if (len > 0 && buff[len - 1] == '\n') buff[--len] = '\0';
-            if (strstr(buff, path) == nullptr) continue;
 
             size_t start, end, offset;
             char flags[4];
@@ -67,7 +66,7 @@ namespace util {
             if (sscanf(buff, "%zx-%zx %c%c%c%c %zx", &start, &end,
                        &flags[0], &flags[1], &flags[2], &flags[3], &offset) != 7) continue;
 
-            LOGD("Remapping 0x%zx-0x%zx", start, end);
+            if (!filter(buff, end - start)) continue;
 
             auto section_size = end - start;
             auto section_ptr = mmap(0, section_size, PROT_READ | PROT_EXEC | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
@@ -84,7 +83,11 @@ namespace util {
                 break;
             }
 
-            mprotect((void *)start, section_size, (flags[0] == 'r' ? PROT_READ : 0) | (flags[1] == 'w' ? PROT_WRITE : 0) | (flags[2] == 'x' ? PROT_EXEC : 0));
+            auto new_prot = (flags[0] == 'r' ? PROT_READ : 0) | (flags[1] == 'w' ? PROT_WRITE : 0) | (flags[2] == 'x' ? PROT_EXEC : 0);
+            if (new_prot & PROT_EXEC) {
+                new_prot &= ~PROT_READ;
+            }
+            mprotect((void *)start, section_size, new_prot);
         }
         fclose(maps);
     }

@@ -351,12 +351,13 @@ class DatabaseAccess(
 
     fun getMessagesFromConversationId(
         conversationId: String,
-        limit: Int
+        limit: Int,
+        page: Int = 0,
     ): List<ConversationMessage>? {
         return useDatabase(DatabaseType.ARROYO)?.performOperation {
             safeRawQuery(
-                "SELECT * FROM conversation_message WHERE client_conversation_id = ? ORDER BY creation_timestamp DESC LIMIT ?",
-                arrayOf(conversationId, limit.toString())
+                "SELECT * FROM conversation_message WHERE client_conversation_id = ? ORDER BY creation_timestamp DESC LIMIT ? OFFSET ?",
+                arrayOf(conversationId, limit.toString(), (limit * page).toString())
             )?.use { query ->
                 if (!query.moveToFirst()) {
                     return@performOperation null

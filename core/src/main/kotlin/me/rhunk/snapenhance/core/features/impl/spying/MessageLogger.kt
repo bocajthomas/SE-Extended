@@ -8,6 +8,7 @@ import android.os.DeadObjectException
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import me.rhunk.snapenhance.bridge.logger.BridgeLoggedMessage
+import me.rhunk.snapenhance.bridge.logger.LoggedChatEdit
 import me.rhunk.snapenhance.common.data.ContentType
 import me.rhunk.snapenhance.common.data.MessageState
 import me.rhunk.snapenhance.common.data.QuotedMessageContentStatus
@@ -74,6 +75,11 @@ class MessageLogger : Feature("MessageLogger",
                 .map { it.asByte }
                 .toByteArray())
         }
+    }
+
+    fun getChatEdits(conversationId: String, clientMessageId: Long): List<LoggedChatEdit> {
+        val uniqueMessageId = makeUniqueIdentifier(conversationId, clientMessageId) ?: return emptyList()
+        return loggerInterface.getChatEdits(conversationId, uniqueMessageId)
     }
 
     private fun computeMessageIdentifier(conversationId: String, orderKey: Long) = (orderKey.toString() + conversationId).longHashCode()

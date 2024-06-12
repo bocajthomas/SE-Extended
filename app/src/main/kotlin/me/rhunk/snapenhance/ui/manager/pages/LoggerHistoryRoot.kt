@@ -143,7 +143,7 @@ class LoggerHistoryRoot : Routes.Route() {
                                             })
 
                                         val edits by rememberAsyncMutableState(defaultValue = emptyList()) {
-                                            loggerWrapper.getMessageEdits(selectedConversation!!, message.messageId)
+                                            loggerWrapper.getChatEdits(selectedConversation!!, message.messageId)
                                         }
                                         edits.forEach { messageEdit ->
                                             val date = remember {
@@ -152,10 +152,10 @@ class LoggerHistoryRoot : Routes.Route() {
                                             Text(
                                                 modifier = Modifier.pointerInput(Unit) {
                                                     detectTapGestures(onLongPress = {
-                                                        context.androidContext.copyToClipboard(messageEdit.messageText)
+                                                        context.androidContext.copyToClipboard(messageEdit.message)
                                                     })
                                                 }.fillMaxWidth().padding(start = 4.dp),
-                                                text = messageEdit.messageText + " (edited at $date)",
+                                                text = messageEdit.message + " (edited at $date)",
                                                 fontWeight = FontWeight.Light,
                                                 fontStyle = FontStyle.Italic,
                                                 fontSize = 12.sp

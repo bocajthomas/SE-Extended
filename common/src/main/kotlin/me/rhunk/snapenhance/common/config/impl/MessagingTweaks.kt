@@ -62,7 +62,6 @@ class MessagingTweaks : ConfigContainer() {
     val loopMediaPlayback = boolean("loop_media_playback") { requireRestart() }
     val disableReplayInFF = boolean("disable_replay_in_ff")
     val halfSwipeNotifier = container("half_swipe_notifier", HalfSwipeNotifierConfig()) { requireRestart()}
-    val messagePreviewLength = integer("message_preview_length", defaultValue = 20)
     val callStartConfirmation = boolean("call_start_confirmation") { requireRestart() }
     val unlimitedConversationPinning = boolean("unlimited_conversation_pinning") { requireRestart() }
     val autoSaveMessagesInConversations = multiple("auto_save_messages_in_conversations",

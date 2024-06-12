@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import android.view.ViewGroup.MarginLayoutParams
 import android.widget.Button
 import android.widget.LinearLayout
+import me.rhunk.snapenhance.bridge.logger.LoggedChatEdit
 import me.rhunk.snapenhance.core.features.impl.downloader.MediaDownloader
 import me.rhunk.snapenhance.core.features.impl.experiments.ConvertMessageLocally
 import me.rhunk.snapenhance.core.features.impl.messaging.Messaging
@@ -130,6 +131,30 @@ class ChatActionMenu : AbstractMenu() {
                         messageLogger.deleteMessage(messaging.openedConversationUUID.toString(), messaging.lastFocusedMessageId)
                     }
                 }
+            })
+
+            injectButton(Button(viewGroup.context).apply {
+                var chatEdits = emptyList<LoggedChatEdit>()
+                text = this@ChatActionMenu.context.translation["chat_action_menu.show_chat_edit_history"]
+                setOnClickListener {
+                    menuViewInjector.menu(NewChatActionMenu::class)?.showChatEditHistory(chatEdits)
+                }
+                addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
+                    override fun onViewAttachedToWindow(v: View) {
+                        visibility = View.GONE
+                        chatEdits = this@ChatActionMenu.context.feature(MessageLogger::class).getChatEdits(
+                            messaging.openedConversationUUID.toString(),
+                            messaging.lastFocusedMessageId,
+                        )
+                        if (chatEdits.isEmpty()) return
+                        visibility = View.VISIBLE
+                    }
+
+                    override fun onViewDetachedFromWindow(v: View) {
+                        visibility = View.GONE
+                        chatEdits = emptyList()
+                    }
+                })
             })
         }
 

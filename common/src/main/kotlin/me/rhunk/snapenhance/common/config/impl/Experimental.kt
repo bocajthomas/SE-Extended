@@ -17,6 +17,12 @@ class Experimental : ConfigContainer() {
         )
     }
 
+    class BetterTranscriptConfig: ConfigContainer(hasGlobalState = true) {
+        val forceTranscription = boolean("force_transcription") { requireRestart() }
+        val preferredTranscriptionLang = string("preferred_transcription_lang") { requireRestart() }
+        val enhancedTranscript = boolean("enhanced_transcript") { requireRestart(); addNotices(FeatureNotice.UNSTABLE) }
+    }
+
     class ComposerHooksConfig: ConfigContainer(hasGlobalState = true) {
         val showFirstCreatedUsername = boolean("show_first_created_username")
         val bypassCameraRollLimit = boolean("bypass_camera_roll_limit")
@@ -55,6 +61,7 @@ class Experimental : ConfigContainer() {
     val storyLogger = boolean("story_logger") { requireRestart(); addNotices(FeatureNotice.UNSTABLE); }
     val callRecorder = boolean("call_recorder") { requireRestart(); addNotices(FeatureNotice.UNSTABLE); }
     val accountSwitcher = container("account_switcher", AccountSwitcherConfig()) { requireRestart(); addNotices(FeatureNotice.UNSTABLE) }
+    val betterTranscript = container("better_transcript", BetterTranscriptConfig()) { requireRestart() }
     val editMessage = boolean("edit_message") { requireRestart() }
     val contextMenuFix = boolean("context_menu_fix") { requireRestart() }
     val cofExperiments = multiple("cof_experiments", *cofExperimentList.toTypedArray()) { requireRestart(); addFlags(ConfigFlag.NO_TRANSLATE); addNotices(FeatureNotice.UNSTABLE) }

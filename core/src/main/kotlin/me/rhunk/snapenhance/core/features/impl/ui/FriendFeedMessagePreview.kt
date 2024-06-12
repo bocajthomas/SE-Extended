@@ -85,8 +85,10 @@ class FriendFeedMessagePreview : Feature("FriendFeedMessagePreview", loadParams 
 
         val feedEntryHeight = ffSdlAvatarSize + ffSdlAvatarMargin * 2 + (4 * context.resources.displayMetrics.density).toInt()
         val separatorHeight = (context.resources.displayMetrics.density * 2).toInt()
+        val avenirNextMedium = context.resources.getFont(context.resources.getIdentifier("avenir_next_medium", "font"))
         val textPaint = TextPaint().apply {
             textSize = secondaryTextSize
+            typeface = avenirNextMedium
         }
 
         context.event.subscribe(BuildMessageEvent::class) { param ->
@@ -134,10 +136,11 @@ class FriendFeedMessagePreview : Feature("FriendFeedMessagePreview", loadParams 
                         frameLayout.addForegroundDrawable("ffItem", ShapeDrawable(object: Shape() {
                             override fun draw(canvas: Canvas, paint: Paint) {
                                 val offsetY = canvas.height.toFloat() - previewContainerHeight
+                                paint.textSize = secondaryTextSize
+                                paint.color = sigColorTextPrimary
+                                paint.typeface = avenirNextMedium
 
                                 messageCache[conversationId]?.forEachIndexed { index, messageString ->
-                                    paint.textSize = secondaryTextSize
-                                    paint.color = sigColorTextPrimary
                                     canvas.drawText(messageString,
                                         feedEntryHeight + ffSdlPrimaryTextStartMargin,
                                         offsetY + index * maxTextHeight,

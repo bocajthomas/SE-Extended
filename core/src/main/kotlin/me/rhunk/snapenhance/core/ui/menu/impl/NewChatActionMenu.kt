@@ -10,29 +10,32 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Download
-import androidx.compose.material.icons.filled.RemoveRedEye
-import androidx.compose.material.icons.outlined.Image
-import androidx.compose.material.icons.rounded.BookmarkRemove
-import androidx.compose.material.icons.rounded.Edit
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material.icons.outlined.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import me.rhunk.snapenhance.bridge.logger.LoggedChatEdit
 import me.rhunk.snapenhance.common.data.ContentType
+import me.rhunk.snapenhance.common.ui.createComposeAlertDialog
 import me.rhunk.snapenhance.common.ui.createComposeView
+import me.rhunk.snapenhance.common.ui.rememberAsyncMutableState
 import me.rhunk.snapenhance.common.util.ktx.copyToClipboard
 import me.rhunk.snapenhance.common.util.protobuf.ProtoReader
 import me.rhunk.snapenhance.common.util.protobuf.ProtoWriter
@@ -48,9 +51,11 @@ import me.rhunk.snapenhance.core.ui.debugEditText
 import me.rhunk.snapenhance.core.ui.iterateParent
 import me.rhunk.snapenhance.core.ui.menu.AbstractMenu
 import me.rhunk.snapenhance.core.ui.triggerCloseTouchEvent
+import me.rhunk.snapenhance.core.util.ktx.getIdentifier
 import me.rhunk.snapenhance.core.util.ktx.isDarkTheme
 import me.rhunk.snapenhance.core.util.ktx.setObjectField
 import me.rhunk.snapenhance.core.util.ktx.vibrateLongPress
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.Date
 import kotlin.io.encoding.Base64
@@ -68,6 +73,32 @@ class NewChatActionMenu : AbstractMenu() {
                 }
             }.show()
         }
+    }
+
+    fun showChatEditHistory(
+        edits: List<LoggedChatEdit>,
+    ) {
+        createComposeAlertDialog(context.mainActivity!!) {
+            LazyColumn(
+                modifier = Modifier.padding(16.dp),
+            ) {
+                itemsIndexed(edits) { index, edit ->
+                    Column(
+                        modifier = Modifier.padding(8.dp).fillMaxWidth().pointerInput(Unit) {
+                            detectTapGestures(
+                                onLongPress = {
+                                    context.androidContext.copyToClipboard(edit.message)
+                                }
+                            )
+                        },
+                        horizontalAlignment = Alignment.Start,
+                    ) {
+                        Text(edit.message)
+                        Text(text = DateFormat.getDateTimeInstance().format(edit.timestamp) + " (${index + 1})", fontSize = 12.sp, fontWeight = FontWeight.Light)
+                    }
+                }
+            }
+        }.show()
     }
 
     fun editCurrentMessage(
@@ -267,6 +298,11 @@ class NewChatActionMenu : AbstractMenu() {
 
         val composeView = createComposeView(event.view.context) {
             val primaryColor = remember { if (event.view.context.isDarkTheme()) Color.White else Color.Black }
+            val avenirNextMediumFont = remember {
+                FontFamily(
+                    Font(context.resources.getIdentifier("avenir_next_medium", "font"), FontWeight.Medium)
+                )
+            }
 
             @Composable
             fun ListButton(
@@ -288,7 +324,7 @@ class NewChatActionMenu : AbstractMenu() {
                         tint = primaryColor,
                         contentDescription = text
                     )
-                    Text(text, color = primaryColor)
+                    Text(text, color = primaryColor, fontFamily = avenirNextMediumFont, fontSize = 16.sp)
                 }
                 Spacer(modifier = Modifier
                     .height(1.dp)
@@ -300,11 +336,11 @@ class NewChatActionMenu : AbstractMenu() {
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 if (context.config.downloader.downloadContextMenu.get()) {
-                    ListButton(icon = Icons.Default.RemoveRedEye, text = context.translation["chat_action_menu.preview_button"], modifier = Modifier.clickable {
+                    ListButton(icon = Icons.Outlined.RemoveRedEye, text = context.translation["chat_action_menu.preview_button"], modifier = Modifier.clickable {
                         closeActionMenu()
                         mediaDownloader.onMessageActionMenu(true)
                     })
-                    ListButton(icon = Icons.Default.Download, text = context.translation["chat_action_menu.download_button"], modifier = Modifier.pointerInput(Unit) {
+                    ListButton(icon = Icons.Outlined.Download, text = context.translation["chat_action_menu.download_button"], modifier = Modifier.pointerInput(Unit) {
                         detectTapGestures(
                             onTap = {
                                 closeActionMenu()
@@ -319,7 +355,7 @@ class NewChatActionMenu : AbstractMenu() {
                 }
 
                 if (context.config.experimental.editMessage.get() && messaging.conversationManager?.isEditMessageSupported() == true) {
-                    ListButton(icon = Icons.Rounded.Edit, text = context.translation["chat_action_menu.edit_message"], modifier = Modifier.clickable {
+                    ListButton(icon = Icons.Outlined.Edit, text = context.translation["chat_action_menu.edit_message"], modifier = Modifier.clickable {
                         editCurrentMessage(event.view.context) {
                             context.runOnUiThread {
                                 closeActionMenu()
@@ -329,7 +365,21 @@ class NewChatActionMenu : AbstractMenu() {
                 }
 
                 if (context.config.messaging.messageLogger.globalState == true) {
-                    ListButton(icon = Icons.Rounded.BookmarkRemove, text = context.translation["chat_action_menu.delete_logged_message_button"], modifier = Modifier.clickable {
+                    val chatEdits by rememberAsyncMutableState(defaultValue = null) {
+                        context.feature(MessageLogger::class).getChatEdits(
+                            messaging.openedConversationUUID.toString(),
+                            messaging.lastFocusedMessageId
+                        )
+                    }
+
+                    if (chatEdits != null && chatEdits?.isNotEmpty() == true) {
+                        ListButton(icon = Icons.Outlined.History, text = context.translation["chat_action_menu.show_chat_edit_history"], modifier = Modifier.clickable {
+                            closeActionMenu()
+                            showChatEditHistory(chatEdits!!)
+                        })
+                    }
+
+                    ListButton(icon = Icons.Outlined.BookmarkRemove, text = context.translation["chat_action_menu.delete_logged_message_button"], modifier = Modifier.clickable {
                         closeActionMenu()
                         context.executeAsync {
                             messageLogger.deleteMessage(messaging.openedConversationUUID.toString(), messaging.lastFocusedMessageId)

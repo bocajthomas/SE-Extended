@@ -3,22 +3,25 @@ package me.rhunk.snapenhance.common.ui
 import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import android.view.View
+import android.view.View.OnAttachStateChangeListener
 import android.view.WindowManager
 import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.OnBackPressedDispatcherOwner
 import androidx.activity.setViewTreeOnBackPressedDispatcherOwner
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Recomposer
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.AndroidUiDispatcher
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.platform.compositionContext
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.*
 import androidx.savedstate.SavedStateRegistry
 import androidx.savedstate.SavedStateRegistryController
@@ -73,18 +76,28 @@ fun createComposeAlertDialog(context: Context, builder: AlertDialog.Builder.() -
         .apply(builder)
         .setView(createComposeView(context) {
             Surface(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp)
+                    .clip(MaterialTheme.shapes.large),
                 color = MaterialTheme.colorScheme.surface
             ) {
                 content(alertDialog)
             }
+        }.apply {
+            addOnAttachStateChangeListener(object: OnAttachStateChangeListener {
+                override fun onViewAttachedToWindow(v: View) {
+                    alertDialog.window?.apply {
+                        setBackgroundDrawableResource(android.R.color.transparent)
+                        clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM)
+                        setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
+                    }
+                }
+                override fun onViewDetachedFromWindow(v: View) {}
+            })
         })
         .create().apply {
             alertDialog = this
-            Handler(Looper.getMainLooper()).post {
-                window?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM)
-                window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
-            }
         }
 }
 

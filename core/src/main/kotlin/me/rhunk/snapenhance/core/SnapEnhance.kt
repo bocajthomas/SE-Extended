@@ -5,6 +5,7 @@ import android.app.Application
 import android.content.Context
 import android.content.res.Resources
 import android.os.Build
+import dalvik.system.BaseDexClassLoader
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,6 +28,8 @@ import me.rhunk.snapenhance.core.util.LSPatchUpdater
 import me.rhunk.snapenhance.core.util.hook.HookAdapter
 import me.rhunk.snapenhance.core.util.hook.HookStage
 import me.rhunk.snapenhance.core.util.hook.hook
+import me.rhunk.snapenhance.core.util.hook.hookConstructor
+import kotlin.reflect.KClass
 import kotlin.system.exitProcess
 import kotlin.system.measureTimeMillis
 
@@ -93,6 +96,7 @@ class SnapEnhance {
                 }.onFailure {
                     appContext.log.error("Failed to init LSPatchUpdater", it)
                 }
+                jetpackComposeResourceHook()
                 runCatching {
                     measureTimeMillis {
                         init(this)
@@ -114,7 +118,6 @@ class SnapEnhance {
             if (isMainActivityNotNull || !appContext.mappings.isMappingsLoaded) return@hookMainActivity
             appContext.isMainActivityPaused = false
             onActivityCreate()
-            jetpackComposeResourceHook()
             appContext.actionManager.onNewIntent(intent)
         }
 
@@ -204,6 +207,9 @@ class SnapEnhance {
                         request.buffer = buffer
                         request.canceled = canceled
                     }
+                }
+                BaseDexClassLoader::class.java.hookConstructor(HookStage.AFTER) {
+                    appContext.native.hideAnonymousDexFiles()
                 }
                 appContext.reloadNativeConfig()
             }
@@ -315,16 +321,14 @@ class SnapEnhance {
     }
 
     private fun jetpackComposeResourceHook() {
-        val material3RString = try {
-            Class.forName("androidx.compose.material3.R\$string")
-        } catch (e: ClassNotFoundException) {
-            return
+        fun strings(vararg classes: KClass<*>): Map<Int, String> {
+            return classes.fold(mapOf()) { map, clazz ->
+                map + clazz.java.fields.filter {
+                    java.lang.reflect.Modifier.isStatic(it.modifiers) && it.type == Int::class.javaPrimitiveType
+                }.associate { it.getInt(null) to it.name }
+            }
         }
-
-        val stringResources = material3RString.fields.filter {
-            java.lang.reflect.Modifier.isStatic(it.modifiers) && it.type == Int::class.javaPrimitiveType
-        }.associate { it.getInt(null) to it.name }
-
+        val stringResources = strings(androidx.compose.material3.R.string::class, androidx.compose.ui.R.string::class)
         Resources::class.java.getMethod("getString", Int::class.javaPrimitiveType).hook(HookStage.BEFORE) { param ->
             val key = param.arg<Int>(0)
             val name = stringResources[key]?.replaceFirst("m3c_", "") ?: return@hook

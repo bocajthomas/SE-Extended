@@ -2,6 +2,9 @@ package me.rhunk.snapenhance.common.data
 
 import android.database.Cursor
 import android.os.Parcelable
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.*
+import androidx.compose.ui.graphics.vector.ImageVector
 import kotlinx.parcelize.Parcelize
 import me.rhunk.snapenhance.common.config.FeatureNotice
 import me.rhunk.snapenhance.common.data.download.toKeyPair
@@ -38,18 +41,19 @@ enum class SocialScope(
 enum class MessagingRuleType(
     val key: String,
     val listMode: Boolean,
+    val icon: ImageVector,
     val showInFriendMenu: Boolean = true,
     val defaultValue: String? = "whitelist",
     val configNotices: Array<FeatureNotice> = emptyArray()
 ) {
-    STEALTH("stealth", true),
-    AUTO_DOWNLOAD("auto_download", true),
-    AUTO_SAVE("auto_save", true, defaultValue = "blacklist"),
-    AUTO_OPEN_SNAPS("auto_open_snaps", true, configNotices = arrayOf(FeatureNotice.BAN_RISK, FeatureNotice.UNSTABLE), defaultValue = null),
-    UNSAVEABLE_MESSAGES("unsaveable_messages", true, configNotices = arrayOf(FeatureNotice.REQUIRE_NATIVE_HOOKS), defaultValue = null),
-    HIDE_FRIEND_FEED("hide_friend_feed", false, showInFriendMenu = false),
-    E2E_ENCRYPTION("e2e_encryption", false),
-    PIN_CONVERSATION("pin_conversation", false, showInFriendMenu = false);
+    STEALTH("stealth", true, Icons.Outlined.TrackChanges),
+    AUTO_DOWNLOAD("auto_download", true, Icons.Outlined.DownloadForOffline),
+    AUTO_SAVE("auto_save", true, Icons.Outlined.Save, defaultValue = "blacklist"),
+    AUTO_OPEN_SNAPS("auto_open_snaps", true, Icons.Outlined.OpenInFull, configNotices = arrayOf(FeatureNotice.BAN_RISK, FeatureNotice.UNSTABLE), defaultValue = null),
+    UNSAVEABLE_MESSAGES("unsaveable_messages", true, Icons.Outlined.FolderOff, configNotices = arrayOf(FeatureNotice.REQUIRE_NATIVE_HOOKS), defaultValue = null),
+    HIDE_FRIEND_FEED("hide_friend_feed", false, Icons.Outlined.VisibilityOff, showInFriendMenu = false),
+    E2E_ENCRYPTION("e2e_encryption", false, Icons.Outlined.Lock),
+    PIN_CONVERSATION("pin_conversation", false, Icons.Outlined.PushPin, showInFriendMenu = false);
 
     fun translateOptionKey(optionKey: String): String {
         return if (listMode) "rules.properties.$key.options.$optionKey" else "rules.properties.$key.name"

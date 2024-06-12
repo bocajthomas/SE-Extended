@@ -1,6 +1,7 @@
 package me.rhunk.snapenhance.bridge.logger;
 
 import me.rhunk.snapenhance.bridge.logger.BridgeLoggedMessage;
+import me.rhunk.snapenhance.bridge.logger.LoggedChatEdit;
 
 interface LoggerInterface {
     /**
@@ -38,4 +39,6 @@ interface LoggerInterface {
         String eventType,
         String data
     );
+
+    List<LoggedChatEdit> getChatEdits(String conversationId, long messageId);
 }

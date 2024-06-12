@@ -135,8 +135,8 @@ class PermissionsScreen : SetupScreen() {
 
         OnLifecycleEvent { _, event ->
             if (event != Lifecycle.Event.ON_RESUME) return@OnLifecycleEvent
-            updateState()
             coroutineScope.launch {
+                updateState()
                 delay(1000)
                 updateState()
             }

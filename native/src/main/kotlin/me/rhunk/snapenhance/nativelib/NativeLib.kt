@@ -59,4 +59,5 @@ class NativeLib {
     private external fun lockDatabase(name: String, callback: Runnable)
     external fun setComposerLoader(code: String)
     external fun composerEval(code: String): String?
+    external fun hideAnonymousDexFiles()
 }

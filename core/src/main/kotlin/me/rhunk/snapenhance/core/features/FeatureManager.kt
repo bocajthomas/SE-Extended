@@ -130,6 +130,7 @@ class FeatureManager(
             BestFriendPinning(),
             ContextMenuFix(),
             DisableTelecomFramework(),
+            BetterTranscript(),
         )
         initializeFeatures()
     }

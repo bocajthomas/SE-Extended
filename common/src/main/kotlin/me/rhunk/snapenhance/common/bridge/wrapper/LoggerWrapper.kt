@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
 import kotlinx.coroutines.*
 import me.rhunk.snapenhance.bridge.logger.BridgeLoggedMessage
+import me.rhunk.snapenhance.bridge.logger.LoggedChatEdit
 import me.rhunk.snapenhance.bridge.logger.LoggerInterface
 import me.rhunk.snapenhance.common.bridge.InternalFileHandleType
 import me.rhunk.snapenhance.common.data.StoryData
@@ -19,11 +20,6 @@ import me.rhunk.snapenhance.common.util.ktx.getStringOrNull
 import me.rhunk.snapenhance.common.util.protobuf.ProtoReader
 import java.io.File
 import java.util.UUID
-
-class LoggedMessageEdit(
-    val timestamp: Long,
-    val messageText: String
-)
 
 class LoggedMessage(
     val messageId: Long,
@@ -422,17 +418,17 @@ class LoggerWrapper(
         return ConversationInfo(conversationId, participantSize, groupTitle, usernames)
     }
 
-    fun getMessageEdits(conversationId: String, messageId: Long): List<LoggedMessageEdit> {
-        val edits = mutableListOf<LoggedMessageEdit>()
+    override fun getChatEdits(conversationId: String, messageId: Long): List<LoggedChatEdit> {
+        val edits = mutableListOf<LoggedChatEdit>()
         database.rawQuery(
-            "SELECT added_timestamp, message_text FROM chat_edits WHERE conversation_id = ? AND message_id = ?",
+            "SELECT added_timestamp, message_text FROM chat_edits WHERE conversation_id = ? AND message_id = ? ORDER BY added_timestamp ASC",
             arrayOf(conversationId, messageId.toString())
-        ).use {
-            while (it.moveToNext()) {
-                edits.add(LoggedMessageEdit(
-                    timestamp = it.getLongOrNull("added_timestamp") ?: continue,
-                    messageText = it.getStringOrNull("message_text") ?: continue
-                ))
+        ).use { cursor ->
+            while (cursor.moveToNext()) {
+                edits.add(LoggedChatEdit().apply {
+                    timestamp = cursor.getLongOrNull("added_timestamp") ?: return@apply
+                    message = cursor.getStringOrNull("message_text")
+                }.takeIf { it.timestamp > 0L } ?: continue)
             }
         }
         return edits

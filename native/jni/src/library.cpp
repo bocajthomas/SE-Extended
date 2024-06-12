@@ -4,9 +4,9 @@
 #include <vector>
 #include <thread>
 
-#include "dobby_helper.h"
 #include "logger.h"
 #include "common.h"
+#include "dobby_helper.h"
 #include "hooks/unary_call.h"
 #include "hooks/fstat_hook.h"
 #include "hooks/sqlite_mutex.h"
@@ -93,6 +93,16 @@ void JNICALL lock_database(JNIEnv *env, jobject, jstring database_name, jobject 
     }
 }
 
+void JNICALL hide_anonymous_dex_files(JNIEnv *, jobject) {
+    util::remap_sections([](const std::string &line, size_t size) {
+        return (
+            (size == PAGE_SIZE && line.find("r-xp 00000000") != std::string::npos && line.find("[v") == std::string::npos) ||
+            line.find("dalvik-DEX") != std::string::npos ||
+            line.find("dalvik-classes") != std::string::npos
+        );
+    });
+}
+
 extern "C" JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *_) {
     common::java_vm = vm;
     JNIEnv *env = nullptr;
@@ -104,8 +114,12 @@ extern "C" JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *_) {
     methods.push_back({"lockDatabase", "(Ljava/lang/String;Ljava/lang/Runnable;)V", (void *)lock_database});
     methods.push_back({"setComposerLoader", "(Ljava/lang/String;)V", (void *) ComposerHook::setComposerLoader});
     methods.push_back({"composerEval", "(Ljava/lang/String;)Ljava/lang/String;",(void *) ComposerHook::composerEval});
+    methods.push_back({"hideAnonymousDexFiles", "()V", (void *)hide_anonymous_dex_files});
 
     env->RegisterNatives(env->FindClass(std::string(BUILD_NAMESPACE "/NativeLib").c_str()), methods.data(), methods.size());
-    util::remap_sections(BUILD_PACKAGE);
+    util::remap_sections([](const std::string &line, size_t size) {
+        return line.find(BUILD_PACKAGE) != std::string::npos;
+    });
+    hide_anonymous_dex_files(env, nullptr);
     return JNI_VERSION_1_6;
 }
