@@ -42,6 +42,7 @@ class BridgeClient(
     private lateinit var service: BridgeInterface
 
     private val onConnectedCallbacks = mutableListOf<suspend () -> Unit>()
+    private var cacheSnapEnhanceApkPath: String? = null
 
     fun addOnConnectedCallback(callback: suspend () -> Unit) {
         synchronized(onConnectedCallbacks) {
@@ -121,6 +122,13 @@ class BridgeClient(
                 }.onFailure {
                     context.log.error("Failed to run onConnectedCallback", it)
                 }
+            }
+        }
+        cacheSnapEnhanceApkPath = this.service.applicationApkPath.also {
+            if (cacheSnapEnhanceApkPath != null && cacheSnapEnhanceApkPath != it) {
+                context.log.verbose("Restarting Snapchat due to SnapEnhance update")
+                context.softRestartApp()
+                return
             }
         }
         resumeContinuation(true)

@@ -15,7 +15,7 @@ import me.rhunk.snapenhance.bridge.location.LocationManager;
 
 interface BridgeInterface {
     /**
-    * Get the application APK path (assets for the conversation exporter)
+    * Get the SnapEnhance APK path (used in LSPatch updater and for auto bridge restart)
     */
     String getApplicationApkPath();
 

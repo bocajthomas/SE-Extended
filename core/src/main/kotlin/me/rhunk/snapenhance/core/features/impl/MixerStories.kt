@@ -49,7 +49,7 @@ class MixerStories : Feature("MixerStories", loadParams = FeatureLoadParams.INIT
                 event.hookRequestBuffer { buffer ->
                     ProtoEditor(buffer).apply {
                         edit {
-                            get(2).removeIf {
+                            getOrNull(2)?.removeIf {
                                 it.toReader().getVarInt(7, 4) == 1L
                             }
                         }

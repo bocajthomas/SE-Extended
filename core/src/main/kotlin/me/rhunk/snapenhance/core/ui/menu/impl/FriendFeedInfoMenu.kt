@@ -414,8 +414,8 @@ class FriendFeedInfoMenu : AbstractMenu() {
                         state = !ruleFeature.getState(conversationId)
                         ruleFeature.setState(conversationId, state)
                         context.inAppOverlay.showStatusToast(
-                            if (ruleFeature.getState(conversationId)) Icons.Default.CheckCircleOutline else Icons.Default.NotInterested,
-                            context.translation.format("rules.toasts.${if (ruleFeature.getState(conversationId)) "enabled" else "disabled"}", "ruleName" to context.translation[ruleFeature.ruleType.translateOptionKey(ruleState.key)]),
+                            if (state) Icons.Default.CheckCircleOutline else Icons.Default.NotInterested,
+                            context.translation.format("rules.toasts.${if (state) "enabled" else "disabled"}", "ruleName" to context.translation[ruleFeature.ruleType.translateOptionKey(ruleState.key)]),
                             durationMs = 1500
                         )
                         context.mainActivity?.triggerRootCloseTouchEvent()
