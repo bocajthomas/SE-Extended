@@ -14,7 +14,7 @@ export default defineModule({
       "context_chrome_header/src/ChromeHeaderRenderer",
       "ChromeHeaderRenderer",
       {
-        onRenderBaseHeader: (_component, _args, render) => {
+        onRenderBaseHeader: (config, _args, render) => {
           render();
           jsx.beginRender(jsx.makeNodePrototype("View"));
           jsx.setAttributeStyle("style", baseStyle);
