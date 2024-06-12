@@ -34,10 +34,10 @@ class AutoMarkAsRead : Feature("Auto Mark As Read", loadParams = FeatureLoadPara
         }
     }
 
-    private suspend fun markSnapAsSeen(conversationId: String, clientMessageId: Long) {
-        suspendCoroutine { continuation ->
+    suspend fun markSnapAsSeen(conversationId: String, clientMessageId: Long): String? {
+        return suspendCoroutine { continuation ->
             context.feature(Messaging::class).conversationManager?.updateMessage(conversationId, clientMessageId, MessageUpdate.READ) {
-                continuation.resume(Unit)
+                continuation.resume(it)
                 if (it != null && it != "DUPLICATEREQUEST") {
                     context.log.error("Error marking message as read $it")
                 }

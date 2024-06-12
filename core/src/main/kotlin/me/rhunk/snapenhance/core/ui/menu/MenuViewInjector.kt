@@ -23,7 +23,7 @@ class MenuViewInjector : Feature("MenuViewInjector", loadParams = FeatureLoadPar
         arrayOf(
             NewChatActionMenu(),
             OperaContextActionMenu(),
-            OperaDownloadIconMenu(),
+            OperaViewerIcons(),
             SettingsGearInjector(),
             FriendFeedInfoMenu(),
             ChatActionMenu(),
@@ -84,7 +84,7 @@ class MenuViewInjector : Feature("MenuViewInjector", loadParams = FeatureLoadPar
             }
 
             if (childView.id == contextMenuButtonIconView) {
-                menuMap[OperaDownloadIconMenu::class]!!.inject(viewGroup, childView, originalAddView)
+                menuMap[OperaViewerIcons::class]!!.inject(viewGroup, childView, originalAddView)
             }
 
             if (event.parent.id == componentsHolder && childView.id == feedNewChat) {

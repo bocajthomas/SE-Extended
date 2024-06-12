@@ -613,6 +613,14 @@
                         "name": "Auto Mark as Read",
                         "description": "Automatically marks messages/snaps as read even when Stealth Mode is enabled"
                     },
+                    "mark_snap_as_seen_button": {
+                        "name": "Mark Snap as Seen Button",
+                        "description": "Adds a button to mark a Snap as seen when viewing it.\nThis will work even when Stealth Mode is enabled"
+                    },
+                    "skip_when_marking_as_seen": {
+                        "name": "Skip When Marking as Seen",
+                        "description": "Automatically skips to the next Snap when marking a Snap as seen.\nUse in combination with Mark Snap as Seen Button"
+                    },
                     "loop_media_playback": {
                         "name": "Loop Media Playback",
                         "description": "Loops media playback when viewing Snaps / Stories"
