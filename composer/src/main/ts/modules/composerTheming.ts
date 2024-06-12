@@ -23,4 +23,5 @@ export default defineModule({
       }
     );
   },
+  enabled: true,
 });
