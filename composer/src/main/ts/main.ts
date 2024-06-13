@@ -4,6 +4,7 @@ import { Module } from "./types";
 import operaDownloadButton from "./modules/operaDownloadButton";
 import firstCreatedUsername from "./modules/firstCreatedUsername";
 import bypassCameraRollSelectionLimit from "./modules/bypassCameraRollSelectionLimit";
+import composerTheming from "./modules/composerTheming";
 
 
 try {
@@ -18,7 +19,8 @@ try {
     const modules: Module[] = [
         operaDownloadButton, 
         firstCreatedUsername,
-        bypassCameraRollSelectionLimit
+        bypassCameraRollSelectionLimit,
+        composerTheming
     ];
 
     modules.forEach(module => {
