@@ -15,13 +15,10 @@ export default defineModule({
                         console.log("setAttribute", key);
                         dumpObject(argumentsList[1]);
                     }
-                },
-                setAttributeString({target, argumentsList}: { target: any, argumentsList: any }, thisArg: any) {
-                    const key = argumentsList[0];
                     if (key === "backgroundColor" || key === "background" || key === "tint") {
                         argumentsList[1] = "#ffffffff";
                     }
-                    return Reflect.apply(target, thisArg, argumentsList);
+                    argumentsList[0].setAttribute(key, argumentsList[1]);
                 }
             })
     },
