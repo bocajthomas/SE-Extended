@@ -996,6 +996,10 @@
                             "custom_emoji_font": {
                                 "name": "Custom Emoji Font",
                                 "description": "Allows you to use a custom emoji font. Only works with .ttf fonts"
+                            },
+                            "remap_executable": {
+                                "name": "Remap Executable",
+                                "description": "Remaps executable regions in memory"
                             }
                         }
                     },

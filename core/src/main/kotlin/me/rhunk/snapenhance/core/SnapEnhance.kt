@@ -208,10 +208,10 @@ class SnapEnhance {
                         request.canceled = canceled
                     }
                 }
-                BaseDexClassLoader::class.java.hookConstructor(HookStage.AFTER) {
-                    appContext.native.hideAnonymousDexFiles()
-                }
                 appContext.reloadNativeConfig()
+            }
+            BaseDexClassLoader::class.java.hookConstructor(HookStage.AFTER) {
+                appContext.native.hideAnonymousDexFiles()
             }
         }.also { unhook = { it.unhook() } }
     }

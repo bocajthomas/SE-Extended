@@ -52,7 +52,7 @@ namespace util {
         return { start_offset, end_offset - start_offset };
     }
 
-    static void remap_sections(std::function<bool(const std::string &, size_t)> filter) {
+    static void remap_sections(std::function<bool(const std::string &, size_t)> filter, bool remove_read_permission) {
         char buff[256];
         auto maps = fopen("/proc/self/maps", "rt");
 
@@ -84,7 +84,7 @@ namespace util {
             }
 
             auto new_prot = (flags[0] == 'r' ? PROT_READ : 0) | (flags[1] == 'w' ? PROT_WRITE : 0) | (flags[2] == 'x' ? PROT_EXEC : 0);
-            if (new_prot & PROT_EXEC) {
+            if (remove_read_permission && flags[0] == 'r' && flags[2] == 'x') {
                 new_prot &= ~PROT_READ;
             }
             mprotect((void *)start, section_size, new_prot);

@@ -40,6 +40,7 @@ class Experimental : ConfigContainer() {
             addFlags(ConfigFlag.USER_IMPORT)
             filenameFilter = { it.endsWith(".ttf") }
         }
+        val remapExecutable = boolean("remap_executable") { requireRestart(); addNotices(FeatureNotice.INTERNAL_BEHAVIOR, FeatureNotice.UNSTABLE) }
     }
 
     class E2EEConfig : ConfigContainer(hasGlobalState = true) {
