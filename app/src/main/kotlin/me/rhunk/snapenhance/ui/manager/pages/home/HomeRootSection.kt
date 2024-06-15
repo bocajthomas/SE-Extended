@@ -9,6 +9,7 @@ import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Help
+import androidx.compose.material.icons.filled.Update
 import androidx.compose.material.icons.filled.BugReport
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Settings
@@ -35,7 +36,6 @@ import kotlinx.coroutines.launch
 import me.rhunk.snapenhance.R
 import me.rhunk.snapenhance.action.EnumQuickActions
 import me.rhunk.snapenhance.common.BuildConfig
-import me.rhunk.snapenhance.common.Constants
 import me.rhunk.snapenhance.common.action.EnumAction
 import me.rhunk.snapenhance.common.ui.rememberAsyncMutableState
 import me.rhunk.snapenhance.common.ui.rememberAsyncMutableStateList
@@ -200,6 +200,13 @@ class HomeRootSection : Routes.Route() {
                     modifier = Modifier.offset(y = (-2).dp),
                     imageVector = Icons.AutoMirrored.Default.Help,
                     link = "https://github.com/bocajthomas/SE-Extended/wiki"
+                )
+
+                ExternalLinkIcon(
+                    size = 36.dp,
+                    modifier = Modifier.offset(y = (-2).dp),
+                    imageVector = Icons.Filled.Update,
+                    link = "https://github.com/bocajthomas/SE-Extended/blob/dev/CHANGELOGS.md"
                 )
             }
 
