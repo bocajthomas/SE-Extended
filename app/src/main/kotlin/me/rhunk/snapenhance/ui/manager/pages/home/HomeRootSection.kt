@@ -9,7 +9,7 @@ import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Help
-import androidx.compose.material.icons.filled.WatchLater
+import androidx.compose.material.icons.filled.WatchLater // used watch later icon due to update icon not fitting the UI design
 import androidx.compose.material.icons.filled.Paid
 import androidx.compose.material.icons.filled.BugReport
 import androidx.compose.material.icons.filled.MoreVert
