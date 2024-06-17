@@ -9,7 +9,8 @@ import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Help
-import androidx.compose.material.icons.filled.Update
+import androidx.compose.material.icons.filled.WatchLater
+import androidx.compose.material.icons.filled.Paid
 import androidx.compose.material.icons.filled.BugReport
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Settings
@@ -205,8 +206,15 @@ class HomeRootSection : Routes.Route() {
                 ExternalLinkIcon(
                     size = 36.dp,
                     modifier = Modifier.offset(y = (-2).dp),
-                    imageVector = Icons.Filled.Update,
+                    imageVector = Icons.Filled.WatchLater,
                     link = "https://github.com/bocajthomas/SE-Extended/blob/dev/CHANGELOGS.md"
+                )
+
+                ExternalLinkIcon(
+                    size = 36.dp,
+                    modifier = Modifier.offset(y = (-2).dp),
+                    imageVector = Icons.Filled.Paid,
+                    link = "https://www.paypal.me/Jhuddz00"
                 )
             }
 
