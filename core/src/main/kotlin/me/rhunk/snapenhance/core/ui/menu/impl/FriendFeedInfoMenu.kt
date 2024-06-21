@@ -384,6 +384,11 @@ class FriendFeedInfoMenu : AbstractMenu() {
 
         val translation = context.translation.getCategory("friend_menu_option")
 
+        fun closeMenu() {
+            if (!context.config.userInterface.autoCloseFriendFeedMenu.get()) return
+            context.mainActivity?.triggerRootCloseTouchEvent()
+        }
+
         @Composable
         fun ComposeFriendFeedMenu() {
             Column(
@@ -418,7 +423,7 @@ class FriendFeedInfoMenu : AbstractMenu() {
                             context.translation.format("rules.toasts.${if (state) "enabled" else "disabled"}", "ruleName" to context.translation[ruleFeature.ruleType.translateOptionKey(ruleState.key)]),
                             durationMs = 1500
                         )
-                        context.mainActivity?.triggerRootCloseTouchEvent()
+                        closeMenu()
                     }
 
                     MenuElement(
@@ -446,7 +451,7 @@ class FriendFeedInfoMenu : AbstractMenu() {
                         translation["mark_snaps_as_seen"],
                         onClick = {
                             context.apply {
-                                mainActivity?.triggerRootCloseTouchEvent()
+                                closeMenu()
                                 feature(AutoMarkAsRead::class).markSnapsAsSeen(conversationId)
                             }
                         }
@@ -462,7 +467,7 @@ class FriendFeedInfoMenu : AbstractMenu() {
                         translation["mark_stories_as_seen_locally"],
                         onClick = {
                             context.apply {
-                                mainActivity?.triggerRootCloseTouchEvent()
+                                closeMenu()
                                 inAppOverlay.showStatusToast(
                                     Icons.Default.Info,
                                     if (database.setStoriesViewedState(targetUser!!, true)) markAsSeenTranslation["seen_toast"]
@@ -474,7 +479,7 @@ class FriendFeedInfoMenu : AbstractMenu() {
                         onLongClick = {
                             view.post {
                                 context.apply {
-                                    mainActivity?.triggerRootCloseTouchEvent()
+                                    closeMenu()
                                     inAppOverlay.showStatusToast(
                                         Icons.Default.Info,
                                         if (database.setStoriesViewedState(targetUser!!, false)) markAsSeenTranslation["unseen_toast"]

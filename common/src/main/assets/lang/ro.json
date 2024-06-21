@@ -464,10 +464,6 @@
                         "description": "Salvează automat fiecare mesaj din conversații",
                         "name": "Salvare automată a mesajelor"
                     },
-                    "message_preview_length": {
-                        "description": "Specificați cantitatea de mesaje pentru a fi previzualizate",
-                        "name": "Lungimea previzualizării mesajului"
-                    },
                     "notification_blacklist": {
                         "description": "Selectați notificările care ar trebui să fie blocate",
                         "name": "Lista neagră de notificări"
@@ -1356,9 +1352,6 @@
         "unlock_button": "Deblocați",
         "title": "Deblochează Snapchat",
         "subtitle": "Vă rugăm să vă autentificați pentru a debloca Snapchat"
-    },
-    "suspend_location_updates": {
-        "switch_text": "Suspendați actualizările locației"
     },
     "profile_picture_downloader": {
         "button": "Descărcați poza de profil",

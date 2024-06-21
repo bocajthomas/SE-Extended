@@ -68,7 +68,7 @@ class ModContext(
     val native = NativeLib()
     val scriptRuntime by lazy { CoreScriptRuntime(this, log) }
     val messagingBridge = CoreMessagingBridge(this)
-    val inAppOverlay = InAppOverlay()
+    val inAppOverlay = InAppOverlay(this)
 
     val isDeveloper by lazy { config.scripting.developerMode.get() }
 

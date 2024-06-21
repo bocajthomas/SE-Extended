@@ -498,10 +498,6 @@
                             }
                         }
                     },
-                    "message_preview_length": {
-                        "name": "Länge der Nachrichtenvorschau",
-                        "description": "Gib die Anzahl der Nachrichten an, die in der Vorschau angezeigt werden sollen"
-                    },
                     "call_start_confirmation": {
                         "name": "Bestätigung des Starts eines Anrufs",
                         "description": "Zeigt einen Bestätigungsdialog beim Starten eines Anrufs an"
@@ -1242,9 +1238,6 @@
         "birthday_changed": "{username} hat sein/ ihr Geburtsdatum von {oldBirthday} auf {newBirthday} geändert",
         "bitmoji_selfie_changed": "{username} hat sein/ ihr Bitmoji-Selfie geändert",
         "bitmoji_avatar_changed": "{username} hat sein/ ihr Bitmoji-Avatar geändert"
-    },
-    "suspend_location_updates": {
-        "switch_text": "Standortaktualisierungen aussetzen"
     },
     "material3_strings": {
         "date_range_picker_start_headline": "Von",

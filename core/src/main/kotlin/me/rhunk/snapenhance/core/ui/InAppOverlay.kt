@@ -33,12 +33,16 @@ import kotlinx.coroutines.delay
 import me.rhunk.snapenhance.common.ui.AppMaterialTheme
 import me.rhunk.snapenhance.common.ui.createComposeView
 import me.rhunk.snapenhance.common.util.ktx.copyToClipboard
+import me.rhunk.snapenhance.core.ModContext
 import me.rhunk.snapenhance.core.util.hook.HookStage
 import me.rhunk.snapenhance.core.util.hook.Hooker
 import me.rhunk.snapenhance.core.util.ktx.isDarkTheme
 import kotlin.math.roundToInt
+import kotlin.random.Random
 
-class InAppOverlay {
+class InAppOverlay(
+    private val context: ModContext
+) {
     companion object {
         fun showCrashOverlay(content: String, throwable: Throwable? = null) {
             Hooker.ephemeralHook(Activity::class.java, "onPostCreate", HookStage.AFTER) { param ->
@@ -179,17 +183,25 @@ class InAppOverlay {
         }
     }
 
-    fun onActivityCreate(activity: Activity) {
+    private val overlayTag = Random.nextLong()
+
+    private fun injectOverlay(activity: Activity) {
         val root = activity.findViewById<FrameLayout>(android.R.id.content)
-        root.post {
+        activity.runOnUiThread {
+            if (root.findViewWithTag<View>(overlayTag) != null) return@runOnUiThread
             root.addView(createComposeView(activity) {
                 AppMaterialTheme(isDarkTheme = remember { activity.isDarkTheme() }) {
                     OverlayContent()
                 }
             }.apply {
+                tag = overlayTag
                 layoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT)
             })
         }
+    }
+
+    fun onActivityCreate(activity: Activity) {
+        injectOverlay(activity)
     }
 
     @Composable
@@ -228,7 +240,7 @@ class InAppOverlay {
         )
     }
 
-    fun showToast(
+    private fun showToast(
         icon: @Composable () -> Unit = {
             Icon(Icons.Outlined.Warning, contentDescription = "icon", modifier = Modifier.size(32.dp))
         },
@@ -236,6 +248,7 @@ class InAppOverlay {
         durationMs: Int = 3000,
         showDuration: Boolean = true,
     ) {
+        injectOverlay(context.mainActivity!!)
         toasts.add(Toast(
             composable = {
                 ElevatedCard(

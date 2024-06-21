@@ -32,7 +32,9 @@
             "logger_history": "Logger History",
             "messaging_preview": "Preview",
             "friend_tracker": "Friend Tracker",
-            "edit_rule": "Edit Rule"
+            "edit_rule": "Edit Rule",
+            "better_location": "Better Location",
+            "file_imports": "File Imports"
         },
         "sections": {
             "features": {
@@ -43,7 +45,8 @@
                 "config_import_failure_toast": "Failed to import Config {error}",
                 "reset_option": "Reset",
                 "config_export_success_toast": "Config exported Successfully",
-                "saved_config_snackbar": "Config saved"
+                "saved_config_snackbar": "Config saved",
+                "config_export_failure_toast": "Failed to export config {error}"
             },
             "tasks": {
                 "no_tasks": "No Tasks",
@@ -52,7 +55,8 @@
                 "remove_all_tasks_title": "Are you sure you want to remove all tasks?",
                 "delete_files_option": "Also Delete Files",
                 "remove_selected_tasks_confirm": "Remove {count} Tasks?",
-                "remove_all_tasks_confirm": "Remove All Tasks?"
+                "remove_all_tasks_confirm": "Remove All Tasks?",
+                "failed_to_open_file": "Failed to open file"
             },
             "social": {
                 "streaks_expiration_short": "{hours}h",
@@ -63,7 +67,12 @@
             "home": {
                 "update_title": "SnapEnhance Update",
                 "update_button": "Download",
-                "update_content": "Version {version} is Available!"
+                "update_content": "Version {version} is Available!",
+                "debug_build_summary_title": "You are running a debug build of SnapEnhance",
+                "version_title": "v{versionName} · by rhunk",
+                "debug_build_summary_date": "Build date: {date} ({days} days ago)",
+                "debug_build_summary_content": "Version {versionName} ({versionCode})",
+                "quick_actions_title": "Quick Actions"
             },
             "home_logs": {
                 "no_logs_hint": "No Logs Available",
@@ -102,7 +111,7 @@
                 "no_stories": "No stories found"
             },
             "messaging_preview": {
-                "bridge_connection_failed": "Failed to connect to Snapchat through bridge service",
+                "bridge_connection_failed": "Failed to connect to bridge. Make sure Snapchat is running in the background",
                 "message_fetch_failed": "Failed to fetch Messages",
                 "save_all_option": "Save All",
                 "unsave_all_option": "Unsave All",
@@ -110,7 +119,7 @@
                 "mark_all_as_seen_option": "Mark all Snaps As Seen",
                 "delete_selection_option": "Delete Selection",
                 "delete_all_option": "Delete All",
-                "bridge_init_failed": "Failed to initialize messaging bridge",
+                "bridge_init_failed": "Failed to initialize messaging bridge. Make sure Snapchat is running in the background",
                 "no_message_hint": "No Message",
                 "save_selection_option": "Save Selection",
                 "unsave_selection_option": "Unsave Selection"
@@ -125,6 +134,34 @@
                 "message_parse_failed": "Failed to Parse Message",
                 "unknown_sender": "Unknown Sender",
                 "download_attachment_failed_toast": "Failed to Download Attachment"
+            },
+            "file_imports": {
+                "file_import_failed": "Failed to import file: {error}",
+                "import_file_button": "Import File",
+                "file_not_found": "File not found",
+                "file_imported": "File imported successfully",
+                "file_delete_failed": "Failed to delete file",
+                "no_files_hint": "Here you can import files for use in Snapchat. Press the button below to import a file."
+            },
+            "better_location": {
+                "spoofed_coordinates_title": "Lat {latitude}, Long {longitude}",
+                "spoof_location_toggle": "Spoof Location",
+                "no_saved_coordinates_hint": "No saved coordinates",
+                "teleport_to_friend_title": "Teleport to Friend",
+                "saved_name_dialog_hint": "Saved Name",
+                "save_dialog_button": "Save",
+                "saved_coordinates_title": "Saved Coordinates",
+                "delete_dialog_message": "Are you sure you want to delete this saved coordinate?",
+                "delete_dialog_title": "Delete Saved Coordinate",
+                "search_bar": "Search",
+                "no_friends_map": "No friends on the map",
+                "no_friends_found": "No friends found",
+                "save_coordinates_dialog_title": "Save Coordinates",
+                "choose_location_button": "Choose Location",
+                "teleport_to_friend_button": "Teleport to Friend",
+                "latitude_dialog_hint": "Latitude",
+                "longitude_dialog_hint": "Longitude",
+                "suspend_location_updates": "Suspend Location Updates"
             }
         },
         "dialogs": {
@@ -147,6 +184,14 @@
             "messaging_action": {
                 "title": "Choose content types to process",
                 "select_all_button": "Select All"
+            },
+            "export_config": {
+                "content": "Do you want to export the config with sensitive data? (Such as location coordinates, etc.)",
+                "title": "Export Sensitive Data?"
+            },
+            "file_imports": {
+                "settings_select_file_hint": "Select an imported file",
+                "no_files_settings_hint": "No files found. Make sure you have imported the required files in the File Imports section"
             }
         }
     },
@@ -243,6 +288,18 @@
         "change_language": {
             "name": "Change Language",
             "description": "Change the Language of SnapEnhance"
+        },
+        "logger_history": {
+            "name": "Logger History",
+            "description": "View the history of logged messages"
+        },
+        "file_imports": {
+            "name": "File Imports",
+            "description": "Import files for use in Snapchat"
+        },
+        "friend_tracker": {
+            "name": "Friend Tracker",
+            "description": "Track your friends on Snapchat"
         }
     },
     "features": {
@@ -560,10 +617,6 @@
                         "name": "Disable Replay in FF",
                         "description": "Disables the ability to replay with a long press from the Friend Feed"
                     },
-                    "message_preview_length": {
-                        "name": "Message Preview Length",
-                        "description": "Specify the amount of messages to get previewed"
-                    },
                     "call_start_confirmation": {
                         "name": "Call Start Confirmation",
                         "description": "Shows a confirmation dialog when starting a call"
@@ -631,6 +684,10 @@
                             "mark_as_read_and_save_in_chat": {
                                 "name": "Mark as Read and Save in Chat",
                                 "description": "Adds a mark as read and save in chat button to the notification"
+                            },
+                            "smart_replies": {
+                                "name": "Smart Replies",
+                                "description": "Adds suggested replies to notifications (Android 10+). Use in combination with Reply Button"
                             }
                         }
                     },
@@ -683,6 +740,14 @@
                     "unlimited_conversation_pinning": {
                         "description": "Allows you to pin an unlimited amount of conversations locally",
                         "name": "Unlimited Conversation Pinning"
+                    },
+                    "mark_snap_as_seen_button": {
+                        "name": "Mark Snap as Seen Button",
+                        "description": "Adds a button to mark a Snap as seen when viewing it.\nThis will work even when Stealth Mode is enabled"
+                    },
+                    "skip_when_marking_as_seen": {
+                        "name": "Skip When Marking as Seen",
+                        "description": "Automatically skips to the next Snap when marking a Snap as seen.\nUse in combination with Mark Snap as Seen Button"
                     }
                 },
                 "description": "Change how you interact with friends"
@@ -708,7 +773,7 @@
                                 "description": "Force Snapchat to update location even if no GPS data is received"
                             },
                             "suspend_location_updates": {
-                                "description": "Adds a button in map settings to suspend location updates",
+                                "description": "Prevents your location from being updated",
                                 "name": "Suspend Location Updates"
                             },
                             "spoof_battery_level": {
@@ -810,6 +875,10 @@
                                 "description": "Sets a custom image upload format\nSelect a lossless format (like PNG) for the best quality"
                             }
                         }
+                    },
+                    "disable_telecom_framework": {
+                        "name": "Disable Telecom Framework",
+                        "description": "Prevents Snapchat from using the Android Telecom framework\nThis allows you to listen to music while on a call"
                     }
                 }
             },
@@ -910,6 +979,14 @@
                                 },
                                 "name": "Composer Hooks",
                                 "description": "Injects code into the Composer cross-platform UI framework"
+                            },
+                            "custom_emoji_font": {
+                                "description": "Allows you to use a custom emoji font. Only works with .ttf fonts",
+                                "name": "Custom Emoji Font"
+                            },
+                            "remap_executable": {
+                                "name": "Remap Executable",
+                                "description": "Remaps executable regions in memory"
                             }
                         }
                     },
@@ -1028,6 +1105,32 @@
                     "best_friend_pinning": {
                         "name": "Best Friend Pinning",
                         "description": "Allows you to pin a friend as you're number one best friend. Note: Only you can see you're pinned best friend"
+                    },
+                    "cof_experiments": {
+                        "description": "Enables unreleased/beta Snapchat features",
+                        "name": "COF Experiments"
+                    },
+                    "context_menu_fix": {
+                        "name": "Context Menu Fix",
+                        "description": "Attempts to repair the Friend Feed Menu when the device is offline, it cannot be displayed correctly"
+                    },
+                    "better_transcript": {
+                        "name": "Better Transcript",
+                        "properties": {
+                            "preferred_transcription_lang": {
+                                "name": "Preferred Transcription Language",
+                                "description": "The preferred language for the voice note transcript (e.g. EN, ES, FR)"
+                            },
+                            "enhanced_transcript": {
+                                "name": "Enhanced Transcript",
+                                "description": "Improves the voice note transcript using DeepL.\nBefore using this feature, please ensure that you have read their privacy policy."
+                            },
+                            "force_transcription": {
+                                "description": "Allows all voice notes to be transcribed",
+                                "name": "Force Voice Note Transcription"
+                            }
+                        },
+                        "description": "Improves the voice note transcript"
                     }
                 }
             },
@@ -1086,7 +1189,8 @@
                 "added_by_qr_code": "By QR Code",
                 "added_by_community": "By Community",
                 "added_by_username": "By Username",
-                "added_by_mention": "By Mention"
+                "added_by_mention": "By Mention",
+                "added_by_quick_add": "By Quick Add (high risk of being banned)"
             },
             "bypass_video_length_restriction": {
                 "single": "Single media",
@@ -1180,7 +1284,8 @@
                 "hide_live_location_share_button": "Remove Live Location Share Button",
                 "hide_stickers_button": "Remove Stickers Button",
                 "hide_voice_record_button": "Remove Voice Record Button",
-                "hide_unread_chat_hint": "Remove Unread Chat Hint"
+                "hide_unread_chat_hint": "Remove Unread Chat Hint",
+                "hide_post_to_story_buttons": "Remove Post to Story buttons before sending a Snap"
             },
             "hide_story_suggestions": {
                 "hide_friend_suggestions": "Hide friend suggestions",
@@ -1386,7 +1491,8 @@
         "download_button": "Download",
         "delete_logged_message_button": "Delete Logged Message",
         "convert_message": "Convert Message",
-        "edit_message": "Edit Message"
+        "edit_message": "Edit Message",
+        "show_chat_edit_history": "Show Chat Edit History"
     },
     "opera_context_menu": {
         "download": "Download Media",
@@ -1415,7 +1521,8 @@
         "streak_expiration": "expires in {day} days {hour} hours {minute} minutes",
         "total_messages": "Total sent/received messages: {count}",
         "title": "Preview",
-        "unknown_user": "Unknown User"
+        "unknown_user": "Unknown User",
+        "no_messages": "No messages found!"
     },
     "profile_info": {
         "title": "Profile Info",
@@ -1515,9 +1622,6 @@
         "outgoing_pk_message": "Key exchange request",
         "incoming_pk_message": "You just received a public key request. Click below to accept it.",
         "incoming_secret_message": "Your friend just accepted your public key. Click below to accept the secret."
-    },
-    "suspend_location_updates": {
-        "switch_text": "Suspend Location Updates"
     },
     "biometric_auth": {
         "subtitle": "Please authenticate to unlock Snapchat",

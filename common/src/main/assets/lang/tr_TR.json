@@ -33,7 +33,8 @@
             "messaging_preview": "Önizleme",
             "friend_tracker": "Arkadaş Takibi",
             "edit_rule": "Kuralı Düzenle",
-            "file_imports": "Dosya İçe Aktarımları"
+            "file_imports": "Dosya İçe Aktarımları",
+            "better_location": "Daha İyi Konum"
         },
         "sections": {
             "features": {
@@ -60,12 +61,18 @@
                 "delete_files_option": "Ayrıca dosyaları sil",
                 "remove_selected_tasks_confirm": "{count} görev kaldırılsın mı?",
                 "merge_files_toast": "{count} dosya birleştiriliyor",
-                "remove_all_tasks_confirm": "Tüm görevler kaldırılsın mı?"
+                "remove_all_tasks_confirm": "Tüm görevler kaldırılsın mı?",
+                "failed_to_open_file": "Dosya açılamadı"
             },
             "home": {
                 "update_title": "SnapEnhance Güncellemesi",
                 "update_button": "İndir",
-                "update_content": "Sürüm {version} kullanılabilir!"
+                "update_content": "Sürüm {version} kullanılabilir!",
+                "debug_build_summary_content": "Sürüm {versionName} ({versionCode})",
+                "quick_actions_title": "Hızlı Eylemler",
+                "version_title": "rhunk tarafından - v{versionName}",
+                "debug_build_summary_title": "SnapEnhance'in bir hata ayıklama versiyonunu çalıştırıyorsunuz",
+                "debug_build_summary_date": "Oluşturma tarihi: {date} ({days} gün önce)"
             },
             "home_logs": {
                 "clear_logs_button": "Günlükleri Temizle",
@@ -135,6 +142,26 @@
                 "file_imported": "Dosya başarıyla içe aktarıldı",
                 "file_delete_failed": "Dosya silinemedi",
                 "no_files_hint": "Burada Snapchat'te kullanmak için dosyaları içe aktarabilirsiniz. Bir dosyayı içe aktarmak için aşağıdaki düğmeye basın."
+            },
+            "better_location": {
+                "save_coordinates_dialog_title": "Koordinatları Kaydet",
+                "saved_name_dialog_hint": "İsim Kaydedildi",
+                "choose_location_button": "Konum Seçin",
+                "teleport_to_friend_button": "Arkadaşa Işınlan",
+                "no_saved_coordinates_hint": "Kayıtlı koordinat yok",
+                "delete_dialog_title": "Kayıtlı Koordinatı Sil",
+                "delete_dialog_message": "Bu kayıtlı koordinatı silmek istediğinizden emin misiniz?",
+                "teleport_to_friend_title": "Arkadaşa Işınlan",
+                "search_bar": "Ara",
+                "no_friends_map": "Haritada arkadaş yok",
+                "no_friends_found": "Arkadaş bulunamadı",
+                "save_dialog_button": "Kaydet",
+                "spoofed_coordinates_title": "{latitude} Enlem, {longitude} Boylam",
+                "spoof_location_toggle": "Sahte Konum",
+                "saved_coordinates_title": "Koordinatlar Kaydedildi",
+                "longitude_dialog_hint": "Boylam",
+                "latitude_dialog_hint": "Enlem",
+                "suspend_location_updates": "Konum Güncellemelerini Askıya Al"
             }
         },
         "dialogs": {
@@ -523,10 +550,6 @@
                         "name": "AA'da Tekrar Oynatmayı Devre Dışı Bırak",
                         "description": "Arkadaş Akışından uzun basarak yeniden oynatma özelliğini devre dışı bırakır"
                     },
-                    "message_preview_length": {
-                        "name": "Mesaj Önizleme Uzunluğu",
-                        "description": "Önizlenecek mesaj miktarını belirtin"
-                    },
                     "prevent_message_sending": {
                         "name": "Mesaj Gönderimini Önleme",
                         "description": "Belirli mesaj türlerinin gönderilmesini engeller"
@@ -574,6 +597,10 @@
                             "mark_as_read_and_save_in_chat": {
                                 "name": "Okundu Olarak İşaretle ve Sohbete Kaydet",
                                 "description": "Bildirime okundu olarak işaretle ve sohbete kaydet düğmesi ekler"
+                            },
+                            "smart_replies": {
+                                "description": "Bildirimlere önerilen yanıtlar ekler (Android 10+). Yanıtla Düğmesi ile birlikte kullanın",
+                                "name": "Akıllı Yanıtlar"
                             }
                         }
                     },
@@ -668,6 +695,14 @@
                     "unlimited_conversation_pinning": {
                         "description": "Sınırsız sayıda konuşmayı yerel olarak sabitlemenizi sağlar",
                         "name": "Sınırsız Konuşma Sabitleme"
+                    },
+                    "mark_snap_as_seen_button": {
+                        "name": "Snap'i Görüldü Olarak İşaretle Düğmesi",
+                        "description": "Bir Snap'i görüntülerken görüldü olarak işaretlemek için bir düğme ekler.\nBu, Gizli Mod etkinleştirildiğinde bile çalışacaktır"
+                    },
+                    "skip_when_marking_as_seen": {
+                        "name": "Görüldü Olarak İşaretlerken Atla",
+                        "description": "Bir Snap'i görüldü olarak işaretlerken otomatik olarak bir sonraki Snap'e atlar.\nSnap'i Görüldü Olarak İşaretle Düğmesi ile birlikte kullanın"
                     }
                 }
             },
@@ -752,7 +787,7 @@
                             },
                             "suspend_location_updates": {
                                 "name": "Konum Güncellemelerini Askıya Al",
-                                "description": "Harita ayarlarına konum güncellemelerini askıya almak için bir düğme ekler"
+                                "description": "Konumunuzun güncellenmesini engeller"
                             },
                             "spoof_battery_level": {
                                 "name": "Sahte Pil Seviyesi",
@@ -794,6 +829,10 @@
                                 "description": "Özel bir resim yükleme biçimi ayarlar\nEn iyi kalite için kayıpsız bir format (PNG gibi) seçin"
                             }
                         }
+                    },
+                    "disable_telecom_framework": {
+                        "description": "Snapchat'in Android Telecom çerçevesini kullanmasını engeller\nBu, görüşme sırasında müzik dinlemenizi sağlar",
+                        "name": "Telekom Çerçevesini Devre Dışı Bırak"
                     }
                 }
             },
@@ -902,6 +941,10 @@
                             "custom_emoji_font": {
                                 "name": "Özel Emoji Fontu",
                                 "description": "Özel bir emoji yazı tipi kullanmanızı sağlar. Yalnızca .ttf yazı tipleriyle çalışır"
+                            },
+                            "remap_executable": {
+                                "name": "Yürütülebiliri Yeniden Eşle",
+                                "description": "Bellekteki yürütülebilir bölgeleri yeniden eşler"
                             }
                         }
                     },
@@ -1024,6 +1067,28 @@
                     "cof_experiments": {
                         "name": "COF Deneyleri",
                         "description": "Yayınlanmamış/beta Snapchat özelliklerini etkinleştirir"
+                    },
+                    "context_menu_fix": {
+                        "name": "Bağlam Menüsü Düzeltme",
+                        "description": "Cihaz çevrimdışı olduğunda doğru şekilde görüntülenemediği için Arkadaş Besleme Menüsünü onarmaya çalışın"
+                    },
+                    "better_transcript": {
+                        "properties": {
+                            "force_transcription": {
+                                "name": "Sesli not transkriptine zorla",
+                                "description": "Tüm sesli notların yazıya dökülmesini sağlar"
+                            },
+                            "preferred_transcription_lang": {
+                                "name": "Tercih Edilen Transkripsiyon Dili",
+                                "description": "Sesli not metni için tercih edilen dil (örn. EN, ES, FR)"
+                            },
+                            "enhanced_transcript": {
+                                "name": "Geliştirilmiş Transkript",
+                                "description": "DeepL adresini kullanarak sesli not dökümünü iyileştirir.\nBu özelliği kullanmadan önce lütfen gizlilik politikasını okuduğunuzdan emin olun."
+                            }
+                        },
+                        "name": "Daha İyi Transkript",
+                        "description": "Sesli not transkriptini iyileştirir"
                     }
                 }
             },
@@ -1139,7 +1204,8 @@
                 "hide_live_location_share_button": "Canlı Konum Paylaş Düğmesini Kaldır",
                 "hide_stickers_button": "Çıkartmalar Butonunu Kaldır",
                 "hide_voice_record_button": "Ses Kayıt Butonunu Kaldır",
-                "hide_unread_chat_hint": "Okunmamış Sohbet İpucunu Kaldır"
+                "hide_unread_chat_hint": "Okunmamış Sohbet İpucunu Kaldır",
+                "hide_post_to_story_buttons": "Snap göndermeden önce Hikayeye Gönder düğmelerini kaldırın"
             },
             "home_tab": {
                 "map": "Harita",
@@ -1276,7 +1342,8 @@
         "download_button": "İndir",
         "delete_logged_message_button": "Kaydedilen Mesajı Sil",
         "convert_message": "Mesajı Dönüştür",
-        "edit_message": "Mesajı Düzenle"
+        "edit_message": "Mesajı Düzenle",
+        "show_chat_edit_history": "Sohbet Düzenleme Geçmişini Göster"
     },
     "opera_context_menu": {
         "download": "Medyayı İndir",
@@ -1298,7 +1365,8 @@
         "streak_expiration": "{day} gün {hour} saat {minute} dakika içinde sona eriyor",
         "total_messages": "Toplam gönderilen/alınan mesajlar: {count}",
         "title": "Önizleme",
-        "unknown_user": "Bilinmeyen Kullanıcı"
+        "unknown_user": "Bilinmeyen Kullanıcı",
+        "no_messages": "Mesaj bulunamadı!"
     },
     "profile_info": {
         "title": "Profil Bilgisi",
@@ -1409,9 +1477,6 @@
         "MAP_REACTION": "Harita Tepkisi",
         "SHARE": "Paylaş"
     },
-    "suspend_location_updates": {
-        "switch_text": "Konum Güncellemelerini Askıya Al"
-    },
     "better_notifications": {
         "button": {
             "download": "İndir",
@@ -1514,6 +1579,18 @@
         "change_language": {
             "name": "Dili Değiştir",
             "description": "SnapEnhance'in dilini değiştir"
+        },
+        "friend_tracker": {
+            "name": "Arkadaş Takibi",
+            "description": "Snapchat'te arkadaşlarınızı takip edin"
+        },
+        "logger_history": {
+            "name": "Kaydedici Geçmişi",
+            "description": "Günlüğe kaydedilen mesajların geçmişini görüntüle"
+        },
+        "file_imports": {
+            "name": "Dosya İçe Aktarımları",
+            "description": "Snapchat'te kullanmak için dosyaları içe aktarma"
         }
     },
     "scopes": {

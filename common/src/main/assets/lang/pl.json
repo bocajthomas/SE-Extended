@@ -53,6 +53,29 @@
                 "actions_title": "Akcja",
                 "clear_button": "Czysto"
             }
+        },
+        "dialogs": {
+            "export_config": {
+                "title": "Eksportować wrażliwe dane?",
+                "content": "Czy chcesz wyeksportować konfigurację z wrażliwymi danymi? (Takie jak współrzędne lokalizacji itp.)"
+            },
+            "file_imports": {
+                "settings_select_file_hint": "Wybierz zaimportowany plik",
+                "no_files_settings_hint": "Nie znaleziono plików. Upewnij się, że zaimportowałeś wymagane pliki w sekcji \"Importy plików\""
+            },
+            "scripting_warning": {
+                "title": "Ostrzeżenie",
+                "content": "SnapEnhance zawiera narzędzie skryptowe, umożliwiające wykonanie zdefiniowanego przez użytkownika kodu na Twoim urządzeniu. Używaj z szczególną ostrożnością i instaluj moduły z znanego, wiarygodnego źródła. Nieautoryzowane lub niezweryfikowane moduły mogą stwarzać zagrożenie dla twojego systemu."
+            },
+            "reset_config": {
+                "success_toast": "Konfiguracja została pomyślnie zresetowana",
+                "title": "Uruchom ponownie konfigurację",
+                "content": "Czy na pewno chcesz zresetować konfigurację?"
+            },
+            "messaging_action": {
+                "select_all_button": "Zaznacz wszystko",
+                "title": "Wybierz typy treści do przetworzenia"
+            }
         }
     },
     "friend_menu_option": {
@@ -122,5 +145,113 @@
     "scopes": {
         "friend": "Przyjaciel",
         "group": "Grupa"
+    },
+    "rules": {
+        "modes": {
+            "blacklist": "Tryb czarnej listy",
+            "whitelist": "Tryb białej listy"
+        },
+        "properties": {
+            "stealth": {
+                "options": {
+                    "whitelist": "Tryb ukrycia",
+                    "blacklist": "Wyklucz z trybu ukrytego"
+                },
+                "name": "Tryb ukrycia",
+                "description": "Uniemożliwia innym dowiedzenie się, że otworzyłeś ich Snapy/czaty oraz rozmowy"
+            },
+            "auto_save": {
+                "name": "Automatyczne zapisywanie",
+                "options": {
+                    "whitelist": "Automatyczne zapisywanie",
+                    "blacklist": "Wyklucz z automatycznego zapisywania"
+                },
+                "description": "Zapisuje wiadomości czatu podczas ich przeglądania"
+            },
+            "auto_download": {
+                "options": {
+                    "whitelist": "Automatyczne pobieranie",
+                    "blacklist": "Wyklucz z automatycznego pobierania"
+                },
+                "name": "Automatyczne pobieranie",
+                "description": "Automatycznie pobieraj snapy, gdy je wyswietlasz"
+            },
+            "auto_open_snaps": {
+                "options": {
+                    "whitelist": "Automatyczne Otwieranie Snapów",
+                    "blacklist": "Wyklucz z automatycznie otwieranych Snapów"
+                },
+                "description": "Automatycznie otwiera Snapy po ich otrzymaniu"
+            },
+            "pin_conversation": {
+                "name": "Przypnij konwersacje"
+            },
+            "hide_friend_feed": {
+                "name": "Ukryj z Kanału znajomych"
+            },
+            "unsaveable_messages": {
+                "name": "Wiadomości, których nie można zapisać",
+                "options": {
+                    "blacklist": "Wyklucz osoby z wiadomości, których nie można zapisać",
+                    "whitelist": "Wiadomości, których nie można zapisać"
+                },
+                "description": "Uniemożliwia zapisywanie wiadomości na czacie przez inne osoby"
+            },
+            "e2e_encryption": {
+                "name": "Użyj szyfrowania E2E"
+            }
+        },
+        "toasts": {
+            "enabled": "{ruleName} włączony",
+            "disabled": "{ruleName} wyłączony"
+        }
+    },
+    "actions": {
+        "regen_mappings": {
+            "description": "Ręcznie wygeneruj ponownie mapowania",
+            "name": "Regeneruj mapowania"
+        },
+        "change_language": {
+            "name": "Zmień język",
+            "description": "Zmień język SnapEnhance'a"
+        },
+        "friend_tracker": {
+            "name": "Śledzenie znajomych",
+            "description": "Śledź swoich znajomych na Snapchacie"
+        },
+        "file_imports": {
+            "name": "Import plików",
+            "description": "Importuj pliki do użytku w Snapchacie"
+        },
+        "logger_history": {
+            "name": "Historia rejestratora",
+            "description": "Przeglądaj historię zarejestrowanych wiadomości"
+        },
+        "clean_snapchat_cache": {
+            "description": "Czyści pamięć podręczną Snapchata",
+            "name": "Wyczyść pamięć podręczną Snapchata"
+        },
+        "manage_friend_list": {
+            "name": "Zarządzaj listą znajomych",
+            "description": "Importuj/eksportuj listę znajomych podczas tworzenia kopii zapasowej"
+        },
+        "export_chat_messages": {
+            "name": "Eksportuj wiadomości czatu",
+            "description": "Eksportuje wiadomości konwersacji do pliku JSON/HTML/TXT"
+        },
+        "export_memories": {
+            "description": "Eksportuje wspomnienia do pliku ZIP",
+            "name": "Eksportuj wspomnienia"
+        },
+        "bulk_messaging_action": {
+            "description": "Wykonuje operacje takie jak usuwanie znajomych czy masowe usuwanie rozmów",
+            "name": "Akcja przesyłania wiadomości zbiorczych"
+        }
+    },
+    "features": {
+        "notices": {
+            "unstable": "⚠ Niestabilny",
+            "ban_risk": "⚠ Ta funkcja może powodować bany"
+        }
     }
 }

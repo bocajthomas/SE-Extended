@@ -505,10 +505,6 @@
                         "name": "Deaktivér genafspilning i FF",
                         "description": "Deaktiverer evnen til at genspille med et langt tryk fra Vennefeed"
                     },
-                    "message_preview_length": {
-                        "name": "Besked Forhåndsvisning Længde",
-                        "description": "Antallet af beskeder der skal forhåndsvises"
-                    },
                     "prevent_message_sending": {
                         "name": "Forhindre Besked Afsendelse",
                         "description": "Forhindrer afsendelse af visse typer beskeder"
@@ -1474,9 +1470,6 @@
             "mark_as_read": "Marker som læst",
             "download": "Hent"
         }
-    },
-    "suspend_location_updates": {
-        "switch_text": "Suspender placerings opdateringer"
     },
     "mark_as_seen": {
         "already_unseen_toast": "Allerede markeret som uset!",

@@ -421,10 +421,6 @@
                         "name": "Poista uusinta käytöstä FF: ssä",
                         "description": "Poistaa käytöstä mahdollisuuden toistaa kaverisyötteestä pitkällä painalluksella"
                     },
-                    "message_preview_length": {
-                        "name": "Viestin Esikatselun Pituus",
-                        "description": "Määritä esikatseltavien viestien määrä"
-                    },
                     "prevent_message_sending": {
                         "name": "Estä Viestien Lähettäminen",
                         "description": "Estää tietyntyyppisten viestien lähettämisen"

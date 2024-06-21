@@ -555,6 +555,10 @@
                         "name": "Friend Feed Menu Buttons",
                         "description": "Select which buttons to show in the Friend Feed Menu"
                     },
+                    "auto_close_friend_feed_menu": {
+                        "name": "Auto Close Friend Feed Menu",
+                        "description": "Automatically closes the Friend Feed Menu after pressing a setting button"
+                    },
                     "vertical_story_viewer": {
                         "name": "Vertical Story Viewer",
                         "description": "Enables the vertical story viewer for all stories"

@@ -667,10 +667,6 @@
                         },
                         "description": "Уведомляет вас, когда кто-то половинчато смахивает в беседу"
                     },
-                    "message_preview_length": {
-                        "description": "Укажите количество сообщений для предпросмотра",
-                        "name": "Длина предпросмотра сообщений"
-                    },
                     "notification_blacklist": {
                         "name": "Выберите уведомления, которые следует заблокировать",
                         "description": "Журнал сообщений"
@@ -1269,9 +1265,6 @@
     "streaks_reminder": {
         "notification_text": "Вы потеряете свою серию с {friend} через {hoursLeft} ч",
         "notification_title": "Полосы"
-    },
-    "suspend_location_updates": {
-        "switch_text": "Приостановить обновление местоположений"
     },
     "content_type": {
         "STICKER": "Стикер",

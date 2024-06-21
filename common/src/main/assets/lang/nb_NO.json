@@ -7,29 +7,56 @@
             "features": "Funksjoner",
             "home": "Hjem",
             "tasks": "Gjøremål",
-            "logger_history": "Logføring historie",
+            "logger_history": "Loggføringshistorie",
             "logged_stories": "Loggede historier",
             "messaging_preview": "Forhåndsvisning",
-            "social": "Sosial",
-            "manage_scope": "Administrer omfang"
+            "social": "Sosialt",
+            "manage_scope": "Administrer omfang",
+            "better_location": "Bedre Posisjon",
+            "file_imports": "Fil-importer",
+            "edit_rule": "Rediger Regel",
+            "friend_tracker": "Vennesporing"
         },
         "sections": {
             "social": {
-                "streaks_expiration_short": "{timer}t"
+                "streaks_expiration_short": "{hours}t",
+                "friends_tab": "Venner",
+                "groups_tab": "Grupper",
+                "empty_hint": "(tom)"
             },
             "features": {
-                "disabled": "Avskrudd"
+                "disabled": "Deaktivert",
+                "config_import_success_toast": "Importering av konfigurasjon vellykket",
+                "config_export_success_toast": "Eksportering av konfigurasjon vellykket",
+                "export_option": "Eksporter",
+                "reset_option": "Tilbakestill",
+                "config_import_failure_toast": "Feil under importering av konfigurasjon {error}",
+                "config_export_failure_toast": "Feil under eksportering av konfigurasjon {error}",
+                "saved_config_snackbar": "Konfigurasjon lagret",
+                "import_option": "Importer"
             },
             "tasks": {
-                "no_tasks": "Ingen oppgaver"
+                "no_tasks": "Ingen gjøremål",
+                "remove_all_tasks_title": "Er du sikker på at du vil fjerne alle gjøremål?",
+                "failed_to_open_file": "Feil under åpning av fil",
+                "merge_files_toast": "Slår sammen {count} filer",
+                "remove_selected_tasks_title": "Er du sikker på at du vil fjerne valgte gjøremål?",
+                "delete_files_option": "Slett filer også",
+                "remove_selected_tasks_confirm": "Fjern {count} gjøremål?",
+                "remove_all_tasks_confirm": "Fjern alle gjøremål?"
             },
             "home": {
                 "update_content": "Versjon {versjon} er tilgjengelig!",
-                "update_button": "Nedlast",
-                "update_title": "SnapEnhance Oppdatering"
+                "update_button": "Last ned",
+                "update_title": "SnapEnhance Oppdatering",
+                "debug_build_summary_title": "Du kjører et feilsøkingsbyggversjon av SnapEnhance",
+                "debug_build_summary_date": "Byggversjonsdato: {date} ({days} dager siden)",
+                "quick_actions_title": "Kjappe Handlinger",
+                "debug_build_summary_content": "Versjon {versionName} ({versionCode})",
+                "version_title": "v{versionName} · av rhunk"
             },
             "home_logs": {
-                "no_logs_hint": "igjen logg tilgjengelig",
+                "no_logs_hint": "Ingen logger tilgjengelig",
                 "clear_logs_button": "Slett Logg",
                 "export_logs_button": "Eksporter Logg",
                 "saving_logs_toast": "Lagrer logg, dette kan ta en stund ...",
@@ -37,7 +64,31 @@
                 "saved_logs_failure_toast": "Feil under lagring av logg"
             },
             "home_settings": {
-                "actions_title": "Handlinger"
+                "actions_title": "Handlinger",
+                "success_toast": "Ferdig!",
+                "message_logger_summary": "{messageCount} meldinger\n{storyCount} historier",
+                "message_logger_title": "Meldingslogger",
+                "export_button": "Eksporter",
+                "clear_button": "Rensk",
+                "view_logger_history_button": "Se logghistorikk",
+                "debug_title": "Feilsøking"
+            },
+            "manage_scope": {
+                "logged_stories_button": "Vis loggede historier",
+                "streaks_expiration_text_expired": "Utgått",
+                "e2ee_title": "Ende-til-ende-kryptering",
+                "streaks_length_text": "Lengde: {length}",
+                "streaks_expiration_text": "Utgår om {eta}",
+                "delete_scope_confirm_dialog_title": "Er du sikker på at du vil slette en {scope}?",
+                "rules_title": "Regler",
+                "streaks_title": "Streaks",
+                "reminder_button": "Sett påminnelse",
+                "participants_text": "{count} deltakere",
+                "not_found": "Ikke funnet"
+            },
+            "logged_stories": {
+                "story_failed_to_load": "Feil under lasting",
+                "no_stories": "Ingen historier funnet"
             }
         },
         "dialogs": {
@@ -56,19 +107,19 @@
     },
     "setup": {
         "mappings": {
-            "dialog": "For å dynamisk støtte et bredt spekter av Snapchat versjoner, er kartlegginger nødvendig for at SnapEnhance skal fungere ordentlig, dette bør ikke ta mer enn 5 sekunder.",
+            "dialog": "For å dynamisk støtte et bredt spekter av Snapchat-versjoner, er kartlegging nødvendig for at SnapEnhance skal fungere ordentlig, dette bør ikke ta mer enn 5 sekunder.",
             "generate_failure_no_snapchat": "SnapEnhance kunne ikke oppdage Snapchat, prøv å installere Snapchat på nytt.",
-            "generate_failure": "Det oppstod en feil under forsøk på å generere tilordninger. Prøv igjen."
+            "generate_failure": "Det oppstod en feil under forsøk på å generere kartlegginger. Prøv igjen."
         },
         "dialogs": {
             "select_save_folder_button": "Velg mappe",
             "select_language": "Velg språk",
-            "save_folder": "SnapEnhance krever lagringstillatelser for å laste ned og lagre media fra Snapchat.\nVelg stedet hvor media skal lastes ned."
+            "save_folder": "SnapEnhance krever lagrings tillatelser for og laste ned og lagre media fra snapchaf. Vennligst velg hvor filene skal lagres"
         },
         "permissions": {
-            "battery_optimization": "Batteri optimalisering",
-            "display_over_other_apps": "Vis over andre programmer",
-            "notification_access": "Merknadstilgang",
+            "battery_optimization": "Batterioptimalisering",
+            "display_over_other_apps": "Vis over andre apper",
+            "notification_access": "Varslingstilgang",
             "request_button": "Forespør",
             "dialog": "For å fortsette må du oppfylle følgende krav:"
         }
@@ -81,12 +132,34 @@
         "properties": {
             "auto_save": {
                 "options": {
-                    "whitelist": "Automatisk lagring"
+                    "whitelist": "Automatisk lagring",
+                    "blacklist": "Ekskluder fra Automatisk lagring"
                 },
-                "name": "Automatisk lagring"
+                "name": "Automatisk lagring",
+                "description": "Lagrer chatmeldinger når du ser dem"
             },
             "auto_download": {
-                "name": "Automatisk nedlasting"
+                "name": "Automatisk nedlasting",
+                "options": {
+                    "blacklist": "Ekskluder fra Automatisk nedlasting",
+                    "whitelist": "Automatisk nedlasting"
+                },
+                "description": "Automatisk last ned snapper når du ser dem"
+            },
+            "unsaveable_messages": {
+                "name": "Meldinger som ikke kan lagres",
+                "description": "Forhindrer meldinger fra å bli lagret i chat av andre personer",
+                "options": {
+                    "blacklist": "Ekskluder fra Meldinger som ikke kan lagres"
+                }
+            },
+            "stealth": {
+                "description": "Forhindrer noen fra å vite at du har åpnet snappene/chattene og samtalene dems",
+                "options": {
+                    "whitelist": "Smugmodus",
+                    "blacklist": "Ekskluder fra smugmodus"
+                },
+                "name": "Smugmodus"
             }
         },
         "toasts": {

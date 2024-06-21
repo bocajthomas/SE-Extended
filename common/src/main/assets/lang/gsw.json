@@ -459,9 +459,6 @@
             "description": "Ändert d'Sproch vo SnapEnhance"
         }
     },
-    "suspend_location_updates": {
-        "switch_text": "Standort-Aktualisierige ussetze"
-    },
     "streaks_reminder": {
         "notification_text": "Du verliersch dy streak mit {friend} in {hoursLeft} Stunde"
     }

@@ -698,10 +698,6 @@
                             }
                         }
                     },
-                    "message_preview_length": {
-                        "name": "Länge der Nachrichtenvorschau",
-                        "description": "Gib die Anzahl der Nachrichten an, die in der Vorschau angezeigt werden sollen"
-                    },
                     "call_start_confirmation": {
                         "name": "Bestätigung des Starts eines Anrufs",
                         "description": "Zeigt einen Bestätigungsdialog beim Starten eines Anrufs an"
@@ -1488,8 +1484,5 @@
         "outgoing_secret_message": "Schlüsselaustausch-Antwort",
         "incoming_pk_message": "Sie haben gerade eine Anfrage für einen öffentlichen Schlüssel erhalten. Klicken Sie unten, um sie anzunehmen.",
         "incoming_secret_message": "Ihr Freund hat gerade Ihren öffentlichen Schlüssel akzeptiert. Klicken Sie unten, um das Passwort zu akzeptieren."
-    },
-    "suspend_location_updates": {
-        "switch_text": "Standortaktualisierungen aussetzen"
     }
 }

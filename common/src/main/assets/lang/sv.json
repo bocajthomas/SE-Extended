@@ -428,10 +428,6 @@
                         "name": "Förhindra att meddelanden skickas",
                         "description": "Förhindrar att vissa typer av meddelanden skickas"
                     },
-                    "message_preview_length": {
-                        "name": "Längd för förhandsgranskning av meddelande",
-                        "description": "Ange hur många meddelanden som ska förhandsgranskas"
-                    },
                     "better_notifications": {
                         "description": "Lägger till mer information i mottagna aviseringar",
                         "name": "Bättre aviseringar"

@@ -33,7 +33,8 @@
             "messaging_preview": "Aperçu",
             "edit_rule": "Modifier la règle",
             "friend_tracker": "Traqueur d'amis",
-            "file_imports": "Importations de fichiers"
+            "file_imports": "Importations de fichiers",
+            "better_location": "Localisation Améliorée"
         },
         "sections": {
             "features": {
@@ -60,12 +61,18 @@
                 "remove_all_tasks_title": "Êtes-vous sûr de vouloir supprimer toutes les tâches ?",
                 "delete_files_option": "Supprimer également les fichiers",
                 "remove_selected_tasks_confirm": "Supprimer {count} tâches ?",
-                "remove_all_tasks_confirm": "Supprimer toutes les tâches ?"
+                "remove_all_tasks_confirm": "Supprimer toutes les tâches ?",
+                "failed_to_open_file": "Échec de l'ouverture du fichier"
             },
             "home": {
                 "update_content": "La version {version} est disponible !",
                 "update_button": "Téléchargement",
-                "update_title": "Mise à jour SnapEnhance"
+                "update_title": "Mise à jour SnapEnhance",
+                "version_title": "v{versionName} · par rhunk",
+                "debug_build_summary_title": "Vous utilisez une version de debug de SnapEnhance",
+                "debug_build_summary_content": "Version {versionName} ({versionCode})",
+                "debug_build_summary_date": "Date de création : {date} (Il y a {days} jours)",
+                "quick_actions_title": "Actions rapides"
             },
             "manage_scope": {
                 "logged_stories_button": "Afficher les stories enregistrées",
@@ -135,6 +142,26 @@
                 "file_import_failed": "Échec de l'importation du fichier : {error}",
                 "file_imported": "Fichier importé avec succès",
                 "file_delete_failed": "Échec de la suppression du fichier"
+            },
+            "better_location": {
+                "spoofed_coordinates_title": "Lat {latitude}, Lng {longitude}",
+                "save_coordinates_dialog_title": "Enregistrer les coordonnées",
+                "saved_name_dialog_hint": "Nom enregistré",
+                "delete_dialog_title": "Supprimer une coordonnée enregistrée",
+                "spoof_location_toggle": "Usurpation de la localisation",
+                "saved_coordinates_title": "Coordonnées enregistrées",
+                "teleport_to_friend_title": "Se téléporter à un ami",
+                "delete_dialog_message": "Êtes-vous sûr de vouloir supprimer cette coordonnée enregistrée ?",
+                "search_bar": "Rechercher",
+                "no_friends_found": "Aucun ami trouvé",
+                "save_dialog_button": "Sauvegarder",
+                "choose_location_button": "Choisir un emplacement",
+                "teleport_to_friend_button": "Se téléporter à un ami",
+                "no_saved_coordinates_hint": "Aucune coordonnée enregistrée",
+                "no_friends_map": "Pas d'amis sur la carte",
+                "latitude_dialog_hint": "Latitude",
+                "longitude_dialog_hint": "Longitude",
+                "suspend_location_updates": "Suspendre les mises à jour de localisation"
             }
         },
         "dialogs": {
@@ -523,10 +550,6 @@
                         "name": "Désactiver la relecture dans le FF",
                         "description": "Désactive la possibilité de rejouer avec un appui long du fil des amis"
                     },
-                    "message_preview_length": {
-                        "name": "Longueur de la prévisualisation du message",
-                        "description": "Spécifier le nombre de messages à prévisualiser"
-                    },
                     "prevent_message_sending": {
                         "name": "Empêcher l'envoi de message",
                         "description": "Empêche l'envoi de certains types de message"
@@ -574,6 +597,10 @@
                             "mark_as_read_button": {
                                 "name": "Bouton Marquer comme lu",
                                 "description": "Vous permet de marquer un message comme lu à partir de la notification"
+                            },
+                            "smart_replies": {
+                                "description": "Ajoute des réponses suggérées aux notifications (Android 10+). À utiliser en combinaison avec le bouton Répondre",
+                                "name": "Réponses intelligentes"
                             }
                         }
                     },
@@ -668,6 +695,14 @@
                     "unlimited_conversation_pinning": {
                         "description": "Permet d'épingler localement un nombre illimité de conversations",
                         "name": "Épinglage illimité des conversations"
+                    },
+                    "mark_snap_as_seen_button": {
+                        "name": "Bouton Marquer Snap comme vu",
+                        "description": "Ajoute un bouton pour marquer un Snap comme vu lors de sa visualisation.\nCela fonctionnera même lorsque le mode furtif est activé"
+                    },
+                    "skip_when_marking_as_seen": {
+                        "name": "Ignorer lors du marquage comme vu",
+                        "description": "Passe automatiquement au Snap suivant lors du marquage d'un Snap comme vu.\nÀ utiliser en combinaison avec le Bouton Marquer Snap comme vu"
                     }
                 }
             },
@@ -744,7 +779,7 @@
                             },
                             "suspend_location_updates": {
                                 "name": "Suspendre les mises à jour de localisation",
-                                "description": "Ajouter un bouton dans les paramètres de la carte pour suspendre les mises à jour de la localisation"
+                                "description": "Empêche la mise à jour de votre position"
                             },
                             "spoof_battery_level": {
                                 "description": "Usure le niveau de la batterie de votre appareil sur la carte\n La valeur doit être comprise entre 0 et 100",
@@ -794,6 +829,10 @@
                         },
                         "name": "Qualité d'importation des médias",
                         "description": "Remplace la qualité d'importation multimédia"
+                    },
+                    "disable_telecom_framework": {
+                        "name": "Désactiver le cadre de télécommunications",
+                        "description": "Empêche Snapchat d'utiliser le framework Android Telecom Cela vous permet d'écouter de la musique pendant un appel"
                     }
                 }
             },
@@ -901,6 +940,10 @@
                             "custom_emoji_font": {
                                 "name": "Police Emoji personnalisée",
                                 "description": "Vous permet d'utiliser une police emoji personnalisée. Fonctionne uniquement avec les polices .ttf"
+                            },
+                            "remap_executable": {
+                                "name": "Remapper l'exécutable",
+                                "description": "Remappe les régions exécutables en mémoire"
                             }
                         },
                         "description": "Fonctionnalités non fiables qui se greffent au code natif de Snapchat"
@@ -1024,6 +1067,28 @@
                     "cof_experiments": {
                         "name": "Expériences COF",
                         "description": "Active les fonctionnalités Snapchat inédites/bêta"
+                    },
+                    "context_menu_fix": {
+                        "name": "Correction du menu contextuel",
+                        "description": "Essayez de réparer le menu Liste d'amie, car lorsque l'appareil est hors ligne, il ne peut pas être affiché correctement"
+                    },
+                    "better_transcript": {
+                        "properties": {
+                            "force_transcription": {
+                                "description": "Permet de transcrire toutes les notes vocales",
+                                "name": "Forcer la transcription des notes vocales"
+                            },
+                            "enhanced_transcript": {
+                                "name": "Transcription améliorée",
+                                "description": "Améliore la transcription des notes vocales à l'aide de DeepL.\nAvant d'utiliser cette fonctionnalité, assurez-vous d'avoir lu leur politique de confidentialité."
+                            },
+                            "preferred_transcription_lang": {
+                                "name": "Langue de transcription préférée",
+                                "description": "La langue préférée pour la transcription des notes vocales (par exemple EN, ES, FR)"
+                            }
+                        },
+                        "name": "Meilleure transcription",
+                        "description": "Améliore la transcription des notes vocales"
                     }
                 }
             },
@@ -1192,7 +1257,8 @@
                 "hide_stickers_button": "Supprime le bouton des Stickers",
                 "hide_chat_call_buttons": "Supprimer les boutons d'appel dans le chat",
                 "hide_live_location_share_button": "Supprimer le bouton de partage de la localisation en direct",
-                "hide_profile_call_buttons": "Supprimer les boutons d'appel sur le profil"
+                "hide_profile_call_buttons": "Supprimer les boutons d'appel sur le profil",
+                "hide_post_to_story_buttons": "Supprimez les boutons Publier dans votre Story avant d'envoyer un Snap"
             },
             "edit_text_override": {
                 "bypass_text_input_limit": "Contourner la limite de saisie de texte",
@@ -1210,7 +1276,7 @@
             "hide_story_suggestions": {
                 "hide_suggested_friend_stories": "Cacher les stories d'amis suggérées",
                 "hide_friend_suggestions": "Cacher les suggestions d'ami",
-                "hide_my_stories": "Cacher mes histoires"
+                "hide_my_stories": "Cacher Ma Story"
             },
             "disable_cameras": {
                 "front": "Caméra Frontale",
@@ -1276,7 +1342,8 @@
         "download_button": "Télécharger",
         "delete_logged_message_button": "Supprimer le message enregistré",
         "convert_message": "Convertir le message",
-        "edit_message": "Modifier le message"
+        "edit_message": "Modifier le message",
+        "show_chat_edit_history": "Afficher l'historique des modifications du chat"
     },
     "opera_context_menu": {
         "download": "Télécharger",
@@ -1298,7 +1365,8 @@
         "streak_expiration": "expire dans {day} jour(s) {hour} heure(s) {minute} minute(s)",
         "total_messages": "Total des messages envoyés/reçus : {count}",
         "title": "Aperçu",
-        "unknown_user": "Utilisateur inconnu"
+        "unknown_user": "Utilisateur inconnu",
+        "no_messages": "Aucun message trouvé !"
     },
     "profile_info": {
         "title": "Informations du profil",
@@ -1422,9 +1490,6 @@
         "voice_call": "Appel vocal",
         "message_logger": "Enregistreur de messages"
     },
-    "suspend_location_updates": {
-        "switch_text": "Suspendre les mises à jour de localisation"
-    },
     "material3_strings": {
         "date_input_invalid_not_allowed": "Date invalide",
         "date_range_input_invalid_range_input": "Plage de dates non valide",
@@ -1507,6 +1572,18 @@
         "regen_mappings": {
             "name": "Régénérer les mappages",
             "description": "Régénérer manuellement les mappages"
+        },
+        "file_imports": {
+            "name": "Imports de fichiers",
+            "description": "Importer des fichiers pour les utiliser dans Snapchat"
+        },
+        "logger_history": {
+            "description": "Consulter l'historique des messages enregistrés",
+            "name": "Historique du logger"
+        },
+        "friend_tracker": {
+            "name": "Traqueur d'amis",
+            "description": "Traquer vos amis sur Snapchat"
         }
     },
     "mark_as_seen": {

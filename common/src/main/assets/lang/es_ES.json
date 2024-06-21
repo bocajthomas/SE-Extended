@@ -33,13 +33,19 @@
             "home_settings": "Ajustes",
             "friend_tracker": "Rastreador de amigos",
             "edit_rule": "Editar regla",
-            "file_imports": "Importación de archivos"
+            "file_imports": "Importación de archivos",
+            "better_location": "Mejor ubicación"
         },
         "sections": {
             "home": {
                 "update_title": "Actualización de SnapEnhance",
                 "update_content": "¡Versión {version} está disponible!",
-                "update_button": "Descargar"
+                "update_button": "Descargar",
+                "debug_build_summary_date": "Fecha de desarrollo: {date} (hace{days} día(s))",
+                "quick_actions_title": "Acciones rápidas",
+                "version_title": "v{versionName} · por rhunk",
+                "debug_build_summary_title": "Estás ejecutando una versión de depuración de SnapEnhance",
+                "debug_build_summary_content": "Versión {versionName} ({versionCode})"
             },
             "home_logs": {
                 "no_logs_hint": "Registros no disponibles",
@@ -66,7 +72,8 @@
                 "remove_selected_tasks_confirm": "¿Borrar {count} tareas?",
                 "remove_all_tasks_confirm": "¿Borrar todas las tareas?",
                 "merge_files_toast": "Incorporando {count} archivos",
-                "no_tasks": "Sin tareas"
+                "no_tasks": "Sin tareas",
+                "failed_to_open_file": "Error al abrir el archivo"
             },
             "features": {
                 "disabled": "Desactivado",
@@ -135,6 +142,26 @@
                 "file_not_found": "Archivo no encontrado",
                 "file_imported": "Archivo importado exitosamente",
                 "no_files_hint": "Aquí puedes importar los archivos para usarlos en Snapchat. Presiona el botón a continuación para importar un archivo."
+            },
+            "better_location": {
+                "save_dialog_button": "Guardar",
+                "saved_name_dialog_hint": "Nombre guardado",
+                "no_friends_found": "No se encontraron amigos",
+                "saved_coordinates_title": "Coordenadas guardadas",
+                "delete_dialog_title": "Eliminar coordenadas guardadas",
+                "search_bar": "Buscar",
+                "spoofed_coordinates_title": "Lat {latitude}, Lng {longitude}",
+                "save_coordinates_dialog_title": "Guardar coordenadas",
+                "choose_location_button": "Elegir la ubicación",
+                "spoof_location_toggle": "Ubicación falsa",
+                "no_saved_coordinates_hint": "No hay coordenadas guardadas",
+                "delete_dialog_message": "¿Está seguro de que desea eliminar esta coordenada guardada?",
+                "no_friends_map": "No hay amigos en el mapa",
+                "teleport_to_friend_button": "Teletransportar a un amigo",
+                "teleport_to_friend_title": "Teletransportar a un amigo",
+                "latitude_dialog_hint": "Latitud",
+                "longitude_dialog_hint": "Longitud",
+                "suspend_location_updates": "Suspender las actualizaciones de ubicación"
             }
         },
         "dialogs": {
@@ -257,6 +284,18 @@
         "regen_mappings": {
             "name": "regenerar mapeos",
             "description": "regenerar mapeos a mano"
+        },
+        "file_imports": {
+            "description": "Importar archivos para usar en Snapchat",
+            "name": "Importación de archivos"
+        },
+        "friend_tracker": {
+            "name": "Rastreador de amigos",
+            "description": "Sigue a tus amigos en Snapchat"
+        },
+        "logger_history": {
+            "description": "Ver el historial de mensajes guardados",
+            "name": "Historial del registro"
         }
     },
     "scopes": {
@@ -583,10 +622,6 @@
                         },
                         "description": "Te notifica cuando alguien no acaba de deslizar por completo a una conversación"
                     },
-                    "message_preview_length": {
-                        "name": "Longitud de la vista anticipada del mensaje",
-                        "description": "Especificar la cantidad de mensajes de ver en anticipación"
-                    },
                     "call_start_confirmation": {
                         "name": "Confirmación de empezar llamada",
                         "description": "Muestra un diálogo de confirmación al empezar una llamada"
@@ -672,6 +707,10 @@
                             "mark_as_read_and_save_in_chat": {
                                 "name": "Marcar como leído y guardar en el chat",
                                 "description": "Agrega un botón marcar como leído y guardar en el chat a la notificación"
+                            },
+                            "smart_replies": {
+                                "description": "Agregar respuestas sugeridas a las notificaciones (Android 10+). Usar en combinación con el botón Responder",
+                                "name": "Respuestas inteligentes"
                             }
                         }
                     },
@@ -733,7 +772,7 @@
                             },
                             "suspend_location_updates": {
                                 "name": "Suspender actualizaciones de la ubicación",
-                                "description": "Añade un botón en los ajustes del mapa para suspender actualizaciones de la ubicación"
+                                "description": "Evita que se actualice tu ubicación"
                             },
                             "spoof_battery_level": {
                                 "name": "Falsificar nivel de carga",
@@ -820,6 +859,10 @@
                     "hide_active_music": {
                         "name": "Ocultar música activa",
                         "description": "Evita que Snapchat sepa que estás escuchando a música\nEsto te permitirá capturar Snaps usando los botones de volumen mientras escuchas a música"
+                    },
+                    "disable_telecom_framework": {
+                        "name": "Deshabilitar el marco de telecomunicaciones",
+                        "description": "Impide que Snapchat utilice el marco de Android Telecom\nEsto te permite escuchar música durante una llamada"
                     }
                 },
                 "name": "Global",
@@ -1051,6 +1094,10 @@
                     "cof_experiments": {
                         "name": "Experimentos COF",
                         "description": "Habilita funciones inéditas/beta de Snapchat"
+                    },
+                    "context_menu_fix": {
+                        "description": "Intente reparar el menú Friend Feed ya que cuando el dispositivo está sin conexión no se mostraba correctamente",
+                        "name": "Corrección del menú contextual"
                     }
                 },
                 "name": "Experimental"
@@ -1128,7 +1175,8 @@
                 "hide_stickers_button": "Quitar botón de pegatinas",
                 "hide_voice_record_button": "Quitar botón de Grabar voz",
                 "hide_unread_chat_hint": "Quitar indicación de chat no leído",
-                "hide_chat_call_buttons": "Quitar botones de llamada de chat"
+                "hide_chat_call_buttons": "Quitar botones de llamada de chat",
+                "hide_post_to_story_buttons": "Eliminar los botones Publicar en la historia antes de enviar un Snap"
             },
             "hide_story_suggestions": {
                 "hide_friend_suggestions": "Ocultar sugestiones de amistad",
@@ -1443,7 +1491,8 @@
         "edit_message": "Editar mensaje",
         "convert_message": "Convertir mensaje",
         "preview_button": "Vista previa",
-        "download_button": "Descargar"
+        "download_button": "Descargar",
+        "show_chat_edit_history": "Mostrar el historial de edición del chat"
     },
     "opera_context_menu": {
         "download": "Descargar archivos de media",
@@ -1502,9 +1551,6 @@
         "bitmoji_background_changed": "{username} ha cambiado el fondo de su Bitmoji",
         "bitmoji_scene_changed": "{username} ha cambiado la escena de su Bitmoji"
     },
-    "suspend_location_updates": {
-        "switch_text": "Suspender actualizaciones de ubicación"
-    },
     "media_download_source": {
         "none": "Ninguno",
         "pending": "Pendiente",
@@ -1529,7 +1575,8 @@
         "streak_expiration": "Caduca en {day} días {hour} horas {minute} minutos",
         "total_messages": "Suma de mensajes enviados/recibidos: {count}",
         "title": "Vista previa",
-        "unknown_user": "Usuario desconocido"
+        "unknown_user": "Usuario desconocido",
+        "no_messages": "¡No se han encontrado mensajes!"
     },
     "profile_info": {
         "title": "Información de perfil",

@@ -32,7 +32,9 @@
             "manage_scope": "Terület kezelése",
             "messaging_preview": "Előnézet",
             "edit_rule": "Szabály szerkesztése",
-            "friend_tracker": "Barát figyelő"
+            "friend_tracker": "Barát figyelő",
+            "better_location": "Jobb helyzet",
+            "file_imports": "Fájl importálások"
         },
         "sections": {
             "features": {
@@ -43,7 +45,8 @@
                 "config_import_success_toast": "Beállításfájl sikeresen importálva",
                 "config_import_failure_toast": "Beállításfájl importálása sikertelen {error}",
                 "saved_config_snackbar": "Beállításfájl elmentve",
-                "export_option": "Exportálás"
+                "export_option": "Exportálás",
+                "config_export_failure_toast": "Nem sikerült a configot exportálni {error}"
             },
             "social": {
                 "streaks_expiration_short": "{hours} óra",
@@ -58,12 +61,18 @@
                 "remove_all_tasks_title": "Biztosan törölni szeretnéd az összes feladatot?",
                 "delete_files_option": "Törölje a fájlokat is",
                 "remove_selected_tasks_confirm": "{count} feladat eltávolítása?",
-                "remove_all_tasks_confirm": "Minden feladat eltávolítása?"
+                "remove_all_tasks_confirm": "Minden feladat eltávolítása?",
+                "failed_to_open_file": "Fájl megnyitása sikertelen"
             },
             "home": {
                 "update_title": "SnapEnhance frissítés",
                 "update_content": "A(z) {version} már elérhető!",
-                "update_button": "Letöltés"
+                "update_button": "Letöltés",
+                "version_title": "v{versionName} · rhunk által",
+                "debug_build_summary_content": "Verzió {versionName} ({versionCode})",
+                "debug_build_summary_date": "Buildelés dátuma: {date} ({days} napja)",
+                "quick_actions_title": "Gyors műveletek",
+                "debug_build_summary_title": "Egy debug verziót használsz a SnapEnhance-ből"
             },
             "home_settings": {
                 "view_logger_history_button": "Naplóelőzmények megtekintése",
@@ -102,8 +111,8 @@
                 "save_from_cache_button": "Mnetés gyorsítótárból"
             },
             "messaging_preview": {
-                "bridge_connection_failed": "Nem sikerült a Snapchat-hez kapcsolódni a híd szolgáltatáson keresztül",
-                "bridge_init_failed": "Nem sikerült a híd szolgáltatás létrehozása",
+                "bridge_connection_failed": "Nem sikerült a hídhoz csatlakozni. Ellenőrizd, hogy a Snapchat fut-e a háttérben",
+                "bridge_init_failed": "Nem sikerült a híd szolgáltatás létrehozása. Ellenőrizd, higy a Snapchat fut-e a háttérben",
                 "message_fetch_failed": "Nem sikerült az üzenetek lekérése",
                 "no_message_hint": "Nincs(enek) üzenet(ek)",
                 "save_selection_option": "Kiválasztás mentése",
@@ -125,6 +134,34 @@
                 "message_parse_failed": "Nem sikerült az üzenetet értelmezni",
                 "unknown_sender": "Ismeretlen küldő",
                 "download_attachment_failed_toast": "Nem sikerült a csatolmányt letölteni"
+            },
+            "file_imports": {
+                "file_imported": "A fájl sikeresen importálva",
+                "file_delete_failed": "Nem sikerült törölni a fájlt",
+                "file_import_failed": "Nem sikerült a fájlt importálni: {error}",
+                "no_files_hint": "Itt tudsz fájlokat importálni, hogy a Snapchatben használd. Nyomd meg a gombot egy fájl importálásához.",
+                "import_file_button": "Fájl importálása",
+                "file_not_found": "Fájl nem található"
+            },
+            "better_location": {
+                "spoofed_coordinates_title": "Szé {latitude}, Hsz {longitude}",
+                "save_coordinates_dialog_title": "Kordináták mentése",
+                "saved_name_dialog_hint": "Elmentett név",
+                "longitude_dialog_hint": "Hosszúság",
+                "save_dialog_button": "Mentés",
+                "teleport_to_friend_button": "Teleportálás egy baráthoz",
+                "saved_coordinates_title": "Elmentett kordináták",
+                "no_saved_coordinates_hint": "Nincs mentett kordináta",
+                "delete_dialog_message": "Biztos, hogy törölni szeretnéd ezt az elmentett kordinátát?",
+                "teleport_to_friend_title": "Teleportálás egy baráthoz",
+                "no_friends_map": "Nincsen a térképen barátod",
+                "no_friends_found": "Nincsenek barátaid",
+                "latitude_dialog_hint": "Szélesség",
+                "choose_location_button": "Válassz egy helyet",
+                "spoof_location_toggle": "Helyzet hamisítása",
+                "delete_dialog_title": "Mentett kordináta törlése",
+                "search_bar": "Keresés",
+                "suspend_location_updates": "Helyadatok küldésének letiltása"
             }
         },
         "dialogs": {
@@ -147,6 +184,14 @@
             "messaging_action": {
                 "title": "Válassza ki a feldolgozni kívánt tartalomtípusokat",
                 "select_all_button": "Összes keresése"
+            },
+            "file_imports": {
+                "no_files_settings_hint": "Nincsenek fájlok. Ellenőrizd, hogy minden szükséges fájl benne van-e a Fájl importálás részben",
+                "settings_select_file_hint": "Válassz egy importált fájlt"
+            },
+            "export_config": {
+                "title": "Exportálod az érzékeny adatokat?",
+                "content": "Szeretnéd exportálni a beállításaidat az érzékeny adataiddal együtt? (Mint a helyzeted kordinátái, stb.)"
             }
         }
     },
@@ -426,7 +471,7 @@
                             },
                             "colors": {
                                 "name": "Egyéni színek",
-                                "description": "Egyedi színek testreszabása\nMegjegyzés: Válaszd ki az Egyéni színeket a Témaválasztón a használathoz.",
+                                "description": "Egyedi színek testreszabása\nMegjegyzés: Válaszd ki az Egyéni színeket a Témaválasztón a használathoz",
                                 "properties": {
                                     "text_color": {
                                         "name": "Fő szöveg színe",
@@ -547,6 +592,10 @@
                             "mark_as_read_and_save_in_chat": {
                                 "name": "Megjelölés olvasottként és mentés",
                                 "description": "Megjelöli olvasottként és elmenti a beszélgetésben az értesítésből"
+                            },
+                            "smart_replies": {
+                                "name": "Okos válaszok",
+                                "description": "Hozzáad ajánlott válaszokat az értesítéshez (Android 10+). Használd a válasz gombbal együtt"
                             }
                         }
                     },
@@ -621,10 +670,6 @@
                                 "description": "A félbehúzás maximális időtartama (másodpercben)"
                             }
                         }
-                    },
-                    "message_preview_length": {
-                        "name": "Üzenet előnézet hossza",
-                        "description": "Az előnézetben megjelenítendő üzenetek mennyiségének megadása"
                     },
                     "bypass_message_retention_policy": {
                         "description": "Megakadályozza az üzenetek törlését azok megtekintése után",
@@ -710,7 +755,7 @@
                             },
                             "suspend_location_updates": {
                                 "name": "Helyszínfrissítések felfüggesztése",
-                                "description": "Hozzáad egy gombot a térképbeállításokban a helyfrissítések felfüggesztéséhez"
+                                "description": "Megakadályozza, hogy a térkép frissítéseket kapjon tőled"
                             },
                             "spoof_battery_level": {
                                 "name": "Akkumulátor szint átírása",
@@ -775,6 +820,10 @@
                     "disable_custom_tabs": {
                         "name": "Egyedi lapok letiltása",
                         "description": "A linkeket inkább az appokban nyitja meg, mint a böngészőben"
+                    },
+                    "disable_telecom_framework": {
+                        "name": "Telecom Framework letiltása",
+                        "description": "Megakadályozza, hogy a Snapchat használja az Android Telecom framework-öt\nEz lehetővé teszi, hogy hívás közben zenét hallgass"
                     }
                 },
                 "description": "Globális Snapchat beállítások módosítása"
@@ -878,6 +927,10 @@
                                 },
                                 "name": "Összetevő Horgok",
                                 "description": "Kód befecskendezése a Composer keresztplatformú UI keretrendszerbe"
+                            },
+                            "custom_emoji_font": {
+                                "name": "Egyedi emoji betűtípus",
+                                "description": "Engedélyezi az egyedi emoji betűtípust. Csak .ttf fájlokkal működik"
                             }
                         },
                         "name": "Natív hookok",
@@ -998,6 +1051,14 @@
                     "best_friend_pinning": {
                         "name": "Legjobb barát kitűzés",
                         "description": "Engedi, hogy megjelöld legeslegjobb barátodként. Fontos: Csak te látod"
+                    },
+                    "cof_experiments": {
+                        "name": "COF kísérletek",
+                        "description": "Engedélyezi a kiadatlan/béta Snapchat funkciókat"
+                    },
+                    "context_menu_fix": {
+                        "name": "Kontextus menü javítás",
+                        "description": "Próbálja megjavítani a Friend Feed menüt, mivel ha a készülék offline állapotban van, nem jelenik meg megfelelően"
                     }
                 }
             },
@@ -1105,7 +1166,8 @@
                 "hide_profile_call_buttons": "Profil hívógombok eltávolítása",
                 "hide_unread_chat_hint": "Olvasatlan csevegési utalás eltávolítása",
                 "hide_stickers_button": "Matricák gomb eltávolítása",
-                "hide_live_location_share_button": "Élő helymegosztó gomb eltávolítása"
+                "hide_live_location_share_button": "Élő helymegosztó gomb eltávolítása",
+                "hide_post_to_story_buttons": "A Snap elküldése előtti Post to Story gombok eltávolítása"
             },
             "home_tab": {
                 "map": "Térkép",
@@ -1205,7 +1267,8 @@
                 "added_by_username": "Felhasználónév szerint",
                 "added_by_mention": "Említés szerint",
                 "added_by_group_chat": "Csoportos chat szerint",
-                "added_by_qr_code": "QR kód szerint"
+                "added_by_qr_code": "QR kód szerint",
+                "added_by_quick_add": "Gyors hozzáadásból (nagy esélye a kitiltásnak)"
             },
             "auto_mark_as_read": {
                 "conversation_read": "Az üzenet küldésekor jelölje a beszélgetést olvasottként",
@@ -1249,7 +1312,8 @@
         "download_button": "Letöltés",
         "delete_logged_message_button": "Naplózott üzenet törlése",
         "convert_message": "Üzenet átalakítása",
-        "edit_message": "Üzenet szerkesztése"
+        "edit_message": "Üzenet szerkesztése",
+        "show_chat_edit_history": "Chat szerkesztési előzmények megjelenítése"
     },
     "opera_context_menu": {
         "download": "Média letöltése",
@@ -1271,7 +1335,8 @@
         "streak_expiration": "Lejár {day} nap {hour} óra {minute} perc múlva",
         "total_messages": "Összes kapott/küldött üzenetek: {count}",
         "title": "Előnézet",
-        "unknown_user": "Ismeretlen felhasználó"
+        "unknown_user": "Ismeretlen felhasználó",
+        "no_messages": "Nincsenek üzenetek!"
     },
     "profile_info": {
         "title": "Profil Infó",
@@ -1414,6 +1479,18 @@
         "export_memories": {
             "name": "Emlékek exportálása",
             "description": "Emlékek exportálása ZIP fájlba"
+        },
+        "file_imports": {
+            "name": "Fájl importálások",
+            "description": "Importálj fájlokat, hogy a Snapchatben használd őket"
+        },
+        "friend_tracker": {
+            "description": "Figyeld a barátaidat Snapchaten",
+            "name": "Barát figyelő"
+        },
+        "logger_history": {
+            "name": "Naplózó előzmények",
+            "description": "Nézd meg az előményeket a naplózott üzenetekről"
         }
     },
     "content_type": {
@@ -1485,9 +1562,6 @@
     "call_start_confirmation": {
         "dialog_title": "Hívás indítása",
         "dialog_message": "Biztos, hogy hívást akarsz indítani?"
-    },
-    "suspend_location_updates": {
-        "switch_text": "Helyszínfrissítések felfüggesztése"
     },
     "scopes": {
         "friend": "Barát",
