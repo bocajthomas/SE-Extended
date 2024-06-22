@@ -84,6 +84,7 @@
             "features": {
                 "disabled": "Disabled",
                 "export_option": "Export",
+                "export_theme": "Export Theme",
                 "import_option": "Import",
                 "reset_option": "Reset",
                 "config_export_success_toast": "Config exported successfully",

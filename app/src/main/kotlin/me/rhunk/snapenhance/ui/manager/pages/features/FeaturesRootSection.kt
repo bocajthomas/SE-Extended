@@ -603,6 +603,7 @@ class FeaturesRootSection : Routes.Route() {
         val actions = remember {
             mapOf(
                 translation["export_option"] to { showExportDialog = true },
+                translation["export_theme"] to { showExportDialog = true },
                 translation["import_option"] to {
                     activityLauncher {
                         openFile("application/json") { uri ->
