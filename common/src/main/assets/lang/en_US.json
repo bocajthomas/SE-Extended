@@ -84,13 +84,15 @@
             "features": {
                 "disabled": "Disabled",
                 "export_option": "Export",
-                "export_theme": "Export Theme",
+                "export_color_theme": "Export Color Theme",
                 "import_option": "Import",
                 "reset_option": "Reset",
                 "config_export_success_toast": "Config exported successfully",
+                "theme_export_success_toast": "Theme exported successfully",
                 "config_import_success_toast": "Config imported successfully",
                 "config_import_failure_toast": "Failed to import config {error}",
                 "config_export_failure_toast": "Failed to export config {error}",
+                "theme_export_failure_toast": "Failed to export theme {error}",
                 "saved_config_snackbar": "Config saved"
             },
             "social": {
@@ -191,6 +193,10 @@
             "export_config": {
                 "title": "Export Sensitive Data?",
                 "content": "Do you want to export the config with sensitive data? (Such as location coordinates, etc.)"
+            },
+            "export_theme": {
+                "title": "Export Theme",
+                "content": "Do you want to export our current snapchat theme?"
             },
             "messaging_action": {
                 "title": "Choose content types to process",

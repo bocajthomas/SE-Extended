@@ -34,11 +34,13 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.github.skydoves.colorpicker.compose.AlphaTile
+import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import me.rhunk.snapenhance.common.config.*
+import me.rhunk.snapenhance.common.config.impl.UserInterfaceTweaks
 import me.rhunk.snapenhance.common.ui.rememberAsyncMutableStateList
 import me.rhunk.snapenhance.ui.manager.MainActivity
 import me.rhunk.snapenhance.ui.manager.Routes
@@ -530,7 +532,7 @@ class FeaturesRootSection : Routes.Route() {
         var showExportDropdownMenu by remember { mutableStateOf(false) }
         var showResetConfirmationDialog by remember { mutableStateOf(false) }
         var showExportDialog by remember { mutableStateOf(false) }
-        var showExportThemeDialog by remember { mutableStateOf(false) }
+        var showExportColorThemeDialog by remember { mutableStateOf(false) }
 
         if (showResetConfirmationDialog) {
             AlertDialog(
@@ -601,40 +603,88 @@ class FeaturesRootSection : Routes.Route() {
             )
         }
         
-        if (showExportThemeDialog) {
-            fun exportConfig(
-                exportSensitiveData: Boolean
-            ) {
-                showExportThemeDialog = false
+        if (showExportColorThemeDialog) {
+            fun exportColorTheme() {
+                showExportColorThemeDialog = false
                 activityLauncher {
-                    saveFile("theme.json", "application/json") { uri ->
+                    saveFile("theme_colors.json", "application/json") { uri ->
                         runCatching {
-                            context.androidContext.contentResolver.openOutputStream(Uri.parse(uri))?.use {
-                                context.config.writeConfig()
-                                context.config.exportToString(exportSensitiveData).byteInputStream().copyTo(it)
-                                context.shortToast(translation["config_export_success_toast"])
+                            context.androidContext.contentResolver.openOutputStream(Uri.parse(uri))?.use { outputStream ->
+                                val colorConfig = UserInterfaceTweaks.ColorsConfig()
+                                val textColor = colorConfig.textColor
+                                val chatChatTextColor = colorConfig.chatChatTextColor
+                                val pendingSendingTextColor = colorConfig.pendingSendingTextColor
+                                val snapWithSoundTextColor = colorConfig.snapWithSoundTextColor
+                                val snapWithoutSoundTextColor = colorConfig.snapWithoutSoundTextColor
+                                val actionSheetDescriptionTextColor = colorConfig.actionSheetDescriptionTextColor
+                                val backgroundColor = colorConfig.backgroundColor
+                                val backgroundColorSurface = colorConfig.backgroundColorSurface
+                                val listBackgroundDrawable = colorConfig.listBackgroundDrawable
+                                val friendFeedConversationsLineColor = colorConfig.friendFeedConversationsLineColor
+                                val actionMenuBackgroundColor = colorConfig.actionMenuBackgroundColor
+                                val actionMenuRoundBackgroundColor = colorConfig.actionMenuRoundBackgroundColor
+                                val sigColorIconPrimary = colorConfig.sigColorIconPrimary
+                                val cameraGridLines = colorConfig.cameraGridLines
+
+                                data class ColorTheme(
+                                    val textColor: String,
+                                    val chatChatTextColor: String,
+                                    val pendingSendingTextColor: String,
+                                    val snapWithSoundTextColor: String,
+                                    val snapWithoutSoundTextColor: String,
+                                    val actionSheetDescriptionTextColor: String,
+                                    val backgroundColor: String,
+                                    val backgroundColorSurface: String,
+                                    val listBackgroundDrawable: String,
+                                    val friendFeedConversationsLineColor: String,
+                                    val actionMenuBackgroundColor: String,
+                                    val actionMenuRoundBackgroundColor: String,
+                                    val sigColorIconPrimary: String,
+                                    val cameraGridLines: String,
+                                )
+
+                                val theme = ColorTheme(
+                                    textColor = textColor.toString(),
+                                    chatChatTextColor = chatChatTextColor.toString(),
+                                    pendingSendingTextColor = pendingSendingTextColor.toString(),
+                                    snapWithSoundTextColor = snapWithSoundTextColor.toString(),
+                                    snapWithoutSoundTextColor = snapWithoutSoundTextColor.toString(),
+                                    actionSheetDescriptionTextColor = actionSheetDescriptionTextColor.toString(),
+                                    backgroundColor=  backgroundColor.toString(),
+                                    backgroundColorSurface =  backgroundColorSurface.toString(),
+                                    listBackgroundDrawable = listBackgroundDrawable.toString(),
+                                    friendFeedConversationsLineColor = friendFeedConversationsLineColor.toString(),
+                                    actionMenuBackgroundColor = actionMenuBackgroundColor.toString(),
+                                    actionMenuRoundBackgroundColor = actionMenuRoundBackgroundColor.toString(),
+                                    sigColorIconPrimary = sigColorIconPrimary.toString(),
+                                    cameraGridLines = cameraGridLines.toString(),
+                                    )
+
+                                val colorJson = Gson().toJson(theme)
+                                outputStream.write(colorJson.toByteArray())
+                                context.shortToast(translation["theme_export_success_toast"])
                             }
                         }.onFailure {
-                            context.longToast(translation.format("config_export_failure_toast", "error" to it.message.toString()))
+                            context.longToast(translation.format("theme_export_failure_toast", "error" to it.message.toString()))
                         }
                     }
                 }
             }
 
             AlertDialog(
-                title = { Text(text = context.translation["manager.dialogs.export_config.title"]) },
-                text = { Text(text = context.translation["manager.dialogs.export_config.content"]) },
-                onDismissRequest = { showExportDialog = false },
+                title = { Text(text = context.translation["manager.dialogs.export_theme.title"]) },
+                text = { Text(text = context.translation["manager.dialogs.export_theme.content"]) },
+                onDismissRequest = { showExportColorThemeDialog = false },
                 confirmButton = {
                     Button(
-                        onClick = { exportConfig(true) }
+                        onClick = { exportColorTheme() }
                     ) {
                         Text(text = context.translation["button.positive"])
                     }
                 },
                 dismissButton = {
                     Button(
-                        onClick = { exportConfig(false) }
+                        onClick = { exportColorTheme() }
                     ) {
                         Text(text = context.translation["button.negative"])
                     }
@@ -645,7 +695,7 @@ class FeaturesRootSection : Routes.Route() {
         val actions = remember {
             mapOf(
                 translation["export_option"] to { showExportDialog = true },
-                translation["export_theme"] to { showExportThemeDialog = true },
+                translation["export_color_theme"] to { showExportColorThemeDialog = true },
                 translation["import_option"] to {
                     activityLauncher {
                         openFile("application/json") { uri ->
