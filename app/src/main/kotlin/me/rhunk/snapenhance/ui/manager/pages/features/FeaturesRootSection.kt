@@ -2,6 +2,7 @@ package me.rhunk.snapenhance.ui.manager.pages.features
 
 import android.content.Intent
 import android.net.Uri
+import android.graphics.Color as AndroidColor
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -40,7 +41,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import me.rhunk.snapenhance.common.config.*
-import me.rhunk.snapenhance.common.config.impl.UserInterfaceTweaks
+import me.rhunk.snapenhance.common.config.impl.UserInterfaceTweaks.ColorsConfig
 import me.rhunk.snapenhance.common.ui.rememberAsyncMutableStateList
 import me.rhunk.snapenhance.ui.manager.MainActivity
 import me.rhunk.snapenhance.ui.manager.Routes
@@ -607,61 +608,39 @@ class FeaturesRootSection : Routes.Route() {
             fun exportColorTheme() {
                 showExportColorThemeDialog = false
                 activityLauncher {
+                    fun getColorValue(propertyValue: Any?): Int? {
+                        return if (propertyValue is Int) {
+                            propertyValue
+                        } else {
+                            try {
+                                AndroidColor.parseColor((propertyValue as String).trim())
+                            } catch (e: IllegalArgumentException) {
+                                null
+                            }
+                        }
+                    }
                     saveFile("theme_colors.json", "application/json") { uri ->
                         runCatching {
                             context.androidContext.contentResolver.openOutputStream(Uri.parse(uri))?.use { outputStream ->
-                                val colorConfig = UserInterfaceTweaks.ColorsConfig()
-                                val textColor = colorConfig.textColor
-                                val chatChatTextColor = colorConfig.chatChatTextColor
-                                val pendingSendingTextColor = colorConfig.pendingSendingTextColor
-                                val snapWithSoundTextColor = colorConfig.snapWithSoundTextColor
-                                val snapWithoutSoundTextColor = colorConfig.snapWithoutSoundTextColor
-                                val actionSheetDescriptionTextColor = colorConfig.actionSheetDescriptionTextColor
-                                val backgroundColor = colorConfig.backgroundColor
-                                val backgroundColorSurface = colorConfig.backgroundColorSurface
-                                val listBackgroundDrawable = colorConfig.listBackgroundDrawable
-                                val friendFeedConversationsLineColor = colorConfig.friendFeedConversationsLineColor
-                                val actionMenuBackgroundColor = colorConfig.actionMenuBackgroundColor
-                                val actionMenuRoundBackgroundColor = colorConfig.actionMenuRoundBackgroundColor
-                                val sigColorIconPrimary = colorConfig.sigColorIconPrimary
-                                val cameraGridLines = colorConfig.cameraGridLines
+                                val colorConfig = ColorsConfig()
 
-                                data class ColorTheme(
-                                    val textColor: String,
-                                    val chatChatTextColor: String,
-                                    val pendingSendingTextColor: String,
-                                    val snapWithSoundTextColor: String,
-                                    val snapWithoutSoundTextColor: String,
-                                    val actionSheetDescriptionTextColor: String,
-                                    val backgroundColor: String,
-                                    val backgroundColorSurface: String,
-                                    val listBackgroundDrawable: String,
-                                    val friendFeedConversationsLineColor: String,
-                                    val actionMenuBackgroundColor: String,
-                                    val actionMenuRoundBackgroundColor: String,
-                                    val sigColorIconPrimary: String,
-                                    val cameraGridLines: String,
+                                val colorData = hashMapOf<String, Int>()
+                                for (colorProperty in ColorsConfig::class.java.declaredFields) {
+                                    colorProperty.isAccessible = true
+                                    val colorName = colorProperty.name
+                                    val colorValue = getColorValue(colorConfig::class.java.getDeclaredMethod(colorName).invoke(colorConfig))
+                                    if (colorValue != null) {
+                                        colorData[colorName] = colorValue
+                                    }
+                                }
+
+                                val themeData = hashMapOf<String, Any>(
+                                    "properties" to colorData,
+                                    "theme_picker" to "custom"
                                 )
 
-                                val theme = ColorTheme(
-                                    textColor = textColor.toString(),
-                                    chatChatTextColor = chatChatTextColor.toString(),
-                                    pendingSendingTextColor = pendingSendingTextColor.toString(),
-                                    snapWithSoundTextColor = snapWithSoundTextColor.toString(),
-                                    snapWithoutSoundTextColor = snapWithoutSoundTextColor.toString(),
-                                    actionSheetDescriptionTextColor = actionSheetDescriptionTextColor.toString(),
-                                    backgroundColor=  backgroundColor.toString(),
-                                    backgroundColorSurface =  backgroundColorSurface.toString(),
-                                    listBackgroundDrawable = listBackgroundDrawable.toString(),
-                                    friendFeedConversationsLineColor = friendFeedConversationsLineColor.toString(),
-                                    actionMenuBackgroundColor = actionMenuBackgroundColor.toString(),
-                                    actionMenuRoundBackgroundColor = actionMenuRoundBackgroundColor.toString(),
-                                    sigColorIconPrimary = sigColorIconPrimary.toString(),
-                                    cameraGridLines = cameraGridLines.toString(),
-                                    )
-
-                                val colorJson = Gson().toJson(theme)
-                                outputStream.write(colorJson.toByteArray())
+                                val jsonData = Gson().toJson(hashMapOf("customize_ui" to themeData))
+                                outputStream.write(jsonData.toByteArray())
                                 context.shortToast(translation["theme_export_success_toast"])
                             }
                         }.onFailure {
@@ -695,7 +674,6 @@ class FeaturesRootSection : Routes.Route() {
         val actions = remember {
             mapOf(
                 translation["export_option"] to { showExportDialog = true },
-                translation["export_color_theme"] to { showExportColorThemeDialog = true },
                 translation["import_option"] to {
                     activityLauncher {
                         openFile("application/json") { uri ->
@@ -707,6 +685,26 @@ class FeaturesRootSection : Routes.Route() {
                                     return@use
                                 }
                                 context.shortToast(translation["config_import_success_toast"])
+                                context.coroutineScope.launch(Dispatchers.Main) {
+                                    navigateReload()
+                                }
+                            }
+                        }
+                    }
+                },
+                translation["export_color_theme"] to { showExportColorThemeDialog = true },
+                translation["import_color_theme"] to {
+                    activityLauncher {
+                        openFile("application/json") { uri ->
+                            context.androidContext.contentResolver.openInputStream(Uri.parse(uri))?.use { inputStream ->
+                                runCatching {
+                                    val jsonString = inputStream.readBytes().toString(Charsets.UTF_8)
+                                    context.config.loadFromString(jsonString)
+                                }.onFailure {
+                                    context.longToast(translation.format("theme_import_failure_toast", "error" to it.message.toString()))
+                                    return@use
+                                }
+                                context.shortToast(translation["theme_import_success_toast"])
                                 context.coroutineScope.launch(Dispatchers.Main) {
                                     navigateReload()
                                 }
@@ -798,3 +796,4 @@ class FeaturesRootSection : Routes.Route() {
         })
     }
 }
+

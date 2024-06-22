@@ -237,4 +237,5 @@ class RemoteSideContext(
         intent.putExtra(EnumAction.ACTION_PARAMETER, action.key)
         androidContext.startActivity(intent)
     }
+
 }
