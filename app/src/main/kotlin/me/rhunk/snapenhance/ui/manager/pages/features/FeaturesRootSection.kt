@@ -530,6 +530,7 @@ class FeaturesRootSection : Routes.Route() {
         var showExportDropdownMenu by remember { mutableStateOf(false) }
         var showResetConfirmationDialog by remember { mutableStateOf(false) }
         var showExportDialog by remember { mutableStateOf(false) }
+        var showExportThemeDialog by remember { mutableStateOf(false) }
 
         if (showResetConfirmationDialog) {
             AlertDialog(
@@ -599,11 +600,52 @@ class FeaturesRootSection : Routes.Route() {
                 }
             )
         }
+        
+        if (showExportThemeDialog) {
+            fun exportConfig(
+                exportSensitiveData: Boolean
+            ) {
+                showExportThemeDialog = false
+                activityLauncher {
+                    saveFile("theme.json", "application/json") { uri ->
+                        runCatching {
+                            context.androidContext.contentResolver.openOutputStream(Uri.parse(uri))?.use {
+                                context.config.writeConfig()
+                                context.config.exportToString(exportSensitiveData).byteInputStream().copyTo(it)
+                                context.shortToast(translation["config_export_success_toast"])
+                            }
+                        }.onFailure {
+                            context.longToast(translation.format("config_export_failure_toast", "error" to it.message.toString()))
+                        }
+                    }
+                }
+            }
 
+            AlertDialog(
+                title = { Text(text = context.translation["manager.dialogs.export_config.title"]) },
+                text = { Text(text = context.translation["manager.dialogs.export_config.content"]) },
+                onDismissRequest = { showExportDialog = false },
+                confirmButton = {
+                    Button(
+                        onClick = { exportConfig(true) }
+                    ) {
+                        Text(text = context.translation["button.positive"])
+                    }
+                },
+                dismissButton = {
+                    Button(
+                        onClick = { exportConfig(false) }
+                    ) {
+                        Text(text = context.translation["button.negative"])
+                    }
+                }
+            )
+        }
+        
         val actions = remember {
             mapOf(
                 translation["export_option"] to { showExportDialog = true },
-                translation["export_theme"] to { showExportDialog = true },
+                translation["export_theme"] to { showExportThemeDialog = true },
                 translation["import_option"] to {
                     activityLauncher {
                         openFile("application/json") { uri ->
