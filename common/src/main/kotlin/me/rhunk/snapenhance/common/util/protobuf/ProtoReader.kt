@@ -1,9 +1,11 @@
 package me.rhunk.snapenhance.common.util.protobuf
 
+import org.mozilla.javascript.annotations.JSFunction
 import java.nio.ByteBuffer
 import java.util.UUID
 
 data class Wire(val id: Int, val type: WireType, val value: Any) {
+    @JSFunction
     fun toReader() = ProtoReader(value as ByteArray)
 }
 
@@ -15,6 +17,7 @@ class ProtoReader(private val buffer: ByteArray) {
         read()
     }
 
+    @JSFunction
     fun getBuffer() = buffer
 
     private fun readByte() = buffer[offset++]
@@ -84,6 +87,7 @@ class ProtoReader(private val buffer: ByteArray) {
         }
     }
 
+    @JSFunction
     fun followPath(vararg ids: Int, excludeLast: Boolean = false, reader: (ProtoReader.() -> Unit)? = null): ProtoReader? {
         var thisReader = this
         ids.let {
@@ -104,6 +108,7 @@ class ProtoReader(private val buffer: ByteArray) {
         return thisReader
     }
 
+    @JSFunction
     fun containsPath(vararg ids: Int): Boolean {
         var thisReader = this
         ids.forEach { id ->
@@ -115,6 +120,7 @@ class ProtoReader(private val buffer: ByteArray) {
         return true
     }
 
+    @JSFunction
     fun forEach(reader: (Int, Wire) -> Unit) {
         values.forEach { (id, wires) ->
             wires.forEach { wire ->
@@ -123,12 +129,14 @@ class ProtoReader(private val buffer: ByteArray) {
         }
     }
 
+    @JSFunction
     fun forEach(vararg id: Int, reader: ProtoReader.() -> Unit) {
         followPath(*id)?.eachBuffer { _, buffer ->
             ProtoReader(buffer).reader()
         }
     }
 
+    @JSFunction
     fun eachBuffer(vararg ids: Int, reader: ProtoReader.() -> Unit) {
         followPath(*ids, excludeLast = true)?.eachBuffer { id, buffer ->
             if (id == ids.last()) {
@@ -137,6 +145,7 @@ class ProtoReader(private val buffer: ByteArray) {
         }
     }
 
+    @JSFunction
     fun eachBuffer(reader: (Int, ByteArray) -> Unit) {
         values.forEach { (id, wires) ->
             wires.forEach { wire ->
@@ -147,18 +156,29 @@ class ProtoReader(private val buffer: ByteArray) {
         }
     }
 
+    @JSFunction
     fun contains(id: Int) = values.containsKey(id)
 
+    @JSFunction
     fun getWire(id: Int) = values[id]?.firstOrNull()
+    @JSFunction
     fun getRawValue(id: Int) = getWire(id)?.value
+    @JSFunction
     fun getByteArray(id: Int) = getRawValue(id) as? ByteArray
+    @JSFunction
     fun getByteArray(vararg ids: Int) = followPath(*ids, excludeLast = true)?.getByteArray(ids.last())
+    @JSFunction
     fun getString(id: Int) = getByteArray(id)?.toString(Charsets.UTF_8)
+    @JSFunction
     fun getString(vararg ids: Int) = followPath(*ids, excludeLast = true)?.getString(ids.last())
+    @JSFunction
     fun getVarInt(id: Int) = getRawValue(id) as? Long
+    @JSFunction
     fun getVarInt(vararg ids: Int) = followPath(*ids, excludeLast = true)?.getVarInt(ids.last())
+    @JSFunction
     fun getCount(id: Int) = values[id]?.size ?: 0
 
+    @JSFunction
     fun getFixed64(id: Int): Long {
         val bytes = getByteArray(id) ?: return 0L
         var value = 0L
@@ -167,9 +187,11 @@ class ProtoReader(private val buffer: ByteArray) {
         }
         return value
     }
+    @JSFunction
     fun getFixed64(vararg ids: Int) = followPath(*ids, excludeLast = true)?.getFixed64(ids.last())
 
 
+    @JSFunction
     fun getFixed32(id: Int): Int {
         val bytes = getByteArray(id) ?: return 0
         var value = 0
@@ -247,5 +269,6 @@ class ProtoReader(private val buffer: ByteArray) {
         return stringBuilder.toString()
     }
 
+    @JSFunction
     override fun toString() = prettyPrint(0)
 }

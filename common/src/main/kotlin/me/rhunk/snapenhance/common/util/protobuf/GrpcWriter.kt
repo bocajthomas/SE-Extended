@@ -1,5 +1,6 @@
 package me.rhunk.snapenhance.common.util.protobuf
 
+import org.mozilla.javascript.annotations.JSFunction
 import java.io.ByteArrayOutputStream
 
 fun ProtoWriter.toGrpcWriter() = GrpcWriter(toByteArray())
@@ -9,10 +10,12 @@ class GrpcWriter(
 ) {
     private val headers = mutableMapOf<String, String>()
 
+    @JSFunction
     fun addHeader(key: String, value: String) {
         headers[key] = value
     }
 
+    @JSFunction
     fun toByteArray(): ByteArray {
         val stream = ByteArrayOutputStream()
 

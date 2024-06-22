@@ -1,5 +1,6 @@
 package me.rhunk.snapenhance.common.util.protobuf
 
+import org.mozilla.javascript.annotations.JSFunction
 import java.io.ByteArrayOutputStream
 
 class ProtoWriter {
@@ -23,21 +24,26 @@ class ProtoWriter {
         stream.write(v.toInt())
     }
 
+    @JSFunction
     fun addBuffer(id: Int, value: ByteArray) {
         writeVarInt(id shl 3 or WireType.CHUNK.value)
         writeVarInt(value.size)
         stream.write(value)
     }
 
+    @JSFunction
     fun addVarInt(id: Int, value: Int) = addVarInt(id, value.toLong())
 
+    @JSFunction
     fun addVarInt(id: Int, value: Long) {
         writeVarInt(id shl 3)
         writeVarLong(value)
     }
 
+    @JSFunction
     fun addString(id: Int, value: String) = addBuffer(id, value.toByteArray())
 
+    @JSFunction
     fun addFixed32(id: Int, value: Int) {
         writeVarInt(id shl 3 or WireType.FIXED32.value)
         val bytes = ByteArray(4)
@@ -47,6 +53,7 @@ class ProtoWriter {
         stream.write(bytes)
     }
 
+    @JSFunction
     fun addFixed64(id: Int, value: Long) {
         writeVarInt(id shl 3 or WireType.FIXED64.value)
         val bytes = ByteArray(8)
@@ -56,12 +63,14 @@ class ProtoWriter {
         stream.write(bytes)
     }
 
+    @JSFunction
     fun from(id: Int, writer: ProtoWriter.() -> Unit) {
         val writerStream = ProtoWriter()
         writer(writerStream)
         addBuffer(id, writerStream.stream.toByteArray())
     }
 
+    @JSFunction
     fun from(vararg ids: Int, writer: ProtoWriter.() -> Unit) {
         val writerStream = ProtoWriter()
         writer(writerStream)
@@ -75,6 +84,7 @@ class ProtoWriter {
         stream.let(this.stream::write)
     }
 
+    @JSFunction
     fun addWire(wire: Wire) {
         writeVarInt(wire.id shl 3 or wire.type.value)
         when (wire.type) {
@@ -111,6 +121,7 @@ class ProtoWriter {
         }
     }
 
+    @JSFunction
     fun toByteArray(): ByteArray {
         return stream.toByteArray()
     }

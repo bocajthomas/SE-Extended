@@ -1,32 +1,49 @@
 package me.rhunk.snapenhance.common.util.protobuf
 
+import org.mozilla.javascript.annotations.JSFunction
+
 
 typealias WireCallback = EditorContext.() -> Unit
 
 class EditorContext(
     private val wires: MutableMap<Int, MutableList<Wire>>
 ) {
+    @JSFunction
     fun clear() {
         wires.clear()
     }
+    @JSFunction
     fun addWire(wire: Wire) {
         wires.getOrPut(wire.id) { mutableListOf() }.add(wire)
     }
+    @JSFunction
     fun addVarInt(id: Int, value: Int) = addVarInt(id, value.toLong())
+    @JSFunction
     fun addVarInt(id: Int, value: Long) = addWire(Wire(id, WireType.VARINT, value))
+    @JSFunction
     fun addBuffer(id: Int, value: ByteArray) = addWire(Wire(id, WireType.CHUNK, value))
+    @JSFunction
     fun add(id: Int, content: ProtoWriter.() -> Unit) = addBuffer(id, ProtoWriter().apply(content).toByteArray())
+    @JSFunction
     fun addString(id: Int, value: String) = addBuffer(id, value.toByteArray())
+    @JSFunction
     fun addFixed64(id: Int, value: Long) = addWire(Wire(id, WireType.FIXED64, value))
+    @JSFunction
     fun addFixed32(id: Int, value: Float) = addWire(Wire(id, WireType.FIXED32, value.toRawBits()))
 
+    @JSFunction
     fun firstOrNull(id: Int) = wires[id]?.firstOrNull()
+    @JSFunction
     fun getOrNull(id: Int) = wires[id]
+    @JSFunction
     fun get(id: Int) = wires[id]!!
 
+    @JSFunction
     fun remove(id: Int) = wires.remove(id)
+    @JSFunction
     fun remove(id: Int, index: Int) = wires[id]?.removeAt(index)
 
+    @JSFunction
     fun edit(id: Int, callback: EditorContext.() -> Unit) {
         val wire = wires[id]?.firstOrNull() ?: return
         val editor = ProtoEditor(wire.value as ByteArray)
@@ -37,6 +54,7 @@ class EditorContext(
         addBuffer(id, editor.toByteArray())
     }
 
+    @JSFunction
     fun editEach(id: Int, callback: EditorContext.() -> Unit) {
         val wires = wires[id] ?: return
         val newWires = mutableListOf<Wire>()
@@ -61,6 +79,7 @@ class EditorContext(
 class ProtoEditor(
     private var buffer: ByteArray
 ) {
+    @JSFunction
     fun edit(vararg path: Int, callback: WireCallback) {
         buffer = writeAtPath(path, 0, ProtoReader(buffer), callback)
     }
@@ -93,7 +112,9 @@ class ProtoEditor(
         return output.toByteArray()
     }
 
+    @JSFunction
     fun toByteArray() = buffer
 
+    @JSFunction
     override fun toString() = ProtoReader(buffer).toString()
 }

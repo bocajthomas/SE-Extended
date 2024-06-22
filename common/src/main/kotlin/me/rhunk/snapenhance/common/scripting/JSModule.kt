@@ -6,6 +6,7 @@ import me.rhunk.snapenhance.common.scripting.bindings.AbstractBinding
 import me.rhunk.snapenhance.common.scripting.bindings.BindingsContext
 import me.rhunk.snapenhance.common.scripting.impl.JavaInterfaces
 import me.rhunk.snapenhance.common.scripting.impl.Networking
+import me.rhunk.snapenhance.common.scripting.impl.Protobuf
 import me.rhunk.snapenhance.common.scripting.ktx.contextScope
 import me.rhunk.snapenhance.common.scripting.ktx.putFunction
 import me.rhunk.snapenhance.common.scripting.ktx.scriptable
@@ -69,6 +70,7 @@ class JSModule(
                 JavaInterfaces(),
                 InterfaceManager(),
                 Networking(),
+                Protobuf()
             )
 
             moduleObject.putFunction("setField") { args ->

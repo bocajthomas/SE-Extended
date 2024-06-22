@@ -1,14 +1,19 @@
 package me.rhunk.snapenhance.common.util.protobuf
 
+import org.mozilla.javascript.annotations.JSFunction
+
 class GrpcReader(
     private val buffer: ByteArray
 ) {
     private val _messages = mutableListOf<ProtoReader>()
     private val _headers = mutableMapOf<String, String>()
 
+    @get:JSFunction
     val headers get() = _headers.toMap()
+    @get:JSFunction
     val messages get() = _messages.toList()
 
+    @JSFunction
     fun read(reader: ProtoReader.() -> Unit) {
         messages.forEach { message ->
             message.reader()
