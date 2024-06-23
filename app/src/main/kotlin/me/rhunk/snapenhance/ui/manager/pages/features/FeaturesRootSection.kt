@@ -648,7 +648,7 @@ class FeaturesRootSection : Routes.Route() {
                                         }
                                     }
 
-                                    val jsonData = hashMapOf<String, Any>(
+                                    val customizeUiExport = hashMapOf<String, Any>(
                                         "customize_ui" to hashMapOf<String, Any>(
                                             "properties" to hashMapOf<String, Any>(
                                                 "theme_picker" to "custom",
@@ -658,7 +658,7 @@ class FeaturesRootSection : Routes.Route() {
                                             )
                                         )
                                     )
-                                    val jsonData = Gson().toJson(jsonData)
+                                    val jsonData = Gson().toJson(customizeUiExport)
                                     outputStream.write(jsonData.toByteArray())
                                     context.shortToast(translation["theme_export_success_toast"])
                                 }
