@@ -621,30 +621,50 @@ class FeaturesRootSection : Routes.Route() {
                     }
                     saveFile("theme_colors.json", "application/json") { uri ->
                         runCatching {
-                            context.androidContext.contentResolver.openOutputStream(Uri.parse(uri))?.use { outputStream ->
-                                val colorConfig = ColorsConfig()
+                            context.androidContext.contentResolver.openOutputStream(Uri.parse(uri))
+                                ?.use { outputStream ->
+                                    val colorConfig = ColorsConfig()
+                                    val colorData = hashMapOf<String, Int>()
+                                    for (colorProperty in ColorsConfig::class.java.declaredFields) {
+                                        colorProperty.isAccessible = true
 
-                                val colorData = hashMapOf<String, Int>()
-                                for (colorProperty in ColorsConfig::class.java.declaredFields) {
-                                    colorProperty.isAccessible = true
-                                    val colorName = colorProperty.name
-                                    val colorValue = getColorValue(colorConfig::class.java.getDeclaredMethod(colorName).invoke(colorConfig))
-                                    if (colorValue != null) {
-                                        colorData[colorName] = colorValue
+                                        val colorName = colorProperty.name
+                                        val colorValue: Int?
+
+                                        if (colorName == "actionMenuBackgroundColor") {
+                                            colorValue =
+                                                colorConfig::class.java.getDeclaredField(colorName)
+                                                    .getInt(colorConfig)
+                                        } else {
+                                            val method =
+                                                colorConfig::class.java.getDeclaredMethod(colorName)
+                                            colorValue = getColorValue(method.invoke(colorConfig))
+                                        }
+
+                                        if (colorValue != null) {
+                                            colorData[colorName] = colorValue
+                                        } else {
+                                            context.log.warn(
+                                                "ThemeExport",
+                                                "Color not found for: $colorName"
+                                            )
+                                        }
                                     }
+                                    val customizeUiData = hashMapOf<String, Any>(
+                                        "properties" to hashMapOf<String, Any>(
+                                            "theme_picker" to "custom",
+                                            "colors" to hashMapOf<String, Any>(
+                                                "properties" to colorData
+                                            )
+                                        )
+                                    )
+
+                                    val jsonData = Gson().toJson(customizeUiData)
+                                    outputStream.write(jsonData.toByteArray())
+                                    context.shortToast(translation["theme_export_success_toast"])
                                 }
-
-                                val themeData = hashMapOf<String, Any>(
-                                    "properties" to colorData,
-                                    "theme_picker" to "custom"
-                                )
-
-                                val jsonData = Gson().toJson(hashMapOf("customize_ui" to themeData))
-                                outputStream.write(jsonData.toByteArray())
-                                context.shortToast(translation["theme_export_success_toast"])
-                            }
                         }.onFailure {
-                            context.longToast(translation.format("theme_export_failure_toast", "error" to it.message.toString()))
+                            context.longToast(translation.format("theme_export_failure_toast","error" to it.message.toString()))
                         }
                     }
                 }
