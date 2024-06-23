@@ -648,16 +648,17 @@ class FeaturesRootSection : Routes.Route() {
                                         }
                                     }
 
-                                    val customizeUiData = hashMapOf<String, Any>(
-                                        "properties" to hashMapOf<String, Any>(
-                                            "theme_picker" to "custom",
-                                            "colors" to hashMapOf<String, Any>(
-                                                "properties" to colorData
+                                    val jsonData = hashMapOf<String, Any>(
+                                        "customize_ui" to hashMapOf<String, Any>(
+                                            "properties" to hashMapOf<String, Any>(
+                                                "theme_picker" to "custom",
+                                                "colors" to hashMapOf<String, Any>(
+                                                    "properties" to colorData
+                                                )
                                             )
                                         )
                                     )
-
-                                    val jsonData = Gson().toJson(customizeUiData)
+                                    val jsonData = Gson().toJson(jsonData)
                                     outputStream.write(jsonData.toByteArray())
                                     context.shortToast(translation["theme_export_success_toast"])
                                 }
