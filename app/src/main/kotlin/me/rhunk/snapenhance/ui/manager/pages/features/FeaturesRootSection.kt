@@ -24,6 +24,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -609,13 +610,19 @@ class FeaturesRootSection : Routes.Route() {
                 showExportColorThemeDialog = false
                 activityLauncher {
                     fun getColorValue(propertyValue: Any?): Int? {
-                        return if (propertyValue is Int) {
-                            propertyValue
-                        } else {
-                            try {
-                                AndroidColor.parseColor((propertyValue as String).trim())
+                        return when (propertyValue) {
+                            is Int -> propertyValue
+                            is String -> try {
+                                AndroidColor.parseColor(propertyValue.trim())
                             } catch (e: IllegalArgumentException) {
                                 null
+                            }
+                            else -> {
+                                if (propertyValue is Color) {
+                                    propertyValue.toArgb()
+                                } else {
+                                    null
+                                }
                             }
                         }
                     }
