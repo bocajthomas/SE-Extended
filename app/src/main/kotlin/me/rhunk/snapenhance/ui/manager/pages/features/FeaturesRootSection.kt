@@ -625,31 +625,22 @@ class FeaturesRootSection : Routes.Route() {
                                 ?.use { outputStream ->
                                     val colorConfig = ColorsConfig()
                                     val colorData = hashMapOf<String, Int>()
+
                                     for (colorProperty in ColorsConfig::class.java.declaredFields) {
-                                        colorProperty.isAccessible = true
-
                                         val colorName = colorProperty.name
-                                        val colorValue: Int?
-
-                                        if (colorName == "actionMenuBackgroundColor") {
-                                            colorValue =
-                                                colorConfig::class.java.getDeclaredField(colorName)
-                                                    .getInt(colorConfig)
-                                        } else {
-                                            val method =
-                                                colorConfig::class.java.getDeclaredMethod(colorName)
-                                            colorValue = getColorValue(method.invoke(colorConfig))
-                                        }
-
-                                        if (colorValue != null) {
-                                            colorData[colorName] = colorValue
-                                        } else {
-                                            context.log.warn(
-                                                "ThemeExport",
-                                                "Color not found for: $colorName"
+                                        if (colorName.endsWith("Color")) {
+                                            val getterMethod = ColorsConfig::class.java.getDeclaredMethod(
+                                                "get${colorName.replaceFirstChar { it.uppercase() }}"
                                             )
+                                            val colorValue = getColorValue(getterMethod.invoke(colorConfig))
+                                            if (colorValue != null) {
+                                                colorData[colorName] = colorValue
+                                            } else {
+                                                context.log.warn("ThemeExport", "Color not found for: $colorName")
+                                            }
                                         }
                                     }
+
                                     val customizeUiData = hashMapOf<String, Any>(
                                         "properties" to hashMapOf<String, Any>(
                                             "theme_picker" to "custom",
@@ -669,6 +660,7 @@ class FeaturesRootSection : Routes.Route() {
                     }
                 }
             }
+
 
             AlertDialog(
                 title = { Text(text = context.translation["manager.dialogs.export_theme.title"]) },
