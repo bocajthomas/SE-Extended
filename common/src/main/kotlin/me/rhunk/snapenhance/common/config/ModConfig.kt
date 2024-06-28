@@ -34,47 +34,41 @@ class ModConfig(
     private fun createRootConfig() = RootConfig().apply { lateInit(context) }
 
     fun load() {
+        root = createRootConfig()
         wasPresent = fileWrapper.exists()
-        root = createRootConfig().apply {
-            if (!wasPresent) {
-                writeConfigObject(this)
-                return@apply
-            }
-            runCatching {
-                loadConfig(this)
-            }.onFailure {
-                writeConfigObject(this)
-            }
+        if (!wasPresent) {
+            writeConfig()
+            return
+        }
+
+        runCatching {
+            loadConfig()
+        }.onFailure {
+            writeConfig()
         }
     }
 
-    private fun loadConfig(config: RootConfig) {
+    private fun loadConfig() {
         val configFileContent = fileWrapper.readBytes()
         val configObject = gson.fromJson(configFileContent.toString(Charsets.UTF_8), JsonObject::class.java)
         locale = configObject.get("_locale")?.asString ?: LocaleWrapper.DEFAULT_LOCALE
-        config.fromJson(configObject)
+        root.fromJson(configObject)
     }
 
     fun exportToString(
-        exportSensitiveData: Boolean = true,
-        config: RootConfig = root,
+        exportSensitiveData: Boolean = true
     ): String {
-        return gson.toJson(config.toJson(exportSensitiveData).apply {
-            addProperty("_locale", locale)
-        })
+        val configObject = root.toJson(exportSensitiveData)
+        configObject.addProperty("_locale", locale)
+        return gson.toJson(configObject)
     }
 
     fun reset() {
-        root = RootConfig().apply {
-            writeConfigObject(this)
-        }
+        root = RootConfig()
+        writeConfig()
     }
 
     fun writeConfig() {
-        writeConfigObject(root)
-    }
-
-    private fun writeConfigObject(config: RootConfig) {
         var shouldRestart = false
         var shouldCleanCache = false
         var configChanged = false
@@ -111,13 +105,13 @@ class ModConfig(
         }
 
         val oldConfig = runCatching { fileWrapper.readBytes().toString(Charsets.UTF_8) }.getOrNull()
-        fileWrapper.writeBytes(exportToString(config = config).toByteArray(Charsets.UTF_8))
+        fileWrapper.writeBytes(exportToString().toByteArray(Charsets.UTF_8))
 
         configStateListener?.also {
             runCatching {
                 compareDiff(createRootConfig().apply {
                     fromJson(gson.fromJson(oldConfig ?: return@runCatching, JsonObject::class.java))
-                }, config)
+                }, root)
 
                 if (configChanged) {
                     it.onConfigChanged()
