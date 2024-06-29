@@ -2,7 +2,6 @@ package me.rhunk.snapenhance.ui.manager.pages.features
 
 import android.content.Intent
 import android.net.Uri
-import android.graphics.Color as AndroidColor
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -24,7 +23,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -609,23 +607,6 @@ class FeaturesRootSection : Routes.Route() {
             fun exportColorTheme() {
                 showExportColorThemeDialog = false
                 activityLauncher {
-                    fun getColorValue(propertyValue: Any?): Int? {
-                        return when (propertyValue) {
-                            is Int -> propertyValue
-                            is String -> try {
-                                AndroidColor.parseColor(propertyValue.trim())
-                            } catch (e: IllegalArgumentException) {
-                                null
-                            }
-                            else -> {
-                                if (propertyValue is Color) {
-                                    propertyValue.toArgb()
-                                } else {
-                                    null
-                                }
-                            }
-                        }
-                    }
                     saveFile("theme_colors.json", "application/json") { uri ->
                         runCatching {
                             context.androidContext.contentResolver.openOutputStream(Uri.parse(uri))
@@ -635,17 +616,13 @@ class FeaturesRootSection : Routes.Route() {
 
                                     for (colorProperty in ColorsConfig::class.java.declaredFields) {
                                         val colorName = colorProperty.name
-                                        if (colorName.endsWith("Color")) {
-                                            val getterMethod = ColorsConfig::class.java.getDeclaredMethod(
-                                                "get${colorName.replaceFirstChar { it.uppercase() }}"
-                                            )
-                                            val colorValue = getColorValue(getterMethod.invoke(colorConfig))
-                                            if (colorValue != null) {
-                                                colorData[colorName] = colorValue
-                                            } else {
-                                                context.log.warn("ThemeExport", "Color not found for: $colorName")
-                                            }
+                                        val colorValue = colorConfig.getColor(colorName)
+                                        if (colorValue != null) {
+                                            colorData[colorName] = colorValue
+                                        } else {
+                                            context.log.warn("ThemeExport", "Color not found for: $colorName")
                                         }
+
                                     }
 
                                     val customizeUiExport = hashMapOf<String, Any>(

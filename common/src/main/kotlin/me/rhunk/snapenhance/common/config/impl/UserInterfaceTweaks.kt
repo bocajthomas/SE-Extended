@@ -20,8 +20,8 @@ class UserInterfaceTweaks : ConfigContainer() {
 
 
     class ColorsConfig : ConfigContainer() {
-        private val colorMap = hashMapOf<String, Int>( 
-            "text_color" to color("text_color"), 
+        private val colorMap = hashMapOf(
+            "text_color" to color("text_color"),
             "chat_chat_text_color" to color("chat_chat_text_color"),
             "pending_sending_text_color" to color("pending_sending_text_color"),
             "snap_with_sound_text_color" to color("snap_with_sound_text_color"),
@@ -35,11 +35,13 @@ class UserInterfaceTweaks : ConfigContainer() {
             "action_menu_round_background_color" to color("action_menu_round_background_color"),
             "sig_color_icon_primary" to color("sig_color_icon_primary"),
             "camera_grid_lines" to color("camera_grid_lines"),
-            ) 
-        
-        fun getColor(propertyName: String): Int { 
-            return colorMap[propertyName] ?: -1
+            )
+        fun getColor(propertyName: String): Int? {
+            val colorValue = colorMap[propertyName]
+            val nullableInt = colorValue?.getNullable()
+            return nullableInt
         }
+
         val textColor = color("text_color")
         val chatChatTextColor = color("chat_chat_text_color")
         val pendingSendingTextColor = color("pending_sending_text_color")
