@@ -20,22 +20,6 @@ class UserInterfaceTweaks : ConfigContainer() {
 
 
     class ColorsConfig : ConfigContainer() {
-        private val colorMap = hashMapOf(
-            "text_color" to color("text_color"),
-            "chat_chat_text_color" to color("chat_chat_text_color"),
-            "pending_sending_text_color" to color("pending_sending_text_color"),
-            "snap_with_sound_text_color" to color("snap_with_sound_text_color"),
-            "snap_without_sound_text_color" to color("snap_without_sound_text_color"),
-            "action_sheet_description_text_color" to color("action_sheet_description_text_color"),
-            "background_color" to color("background_color"),
-            "background_color_surface" to color("background_color_surface"),
-            "list_background_drawable" to color("list_background_drawable"),
-            "friend_feed_conversations_line_color" to color("friend_feed_conversations_line_color"),
-            "action_menu_background_color" to color("action_menu_background_color"),
-            "action_menu_round_background_color" to color("action_menu_round_background_color"),
-            "sig_color_icon_primary" to color("sig_color_icon_primary"),
-            "camera_grid_lines" to color("camera_grid_lines"),
-            )
         fun getColor(propertyName: String): Int? {
             val colorValue = colorMap[propertyName]
             val nullableInt = colorValue?.getNullable()
@@ -56,6 +40,24 @@ class UserInterfaceTweaks : ConfigContainer() {
         val actionMenuRoundBackgroundColor = color("action_menu_round_background_color")
         val sigColorIconPrimary = color("sig_color_icon_primary")
         val cameraGridLines = color("camera_grid_lines")
+
+        private val colorMap = hashMapOf(
+            "text_color" to textColor,
+            "chat_chat_text_color" to chatChatTextColor,
+            "pending_sending_text_color" to pendingSendingTextColor,
+            "snap_with_sound_text_color" to snapWithSoundTextColor,
+            "snap_without_sound_text_color" to snapWithoutSoundTextColor,
+            "action_sheet_description_text_color" to actionSheetDescriptionTextColor,
+            "background_color" to backgroundColor,
+            "background_color_surface" to backgroundColorSurface,
+            "list_background_drawable" to listBackgroundDrawable,
+            "friend_feed_conversations_line_color" to friendFeedConversationsLineColor,
+            "action_menu_background_color" to actionMenuBackgroundColor,
+            "action_menu_round_background_color" to actionMenuRoundBackgroundColor,
+            "sig_color_icon_primary" to sigColorIconPrimary,
+            "camera_grid_lines" to cameraGridLines,
+        )
+
     }
 
     inner class CustomizeUIConfig : ConfigContainer() {
