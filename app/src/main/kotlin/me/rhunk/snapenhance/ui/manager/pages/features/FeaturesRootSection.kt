@@ -2,6 +2,7 @@ package me.rhunk.snapenhance.ui.manager.pages.features
 
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -622,6 +623,7 @@ class FeaturesRootSection : Routes.Route() {
                                         } else {
                                             context.log.warn("ThemeExport", "Color not found for: $colorName")
                                         }
+                                        Log.d("ThemeExport", "Color name: $colorName, value: $colorValue")
 
                                     }
 
