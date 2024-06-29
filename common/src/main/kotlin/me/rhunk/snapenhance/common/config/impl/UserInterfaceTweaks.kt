@@ -41,7 +41,7 @@ class UserInterfaceTweaks : ConfigContainer() {
         val sigColorIconPrimary = color("sig_color_icon_primary")
         val cameraGridLines = color("camera_grid_lines")
 
-        private val colorMap = hashMapOf(
+        internal val colorMap = hashMapOf(
             "text_color" to textColor,
             "chat_chat_text_color" to chatChatTextColor,
             "pending_sending_text_color" to pendingSendingTextColor,
