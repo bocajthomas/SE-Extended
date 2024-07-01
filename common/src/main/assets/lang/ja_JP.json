@@ -407,6 +407,10 @@
                             "enhanced_transcript": {
                                 "description": "DeepL を使用して音声メモのトランスクリプトを改善します。\nこの機能を使用する前に、プライバシー ポリシーを必ずお読みください。",
                                 "name": "強化されたトランスクリプト"
+                            },
+                            "enhanced_transcript_in_notifications": {
+                                "description": "DeepL を使用して通知内の音声メモを文字に起こします。これには、Better Notices でチャット プレビュー機能を有効にする必要があります",
+                                "name": "通知のトランスクリプトの強化"
                             }
                         },
                         "description": "音声メモのトランスクリプトを改善します"
@@ -1685,7 +1689,8 @@
     },
     "half_swipe_notifier": {
         "notification_channel_name": "ハーフスワイプ",
-        "notification_content_dm": "{friend} チャットに半分スワイプするだけで、秒"
+        "notification_content_dm": "{friend} チャットに半分スワイプするだけで、{duration} 秒",
+        "notification_content_group": "{friend} 半分スワイプしただけです {group} のために {duration} 秒"
     },
     "modal_option": {
         "profile_info": "プロフィール情報",
@@ -1697,5 +1702,100 @@
     "call_start_confirmation": {
         "dialog_message": "通話を開始してもよろしいですか?",
         "dialog_title": "背景"
+    },
+    "download_processor": {
+        "attachment_type": {
+            "snap": "スナップ",
+            "sticker": "ステッカー",
+            "external_media": "外部メディア",
+            "gif": "GIF",
+            "note": "注記",
+            "original_story": "オリジナルストーリー"
+        },
+        "failed_no_longer_available_toast": "メディアは利用できなくなりました",
+        "download_toast": "ダウンロード中 {path}...",
+        "failed_generic_toast": "ダウンロードに失敗しました",
+        "processing_toast": "処理 {path}...",
+        "failed_processing_toast": "処理に失敗しました {error}",
+        "dash_dialog": {
+            "download_all": "すべてダウンロード",
+            "title": "ダッシュメディアをダウンロードする",
+            "segment_text": "セグメント {from} - {to}"
+        },
+        "select_attachments_title": "添付ファイルの選択",
+        "download_started_toast": "ダウンロードが開始されました",
+        "unsupported_content_type_toast": "サポートされていないコンテンツ タイプです!",
+        "no_attachments_toast": "添付ファイルが見つかりませんでした!",
+        "already_queued_toast": "メディアはすでにキューに入っています!",
+        "already_downloaded_toast": "メディアはすでにダウンロードされています!",
+        "saved_toast": "保存先 {path}",
+        "dash_no_chapter": "章が見つかりませんでした",
+        "failed_gallery_toast": "ギャラリーへの保存に失敗しました {error}",
+        "failed_to_create_preview_toast": "プレビューの作成に失敗しました"
+    },
+    "end_to_end_encryption": {
+        "accept_public_key_failure_toast": "公開キーの受け入れに失敗しました",
+        "outgoing_secret_message": "鍵交換応答",
+        "incoming_pk_message": "公開鍵リクエストを受け取りました。以下をクリックして同意してください。",
+        "incoming_secret_message": "あなたの友人はあなたの公開鍵を受け入れました。以下をクリックしてシークレットを受け入れます。",
+        "accept_secret_button": "シークレットを受け入れる",
+        "native_hooks_send_failure_toast": "送信できませんでした!設定でネイティブフックを有効にしてください。",
+        "accept_public_key_success_toast": "公開キーが正常に受け入れられました!",
+        "unencrypted_conversation_send_failure_toast": "暗号化されたコンテンツを暗号化された会話と暗号化されていない会話の両方に送信することはできません!",
+        "confirmation_dialogs": {
+            "title": "エンドツーエンドの暗号化",
+            "confirmation_1": "警告: これにより、既存のキーが上書きされます。この友人からのすべての暗号化されたメッセージにアクセスできなくなります。続行してもよろしいですか?",
+            "confirmation_2": "本当に続行してもよろしいですか?これが撤退する最後のチャンスです。"
+        },
+        "toolbox": {
+            "shared_key_fingerprint": "あなたの指紋は次のとおりです:\n\n{fingerprint}\n\n友達の指紋と一致するかどうかを必ず確認してください!",
+            "initiate_exchange_button": "鍵交換の開始",
+            "no_shared_key": "この友人との共有秘密はまだありません。新しいものを開始するには、下をクリックしてください。"
+        },
+        "outgoing_pk_message": "鍵交換リクエスト",
+        "accept_secret_key_failure_toast": "秘密キーの受け入れに失敗しました",
+        "accept_public_key_button": "公開キーを受け入れる",
+        "no_participants_to_encrypt_toast": "この会話にはメッセージを暗号化できる友達がいませ!",
+        "encryption_failed_toast": "メッセージの暗号化に失敗しました!詳細については、logcat を確認してください。",
+        "accept_secret_key_success_toast": "終わり！これで、この友人と暗号化されたメッセージを送受信できるようになります。"
+    },
+    "material3_strings": {
+        "date_range_input_invalid_range_input": "無効な日付範囲です",
+        "date_picker_switch_to_calendar_mode": "カレンダー",
+        "date_range_picker_scroll_to_next_month": "来月",
+        "date_range_picker_start_headline": "から",
+        "date_input_invalid_not_allowed": "無効な日付",
+        "date_picker_switch_to_input_mode": "Input",
+        "date_range_picker_scroll_to_previous_month": "前月",
+        "date_picker_today_description": "今日",
+        "date_range_picker_day_in_range": "選択済み",
+        "date_input_invalid_for_pattern": "無効な日付",
+        "date_input_invalid_year_range": "無効な年",
+        "date_range_picker_end_headline": "に",
+        "date_range_picker_title": "日付範囲を選択してください"
+    },
+    "auto_open_snaps": {
+        "title": "自動オープンスナップ",
+        "notification_content": "{count} スナップが開いた状態"
+    },
+    "friend_mutation_observer": {
+        "birthday_removed": "{username} 誕生日を削除しました ({birthday})",
+        "birthday_added": "{username} 誕生日を追加しました ({birthday})",
+        "bitmoji_selfie_changed": "{username} さんは Bitmoji セルフィーを変更しました",
+        "bitmoji_background_changed": "{username}さんが Bitmoji の背景を変更しました",
+        "friend_removed": "{username} あなたを友達から削除しました",
+        "birthday_changed": "{username} 誕生日をから変更しました {oldBirthday} に {newBirthday}",
+        "bitmoji_avatar_changed": "{username} Bitmoji アバターを変更しました",
+        "bitmoji_scene_changed": "{username} Bitmoji シーンを変えた",
+        "notification_channel_name": "スナップが開いた状態"
+    },
+    "biometric_auth": {
+        "title": "スナップチャットのロックを解除する",
+        "subtitle": "Snapchatのロックを解除するには認証してください",
+        "unlock_button": "ロックを解除する"
+    },
+    "streaks_reminder": {
+        "notification_title": "縞模様",
+        "notification_text": "次の場合は連続記録を失います {friend} で {hoursLeft} 時間"
     }
 }

@@ -1268,6 +1268,10 @@
                             "preferred_transcription_lang": {
                                 "name": "পছন্দের ট্রান্সক্রিপশন ভাষা",
                                 "description": "ভয়েস নোট ট্রান্সক্রিপ্টের জন্য পছন্দের ভাষা (যেমন EN, ES, FR)"
+                            },
+                            "enhanced_transcript_in_notifications": {
+                                "name": "বিজ্ঞপ্তিতে উন্নত প্রতিলিপি",
+                                "description": "DeepL ব্যবহার করে বিজ্ঞপ্তিতে ভয়েস নোটগুলির প্রতিলিপি তৈরি করে। এর জন্য উন্নত বিজ্ঞপ্তি-এ চ্যাট প্রিভিউ বৈশিষ্ট্যটি সক্রিয় থাকতে হবে"
                             }
                         },
                         "description": "ভয়েস নোটের ট্রান্সক্রিপ্ট উন্নত করে"
@@ -1427,7 +1431,8 @@
             "disable_story_sections": {
                 "discover": "আবিষ্কার",
                 "friends": "বন্ধুরা",
-                "following": "অনুসরণ"
+                "following": "অনুসরণ",
+                "suggested_stories": "প্রস্তাবিত গল্পগুলি"
             },
             "old_bitmoji_selfie": {
                 "3d": "৩ডি বিটমোজি",
