@@ -2,7 +2,9 @@ package me.rhunk.snapenhance.common.config.impl
 
 import me.rhunk.snapenhance.common.config.ConfigContainer
 import me.rhunk.snapenhance.common.config.FeatureNotice
+import me.rhunk.snapenhance.common.config.PropertyValue
 import me.rhunk.snapenhance.common.data.MessagingRuleType
+import kotlin.collections.HashMap
 
 class UserInterfaceTweaks : ConfigContainer() {
     class BootstrapOverride : ConfigContainer() {
@@ -41,22 +43,23 @@ class UserInterfaceTweaks : ConfigContainer() {
         val sigColorIconPrimary = color("sig_color_icon_primary")
         val cameraGridLines = color("camera_grid_lines")
 
-        internal val colorMap = hashMapOf(
-            "text_color" to textColor,
-            "chat_chat_text_color" to chatChatTextColor,
-            "pending_sending_text_color" to pendingSendingTextColor,
-            "snap_with_sound_text_color" to snapWithSoundTextColor,
-            "snap_without_sound_text_color" to snapWithoutSoundTextColor,
-            "action_sheet_description_text_color" to actionSheetDescriptionTextColor,
-            "background_color" to backgroundColor,
-            "background_color_surface" to backgroundColorSurface,
-            "list_background_drawable" to listBackgroundDrawable,
-            "friend_feed_conversations_line_color" to friendFeedConversationsLineColor,
-            "action_menu_background_color" to actionMenuBackgroundColor,
-            "action_menu_round_background_color" to actionMenuRoundBackgroundColor,
-            "sig_color_icon_primary" to sigColorIconPrimary,
-            "camera_grid_lines" to cameraGridLines,
-        )
+        internal val colorMap: HashMap<String, PropertyValue<Int>>
+            get() = hashMapOf(
+                "text_color" to textColor,
+                "chat_chat_text_color" to chatChatTextColor,
+                "pending_sending_text_color" to pendingSendingTextColor,
+                "snap_with_sound_text_color" to snapWithSoundTextColor,
+                "snap_without_sound_text_color" to snapWithoutSoundTextColor,
+                "action_sheet_description_text_color" to actionSheetDescriptionTextColor,
+                "background_color" to backgroundColor,
+                "background_color_surface" to backgroundColorSurface,
+                "list_background_drawable" to listBackgroundDrawable,
+                "friend_feed_conversations_line_color" to friendFeedConversationsLineColor,
+                "action_menu_background_color" to actionMenuBackgroundColor,
+                "action_menu_round_background_color" to actionMenuRoundBackgroundColor,
+                "sig_color_icon_primary" to sigColorIconPrimary,
+                "camera_grid_lines" to cameraGridLines,
+            )
 
     }
 
