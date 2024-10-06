@@ -19,6 +19,7 @@ class SettingsMenu : AbstractMenu() {
             getString(getIdentifier("ngs_chat_label", "string"))
         }
     }
+    private val customFriendFeedlabel by context.config.userInterface.customLabels.customFriendFeedLabel
 
     override fun init() {
         context.androidContext.classLoader.loadClass("com.snap.ui.view.SnapFontTextView").hook("setText", HookStage.BEFORE) { param ->
@@ -31,7 +32,11 @@ class SettingsMenu : AbstractMenu() {
                 }
 
                 if (param.argNullable<String>(0) == ngsChatLabel) {
-                    param.setArg(0, "SE Extended")
+                    if (customFriendFeedlabel.isNotEmpty()) {
+                        param.setArg(0, customFriendFeedlabel)
+                    } else {
+                        param.setArg(0, "SE Extended")
+                    }
                 }
             }
         }

@@ -456,6 +456,17 @@
                         "name": "Custom Theme",
                         "description": "Customize Snapchat's Colors\nNote: if you choose a dark theme (like AMOLED), You may need to enable the dark mode on the App Appearance settings for better results"
                     },
+                    "custom_labels" : {
+                        "name": "Custom Page Labels",
+                        "description": "Customize Snapchat's Page Labels",
+                        "properties": {
+                            "custom_friend_feed_label": {
+                                "name": "Custom Friend Feed Label",
+                                "description": "Changes The label of the chat page"
+                            }
+                        }
+
+                    },
                     "friend_feed_message_preview": {
                         "name": "Friend Feed Message Preview",
                         "description": "Shows a preview of the last messages in the Friend Feed",
