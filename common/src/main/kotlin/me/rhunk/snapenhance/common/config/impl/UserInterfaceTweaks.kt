@@ -69,7 +69,7 @@ class UserInterfaceTweaks : ConfigContainer() {
         "lemon_drop",
         "modern_farmhouse",
     ) { addNotices(FeatureNotice.UNSTABLE); requireRestart(); versionCheck = RES_OBF_VERSION_CHECK.copy(isDisabled = true)  }
-    val customLabels = container("custom_labels", CustomLabels()) { addNotices(FeatureNotice.UNSTABLE); requireRestart(); versionCheck = RES_OBF_VERSION_CHECK.copy(isDisabled = true) }
+    val customLabels = container("custom_labels", CustomLabels()) { addNotices(FeatureNotice.UNSTABLE); requireRestart()}
     val friendFeedMessagePreview = container("friend_feed_message_preview", FriendFeedMessagePreview()) { requireRestart() }
     val snapPreview = boolean("snap_preview") { addNotices(FeatureNotice.UNSTABLE); requireRestart() }
     val bootstrapOverride = container("bootstrap_override", BootstrapOverride()) { requireRestart() }
