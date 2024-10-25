@@ -431,10 +431,6 @@
                         "name": "Skjul historieforslag",
                         "description": "Fjerner forslag fra siden Historier"
                     },
-                    "hide_settings_gear": {
-                        "name": "Skjul Indstillinger Gear",
-                        "description": "Skjuler SE Extended indstilling Gear i vennefeed"
-                    },
                     "message_indicators": {
                         "name": "Meddelelsesindikatorer",
                         "description": "Tilføjer specifikke indikatorikoner til beskeder\nBemærk: indikatorer er muligvis ikke 110% nøjagtige"

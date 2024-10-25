@@ -456,10 +456,6 @@
                         "name": "Vanha Bitmoji-selfie",
                         "description": "Tuo takaisin Bitmoji-selfiet vanhemmista Snapchat-versioista"
                     },
-                    "hide_settings_gear": {
-                        "name": "Piilota Asetukset Nappula",
-                        "description": "Piilottaa SE Extended Settings Gearin kaverisyötteessä"
-                    },
                     "auto_close_friend_feed_menu": {
                         "name": "Sulje kaverisyötevalikko automaattisesti"
                     },

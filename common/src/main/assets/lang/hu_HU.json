@@ -443,10 +443,6 @@
                         "name": "Opera Media gyors információ",
                         "description": "Megjeleníti a média hasznos információit, például a létrehozás dátumát az Opera Viewer kontextusmenüjében"
                     },
-                    "hide_settings_gear": {
-                        "name": "Beállítások fogaskerék elrejtése",
-                        "description": "Elrejti a SnapEnhance beállítások fogaskerékét a Friend feedben"
-                    },
                     "vertical_story_viewer": {
                         "description": "Engedélyezi a függőleges történetnézegetőt az összes történethez",
                         "name": "Függőleges történetnéző"

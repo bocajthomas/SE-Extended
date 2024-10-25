@@ -35,8 +35,9 @@
             "edit_rule": "Regel bearbeiten",
             "file_imports": "Dateiimporte",
             "better_location": "Bessere Lage",
-            "manage_repos": "Repository bearbeiten",
-            "edit_theme": "Design ändern"
+            "manage_repos": "Repositorys verwalten",
+            "edit_theme": "Design ändern",
+            "theming": "Thematisierung"
         },
         "sections": {
             "features": {
@@ -424,10 +425,6 @@
                     "enable_friend_feed_menu_bar": {
                         "name": "Freunde Feed Menüleiste",
                         "description": "Aktiviert die neue Freunde Feed Menüleiste"
-                    },
-                    "hide_settings_gear": {
-                        "name": "Symbol für Einstellungen ausblenden",
-                        "description": "Blendet das SE Extended Einstellungssymbol im Chat Tab aus"
                     },
                     "opera_media_quick_info": {
                         "description": "Zeigt nützliche Informationen zu Medien wie das Erstellungsdatum im Kontextmenü der Snap-Ansicht an",
@@ -1523,10 +1520,12 @@
             "description": "Sehen Sie sich den Verlauf der protokollierten Nachrichten an"
         },
         "security_features": {
-            "name": "Sicherheitsfunktionen"
+            "name": "Sicherheitsfunktionen",
+            "description": "Ändern Sie die Einstellungen für Sicherheitsfunktionen"
         },
         "theming": {
-            "name": "Designs"
+            "name": "Designs",
+            "description": "Passen Sie das Erscheinungsbild von Snapchat an"
         }
     },
     "mark_as_seen": {

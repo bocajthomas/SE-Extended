@@ -531,10 +531,6 @@
                         "name": "Disable Spotlight",
                         "description": "Disables the Spotlight page"
                     },
-                    "hide_settings_gear": {
-                        "name": "Hide Settings Gear",
-                        "description": "Hides the SE Extended Settings Gear in The friend feed"
-                    },
                     "enable_friend_feed_menu_bar": {
                         "name": "Friend Feed Menu Bar",
                         "description": "Enables the new Friend Feed Menu Bar"

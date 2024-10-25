@@ -382,10 +382,6 @@
                         "name": "Dezactivați Spotlight",
                         "description": "Dezactivează pagina Spotlight"
                     },
-                    "hide_settings_gear": {
-                        "description": "Ascunde butonul cu setările SnapEnhance în fluxul prietenilor",
-                        "name": "Ascunde Butonul Setări"
-                    },
                     "friend_feed_message_preview": {
                         "properties": {
                             "amount": {

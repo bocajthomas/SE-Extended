@@ -38,11 +38,15 @@
             "manage_scope": "منیج سکوپ",
             "messaging_preview": "پریویو",
             "scripts": "اسکرپٹس",
-            "better_location": "بہتر لوکیشن"
+            "better_location": "بہتر لوکیشن",
+            "theming": "تھیمنگ",
+            "edit_theme": "تھیم میں ترمیم کریں",
+            "manage_repos": "ذخیروں کا نظم کریں",
+            "manage_rule_feature": "اصول کی خصوصیت کا نظم کریں"
         },
         "sections": {
             "home": {
-                "version_title": "V{versionName} · جیکب کے ذریعہ فورک کیا گیا",
+                "version_title": "V{versionName} • کی طرف سے کانٹا bocajthomas",
                 "update_title": "SE ایکسٹینڈیڈ اپ ڈیٹ",
                 "update_content": "ورژن {version} دستیاب ہے!",
                 "update_button": "ڈاؤنلوڈ",
@@ -166,6 +170,9 @@
                 "search_bar": "سرچ",
                 "no_friends_map": "نقشے پر کوئی دوست نہیں ہے",
                 "no_friends_found": "کوئی دوست نہیں ملا"
+            },
+            "manage_rule_feature": {
+                "disable_state_option": "معذور"
             }
         },
         "dialogs": {
@@ -481,10 +488,6 @@
                     "disable_spotlight": {
                         "name": "اسپاٹ لائٹ کو غیر فعال کریں",
                         "description": "اسپاٹ لائٹ صفحہ کو غیر فعال کرتا ہے"
-                    },
-                    "hide_settings_gear": {
-                        "name": "سیٹنگز گیئر چھپائیں",
-                        "description": "فرینڈ فیڈ میں SE تایکسٹینڈیڈ سیٹنگز گیئر کو چھپاتا ہے"
                     },
                     "friend_feed_menu_buttons": {
                         "name": "فرینڈ فیڈ مینو بٹن",

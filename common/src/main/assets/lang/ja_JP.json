@@ -482,10 +482,6 @@
                         "name": "スポットライトを無効にする",
                         "description": "スポットライトページを無効にします"
                     },
-                    "hide_settings_gear": {
-                        "name": "設定ギアを非表示にする",
-                        "description": "フレンドフィードでSE拡張設定ギアを非表示にします"
-                    },
                     "friend_feed_menu_buttons": {
                         "name": "フレンドフィードメニューボタン",
                         "description": "フレンドフィードメニューに表示するボタンを選択します"

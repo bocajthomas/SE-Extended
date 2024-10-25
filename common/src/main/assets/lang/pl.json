@@ -32,13 +32,13 @@
             "edit_theme": "Edytuj motyw",
             "theming": "Motyw",
             "manage_rule_feature": "Zarządzaj funkcją zasad",
-            "logger_history": "Historia rejestru",
+            "logger_history": "Historia rejestratora",
             "file_imports": "Zaimportowane pliki",
             "manage_repos": "Zarządzaj repozytoriami",
-            "logged_stories": "Zarejestrowane Stories",
+            "logged_stories": "Zarejestrowane historie",
             "manage_scope": "Zarządzaj zakresami",
             "friend_tracker": "Śledzenie znajomych",
-            "edit_rule": "Edytuj reguły"
+            "edit_rule": "Edytuj regułę"
         },
         "sections": {
             "features": {

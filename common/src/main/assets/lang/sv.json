@@ -390,10 +390,6 @@
                         "name": "Gamla Bitmoji-selfien",
                         "description": "Återinför Bitmoji-selfies från äldre Snapchat-versioner"
                     },
-                    "hide_settings_gear": {
-                        "name": "Dölj inställningar-ikonen",
-                        "description": "Döljer SnapEnhance-inställningsikonen i vänflödet"
-                    },
                     "hide_story_suggestions": {
                         "name": "Dölj Story-förslag",
                         "description": "Tar bort förslag från Stories-fliken"

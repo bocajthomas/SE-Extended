@@ -443,10 +443,6 @@
                         "name": "Arkadaş Akışı Menü Çubuğu",
                         "description": "Yeni Arkadaş Akışı Menüsü Çubuğunu etkinleştirir"
                     },
-                    "hide_settings_gear": {
-                        "name": "Ayarlar Dişlisini Gizle",
-                        "description": "Arkadaş akışındaki SnapEnhance Ayarları Dişlisini gizler"
-                    },
                     "opera_media_quick_info": {
                         "description": "Opera görüntüleyici içerik menüsünde oluşturma tarihi gibi medyanın yararlı bilgilerini gösterir",
                         "name": "Opera Medya Hızlı Bilgi"
@@ -1189,8 +1185,6 @@
                 "hide_voice_record_button": "Ses Kayıt Butonunu Kaldır",
                 "hide_unread_chat_hint": "Okunmamış Sohbet İpucunu Kaldır",
                 "hide_post_to_story_buttons": "Snap göndermeden önce Hikayeye Gönder düğmelerini kaldırın",
-                "hide_billboard_prompt": "Arkadaş Akışındaki Reklam Panolarını Kaldır",
-                "hide_snapchat_plus_gift_reminders": "Sohbetlerdeki Snapchat Plus hediye hatırlatıcılarını kaldır",
                 "hide_map_reactions": "Harita Tepkilerini Kaldır"
             },
             "home_tab": {
@@ -1304,7 +1298,6 @@
                 "custom": "Özel Temalar (Temaları yönetmek için Hızlı Eylemleri kullanın)",
                 "material_you_light": "Material You Aydınlık (Android 12+)",
                 "material_you_dark": "Material You Karanlık (Android 12+)"
-
             }
         }
     },

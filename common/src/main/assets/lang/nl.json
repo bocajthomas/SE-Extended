@@ -38,7 +38,7 @@
             "manage_repos": "Beheer Repositories",
             "theming": "Thema",
             "file_imports": "Bestand Imports",
-            "manage_rule_feature": "Beheer regelfunctie"
+            "manage_rule_feature": "Regelfunctie beheren"
         },
         "sections": {
             "features": {
@@ -576,6 +576,9 @@
         "disclaimer_statement": {
             "name": "Disclaimer verklaring",
             "description": "Lees de disclaimer verklaring"
+        },
+        "logger_history": {
+            "name": "Loggergeschiedenis"
         }
     },
     "friend_menu_option": {

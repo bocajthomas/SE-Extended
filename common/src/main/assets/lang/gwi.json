@@ -533,10 +533,6 @@
                         "name": "Spotlight deaktivieren",
                         "description": "Deaktiviert die Spotlight Seite"
                     },
-                    "hide_settings_gear": {
-                        "name": "Symbol für Einstellungen ausblenden",
-                        "description": "Blendet das SnapEnhance-Einstellungssymbol im Chat-Tab aus"
-                    },
                     "friend_feed_menu_buttons": {
                         "name": "Schaltflächen für das Freunde-Feed Menü",
                         "description": "Wähle aus welche Schaltflächen in der Freunde Feed Menüleiste angezeigt werden sollen"

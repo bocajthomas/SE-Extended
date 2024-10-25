@@ -7,7 +7,7 @@
         },
         "mappings": {
             "dialog": "生成映射，这可能需要一段时间......",
-            "generate_failure_no_snapchat": "SnapEnhance 无法检测到 Snapchat，请尝试重新安装 Snapchat",
+            "generate_failure_no_snapchat": "SE Extended 无法检测到 Snapchat，请尝试重新安装 Snapchat.",
             "generate_failure": "尝试生成映射时出错，请重试。"
         },
         "permissions": {
@@ -64,7 +64,7 @@
         "hidden_birthday": "生日: 隐藏",
         "friendship": "友谊",
         "add_source": "添加来源",
-        "snapchat_plus": "Snapchat Plus",
+        "snapchat_plus": "Snapchat 加",
         "snapchat_plus_state": {
             "subscribed": "已订阅",
             "not_subscribed": "未订阅"
@@ -80,14 +80,25 @@
         "writing_output": "正在写入输出...",
         "finished": "完成了！您现在可以关闭此对话框。",
         "no_messages_found": "未找到消息！",
-        "exporting_message": "正在导出 {conversation}..."
+        "exporting_message": "正在导出 {conversation}...",
+        "exporter_dialog": {
+            "select_conversations_title": "选择对话",
+            "text_field_selection": "{amount} 已选择",
+            "text_field_selection_all": "全部",
+            "export_file_format_title": "导出文件格式",
+            "message_type_filter_title": "按类型过滤消息",
+            "amount_of_messages_title": "消息数量 (全部留空)",
+            "download_medias_title": "下载媒体"
+        }
     },
     "button": {
         "ok": "确定",
         "positive": "是",
         "negative": "否",
         "cancel": "取消",
-        "open": "打开"
+        "open": "打开",
+        "download": "下载",
+        "send": "发送"
     },
     "scopes": {
         "friend": "朋友",
@@ -137,7 +148,7 @@
             "home_settings": {
                 "debug_title": "调试",
                 "message_logger_title": "消息记录器",
-                "success_toast": "完毕",
+                "success_toast": "完毕!",
                 "clear_button": "清除",
                 "view_logger_history_button": "查看记录器历史记录",
                 "actions_title": "行动",
@@ -153,7 +164,8 @@
                 "disabled": "残疾人",
                 "config_import_success_toast": "配置导入成功",
                 "reset_option": "重置",
-                "config_export_failure_toast": "导出配置失败 {error}"
+                "config_export_failure_toast": "导出配置失败 {error}",
+                "older_required": "此功能需要 Snapchat v{version} 或更早版本才能正常工作"
             },
             "tasks": {
                 "no_tasks": "没有任务",
@@ -234,7 +246,7 @@
                 "delete_dialog_title": "删除保存的坐标",
                 "search_bar": "搜索",
                 "suspend_location_updates": "暂停位置更新",
-                "delete_dialog_message": "您确定要删除此保存的坐标吗",
+                "delete_dialog_message": "您确定要删除此保存的坐标吗?",
                 "spoof_location_toggle": "恶搞位置",
                 "teleport_to_friend_button": "传送到朋友身边",
                 "choose_location_button": "选择地点",
@@ -398,6 +410,10 @@
         "theming": {
             "name": "主题化",
             "description": "自定义 Snapchat 的外观和风格"
+        },
+        "disclaimer_statement": {
+            "name": "免责声明",
+            "description": "阅读免责声明"
         }
     },
     "features": {
@@ -581,10 +597,6 @@
                     "disable_spotlight": {
                         "name": "禁用聚光灯",
                         "description": "禁用 Spotlight 页面"
-                    },
-                    "hide_settings_gear": {
-                        "name": "隐藏设置齿轮",
-                        "description": "在好友动态中隐藏 SE Extended 设置装备"
                     },
                     "friend_feed_menu_buttons": {
                         "name": "好友动态菜单按钮",
@@ -844,7 +856,7 @@
                         }
                     },
                     "snapchat_plus": {
-                        "name": "Snapchat Plus",
+                        "name": "Snapchat 加",
                         "description": "启用 Snapchat Plus 功能\n某些服务器端功能可能无法使用"
                     },
                     "media_upload_quality": {
@@ -1041,6 +1053,10 @@
                             "disable_bitmoji": {
                                 "name": "禁用 Bitmoji",
                                 "description": "禁用好友个人资料 Bitmoji"
+                            },
+                            "custom_shared_library": {
+                                "description": "将自定义共享库加载到 Snapchat 中. 此功能仅用于测试目的",
+                                "name": "自定义共享库"
                             }
                         }
                     },
@@ -1311,9 +1327,10 @@
             },
             "gallery_media_send_override": {
                 "always_ask": "总是问",
-                "ORIGINAL": "原来的",
+                "ORIGINAL": "原创媒体",
                 "NOTE": "音频笔记",
-                "SNAP": "折断"
+                "SNAP": "折断",
+                "SAVEABLE_SNAP": "可保存的快照"
             },
             "strip_media_metadata": {
                 "hide_caption_text": "隐藏标题文本",
@@ -1329,7 +1346,13 @@
                 "hide_stickers_button": "删除贴纸按钮",
                 "hide_voice_record_button": "删除录音按钮",
                 "hide_unread_chat_hint": "删除未读聊天提示",
-                "hide_post_to_story_buttons": "在发送快照之前删除“发布到故事按钮"
+                "hide_post_to_story_buttons": "删除发布到故事按钮",
+                "hide_chat_camera_button": "删除聊天相机按钮",
+                "hide_chat_gallery_button": "删除聊天库按钮",
+                "hide_gift_snapchat_plus_reminders": "删除礼品 Snapchat Plus 提醒",
+                "hide_explorer_token_button": "删除资源管理器令牌按钮",
+                "hide_snap_create_group_buttons": "删除捕捉创建组按钮",
+                "hide_map_reactions": "删除地图反应"
             },
             "hide_story_suggestions": {
                 "hide_suggested_friend_stories": "隐藏建议的朋友故事",
@@ -1450,7 +1473,11 @@
                 "galaxy_glitter": "银河闪光",
                 "spring_meadow": "春天的草地",
                 "midnight_library": "午夜图书馆",
-                "gingerbread_house": "姜饼屋"
+                "gingerbread_house": "姜饼屋",
+                "lavender_field": "薰衣草田",
+                "lemon_drop": "柠檬滴",
+                "modern_farmhouse": "现代农舍",
+                "apple_orchard": "苹果园"
             }
         }
     },
@@ -1520,7 +1547,79 @@
             "message": "这将影响所有选定的好友.此操作无法撤消."
         },
         "actions": {
-            "remove_friends": "删除好友"
+            "remove_friends": "删除好友",
+            "clear_conversations": "清晰的对话"
         }
+    },
+    "download_processor": {
+        "attachment_type": {
+            "original_story": "本事",
+            "gif": "动图",
+            "external_media": "外部媒体",
+            "note": "笔记",
+            "snap": "折断",
+            "sticker": "贴纸"
+        },
+        "select_attachments_title": "选择附件",
+        "failed_no_longer_available_toast": "媒体不再可用",
+        "no_attachments_toast": "没有找到附件！",
+        "already_queued_toast": "媒体已经在排队了!",
+        "already_downloaded_toast": "媒体已下载!",
+        "saved_toast": "保存至 {path}",
+        "processing_toast": "加工 {path}...",
+        "failed_generic_toast": "下载失败",
+        "failed_to_create_preview_toast": "创建预览失败",
+        "failed_processing_toast": "处理失败 {error}",
+        "dash_no_chapter": "没有找到章节",
+        "dash_dialog": {
+            "download_all": "下载全部",
+            "title": "下载破折号媒体"
+        },
+        "download_started_toast": "下载开始",
+        "failed_gallery_toast": "保存到图库失败 {error}",
+        "unsupported_content_type_toast": "不支持的内容类型！",
+        "download_toast": "正在下载 {path}..."
+    },
+    "better_notifications": {
+        "button": {
+            "reply": "回复",
+            "download": "下载",
+            "mark_as_read": "标记为已读"
+        }
+    },
+    "profile_picture_downloader": {
+        "background_option": "背景",
+        "button": "下载个人资料图片",
+        "title": "个人资料图片下载器",
+        "avatar_option": "阿凡达"
+    },
+    "call_start_confirmation": {
+        "dialog_message": "您确定要开始通话吗？",
+        "dialog_title": "开始通话"
+    },
+    "half_swipe_notifier": {
+        "notification_content_dm": "{friend} 只需半滑进入您的聊天室即可 {duration} 秒",
+        "notification_channel_name": "半扫",
+        "notification_content_group": "{friend} 刚刚半滑入 {group} 为了{duration} 秒"
+    },
+    "biometric_auth": {
+        "unlock_button": "未锁定"
+    },
+    "end_to_end_encryption": {
+        "confirmation_dialogs": {
+            "title": "端对端加密",
+            "confirmation_2": "您是否确定要继续？这将是您最后一次退出的机会。"
+        },
+        "native_hooks_send_failure_toast": "发送失败了！请去设置里开启原生钩子。",
+        "encryption_failed_toast": "加密消息失败！请查看日志了解更多详细信息。",
+        "accept_public_key_success_toast": "公钥已成功接收！",
+        "outgoing_pk_message": "密钥交换请求",
+        "outgoing_secret_message": "密钥交换响应",
+        "incoming_pk_message": "您刚刚收到一个公钥请求。点击下面接受这个请求。",
+        "incoming_secret_message": "您的好友刚刚接受了您的公钥。点击下面接受密码。",
+        "accept_secret_key_success_toast": "完成了！你现在可以与这位朋友传输加密信息了。",
+        "accept_public_key_failure_toast": "无法接收公钥",
+        "accept_secret_key_failure_toast": "无法接受密钥。",
+        "accept_public_key_button": "接收公钥"
     }
 }

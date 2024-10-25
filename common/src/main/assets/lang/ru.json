@@ -404,10 +404,6 @@
                             }
                         }
                     },
-                    "hide_settings_gear": {
-                        "description": "Скрывает значок настроек SnapEnhance в ленте друзей",
-                        "name": "Скрыть значок настроек"
-                    },
                     "bootstrap_override": {
                         "name": "Переопределение Bootstrap",
                         "properties": {

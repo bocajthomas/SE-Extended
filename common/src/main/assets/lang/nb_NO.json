@@ -394,10 +394,6 @@
                         "description": "Viser utløpstidsur ved siden av rekkefølgetelleren",
                         "name": "Vis utløpsinfo for rekkefølge"
                     },
-                    "hide_settings_gear": {
-                        "name": "Skjul innstillingstannhjul",
-                        "description": "Skjuler Se Extended-innstillingstannhjulet i venneflyten"
-                    },
                     "stealth_mode_indicator": {
                         "name": "Smugmodus-indikator",
                         "description": "Legger til 👻-ideogram i samtalen i smugmodus"

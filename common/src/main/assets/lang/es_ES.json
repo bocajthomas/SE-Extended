@@ -42,7 +42,7 @@
         },
         "sections": {
             "home": {
-                "update_title": "Actualización de SnapEnhance",
+                "update_title": "Actualización de SE Extended",
                 "update_content": "¡Versión {version} está disponible!",
                 "update_button": "Descargar",
                 "debug_build_summary_date": "Fecha de desarrollo: {date} (hace{days} día(s))",
@@ -88,7 +88,9 @@
                 "config_import_success_toast": "Configuración importada con éxito",
                 "config_import_failure_toast": "Error al importar la configuración {error}",
                 "saved_config_snackbar": "Configuración guardada",
-                "config_export_failure_toast": "No se pudo exportar la configuración {error}"
+                "config_export_failure_toast": "No se pudo exportar la configuración {error}",
+                "older_required": "Esta función requiere Snapchat v{version} o anterior para funcionar correctamente",
+                "newer_required": "Esta función requiere Snapchat v{version} o posterior para funcionar correctamente"
             },
             "social": {
                 "friends_tab": "Amigxs",
@@ -420,10 +422,6 @@
                     "disable_spotlight": {
                         "name": "Deshabilitar Spotlight",
                         "description": "Deshabilita la página de Spotlight"
-                    },
-                    "hide_settings_gear": {
-                        "name": "Ocultar el engranaje de ajustes",
-                        "description": "Oculta el engranaje de los ajustes de SnapEnhance en la lista de amigxs"
                     },
                     "friend_feed_menu_buttons": {
                         "name": "Botones de menú de la lista de amigxs",
@@ -1207,7 +1205,6 @@
                 "hide_chat_gallery_button": "Eliminar el botón de la galería de chat",
                 "hide_explorer_token_button": "Botón para eliminar el token del explorador",
                 "hide_gift_snapchat_plus_reminders": "Eliminar recordatorios de regalos de Snapchat Plus",
-                "hide_billboard_prompt": "Eliminar el aviso de la página principal en el feed de amigos",
                 "hide_map_reactions": "Eliminar reacciones del mapa"
             },
             "hide_story_suggestions": {
