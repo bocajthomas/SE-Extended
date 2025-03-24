@@ -931,6 +931,10 @@
                         "name": "Force Camera Source Encoding",
                         "description": "Forces the camera source encoding"
                     },
+                    "startup_default_camera": {
+                        "name": "Startup Default Camera",
+                        "description": "Sets the default camera when opening Snapchat"
+                    },
                     "hevc_recording": {
                         "name": "HEVC Recording",
                         "description": "Uses HEVC (H.265) codec for video recording"
@@ -1403,6 +1407,10 @@
                 "delete_message": "Delete Message",
                 "mark_as_read": "Mark as Read",
                 "custom_emoji_reaction": "Custom Emoji Reaction"
+            },
+            "startup_default_camera": {
+                "front": "Front Camera",
+                "back": "Back Camera"
             }
         }
     },

@@ -25,6 +25,7 @@ enum class DatabaseType(
     val fileName: String
 ) {
     MAIN("main.db"),
+    CORE("core.db"),
     ARROYO("arroyo.db"),
     SIMPLE_DB_HELPER("simple_db_helper.db")
 }
@@ -506,6 +507,31 @@ class DatabaseAccess(
                 "rawSnapId = ?",
                 arrayOf(rawSnapId)
             )
+        }
+    }
+
+    fun setCameraType(cameraType: String) {
+        useDatabase(DatabaseType.CORE, writeMode = true)?.use { database ->
+            database.performOperation {
+                if (rawQuery("SELECT * FROM Preferences WHERE 'key' = 'CAMERA~CAMERA_TYPE'", null).use { !it.moveToFirst() }) {
+                    insert(
+                        "Preferences",
+                        null,
+                        ContentValues().apply {
+                            put("key", "CAMERA~CAMERA_TYPE")
+                            put("type", 0)
+                            put("stringValue", cameraType)
+                        }
+                    )
+                } else update(
+                    "Preferences",
+                    ContentValues().apply {
+                        put("stringValue", cameraType)
+                    },
+                    "key = ?",
+                    arrayOf("CAMERA~CAMERA_TYPE")
+                )
+            }
         }
     }
 }
