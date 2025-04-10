@@ -285,6 +285,9 @@
             },
             "pin_conversation": {
                 "name": "Pin Conversation"
+            },
+            "exclude_message_logger": {
+                "name": "Exclude From Message Logger"
             }
         }
     },

@@ -12,20 +12,22 @@ import me.rhunk.snapenhance.bridge.logger.LoggedChatEdit
 import me.rhunk.snapenhance.common.config.impl.MessagingTweaks
 import me.rhunk.snapenhance.common.data.ContentType
 import me.rhunk.snapenhance.common.data.MessageState
+import me.rhunk.snapenhance.common.data.MessagingRuleType
 import me.rhunk.snapenhance.common.data.QuotedMessageContentStatus
+import me.rhunk.snapenhance.common.data.RuleState
 import me.rhunk.snapenhance.common.util.ktx.longHashCode
 import me.rhunk.snapenhance.common.util.lazyBridge
 import me.rhunk.snapenhance.common.util.protobuf.ProtoReader
 import me.rhunk.snapenhance.core.event.events.impl.BindViewEvent
 import me.rhunk.snapenhance.core.event.events.impl.BuildMessageEvent
-import me.rhunk.snapenhance.core.features.Feature
+import me.rhunk.snapenhance.core.features.MessagingRuleFeature
 import me.rhunk.snapenhance.core.ui.addForegroundDrawable
 import me.rhunk.snapenhance.core.ui.removeForegroundDrawable
 import me.rhunk.snapenhance.core.util.EvictingMap
 import java.util.concurrent.Executors
 import kotlin.system.measureTimeMillis
 
-class MessageLogger : Feature("MessageLogger") {
+class MessageLogger : MessagingRuleFeature("MessageLogger", MessagingRuleType.EXCLUDE_MESSAGE_LOGGER) {
     companion object {
         const val PREFETCH_MESSAGE_COUNT = 20
         const val PREFETCH_FEED_COUNT = 20
@@ -128,6 +130,11 @@ class MessageLogger : Feature("MessageLogger") {
                 }
 
                 threadPool.execute {
+                    // ignore excluded conversations
+                    if (getState(conversationId)) {
+                        return@execute
+                    }
+
                     try {
                         loggerInterface.addMessage(
                             BridgeLoggedMessage().also {
@@ -144,7 +151,7 @@ class MessageLogger : Feature("MessageLogger") {
                                 it.messageData = context.gson.toJson(messageInstance).toByteArray(Charsets.UTF_8)
                             }
                         )
-                    } catch (ignored: DeadObjectException) {}
+                    } catch (_: DeadObjectException) {}
                 }
 
                 return@subscribe
@@ -193,4 +200,6 @@ class MessageLogger : Feature("MessageLogger") {
             }
         }
     }
+
+    override fun getRuleState() = RuleState.WHITELIST
 }

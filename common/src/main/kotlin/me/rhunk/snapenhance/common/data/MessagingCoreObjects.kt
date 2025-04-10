@@ -3,6 +3,7 @@ package me.rhunk.snapenhance.common.data
 import android.database.Cursor
 import android.os.Parcelable
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Message
 import androidx.compose.material.icons.outlined.*
 import androidx.compose.ui.graphics.vector.ImageVector
 import kotlinx.parcelize.Parcelize
@@ -53,7 +54,8 @@ enum class MessagingRuleType(
     UNSAVEABLE_MESSAGES("unsaveable_messages", true, Icons.Outlined.FolderOff, defaultValue = null),
     HIDE_FRIEND_FEED("hide_friend_feed", false, Icons.Outlined.VisibilityOff, showInFriendMenu = false),
     E2E_ENCRYPTION("e2e_encryption", false, Icons.Outlined.Lock),
-    PIN_CONVERSATION("pin_conversation", false, Icons.Outlined.PushPin, showInFriendMenu = false);
+    PIN_CONVERSATION("pin_conversation", false, Icons.Outlined.PushPin, showInFriendMenu = false),
+    EXCLUDE_MESSAGE_LOGGER("exclude_message_logger", false, Icons.AutoMirrored.Filled.Message, showInFriendMenu = false);
 
     fun translateOptionKey(optionKey: String): String {
         return if (listMode) "rules.properties.$key.options.$optionKey" else "rules.properties.$key.name"
