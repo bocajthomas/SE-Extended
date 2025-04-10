@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import androidx.core.content.edit
 import androidx.core.net.toUri
 import androidx.navigation.NavBackStackEntry
 import kotlinx.coroutines.launch
@@ -52,9 +53,9 @@ class HomeSettings : Routes.Route() {
                 .clickable {
                     value = !value
                     sharedPreferences
-                        .edit()
-                        .putBoolean(realKey, value)
-                        .apply()
+                        .edit() {
+                            putBoolean(realKey, value)
+                        }
                 },
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
@@ -284,7 +285,7 @@ class HomeSettings : Routes.Route() {
                 Column(
                     verticalArrangement = Arrangement.spacedBy(4.dp),
                 ) {
-                    PreferenceToggle(context.sharedPreferences, key = "disable_sif_prod", text = "Disable Snap Integrity Fix")
+                    PreferenceToggle(context.sharedPreferences, key = "enable_security_features", text = "Enable Security Features")
                     PreferenceToggle(context.sharedPreferences, key = "disable_feature_loading", text = "Disable Feature Loading")
                     PreferenceToggle(context.sharedPreferences, key = "disable_mapper", text = "Disable Auto Mapper")
                 }

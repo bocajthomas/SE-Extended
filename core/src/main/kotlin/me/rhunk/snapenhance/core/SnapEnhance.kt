@@ -18,6 +18,7 @@ import me.rhunk.snapenhance.common.action.EnumAction
 import me.rhunk.snapenhance.common.bridge.FileHandleScope
 import me.rhunk.snapenhance.common.bridge.InternalFileHandleType
 import me.rhunk.snapenhance.common.bridge.toWrapper
+import me.rhunk.snapenhance.common.config.MOD_DETECTION_VERSION_CHECK
 import me.rhunk.snapenhance.common.data.FriendStreaks
 import me.rhunk.snapenhance.common.data.MessagingFriendInfo
 import me.rhunk.snapenhance.common.data.MessagingGroupInfo
@@ -202,7 +203,6 @@ class SnapEnhance {
                 it.isNotEmpty()
             }?.toString(Charsets.UTF_8)?.also {
                 appContext.native.signatureCache = it
-                appContext.log.verbose("old signature cache $it")
             }
 
         val lateInit = appContext.native.initOnce {
@@ -223,7 +223,7 @@ class SnapEnhance {
             }
         }
 
-        val safeMode = SecurityFeatures(appContext).init()
+        SecurityFeatures(appContext).init()
 
         Runtime::class.java.findRestrictedMethod {
             it.name == "loadLibrary0" && it.parameterTypes.contentEquals(
@@ -231,11 +231,18 @@ class SnapEnhance {
                 else arrayOf(ClassLoader::class.java, String::class.java)
             )
         }!!.apply {
-            if (safeMode) {
+            if (appContext.isSafeMode) {
                 hook(HookStage.BEFORE) { param ->
                     if (param.arg<String>(1) != "scplugin") return@hook
                     param.setResult(null)
-                    appContext.log.warn("Can't load scplugin in safe mode")
+                    appContext.runOnUiThread {
+                        appContext.inAppOverlay.showStatusToast(
+                            Icons.Outlined.Cancel,
+                            "SnapEnhance is not compatible with this version of Snapchat and will result in a ban.\nUse Snapchat ${MOD_DETECTION_VERSION_CHECK.maxVersion?.first ?: "0.0.0"} or older to avoid detections.",
+                            durationMs = 7000,
+                            maxLines = 6
+                        )
+                    }
                     runCatching {
                         Thread.sleep(Long.MAX_VALUE)
                     }.onFailure {
@@ -249,7 +256,6 @@ class SnapEnhance {
             hook(HookStage.AFTER) { param ->
                 if (param.arg<String>(1) != "client") return@hook
                 unhook()
-                appContext.log.verbose("libclient lateInit")
                 lateInit()
             }.also { unhook = { it.unhook() } }
         }
@@ -311,7 +317,8 @@ class SnapEnhance {
             }
 
             val friends = feedEntries.filter { it.conversationType == 0 }.mapNotNull {
-                val friendUserId = it.friendUserId ?: it.participants?.filter { it != appContext.database.myUserId }?.firstOrNull() ?: return@mapNotNull null
+                val friendUserId = it.friendUserId ?: it.participants?.firstOrNull { it != appContext.database.myUserId }
+                ?: return@mapNotNull null
                 val friend = appContext.database.getFriendInfo(friendUserId) ?: return@mapNotNull null
 
                 MessagingFriendInfo(
