@@ -28,7 +28,7 @@ You can also download the latest debug build from the [Actions](https://github.c
 We no longer offer official `LSPatch` binaries for obvious reasons. However, you're welcome to patch them yourself, as they should theoretically work without any issues.
 
 > [!Caution]  
-> Snapchat has locked many user accounts that used SnapEnhance or its related forks due to new detections. It's recommended to use Snapchat [v12.81.0.44](https://www.apkmirror.com/apk/snap-inc/snapchat/snapchat-12-81-0-44-release/) or earlier. Only use signed builds or builds you've modified yourself to avoid compromising the security of your account.
+> Snapchat is actively banning accounts. Use at your own risk. Version 12.81.0.44 is no longer considered safe. Only use signed builds or builds you've modified yourself to avoid compromising the security of your account.
 
 ## Main Features
 <details closed>
