@@ -224,13 +224,13 @@ Contributions are welcome!<br/>
 Thanks to everyone involved
 
 **Pull Requests:**
-- [suryadip2008](https://github.com/suryadip2008)
+- [ΞTΞRNAL](https://github.com/particle-box)
   - feat(core/ui_tweaks): multiple hide ui components [#106](https://github.com/bocajthomas/SE-Extended/pull/106)
 - [CanerKaraca23](https://github.com/CanerKaraca23)
   - chore: update dependencies [#127](https://github.com/bocajthomas/SE-Extended/pull/127)
 
 **Translations:**
-- Bengali - [suryadip2008](https://github.com/suryadip2008)
+- Bengali - [ΞTΞRNAL](https://github.com/particle-box)
 - Dutch - [BogusMosquito77](https://github.com/BogusMosquito7), [dnlweijers](https://github.com/dnlweijers), [appelmoesgg](https://github.com/appelmoesgg), [woutvanw](https://github.com/woutvanw)
 - Urdu - [Beingzain](https://github.com/Beingzain)
 - Danish - [comradekingu](https://github.com/comradekingu), [MHaaning](https://github.com/MHaaning)
