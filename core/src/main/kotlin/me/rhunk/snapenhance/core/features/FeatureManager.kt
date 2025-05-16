@@ -143,6 +143,7 @@ class FeatureManager(
             FriendNotes(),
             DoubleTapChatAction(),
             SnapScoreChanges(),
+            DisableSnapModeRestrictions(),
         )
 
         features.values.toList().forEach { feature ->
