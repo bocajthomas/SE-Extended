@@ -927,21 +927,9 @@
                         "name": "Falsification",
                         "description": "Falsifier diverses informations vous concernant",
                         "properties": {
-                            "randomize_persistent_device_token": {
-                                "description": "Génère un jeton aléatoire après chaque connexion",
-                                "name": "Randomiser le jeton persistant de l'appareil"
-                            },
                             "remove_mock_location_flag": {
                                 "name": "Supprimer le flag de Mock Location",
                                 "description": "Empêche Snapchat de détecter les localisations Mock"
-                            },
-                            "android_id": {
-                                "name": "ID Android",
-                                "description": "Modifie l'identifiant Android avec la valeur spécifiée"
-                            },
-                            "fingerprint": {
-                                "description": "Change la fingerprint de votre appareil",
-                                "name": "Fingerprint de l'appareil"
                             },
                             "remove_vpn_transport_flag": {
                                 "description": "Empêche Snapchat de détecter les VPN",

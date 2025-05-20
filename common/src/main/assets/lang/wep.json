@@ -744,14 +744,6 @@
                                 "name": "Goolge Play Installationsname des Paketes",
                                 "description": "Überschreibt den Namen des Installationspakets auf com.android.vending_machine"
                             },
-                            "fingerprint": {
-                                "name": "Geräte-Fingerabdruck",
-                                "description": "Fälscht den Sicherheitsabdruck deines Gerätes"
-                            },
-                            "android_id": {
-                                "name": "Android ID",
-                                "description": "Fälscht deine Android ID mit dem angegebenen Wert"
-                            },
                             "remove_vpn_transport_flag": {
                                 "name": "VPN-Transport-Flagge entfernen",
                                 "description": "Hindert Snapchat daran, VPNs zu erkennen"
@@ -759,10 +751,6 @@
                             "remove_mock_location_flag": {
                                 "name": "Kennzeichnung für den gefälschten Standort entfernen",
                                 "description": "Verhindert, dass Snapchat gefälschte Standorte erkennt"
-                            },
-                            "randomize_persistent_device_token": {
-                                "name": "Dauerhaftes Geräte-Token zufällig auswählen",
-                                "description": "Erzeugt ein zufälliges Geräte-Token nach jedem Login"
                             }
                         }
                     },

@@ -984,21 +984,9 @@
                                 "name": "Nombre del paquete de instalación del Play Store",
                                 "description": "Convierte el nombre del paquete de instalación a com.android.vending"
                             },
-                            "android_id": {
-                                "description": "Falsifica tu ID de Android al valor especificado",
-                                "name": "ID de Android"
-                            },
-                            "fingerprint": {
-                                "name": "Huella digital del dispositivo",
-                                "description": "Falsifica la huella digital de tu dispositivo"
-                            },
                             "remove_mock_location_flag": {
                                 "name": "Quitar bandera de ubicación falsificada",
                                 "description": "Impide que Snapchat pueda detectar ubicación falsificada"
-                            },
-                            "randomize_persistent_device_token": {
-                                "name": "Token de dispositivo persistente al azar",
-                                "description": "Generar un token aleatorio después de cada inicio de sesión"
                             }
                         },
                         "name": "Falsificar",

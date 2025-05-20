@@ -832,17 +832,9 @@
                     },
                     "spoof": {
                         "properties": {
-                            "fingerprint": {
-                                "name": "Amprenta dispozitivului",
-                                "description": "Îți falsifică amprenta dispozitivului"
-                            },
                             "remove_vpn_transport_flag": {
                                 "name": "Elimină Indicatorul de Transport VPN",
                                 "description": "Împiedică Snapchat să detecteze VPN-urile"
-                            },
-                            "randomize_persistent_device_token": {
-                                "name": "Randomizează Tokenul Dispozitivului Persistent",
-                                "description": "Generează un token aleatoriu pentru dispozitiv după fiecare logare"
                             },
                             "remove_mock_location_flag": {
                                 "description": "Previne detectarea de către Snapchat a locației false",
@@ -851,10 +843,6 @@
                             "play_store_installer_package_name": {
                                 "name": "Numele pachetului de instalare a magazinului Play",
                                 "description": "Înlocuiește numele pachetului de instalare la com.android.vending"
-                            },
-                            "android_id": {
-                                "name": "ID Android",
-                                "description": "Îți falsifică ID-ul Android la valoarea specificată"
                             }
                         },
                         "name": "Falsifică",

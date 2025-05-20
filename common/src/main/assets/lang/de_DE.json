@@ -886,21 +886,9 @@
                         "name": "Simulieren",
                         "description": "Verschiedene Informationen über dich vortäuschen",
                         "properties": {
-                            "randomize_persistent_device_token": {
-                                "description": "Erzeugt ein zufälliges Geräte-Token nach jedem Login",
-                                "name": "Dauerhaftes Geräte-Token zufällig auswählen"
-                            },
                             "remove_mock_location_flag": {
                                 "name": "Kennzeichnung für den gefälschten Standort entfernen",
                                 "description": "Verhindert, dass Snapchat gefälschte Standorte erkennt"
-                            },
-                            "android_id": {
-                                "name": "Android ID",
-                                "description": "Fälscht deine Android ID mit dem angegebenen Wert"
-                            },
-                            "fingerprint": {
-                                "description": "Fälscht den Sicherheitsabdruck deines Gerätes",
-                                "name": "Geräte-Fingerabdruck"
                             },
                             "remove_vpn_transport_flag": {
                                 "description": "Hindert Snapchat daran, VPNs zu erkennen",
