@@ -215,8 +215,7 @@
         "notices": {
             "unstable": "⚠️ Ustabil",
             "ban_risk": "⚠️ Denne funktion kan medføre forbud",
-            "internal_behavior": "⚠️ Dette kan ødelægge Snapchat intern opførsel",
-            "require_native_hooks": "⚠️ Denne funktion kræver eksperimentelle indfødte kroge til at fungere korrekt"
+            "internal_behavior": "⚠️ Dette kan ødelægge Snapchat intern opførsel"
         },
         "properties": {
             "downloader": {
@@ -387,10 +386,6 @@
                         "name": "Skjul historieforslag",
                         "description": "Fjerner forslag fra siden Historier"
                     },
-                    "hide_settings_gear": {
-                        "name": "Skjul Indstillinger Gear",
-                        "description": "Skjuler SnapEnhance Settings Gear i vennefeed"
-                    },
                     "message_indicators": {
                         "name": "Meddelelsesindikatorer",
                         "description": "Tilføjer specifikke indikatorikoner til beskeder\nBemærk: indikatorer er muligvis ikke 110% nøjagtige"
@@ -406,10 +401,6 @@
                     "prevent_message_list_auto_scroll": {
                         "name": "Forhindre meddelelse chat i automatisk rulning",
                         "description": "Forhindrer beskedlisten i at rulle til bunden, når du sender/modtager en besked"
-                    },
-                    "hide_quick_add_friend_feed": {
-                        "name": "Skjul Hurtig tilføjelse i Vennefeed",
-                        "description": "Skjuler afsnittet Hurtig tilføjelse i vennefeedet"
                     },
                     "old_bitmoji_selfie": {
                         "name": "Gammel Bitmoji Selfie",
@@ -1119,7 +1110,6 @@
                 "following": "Følge"
             },
             "hide_story_suggestions": {
-                "hide_friend_suggestions": "Skjul venneforslag",
                 "hide_my_stories": "Skjul mine historier",
                 "hide_suggested_friend_stories": "Skjul foreslåede vennehistorier"
             },
@@ -1248,7 +1238,6 @@
         "no_attachments_toast": "Ingen vedhæftning fundet!",
         "already_queued_toast": "Medie allerede i kø!",
         "already_downloaded_toast": "Medier er allerede downloadet!",
-        "saved_toast": "Gemt i {path}",
         "download_toast": "Downloader {path}...",
         "processing_toast": "Behandler {path}...",
         "failed_generic_toast": "Kunne ikke downloade",

@@ -56,7 +56,6 @@
         "failed_no_longer_available_toast": "মিডিয়া আর পাওয়া যাচ্ছে না",
         "already_queued_toast": "মিডিয়া ইতিমধ্যে কিউতে আছে!",
         "already_downloaded_toast": "মিডিয়া ইতোমধ্যে ডাউনলোড হয়েছে!",
-        "saved_toast": "সংরক্ষিত হয়েছে {path}",
         "download_toast": "ডাউনলোড হচ্ছে {path}...",
         "processing_toast": "প্রসেসিং হচ্ছে {path}...",
         "failed_generic_toast": "ডাউনলোড করতে সক্ষম হয়নি",
@@ -509,10 +508,6 @@
                         "name": "স্ট্রিক পুনরুদ্ধার লুকান",
                         "description": "বন্ধু ফিডে পুনরুদ্ধার বোতাম লুকায়"
                     },
-                    "hide_quick_add_friend_feed": {
-                        "description": "বন্ধু ফিডে কুইক অ্যাড অংশ লুকায়",
-                        "name": "বন্ধু ফিডে কুইক অ্যাড লুকান"
-                    },
                     "friend_feed_menu_buttons": {
                         "name": "বন্ধু ফিড মেনু বোতাম",
                         "description": "বন্ধু ফিড মেনুতে কোন বোতামগুলি দেখানো হবে তা নির্বাচন করুন"
@@ -528,10 +523,6 @@
                     "map_friend_nametags": {
                         "name": "উন্নত বন্ধু মানচিত্র নামফলক",
                         "description": "স্ন্যাপম্যাপে বন্ধুদের নামফলক উন্নত করে"
-                    },
-                    "hide_settings_gear": {
-                        "name": "সেটিংস গিয়ার লুকান",
-                        "description": "বন্ধু ফিডে স্ন্যাপএনহ্যান্স সেটিংস গিয়ার লুকায়"
                     },
                     "edit_text_override": {
                         "name": "টেক্সট সম্পাদনা ওভাররাইড",
@@ -1243,7 +1234,6 @@
             },
             "hide_story_suggestions": {
                 "hide_suggested_friend_stories": "প্রস্তাবিত বন্ধুর গল্পগুলি লুকান",
-                "hide_friend_suggestions": "বন্ধু পরামর্শগুলি লুকান",
                 "hide_my_stories": "আমার গল্প লুকান"
             },
             "home_tab": {
@@ -1286,8 +1276,7 @@
         "notices": {
             "unstable": "⚠ অস্থির",
             "internal_behavior": "⚠ এটি স্ন্যাপচ্যাটের অভ্যন্তরীণ আচরণ ভেঙে দিতে পারে",
-            "ban_risk": "⚠ এই বৈশিষ্ট্যটি নিষেধাজ্ঞা ঘটাতে পারে",
-            "require_native_hooks": "⚠ এই বৈশিষ্ট্যটির জন্য পরীক্ষামূলক নেটিভ হুকস প্রয়োজন যাতে এটি সঠিকভাবে কাজ করে"
+            "ban_risk": "⚠ এই বৈশিষ্ট্যটি নিষেধাজ্ঞা ঘটাতে পারে"
         }
     },
     "content_type": {

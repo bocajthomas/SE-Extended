@@ -6,9 +6,1727 @@
             "select_save_folder_button": "Виберіть папку"
         },
         "mappings": {
-            "dialog": "Щоб динамічно підтримувати широкий діапазон версій Snapchat, для належної роботи SnapEnhance необхідні зіставлення, це не повинно тривати більше 5 секунд.",
+            "dialog": "Створення зіставлень, це може зайняти деякий час...",
             "generate_failure_no_snapchat": "SnapEnhance не вдалося виявити Snapchat, спробуйте перевстановити Snapchat.",
             "generate_failure": "Під час створення зіставлення сталася помилка. Повторіть спробу."
+        },
+        "permissions": {
+            "dialog": "Щоб продовжити, потрібно відповідати таким вимогам:",
+            "notification_access": "Доступ до сповіщень",
+            "display_over_other_apps": "Відображення поверх інших програм",
+            "request_button": "Запит",
+            "battery_optimization": "Оптимізація батареї"
         }
+    },
+    "manager": {
+        "routes": {
+            "home_settings": "Налаштування",
+            "tasks": "Завдання",
+            "features": "Особливості",
+            "home": "Додому",
+            "logged_stories": "Зареєстровані історії",
+            "better_location": "Краще розташування",
+            "manage_rule_feature": "Керувати функцією правила",
+            "friend_tracker": "Відстеження друзів",
+            "edit_rule": "Редагувати правило",
+            "home_logs": "Журнали",
+            "logger_history": "Історія реєстратора",
+            "edit_theme": "Редагувати тему",
+            "manage_repos": "Керування репозиторіями",
+            "manage_scope": "Керувати обсягом",
+            "messaging_preview": "Попередній перегляд",
+            "scripts": "Сценарії",
+            "file_imports": "Імпорт файлів",
+            "social": "Соціальний",
+            "theming": "Тематизація"
+        },
+        "sections": {
+            "features": {
+                "reset_option": "Скинути",
+                "saved_config_snackbar": "Конфігурацію збережено",
+                "import_option": "Імпорт",
+                "config_export_failure_toast": "Не вдалося експортувати конфігурацію {error}",
+                "config_export_success_toast": "Конфігурацію успішно експортовано",
+                "disabled": "Вимкнено",
+                "export_option": "Експорт",
+                "config_import_success_toast": "Конфігурацію успішно імпортовано",
+                "config_import_failure_toast": "Не вдалося імпортувати конфігурацію {error}",
+                "older_required": "Для правильної роботи цієї функції потрібен Snapchat v{version} або старішої версії",
+                "newer_required": "Для правильної роботи цієї функції потрібен Snapchat v{version} або новішої версії",
+                "search_button": "Пошук"
+            },
+            "manage_scope": {
+                "rules_title": "Правила",
+                "streaks_length_text": "Довжина: {length}",
+                "streaks_expiration_text": "Термін дії закінчується через {eta}",
+                "streaks_expiration_text_expired": "Термін дії минув",
+                "reminder_button": "Встановити нагадування",
+                "delete_scope_confirm_dialog_title": "Ви впевнені, що бажаєте видалити {scope}?",
+                "e2ee_title": "Наскрізне шифрування",
+                "not_found": "Не знайдено",
+                "streaks_title": "Смуги",
+                "logged_stories_button": "Показати зареєстровані історії",
+                "notes_placeholder": "Натисніть, щоб додати примітку",
+                "participants_text": "{count} учасників"
+            },
+            "home": {
+                "version_title": "v{versionName} · шляхом rhunk",
+                "debug_build_summary_title": "Ви використовуєте збірку для налагодження SnapEnhance",
+                "debug_build_summary_content": "Версія {versionName} ({versionCode})",
+                "quick_actions_title": "Швидкі дії",
+                "debug_build_summary_date": "Дата складання: {date} ({days} днів тому)",
+                "update_title": "Оновлення SnapEnhance",
+                "update_content": "Доступна версія {version}!",
+                "update_button": "Завантажити"
+            },
+            "home_settings": {
+                "actions_title": "Дії",
+                "export_button": "Експорт",
+                "clear_button": "Очистити",
+                "success_toast": "Готово!",
+                "message_logger_title": "Реєстратор повідомлень",
+                "message_logger_summary": "{messageCount} повідомлень\n{storyCount} історій",
+                "view_logger_history_button": "Переглянути історію реєстратора",
+                "debug_title": "Налагодження"
+            },
+            "tasks": {
+                "remove_selected_tasks_title": "Ви впевнені, що бажаєте видалити вибрані завдання?",
+                "remove_all_tasks_title": "Ви впевнені, що хочете видалити всі завдання?",
+                "delete_files_option": "Також видалити файли",
+                "no_tasks": "Завдань немає",
+                "failed_to_open_file": "Не вдалося відкрити файл",
+                "merge_files_toast": "Об’єднання {count} файлів",
+                "remove_selected_tasks_confirm": "Видалити {count} завдань?",
+                "remove_all_tasks_confirm": "Видалити всі завдання?",
+                "merge_button": "Об’єднати"
+            },
+            "social": {
+                "friends_tab": "Друзі",
+                "groups_tab": "Групи",
+                "streaks_expiration_short": "{hours} год",
+                "empty_hint": "(порожній)"
+            },
+            "messaging_preview": {
+                "unsave_all_option": "Скасувати збереження всіх",
+                "save_selection_option": "Зберегти вибране",
+                "bridge_connection_failed": "Не вдалося підключитися до мосту. Переконайтеся, що Snapchat працює у фоновому режимі",
+                "save_all_option": "Зберегти все",
+                "mark_selection_as_seen_option": "Позначити вибране зображення як видиме",
+                "unsave_selection_option": "Скасувати збереження виділеного",
+                "no_message_hint": "Немає повідомлення",
+                "bridge_init_failed": "Не вдалося ініціалізувати міст обміну повідомленнями. Переконайтеся, що Snapchat працює у фоновому режимі",
+                "message_fetch_failed": "Не вдалося отримати повідомлення",
+                "mark_all_as_seen_option": "Позначити всі знімки як видимі",
+                "delete_selection_option": "Видалити виділення",
+                "delete_all_option": "Видалити все"
+            },
+            "file_imports": {
+                "file_import_failed": "Не вдалося імпортувати файл: {error}",
+                "file_imported": "Файл успішно імпортовано",
+                "file_delete_failed": "Не вдалося видалити файл",
+                "import_file_button": "Імпорт файлу",
+                "file_not_found": "Файл не знайдено",
+                "no_files_hint": "Тут ви можете імпортувати файли для використання в Snapchat. Натисніть кнопку нижче, щоб імпортувати файл."
+            },
+            "better_location": {
+                "spoofed_coordinates_title": "Широта {latitude}, Висота {longitude}",
+                "choose_location_button": "Виберіть Розташування",
+                "teleport_to_friend_button": "Телепорт до друга",
+                "search_bar": "Пошук",
+                "latitude_dialog_hint": "Широта",
+                "teleport_to_friend_title": "Телепорт до друга",
+                "suspend_location_updates": "Призупинити оновлення місцезнаходження",
+                "delete_dialog_title": "Видалити збережену координату",
+                "no_friends_map": "На карті немає друзів",
+                "saved_coordinates_title": "Збережені координати",
+                "delete_dialog_message": "Ви впевнені, що бажаєте видалити цю збережену координату?",
+                "no_saved_coordinates_hint": "Немає збережених координат",
+                "longitude_dialog_hint": "Висота",
+                "save_coordinates_dialog_title": "Зберегти координати",
+                "saved_name_dialog_hint": "Збережена назва",
+                "save_dialog_button": "Зберегти",
+                "spoof_location_toggle": "Локація підробки",
+                "no_friends_found": "Друзів не знайдено"
+            },
+            "home_logs": {
+                "no_logs_hint": "Журнали відсутні",
+                "clear_logs_button": "Очистити журнали",
+                "export_logs_button": "Експорт журналів",
+                "saving_logs_toast": "Зберігання журналів, це може зайняти деякий час...",
+                "saved_logs_failure_toast": "Не вдалося зберегти журнали",
+                "saved_logs_success_toast": "Журнали успішно збережено"
+            },
+            "manage_rule_feature": {
+                "whitelist_state_option": "Ніхто, крім...",
+                "blacklist_state_option": "Усі, крім...",
+                "whitelist_state_subtext": "Це правило стосуватиметься лише {count} друзів/груп",
+                "whitelist_state_button": "Виберіть дозволених друзів/групи",
+                "blacklist_state_subtext": "Це правило стосуватиметься всіх, крім {count} друзів/груп",
+                "dialog_clear_confirmation_text": "Ви впевнені, що бажаєте очистити список?",
+                "blacklist_state_button": "Виберіть виключених друзів/групи",
+                "clear_list_button": "Очистити список друзів/груп",
+                "disable_state_option": "Вимкнено",
+                "disable_state_subtext": "Це не вплине на друзів/групи"
+            },
+            "logged_stories": {
+                "no_stories": "Історій не знайдено",
+                "save_from_cache_button": "Зберегти з кешу",
+                "story_failed_to_load": "Не вдалося завантажити"
+            },
+            "logger_history": {
+                "list_group_format": "Група {name}",
+                "reverse_order_checkbox": "Зворотний порядок",
+                "chat_attachment": "Вкладення {index}",
+                "empty_message": "Порожнє повідомлення чату",
+                "no_more_messages": "Більше жодних повідомлень",
+                "message_parse_failed": "Не вдалося проаналізувати повідомлення",
+                "download_attachment_failed_toast": "Не вдалося завантажити вкладений файл",
+                "list_friend_format": "Друг {name}",
+                "unknown_sender": "Невідомий відправник"
+            },
+            "theming": {
+                "no_themes_hint": "Теми не знайдено"
+            }
+        },
+        "dialogs": {
+            "add_friend": {
+                "category_friends": "Друзі",
+                "search_hint": "Пошук",
+                "title": "Додати друга або групу",
+                "fetch_error": "Не вдалося отримати дані",
+                "category_groups": "Групи",
+                "participants_text": "{count} учасників"
+            },
+            "scripting_warning": {
+                "title": "Увага",
+                "content": "SnapEnhance містить інструмент створення сценаріїв, що дозволяє виконувати визначений користувачем код на вашому пристрої. Будьте вкрай обережні та встановлюйте модулі лише з відомих надійних джерел. Неавторизовані або неперевірені модулі можуть становити загрозу безпеці вашої системи."
+            },
+            "file_imports": {
+                "no_files_settings_hint": "Файли не знайдено. Переконайтеся, що ви імпортували необхідні файли в розділ «Імпорт файлів»",
+                "settings_select_file_hint": "Виберіть імпортований файл"
+            },
+            "reset_config": {
+                "content": "Ви впевнені, що бажаєте скинути конфігурацію?",
+                "success_toast": "Конфігурацію успішно скинуто",
+                "title": "Скинути конфігурацію"
+            },
+            "export_config": {
+                "title": "Експортувати конфіденційні дані?",
+                "content": "Бажаєте експортувати конфігурацію з конфіденційними даними? (Наприклад, координати розташування тощо)"
+            },
+            "messaging_action": {
+                "select_all_button": "Виберіть усі",
+                "title": "Виберіть типи вмісту для обробки"
+            }
+        }
+    },
+    "scopes": {
+        "friend": "Друг",
+        "group": "Група"
+    },
+    "rules": {
+        "modes": {
+            "blacklist": "Режим чорного списку",
+            "whitelist": "Режим білого списку"
+        },
+        "properties": {
+            "auto_download": {
+                "name": "Автоматичне завантаження",
+                "options": {
+                    "blacklist": "Виключити з автоматичного завантаження",
+                    "whitelist": "Автоматичне завантаження"
+                },
+                "description": "Автоматично завантажувати знімки під час їх перегляду"
+            },
+            "auto_open_snaps": {
+                "options": {
+                    "blacklist": "Виключити з Auto Open Snaps",
+                    "whitelist": "Автоматичне відкриття знімків"
+                },
+                "name": "Автоматичне відкриття знімків",
+                "description": "Автоматично відкриває знімки під час їх отримання"
+            },
+            "hide_friend_feed": {
+                "name": "Приховати від стрічки друзів"
+            },
+            "e2e_encryption": {
+                "name": "Використовуйте шифрування E2E"
+            },
+            "pin_conversation": {
+                "name": "Закріпити розмову"
+            },
+            "auto_save": {
+                "description": "Зберігає повідомлення чату під час їх перегляду",
+                "options": {
+                    "blacklist": "Виключити з автозбереження",
+                    "whitelist": "Автоматичне збереження"
+                },
+                "name": "Автоматичне збереження"
+            },
+            "stealth": {
+                "options": {
+                    "blacklist": "Виключити з прихованого режиму",
+                    "whitelist": "Стелс режим"
+                },
+                "name": "Режим скритності",
+                "description": "Запобігає тому, щоб хтось дізнався, що ви відкрили їхні знімки/чати та розмови"
+            },
+            "unsaveable_messages": {
+                "description": "Запобігає збереженню повідомлень у чаті іншими людьми",
+                "name": "Повідомлення, які не можна зберегти",
+                "options": {
+                    "whitelist": "Повідомлення, які не можна зберегти",
+                    "blacklist": "Виключити з повідомлень, які не можна зберегти"
+                }
+            },
+            "exclude_message_logger": {
+                "name": "Виключити з реєстратора повідомлень"
+            }
+        },
+        "toasts": {
+            "enabled": "{ruleName} включено",
+            "disabled": "{ruleName} вимкнено"
+        }
+    },
+    "features": {
+        "properties": {
+            "downloader": {
+                "properties": {
+                    "prevent_self_auto_download": {
+                        "name": "Запобігання самостійного автоматичного завантаження",
+                        "description": "Запобігає автоматичному завантаженню ваших власних знімків"
+                    },
+                    "path_format": {
+                        "name": "Формат шляху",
+                        "description": "Вкажіть формат шляху до файлу"
+                    },
+                    "allow_duplicate": {
+                        "description": "Дозволяє завантажувати одне й те саме медіа кілька разів",
+                        "name": "Дозволити дублювання"
+                    },
+                    "ffmpeg_options": {
+                        "description": "Укажіть додаткові параметри FFmpeg",
+                        "properties": {
+                            "audio_bitrate": {
+                                "name": "Бітрейт аудіо",
+                                "description": "Встановити бітрейт аудіо (кбіт/с)"
+                            },
+                            "constant_rate_factor": {
+                                "name": "Фактор постійної ставки",
+                                "description": "Встановіть коефіцієнт постійної швидкості для відеокодера\nВід 0 до 51 для libx264"
+                            },
+                            "threads": {
+                                "name": "Нитки",
+                                "description": "Кількість ниток для використання"
+                            },
+                            "video_bitrate": {
+                                "description": "Встановити бітрейт відео (кбіт/с)",
+                                "name": "Бітрейт відео"
+                            },
+                            "preset": {
+                                "name": "Попереднє налаштування",
+                                "description": "Встановіть швидкість перетворення"
+                            },
+                            "custom_video_codec": {
+                                "description": "Встановити спеціальний відеокодек (наприклад, libx264)",
+                                "name": "Спеціальний відеокодек"
+                            },
+                            "custom_audio_codec": {
+                                "name": "Спеціальний аудіокодек",
+                                "description": "Встановіть спеціальний аудіокодек (наприклад, AAC)"
+                            }
+                        },
+                        "name": "Параметри FFmpeg"
+                    },
+                    "save_folder": {
+                        "description": "Виберіть каталог, куди потрібно завантажити всі медіафайли",
+                        "name": "Зберегти папку"
+                    },
+                    "force_voice_note_format": {
+                        "name": "Примусовий формат голосової нотатки",
+                        "description": "Примушує зберігати голосові нотатки у вказаному форматі"
+                    },
+                    "download_context_menu": {
+                        "name": "Завантажити контекстне меню",
+                        "description": "Дозволяє завантажувати/переглядати повідомлення з бесіди чи історії за допомогою контекстного меню.\nТривале натискання кнопок призведе до примусового завантаження"
+                    },
+                    "auto_download_voice_notes": {
+                        "description": "Автоматично завантажує голосові нотатки під час їх відтворення",
+                        "name": "Автоматичне завантаження голосових нотаток"
+                    },
+                    "opera_download_button": {
+                        "description": "Додає кнопку завантаження у верхньому правому куті під час перегляду Snap.\nТривале натискання кнопок призведе до примусового завантаження",
+                        "name": "Кнопка завантаження Opera"
+                    },
+                    "merge_overlays": {
+                        "name": "Об’єднати накладення",
+                        "description": "Об’єднує текст і медіафайл Snap в один файл"
+                    },
+                    "force_image_format": {
+                        "name": "Примусовий формат зображення",
+                        "description": "Примусове збереження зображень у вказаному форматі"
+                    },
+                    "auto_download_sources": {
+                        "description": "Виберіть джерела для автоматичного завантаження",
+                        "name": "Джерела автоматичного завантаження"
+                    },
+                    "download_profile_pictures": {
+                        "description": "Дозволяє завантажувати зображення профілю зі сторінки профілю",
+                        "name": "Завантажте зображення профілю"
+                    },
+                    "logging": {
+                        "name": "Лісозаготівля",
+                        "description": "Показує тости під час завантаження медіа"
+                    },
+                    "custom_path_format": {
+                        "name": "Спеціальний формат шляху",
+                        "description": "Укажіть спеціальний формат шляху для завантажених медіа\n\nДоступні змінні:\n - %ім'я користувача%\n - %джерело%\n - %хеш%\n - %date_time%"
+                    }
+                },
+                "name": "Завантажувач",
+                "description": "Завантажте Snapchat Media"
+            },
+            "messaging": {
+                "properties": {
+                    "message_logger": {
+                        "properties": {
+                            "auto_purge": {
+                                "description": "Автоматично видаляє кешовані повідомлення, які старші за вказаний період часу",
+                                "name": "Автоматичне очищення"
+                            },
+                            "message_filter": {
+                                "name": "Фільтр повідомлень",
+                                "description": "Виберіть, які повідомлення слід реєструвати (пусто для всіх повідомлень)"
+                            },
+                            "keep_my_own_messages": {
+                                "name": "Зберігати мої власні повідомлення",
+                                "description": "Запобігає видаленню ваших власних повідомлень"
+                            },
+                            "deleted_message_color": {
+                                "name": "Колір видаленого повідомлення",
+                                "description": "Встановлює колір видалених повідомлень"
+                            }
+                        },
+                        "description": "Запобігає видаленню повідомлень",
+                        "name": "Реєстратор повідомлень"
+                    },
+                    "auto_mark_as_read": {
+                        "description": "Автоматично позначає повідомлення/знімки як прочитані, навіть якщо ввімкнено режим невидимості",
+                        "name": "Автоматичне позначення як прочитане"
+                    },
+                    "disable_replay_in_ff": {
+                        "name": "Вимкнути відтворення в FF",
+                        "description": "Вимикає можливість повторного відтворення за допомогою тривалого натискання зі стрічки друзів"
+                    },
+                    "loop_media_playback": {
+                        "name": "Цикл відтворення медіа",
+                        "description": "Зациклює відтворення медіа під час перегляду знімків/історій"
+                    },
+                    "hide_peek_a_peek": {
+                        "description": "Запобігає надсиланню сповіщень, коли ви наполовину проводите пальцем у чаті",
+                        "name": "Приховати Peek-a-Peek"
+                    },
+                    "hide_bitmoji_presence": {
+                        "name": "Приховати присутність Bitmoji",
+                        "description": "Запобігає появі Bitmoji під час чату"
+                    },
+                    "bypass_screenshot_detection": {
+                        "name": "Обхід виявлення знімка екрана",
+                        "description": "Запобігає Snapchat виявляти, коли ви робите знімок екрана"
+                    },
+                    "half_swipe_notifier": {
+                        "properties": {
+                            "min_duration": {
+                                "name": "Мінімальна тривалість",
+                                "description": "Мінімальна тривалість напівсвайпу (у секундах)"
+                            },
+                            "max_duration": {
+                                "name": "Максимальна тривалість",
+                                "description": "Максимальна тривалість половини свайпа (у секундах)"
+                            }
+                        },
+                        "name": "Сповіщувач згортання наполовину",
+                        "description": "Сповіщає, коли хтось наполовину переходить у розмову"
+                    },
+                    "skip_when_marking_as_seen": {
+                        "name": "Пропустити під час позначення як побаченого",
+                        "description": "Автоматично переходить до наступного кадру, коли знімок позначається як видимий.\nВикористовуйте разом із кнопкою «Позначити прив’язку як видиме»"
+                    },
+                    "better_notifications": {
+                        "description": "Додає більше інформації в отримані сповіщення",
+                        "name": "Кращі сповіщення",
+                        "properties": {
+                            "chat_preview": {
+                                "name": "Попередній перегляд чату",
+                                "description": "Показує попередній перегляд отриманих повідомлень у сповіщенні"
+                            },
+                            "media_preview": {
+                                "name": "Попередній перегляд медіа",
+                                "description": "Показує попередній перегляд вибраних типів медіа в сповіщенні"
+                            },
+                            "media_caption": {
+                                "description": "Показує вкладений заголовок медіафайлу в сповіщенні",
+                                "name": "Медіапідпис"
+                            },
+                            "mark_as_read_button": {
+                                "name": "Кнопка «Позначити як прочитане»",
+                                "description": "Дозволяє позначити повідомлення як прочитане зі сповіщення"
+                            },
+                            "smart_replies": {
+                                "name": "Розумні відповіді",
+                                "description": "Додає запропоновані відповіді на сповіщення (Android 10+). Використовуйте разом із кнопкою відповіді"
+                            },
+                            "group_notifications": {
+                                "name": "Групові сповіщення",
+                                "description": "Згрупуйте сповіщення в одне"
+                            },
+                            "stacked_media_messages": {
+                                "description": "Об’єднує кілька медіа-повідомлень в одне текстове сповіщення, якщо їх неможливо попередньо переглянути. Використовуйте в поєднанні з попереднім переглядом чату",
+                                "name": "Складені медіа-повідомлення"
+                            },
+                            "friend_add_source": {
+                                "description": "Показує джерело запиту друга в сповіщенні",
+                                "name": "Джерело додавання друга"
+                            },
+                            "mark_as_read_and_save_in_chat": {
+                                "name": "Позначити як прочитане та зберегти в чаті",
+                                "description": "Додає до сповіщення позначку прочитаного та кнопку збереження в чаті"
+                            },
+                            "reply_button": {
+                                "name": "Кнопка відповіді",
+                                "description": "До сповіщення додається кнопка відповіді"
+                            },
+                            "download_button": {
+                                "name": "Кнопка завантаження",
+                                "description": "Дозволяє завантажувати медіа зі сповіщення"
+                            }
+                        }
+                    },
+                    "prevent_message_sending": {
+                        "name": "Заборонити надсилання повідомлень",
+                        "description": "Запобігає надсиланню певних типів повідомлень"
+                    },
+                    "friend_mutation_notifier": {
+                        "description": "Повідомляє, коли щось змінюється в профілі друга",
+                        "name": "Сповіщувач про мутацію друзів"
+                    },
+                    "bypass_message_action_restrictions": {
+                        "name": "Обійти обмеження щодо дії повідомлення",
+                        "description": "Дозволяє реагувати на знімок, не відкриваючи його, або зберегти повідомлення, яке неможливо зберегти"
+                    },
+                    "auto_save_messages_in_conversations": {
+                        "name": "Автоматичне збереження повідомлень",
+                        "description": "Автоматично зберігає кожне повідомлення в розмовах"
+                    },
+                    "strip_media_metadata": {
+                        "description": "Видаляє метадані медіа перед надсиланням у вигляді повідомлення",
+                        "name": "Видалення медіа-метаданих"
+                    },
+                    "bypass_message_retention_policy": {
+                        "name": "Обхід політики збереження повідомлень",
+                        "description": "Запобігає видаленню повідомлень після їх перегляду"
+                    },
+                    "unlimited_conversation_pinning": {
+                        "description": "Дозволяє закріплювати необмежену кількість розмов локально",
+                        "name": "Необмежене закріплення розмов"
+                    },
+                    "notification_blacklist": {
+                        "name": "Чорний список сповіщень",
+                        "description": "Виберіть сповіщення, які потрібно заблокувати"
+                    },
+                    "gallery_media_send_override": {
+                        "name": "Заміна надсилання медіафайлів із галереї",
+                        "description": "Підроблює медіаджерело під час надсилання з галереї"
+                    },
+                    "prevent_story_rewatch_indicator": {
+                        "description": "Запобігає тому, щоб хтось дізнався, що ви переглянули їхню історію",
+                        "name": "Індикатор запобігання перегляду історії"
+                    },
+                    "remove_groups_locked_status": {
+                        "name": "Видалення статусу заблокованих груп",
+                        "description": "Дозволяє переглядати інформацію про групу після того, як вас вигнали"
+                    },
+                    "hide_typing_notifications": {
+                        "name": "Приховати сповіщення про введення",
+                        "description": "Не дозволяє нікому знати, що ви набираєте повідомлення"
+                    },
+                    "unlimited_snap_view_time": {
+                        "name": "Необмежений час перегляду знімків",
+                        "description": "Знімає часове обмеження для перегляду знімків"
+                    },
+                    "call_start_confirmation": {
+                        "name": "Підтвердження початку виклику",
+                        "description": "Відображає діалогове вікно підтвердження під час виклику"
+                    },
+                    "anonymous_story_viewing": {
+                        "description": "Не дозволяє нікому знати, що ви бачили їх історію",
+                        "name": "Анонімний перегляд історії"
+                    },
+                    "mark_snap_as_seen_button": {
+                        "name": "Кнопка «Позначити прив’язку як видиму»",
+                        "description": "Додає кнопку для позначення Snap як видимого під час його перегляду.\nЦе працюватиме, навіть якщо ввімкнено режим Stealth"
+                    },
+                    "double_tap_chat_action_custom_emoji": {
+                        "name": "Двічі торкніться чату. Реакція власних емодзі",
+                        "description": "Встановлює спеціальну реакцію емодзі для дії чату подвійним дотиком"
+                    },
+                    "double_tap_chat_action": {
+                        "name": "Дія чату подвійним дотиком",
+                        "description": "Виконує спеціальну дію, коли двічі торкається повідомлення в чаті"
+                    }
+                },
+                "description": "Змініть спосіб спілкування з друзями",
+                "name": "Обмін повідомленнями"
+            },
+            "user_interface": {
+                "properties": {
+                    "custom_theme": {
+                        "name": "Спеціальна тема",
+                        "description": "Налаштуйте кольори Snapchat\nПримітка: якщо ви виберете темну тему (наприклад, Amoled), можливо, вам доведеться ввімкнути темний режим у налаштуваннях Snapchat для кращих результатів"
+                    },
+                    "hide_ui_components": {
+                        "name": "Приховати компоненти інтерфейсу користувача",
+                        "description": "Виберіть, які компоненти інтерфейсу користувача приховати"
+                    },
+                    "old_bitmoji_selfie": {
+                        "name": "Старе селфі Bitmoji",
+                        "description": "Повертає селфі Bitmoji зі старих версій Snapchat"
+                    },
+                    "enable_friend_feed_menu_bar": {
+                        "description": "Вмикає нову панель меню стрічки друзів",
+                        "name": "Рядок меню стрічки друзів"
+                    },
+                    "message_indicators": {
+                        "name": "Індикатори повідомлень",
+                        "description": "Додає до повідомлень спеціальні значки індикаторів \nПримітка. Індикатори можуть бути неточними на 100%"
+                    },
+                    "edit_text_override": {
+                        "name": "Редагувати перевизначення тексту",
+                        "description": "Перевизначає поведінку текстового поля"
+                    },
+                    "snap_preview": {
+                        "name": "Попередній перегляд знімків",
+                        "description": "Відображає невеликий попередній перегляд поруч із невидимими знімками в чаті"
+                    },
+                    "bootstrap_override": {
+                        "properties": {
+                            "app_appearance": {
+                                "name": "Зовнішній вигляд програми",
+                                "description": "Встановлює постійний зовнішній вигляд програми"
+                            },
+                            "home_tab": {
+                                "description": "Перевизначає вкладку запуску під час відкриття Snapchat",
+                                "name": "Вкладка «Домашня сторінка»"
+                            },
+                            "simple_snapchat": {
+                                "name": "Простий Snapchat",
+                                "description": "Вмикає спрощену версію Snapchat"
+                            }
+                        },
+                        "name": "Перевизначення Bootstrap",
+                        "description": "Замінює параметри завантаження інтерфейсу користувача"
+                    },
+                    "map_friend_nametags": {
+                        "name": "Покращені теги імен на карті друзів",
+                        "description": "Покращує теги імен друзів на Snapmap"
+                    },
+                    "streak_expiration_info": {
+                        "description": "Показує таймер завершення смуги поряд із лічильником смуг",
+                        "name": "Показати інформацію про закінчення серії"
+                    },
+                    "hide_story_suggestions": {
+                        "description": "Видаляє пропозиції зі сторінки «Історії»",
+                        "name": "Приховати пропозиції історії"
+                    },
+                    "prevent_message_list_auto_scroll": {
+                        "name": "Запобігання автоматичного прокручування списку повідомлень",
+                        "description": "Запобігає прокручування списку повідомлень униз під час надсилання/отримання повідомлення"
+                    },
+                    "opera_media_quick_info": {
+                        "description": "Показує корисну інформацію про медіа, наприклад дату створення, у контекстному меню програми перегляду Opera",
+                        "name": "Opera Media Коротка інформація"
+                    },
+                    "disable_spotlight": {
+                        "description": "Вимикає сторінку Spotlight",
+                        "name": "Вимкнути Spotlight"
+                    },
+                    "vertical_story_viewer": {
+                        "name": "Вертикальний переглядач історій",
+                        "description": "Вмикає вертикальний переглядач для всіх історій"
+                    },
+                    "stealth_mode_indicator": {
+                        "name": "Індикатор режиму Stealth",
+                        "description": "Додає 👻 emoji поруч із розмовами в прихованому режимі"
+                    },
+                    "hide_friend_feed_entry": {
+                        "description": "Приховує певного друга зі стрічки друзів\nВикористовуйте вкладку соціальних мереж, щоб керувати цією функцією",
+                        "name": "Приховати запис стрічки друзів"
+                    },
+                    "enable_app_appearance": {
+                        "name": "Увімкніть налаштування зовнішнього вигляду програми",
+                        "description": "Вмикає приховане налаштування зовнішнього вигляду програми\nМоже не потрібний для новіших версій Snapchat"
+                    },
+                    "friend_feed_message_preview": {
+                        "name": "Попередній перегляд повідомлень стрічки друзів",
+                        "description": "Показує попередній перегляд останніх повідомлень у стрічці друзів",
+                        "properties": {
+                            "amount": {
+                                "name": "Сума",
+                                "description": "Кількість повідомлень для попереднього перегляду"
+                            }
+                        }
+                    },
+                    "friend_feed_menu_buttons": {
+                        "description": "Виберіть, які кнопки відображати в меню «Стрічка друзів»",
+                        "name": "Кнопки меню стрічки друзів"
+                    },
+                    "auto_close_friend_feed_menu": {
+                        "name": "Автоматичне закриття меню стрічки друзів",
+                        "description": "Автоматично закриває меню Friend Feed після натискання кнопки налаштування"
+                    },
+                    "hide_quick_add_suggestions": {
+                        "name": "Приховати пропозиції швидкого додавання",
+                        "description": "Видаляє пропозиції щодо швидкого додавання друзів"
+                    },
+                    "hide_streak_restore": {
+                        "description": "Приховує кнопку «Відновити» у стрічці друзів",
+                        "name": "Приховати відновлення смуги"
+                    }
+                },
+                "description": "Змініть зовнішній вигляд Snapchat",
+                "name": "Інтерфейс користувача"
+            },
+            "global": {
+                "properties": {
+                    "media_upload_quality": {
+                        "properties": {
+                            "custom_image_upload_format": {
+                                "description": "Встановлює спеціальний формат завантаження зображень\nДля найкращої якості виберіть формат без втрат (наприклад, PNG)",
+                                "name": "Спеціальний формат завантаження зображень"
+                            },
+                            "force_video_upload_source_quality": {
+                                "description": "Примушує Snapchat використовувати вихідну якість під час завантаження відео\nЗауважте, що це може не видалити метадані з медіа",
+                                "name": "Примусове завантаження вихідної якості відео"
+                            },
+                            "disable_image_compression": {
+                                "name": "Вимкнути стиснення зображень",
+                                "description": "Вимикає стиснення зображень під час завантаження медіа"
+                            }
+                        },
+                        "description": "Перекриває якість завантаження медіа",
+                        "name": "Якість завантаження медіа"
+                    },
+                    "disable_confirmation_dialogs": {
+                        "description": "Автоматично підтверджує вибрані дії",
+                        "name": "Вимкнути діалогові вікна підтвердження"
+                    },
+                    "snapchat_plus": {
+                        "name": "Snapchat Plus",
+                        "description": "Вмикає функції Snapchat Plus\nДеякі серверні функції можуть не працювати"
+                    },
+                    "better_location": {
+                        "properties": {
+                            "coordinates": {
+                                "name": "Координати",
+                                "description": "Встановіть координати підробленого місця"
+                            },
+                            "walk_radius": {
+                                "name": "Радіус ходьби",
+                                "description": "Навмання ходити в межах цього радіусу (футів)"
+                            },
+                            "suspend_location_updates": {
+                                "name": "Призупинити оновлення місцезнаходження",
+                                "description": "Запобігає оновленню вашого місцезнаходження"
+                            },
+                            "spoof_location": {
+                                "description": "Підмінює ваше місцезнаходження за вказане",
+                                "name": "Локація підробки"
+                            },
+                            "always_update_location": {
+                                "name": "Завжди оновлювати місцезнаходження",
+                                "description": "Примусово оновлювати місцезнаходження Snapchat, навіть якщо дані GPS не отримано"
+                            },
+                            "spoof_battery_level": {
+                                "description": "Підроблює рівень заряду акумулятора вашого пристрою на карті\nЗначення має бути від 0 до 100",
+                                "name": "Підробка рівня заряду батареї"
+                            },
+                            "spoof_headphones": {
+                                "name": "Підроблені навушники",
+                                "description": "Підробляє статус прослуховування музики на карті"
+                            },
+                            "show_battery_level": {
+                                "name": "Показати рівень заряду батареї",
+                                "description": "Показує рівень заряду акумулятора ваших друзів на карті"
+                            }
+                        },
+                        "description": "Покращує розташування Snapchat",
+                        "name": "Краще розташування"
+                    },
+                    "block_ads": {
+                        "name": "Блокувати рекламу",
+                        "description": "Запобігає показу реклами"
+                    },
+                    "hide_active_music": {
+                        "name": "Приховати активну музику",
+                        "description": "Не дозволяє Snapchat знати, що ви слухаєте музику\nЦе дозволить вам робити знімки за допомогою кнопок керування гучністю під час прослуховування музики"
+                    },
+                    "auto_updater": {
+                        "name": "Автоматичне оновлення",
+                        "description": "Автоматично перевіряє наявність нових оновлень"
+                    },
+                    "disable_custom_tabs": {
+                        "description": "Відкриває посилання у підтримуваних програмах, а не у веб-браузері",
+                        "name": "Вимкнути спеціальні вкладки"
+                    },
+                    "disable_permission_requests": {
+                        "name": "Вимкнути запити на дозвіл",
+                        "description": "Запобігає запиту Snapchat конкретних дозволів"
+                    },
+                    "bypass_video_length_restriction": {
+                        "description": "Одиночне: надсилає одне відео\nРозділити: розділити відео після редагування",
+                        "name": "Обійти обмеження щодо тривалості відео"
+                    },
+                    "default_video_playback_rate": {
+                        "description": "Встановлює стандартну швидкість для відтворення відео\nЗначення має бути від 0,1 до 4,0",
+                        "name": "Стандартна швидкість відтворення відео"
+                    },
+                    "video_playback_rate_slider": {
+                        "name": "Повзунок швидкості відтворення відео",
+                        "description": "Додає повзунок у контекстне меню Opera для зміни швидкості відтворення відео\nПримітка. Зміни стосуються лише наступних відео"
+                    },
+                    "default_volume_controls": {
+                        "name": "Регулятори гучності за замовчуванням",
+                        "description": "Змушує Snapchat використовувати системні елементи керування гучністю"
+                    },
+                    "disable_metrics": {
+                        "name": "Вимкнути показники",
+                        "description": "Блокує надсилання певних аналітичних даних до Snapchat"
+                    },
+                    "disable_snap_splitting": {
+                        "description": "Запобігає розділенню знімків на кілька частин\nНадіслані вами фотографії перетворюються на відео",
+                        "name": "Вимкнути Snap Splitting"
+                    },
+                    "disable_story_sections": {
+                        "name": "Вимкнути розділи історії",
+                        "description": "Видаляє розділи зі сторінки «Історії».\nДля належної роботи може знадобитися оновлення"
+                    },
+                    "disable_telecom_framework": {
+                        "name": "Вимкнути Telecom Framework",
+                        "description": "Запобігає Snapchat використовувати структуру Android Telecom\nЦе дозволяє слухати музику під час розмови"
+                    },
+                    "spotlight_comments_username": {
+                        "name": "Ім'я користувача Spotlight Comments",
+                        "description": "Показує ім’я користувача автора в коментарях Spotlight"
+                    },
+                    "disable_google_play_dialogs": {
+                        "name": "Вимкнути діалогові вікна служб Google Play",
+                        "description": "Заборонити показ діалогових вікон доступності служб Google Play"
+                    },
+                    "disable_memories_snap_feed": {
+                        "description": "Запобігає Snapchat показувати останні спогади, коли ви проводите пальцем угору в камері",
+                        "name": "Вимкнути спогади Snap Feed"
+                    }
+                },
+                "description": "Налаштуйте глобальні налаштування Snapchat",
+                "name": "Глобальний"
+            },
+            "streaks_reminder": {
+                "properties": {
+                    "interval": {
+                        "name": "Інтервал",
+                        "description": "Інтервал між кожним нагадуванням (годин)"
+                    },
+                    "group_notifications": {
+                        "description": "Згрупуйте сповіщення в одне",
+                        "name": "Групові сповіщення"
+                    },
+                    "remaining_hours": {
+                        "name": "Час, що залишився",
+                        "description": "Час, що залишився до відображення сповіщення (годин)"
+                    }
+                },
+                "name": "Нагадування про смуги",
+                "description": "Періодично сповіщає вас про ваші смуги"
+            },
+            "camera": {
+                "properties": {
+                    "override_front_resolution": {
+                        "name": "Перевизначити передню роздільну здатність",
+                        "description": "Замінює роздільну здатність передньої камери"
+                    },
+                    "back_custom_frame_rate": {
+                        "name": "Назад Користувацька частота кадрів",
+                        "description": "Перевизначає частоту кадрів задньої камери"
+                    },
+                    "disable_cameras": {
+                        "description": "Забороняє Snapchat використовувати вибрані камери",
+                        "name": "Вимкнути камери"
+                    },
+                    "override_back_resolution": {
+                        "name": "Перевизначити зворотну роздільну здатність",
+                        "description": "Замінює роздільну здатність камери для задньої камери"
+                    },
+                    "force_camera_source_encoding": {
+                        "name": "Примусове кодування джерела камери",
+                        "description": "Примусове кодування джерела камери"
+                    },
+                    "immersive_camera_preview": {
+                        "name": "Імерсивний попередній перегляд",
+                        "description": "Не дозволяє Snapchat обрізати попередній перегляд камери\nЦе може призвести до мерехтіння камери на деяких пристроях"
+                    },
+                    "black_photos": {
+                        "name": "Чорні фотографії",
+                        "description": "Замінює зроблені фотографії чорним фоном\nЦе не впливає на відео"
+                    },
+                    "front_custom_frame_rate": {
+                        "description": "Перевизначає частоту кадрів передньої камери",
+                        "name": "Фронтальна частота кадрів"
+                    },
+                    "hevc_recording": {
+                        "name": "Запис HEVC",
+                        "description": "Використовує кодек HEVC (H.265) для запису відео"
+                    },
+                    "custom_resolution": {
+                        "description": "Встановлює спеціальну роздільну здатність камери, ширину x висоту (наприклад, 1920x1080).\nКористувацька роздільна здатність має підтримуватися вашим пристроєм",
+                        "name": "Спеціальна роздільна здатність"
+                    },
+                    "startup_default_camera": {
+                        "name": "Запуск камери за замовчуванням",
+                        "description": "Встановлює камеру за умовчанням під час відкриття Snapchat"
+                    }
+                },
+                "name": "Камера",
+                "description": "Налаштуйте правильні параметри для ідеального знімка"
+            },
+            "rules": {
+                "name": "Правила",
+                "description": "Керуйте автоматичними функціями для окремих людей"
+            },
+            "experimental": {
+                "properties": {
+                    "native_hooks": {
+                        "description": "Небезпечні функції, які підключаються до рідного коду Snapchat",
+                        "properties": {
+                            "composer_hooks": {
+                                "properties": {
+                                    "composer_logs": {
+                                        "name": "Журнали композитора",
+                                        "description": "Переспрямовує журнали консолі Composer до SnapEnhance"
+                                    },
+                                    "show_first_created_username": {
+                                        "description": "Показує перше створене ім’я користувача поруч із поточним іменем користувача на сторінці профілю",
+                                        "name": "Показати перше створене ім'я користувача"
+                                    },
+                                    "bypass_camera_roll_limit": {
+                                        "description": "Збільшує максимальну кількість медіафайлів, які можна надіслати з папки камери",
+                                        "name": "Обійти ліміт камери"
+                                    },
+                                    "composer_console": {
+                                        "name": "Консоль композитора",
+                                        "description": "Дозволяє виконувати код JavaScript у Composer (лише arm64)"
+                                    }
+                                },
+                                "description": "Впроваджує код у кросплатформну структуру інтерфейсу користувача Composer",
+                                "name": "Композиторські гачки"
+                            },
+                            "custom_emoji_font": {
+                                "name": "Спеціальний шрифт Emoji",
+                                "description": "Дозволяє використовувати спеціальний шрифт emoji. Працює лише зі шрифтами .ttf"
+                            },
+                            "disable_bitmoji": {
+                                "name": "Вимкнути Bitmoji",
+                                "description": "Вимикає Bitmoji профілю друзів"
+                            },
+                            "custom_shared_library": {
+                                "description": "Завантажує спеціальну спільну бібліотеку в Snapchat. Ця функція призначена лише для тестування",
+                                "name": "Спеціальна спільна бібліотека"
+                            }
+                        },
+                        "name": "Рідні гачки"
+                    },
+                    "convert_message_locally": {
+                        "description": "Перетворює знімки на локальний зовнішній носій чату. Це відображається в контекстному меню завантаження чату",
+                        "name": "Конвертувати повідомлення локально"
+                    },
+                    "edit_message": {
+                        "description": "Дозволяє редагувати повідомлення в бесідах",
+                        "name": "Редагувати повідомлення"
+                    },
+                    "add_friend_source_spoof": {
+                        "description": "Підроблює джерело запиту друга",
+                        "name": "Додати друга Source Spoof"
+                    },
+                    "app_lock": {
+                        "name": "Блокування програми",
+                        "properties": {
+                            "lock_on_resume": {
+                                "name": "Заблокувати резюме",
+                                "description": "Блокує програму, коли її повторно відкривають"
+                            }
+                        },
+                        "description": "Запобігає доступу до Snapchat без пароля"
+                    },
+                    "custom_streaks_expiration_format": {
+                        "description": "Налаштовує формат терміну дії смуг\n\nДоступні змінні:\n - %c: кількість смуг\n - %e: Емодзі «Пісочний годинник».\n - %d: днів\n - %h: години\n - %m: хвилини\n - %s: Секунди\n - %w: час, що залишився",
+                        "name": "Спеціальний формат терміну дії смуг"
+                    },
+                    "spoof": {
+                        "properties": {
+                            "remove_vpn_transport_flag": {
+                                "name": "Видаліть прапор транспортування VPN",
+                                "description": "Запобігає Snapchat виявляти VPN"
+                            },
+                            "fingerprint": {
+                                "name": "Відбиток пальця пристрою",
+                                "description": "Підробка відбитків пальців вашого пристрою"
+                            },
+                            "play_store_installer_package_name": {
+                                "name": "Назва пакета інсталятора Play Store",
+                                "description": "Замінює назву пакета інсталятора на com.android.vending"
+                            },
+                            "android_id": {
+                                "name": "Android ID",
+                                "description": "Підмінює ваш Android ID на вказане значення"
+                            },
+                            "remove_mock_location_flag": {
+                                "name": "Видаліть позначку фіктивного розташування",
+                                "description": "Запобігає Snapchat виявляти фальшиве місцезнаходження"
+                            },
+                            "randomize_persistent_device_token": {
+                                "description": "Генерує випадковий маркер пристрою після кожного входу",
+                                "name": "Рандомізуйте постійний маркер пристрою"
+                            }
+                        },
+                        "description": "Підробка різної інформації про вас",
+                        "name": "Обман"
+                    },
+                    "best_friend_pinning": {
+                        "description": "Дозволяє закріпити друга як найкращого друга номер один. Примітка: лише ви можете бачити свого закріпленого найкращого друга",
+                        "name": "Закріплення найкращого друга"
+                    },
+                    "e2ee": {
+                        "properties": {
+                            "encrypted_message_indicator": {
+                                "name": "Індикатор зашифрованого повідомлення",
+                                "description": "Додає 🔒 emoji поруч із зашифрованими повідомленнями"
+                            },
+                            "force_message_encryption": {
+                                "description": "Запобігає надсиланню зашифрованих повідомлень людям, у яких не ввімкнено шифрування E2E, лише якщо вибрано кілька розмов",
+                                "name": "Примусове шифрування повідомлень"
+                            }
+                        },
+                        "description": "Шифрує ваші повідомлення за допомогою AES за допомогою спільного секретного ключа\nОбов’язково зберігайте ключ у безпечному місці!",
+                        "name": "Наскрізне шифрування"
+                    },
+                    "better_transcript": {
+                        "properties": {
+                            "enhanced_transcript_in_notifications": {
+                                "name": "Розширена транскрипція в сповіщеннях",
+                                "description": "Транскрибує голосові нотатки в сповіщеннях за допомогою DeepL. Для цього в Better Notifications потрібно ввімкнути функцію попереднього перегляду чату"
+                            },
+                            "force_transcription": {
+                                "name": "Примусова транскрипція голосової нотатки",
+                                "description": "Дозволяє транскрибувати всі голосові нотатки"
+                            },
+                            "preferred_transcription_lang": {
+                                "name": "Бажана мова транскрипції",
+                                "description": "Бажана мова для розшифровки голосової нотатки (наприклад, EN, ES, FR)"
+                            },
+                            "enhanced_transcript": {
+                                "name": "Покращена транскрипція",
+                                "description": "Покращує розшифровку голосових нотаток за допомогою DeepL.\nПеред використанням цієї функції переконайтеся, що ви прочитали їхню політику конфіденційності."
+                            }
+                        },
+                        "name": "Краща транскрипція",
+                        "description": "Покращує розшифровку голосових нотаток"
+                    },
+                    "infinite_story_boost": {
+                        "name": "Нескінченна Story Boost",
+                        "description": "Обійти затримку Story Boost Limit"
+                    },
+                    "media_file_picker": {
+                        "name": "Вибір мультимедійних файлів",
+                        "description": "Дозволяє вибрати будь-який відео/аудіофайл із галереї"
+                    },
+                    "account_switcher": {
+                        "description": "Дозволяє перемикатися між обліковими записами без виходу з системи \nНатисніть і утримуйте значок пошуку поруч із вашим профілем Bitmoji, щоб відкрити меню \nПримітка. Ця функція є експериментальною та, ймовірно, буде змінена в майбутньому",
+                        "properties": {
+                            "auto_backup_current_account": {
+                                "name": "Автоматичне резервне копіювання поточного облікового запису",
+                                "description": "Автоматично створює резервну копію поточного облікового запису під час виходу з системи або зміни облікового запису"
+                            }
+                        },
+                        "name": "Перемикач облікових записів"
+                    },
+                    "context_menu_fix": {
+                        "name": "Виправлення контекстного меню",
+                        "description": "Спробуйте відновити меню Friend Feed, оскільки коли пристрій не в мережі, воно не відображається належним чином"
+                    },
+                    "cof_experiments": {
+                        "name": "Експерименти COF",
+                        "description": "Вмикає невипущені/бета-функції Snapchat"
+                    },
+                    "voice_note_auto_play": {
+                        "description": "Автоматично відтворює наступну голосову нотатку після закінчення поточної",
+                        "name": "Автовідтворення голосової нотатки"
+                    },
+                    "no_friend_score_delay": {
+                        "name": "Немає затримки оцінки друзів",
+                        "description": "Усуває затримку під час перегляду результатів друзів"
+                    },
+                    "story_logger": {
+                        "name": "Реєстратор історій",
+                        "description": "Надає історію історій друзів"
+                    },
+                    "call_recorder": {
+                        "name": "Запис дзвінків",
+                        "description": "Автоматично записує аудіодзвінки"
+                    },
+                    "prevent_forced_logout": {
+                        "description": "Запобігає виходу Snapchat під час входу на іншому пристрої",
+                        "name": "Запобігання примусового виходу з системи"
+                    },
+                    "hidden_snapchat_plus_features": {
+                        "name": "Приховані функції Snapchat Plus",
+                        "description": "Вмикає невипущені/бета-функції Snapchat Plus\nМоже не працювати на старіших версіях Snapchat"
+                    },
+                    "friend_notes": {
+                        "description": "Дозволяє додавати нотатки до профілів друзів",
+                        "name": "Примітки друзів"
+                    },
+                    "meo_passcode_bypass": {
+                        "description": "Обійти пароль лише для моїх очей\nЦе спрацює, лише якщо код доступу було введено правильно раніше",
+                        "name": "Обхід пароля лише для моїх очей"
+                    },
+                    "snapscore_changes": {
+                        "name": "Зміни Snapscore",
+                        "description": "Відстежує зміни в Snapscore друзів\nВикористовуйте цю функцію лише в новіших версіях Snapchat"
+                    }
+                },
+                "description": "Експериментальні особливості",
+                "name": "Експериментальний"
+            },
+            "scripting": {
+                "properties": {
+                    "developer_mode": {
+                        "name": "Режим розробника",
+                        "description": "Показує інформацію про налагодження в інтерфейсі користувача Snapchat"
+                    },
+                    "auto_reload": {
+                        "name": "Автоматичне перезавантаження",
+                        "description": "Автоматично перезавантажує сценарії, коли вони змінюються"
+                    },
+                    "module_folder": {
+                        "name": "Папка модуля",
+                        "description": "Папка, в якій знаходяться сценарії"
+                    },
+                    "integrated_ui": {
+                        "name": "Інтегрований інтерфейс користувача",
+                        "description": "Дозволяє сценаріям додавати спеціальні компоненти інтерфейсу до Snapchat"
+                    },
+                    "disable_log_anonymization": {
+                        "description": "Вимикає анонімізацію журналів",
+                        "name": "Вимкнути анонімізацію журналу"
+                    }
+                },
+                "name": "Сценарії",
+                "description": "Запустіть власні сценарії, щоб розширити SnapEnhance"
+            },
+            "friend_tracker": {
+                "properties": {
+                    "record_messaging_events": {
+                        "description": "Записує події обміну повідомленнями, такі як відкриття знімка, читання повідомлення тощо.",
+                        "name": "Записуйте події обміну повідомленнями"
+                    },
+                    "auto_purge": {
+                        "description": "Автоматично видаляє кешовані події, давніші за вказаний проміжок часу",
+                        "name": "Автоматичне очищення"
+                    },
+                    "allow_running_in_background": {
+                        "name": "Дозволити роботу у фоновому режимі",
+                        "description": "Дозволяє трекеру працювати у фоновому режимі. Примітка. Це значно розрядить акумулятор"
+                    }
+                },
+                "name": "Відстеження друзів",
+                "description": "Записує активність друга в Snapchat"
+            }
+        },
+        "notices": {
+            "unstable": "⚠ Нестабільний",
+            "ban_risk": "⚠ Ця функція може спричинити бан",
+            "internal_behavior": "⚠ Це може порушити внутрішню роботу Snapchat"
+        },
+        "options": {
+            "notifications": {
+                "typing": "Введення",
+                "stories": "Оповідання",
+                "snap": "Знімок",
+                "speaking": "Говорячи",
+                "chat_reaction": "Реакція DM",
+                "group_chat_reaction": "Групова реакція",
+                "chat_screenshot": "Скріншот",
+                "chat_screen_record": "Запис екрана",
+                "snap_replay": "Повторити Знімок",
+                "camera_roll_save": "Зберегти фотоплівку",
+                "chat": "Чат",
+                "initiate_audio": "Вхідний аудіодзвінок",
+                "initiate_video": "Вхідний відеодзвінок",
+                "abandon_audio": "Пропущений аудіодзвінок",
+                "chat_reply": "Чат Відповідь",
+                "abandon_video": "Пропущений відеодзвінок"
+            },
+            "auto_purge": {
+                "3_months": "3 Місяці",
+                "6_months": "6 Місяці",
+                "never": "Ніколи",
+                "3_hours": "3 години",
+                "1_day": "1 День",
+                "3_days": "3 Днів",
+                "1_week": "1 Тиждень",
+                "1_month": "1 Місяць",
+                "1_hour": "1 годину",
+                "6_hours": "6 годин",
+                "12_hours": "12 годин",
+                "2_weeks": "2 Тижнів"
+            },
+            "path_format": {
+                "append_hash": "Додайте унікальний хеш до імені файлу",
+                "append_source": "До назви файлу додайте джерело медіа",
+                "append_date_time": "Додайте дату й час до імені файлу",
+                "create_source_folder": "Створіть папку для кожного типу медіаджерела",
+                "append_username": "До назви файлу додайте ім’я користувача",
+                "create_author_folder": "Створіть папку для кожного автора"
+            },
+            "strip_media_metadata": {
+                "remove_audio_note_duration": "Видалити тривалість звукової нотатки",
+                "hide_extras": "Приховати додаткові елементи (наприклад, згадки)",
+                "hide_snap_filters": "Сховати фільтри прив’язки",
+                "remove_audio_note_transcript_capability": "Видалення можливості розшифровки звукової нотатки",
+                "hide_caption_text": "Приховати текст підпису"
+            },
+            "hide_ui_components": {
+                "hide_map_reactions": "Видалити реакції карти",
+                "hide_billboard_prompt": "Видалити підказку Billboard у стрічці друзів",
+                "hide_voice_record_button": "Видалити кнопку запису голосу",
+                "hide_chat_call_buttons": "Видаліть кнопки виклику чату",
+                "hide_live_location_share_button": "Видалити кнопку прямого доступу до місцезнаходження",
+                "hide_unread_chat_hint": "Видалити непрочитану підказку чату",
+                "hide_profile_call_buttons": "Видалити кнопки виклику профілю",
+                "hide_post_to_story_buttons": "Видаліть кнопки «Опублікувати в історії», перш ніж надсилати знімок",
+                "hide_stickers_button": "Кнопка видалення наклейок",
+                "hide_snapchat_plus_gift_reminders": "Видаліть нагадування про подарунки Snapchat Plus у розмовах"
+            },
+            "disable_story_sections": {
+                "discover": "Відкрийте для себе",
+                "following": "Слідую",
+                "friends": "Друзі",
+                "suggested_stories": "Запропоновані історії"
+            },
+            "double_tap_chat_action": {
+                "delete_message": "Видалити повідомлення",
+                "copy_text": "Копіювати текст у буфер обміну",
+                "mark_as_read": "Позначити як прочитане",
+                "like_message": "Як повідомлення",
+                "custom_emoji_reaction": "Спеціальна реакція Emoji"
+            },
+            "old_bitmoji_selfie": {
+                "2d": "2D Bitmoji",
+                "3d": "3D Bitmoji"
+            },
+            "hide_story_suggestions": {
+                "hide_my_stories": "Сховати мої історії",
+                "hide_suggested_friend_stories": "Сховати запропоновані історії друзів"
+            },
+            "friend_feed_menu_buttons": {
+                "unsaveable_messages": "⬇️ Повідомлення, які не можна зберегти",
+                "e2e_encryption": "🔒 Використовуйте шифрування E2E",
+                "stealth": "👻 Режим скритності",
+                "mark_snaps_as_seen": "👀 Позначте знімки як видимі",
+                "auto_save": "💬 Автоматичне збереження повідомлень",
+                "mark_stories_as_seen_locally": "👀 Позначити історії як видимі локально",
+                "auto_download": "⬇️ Автоматичне завантаження",
+                "conversation_info": "👤 Інформація про розмову",
+                "auto_open_snaps": "📷 Автоматичне відкриття знімків"
+            },
+            "app_appearance": {
+                "always_light": "Завжди Світло",
+                "always_dark": "Завжди темно"
+            },
+            "auto_download_sources": {
+                "friend_snaps": "Друг Snaps",
+                "friend_stories": "Історії друзів",
+                "public_stories": "Публічні історії",
+                "spotlight": "Прожектор"
+            },
+            "add_friend_source_spoof": {
+                "added_by_group_chat": "Через груповий чат",
+                "added_by_username": "За іменем користувача",
+                "added_by_mention": "За згадкою",
+                "added_by_qr_code": "За QR-кодом",
+                "added_by_community": "Від спільноти",
+                "added_by_quick_add": "Швидким додаванням (високий ризик бути заблокованим)"
+            },
+            "disable_permission_requests": {
+                "notifications": "Сповіщення",
+                "read_media_video": "Читайте медіа-відео",
+                "location": "Розташування",
+                "read_media_images": "Читайте медіа-зображення",
+                "microphone": "Мікрофон",
+                "camera": "Камера",
+                "read_contacts": "Читати контакти",
+                "nearby_devices": "Пристрої поблизу",
+                "phone_calls": "Телефонні дзвінки"
+            },
+            "friend_mutation_notifier": {
+                "bitmoji_selfie_changes": "Сповіщати, коли хтось змінює своє селфі Bitmoji",
+                "bitmoji_scene_changes": "Сповіщати, коли хтось змінює свою сцену Bitmoji",
+                "birthday_changes": "Сповіщати, коли хтось змінює свій день народження",
+                "bitmoji_background_changes": "Сповіщати, коли хтось змінює свій фон Bitmoji",
+                "bitmoji_avatar_changes": "Сповіщати, коли хтось змінює свій аватар Bitmoji",
+                "remove_friend": "Сповіщати, коли хтось видаляє вас зі списку друзів"
+            },
+            "custom_theme": {
+                "amoled_dark_mode": "Темний режим Amoled",
+                "custom": "Спеціальні теми (використовуйте швидкі дії для керування темами)",
+                "material_you_light": "Material You Світло (Android 12+)",
+                "material_you_dark": "Material You Темний (Android 12+)"
+            },
+            "gallery_media_send_override": {
+                "ORIGINAL": "Оригінальний носій",
+                "SNAP": "Знімок",
+                "SAVEABLE_SNAP": "Знімок, який можна зберегти",
+                "always_ask": "Завжди запитуйте",
+                "NOTE": "Аудіозаписка"
+            },
+            "disable_confirmation_dialogs": {
+                "ignore_friend": "Ігнорувати друга",
+                "hide_friend": "Приховати друга",
+                "block_friend": "Заблокувати друга",
+                "hide_conversation": "Приховати розмову",
+                "clear_conversation": "Очистити розмову зі стрічки друзів",
+                "erase_message": "Видалити повідомлення",
+                "remove_friend": "Видалити друга"
+            },
+            "disable_cameras": {
+                "front": "Фронтальна камера",
+                "back": "Задня камера"
+            },
+            "message_indicators": {
+                "location_indicator": "Додає піктограму 📍 до знімків, якщо їх було надіслано з увімкненим місцеположенням",
+                "platform_indicator": "Додає піктограму платформи, з якої було надіслано медіафайл (наприклад, Android, iOS, Web)",
+                "encryption_indicator": "Додає значок 🔒 поруч із повідомленнями, надісланими лише вам",
+                "ovf_editor_indicator": "Вказує, чи було надіслано знімок за допомогою редактора OVF",
+                "director_mode_indicator": "Додає піктограму ✏️ до знімків, коли їх було надіслано в режимі режисера, який можна використовувати для надсилання зображень із галереї як знімків"
+            },
+            "edit_text_override": {
+                "bypass_text_input_limit": "Обійти ліміт введення тексту",
+                "multi_line_chat_input": "Багаторядковий ввід чату"
+            },
+            "auto_mark_as_read": {
+                "snap_reply": "Відповідаючи на них, позначайте знімки як прочитані",
+                "conversation_read": "Позначайте бесіду як прочитану під час надсилання повідомлення"
+            },
+            "logging": {
+                "success": "Успіх",
+                "failure": "Провал",
+                "started": "Розпочато",
+                "progress": "Прогрес"
+            },
+            "bypass_video_length_restriction": {
+                "single": "Один носій",
+                "split": "Розділення медіа"
+            },
+            "snapchat_plus": {
+                "not_subscribed": "Не підписаний",
+                "basic": "Базовий",
+                "ad_free": "Без реклами"
+            },
+            "home_tab": {
+                "chat": "Чат",
+                "map": "Карта",
+                "camera": "Камера",
+                "discover": "Відкрийте для себе",
+                "spotlight": "Прожектор"
+            },
+            "auto_reload": {
+                "all": "Усі (Snapchat + SnapEnhance)",
+                "snapchat_only": "Лише Snapchat"
+            },
+            "simple_snapchat": {
+                "always_disabled": "Завжди вимкнено",
+                "always_enabled": "Завжди ввімкнено"
+            },
+            "startup_default_camera": {
+                "front": "Фронтальна камера",
+                "back": "Задня камера"
+            }
+        }
+    },
+    "actions": {
+        "clean_snapchat_cache": {
+            "name": "Очистити кеш Snapchat",
+            "description": "Очищає кеш Snapchat"
+        },
+        "change_language": {
+            "name": "Змінити мову",
+            "description": "Змініть мову SnapEnhance"
+        },
+        "manage_friend_list": {
+            "name": "Керувати списком друзів",
+            "description": "Імпорт/експорт списку друзів під час резервного копіювання"
+        },
+        "export_chat_messages": {
+            "name": "Експортувати повідомлення чату",
+            "description": "Експортує повідомлення розмов у файл JSON/HTML/TXT"
+        },
+        "export_memories": {
+            "name": "Експорт спогадів",
+            "description": "Експорт спогадів у файл ZIP"
+        },
+        "file_imports": {
+            "name": "Імпорт файлів",
+            "description": "Імпорт файлів для використання в Snapchat"
+        },
+        "friend_tracker": {
+            "description": "Відстежуйте своїх друзів у Snapchat",
+            "name": "Відстеження друзів"
+        },
+        "logger_history": {
+            "name": "Історія реєстратора",
+            "description": "Переглянути історію зареєстрованих повідомлень"
+        },
+        "bulk_messaging_action": {
+            "description": "Виконує такі операції, як видалення друзів або масове видалення розмов",
+            "name": "Дія масового обміну повідомленнями"
+        },
+        "regen_mappings": {
+            "name": "Відновити зіставлення",
+            "description": "Відновити зіставлення вручну"
+        },
+        "security_features": {
+            "name": "Функції безпеки",
+            "description": "Змінити налаштування функцій безпеки"
+        },
+        "theming": {
+            "name": "Тематизація",
+            "description": "Налаштуйте зовнішній вигляд Snapchat"
+        }
+    },
+    "half_swipe_notifier": {
+        "notification_content_group": "{friend} щойно наполовину перейшов до {group} на {duration} с",
+        "notification_channel_name": "Проведіть наполовину",
+        "notification_content_dm": "{friend} щойно наполовину перейшов у ваш чат на {duration} с"
+    },
+    "download_processor": {
+        "failed_no_longer_available_toast": "Медіафайли більше недоступні",
+        "download_started_toast": "Завантаження розпочато",
+        "select_attachments_title": "Виберіть вкладення",
+        "failed_processing_toast": "Помилка обробки {error}",
+        "attachment_type": {
+            "snap": "Знімок",
+            "sticker": "Стікери",
+            "external_media": "Зовнішній носій",
+            "note": "Примітка",
+            "original_story": "Оригінальна історія",
+            "gif": "GIF"
+        },
+        "dash_dialog": {
+            "download_all": "Завантажити всі",
+            "segment_text": "Відрізок {from} - {to}",
+            "title": "Завантажити медіадаш"
+        },
+        "unsupported_content_type_toast": "Непідтримуваний тип вмісту!",
+        "dash_no_chapter": "Розділ не знайдено",
+        "no_attachments_toast": "Вкладень не знайдено!",
+        "already_downloaded_toast": "Медіа вже завантажено!",
+        "failed_to_create_preview_toast": "Не вдалося створити попередній перегляд",
+        "failed_gallery_toast": "Не вдалося зберегти в галерею {error}",
+        "processing_toast": "Обробка {path}...",
+        "failed_generic_toast": "Не вдалося завантажити",
+        "already_queued_toast": "ЗМІ вже в черзі!",
+        "content_saved_toast": "Збережено!",
+        "download_toast": "Завантаження {path}..."
+    },
+    "friendship_link_type": {
+        "incoming_follower": "Вхідний послідовник",
+        "deleted": "Видалено",
+        "suggested": "Запропоновано",
+        "outgoing": "Вихідний",
+        "following": "Слідую",
+        "blocked": "Заблоковано",
+        "incoming": "Вхідні",
+        "mutual": "Взаємний"
+    },
+    "end_to_end_encryption": {
+        "outgoing_secret_message": "Відповідь обміну ключами",
+        "incoming_pk_message": "Ви щойно отримали запит на відкритий ключ. Натисніть нижче, щоб прийняти його.",
+        "incoming_secret_message": "Ваш друг щойно прийняв ваш відкритий ключ. Натисніть нижче, щоб прийняти секрет.",
+        "encryption_failed_toast": "Не вдалося зашифрувати повідомлення! Щоб дізнатися більше, перевірте logcat.",
+        "toolbox": {
+            "no_shared_key": "У вас ще немає спільного секрету з цим другом. Натисніть нижче, щоб розпочати новий.",
+            "shared_key_fingerprint": "Ваш відбиток пальця:\n\n{fingerprint}\n\nПеревірте, чи збігається він з відбитком пальця вашого друга!",
+            "initiate_exchange_button": "Ініціювати обмін ключами"
+        },
+        "outgoing_pk_message": "Запит на обмін ключами",
+        "confirmation_dialogs": {
+            "title": "Наскрізне шифрування",
+            "confirmation_1": "ПОПЕРЕДЖЕННЯ: це перезапише наявний ключ. Ви втратите доступ до всіх зашифрованих повідомлень від цього друга. Ви впевнені, що бажаєте продовжити?",
+            "confirmation_2": "Ви ДІЙСНО впевнені, що бажаєте продовжити? Це ваш останній шанс відступити."
+        },
+        "native_hooks_send_failure_toast": "Не вдалося надіслати! Увімкніть Native Hooks у налаштуваннях.",
+        "accept_secret_key_success_toast": "Готово! Тепер ви можете надсилати та отримувати зашифровані повідомлення з цим другом.",
+        "accept_secret_button": "Прийняти секрет",
+        "unencrypted_conversation_send_failure_toast": "Ви не можете надсилати зашифрований вміст одночасно в зашифровані та незашифровані розмови!",
+        "no_participants_to_encrypt_toast": "У вас немає друзів у цій розмові, з якими можна шифрувати повідомлення!",
+        "accept_public_key_success_toast": "Відкритий ключ успішно прийнято!",
+        "accept_public_key_failure_toast": "Не вдалося прийняти відкритий ключ",
+        "accept_secret_key_failure_toast": "Не вдалося прийняти секретний ключ",
+        "accept_public_key_button": "Прийняти відкритий ключ"
+    },
+    "theming_attributes": {
+        "sigColorTextPrimary": "Основний колір тексту",
+        "sigColorChatChat": "Колір тексту основної стрічки друзів",
+        "sigColorChatSnapWithSound": "Знімки зі звуковим кольором тексту",
+        "ringStartColor": "Початковий колір дзвінка",
+        "sigColorLayoutPlaceholder": "Колір заповнювача макета",
+        "recipientPillBackgroundDrawable": "Одержувач таблетки фону",
+        "scButtonColor": "Колір кнопки Snapchat",
+        "rangeFillColor": "Колір заливки діапазону",
+        "pstsDividerColor": "Колір розділювача PSTS",
+        "statusBarBackground": "Колір тла рядка стану",
+        "editTextColor": "Редагувати колір тексту",
+        "chipBackgroundColor": "Колір фону мікросхеми",
+        "sigColorBackgroundSurface": "Колір фонової поверхні",
+        "sigColorChatPendingSending": "Колір тексту каналу вторинних друзів",
+        "sigColorBackgroundMain": "Колір фону",
+        "listBackgroundDrawable": "Тло списку розмов",
+        "sigColorChatConversationsLine": "Колір лінії розмов",
+        "sigColorStoryRingDiscoverTabThumbnailStoryRing": "Історійне кільце Відкрийте вкладку Мініатюра Колір сюжетного кільця",
+        "boxBackgroundColor": "Колір фону коробки",
+        "recipientInputStyle": "Стиль введення одержувача",
+        "actionSheetRoundedBackgroundDrawable": "Круглий фоновий колір меню дій",
+        "strokeColor": "Колір обведення",
+        "listDivider": "Колір роздільника списку",
+        "sigColorIconSecondary": "Додатковий колір значка",
+        "pstsIndicatorColor": "Колір індикатора PSTS",
+        "pstsTabBackground": "Фон вкладки PSTS",
+        "sigColorChatSnapWithoutSound": "Знімки без звукового кольору тексту",
+        "actionSheetDescriptionTextColor": "Дія Меню Опис Колір тексту",
+        "actionSheetBackgroundDrawable": "Колір фону меню дій",
+        "sigColorIconPrimary": "Колір значка меню дій",
+        "sigExceptionColorCameraGridLines": "Колір сітки камери",
+        "itemShapeFillColor": "Колір заливки форми елемента",
+        "ringColor": "Колір кільця",
+        "tabTextColor": "Колір тексту вкладки",
+        "statusBarForeground": "Колір переднього плану рядка стану",
+        "storyReplayViewRingColor": "Колір кільця перегляду історії",
+        "sigColorButtonPrimary": "Колір основної кнопки",
+        "sigColorBaseAppYellow": "Базовий додаток жовтого кольору",
+        "sigColorBackgroundSurfaceTranslucent": "Напівпрозорий фоновий колір поверхні",
+        "sigColorStoryRingFriendsFeedStoryRing": "Колір кільця Story Ring Friends Feed Story Ring"
+    },
+    "conversation_preview": {
+        "no_messages": "Повідомлень не знайдено!",
+        "streak_expiration": "закінчується через {day} днів {hour} годин {minute} хвилин",
+        "total_messages": "Усього надісланих/отриманих повідомлень: {count}",
+        "title": "Попередній перегляд",
+        "unknown_user": "Невідомий користувач"
+    },
+    "bulk_messaging_action": {
+        "choose_action_title": "Виберіть дію",
+        "progress_status": "Обробка {index} із {total}",
+        "selection_dialog_continue_button": "Продовжити",
+        "confirmation_dialog": {
+            "message": "Це вплине на всіх вибраних друзів. Цю дію не можна скасувати.",
+            "title": "Ви впевнені?"
+        },
+        "actions": {
+            "remove_friends": "Видалити друзів",
+            "clear_conversations": "Очистити розмови"
+        }
+    },
+    "content_type": {
+        "STATUS_COUNTDOWN": "Зворотний відлік",
+        "FAMILY_CENTER_LEAVE": "Сімейний центр Відпустка",
+        "STATUS_CALL_MISSED_AUDIO": "Пропущений аудіодзвінок",
+        "STATUS_CALL_MISSED_VIDEO": "Пропущений відеодзвінок",
+        "SNAP": "Змінок",
+        "EXTERNAL_MEDIA": "Зовнішній носій",
+        "FAMILY_CENTER_ACCEPT": "Сімейний центр Прийняти",
+        "FAMILY_CENTER_INVITE": "Сімейний центр запрошення",
+        "STATUS": "Статус",
+        "TINY_SNAP": "Крихітний знімок",
+        "NOTE": "Аудіозаписка",
+        "STICKER": "Стікери",
+        "LIVE_LOCATION_SHARE": "Обмін геоданими в реальному часі",
+        "CHAT": "Чат",
+        "SHARE": "Поділіться",
+        "LOCATION": "Розташування",
+        "STATUS_SAVE_TO_CAMERA_ROLL": "Збережено в фотоплівку",
+        "STATUS_CONVERSATION_CAPTURE_SCREENSHOT": "Скріншот",
+        "STATUS_CONVERSATION_CAPTURE_RECORD": "Запис екрана",
+        "CREATIVE_TOOL_ITEM": "Творчий інструмент",
+        "STATUS_PLUS_GIFT": "Статус плюс подарунок",
+        "MAP_REACTION": "Реакція карти"
+    },
+    "friend_menu_option": {
+        "auto_download_blacklist": "Чорний список автоматичного завантаження",
+        "stealth_mode": "Режим скритності",
+        "mark_snaps_as_seen": "Позначте знімки як видимі",
+        "mark_stories_as_seen_locally": "Позначити історії як видимі локально",
+        "anti_auto_save": "Антиавтозбереження",
+        "preview": "Попередній перегляд"
+    },
+    "mark_as_seen": {
+        "unseen_toast": "Позначено як непереглянуте!",
+        "no_unseen_snaps_toast": "Невидимі знімки не знайдено!",
+        "seen_toast": "Позначено як бачене!",
+        "already_seen_toast": "Вже позначено як бачене!",
+        "already_unseen_toast": "Вже позначено як непереглянуте!"
+    },
+    "opera_context_menu": {
+        "sent_at": "Надіслано {date}",
+        "media_size": "Розмір носія: {size}",
+        "media_duration": "Тривалість медіа: {duration} мс",
+        "show_debug_info": "Показати інформацію про налагодження",
+        "expires_at": "Термін дії закінчується {date}",
+        "download": "Завантажити медіа",
+        "created_at": "Створено {date}"
+    },
+    "material3_strings": {
+        "date_input_invalid_for_pattern": "Недійсна дата",
+        "date_picker_today_description": "Сьогодні",
+        "date_range_picker_title": "Виберіть діапазон дат",
+        "date_range_input_invalid_range_input": "Недійсний діапазон дат",
+        "date_picker_switch_to_input_mode": "Введення",
+        "date_range_picker_scroll_to_next_month": "Наступного місяця",
+        "date_input_invalid_year_range": "Недійсний рік",
+        "date_picker_switch_to_calendar_mode": "Календар",
+        "date_range_picker_start_headline": "Від",
+        "date_range_picker_end_headline": "До",
+        "date_range_picker_scroll_to_previous_month": "Попередній місяць",
+        "date_range_picker_day_in_range": "Вибране",
+        "date_input_invalid_not_allowed": "Недійсна дата"
+    },
+    "auto_open_snaps": {
+        "title": "Автоматичне відкриття знімків",
+        "notification_content": "Відкрито знімків: {count}"
+    },
+    "friend_mutation_observer": {
+        "birthday_changed": "{username} змінив день народження з {oldBirthday} на {newBirthday}",
+        "bitmoji_background_changed": "{username} змінив фон Bitmoji",
+        "bitmoji_selfie_changed": "{username} змінив своє селфі Bitmoji",
+        "bitmoji_scene_changed": "{username} змінив сцену Bitmoji",
+        "birthday_removed": "{username} видалив свою дату народження ({birthday})",
+        "birthday_added": "{username} додав свій день народження ({birthday})",
+        "bitmoji_avatar_changed": "{username} змінив свій аватар Bitmoji",
+        "notification_channel_name": "Друг спостерігач мутації",
+        "friend_removed": "{username} видалив вас зі списку друзів"
+    },
+    "send_override_dialog": {
+        "duration": "Тривалість: {duration}",
+        "unlimited_duration": "Необмежений",
+        "saveable_snap_hint": "Зробіть Snap доступним для збереження в чаті",
+        "title": "Надіслати медіа як {type}"
+    },
+    "profile_info": {
+        "add_source": "Додати джерело",
+        "mutable_username": "Змінне ім'я користувача",
+        "display_name": "Відображуване ім'я",
+        "birthday": "День народження : {month} {day}",
+        "friendship": "Дружба",
+        "snapchat_plus_state": {
+            "subscribed": "Підписався",
+            "not_subscribed": "Не підписаний"
+        },
+        "added_date": "Дата додавання",
+        "hidden_birthday": "День народження: приховано",
+        "snapchat_plus": "Snapchat Plus",
+        "title": "Інформація про профіль",
+        "first_created_username": "Перше створене ім'я користувача"
+    },
+    "button": {
+        "ok": "OK",
+        "negative": "Ні",
+        "cancel": "Скасувати",
+        "send": "Надіслати",
+        "download": "Завантажити",
+        "positive": "Так",
+        "open": "Відкрити"
+    },
+    "chat_export": {
+        "exporter_dialog": {
+            "amount_of_messages_title": "Кількість повідомлень (залиште поле порожнім для всіх)",
+            "export_file_format_title": "Формат файлу експорту",
+            "download_medias_title": "Завантажити медіа",
+            "text_field_selection": "Вибрано {amount}",
+            "message_type_filter_title": "Фільтрувати повідомлення за типом",
+            "select_conversations_title": "Виберіть Розмови",
+            "text_field_selection_all": "Всі"
+        },
+        "exported_to": "Експортовано в {path}",
+        "no_messages_found": "Повідомлень не знайдено!",
+        "dialog_positive_button": "Експорт",
+        "export_fail": "Не вдалося експортувати бесіду {conversation}",
+        "finished": "Готово! Тепер ви можете закрити це діалогове вікно.",
+        "writing_output": "Запис вихідних даних...",
+        "exporting_chats": "Експорт чатів...",
+        "exporting_message": "Експорт {conversation}...",
+        "processing_chats": "Обробка {amount} розмов...",
+        "dialog_negative_button": "Скасувати"
+    },
+    "chat_action_menu": {
+        "delete_logged_message_button": "Видалити зареєстроване повідомлення",
+        "show_chat_edit_history": "Показати історію редагування чату",
+        "preview_button": "Попередній перегляд",
+        "download_button": "Завантажити",
+        "convert_message": "Перетворити повідомлення",
+        "edit_message": "Редагувати повідомлення"
+    },
+    "profile_picture_downloader": {
+        "button": "Завантажити зображення профілю",
+        "title": "Завантажувач зображень профілю",
+        "avatar_option": "Аватар",
+        "background_option": "Фон"
+    },
+    "call_start_confirmation": {
+        "dialog_title": "Розпочати виклик",
+        "dialog_message": "Ви впевнені, що хочете почати дзвінок?"
+    },
+    "media_download_source": {
+        "story_logger": "Реєстратор історій",
+        "spotlight": "Прожектор",
+        "merged": "Об'єднано",
+        "none": "Жодного",
+        "public_story": "Публічна історія",
+        "voice_call": "Голосовий виклик",
+        "chat_media": "Медіа-чат",
+        "pending": "В очікуванні",
+        "story": "Розповідь",
+        "profile_picture": "Фото профілю",
+        "message_logger": "Реєстратор повідомлень"
+    },
+    "streaks_reminder": {
+        "notification_text": "Ви втратите серію з {friend} через {hoursLeft} год",
+        "notification_title": "Смуги"
+    },
+    "modal_option": {
+        "close": "Закрити",
+        "profile_info": "Інформація про профіль"
+    },
+    "gallery_media_send_override": {
+        "multiple_media_toast": "Ви можете надсилати лише одне медіа за раз"
+    },
+    "better_notifications": {
+        "button": {
+            "mark_as_read": "Позначити як прочитане",
+            "download": "Завантажити",
+            "reply": "Відповісти"
+        }
+    },
+    "biometric_auth": {
+        "unlock_button": "Розблокувати",
+        "subtitle": "Щоб розблокувати Snapchat, пройдіть авторизацію",
+        "title": "Розблокуйте Snapchat"
     }
 }

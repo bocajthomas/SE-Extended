@@ -136,7 +136,6 @@
         "failed_no_longer_available_toast": "Media już niedostępne",
         "already_queued_toast": "Media są już w kolejce!",
         "already_downloaded_toast": "Media już pobrane!",
-        "saved_toast": "Zapisano w {path}",
         "download_toast": "Pobieranie {path}...",
         "processing_toast": "Przetwarzanie {path}...",
         "failed_generic_toast": "Pobieranie nie powiodło się",

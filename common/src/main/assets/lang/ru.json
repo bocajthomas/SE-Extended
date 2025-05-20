@@ -404,10 +404,6 @@
                             }
                         }
                     },
-                    "hide_settings_gear": {
-                        "description": "Скрывает значок настроек SnapEnhance в ленте друзей",
-                        "name": "Скрыть значок настроек"
-                    },
                     "bootstrap_override": {
                         "name": "Переопределение Bootstrap",
                         "properties": {
@@ -437,10 +433,6 @@
                     "streak_expiration_info": {
                         "name": "Показ информации о сроке действия знака",
                         "description": "Показывает таймер истечения срока действия знака рядом с счетчиком знаков"
-                    },
-                    "hide_quick_add_friend_feed": {
-                        "name": "Скрыть быстрое добавление в ленте друзей",
-                        "description": "Скрывает раздел быстрого добавления в ленте друзей"
                     },
                     "hide_story_suggestions": {
                         "name": "Скрыть предложения историй",
@@ -952,8 +944,7 @@
         "notices": {
             "unstable": "⚠ Нестабильный",
             "ban_risk": "⚠ Эта функция может стать причиной бана",
-            "internal_behavior": "⚠ Это может нарушить внутреннее поведение Snapchat",
-            "require_native_hooks": "⚠ Для корректной работы этой функции требуются экспериментальные Native Hooks"
+            "internal_behavior": "⚠ Это может нарушить внутреннее поведение Snapchat"
         },
         "options": {
             "home_tab": {
@@ -1096,7 +1087,6 @@
                 "remove_audio_note_transcript_capability": "Убрать возможность транскрибации аудиозаметки"
             },
             "hide_story_suggestions": {
-                "hide_friend_suggestions": "Скрыть предложения друзей",
                 "hide_suggested_friend_stories": "Скрыть предложенные истории друзей",
                 "hide_my_stories": "Скрыть Мои истории"
             },
@@ -1194,7 +1184,6 @@
         "no_attachments_toast": "Вложений не найдено!",
         "already_queued_toast": "СМИ уже в очереди!",
         "already_downloaded_toast": "Медиа уже загружено!",
-        "saved_toast": "Сохранено в {path}",
         "download_toast": "Загрузка {path}...",
         "processing_toast": "Обработка {path}...",
         "failed_generic_toast": "Не удалось скачать",

@@ -279,8 +279,7 @@
         "notices": {
             "unstable": "⚠ Stabil Değil",
             "ban_risk": "⚠ Bu özellik banlanmanıza neden olabilir",
-            "internal_behavior": "⚠ Bu Snapchat'in dahili davranışını bozabilir",
-            "require_native_hooks": "⚠ Bu özelliğin düzgün çalışması için deneysel enjekte gerekir"
+            "internal_behavior": "⚠ Bu Snapchat'in dahili davranışını bozabilir"
         },
         "properties": {
             "downloader": {
@@ -443,10 +442,6 @@
                         "name": "Arkadaş Akışı Menü Çubuğu",
                         "description": "Yeni Arkadaş Akışı Menüsü Çubuğunu etkinleştirir"
                     },
-                    "hide_settings_gear": {
-                        "name": "Ayarlar Dişlisini Gizle",
-                        "description": "Arkadaş akışındaki SnapEnhance Ayarları Dişlisini gizler"
-                    },
                     "opera_media_quick_info": {
                         "description": "Opera görüntüleyici içerik menüsünde oluşturma tarihi gibi medyanın yararlı bilgilerini gösterir",
                         "name": "Opera Medya Hızlı Bilgi"
@@ -458,10 +453,6 @@
                     "old_bitmoji_selfie": {
                         "name": "Eski Bitmoji Selfie'si",
                         "description": "Eski Snapchat sürümlerindeki Bitmoji Selfie'lerini geri getirir"
-                    },
-                    "hide_quick_add_friend_feed": {
-                        "description": "Arkadaş akışındaki Hızlı Ekleme bölümünü gizler",
-                        "name": "Arkadaş Akışında Hızlı Eklemeyi Gizle"
                     },
                     "prevent_message_list_auto_scroll": {
                         "name": "Mesaj Listesi Otomatik Kaydırmayı Önle",
@@ -1243,7 +1234,6 @@
                 "3d": "3D Bitmoji"
             },
             "hide_story_suggestions": {
-                "hide_friend_suggestions": "Arkadaş önerilerini gizle",
                 "hide_suggested_friend_stories": "Önerilen arkadaş hikayelerini gizle",
                 "hide_my_stories": "Hikayelerimi Gizle"
             },
@@ -1402,7 +1392,6 @@
         "no_attachments_toast": "Ek bulunamadı!",
         "already_queued_toast": "Medya zaten sırada!",
         "already_downloaded_toast": "Medya zaten indirildi!",
-        "saved_toast": "{path}'a kaydedildi",
         "download_toast": "{path} indiriliyor...",
         "processing_toast": "{path} işleniyor...",
         "failed_generic_toast": "İndirme başarısız oldu",

@@ -260,8 +260,7 @@
         "notices": {
             "unstable": "⚠ Instabil",
             "ban_risk": "⚠ Ez a funkció tiltást eredményezhet",
-            "internal_behavior": "⚠ Ez a funkció hibát okozhat a Snapchat működésében",
-            "require_native_hooks": "⚠ Ez egy kísérleti beállítás, amelyhez Natív hookok használata szükséges"
+            "internal_behavior": "⚠ Ez a funkció hibát okozhat a Snapchat működésében"
         },
         "properties": {
             "downloader": {
@@ -431,10 +430,6 @@
                         "description": "Hozzáad egy 👻 emojit a rejtett módban lévő beszélgetések mellé",
                         "name": "Rejtőzködő üzemmód jelzője"
                     },
-                    "hide_quick_add_friend_feed": {
-                        "description": "Elrejti a Gyors hozzáadás szekciót a Friend feedben",
-                        "name": "Gyors hozzáadás elrejtése a Friend Feedben"
-                    },
                     "edit_text_override": {
                         "name": "Szöveg szerkesztése felülírása",
                         "description": "Felülírja a szövegmező viselkedését"
@@ -442,10 +437,6 @@
                     "opera_media_quick_info": {
                         "name": "Opera Media gyors információ",
                         "description": "Megjeleníti a média hasznos információit, például a létrehozás dátumát az Opera Viewer kontextusmenüjében"
-                    },
-                    "hide_settings_gear": {
-                        "name": "Beállítások fogaskerék elrejtése",
-                        "description": "Elrejti a SnapEnhance beállítások fogaskerékét a Friend feedben"
                     },
                     "vertical_story_viewer": {
                         "description": "Engedélyezi a függőleges történetnézegetőt az összes történethez",
@@ -1162,7 +1153,6 @@
                 "ovf_editor_indicator": "Jelzi, ha egy snapet küldtek az OVF szerkesztő segítségével"
             },
             "hide_story_suggestions": {
-                "hide_friend_suggestions": "Barát javaslatok elrejtése",
                 "hide_my_stories": "Sztorijaim elrejtése",
                 "hide_suggested_friend_stories": "Javasolt barát sztorik elrejtése"
             },
@@ -1317,7 +1307,6 @@
         "no_attachments_toast": "Nem találhatóak csatolmányok!",
         "already_queued_toast": "A média már várólistán van!",
         "already_downloaded_toast": "Ez már le lett töltve!",
-        "saved_toast": "Lementve {path}",
         "download_toast": "Letöltés {path}...",
         "processing_toast": "Feldolgozás {path}...",
         "failed_generic_toast": "Letöltés sikertelen",

@@ -157,10 +157,6 @@
                         },
                         "name": "ബൂട്ട്സ്ട്രാപ്പ് അസാധുവാക്കുക"
                     },
-                    "hide_settings_gear": {
-                        "name": "ക്രമീകരണ ഗിയർ മറയ്ക്കുക",
-                        "description": "ഫ്രണ്ട് ഫീഡിൽ SnapEnhance Settings Gear മറയ്ക്കുന്നു"
-                    },
                     "opera_media_quick_info": {
                         "description": "ഓപ്പറ വ്യൂവർ സന്ദർഭ മെനുവിൽ സൃഷ്ടിച്ച തീയതി പോലുള്ള മീഡിയയുടെ ഉപയോഗപ്രദമായ വിവരങ്ങൾ കാണിക്കുന്നു",
                         "name": "ഓപ്പറ മീഡിയ ദ്രുത വിവരങ്ങൾ"
@@ -202,10 +198,6 @@
                     "hide_ui_components": {
                         "description": "ഏത് UI ഘടകങ്ങളാണ് മറയ്ക്കേണ്ടതെന്ന് തിരഞ്ഞെടുക്കുക",
                         "name": "UI ഘടകങ്ങൾ മറയ്ക്കുക"
-                    },
-                    "hide_quick_add_friend_feed": {
-                        "description": "ചങ്ങാതി ഫീഡിലെ ദ്രുത ആഡ് വിഭാഗം മറയ്ക്കുന്നു",
-                        "name": "ഫ്രണ്ട് ഫീഡിൽ ദ്രുത ആഡ് മറയ്ക്കുക"
                     },
                     "prevent_message_list_auto_scroll": {
                         "name": "സന്ദേശ ലിസ്റ്റ് സ്വയമേവ സ്ക്രോൾ ചെയ്യുന്നത് തടയുക",
@@ -625,8 +617,7 @@
         "notices": {
             "internal_behavior": "⚠ ഇത് Snapchat ആന്തരിക സ്വഭാവത്തെ തകർത്തേക്കാം",
             "ban_risk": "⚠ ഈ സവിശേഷത വിലക്കുകൾക്ക് കാരണമായേക്കാം",
-            "unstable": "⚠ അസ്ഥിരമാണ്",
-            "require_native_hooks": "⚠ ഈ ഫീച്ചറിന് ശരിയായി പ്രവർത്തിക്കാൻ പരീക്ഷണാത്മക നേറ്റീവ് ഹുക്കുകൾ ആവശ്യമാണ്"
+            "unstable": "⚠ അസ്ഥിരമാണ്"
         },
         "options": {
             "friend_feed_menu_buttons": {
@@ -916,7 +907,6 @@
         "no_attachments_toast": "അറ്റാച്ചുമെന്റുകളൊന്നും കണ്ടെത്തിയില്ല!",
         "already_queued_toast": "മാധ്യമങ്ങൾ ഇതിനകം ക്യൂവിലാണ്!",
         "already_downloaded_toast": "മീഡിയ ഇതിനകം ഡൗൺലോഡ് ചെയ്‌തു!",
-        "saved_toast": "{path}-ലേക്ക് സംരക്ഷിച്ചു",
         "download_toast": "{path} ഡൗൺലോഡ് ചെയ്യുന്നു...",
         "failed_generic_toast": "ഡൗൺലോഡ് ചെയ്യാനായില്ല",
         "failed_to_create_preview_toast": "പ്രിവ്യൂ സൃഷ്ടിക്കുന്നതിൽ പരാജയപ്പെട്ടു",

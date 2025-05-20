@@ -326,10 +326,6 @@
                         "name": "Flammen-Wiederherstellung verstecken",
                         "description": "Versteckt den Wiederherstellen-Button im Freundesfeed"
                     },
-                    "hide_quick_add_friend_feed": {
-                        "name": "Schnelles Hinzufügen im Friend Feed ausblenden",
-                        "description": "Blendet den Abschnitt Schnelles Hinzufügen im Freundes-Feed aus"
-                    },
                     "hide_story_suggestions": {
                         "name": "Story Vorschläge ausblenden",
                         "description": "Entfernt Empfehlungen von der Story‐Seite"
@@ -349,10 +345,6 @@
                     "disable_spotlight": {
                         "name": "Spotlight deaktivieren",
                         "description": "Deaktiviert die Spotlight Seite"
-                    },
-                    "hide_settings_gear": {
-                        "name": "Symbol für Einstellungen ausblenden",
-                        "description": "Blendet das SnapEnhance-Einstellungssymbol im Chat-Tab aus"
                     },
                     "friend_feed_menu_buttons": {
                         "name": "Schaltflächen für das Freunde-Feed Menü",
@@ -975,7 +967,6 @@
                 "hide_unread_chat_hint": "Hinweis auf ungelesene Chats entfernen"
             },
             "hide_story_suggestions": {
-                "hide_friend_suggestions": "Freundschaftsvorschläge ausblenden",
                 "hide_suggested_friend_stories": "Empfohlene Stories von Freunden ausblenden",
                 "hide_my_stories": "Meine Stories verbergen"
             },
@@ -1033,8 +1024,7 @@
         "notices": {
             "unstable": "⚠ Instabil",
             "ban_risk": "⚠ Dieses Feature kann zu Bans führen",
-            "internal_behavior": "⚠ Dies kann das interne Verhalten von Snapchat stören",
-            "require_native_hooks": "⚠ Um korrekt zu funktionieren erfordert dieses Feature experimentelle Native Hooks"
+            "internal_behavior": "⚠ Dies kann das interne Verhalten von Snapchat stören"
         }
     },
     "content_type": {
@@ -1122,7 +1112,6 @@
         "select_attachments_title": "Anhänge auswählen",
         "download_started_toast": "Download gestartet",
         "no_attachments_toast": "Keine Anhänge gefunden!",
-        "saved_toast": "Gespeichert unter {path}",
         "download_toast": "{path} wird heruntergeladen...",
         "processing_toast": "Verarbeite {path}...",
         "failed_generic_toast": "Download fehlgeschlagen",

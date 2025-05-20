@@ -397,10 +397,6 @@
                         "name": "Mostrar información de caducidad de la racha",
                         "description": "Muestra un temporizador de caducidad al lado del contador de racha"
                     },
-                    "hide_quick_add_friend_feed": {
-                        "name": "Ocultar añadido fácil en la lista de amigxs",
-                        "description": "Oculta el añadido fácil en la lista de amigxs"
-                    },
                     "hide_story_suggestions": {
                         "name": "Ocultar sugerencias de historias",
                         "description": "Elimina las sugerencias de la página de historias"
@@ -416,10 +412,6 @@
                     "disable_spotlight": {
                         "name": "Deshabilitar Spotlight",
                         "description": "Deshabilita la página de Spotlight"
-                    },
-                    "hide_settings_gear": {
-                        "name": "Ocultar el engranaje de ajustes",
-                        "description": "Oculta el engranaje de los ajustes de SnapEnhance en la lista de amigxs"
                     },
                     "friend_feed_menu_buttons": {
                         "name": "Botones de menú de la lista de amigxs",
@@ -1158,7 +1150,6 @@
         },
         "notices": {
             "ban_risk": "⚠ Esta característica puede causar baneos",
-            "require_native_hooks": "⚠ Esta función requiere ganchos nativos experimentales para funcionar correctamente",
             "unstable": "⚠ inestable",
             "internal_behavior": "⚠ Esto puede romper el funcionamiento interno de Snapchat"
         },
@@ -1191,7 +1182,6 @@
                 "hide_map_reactions": "Eliminar reacciones del mapa"
             },
             "hide_story_suggestions": {
-                "hide_friend_suggestions": "Ocultar sugestiones de amistad",
                 "hide_my_stories": "Ocultar mis historias",
                 "hide_suggested_friend_stories": "Ocultar historias de amigxs sugeridas"
             },
@@ -1446,7 +1436,6 @@
         "failed_no_longer_available_toast": "Archivos de media ya no disponibles",
         "no_attachments_toast": "¡No se han encontrado atajos!",
         "already_queued_toast": "¡Archivo de media ya en cola!",
-        "saved_toast": "Guardado a {path}",
         "download_toast": "Descargando {path}...",
         "processing_toast": "Procesando {path}...",
         "failed_generic_toast": "Error al descargar",

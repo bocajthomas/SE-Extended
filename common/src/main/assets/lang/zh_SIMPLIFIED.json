@@ -84,13 +84,24 @@
             "home": "家",
             "home_settings": "设置",
             "friend_tracker": "好友追踪器",
-            "edit_rule": "编辑规则"
+            "edit_rule": "编辑规则",
+            "better_location": "更好的位置",
+            "manage_rule_feature": "管理规则功能",
+            "manage_repos": "管理资源库",
+            "file_imports": "导入文件",
+            "theming": "外观",
+            "edit_theme": "自定义外观"
         },
         "sections": {
             "home": {
                 "update_button": "下载",
                 "update_content": "版本 {version} 可用！",
-                "update_title": "SnapEnhance 更新"
+                "update_title": "SnapEnhance 更新",
+                "version_title": "v{versionName} 作者：rhunk",
+                "debug_build_summary_title": "你正在使用SnapEnhance的一个测试版",
+                "debug_build_summary_content": "版本 {versionName} ({versionCode})",
+                "debug_build_summary_date": "版本发布时间: {date} ({days} days ago)",
+                "quick_actions_title": "快捷操作"
             },
             "home_logs": {
                 "no_logs_hint": "没有可用的日志",
@@ -118,7 +129,11 @@
                 "config_import_failure_toast": "导入配置失败 {error}",
                 "disabled": "残疾人",
                 "config_import_success_toast": "配置导入成功",
-                "reset_option": "重置"
+                "reset_option": "重置",
+                "config_export_failure_toast": "导出设置失败 {error}",
+                "older_required": "这个功能需要 Snapchat v{version} 或更老版本的 Snapchat",
+                "newer_required": "这个功能需要 Snapchat v{version} 或更新版本的 Snapchat",
+                "search_button": "搜索"
             },
             "tasks": {
                 "no_tasks": "没有任务",
@@ -127,7 +142,9 @@
                 "remove_selected_tasks_title": "您确定要删除选定的任务吗?",
                 "remove_selected_tasks_confirm": "删除 {count} 个任务？",
                 "remove_all_tasks_confirm": "删除所有任务?",
-                "delete_files_option": "也删除文件"
+                "delete_files_option": "也删除文件",
+                "failed_to_open_file": "打开文件失败",
+                "merge_button": "合并"
             },
             "social": {
                 "streaks_expiration_short": "{hours}小时",
@@ -146,17 +163,18 @@
                 "not_found": "未找到",
                 "streaks_title": "条纹",
                 "streaks_length_text": "长度: {length}",
-                "delete_scope_confirm_dialog_title": "您确定要删除 {scope}?"
+                "delete_scope_confirm_dialog_title": "您确定要删除 {scope}?",
+                "notes_placeholder": "点击以添加笔记"
             },
             "messaging_preview": {
                 "no_message_hint": "没有消息",
-                "bridge_init_failed": "消息桥初始化失败",
+                "bridge_init_failed": "消息网络初始化失败 请确保Snapchat正在后台运行",
                 "save_selection_option": "保存选择",
                 "save_all_option": "保存全部",
                 "mark_selection_as_seen_option": "将选定的快照标记为可见",
                 "mark_all_as_seen_option": "将所有快照标记为已看到",
                 "unsave_all_option": "全部取消保存",
-                "bridge_connection_failed": "无法通过桥接服务连接到 Snapchat",
+                "bridge_connection_failed": "连接网桥失败。请确保 Snapchat 正在后台运行",
                 "unsave_selection_option": "取消保存选择",
                 "delete_selection_option": "删除选择",
                 "delete_all_option": "删除所有",
@@ -177,15 +195,59 @@
                 "story_failed_to_load": "加载失败",
                 "no_stories": "没有找到故事",
                 "save_from_cache_button": "从缓存中保存"
+            },
+            "better_location": {
+                "saved_name_dialog_hint": "保存的名称",
+                "save_coordinates_dialog_title": "保存坐标",
+                "teleport_to_friend_title": "传送至朋友",
+                "search_bar": "搜索",
+                "latitude_dialog_hint": "纬度",
+                "delete_dialog_title": "删除已保存的坐标",
+                "save_dialog_button": "保存",
+                "saved_coordinates_title": "已保存的坐标",
+                "no_saved_coordinates_hint": "没有已保存的坐标",
+                "suspend_location_updates": "停止位置更新",
+                "no_friends_found": "没有找到好友",
+                "no_friends_map": "没有朋友在地图上",
+                "longitude_dialog_hint": "经度",
+                "choose_location_button": "选择位置",
+                "teleport_to_friend_button": "传送至好友",
+                "spoof_location_toggle": "虚拟位置",
+                "delete_dialog_message": "你确定要删除这个坐标吗?",
+                "spoofed_coordinates_title": "纬度 {latitude}, 经度 {longitude}"
+            },
+            "file_imports": {
+                "file_import_failed": "文件导入失败: {error}",
+                "file_not_found": "文件不存在",
+                "import_file_button": "导入文件",
+                "file_imported": "文件导入成功",
+                "file_delete_failed": "删除文件失败",
+                "no_files_hint": "你可以在这里导入文件供 Snapchat 使用。按下方按钮以导入文件。"
+            },
+            "manage_rule_feature": {
+                "whitelist_state_subtext": "只有 {count} 个好友或群组会被此规则影响",
+                "disable_state_option": "关闭",
+                "disable_state_subtext": "没有好友或群组会被影响",
+                "whitelist_state_option": "除了...",
+                "whitelist_state_button": "选择好友或群组",
+                "blacklist_state_option": "所有人除了...",
+                "blacklist_state_subtext": "除 {count} 个好友和群组以外的所有人都会被此规则影响",
+                "blacklist_state_button": "选择要排除的好友或群组",
+                "clear_list_button": "清空好友/群组列表",
+                "dialog_clear_confirmation_text": "你确定要清空此列表吗?"
+            },
+            "theming": {
+                "no_themes_hint": "没有任何外观"
             }
         },
         "dialogs": {
             "add_friend": {
                 "search_hint": "搜索",
                 "fetch_error": "获取数据失败",
-                "category_groups": "团体",
-                "category_friends": "朋友们",
-                "title": "添加好友或群组"
+                "category_groups": "群组",
+                "category_friends": "好友",
+                "title": "添加好友或群组",
+                "participants_text": "{count} 个成员"
             },
             "reset_config": {
                 "content": "您确定要重置配置吗？",
@@ -197,8 +259,16 @@
                 "select_all_button": "全选"
             },
             "scripting_warning": {
-                "content": "SnapEnhance 包含一个脚本工具，允许在您的设备上执行用户定义的代码。请格外小心，仅安装来自已知可靠来源的模块。未经授权或未经验证的模块可能会给您的系统带来安全风险。",
+                "content": "SnapEnhance 包含一个脚本工具，允许在您的设备上执行用户自定义的代码。请格外小心，仅安装来自已知且可靠来源的模块。未经授权或未经验证的模块可能会给您的系统带来安全风险。",
                 "title": "警告"
+            },
+            "file_imports": {
+                "no_files_settings_hint": "未找到文件。请确保已在文件导入部分导入所需文件",
+                "settings_select_file_hint": "选择已导入的文件"
+            },
+            "export_config": {
+                "content": "您想导出包含敏感数据的配置吗？(如位置坐标等）",
+                "title": "导出敏感信息?"
             }
         }
     },
@@ -210,20 +280,137 @@
         "properties": {
             "auto_download": {
                 "name": "自动下载",
-                "description": "自动下载快照当查看它们时",
+                "description": "当查看时自动下载快照",
                 "options": {
                     "blacklist": "从自动下载中排除",
                     "whitelist": "自动下载"
                 }
             },
             "stealth": {
-                "name": "隐形模式",
-                "description": "不让任何人知道您已打开他们的 Snap/聊天和对话"
+                "name": "隐身模式",
+                "description": "不让任何人知道您已打开他们的 Snap, 聊天框或对话",
+                "options": {
+                    "blacklist": "从隐身模式中排除",
+                    "whitelist": "隐身模式"
+                }
+            },
+            "unsaveable_messages": {
+                "name": "无法保存的消息",
+                "description": "防止您的消息在聊天中被其他人保存",
+                "options": {
+                    "whitelist": "无法保存的消息",
+                    "blacklist": "从无法保存的消息中排除"
+                }
+            },
+            "auto_open_snaps": {
+                "options": {
+                    "whitelist": "自动打开地图",
+                    "blacklist": "从自动打开地图中排除"
+                },
+                "description": "在收到Snap消息时自动打开",
+                "name": "自动打开Snap消息"
+            },
+            "auto_save": {
+                "name": "自动保存",
+                "description": "当查看时自动保存消息",
+                "options": {
+                    "blacklist": "从自动保存中排除",
+                    "whitelist": "自动保存"
+                }
+            },
+            "e2e_encryption": {
+                "name": "使用E2E加密"
+            },
+            "pin_conversation": {
+                "name": "置顶聊天"
+            },
+            "hide_friend_feed": {
+                "name": "从朋友圈中隐藏"
             }
         },
         "modes": {
             "blacklist": "黑名单模式",
             "whitelist": "白名单模式"
+        }
+    },
+    "actions": {
+        "export_chat_messages": {
+            "name": "导出聊天记录",
+            "description": "用JSON/HTML/TXT格式导出聊天记录"
+        },
+        "export_memories": {
+            "description": "使用ZIP格式的压缩包导出回忆",
+            "name": "导出回忆"
+        },
+        "change_language": {
+            "description": "切换 SnapEnhance 使用的语言",
+            "name": "切换语言"
+        },
+        "regen_mappings": {
+            "name": "重新生成映射",
+            "description": "手动重新生成映射"
+        },
+        "file_imports": {
+            "description": "导入给 Snapchat 使用的文件",
+            "name": "文件导入"
+        },
+        "manage_friend_list": {
+            "name": "管理好友列表",
+            "description": "在备份时导入/导出你的好友列表"
+        },
+        "security_features": {
+            "description": "修改安全设置",
+            "name": "安全功能"
+        },
+        "clean_snapchat_cache": {
+            "name": "清理 Snapchat 临时文件",
+            "description": "清理 Snapchat 临时文件"
+        },
+        "bulk_messaging_action": {
+            "description": "执行删除好友或批量删除对话等操作",
+            "name": "批量发送"
+        },
+        "friend_tracker": {
+            "name": "好友追踪",
+            "description": "追踪你的 Snapchat 好友"
+        },
+        "logger_history": {
+            "description": "查看信息历史记录",
+            "name": "历史日志"
+        },
+        "theming": {
+            "name": "外观",
+            "description": "自定义 Snapchat"
+        }
+    },
+    "features": {
+        "properties": {
+            "downloader": {
+                "properties": {
+                    "path_format": {
+                        "name": "路径格式"
+                    },
+                    "prevent_self_auto_download": {
+                        "description": "防止自动下载你自己的Snaps",
+                        "name": "防止自动下载"
+                    },
+                    "save_folder": {
+                        "name": "保存文件夹",
+                        "description": "选择所有媒体保存的位置"
+                    },
+                    "auto_download_sources": {
+                        "description": "选择启用自动下载的源",
+                        "name": "自动下载源"
+                    }
+                },
+                "description": "下载 Snapchat 媒体文件",
+                "name": "下载器"
+            }
+        },
+        "notices": {
+            "unstable": "⚠ 不稳定",
+            "internal_behavior": "⚠ 这个功能可能破坏 Snapchat 的正常功能",
+            "ban_risk": "⚠ 这个功能可能会导致账号封禁"
         }
     }
 }

@@ -50,7 +50,10 @@
                 "config_import_success_toast": "Einstellungen erfolgreich importiert",
                 "config_import_failure_toast": "Einstellungen konnten nicht importiert werden {error}",
                 "saved_config_snackbar": "Einstellungen gespeichert",
-                "config_export_failure_toast": "Der Export der Konfiguration ist fehlgeschlagen {error}"
+                "config_export_failure_toast": "Der Export der Konfiguration ist fehlgeschlagen {error}",
+                "older_required": "Diese Funktion erfordert Snapchat v{version} oder älter um korrekt zu funktionieren",
+                "search_button": "Suche",
+                "newer_required": "Diese Funktion erfordert Snapchat v{version} oder neuer um korrekt zu funktionieren"
             },
             "social": {
                 "streaks_expiration_short": "{hours}h",
@@ -66,7 +69,8 @@
                 "delete_files_option": "Auch Dateien löschen",
                 "remove_selected_tasks_confirm": "{count} Aufgaben entfernen?",
                 "remove_all_tasks_confirm": "Alle Aufgaben entfernen?",
-                "failed_to_open_file": "Datei konnte nicht geöffnet werden"
+                "failed_to_open_file": "Datei konnte nicht geöffnet werden",
+                "merge_button": "Zusammenführen"
             },
             "home": {
                 "update_title": "SnapEnhance Update",
@@ -74,7 +78,7 @@
                 "update_button": "Herunterladen",
                 "version_title": "v{versionName} · von rhunk",
                 "debug_build_summary_title": "Du führst einen Debug-Build von SnapEnhance aus",
-                "quick_actions_title": "Schnellaktionen",
+                "quick_actions_title": "Schnelle aktionen",
                 "debug_build_summary_date": "Erstellungsdatum: {date} ({days} Tage her)",
                 "debug_build_summary_content": "Version {versionName} ({versionCode})"
             },
@@ -102,8 +106,8 @@
                 "save_from_cache_button": "Aus Zwischenspeicher speichern"
             },
             "messaging_preview": {
-                "bridge_connection_failed": "Verbindung zu Snapchat über den Brückendienst fehlgeschlagen",
-                "bridge_init_failed": "Initialisierung der Nachrichtenbrücke fehlgeschlagen",
+                "bridge_connection_failed": "Verbindung zu Snapchat über den Brückendienst fehlgeschlagen. Stellen Sie sicher das Snapchat im Hintergrund läuft",
+                "bridge_init_failed": "Initialisierung der Nachrichtenbrücke fehlgeschlagen. Stelle sicher, dass Snapchat im Hintergrund läuft",
                 "message_fetch_failed": "Fehler beim Abrufen der Nachrichten",
                 "no_message_hint": "Keine Nachricht",
                 "save_selection_option": "Auswahl speichern",
@@ -137,7 +141,8 @@
                 "streaks_length_text": "Länge: {length}",
                 "streaks_expiration_text": "Läuft ab in {eta}",
                 "streaks_expiration_text_expired": "Abgelaufen",
-                "reminder_button": "Erinnerung erstellen"
+                "reminder_button": "Erinnerung erstellen",
+                "notes_placeholder": "Klicken um eine Notiz hinzuzufügen"
             },
             "manage_rule_feature": {
                 "disable_state_option": "Deaktiviert",
@@ -168,7 +173,8 @@
                 "teleport_to_friend_button": "Zu Freund teleportieren",
                 "suspend_location_updates": "Standortaktualisierungen aussetzen",
                 "saved_coordinates_title": "Gespeicherte Koordinaten",
-                "search_bar": "Suchen"
+                "search_bar": "Suchen",
+                "spoofed_coordinates_title": "Breitengrad {latitude}, Längengrad {longitude}"
             },
             "file_imports": {
                 "file_imported": "Datei erfolgreich importiert",
@@ -188,7 +194,8 @@
                 "search_hint": "Suchen",
                 "fetch_error": "Fehler beim Abrufen der Daten",
                 "category_groups": "Gruppen",
-                "category_friends": "Freunde"
+                "category_friends": "Freunde",
+                "participants_text": "{count} Teilnehmer"
             },
             "scripting_warning": {
                 "content": "SnapEnhance enthält ein Skripting-Tool, das die Ausführung von benutzerdefinierten Code auf Ihrem Gerät ermöglicht. Seien Sie äußerst vorsichtig und installieren Sie nur Module aus bekannten, zuverlässigen Quellen. Unautorisierte oder ungeprüfte Module können Sicherheitsrisiken für Ihr System darstellen.",
@@ -278,8 +285,7 @@
         "notices": {
             "unstable": "⚠ Instabil",
             "ban_risk": "⚠ Dieses Feature kann zu Bans führen",
-            "internal_behavior": "⚠ Dies kann das interne Verhalten von Snapchat stören",
-            "require_native_hooks": "⚠ Um korrekt zu funktionieren erfordert dieses Feature experimentelle Native Hooks"
+            "internal_behavior": "⚠ Dies kann das interne Verhalten von Snapchat stören"
         },
         "properties": {
             "downloader": {
@@ -371,6 +377,10 @@
                     "download_context_menu": {
                         "name": "Download Kontext Menü",
                         "description": "Ermöglicht es, Nachrichten oder eine Story herunterzuladen/vorher anzuschauen mithilfe des Kontext Menüs.\nLanges Drücken des Knopfes erzwingt den Download"
+                    },
+                    "auto_download_voice_notes": {
+                        "name": "Sprachnotizen automatisch herunterladen",
+                        "description": "Sprachnotizen automatisch herunterladen, wenn sie abgespielt werden"
                     }
                 }
             },
@@ -403,6 +413,10 @@
                             "home_tab": {
                                 "name": "Home Registerkarte",
                                 "description": "Überschreibt den Start-Tab beim Öffnen von Snapchat"
+                            },
+                            "simple_snapchat": {
+                                "description": "Aktiviert eine vereinfachte Version von Snapchat",
+                                "name": "Einfaches Snapchat"
                             }
                         }
                     },
@@ -438,10 +452,6 @@
                         "name": "Freunde Feed Menüleiste",
                         "description": "Aktiviert die neue Freunde Feed Menüleiste"
                     },
-                    "hide_settings_gear": {
-                        "name": "Symbol für Einstellungen ausblenden",
-                        "description": "Blendet das SnapEnhance-Einstellungssymbol im Chat-Tab aus"
-                    },
                     "opera_media_quick_info": {
                         "description": "Zeigt nützliche Informationen zu Medien wie das Erstellungsdatum im Kontextmenü der Snap-Ansicht an",
                         "name": "Medien Schnellinfo"
@@ -466,10 +476,6 @@
                         "name": "Snap-Vorschau",
                         "description": "Zeigt eine kleine Vorschau neben ungesehenen Snaps im Chat an"
                     },
-                    "hide_quick_add_friend_feed": {
-                        "description": "Blendet den Abschnitt Schnelles Hinzufügen im Freundes-Feed aus",
-                        "name": "Schnelles Hinzufügen im Friend Feed ausblenden"
-                    },
                     "hide_story_suggestions": {
                         "name": "Story Vorschläge ausblenden",
                         "description": "Entfernt Empfehlungen von der Story‐Seite"
@@ -481,6 +487,16 @@
                     "message_indicators": {
                         "name": "Nachrichtenindikatoren",
                         "description": "Fügt Nachrichten spezifische Anzeigesymbole hinzu\nHinweis: Die Symbole sind möglicherweise nicht 100 % genau"
+                    },
+                    "custom_theme": {
+                        "description": "Individualisiere Snapchat's Farben\nHinweis: Wenn du einen dunkles Thema (wie Amoled) wählst, musst du möglicherweise den dunklen Modus in den Einstellungen von Snapchat aktivieren für ein besseres Ergebnis",
+                        "name": "Benutzerdefiniertes Thema"
+                    },
+                    "auto_close_friend_feed_menu": {
+                        "description": "Schließt das Freunde Feed Menü automatisch nachdem du einen Knopf für die Einstellungen drückst"
+                    },
+                    "hide_quick_add_suggestions": {
+                        "name": "Verstecke Vorschläge"
                     }
                 }
             },
@@ -555,6 +571,10 @@
                             "mark_as_read_and_save_in_chat": {
                                 "name": "Als gelesen markieren und im Chat speichern",
                                 "description": "Fügt der Benachrichtigung eine Schaltfläche „Als gelesen markieren und im Chat speichern“ hinzu"
+                            },
+                            "smart_replies": {
+                                "description": "Fügt empfohlene Antworten zu Benachrichtigungen hinzu (Android 10+). In Kombination mit Antworten Knopf zu verwenden",
+                                "name": "Smarte Antworten"
                             }
                         }
                     },
@@ -577,6 +597,10 @@
                             "keep_my_own_messages": {
                                 "name": "Eigene Nachrichten behalten",
                                 "description": "Verhindert, dass Ihre eigenen Nachrichten gelöscht werden"
+                            },
+                            "deleted_message_color": {
+                                "name": "Gelöschte Nachrichten Farbe",
+                                "description": "Setzt die Farbe von gelöschten Nachrichten"
                             }
                         }
                     },
@@ -649,6 +673,17 @@
                     "unlimited_conversation_pinning": {
                         "name": "Unlimitiertes Anpinnen von Konversationen",
                         "description": "Erlaubt dir eine unlimitierte Anzahl von Konversationen lokal anzupinnen"
+                    },
+                    "skip_when_marking_as_seen": {
+                        "name": "Überspringen wenn als gelesen markiert",
+                        "description": "Springt automatisch zum nächsten Snap, wenn ein Snap als gelesen markiert wird\nIn Kombination mit Snap als gelesen markieren Knopf verwenden"
+                    },
+                    "mark_snap_as_seen_button": {
+                        "name": "Snap als gelesen markieren Knopf",
+                        "description": "Fügt einen Knopf hinzu, um einen Snap als gelesen zu markieren, wenn er angeschaut wurde.\nDas funktioniert sogar wenn Stealth Modus aktiviert ist"
+                    },
+                    "double_tap_chat_action": {
+                        "name": "Doppelt Tippen Chat Aktion"
                     }
                 }
             },
@@ -722,7 +757,7 @@
                             },
                             "suspend_location_updates": {
                                 "name": "Button zum Deaktivieren",
-                                "description": "Fügt in den Karteneinstellungen einen Button hinzu, um Standortaktualisierungen zu pausieren"
+                                "description": "Fügt in den Karteneinstellungen einen Knopf hinzu, um Standortaktualisierungen zu pausieren"
                             },
                             "walk_radius": {
                                 "name": "Radius",
@@ -1088,7 +1123,7 @@
                 "speaking": "Sprache"
             },
             "gallery_media_send_override": {
-                "ORIGINAL": "Original",
+                "ORIGINAL": "Originale Medien",
                 "NOTE": "Audio-Notiz",
                 "SNAP": "Snap",
                 "always_ask": "Immer Fragen"
@@ -1163,7 +1198,6 @@
                 "3d": "3D Bitmoji"
             },
             "hide_story_suggestions": {
-                "hide_friend_suggestions": "Freundschaftsvorschläge ausblenden",
                 "hide_suggested_friend_stories": "Empfohlene Stories von Freunden ausblenden",
                 "hide_my_stories": "Meine Stories verbergen"
             },
@@ -1312,7 +1346,6 @@
         "no_attachments_toast": "Keine Anhänge gefunden!",
         "already_queued_toast": "Datei wird bereits bearbeitet!",
         "already_downloaded_toast": "Datei wurde bereits heruntergeladen!",
-        "saved_toast": "Gespeichert unter {path}",
         "download_toast": "{path} wird heruntergeladen...",
         "processing_toast": "Verarbeite {path}...",
         "failed_generic_toast": "Download fehlgeschlagen",
@@ -1467,7 +1500,8 @@
             "description": "Einstellungen für Sicherheitsfunktionen ändern"
         },
         "theming": {
-            "name": "Personalisierung"
+            "name": "Personalisierung",
+            "description": "Passe das Erscheinungsbild von Snapchat an"
         }
     },
     "mark_as_seen": {

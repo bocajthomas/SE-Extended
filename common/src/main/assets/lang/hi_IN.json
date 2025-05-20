@@ -205,7 +205,6 @@
         "failed_no_longer_available_toast": "यह मीडिया अब उपलब्ध नहीं है",
         "already_queued_toast": "मीडिया पहले से कतार में है!",
         "already_downloaded_toast": "मीडिया पहले से डाउनलोड हो चुका है!",
-        "saved_toast": "सवेड तु {path}",
         "download_toast": "डोनलोडिंग टू {path}...",
         "processing_toast": "प्रोसेसिंग {path}...",
         "failed_generic_toast": "डाउनलोड करने में असफल",
@@ -408,7 +407,6 @@
         },
         "notices": {
             "internal_behavior": "⚠ इससे स्नैपचैट का आंतरिक व्यवहार ख़राब हो सकता है",
-            "require_native_hooks": "⚠ इस सुविधा को सही ढंग से काम करने के लिए प्रयोगात्मक नेटिव हुक की आवश्यकता है",
             "unstable": "⚠अस्थिर",
             "ban_risk": "⚠इस सुविधा पर प्रतिबंध लग सकता है"
         }

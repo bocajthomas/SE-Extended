@@ -6,7 +6,7 @@
             "select_save_folder_button": "Valitse kansio"
         },
         "mappings": {
-            "dialog": "Useiden Snapchat -versioiden dynaaminen tuki edellyttää kartoituksia. Kartoitukset vaaditaan että SnapEnhance toimisi oikein. Tämän ei pitäisi kestää yli 5 sekuntia.",
+            "dialog": "Luodaan kartoituksia, tämä voi kestää jonkin aikaa...",
             "generate_failure_no_snapchat": "SnapEnhance ei havainnut Snapchattia, yritä asentaa Snapchat uudelleen.",
             "generate_failure": "Kartoituksien luomisessa tapahtui virhe. Yritä uudelleen."
         },
@@ -15,7 +15,7 @@
             "notification_access": "Ilmoitusten Käyttöoikeus",
             "battery_optimization": "Akun Optimointi",
             "display_over_other_apps": "Näytä Muiden Sovellusten Päällä",
-            "request_button": "Pyyntö"
+            "request_button": "Pyydä"
         }
     },
     "manager": {
@@ -29,10 +29,16 @@
             "tasks": "Tehtävät",
             "logger_history": "Lokejen historia",
             "logged_stories": "kirjattuja tarinoita",
-            "manage_scope": "Muokkaa  laajuutta",
+            "manage_scope": "Muokkaa laajuutta",
             "messaging_preview": "Esikatsoa",
             "friend_tracker": "Kavereiden Seuranta",
-            "edit_rule": "Muokkaa Sääntöä"
+            "edit_rule": "Muokkaa Sääntöä",
+            "better_location": "Parempi sijainti",
+            "manage_rule_feature": "Hallitse sääntöominaisuutta",
+            "file_imports": "Tiedostojen tuonnit",
+            "theming": "Teema",
+            "edit_theme": "Muokkaa teemaa",
+            "manage_repos": "Hallinnoi tietovarastoja"
         },
         "sections": {
             "features": {
@@ -43,7 +49,8 @@
                 "saved_config_snackbar": "Config tallennettu",
                 "config_import_failure_toast": "Configin tuonti epäonnistui {error}",
                 "config_import_success_toast": "Config tuotu onnistuneesti",
-                "config_export_success_toast": "Config viety onnistuneesti"
+                "config_export_success_toast": "Config viety onnistuneesti",
+                "config_export_failure_toast": "Määrityksen vienti epäonnistui {error}"
             },
             "social": {
                 "streaks_expiration_short": "{Tunnit}h",
@@ -72,7 +79,10 @@
             "home": {
                 "update_title": "SnapEnchance päivitys",
                 "update_content": "Versio on saatavilla",
-                "update_button": "Lataa"
+                "update_button": "Lataa",
+                "debug_build_summary_title": "Käytössäsi on SnapEnhance-virheenkorjaus",
+                "debug_build_summary_date": "Koontipäivämäärä: {date} ({days} päivää sitten)",
+                "quick_actions_title": "Pikatoimet"
             },
             "tasks": {
                 "no_tasks": "Ei tehtäviä",
@@ -81,7 +91,8 @@
                 "remove_all_tasks_title": "Oletko varma että haluat poistaa kaikki tehtävät?",
                 "delete_files_option": "Myös poista tiedostot",
                 "remove_selected_tasks_confirm": "Poista tehtävät?",
-                "remove_all_tasks_confirm": "Poista kaikki tehtävät?"
+                "remove_all_tasks_confirm": "Poista kaikki tehtävät?",
+                "failed_to_open_file": "Tiedoston avaaminen epäonnistui"
             },
             "manage_scope": {
                 "logged_stories_button": "Näytä logatut tarinat",
@@ -118,13 +129,55 @@
                 "mark_all_as_seen_option": "Merkitse kaikki Snäpit nähdyksi",
                 "delete_selection_option": "Poista Valinta",
                 "delete_all_option": "Poista Kaikki",
-                "bridge_connection_failed": "Yhdistäminen Snapchattiin siltauksen kautta epäonnistui",
+                "bridge_connection_failed": "Yhteyden muodostaminen siltaan epäonnistui. Varmista, että Snapchat on käynnissä taustalla",
                 "unsave_selection_option": "Poista valittu Tallennus",
                 "unsave_all_option": "Poista tallennus Kaikista",
                 "mark_selection_as_seen_option": "Merkitse valittu Snäppi nähdyksi",
-                "bridge_init_failed": "Viesti sillan käyttöönotto epäonnistui",
+                "bridge_init_failed": "Viestintäsillan alustaminen epäonnistui. Varmista, että Snapchat on käynnissä taustalla",
                 "message_fetch_failed": "Viestien haku epäonnistui",
                 "no_message_hint": "Ei viestiä"
+            },
+            "better_location": {
+                "search_bar": "Etsi",
+                "save_coordinates_dialog_title": "Tallenna koordinaatit",
+                "latitude_dialog_hint": "Leveysaste",
+                "saved_coordinates_title": "Tallennetut koordinaatit",
+                "no_friends_map": "Ei ystäviä kartalla",
+                "teleport_to_friend_title": "Teleporttaa ystävälle",
+                "save_dialog_button": "Tallenna",
+                "delete_dialog_message": "Oletko varma, että haluat poistaa tämän tallennetun koordinaatin?",
+                "no_friends_found": "Ystäviä ei löytynyt",
+                "choose_location_button": "Valitse sijainti",
+                "teleport_to_friend_button": "Teleporttaa ystävälle",
+                "suspend_location_updates": "Keskeytä sijaintipäivitykset",
+                "delete_dialog_title": "Poista tallennettu koordinaatti",
+                "saved_name_dialog_hint": "Tallennettu nimi",
+                "longitude_dialog_hint": "Pituusaste",
+                "spoof_location_toggle": "Huijaa sijaintia",
+                "no_saved_coordinates_hint": "Ei tallennettuja koordinaatteja"
+            },
+            "file_imports": {
+                "no_files_hint": "Täältä voit tuoda tiedostoja käytettäväksi Snapchatissa. Tuo tiedosto painamalla alla olevaa painiketta.",
+                "import_file_button": "Tuo tiedosto",
+                "file_delete_failed": "Tiedoston poistaminen epäonnistui",
+                "file_import_failed": "Tiedoston tuonti epäonnistui: {error}",
+                "file_not_found": "Tiedostoa ei löytynyt",
+                "file_imported": "Tiedoston tuonti onnistui"
+            },
+            "manage_rule_feature": {
+                "disable_state_option": "Poistettu käytöstä",
+                "disable_state_subtext": "Ei vaikuta ystäviin/ryhmiin",
+                "whitelist_state_subtext": "Tämä sääntö vaikuttaa vain {count} kaveriin/ryhmään",
+                "blacklist_state_option": "Kaikki paitsi...",
+                "blacklist_state_button": "Valitse poissuljetut ystävät/ryhmät",
+                "whitelist_state_option": "Kukaan paitsi...",
+                "whitelist_state_button": "Valitse sallitut ystävät/ryhmät",
+                "blacklist_state_subtext": "Tämä sääntö vaikuttaa kaikkiin paitsi {count} kaveriin/ryhmään",
+                "clear_list_button": "Tyhjennä ystävä-/ryhmäluettelo",
+                "dialog_clear_confirmation_text": "Oletko varma, että haluat tyhjentää luettelon?"
+            },
+            "theming": {
+                "no_themes_hint": "Teemoja ei löytynyt"
             }
         },
         "dialogs": {
@@ -147,6 +200,14 @@
             "scripting_warning": {
                 "title": "Varoitus",
                 "content": "SnapEnhance sisältää skriptityökalun, joka mahdollistaa käyttäjän määrittämän koodin suorittamisen. Ole erittäin varovainen ja asenna moduuleja vain tunnetuista ja luotettavista lähteistä. Luottamattomat moduulit voivat aiheuttaa tietoturvariskejä järjestelmällesi."
+            },
+            "file_imports": {
+                "no_files_settings_hint": "Tiedostoja ei löytynyt. Varmista, että olet tuonut tarvittavat tiedostot Tiedostojen tuonti -osiossa",
+                "settings_select_file_hint": "Valitse tuotu tiedosto"
+            },
+            "export_config": {
+                "title": "Viedäänkö arkaluonteisia tietoja?",
+                "content": "Haluatko viedä kokoonpanon arkaluontoisilla tiedoilla? (kuten sijaintikoordinaatit jne.)"
             }
         }
     },
@@ -195,7 +256,7 @@
                     "whitelist": "Tallentamattomat viestit"
                 },
                 "name": "Tallentamattomat viestit",
-                "description": "Estä viestien tallentaminen chatissa muilta ihmisiltä"
+                "description": "Estää muita ihmisiä tallentamasta viestejä pikakeskusteluissa"
             },
             "auto_open_snaps": {
                 "name": "Avaa Snäpit Automaattisesti",
@@ -215,8 +276,7 @@
         "notices": {
             "unstable": "⚠ Epävakaa",
             "ban_risk": "⚠ Voi aiheuttaa eston tilillesi",
-            "internal_behavior": "⚠ Voi rikkoa Snapchatin sisäisiä toiminnallisuuksia",
-            "require_native_hooks": "⚠ Tämä vaatii kokeellisen \"Native Hooks\" ominaisuuden toimiakseen"
+            "internal_behavior": "⚠ Voi rikkoa Snapchatin sisäisiä toiminnallisuuksia"
         },
         "properties": {
             "downloader": {
@@ -299,14 +359,14 @@
                     },
                     "download_context_menu": {
                         "name": "Latauksen lisävalikko",
-                        "description": "Antaa sinun ladata/esikatsella viestit keskustelusta tai tarinasta lisävalikosta\nPitkä painallus napeista pakottaa latauksen"
+                        "description": "Mahdollistaa keskustelun tai tarinan viestien lataamisen/esikatselun kontekstivalikon avulla.\nPainikkeiden pitkä painallus pakottaa latauksen"
                     },
                     "custom_path_format": {
-                        "description": "Määritä mukautettu polku formaatti ladatulle medialla\n\nMahdolliset muuttujat\n - %username%\n - %source%\n - %hash%\n - %date_time%",
-                        "name": "Mukautettu Polku Formaatti"
+                        "description": "Määritä mukautettu polkumuoto ladatulle medialle\n\nSaatavilla olevat muuttujat:\n - %username%\n - %source%\n - %hash%\n - %date_time%",
+                        "name": "Mukautettu polkurakenne"
                     },
                     "opera_download_button": {
-                        "description": "Lisää latauspainike oikeaan yläkulmaan Snappia katsoessa\nPitkä painallus napeista pakottaa latauksen",
+                        "description": "Lisää latauspainikkeen oikeaan yläkulmaan, kun katselet Snapia.\nPainikkeiden pitkä painallus pakottaa latauksen",
                         "name": "Opera Lataus Painike"
                     }
                 }
@@ -374,6 +434,9 @@
                     "enable_friend_feed_menu_bar": {
                         "name": "Ystäväsyötteen valikkopalkki",
                         "description": "Ottaa käyttöön uuden ystäväsyötteen valikkopalkin"
+                    },
+                    "snap_preview": {
+                        "name": "Snapin esikatselu"
                     }
                 }
             },
@@ -489,7 +552,7 @@
                     },
                     "remaining_hours": {
                         "name": "Jäljellä Oleva Aika",
-                        "description": "Jäljellä oleva aika ennen kuin muistutus näytetään"
+                        "description": "Jäljellä oleva aika ennen ilmoituksen näyttämistä (tunteja)"
                     },
                     "group_notifications": {
                         "name": "Ryhmä ilmoitukset",
@@ -616,7 +679,7 @@
                 "abandon_video": "Vastaamaton Videopuhelu"
             },
             "gallery_media_send_override": {
-                "ORIGINAL": "Alkuperäinen",
+                "ORIGINAL": "Alkuperäinen media",
                 "NOTE": "Ääniviesti",
                 "SNAP": "Snap"
             },
@@ -723,14 +786,13 @@
             "note": "Merkintä",
             "original_story": "Alkuperäinen Tarina"
         },
-        "select_attachments_title": "Valitse ladattavat liitteet",
+        "select_attachments_title": "Valitse liitteet",
         "download_started_toast": "Lataus aloitettu",
         "unsupported_content_type_toast": "Sisältötyyppiä ei tueta!",
         "failed_no_longer_available_toast": "Media ei ole enää saatavilla",
         "no_attachments_toast": "Liitteitä ei löytynyt!",
         "already_queued_toast": "Media on jo jonossa!",
         "already_downloaded_toast": "Media on jo ladattu!",
-        "saved_toast": "Tallennettu sijaintiin {path}",
         "download_toast": "Ladataan {path}...",
         "processing_toast": "Käsitellään {path}...",
         "failed_generic_toast": "Lataus epäonnistui",
@@ -773,6 +835,18 @@
         "clean_snapchat_cache": {
             "name": "Puhdista Snapchatin Välimuisti",
             "description": "Puhdistaa Snapchatin Välimuistin"
+        },
+        "friend_tracker": {
+            "name": "Ystävien seuranta",
+            "description": "Seuraa ystäviäsi Snapchatissa"
+        },
+        "security_features": {
+            "name": "Turvaominaisuudet",
+            "description": "Muuta turvaominaisuuksien asetuksia"
+        },
+        "file_imports": {
+            "description": "Tuo tiedostoja Snapchatissa käytettäväksi",
+            "name": "Tiedostojen tuonnit"
         }
     }
 }

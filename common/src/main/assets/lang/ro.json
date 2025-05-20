@@ -71,7 +71,6 @@
         "failed_no_longer_available_toast": "Media nu mai e valabilă",
         "already_queued_toast": "Media este deja în așteptare!",
         "already_downloaded_toast": "Media deja descărcată!",
-        "saved_toast": "Salvat în {path}",
         "download_toast": "Se descarcă {path}...",
         "processing_toast": "Se procesează {path}...",
         "failed_generic_toast": "Descărcarea a eșuat",
@@ -362,10 +361,6 @@
                         "description": "Împiedică derularea listei de mesaje în jos la trimiterea/primirea unui mesaj",
                         "name": "Preveniți derularea automată a listei de mesaje"
                     },
-                    "hide_quick_add_friend_feed": {
-                        "name": "Ascundeți adăugarea rapidă în fluxul prietenilor",
-                        "description": "Ascunde secțiunea Adăugare rapidă din fluxul prietenilor"
-                    },
                     "hide_ui_components": {
                         "description": "Selectați ce componente ale interfeței de utilizator să ascundeți",
                         "name": "Ascundeți componentele interfeței de utilizator"
@@ -381,10 +376,6 @@
                     "disable_spotlight": {
                         "name": "Dezactivați Spotlight",
                         "description": "Dezactivează pagina Spotlight"
-                    },
-                    "hide_settings_gear": {
-                        "description": "Ascunde butonul cu setările SnapEnhance în fluxul prietenilor",
-                        "name": "Ascunde Butonul Setări"
                     },
                     "friend_feed_message_preview": {
                         "properties": {
@@ -976,7 +967,6 @@
             }
         },
         "notices": {
-            "require_native_hooks": "⚠ Această funcționalitate necesită Hook-uri Native experimentale pentru a funcționa corect",
             "ban_risk": "⚠ Această funcție poate provoca interdicții ale conului de Snapchat",
             "internal_behavior": "⚠ Acest lucru poate rupe comportamentul intern al Snapchat",
             "unstable": "⚠ Instabil"
@@ -1084,7 +1074,6 @@
                 "hide_voice_record_button": "Eliminați butonul de înregistrare vocală"
             },
             "hide_story_suggestions": {
-                "hide_friend_suggestions": "Ascundeți sugestiile de prieteni",
                 "hide_suggested_friend_stories": "Ascunde poveștile prietenilor sugerați",
                 "hide_my_stories": "Ascunde-mi poveștile"
             },

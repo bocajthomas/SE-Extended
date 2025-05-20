@@ -50,7 +50,10 @@
                 "config_import_success_toast": "Configuration importée avec succès",
                 "config_import_failure_toast": "Échec de l'importation de la configuration {error}",
                 "saved_config_snackbar": "Configuration enregistrée",
-                "config_export_failure_toast": "Échec de l'exportation de la configuration {error}"
+                "config_export_failure_toast": "Échec de l'exportation de la configuration {error}",
+                "older_required": "Cette fonctionnalité nécessite Snapchat v{version} ou une version antérieure pour fonctionner correctement",
+                "newer_required": "Cette fonctionnalité nécessite Snapchat v{version} ou une version plus récente pour fonctionner correctement",
+                "search_button": "Recherche"
             },
             "social": {
                 "streaks_expiration_short": "{hours}h",
@@ -66,7 +69,8 @@
                 "delete_files_option": "Supprimer également les fichiers",
                 "remove_selected_tasks_confirm": "Supprimer {count} tâches ?",
                 "remove_all_tasks_confirm": "Supprimer toutes les tâches ?",
-                "failed_to_open_file": "Échec de l'ouverture du fichier"
+                "failed_to_open_file": "Échec de l'ouverture du fichier",
+                "merge_button": "Fusionner"
             },
             "home": {
                 "update_content": "La version {version} est disponible !",
@@ -89,7 +93,8 @@
                 "streaks_expiration_text": "Expire dans {eta}",
                 "streaks_expiration_text_expired": "Expiré",
                 "reminder_button": "Définir un rappel",
-                "delete_scope_confirm_dialog_title": "Êtes-vous sûr de vouloir supprimer ce {scope} ?"
+                "delete_scope_confirm_dialog_title": "Êtes-vous sûr de vouloir supprimer ce {scope} ?",
+                "notes_placeholder": "Cliquez pour ajouter une note"
             },
             "home_logs": {
                 "no_logs_hint": "Aucun journal disponible",
@@ -189,7 +194,8 @@
                 "search_hint": "Rechercher",
                 "fetch_error": "Échec de la récupération des données",
                 "category_groups": "Groupes",
-                "category_friends": "Amis"
+                "category_friends": "Amis",
+                "participants_text": "{count} participants"
             },
             "scripting_warning": {
                 "content": "SnapEnhance inclut un outil de développement de scripts, permettant l'exécution d'un code défini par l'utilisateur sur votre appareil. Soyez extrêmement prudent et n'installez que des modules provenant de sources connues et fiables. Les modules non autorisés ou non vérifiés peuvent présenter des risques pour la sécurité de votre système.",
@@ -268,6 +274,9 @@
                     "blacklist": "Exclure de l'ouverture automatique des Snaps",
                     "whitelist": "Ouverture automatique des Snaps"
                 }
+            },
+            "exclude_message_logger": {
+                "name": "Exclure du journal des messages"
             }
         },
         "toasts": {
@@ -279,8 +288,7 @@
         "notices": {
             "unstable": "⚠️ Instable",
             "ban_risk": "⚠️ Cette fonctionnalité pourrait causer des bannissements",
-            "internal_behavior": "⚠️ Cela peut casser le comportement interne de Snapchat",
-            "require_native_hooks": "⚠️ Cette fonctionnalité nécessite des accrochages natifs expérimentaux pour fonctionner correctement"
+            "internal_behavior": "⚠️ Cela peut casser le comportement interne de Snapchat"
         },
         "properties": {
             "downloader": {
@@ -408,6 +416,10 @@
                             "home_tab": {
                                 "name": "Onglet d'accueil",
                                 "description": "Remplacement de l'onglet à l'ouverture"
+                            },
+                            "simple_snapchat": {
+                                "description": "Permet une version simplifiée de Snapchat",
+                                "name": "Snapchat simple"
                             }
                         }
                     },
@@ -439,10 +451,6 @@
                         "description": "Active la nouvelle barre de menu de flux d'amis",
                         "name": "Barre du menu du fil d'amis"
                     },
-                    "hide_settings_gear": {
-                        "name": "Masquer la roue des paramètres",
-                        "description": "Masque la roue des paramètres SnapEnhance dans le fil d'amis"
-                    },
                     "opera_media_quick_info": {
                         "description": "Affiche des informations utiles sur les médias, telles que la date de création, dans le menu contextuel de la visionneuse d'Opera",
                         "name": "Informations rapides des médias Opera"
@@ -454,10 +462,6 @@
                     "old_bitmoji_selfie": {
                         "name": "Ancien Selfie Bitmoji",
                         "description": "Restaurer les selfies Bitmoji des anciennes versions de Snapchat"
-                    },
-                    "hide_quick_add_friend_feed": {
-                        "description": "Masque la section Ajout rapide dans le fil d'amis",
-                        "name": "Masquer l'ajout rapide dans le fil d'amis"
                     },
                     "prevent_message_list_auto_scroll": {
                         "name": "Empêcher le défilement automatique de la liste des messages",
@@ -494,6 +498,10 @@
                     "custom_theme": {
                         "description": "Personnalisez les couleurs de Snapchat\nRemarque : si vous choisissez un thème sombre (comme Amoled), vous devrez peut-être activer le mode sombre dans les paramètres de Snapchat pour de meilleurs résultats",
                         "name": "Thème personnalisé"
+                    },
+                    "hide_quick_add_suggestions": {
+                        "name": "Masquer les suggestions d'ajout rapide",
+                        "description": "Supprime les suggestions d'ajout rapide d'amis"
                     }
                 }
             },
@@ -594,6 +602,10 @@
                             "keep_my_own_messages": {
                                 "name": "Conserver mes propres messages",
                                 "description": "Empêche la suppression de vos propres messages"
+                            },
+                            "deleted_message_color": {
+                                "description": "Définit la couleur des messages supprimés",
+                                "name": "Couleur du message supprimé"
                             }
                         }
                     },
@@ -674,6 +686,14 @@
                     "skip_when_marking_as_seen": {
                         "name": "Ignorer lors du marquage comme vu",
                         "description": "Passe automatiquement au Snap suivant lors du marquage d'un Snap comme vu.\nÀ utiliser en combinaison avec le Bouton Marquer Snap comme vu"
+                    },
+                    "double_tap_chat_action_custom_emoji": {
+                        "name": "Action de chat en appuyant deux fois Réaction Emoji personnalisée",
+                        "description": "Définit une réaction emoji personnalisée pour l'action de chat en double-cliquant"
+                    },
+                    "double_tap_chat_action": {
+                        "name": "Action de chat en appuyant deux fois",
+                        "description": "Effectue une action personnalisée en appuyant deux fois sur un message dans le chat"
                     }
                 }
             },
@@ -858,6 +878,10 @@
                     "front_custom_frame_rate": {
                         "name": "Fréquence d'images personnalisée à l'avant",
                         "description": "Remplace la fréquence d'images de la caméra frontale"
+                    },
+                    "startup_default_camera": {
+                        "name": "Caméra par défaut de démarrage",
+                        "description": "Définit l'appareil photo par défaut lors de l'ouverture de Snapchat"
                     }
                 }
             },
@@ -942,7 +966,7 @@
                         }
                     },
                     "infinite_story_boost": {
-                        "name": "Booster de story infini",
+                        "name": "Boost de story infini",
                         "description": "Contournez le délai de Boost de Story"
                     },
                     "no_friend_score_delay": {
@@ -1060,6 +1084,14 @@
                     "voice_note_auto_play": {
                         "name": "Lecture automatique des notes vocales",
                         "description": "Joue automatiquement la note vocale suivante une fois la note actuelle terminée"
+                    },
+                    "friend_notes": {
+                        "description": "Vous permet d'ajouter des notes aux profils d'amis",
+                        "name": "Notes d'ami"
+                    },
+                    "snapscore_changes": {
+                        "name": "Modifications de Snapscore",
+                        "description": "Suivi des changements dans le Snapscore des amis\nUtilisez cette fonctionnalité uniquement dans les versions plus récentes de Snapchat"
                     }
                 }
             },
@@ -1250,7 +1282,6 @@
             },
             "hide_story_suggestions": {
                 "hide_suggested_friend_stories": "Cacher les stories d'amis suggérées",
-                "hide_friend_suggestions": "Cacher les suggestions d'ami",
                 "hide_my_stories": "Cacher Ma Story"
             },
             "disable_cameras": {
@@ -1292,6 +1323,26 @@
                 "custom": "Thèmes personnalisés (utilisez les actions rapides pour gérer les thèmes)",
                 "material_you_light": "Material You Light (Android 12+)",
                 "material_you_dark": "Materiel You Light (Android 12+)"
+            },
+            "snapchat_plus": {
+                "not_subscribed": "Non abonné",
+                "basic": "Basique",
+                "ad_free": "Sans publicité"
+            },
+            "simple_snapchat": {
+                "always_enabled": "Toujours activé",
+                "always_disabled": "Toujours désactivé"
+            },
+            "double_tap_chat_action": {
+                "like_message": "Aime le message",
+                "mark_as_read": "Marquer comme lu",
+                "copy_text": "Copier le texte dans le presse-papiers",
+                "delete_message": "Supprimer le message",
+                "custom_emoji_reaction": "Réaction Emoji personnalisée"
+            },
+            "startup_default_camera": {
+                "front": "Caméra frontale",
+                "back": "Caméra arrière"
             }
         }
     },
@@ -1402,7 +1453,6 @@
         "no_attachments_toast": "Aucune pièce jointe trouvée !",
         "already_queued_toast": "Média déjà en file d'attente !",
         "already_downloaded_toast": "Média déjà téléchargé !",
-        "saved_toast": "Enregistré dans {path}",
         "download_toast": "Téléchargement {path}...",
         "processing_toast": "Traitement de {path}...",
         "failed_generic_toast": "Échec du téléchargement",
@@ -1414,7 +1464,8 @@
             "title": "Télécharger le média Dash",
             "segment_text": "Segment {from} - {to}"
         },
-        "dash_no_chapter": "Aucun chapitre trouvé"
+        "dash_no_chapter": "Aucun chapitre trouvé",
+        "content_saved_toast": "Sauvegarder!"
     },
     "streaks_reminder": {
         "notification_title": "Rappels des flammes",

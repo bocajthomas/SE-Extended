@@ -306,8 +306,7 @@
         "notices": {
             "ban_risk": "⚠ This feature may cause bans",
             "unstable": "⚠ Unstable",
-            "internal_behavior": "⚠ This may break Snapchat's internal behavior",
-            "require_native_hooks": "⚠ This feature requires experimental Native Hooks to work correctly"
+            "internal_behavior": "⚠ This may break Snapchat's internal behavior"
         },
         "properties": {
             "downloader": {
@@ -476,10 +475,6 @@
                         "description": "Hides the Restore button in the friend feed",
                         "name": "Hide Streak Restore"
                     },
-                    "hide_quick_add_friend_feed": {
-                        "name": "Hide Quick Add in Friend Feed",
-                        "description": "Hides the Quick Add section in the friend feed"
-                    },
                     "hide_story_suggestions": {
                         "name": "Hide Story Suggestions",
                         "description": "Removes suggestions from the Stories page"
@@ -495,10 +490,6 @@
                     "disable_spotlight": {
                         "name": "Disable Spotlight",
                         "description": "Disables the Spotlight page"
-                    },
-                    "hide_settings_gear": {
-                        "name": "Hide Settings Gear",
-                        "description": "Hides the SnapEnhance Settings Gear in The friend feed"
                     },
                     "enable_friend_feed_menu_bar": {
                         "name": "Friend Feed Menu Bar",
@@ -1211,7 +1202,6 @@
                 "hide_post_to_story_buttons": "Remove Post to Story buttons before sending a Snap"
             },
             "hide_story_suggestions": {
-                "hide_friend_suggestions": "Hide friend suggestions",
                 "hide_suggested_friend_stories": "Hide suggested friend stories",
                 "hide_my_stories": "Hide My Stories"
             },
@@ -1359,7 +1349,6 @@
             "segment_text": "Segment {from} - {to}",
             "download_all": "Download All"
         },
-        "saved_toast": "Saved to {path}",
         "download_toast": "Downloading {path}..."
     },
     "streaks_reminder": {

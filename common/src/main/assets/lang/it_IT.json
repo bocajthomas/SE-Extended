@@ -57,7 +57,6 @@
         "failed_no_longer_available_toast": "Media non più disponibile",
         "already_queued_toast": "Media già in coda!",
         "already_downloaded_toast": "Media già scaricato!",
-        "saved_toast": "Salvato in {path}",
         "download_toast": "Scaricando {path}...",
         "processing_toast": "Elaborando {path}...",
         "failed_generic_toast": "Impossibile scaricare",

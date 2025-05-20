@@ -30,11 +30,19 @@
             "logger_history": "Zgodovina zapisovalnika",
             "logged_stories": "Zapisane zgodbe",
             "manage_scope": "Upravljaj Scope",
-            "messaging_preview": "Predogled"
+            "messaging_preview": "Predogled",
+            "better_location": "Izboljšana lokacija",
+            "manage_repos": "Upravljaj repozitorije",
+            "file_imports": "Uvoz datotek",
+            "friend_tracker": "Sledilec prijateljev",
+            "edit_rule": "Uredi pravilo",
+            "edit_theme": "Uredi temo"
         },
         "sections": {
             "tasks": {
-                "no_tasks": "Ni nalog"
+                "no_tasks": "Ni nalog",
+                "merge_button": "Združi",
+                "failed_to_open_file": "Napaka pri odpiranju datoteke"
             },
             "features": {
                 "disabled": "Onemogočeno"
@@ -45,20 +53,30 @@
             "home": {
                 "update_title": "SnapEnhance nadgradnja",
                 "update_content": "Verzija {version} je na voljo!",
-                "update_button": "Prenos"
+                "update_button": "Prenos",
+                "debug_build_summary_title": "Uporabljate razhroščevalno različico SnapEnhancea",
+                "debug_build_summary_date": "Dan izgradnje: {date} ({days} days ago)",
+                "quick_actions_title": "Hitra dejanja",
+                "version_title": "v{versionName} · naredil rhunk",
+                "debug_build_summary_content": "Verzija {versionName} ({versionCode})"
             },
             "home_logs": {
                 "no_logs_hint": "Ni dostopnih logov",
                 "clear_logs_button": "Počisti loge",
                 "export_logs_button": "Izvozi loge",
                 "saving_logs_toast": "Shranjevanje logov, to lahko vzame nekaj časa",
-                "saved_logs_success_toast": "Logi uspešno shranjeni"
+                "saved_logs_success_toast": "Logi uspešno shranjeni",
+                "saved_logs_failure_toast": "Napaka pri shranjevanju zapisnikov"
             },
             "home_settings": {
                 "success_toast": "Končano!",
                 "message_logger_summary": "{messageCount} sporočil\n{storyCount} zgodb",
                 "export_button": "Izvozi",
-                "clear_button": "Počisti"
+                "clear_button": "Počisti",
+                "actions_title": "Dejanja",
+                "message_logger_title": "Zapisovalnik sporočil",
+                "debug_title": "Razhroščevanje",
+                "view_logger_history_button": "Ogled zgodovine zapiskov"
             }
         }
     },
