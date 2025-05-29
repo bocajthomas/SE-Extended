@@ -1,24 +1,24 @@
- <div align="center">
+<div align="center">
   <img src="https://raw.githubusercontent.com/bocajthomas/SE-Extended/dev/images/logo/SE%20Extended%20Logo.png" height="240" />
 
 [![Debug CI](https://github.com/bocajthomas/SE-Extended/actions/workflows/debug.yml/badge.svg)](https://github.com/bocajthomas/SE-Extended/actions/workflows/debug.yml) [![Translation status](https://hosted.weblate.org/widget/se-extended/se-extended/svg-badge.svg)](https://hosted.weblate.org/engage/se-extended/)
 
 # SE Extended
-SE Extended is a [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#use-someone-elses-project-as-a-starting-point-for-your-own-idea) from the [SnapEnhance app](https://github.com/rhunk/SnapEnhance) that uses the Xposed Framework to enhance your Snapchat experience. <br/><br/>
+SE Extended is a [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#use-someone-elses-project-as-a-starting-point-for-your-own-idea) from [SnapEnhance](https://github.com/rhunk/SnapEnhance) that uses the Xposed Framework to enhance your Snapchat experience. <br/><br/>
 
 Please note that this project is currently in development, So bugs and crashes may occur. If you encounter any issues, we encourage you to report them. To do this simply visit our [issues](https://github.com/bocajthomas/SE-Extended/issues/new?assignees=&labels=bug&projects=&template=bug_report.yml&title=...) page and create an issue, make sure to follow the guidelines.
 </div>
 
 ## 📱 Screenshots
 <div align="center">
-<div>
-<img src="images/screenshots/Screenshot-1.jpg" width="30%" />
-<img src="images/screenshots/Screenshot-2.jpg" width="30%" />
-<img src="images/screenshots/Screenshot-3.jpg" width="30%" />
-<img src="images/screenshots/Screenshot-4.jpg" width="30%" />
-<img src="images/screenshots/Screenshot-6.jpg" width="30%" />
-<img src="images/screenshots/Screenshot-7.jpg" width="30%" />
-</div>
+ <div>
+  <img src="images/screenshots/Screenshot-1.jpg" width="30%"/>
+  <img src="images/screenshots/Screenshot-2.jpg" width="30%"/>
+  <img src="images/screenshots/Screenshot-3.jpg" width="30%"/>
+  <img src="images/screenshots/Screenshot-4.jpg" width="30%"/>
+  <img src="images/screenshots/Screenshot-6.jpg" width="30%"/>
+  <img src="images/screenshots/Screenshot-7.jpg" width="30%"/>
+ </div>
 </div>
 
 ## 📖 Main Features
@@ -187,7 +187,7 @@ Please note that this project is currently in development, So bugs and crashes m
 </details>
 
 <details closed>
-<summary>📄 Scripting</summary>
+ <summary>📄 Scripting</summary>
 
 - `Developer Mode`
 - `Module Folder`
@@ -198,7 +198,8 @@ Please note that this project is currently in development, So bugs and crashes m
 </details>
 
 <details closed>
-<summary>👥 Friend Tracker</summary>
+ <summary>👥 Friend
+  Tracker</summary>
 
 - `Record Messaging Events`
 - `Allow Running In Background`
@@ -208,6 +209,9 @@ Please note that this project is currently in development, So bugs and crashes m
 ## ⬇️ Download
 You will need to download SE Extended from ether the [Actions](https://github.com/bocajthomas/SE-Extended/actions/workflows/debug.yml) or our [CI Builds](https://t.me/SE_Extended_CI) Channel on telegram<br/>
 
+>[!warning]
+>SE Extended is currently detected, v12.81.0.44 or below is not longer safe to use. please use [Stock Snapchat](https://play.google.com/store/apps/details?id=com.snapchat.android)
+
 ## ❓️Wiki
 The [Wiki](https://github.com/bocajthomas/SE-Extended/wiki) is a place for all information regarding SE Extended.
 
@@ -216,20 +220,20 @@ Join our [Telegram Channel](https://t.me/SE_Extended) for Discussions, announcem
 
 ## 💵 Donate
 SE Extended will always be free and open source for everyone,
-Please Consider [Donating](https://ko-fi.com/seextended)
+Please consider [donating](https://ko-fi.com/seextended)
 
 ## 🤝 Contributing
 Contributions are welcome!<br/>
 Thanks to everyone involved
 
 **Pull Requests:**
-- [suryadip2008](https://github.com/suryadip2008)
+- [ΞTΞRNAL](https://github.com/particle-box)
   - feat(core/ui_tweaks): multiple hide ui components [#106](https://github.com/bocajthomas/SE-Extended/pull/106)
 - [CanerKaraca23](https://github.com/CanerKaraca23)
   - chore: update dependencies [#127](https://github.com/bocajthomas/SE-Extended/pull/127)
 
 **Translations:**
-- Bengali - [suryadip2008](https://github.com/suryadip2008)
+- Bengali - [ΞTΞRNAL](https://github.com/particle-box)
 - Dutch - [BogusMosquito77](https://github.com/BogusMosquito7), [dnlweijers](https://github.com/dnlweijers), [appelmoesgg](https://github.com/appelmoesgg), [woutvanw](https://github.com/woutvanw)
 - Urdu - [Beingzain](https://github.com/Beingzain)
 - Danish - [comradekingu](https://github.com/comradekingu), [MHaaning](https://github.com/MHaaning)
