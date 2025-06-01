@@ -120,7 +120,8 @@ class ComposerHooks: Feature("ComposerHooks") {
                 "operaDownloadButton" to context.config.downloader.operaDownloadButton.get(),
                 "bypassCameraRollLimit" to config.bypassCameraRollLimit.get(),
                 "showFirstCreatedUsername" to config.showFirstCreatedUsername.get(),
-                "composerLogs" to config.composerLogs.get()
+                "composerLogs" to config.composerLogs.get(),
+                "customSelfDestructSnapDelay" to config.customSelfDestructSnapDelay.get(),
             ))
         }
 

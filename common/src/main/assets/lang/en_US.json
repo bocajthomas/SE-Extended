@@ -986,6 +986,10 @@
                                         "name": "Bypass Camera Roll Limit",
                                         "description": "Increases the maximum amount of media you can send from the camera roll"
                                     },
+                                    "custom_self_destruct_snap_delay": {
+                                        "name": "Custom Self Destruct Snap Delay",
+                                        "description": "Gives more options for the self-destruct timer when sending a Snap"
+                                    },
                                     "composer_console": {
                                         "name": "Composer Console",
                                         "description": "Allows you to execute JavaScript code in Composer (arm64 only)"
