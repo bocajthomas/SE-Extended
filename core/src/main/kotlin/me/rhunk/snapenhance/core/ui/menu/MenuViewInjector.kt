@@ -38,8 +38,7 @@ class MenuViewInjector : Feature("MenuViewInjector") {
         onNextActivityCreate(defer = true) {
             menuMap.forEach { it.value.init() }
 
-            val chatActionMenu = context.resources.getIdentifier("chat_action_menu", "id")
-            val hasV2ActionMenu = { context.feature(COFOverride::class).hasActionMenuV2 }
+            val hasV2ActionMenu = { true }
 
             context.event.subscribe(AddViewEvent::class) { event ->
                 menuMap.forEach { it.value.onViewAdded(event) }

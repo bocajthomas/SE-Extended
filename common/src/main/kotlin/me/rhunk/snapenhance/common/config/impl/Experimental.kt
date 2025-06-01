@@ -27,6 +27,7 @@ class Experimental : ConfigContainer() {
     class ComposerHooksConfig: ConfigContainer(hasGlobalState = true) {
         val showFirstCreatedUsername = boolean("show_first_created_username")
         val bypassCameraRollLimit = boolean("bypass_camera_roll_limit")
+        val customSelfDestructSnapDelay = boolean("custom_self_destruct_snap_delay")
         val composerConsole = boolean("composer_console")
         val composerLogs = boolean("composer_logs")
     }

@@ -638,6 +638,10 @@
                         "name": "Unlimited Conversation Pinning",
                         "description": "Allows you to pin an unlimited amount of conversations locally"
                     },
+                    "disable_snap_mode_restrictions": {
+                        "name": "Disable Snap Mode Restrictions",
+                        "description": "Allows you to view self-destructing Snaps without restrictions"
+                    },
                     "prevent_message_sending": {
                         "name": "Prevent Message Sending",
                         "description": "Prevents sending certain types of messages"
@@ -981,6 +985,10 @@
                                     "bypass_camera_roll_limit": {
                                         "name": "Bypass Camera Roll Limit",
                                         "description": "Increases the maximum amount of media you can send from the camera roll"
+                                    },
+                                    "custom_self_destruct_snap_delay": {
+                                        "name": "Custom Self Destruct Snap Delay",
+                                        "description": "Gives more options for the self-destruct timer when sending a Snap"
                                     },
                                     "composer_console": {
                                         "name": "Composer Console",
