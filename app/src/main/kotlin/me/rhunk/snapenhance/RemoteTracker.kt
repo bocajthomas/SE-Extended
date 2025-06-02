@@ -8,6 +8,7 @@ import me.rhunk.snapenhance.common.data.TrackerRuleEvent
 import me.rhunk.snapenhance.common.util.toSerialized
 import me.rhunk.snapenhance.storage.getRuleTrackerScopes
 import me.rhunk.snapenhance.storage.getTrackerEvents
+import me.rhunk.snapenhance.storage.updateFriendScore
 
 
 class RemoteTracker(
@@ -25,5 +26,9 @@ class RemoteTracker(
         return TrackerEventsResult(events.mapKeys {
             ScopedTrackerRule(it.key, context.database.getRuleTrackerScopes(it.key.id))
         }).toSerialized()
+    }
+
+    override fun updateFriendScore(userId: String, score: Long): Long {
+        return context.database.updateFriendScore(userId, score)
     }
 }

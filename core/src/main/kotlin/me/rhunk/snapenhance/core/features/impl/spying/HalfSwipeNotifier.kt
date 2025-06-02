@@ -9,7 +9,6 @@ import me.rhunk.snapenhance.core.features.Feature
 import me.rhunk.snapenhance.core.util.hook.HookStage
 import me.rhunk.snapenhance.core.util.hook.hook
 import me.rhunk.snapenhance.core.util.hook.hookConstructor
-import me.rhunk.snapenhance.core.util.ktx.getIdentifier
 import me.rhunk.snapenhance.core.util.ktx.getObjectField
 import me.rhunk.snapenhance.mapper.impl.CallbackMapper
 import java.util.concurrent.ConcurrentHashMap
@@ -19,7 +18,6 @@ class HalfSwipeNotifier : Feature("Half Swipe Notifier") {
     private val peekingConversations = ConcurrentHashMap<String, List<String>>()
     private val startPeekingTimestamps = ConcurrentHashMap<String, Long>()
 
-    private val svgEyeDrawable by lazy { context.resources.getIdentifier("svg_eye_24x24", "drawable") }
     private val notificationManager get() = context.androidContext.getSystemService(NotificationManager::class.java)
     private val translation by lazy { context.translation.getCategory("half_swipe_notifier")}
     private val channelId by lazy {
@@ -91,15 +89,15 @@ class HalfSwipeNotifier : Feature("Half Swipe Notifier") {
 
             if (minDuration > peekingDuration || maxDuration < peekingDuration) return
 
-            val groupName = context.database.getFeedEntryByConversationId(conversationId)?.feedDisplayName
+            val feedEntry = context.database.getFeedEntryByConversationId(conversationId)
             val friendInfo = context.database.getFriendInfo(userId) ?: return
 
             Notification.Builder(context.androidContext, channelId)
-                .setContentTitle(groupName ?: friendInfo.displayName ?: friendInfo.mutableUsername)
-                .setContentText(if (groupName != null) {
+                .setContentTitle(feedEntry?.feedDisplayName ?: friendInfo.displayName ?: friendInfo.mutableUsername)
+                .setContentText(if (feedEntry?.conversationType == 1) {
                     translation.format("notification_content_group",
                         "friend" to (friendInfo.displayName ?: friendInfo.mutableUsername).toString(),
-                        "group" to groupName,
+                        "group" to (feedEntry.feedDisplayName ?: "Group"),
                         "duration" to peekingDuration.toString()
                     )
                 } else {
@@ -121,7 +119,7 @@ class HalfSwipeNotifier : Feature("Half Swipe Notifier") {
                 .setWhen(System.currentTimeMillis())
                 .setShowWhen(true)
                 .setAutoCancel(true)
-                .setSmallIcon(svgEyeDrawable)
+                .setSmallIcon(android.R.drawable.presence_invisible)
                 .build()
                 .let { notification ->
                     notificationManager.notify(System.nanoTime().toInt(), notification)

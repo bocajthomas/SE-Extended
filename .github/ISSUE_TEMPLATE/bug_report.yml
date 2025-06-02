@@ -55,6 +55,7 @@ body:
       description: "**By creating this issue, I agree to the following terms:**"
       options:
         - label: "This is not a bug regarding Snapchat+."
+        - label: "I am using a debug version of SnapEnhance."
         - label: "I have provided a detailed description of the issue."
         - label: "I have attached a log if deemed necessary."
         - label: "This issue is not a duplicate."

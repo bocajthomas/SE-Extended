@@ -16,7 +16,7 @@ class MediaInfo(obj: Any?) : AbstractWrapper(obj) {
     init {
         instance?.let {
             if (it is List<*>) {
-                if (it.size == 0) {
+                if (it.isEmpty()) {
                     throw RuntimeException("MediaInfo is empty")
                 }
                 instance = it[0]!!

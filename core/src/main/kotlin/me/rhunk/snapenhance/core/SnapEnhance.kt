@@ -16,6 +16,7 @@ import me.rhunk.snapenhance.common.action.EnumAction
 import me.rhunk.snapenhance.common.bridge.FileHandleScope
 import me.rhunk.snapenhance.common.bridge.InternalFileHandleType
 import me.rhunk.snapenhance.common.bridge.toWrapper
+import me.rhunk.snapenhance.common.config.MOD_DETECTION_VERSION_CHECK
 import me.rhunk.snapenhance.common.data.FriendStreaks
 import me.rhunk.snapenhance.common.data.MessagingFriendInfo
 import me.rhunk.snapenhance.common.data.MessagingGroupInfo
@@ -196,7 +197,6 @@ class SnapEnhance {
                 it.isNotEmpty()
             }?.toString(Charsets.UTF_8)?.also {
                 appContext.native.signatureCache = it
-                appContext.log.verbose("old signature cache $it")
             }
 
         val lateInit = appContext.native.initOnce {
@@ -217,35 +217,7 @@ class SnapEnhance {
             }
         }
 
-        appContext.config.experimental.nativeHooks.customSharedLibrary.get().takeIf { it.isNotEmpty() }?.let {
-            runCatching {
-                appContext.native.loadSharedLibrary(
-                    appContext.fileHandlerManager.getFileHandle(FileHandleScope.USER_IMPORT.key, it).toWrapper().readBytes()
-                )
-                appContext.log.verbose("loaded custom shared library")
-            }.onFailure {
-                appContext.log.error("Failed to load custom shared library", it)
-            }
-        }
-
-        if (appContext.bridgeClient.getDebugProp("disable_sif", "false") != "true") {
-            runCatching {
-                appContext.native.loadSharedLibrary(
-                    appContext.fileHandlerManager.getFileHandle(FileHandleScope.INTERNAL.key, InternalFileHandleType.SIF.key)
-                        .toWrapper()
-                        .readBytes()
-                        .takeIf {
-                            it.isNotEmpty()
-                        } ?: throw IllegalStateException("buffer is empty")
-                )
-                appContext.log.verbose("loaded sif")
-            }.onFailure {
-                safeMode = true
-                appContext.log.error("Failed to load sif", it)
-            }
-        } else {
-            appContext.log.warn("sif is disabled")
-        }
+        SecurityFeatures(appContext).init()
 
         Runtime::class.java.findRestrictedMethod {
             it.name == "loadLibrary0" && it.parameterTypes.contentEquals(
@@ -253,11 +225,18 @@ class SnapEnhance {
                 else arrayOf(ClassLoader::class.java, String::class.java)
             )
         }!!.apply {
-            if (safeMode) {
+            if (appContext.isSafeMode) {
                 hook(HookStage.BEFORE) { param ->
                     if (param.arg<String>(1) != "scplugin") return@hook
                     param.setResult(null)
-                    appContext.log.warn("Can't load scplugin in safe mode")
+                    appContext.runOnUiThread {
+                        appContext.inAppOverlay.showStatusToast(
+                            Icons.Outlined.Cancel,
+                            "SnapEnhance is not compatible with this version of Snapchat and will result in a ban.\nUse Snapchat ${MOD_DETECTION_VERSION_CHECK.maxVersion?.first ?: "0.0.0"} or older to avoid detections.",
+                            durationMs = 7000,
+                            maxLines = 6
+                        )
+                    }
                     runCatching {
                         Thread.sleep(Long.MAX_VALUE)
                     }.onFailure {
@@ -271,7 +250,6 @@ class SnapEnhance {
             hook(HookStage.AFTER) { param ->
                 if (param.arg<String>(1) != "client") return@hook
                 unhook()
-                appContext.log.verbose("libclient lateInit")
                 lateInit()
             }.also { unhook = { it.unhook() } }
         }
@@ -324,22 +302,26 @@ class SnapEnhance {
             event.canceled = true
             val feedEntries = appContext.database.getFeedEntries(Int.MAX_VALUE)
 
-            val groups = feedEntries.filter { it.friendUserId == null }.map {
+            val groups = feedEntries.filter { it.conversationType == 1 }.map {
                 MessagingGroupInfo(
                     it.key!!,
-                    it.feedDisplayName!!,
+                    it.feedDisplayName ?: "",
                     it.participantsSize
                 )
             }
 
-            val friends = feedEntries.filter { it.friendUserId != null }.map {
+            val friends = feedEntries.filter { it.conversationType == 0 }.mapNotNull {
+                val friendUserId = it.friendUserId ?: it.participants?.firstOrNull { it != appContext.database.myUserId }
+                ?: return@mapNotNull null
+                val friend = appContext.database.getFriendInfo(friendUserId) ?: return@mapNotNull null
+
                 MessagingFriendInfo(
-                    it.friendUserId!!,
-                    appContext.database.getConversationLinkFromUserId(it.friendUserId!!)?.clientConversationId,
-                    it.friendDisplayName,
-                    it.friendDisplayUsername!!.split("|")[1],
-                    it.bitmojiAvatarId,
-                    it.bitmojiSelfieId,
+                    friendUserId,
+                    appContext.database.getConversationLinkFromUserId(friendUserId)?.clientConversationId,
+                    friend.displayName,
+                    friend.mutableUsername ?: friend.usernameForSorting!!,
+                    friend.bitmojiAvatarId,
+                    friend.bitmojiSelfieId,
                     streaks = null
                 )
             }
@@ -373,7 +355,7 @@ class SnapEnhance {
                 return appContext.database.getFeedEntryByConversationId(uuid)?.let {
                     MessagingGroupInfo(
                         it.key!!,
-                        it.feedDisplayName!!,
+                        it.feedDisplayName ?: "",
                         it.participantsSize
                     ).toSerialized()
                 }

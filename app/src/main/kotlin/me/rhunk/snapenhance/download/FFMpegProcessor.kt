@@ -115,7 +115,6 @@ class FFMpegProcessor(
         // load ffmpeg native sync to avoid native crash
         synchronized(this) { FFmpegKit.listSessions() }
         val globalArguments = ArgumentList().apply {
-            this += "-hwaccel ${if (ffmpegOptions.customVideoCodec.get().isNotEmpty()) "auto" else "mediacodec"}" //Use hwaccel If Available
             this += "-y"
             this += "-threads" to ffmpegOptions.threads.get().toString()
         }
@@ -218,8 +217,8 @@ class FFMpegProcessor(
                     AudioFormat.ENCODING_PCM_32BIT -> "s32le"
                     else -> throw IllegalArgumentException("Unsupported audio encoding")
                 }
-                globalArguments += "-ar" to args.audioStreamFormat!!.sampleRate.toString()
-                globalArguments += "-ac" to args.audioStreamFormat!!.channels.toString()
+                globalArguments += "-ar" to args.audioStreamFormat.sampleRate.toString()
+                globalArguments += "-ac" to args.audioStreamFormat.channels.toString()
             }
         }
         outputArguments += args.output.absolutePath

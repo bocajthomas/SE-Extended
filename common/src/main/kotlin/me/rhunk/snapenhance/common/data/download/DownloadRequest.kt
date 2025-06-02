@@ -16,7 +16,7 @@ data class InputMedia(
     val isOverlay: Boolean = false,
 )
 
-class DownloadRequest(
+data class DownloadRequest(
     val inputMedias: Array<InputMedia>,
     val dashOptions: DashOptions? = null,
     val audioStreamFormat: AudioStreamFormat? = null,

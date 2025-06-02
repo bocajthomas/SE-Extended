@@ -4,7 +4,6 @@ import me.rhunk.snapenhance.core.features.Feature
 import me.rhunk.snapenhance.core.util.hook.HookStage
 import me.rhunk.snapenhance.core.util.hook.hook
 import me.rhunk.snapenhance.core.util.hook.hookConstructor
-import me.rhunk.snapenhance.core.util.ktx.getObjectField
 import me.rhunk.snapenhance.core.util.ktx.setObjectField
 import me.rhunk.snapenhance.mapper.impl.PlusSubscriptionMapper
 
@@ -35,7 +34,6 @@ class SnapchatPlus: Feature("SnapchatPlus") {
             }
         }
 
-        // optional as ConfigurationOverride does this too
         if (context.config.experimental.hiddenSnapchatPlusFeatures.get()) {
             findClass("com.snap.plus.FeatureCatalog").methods.last {
                 !it.name.contains("init") &&
@@ -43,7 +41,7 @@ class SnapchatPlus: Feature("SnapchatPlus") {
                 it.parameterTypes[0].name != "java.lang.Boolean"
             }.hook(HookStage.BEFORE) { param ->
                 val instance = param.thisObject<Any>()
-                val firstArg = param.arg<Any>(0)
+                val firstArg = param.argNullable<Any>(0) ?: return@hook
 
                 instance::class.java.declaredFields.filter { it.type == firstArg::class.java }.forEach {
                     it.isAccessible = true

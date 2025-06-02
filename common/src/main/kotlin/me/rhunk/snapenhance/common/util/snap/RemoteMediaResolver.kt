@@ -1,7 +1,7 @@
 package me.rhunk.snapenhance.common.util.snap
 
 import me.rhunk.snapenhance.common.Constants
-import me.rhunk.snapenhance.common.logger.AbstractLogger
+import me.rhunk.snapenhance.common.util.ktx.await
 import okhttp3.Headers
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -41,21 +41,21 @@ object RemoteMediaResolver {
         .addHeader("User-Agent", Constants.USER_AGENT)
         .build()
 
-    /**
-     * Download bolt media with memory allocation
-     */
-    fun downloadBoltMedia(protoKey: ByteArray, decryptionCallback: (InputStream) -> InputStream = { it }): ByteArray? {
-        okHttpClient.newCall(newResolveRequest(protoKey)).execute().use { response ->
+    suspend inline fun downloadMedia(url: String, decryptionCallback: (InputStream) -> InputStream = { it }, result: (InputStream, Long) -> Unit) {
+        okHttpClient.newCall(Request.Builder().url(url).build()).await().use { response ->
             if (!response.isSuccessful) {
-                AbstractLogger.directDebug("Unexpected code $response")
-                return null
+                throw Throwable("invalid response ${response.code}")
             }
-            return decryptionCallback(response.body.byteStream()).readBytes()
+            result(decryptionCallback(response.body.byteStream()), response.body.contentLength())
         }
     }
-    
-    inline fun downloadBoltMedia(protoKey: ByteArray, decryptionCallback: (InputStream) -> InputStream = { it }, resultCallback: (stream: InputStream, length: Long) -> Unit) {
-        okHttpClient.newCall(newResolveRequest(protoKey)).execute().use { response ->
+
+    suspend inline fun downloadBoltMedia(
+        protoKey: ByteArray,
+        decryptionCallback: (InputStream) -> InputStream = { it },
+        resultCallback: (stream: InputStream, length: Long) -> Unit
+    ) {
+        okHttpClient.newCall(newResolveRequest(protoKey)).await().use { response ->
             if (!response.isSuccessful) {
                 throw Throwable("invalid response ${response.code}")
             }

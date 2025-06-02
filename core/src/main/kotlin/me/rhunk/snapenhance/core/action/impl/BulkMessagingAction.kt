@@ -45,6 +45,7 @@ import me.rhunk.snapenhance.common.ui.createComposeAlertDialog
 import me.rhunk.snapenhance.common.ui.rememberAsyncMutableState
 import me.rhunk.snapenhance.common.util.ktx.copyToClipboard
 import me.rhunk.snapenhance.common.util.snap.BitmojiSelfie
+import me.rhunk.snapenhance.common.util.snap.RemoteMediaResolver
 import me.rhunk.snapenhance.core.action.AbstractAction
 import me.rhunk.snapenhance.core.features.impl.experiments.AddFriendSourceSpoof
 import me.rhunk.snapenhance.core.features.impl.experiments.BetterLocation
@@ -258,7 +259,7 @@ class BulkMessagingAction : AbstractAction() {
                     onExpandedChange = { filterMenuExpanded = it },
                 ) {
                     ElevatedCard(
-                        modifier = Modifier.menuAnchor()
+                        modifier = Modifier.menuAnchor(MenuAnchorType.PrimaryNotEditable)
                     ) {
                         Text(text = filter.name, modifier = Modifier.padding(5.dp))
                     }
@@ -285,7 +286,7 @@ class BulkMessagingAction : AbstractAction() {
                     onExpandedChange = { sortMenuExpanded = it },
                 ) {
                     ElevatedCard(
-                        modifier = Modifier.menuAnchor()
+                        modifier = Modifier.menuAnchor(MenuAnchorType.PrimaryNotEditable)
                     ) {
                         Text(text = "Sort by", modifier = Modifier.padding(5.dp))
                     }
@@ -405,13 +406,13 @@ class BulkMessagingAction : AbstractAction() {
                                 if (bitmojiBitmap != null || friendInfo.bitmojiAvatarId == null || friendInfo.bitmojiSelfieId == null) return@withContext
 
                                 val bitmojiUrl = BitmojiSelfie.getBitmojiSelfie(friendInfo.bitmojiSelfieId, friendInfo.bitmojiAvatarId, BitmojiSelfie.BitmojiSelfieType.NEW_THREE_D) ?: return@withContext
+
                                 runCatching {
-                                    URL(bitmojiUrl).openStream().use { input ->
-                                        bitmojiCache[friendInfo.bitmojiAvatarId ?: return@withContext] = BitmapFactory.decodeStream(input)
+                                    RemoteMediaResolver.downloadMedia(bitmojiUrl) { inputStream, length ->
+                                        bitmojiCache[friendInfo.bitmojiAvatarId ?: return@withContext] = BitmapFactory.decodeStream(inputStream).also {
+                                            bitmojiBitmap = it
+                                        }
                                     }
-                                    bitmojiBitmap = bitmojiCache[friendInfo.bitmojiAvatarId ?: return@withContext]
-                                }.onFailure {
-                                    context.log.error("Failed to load bitmoji", it)
                                 }
                             }
                         }

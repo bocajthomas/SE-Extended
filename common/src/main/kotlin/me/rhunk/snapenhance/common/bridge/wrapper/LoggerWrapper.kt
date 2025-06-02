@@ -399,14 +399,6 @@ class LoggerWrapper(
     }
 
     fun getConversationInfo(conversationId: String): ConversationInfo? {
-        val participantSize = database.rawQuery("SELECT COUNT(DISTINCT user_id) FROM messages WHERE conversation_id = ?", arrayOf(conversationId)).use {
-            if (!it.moveToFirst()) return null
-            it.getInt(0)
-        }
-        val groupTitle = if (participantSize > 2) database.rawQuery("SELECT group_title FROM messages WHERE conversation_id = ? AND group_title IS NOT NULL LIMIT 1", arrayOf(conversationId)).use {
-            if (!it.moveToFirst()) return@use null
-            it.getStringOrNull("group_title")
-        } else null
         val usernames = database.rawQuery("SELECT DISTINCT username FROM messages WHERE conversation_id = ?", arrayOf(conversationId)).use {
             val usernames = mutableListOf<String>()
             while (it.moveToNext()) {
@@ -415,7 +407,14 @@ class LoggerWrapper(
             usernames
         }
 
-        return ConversationInfo(conversationId, participantSize, groupTitle, usernames)
+        if (usernames.size > 2) { usernames.remove("myai") }
+
+        val groupTitle = if (usernames.size > 2) database.rawQuery("SELECT group_title FROM messages WHERE conversation_id = ? AND group_title IS NOT NULL LIMIT 1", arrayOf(conversationId)).use {
+            if (!it.moveToFirst()) return@use null
+            it.getStringOrNull("group_title")
+        } else null
+
+        return ConversationInfo(conversationId, usernames.size, groupTitle, usernames)
     }
 
     override fun getChatEdits(conversationId: String, messageId: Long): List<LoggedChatEdit> {

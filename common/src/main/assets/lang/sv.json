@@ -220,8 +220,7 @@
         "notices": {
             "internal_behavior": "⚠ Detta kan förstöra Snapchats interna beteenden",
             "ban_risk": "⚠ Denna funktion kan leda till avstängning",
-            "unstable": "⚠ Ostabilt",
-            "require_native_hooks": "⚠ Denna funktionen behöver experimentella Native Hooks att fungera korrekt"
+            "unstable": "⚠ Ostabilt"
         },
         "properties": {
             "downloader": {
@@ -623,10 +622,6 @@
                     },
                     "spoof": {
                         "properties": {
-                            "android_id": {
-                                "name": "Android ID",
-                                "description": "Förfalskar ditt Android-ID till det angivna värdet"
-                            },
                             "remove_vpn_transport_flag": {
                                 "name": "Ta bort VPN-transportflagga",
                                 "description": "Förhindrar att Snapchat upptäcker VPN"
@@ -638,14 +633,6 @@
                             "play_store_installer_package_name": {
                                 "name": "Paketnamn för Play Butik Installer",
                                 "description": "Åsidosätter installationspaketets namn till com.android.vending"
-                            },
-                            "fingerprint": {
-                                "description": "Förfalskar din enhets fingeravtryck",
-                                "name": "Enhetens fingeravtryck"
-                            },
-                            "randomize_persistent_device_token": {
-                                "description": "Genererar en slumpmässig enhetstoken efter varje inloggning",
-                                "name": "Randomisera beständig enhetstoken"
                             }
                         },
                         "description": "Förfalska diverse information om dig",

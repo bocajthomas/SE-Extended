@@ -2,8 +2,10 @@ package me.rhunk.snapenhance.core.features.impl
 
 import me.rhunk.snapenhance.core.features.Feature
 import me.rhunk.snapenhance.core.util.hook.HookStage
-import me.rhunk.snapenhance.core.util.hook.hook
+import me.rhunk.snapenhance.core.util.hook.hookConstructor
+import me.rhunk.snapenhance.core.wrapper.impl.media.opera.ParamMap
 import me.rhunk.snapenhance.mapper.impl.OperaViewerParamsMapper
+import java.util.concurrent.ConcurrentHashMap
 
 class OperaViewerParamsOverride : Feature("OperaViewerParamsOverride") {
     var currentPlaybackRate = 1.0F
@@ -37,7 +39,7 @@ class OperaViewerParamsOverride : Feature("OperaViewerParamsOverride") {
             overrideParam("auto_advance_max_loop_number", { true }, { _, _ -> Int.MAX_VALUE })
             overrideParam("media_playback_mode", { true }, { _, value ->
                 val playbackMode = value ?: return@overrideParam null
-                playbackMode::class.java.enumConstants.firstOrNull {
+                playbackMode::class.java.enumConstants?.firstOrNull {
                     it.toString() == "LOOPING"
                 } ?: return@overrideParam value
             })
@@ -69,12 +71,16 @@ class OperaViewerParamsOverride : Feature("OperaViewerParamsOverride") {
                     return value
                 }
 
-                classReference.get()?.hook(getMethod.get()!!, HookStage.AFTER) { param ->
-                    param.setResult(overrideParamResult(param.arg(0), param.getResult()))
-                }
+                classReference.get()?.hookConstructor(HookStage.AFTER) { param ->
+                    ParamMap(param.thisObject()).paramMapField.set(param.thisObject(), object: ConcurrentHashMap<Any, Any>() {
+                        override fun put(key: Any, value: Any): Any? {
+                            return super.put(key, overrideParamResult(key, value) ?: return value)
+                        }
 
-                classReference.get()?.hook(getOrDefaultMethod.get()!!, HookStage.AFTER) { param ->
-                    param.setResult(overrideParamResult(param.arg(0), param.getResult()))
+                        override fun get(key: Any): Any? {
+                            return overrideParamResult(key, super.get(key))
+                        }
+                    })
                 }
             }
         }

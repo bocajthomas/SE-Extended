@@ -318,7 +318,7 @@ class FriendTracker : Feature("Friend Tracker") {
                 // allow events when a notification is received
                 hookConstructor(HookStage.AFTER) { param ->
                     methods.first { it.name == "appStateChanged" }.let { method ->
-                        method.invoke(param.thisObject(), method.parameterTypes[0].enumConstants.first { it.toString() == "ACTIVE" })
+                        method.invoke(param.thisObject(), method.parameterTypes[0].enumConstants!!.first { it.toString() == "ACTIVE" })
                     }
                 }
             }

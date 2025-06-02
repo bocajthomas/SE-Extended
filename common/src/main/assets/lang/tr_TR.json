@@ -279,8 +279,7 @@
         "notices": {
             "unstable": "⚠ Stabil Değil",
             "ban_risk": "⚠ Bu özellik banlanmanıza neden olabilir",
-            "internal_behavior": "⚠ Bu Snapchat'in dahili davranışını bozabilir",
-            "require_native_hooks": "⚠ Bu özelliğin düzgün çalışması için deneysel enjekte gerekir"
+            "internal_behavior": "⚠ Bu Snapchat'in dahili davranışını bozabilir"
         },
         "properties": {
             "downloader": {
@@ -915,21 +914,9 @@
                         "name": "Taklit",
                         "description": "Hakkınızdaki çeşitli bilgileri taklit eder",
                         "properties": {
-                            "randomize_persistent_device_token": {
-                                "description": "Her oturum açma işleminden sonra rastgele bir cihaz belirteci oluşturur",
-                                "name": "Kalıcı Cihaz Belirtecini Rastgele Ayarlama"
-                            },
                             "remove_mock_location_flag": {
                                 "name": "Sahte Konum İşaretini Kaldır",
                                 "description": "Snapchat'in Mock konumunu algılamasını engeller"
-                            },
-                            "android_id": {
-                                "name": "Android Kimliği",
-                                "description": "Android kimliğinizi belirtilen değerle değiştirir"
-                            },
-                            "fingerprint": {
-                                "description": "Cihazınızın Parmak İzini Taklit Eder",
-                                "name": "Cihaz Parmak İzi"
                             },
                             "remove_vpn_transport_flag": {
                                 "description": "Snapchat'in VPN'leri algılamasını engeller",

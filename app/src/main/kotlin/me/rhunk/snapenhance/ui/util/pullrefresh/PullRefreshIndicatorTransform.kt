@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+@file:Suppress("DEPRECATION")
+
 package me.rhunk.snapenhance.ui.util.pullrefresh
 
 import androidx.compose.animation.core.LinearOutSlowInEasing

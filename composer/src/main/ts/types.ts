@@ -3,6 +3,7 @@ export interface Config {
     readonly bypassCameraRollLimit: boolean
     readonly showFirstCreatedUsername: boolean
     readonly composerLogs: boolean
+    readonly customSelfDestructSnapDelay: boolean
 }
 
 export interface FriendInfo {

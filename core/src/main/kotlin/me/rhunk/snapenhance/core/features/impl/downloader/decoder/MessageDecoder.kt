@@ -31,7 +31,7 @@ data class DecodedAttachment(
     }
 
     @OptIn(ExperimentalEncodingApi::class)
-    inline fun openStream(callback: (mediaStream: InputStream?, length: Long) -> Unit) {
+    suspend inline fun openStream(callback: (mediaStream: InputStream?, length: Long) -> Unit) {
         boltKey?.let { mediaUrlKey ->
             RemoteMediaResolver.downloadBoltMedia(Base64.UrlSafe.decode(mediaUrlKey), decryptionCallback = {
                 attachmentInfo?.encryption?.decryptInputStream(it) ?: it
@@ -39,11 +39,10 @@ data class DecodedAttachment(
                 callback(inputStream, length)
             })
         } ?: directUrl?.let { rawMediaUrl ->
-            val connection = URL(rawMediaUrl).openConnection()
-            connection.getInputStream().let {
+            RemoteMediaResolver.downloadMedia(rawMediaUrl, decryptionCallback = {
                 attachmentInfo?.encryption?.decryptInputStream(it) ?: it
-            }.use {
-                callback(it, connection.contentLengthLong)
+            }) { inputStream, length ->
+                callback(inputStream, length)
             }
         } ?: callback(null, 0)
     }

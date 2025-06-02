@@ -5,12 +5,12 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewGroup.LayoutParams
 import me.rhunk.snapenhance.common.util.snap.SnapWidgetBroadcastReceiverHelper
 import me.rhunk.snapenhance.core.ModContext
 import me.rhunk.snapenhance.core.event.events.impl.*
 import me.rhunk.snapenhance.core.util.hook.HookStage
 import me.rhunk.snapenhance.core.util.hook.Hooker
+import me.rhunk.snapenhance.core.util.hook.findRestrictedMethod
 import me.rhunk.snapenhance.core.util.hook.hook
 import me.rhunk.snapenhance.core.util.hook.hookConstructor
 import me.rhunk.snapenhance.core.util.ktx.getObjectField
@@ -109,12 +109,9 @@ class EventDispatcher(
             }
         }
 
-        ViewGroup::class.java.getMethod(
-            "addView",
-            View::class.java,
-            Int::class.javaPrimitiveType,
-            LayoutParams::class.java
-        ).hook(HookStage.BEFORE) { param ->
+        ViewGroup::class.java.findRestrictedMethod {
+            it.name == "addViewInner"
+        }!!.hook(HookStage.BEFORE) { param ->
             context.event.post(
                 AddViewEvent(
                     parent = param.thisObject(),

@@ -9,6 +9,7 @@ import me.rhunk.snapenhance.common.data.TrackerRuleActionParams
 import me.rhunk.snapenhance.common.data.TrackerRuleEvent
 import me.rhunk.snapenhance.common.data.TrackerScopeType
 import me.rhunk.snapenhance.common.util.ktx.getInteger
+import me.rhunk.snapenhance.common.util.ktx.getLongOrNull
 import me.rhunk.snapenhance.common.util.ktx.getStringOrNull
 import kotlin.coroutines.suspendCoroutine
 
@@ -194,4 +195,25 @@ fun AppDatabase.getRuleTrackerScopes(ruleId: Int, limit: Int = Int.MAX_VALUE): M
         }
     }
     return scopes
+}
+
+fun AppDatabase.updateFriendScore(userId: String, score: Long): Long {
+    return runBlocking {
+        suspendCoroutine { continuation ->
+            executeAsync {
+                val currentScore = database.rawQuery("SELECT score FROM friend_scores WHERE userId = ?", arrayOf(userId)).use { cursor ->
+                    if (!cursor.moveToFirst()) return@use null
+                    cursor.getLongOrNull("score")
+                }
+
+                if (currentScore != null) {
+                    database.execSQL("UPDATE friend_scores SET score = ? WHERE userId = ?", arrayOf(score, userId))
+                } else {
+                    database.execSQL("INSERT INTO friend_scores (userId, score) VALUES (?, ?)", arrayOf(userId, score))
+                }
+
+                continuation.resumeWith(Result.success(currentScore ?: -1))
+            }
+        }
+    }
 }

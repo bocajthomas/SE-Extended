@@ -50,13 +50,38 @@ class UserInterface(
     }
 
     fun init() {
-        Resources::class.java.hook("getValue", HookStage.AFTER) { param ->
-            val typedValue = param.arg<TypedValue>(1)
-            val path = typedValue.string ?: return@hook
-            if (!path.startsWith("res/") || !path.endsWith(".ttf")) return@hook
+        ResourcesCompat::class.java.hook("getFont", HookStage.BEFORE) { param ->
+            val id = param.arg<Int>(1)
+            if (id == avenirNextFontId) {
+                param.setResult(avenirNextTypeface)
+            } else if (fontMap.containsKey(id)) {
+                param.setResult(fontMap[id])
+            }
+        }
 
-            val typeface = context.resources.getFont(typedValue.resourceId)
-            fontMap.getOrPut(typeface.weight) { typedValue.resourceId }
+        lateinit var unhook: () -> Unit
+
+        unhook = Resources::class.java.hook("getValue", HookStage.AFTER) { param ->
+            val typedValue = param.argNullable<TypedValue>(1)?.takeIf {
+                it.resourceId != 0 &&
+                it.type == TypedValue.TYPE_STRING && it.string?.endsWith(".ttf") == true
+            } ?: return@hook
+
+            var offset = typedValue.resourceId.shr(8).shl(8)
+
+            while (true) {
+                var font = try {
+                    context.resources.getFont(++offset)
+                } catch (_: Throwable) {
+                    break
+                }
+
+                fontMap[font.weight] = font
+            }
+
+            unhook()
+        }.let {
+            { it.forEach { it.unhook() } }
         }
     }
 }

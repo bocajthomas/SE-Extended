@@ -3,7 +3,7 @@ package me.rhunk.snapenhance.core.messaging
 import android.util.Base64InputStream
 import android.util.Base64OutputStream
 import com.google.gson.stream.JsonWriter
-import de.robv.android.xposed.XposedHelpers
+import kotlinx.coroutines.runBlocking
 import me.rhunk.snapenhance.common.BuildConfig
 import me.rhunk.snapenhance.common.data.ContentType
 import me.rhunk.snapenhance.common.database.impl.FriendFeedEntry
@@ -11,6 +11,7 @@ import me.rhunk.snapenhance.common.database.impl.FriendInfo
 import me.rhunk.snapenhance.common.util.snap.MediaDownloaderHelper
 import me.rhunk.snapenhance.core.ModContext
 import me.rhunk.snapenhance.core.features.impl.downloader.decoder.MessageDecoder
+import me.rhunk.snapenhance.core.util.hook.findRestrictedConstructor
 import me.rhunk.snapenhance.core.wrapper.impl.Message
 import me.rhunk.snapenhance.core.wrapper.impl.SnapUUID
 import java.io.BufferedInputStream
@@ -46,6 +47,24 @@ class ConversationExporter(
     private val jsonDataWriter by lazy { JsonWriter(conversationJsonDataFile.writer()) }
     private val outputFileStream by lazy { outputFile.outputStream() }
     private val participants = mutableMapOf<String, Int>()
+
+    private val newBase64OutputStream by lazy {
+        Base64OutputStream::class.java.findRestrictedConstructor {
+            it.parameterTypes.size == 3 &&
+            it.parameterTypes[0] == OutputStream::class.java &&
+            it.parameterTypes[1] == Int::class.javaPrimitiveType &&
+            it.parameterTypes[2] == Boolean::class.javaPrimitiveType
+        } ?: throw Throwable("Failed to find Base64OutputStream constructor")
+    }
+
+    private val newBase64InputStream by lazy {
+        Base64InputStream::class.java.findRestrictedConstructor {
+            it.parameterTypes.size == 3 &&
+            it.parameterTypes[0] == InputStream::class.java &&
+            it.parameterTypes[1] == Int::class.javaPrimitiveType &&
+            it.parameterTypes[2] == Boolean::class.javaPrimitiveType
+        } ?: throw Throwable("Failed to find Base64InputStream constructor")
+    }
 
     fun init() {
         when (exportParams.exportFormat) {
@@ -114,34 +133,35 @@ class ConversationExporter(
                 for (i in 0..5) {
                     printLog("downloading ${attachment.boltKey ?: attachment.directUrl}... (attempt ${i + 1}/5)")
                     runCatching {
-                        attachment.openStream { downloadedInputStream, _ ->
-                            MediaDownloaderHelper.getSplitElements(downloadedInputStream!!) { type, splitInputStream ->
-                                val mediaKey = "${type}_${attachment.mediaUniqueId}"
-                                val bufferedInputStream = BufferedInputStream(splitInputStream)
-                                val fileType = MediaDownloaderHelper.getFileType(bufferedInputStream)
-                                val mediaFile = cacheFolder.resolve("$mediaKey.${fileType.fileExtension}")
+                        runBlocking {
+                            attachment.openStream { downloadedInputStream, _ ->
+                                MediaDownloaderHelper.getSplitElements(downloadedInputStream!!) { type, splitInputStream ->
+                                    val mediaKey = "${type}_${attachment.mediaUniqueId}"
+                                    val bufferedInputStream = BufferedInputStream(splitInputStream)
+                                    val fileType = MediaDownloaderHelper.getFileType(bufferedInputStream)
+                                    val mediaFile = cacheFolder.resolve("$mediaKey.${fileType.fileExtension}")
 
-                                mediaFile.outputStream().use { fos ->
-                                    bufferedInputStream.copyTo(fos)
-                                }
+                                    mediaFile.outputStream().use { fos ->
+                                        bufferedInputStream.copyTo(fos)
+                                    }
 
-                                writeThreadExecutor.execute {
-                                    outputFileStream.write("<div class=\"media-$mediaKey\"><!-- ".toByteArray())
-                                    mediaFile.inputStream().use {
-                                        val deflateInputStream = DeflaterInputStream(it, Deflater(Deflater.BEST_SPEED, true))
-                                        (XposedHelpers.newInstance(
-                                            Base64InputStream::class.java,
-                                            deflateInputStream,
-                                            android.util.Base64.DEFAULT or android.util.Base64.NO_WRAP,
-                                            true
-                                        ) as InputStream).copyTo(outputFileStream)
-                                        outputFileStream.write(" --></div>\n".toByteArray())
-                                        outputFileStream.flush()
+                                    writeThreadExecutor.execute {
+                                        outputFileStream.write("<div class=\"media-$mediaKey\"><!-- ".toByteArray())
+                                        mediaFile.inputStream().use {
+                                            val deflateInputStream = DeflaterInputStream(it, Deflater(Deflater.BEST_SPEED, true))
+                                            (newBase64InputStream.newInstance(
+                                                deflateInputStream,
+                                                android.util.Base64.DEFAULT or android.util.Base64.NO_WRAP,
+                                                true
+                                            ) as InputStream).copyTo(outputFileStream)
+                                            outputFileStream.write(" --></div>\n".toByteArray())
+                                            outputFileStream.flush()
+                                        }
                                     }
                                 }
-                            }
-                            writeThreadExecutor.execute {
-                                downloadedMediaIdCache.add(attachment.mediaUniqueId!!)
+                                writeThreadExecutor.execute {
+                                    downloadedMediaIdCache.add(attachment.mediaUniqueId!!)
+                                }
                             }
                         }
                         return@decode
@@ -252,8 +272,7 @@ class ConversationExporter(
             //write the json file
             outputFileStream.write("<script type=\"application/json\" class=\"exported_content\">".toByteArray())
 
-            (XposedHelpers.newInstance(
-                Base64OutputStream::class.java,
+            (newBase64OutputStream.newInstance(
                 outputFileStream,
                 android.util.Base64.DEFAULT or android.util.Base64.NO_WRAP,
                 true

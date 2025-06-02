@@ -136,12 +136,6 @@ class ConfigurationOverride : Feature("Configuration Override") {
                         propertyOverride.isAppExperiment.takeIf { propertyOverride.filter(keyInfo) }?.let { param.setResult(it) }
                     }
                 }
-
-                if (context.config.experimental.hiddenSnapchatPlusFeatures.get()) {
-                    customBooleanPropertyRules.add { key ->
-                        key.category == "PLUS" && key.defaultValue is Boolean && key.name?.endsWith("_GATE") == true
-                    }
-                }
             }.onFailure {
                 context.log.error("Failed to hook appExperimentProvider", it)
             }

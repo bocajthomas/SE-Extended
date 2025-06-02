@@ -104,6 +104,8 @@ class ComposerHooks: Feature("ComposerHooks") {
     override fun init() {
         if (config.globalState != true) return
 
+        val nativeBridgeClass = runCatching { findClass("com.snapchat.client.valdi.NativeBridge") }.getOrNull() ?: findClass("com.snapchat.client.composer.NativeBridge")
+
         val importedFunctions = mutableMapOf<String, Any?>()
 
         fun composerFunction(name: String, block: ComposerMarshaller.() -> Unit) {
@@ -118,7 +120,8 @@ class ComposerHooks: Feature("ComposerHooks") {
                 "operaDownloadButton" to context.config.downloader.operaDownloadButton.get(),
                 "bypassCameraRollLimit" to config.bypassCameraRollLimit.get(),
                 "showFirstCreatedUsername" to config.showFirstCreatedUsername.get(),
-                "composerLogs" to config.composerLogs.get()
+                "composerLogs" to config.composerLogs.get(),
+                "customSelfDestructSnapDelay" to config.customSelfDestructSnapDelay.get(),
             ))
         }
 
@@ -172,7 +175,8 @@ class ComposerHooks: Feature("ComposerHooks") {
             context.native.setComposerLoader("""
                 const i = setInterval(() => {
                     try {
-                        require('composer_core/src/DeviceBridge').getDisplayWidth();
+                        const _runtimeName = "${if (nativeBridgeClass.name == "com.snapchat.client.valdi.NativeBridge") "valdi" else "composer"}";
+                        require(_runtimeName + '_core/src/DeviceBridge').getDisplayWidth();
                         clearInterval(i);
                         (() => { const _getImportsFunctionName = "$getImportsFunctionName"; $loaderScript })();
                     } catch (e) {}
@@ -195,16 +199,14 @@ class ComposerHooks: Feature("ComposerHooks") {
             }
         }
 
-        findClass("com.snapchat.client.composer.NativeBridge").apply {
-            hook("registerNativeModuleFactory", HookStage.BEFORE) { param ->
-                val moduleFactory = param.argNullable<Any>(1) ?: return@hook
-                if (moduleFactory.javaClass.getMethod("getModulePath").invoke(moduleFactory)?.toString()?.contains("DeviceBridge") != true) return@hook
-                Hooker.ephemeralHookObjectMethod(moduleFactory.javaClass, moduleFactory, "loadModule", HookStage.AFTER) { methodParam ->
-                    val result = methodParam.getResult() as? MutableMap<String, Any?> ?: return@ephemeralHookObjectMethod
-                    result[getImportsFunctionName] = newComposerFunction {
-                        pushUntyped(importedFunctions)
-                        true
-                    }
+        nativeBridgeClass.hook("registerNativeModuleFactory", HookStage.BEFORE) { param ->
+            val moduleFactory = param.argNullable<Any>(1) ?: return@hook
+            if (moduleFactory.javaClass.getMethod("getModulePath").invoke(moduleFactory)?.toString()?.contains("DeviceBridge") != true) return@hook
+            Hooker.ephemeralHookObjectMethod(moduleFactory.javaClass, moduleFactory, "loadModule", HookStage.AFTER) { methodParam ->
+                val result = methodParam.getResult() as? MutableMap<String, Any?> ?: return@ephemeralHookObjectMethod
+                result[getImportsFunctionName] = newComposerFunction {
+                    pushUntyped(importedFunctions)
+                    true
                 }
             }
         }

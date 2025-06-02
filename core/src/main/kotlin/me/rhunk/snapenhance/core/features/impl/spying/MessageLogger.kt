@@ -9,26 +9,28 @@ import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import me.rhunk.snapenhance.bridge.logger.BridgeLoggedMessage
 import me.rhunk.snapenhance.bridge.logger.LoggedChatEdit
+import me.rhunk.snapenhance.common.config.impl.MessagingTweaks
 import me.rhunk.snapenhance.common.data.ContentType
 import me.rhunk.snapenhance.common.data.MessageState
+import me.rhunk.snapenhance.common.data.MessagingRuleType
 import me.rhunk.snapenhance.common.data.QuotedMessageContentStatus
+import me.rhunk.snapenhance.common.data.RuleState
 import me.rhunk.snapenhance.common.util.ktx.longHashCode
 import me.rhunk.snapenhance.common.util.lazyBridge
 import me.rhunk.snapenhance.common.util.protobuf.ProtoReader
 import me.rhunk.snapenhance.core.event.events.impl.BindViewEvent
 import me.rhunk.snapenhance.core.event.events.impl.BuildMessageEvent
-import me.rhunk.snapenhance.core.features.Feature
+import me.rhunk.snapenhance.core.features.MessagingRuleFeature
 import me.rhunk.snapenhance.core.ui.addForegroundDrawable
 import me.rhunk.snapenhance.core.ui.removeForegroundDrawable
 import me.rhunk.snapenhance.core.util.EvictingMap
 import java.util.concurrent.Executors
 import kotlin.system.measureTimeMillis
 
-class MessageLogger : Feature("MessageLogger") {
+class MessageLogger : MessagingRuleFeature("MessageLogger", MessagingRuleType.EXCLUDE_MESSAGE_LOGGER) {
     companion object {
         const val PREFETCH_MESSAGE_COUNT = 20
         const val PREFETCH_FEED_COUNT = 20
-        const val DELETED_MESSAGE_COLOR = 0x6Eb71c1c
     }
 
     private val loggerInterface by lazyBridge { context.bridgeClient.getMessageLogger() }
@@ -128,6 +130,11 @@ class MessageLogger : Feature("MessageLogger") {
                 }
 
                 threadPool.execute {
+                    // ignore excluded conversations
+                    if (getState(conversationId)) {
+                        return@execute
+                    }
+
                     try {
                         loggerInterface.addMessage(
                             BridgeLoggedMessage().also {
@@ -144,7 +151,7 @@ class MessageLogger : Feature("MessageLogger") {
                                 it.messageData = context.gson.toJson(messageInstance).toByteArray(Charsets.UTF_8)
                             }
                         )
-                    } catch (ignored: DeadObjectException) {}
+                    } catch (_: DeadObjectException) {}
                 }
 
                 return@subscribe
@@ -186,11 +193,13 @@ class MessageLogger : Feature("MessageLogger") {
                 event.view.addForegroundDrawable("deletedMessage", ShapeDrawable(object: Shape() {
                     override fun draw(canvas: Canvas, paint: Paint) {
                         canvas.drawRect(0f, 0f, canvas.width.toFloat(), canvas.height.toFloat(), Paint().apply {
-                            color = DELETED_MESSAGE_COLOR
+                            color = context.config.messaging.messageLogger.deletedMessageColor.getNullable() ?: MessagingTweaks.DELETED_MESSAGE_COLOR
                         })
                     }
                 }))
             }
         }
     }
+
+    override fun getRuleState() = RuleState.WHITELIST
 }

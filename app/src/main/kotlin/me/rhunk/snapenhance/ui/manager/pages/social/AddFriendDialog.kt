@@ -45,6 +45,7 @@ class AddFriendDialog(
         id: String,
         bitmoji: String? = null,
         name: String,
+        participantsCount: Int? = null,
         getCurrentState: () -> Boolean,
         onState: (Boolean) -> Unit = {},
     ) {
@@ -74,12 +75,24 @@ class AddFriendDialog(
                 size = 32,
             )
 
-            Text(
-                text = name,
-                fontSize = 15.sp,
+            Column(
                 modifier = Modifier
                     .weight(1f)
-            )
+            ) {
+                Text(
+                    text = name,
+                    fontSize = 15.sp,
+                )
+
+                participantsCount?.let {
+                    Text(
+                        text = translation.format("participants_text", "count" to it.toString()),
+                        fontSize = 12.sp,
+                        lineHeight = 12.sp,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
+                    )
+                }
+            }
 
             Checkbox(
                 checked = currentState,
@@ -249,6 +262,7 @@ class AddFriendDialog(
                         ListCardEntry(
                             id = group.conversationId,
                             name = group.name,
+                            participantsCount = group.participantsCount,
                             getCurrentState = { actionHandler.getGroupState(group) }
                         ) { state ->
                             actionHandler.onGroupState(group, state)

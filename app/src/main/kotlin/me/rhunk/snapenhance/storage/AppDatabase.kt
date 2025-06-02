@@ -78,6 +78,10 @@ class AppDatabase(
                 "params TEXT",
                 "actions TEXT"
             ),
+            "friend_scores" to listOf(
+                "userId CHAR(36) PRIMARY KEY",
+                "score BIGINT"
+            ),
             "quick_tiles" to listOf(
                 "key VARCHAR PRIMARY KEY",
                 "position INTEGER",

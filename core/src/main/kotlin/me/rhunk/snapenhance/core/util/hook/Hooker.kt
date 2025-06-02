@@ -4,6 +4,7 @@ import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedBridge
 import me.rhunk.snapenhance.common.logger.AbstractLogger
 import org.lsposed.hiddenapibypass.HiddenApiBypass
+import java.lang.reflect.Constructor
 import java.lang.reflect.Member
 import java.lang.reflect.Method
 import java.lang.reflect.Modifier
@@ -189,4 +190,10 @@ fun Class<*>.findRestrictedMethod(
     predicate: (Method) -> Boolean
 ): Method? {
     return declaredMethods.find(predicate) ?: HiddenApiBypass.getDeclaredMethods(this).filterIsInstance<Method>().find(predicate)
+}
+
+fun Class<*>.findRestrictedConstructor(
+    predicate: (Constructor<*>) -> Boolean
+): Constructor<*>? {
+    return declaredConstructors.find(predicate) ?: HiddenApiBypass.getDeclaredMethods(this).filterIsInstance<Constructor<*>>().find(predicate)
 }

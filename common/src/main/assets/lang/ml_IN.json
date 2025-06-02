@@ -379,21 +379,9 @@
                 "properties": {
                     "spoof": {
                         "properties": {
-                            "randomize_persistent_device_token": {
-                                "description": "ഓരോ ലോഗിൻ ശേഷവും ഒരു റാൻഡം ഉപകരണ ടോക്കൺ സൃഷ്ടിക്കുന്നു",
-                                "name": "പെർസിസ്റ്റന്റ് ഉപകരണ ടോക്കൺ ക്രമരഹിതമാക്കുക"
-                            },
                             "remove_mock_location_flag": {
                                 "name": "മോക്ക് ലൊക്കേഷൻ ഫ്ലാഗ് നീക്കം ചെയ്യുക",
                                 "description": "മോക്ക് ലൊക്കേഷൻ കണ്ടെത്തുന്നതിൽ നിന്ന് Snapchat തടയുന്നു"
-                            },
-                            "android_id": {
-                                "name": "ആൻഡ്രോയിഡ് ഐഡി",
-                                "description": "നിർദ്ദിഷ്‌ട മൂല്യത്തിലേക്ക് നിങ്ങളുടെ Android ഐഡി കബളിപ്പിക്കുന്നു"
-                            },
-                            "fingerprint": {
-                                "description": "നിങ്ങളുടെ ഉപകരണ ഫിംഗർപ്രിന്റ് കബളിപ്പിക്കുന്നു",
-                                "name": "ഉപകരണ ഫിംഗർപ്രിന്റ്"
                             },
                             "remove_vpn_transport_flag": {
                                 "description": "VPN-കൾ കണ്ടെത്തുന്നതിൽ നിന്ന് Snapchat തടയുന്നു",
@@ -625,8 +613,7 @@
         "notices": {
             "internal_behavior": "⚠ ഇത് Snapchat ആന്തരിക സ്വഭാവത്തെ തകർത്തേക്കാം",
             "ban_risk": "⚠ ഈ സവിശേഷത വിലക്കുകൾക്ക് കാരണമായേക്കാം",
-            "unstable": "⚠ അസ്ഥിരമാണ്",
-            "require_native_hooks": "⚠ ഈ ഫീച്ചറിന് ശരിയായി പ്രവർത്തിക്കാൻ പരീക്ഷണാത്മക നേറ്റീവ് ഹുക്കുകൾ ആവശ്യമാണ്"
+            "unstable": "⚠ അസ്ഥിരമാണ്"
         },
         "options": {
             "friend_feed_menu_buttons": {

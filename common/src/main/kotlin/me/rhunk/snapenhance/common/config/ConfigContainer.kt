@@ -72,7 +72,7 @@ open class ConfigContainer(
         key: String,
         defaultValue: Int? = null,
         params: ConfigParamsBuilder = {}
-    ) = registerProperty(key, DataProcessors.INT_COLOR, PropertyValue(defaultValue), params)
+    ) = registerProperty(key, DataProcessors.INT_COLOR, PropertyValue(defaultValue, defaultValues = defaultValue?.let { listOf(it) }), params)
 
     fun toJson(exportSensitiveData: Boolean = true): JsonObject {
         val json = JsonObject()

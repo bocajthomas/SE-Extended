@@ -473,9 +473,12 @@ class AlertDialogs(
 
         ColorPickerDialog(
             initialColor = currentColor,
-            setProperty = {
+            setProperty = setProperty@{
                 currentColor = it
                 property.value.setAny(it?.toArgb())
+                if (it == null) {
+                    property.value.setAny(property.value.defaultValues?.firstOrNull() ?: return@setProperty)
+                }
             },
             dismiss = dismiss
         )

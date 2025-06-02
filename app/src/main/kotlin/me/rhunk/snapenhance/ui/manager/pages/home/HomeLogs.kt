@@ -156,8 +156,6 @@ class HomeLogs : Routes.Route() {
                             logReader?.getLogLine(index)
                         })
                     }
-                    var expand by remember { mutableStateOf(false) }
-
                     logLine?.let { line ->
                         Box(modifier = Modifier
                             .fillMaxWidth()
@@ -171,20 +169,18 @@ class HomeLogs : Routes.Route() {
                                                 )
                                             )
                                         }
-                                    },
-                                    onTap = {
-                                        expand = !expand
                                     }
                                 )
                             }) {
-                            Row(
+                            Column(
                                 modifier = Modifier
                                     .padding(4.dp)
                                     .fillMaxWidth()
                                     .defaultMinSize(minHeight = 30.dp),
-                                verticalAlignment = Alignment.CenterVertically
                             ) {
-                                if (!expand) {
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                ) {
                                     Icon(
                                         imageVector = when (line.logLevel) {
                                             LogLevel.DEBUG -> Icons.Rounded.BugReport
@@ -193,14 +189,15 @@ class HomeLogs : Routes.Route() {
                                             LogLevel.WARN -> Icons.Rounded.Warning
                                             else -> Icons.Rounded.Info
                                         },
+                                        modifier = Modifier.size(16.dp),
                                         contentDescription = null,
                                     )
 
                                     Text(
                                         text = LogChannel.fromChannel(line.tag)?.shortName ?: line.tag,
                                         modifier = Modifier.padding(start = 4.dp),
-                                        fontWeight = FontWeight.Light,
-                                        fontSize = 10.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 12.sp,
                                     )
 
                                     Text(
@@ -212,10 +209,9 @@ class HomeLogs : Routes.Route() {
 
                                 Text(
                                     text = line.message.trimIndent(),
-                                    fontSize = 10.sp,
-                                    maxLines = if (expand) Int.MAX_VALUE else 6,
-                                    overflow = if (expand) TextOverflow.Visible else TextOverflow.Ellipsis,
-                                    softWrap = !expand,
+                                    lineHeight = 10.sp,
+                                    fontSize = 9.sp,
+                                    maxLines = Int.MAX_VALUE,
                                 )
                             }
                         }

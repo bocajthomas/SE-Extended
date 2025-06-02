@@ -332,7 +332,7 @@ class EditRule : Routes.Route() {
                                     ExposedDropdownMenuBox(expanded = showDropdown.value, onExpandedChange = { showDropdown.value = it }) {
                                         ElevatedButton(
                                             onClick = { showDropdown.value = true },
-                                            modifier = Modifier.menuAnchor()
+                                            modifier = Modifier.menuAnchor(MenuAnchorType.PrimaryNotEditable)
                                         ) {
                                             Text(currentEventType, overflow = TextOverflow.Ellipsis, maxLines = 1)
                                         }
