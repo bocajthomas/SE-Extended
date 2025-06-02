@@ -225,7 +225,6 @@ Please consider [donating](https://ko-fi.com/seextended)
 ## 🤝 Contributing
 Contributions are welcome!<br/>
 Thanks to everyone involved
-
 **Pull Requests:**
 - [ΞTΞRNAL](https://github.com/particle-box)
   - feat(core/ui_tweaks): multiple hide ui components [#106](https://github.com/bocajthomas/SE-Extended/pull/106)
@@ -276,8 +275,8 @@ We do not collect any user information. However, Please be aware that third-part
 </details>
 
 ## 🙏 Credits
-SE Extended Uses Some Third-party libraries, These Include
-
+SE Extended Uses Some Third-party libraries, These Include 
+- [SnapEnhance](https://github.com/rhunk/SnapEnhance)
 - [libxposed](https://github.com/libxposed/api)
 - [ffmpeg-kit-full-gpl](https://github.com/arthenica/ffmpeg-kit)
 - [osmdroid](https://github.com/osmdroid/osmdroid)
