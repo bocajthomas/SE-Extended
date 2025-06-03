@@ -92,7 +92,9 @@
                 "config_import_success_toast": "کنفگ کامیابی کے ساتھ امپورٹ ہو گئی",
                 "config_import_failure_toast": "کنفگ {error} امپورٹ کرنے میں ناکام",
                 "config_export_failure_toast": "کنفگ {error} ایکسپورٹ کرنے میں ناکام",
-                "saved_config_snackbar": "کنفگ محفوظ ہو گئی"
+                "saved_config_snackbar": "کنفگ محفوظ ہو گئی",
+                "newer_required": "",
+                "older_required": ""
             },
             "social": {
                 "friends_tab": "فرینڈز",
@@ -111,7 +113,8 @@
                 "streaks_expiration_text": "{eta} میں ایکسپائر ہو جائے گا",
                 "streaks_expiration_text_expired": "ایکسپائرڈ",
                 "reminder_button": "سیٹ ریمائنڈر",
-                "delete_scope_confirm_dialog_title": "کیا آپ واقعی ایک {scope} کو ڈیلیٹ کرنا چاہتے ہیں؟"
+                "delete_scope_confirm_dialog_title": "کیا آپ واقعی ایک {scope} کو ڈیلیٹ کرنا چاہتے ہیں؟",
+                "notes_placeholder": ""
             },
             "logged_stories": {
                 "story_failed_to_load": "لوڈ کرنے میں ناکام",
@@ -172,7 +175,19 @@
                 "no_friends_found": "کوئی دوست نہیں ملا"
             },
             "manage_rule_feature": {
-                "disable_state_option": "معذور"
+                "disable_state_option": "معذور",
+                "dialog_clear_confirmation_text": "",
+                "whitelist_state_option": "",
+                "clear_list_button": "",
+                "whitelist_state_button": "",
+                "disable_state_subtext": "",
+                "blacklist_state_subtext": "",
+                "blacklist_state_option": "",
+                "whitelist_state_subtext": "",
+                "blacklist_state_button": ""
+            },
+            "theming": {
+                "no_themes_hint": ""
             }
         },
         "dialogs": {
@@ -307,6 +322,18 @@
         "logger_history": {
             "name": "لوگر ہسٹری",
             "description": "لاگ ان پیغامات کی تاریخ دیکھیں"
+        },
+        "security_features": {
+            "name": "",
+            "description": ""
+        },
+        "theming": {
+            "description": "",
+            "name": ""
+        },
+        "disclaimer_statement": {
+            "name": "",
+            "description": ""
         }
     },
     "features": {
@@ -402,6 +429,24 @@
                     "custom_path_format": {
                         "name": "کسٹم پاتھ فارمیٹ",
                         "description": "ڈاؤن لوڈ کردہ میڈیا کے لیے اپنی مرضی کے راستے کی شکل کی وضاحت کریں۔\n\nدستیاب متغیرات:\n - % username%\n - ٪ذریعہ٪\n - % ہیش%\n - ٪تاریخ وقت٪"
+                    },
+                    "auto_download_voice_notes": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "logging_options": {
+                        "name": "",
+                        "properties": {
+                            "logging": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "disappearing_rate": {
+                                "name": "",
+                                "description": ""
+                            }
+                        },
+                        "description": ""
                     }
                 }
             },
@@ -438,6 +483,10 @@
                             "home_tab": {
                                 "name": "ہوم ٹیب",
                                 "description": "Snapchat کھولتے وقت اسٹارٹ اپ ٹیب کو اوور رائیڈ کرتا ہے"
+                            },
+                            "simple_snapchat": {
+                                "description": "",
+                                "name": ""
                             }
                         }
                     },
@@ -504,6 +553,26 @@
                     "edit_text_override": {
                         "name": "متن اوور رائیڈ میں ترمیم کریں",
                         "description": "ٹیکسٹ فیلڈ کے رویے کو اوور رائیڈ کرتا ہے"
+                    },
+                    "auto_close_friend_feed_menu": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "custom_theme": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "hide_quick_add_suggestions": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "custom_friend_feed_label": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "icon_style": {
+                        "name": "",
+                        "description": ""
                     }
                 }
             },
@@ -722,6 +791,10 @@
                             "spoof_headphones": {
                                 "name": "سپوف ہیڈ فون",
                                 "description": "نقشے پر موسیقی سننے کی حیثیت کو دھوکہ دیتا ہے"
+                            },
+                            "show_battery_level": {
+                                "description": "",
+                                "name": ""
                             }
                         }
                     },
@@ -922,6 +995,10 @@
                             "custom_emoji_font": {
                                 "name": "حسب ضرورت ایموجی فونٹ",
                                 "description": "آپ کو حسب ضرورت ایموجی فونٹ استعمال کرنے کی اجازت دیتا ہے۔ صرف .ttf فونٹس کے ساتھ کام کرتا ہے"
+                            },
+                            "custom_shared_library": {
+                                "description": "",
+                                "name": ""
                             }
                         }
                     },
@@ -1074,6 +1151,10 @@
                     "voice_note_auto_play": {
                         "name": "وائس نوٹ آٹو پلے",
                         "description": "موجودہ وائس نوٹ ختم ہونے کے بعد خود بخود اگلا صوتی نوٹ چلاتا ہے"
+                    },
+                    "friend_notes": {
+                        "description": "",
+                        "name": ""
                     }
                 }
             },
@@ -1100,6 +1181,10 @@
                     "disable_log_anonymization": {
                         "name": "لاگ گمنامی کو غیر فعال کریں",
                         "description": "‬لاگز کی گمنامی کو غیر فعال کرتا ہے"
+                    },
+                    "old_tool_box_add_view": {
+                        "name": "",
+                        "description": ""
                     }
                 }
             },
@@ -1180,7 +1265,8 @@
                 "always_ask": "",
                 "ORIGINAL": "",
                 "NOTE": "",
-                "SNAP": ""
+                "SNAP": "",
+                "SAVEABLE_SNAP": ""
             },
             "strip_media_metadata": {
                 "hide_caption_text": "",
@@ -1196,7 +1282,13 @@
                 "hide_stickers_button": "",
                 "hide_voice_record_button": "",
                 "hide_unread_chat_hint": "",
-                "hide_post_to_story_buttons": ""
+                "hide_post_to_story_buttons": "",
+                "hide_explorer_token_button": "",
+                "hide_chat_camera_button": "",
+                "hide_chat_gallery_button": "",
+                "hide_snap_create_group_buttons": "",
+                "hide_gift_snapchat_plus_reminders": "",
+                "hide_map_reactions": ""
             },
             "hide_story_suggestions": {
                 "hide_suggested_friend_stories": "",
@@ -1259,7 +1351,8 @@
             "disable_story_sections": {
                 "friends": "",
                 "following": "",
-                "discover": ""
+                "discover": "",
+                "suggested_stories": ""
             },
             "disable_cameras": {
                 "front": "",
@@ -1320,7 +1413,35 @@
                 "tropical_paradise": "اشنکٹبندیی جنت",
                 "galaxy_glitter": "‮گلیکسی گلیٹر",
                 "industrial_chic": "صنعتی وضع دار",
-                "cherry_bomb": "چیری بم"
+                "cherry_bomb": "چیری بم",
+                "lavender_field": "",
+                "apple_orchard": "",
+                "art_deco_glam": "",
+                "ocean_depths": "",
+                "modern_farmhouse": "",
+                "cosmic_night": "",
+                "lemon_drop": "",
+                "lemon_sorbet": "",
+                "spicy_mustard": "",
+                "firefly_night": "",
+                "bubblegum_pink": "",
+                "peppermint_candy": "",
+                "gingerbread_house": ""
+            },
+            "icon_style": {
+                "outlined": "",
+                "filled": "",
+                "sharp": "",
+                "two-tone": ""
+            },
+            "simple_snapchat": {
+                "always_disabled": "",
+                "always_enabled": ""
+            },
+            "snapchat_plus": {
+                "basic": "",
+                "not_subscribed": "",
+                "ad_free": ""
             }
         }
     },
@@ -1473,7 +1594,8 @@
         "negative": "",
         "cancel": "",
         "open": "",
-        "download": ""
+        "download": "",
+        "send": ""
     },
     "better_notifications": {
         "button": {
@@ -1524,7 +1646,8 @@
             "title": "",
             "download_all": "",
             "segment_text": ""
-        }
+        },
+        "content_saved_toast": ""
     },
     "streaks_reminder": {
         "notification_title": "",
@@ -1590,5 +1713,53 @@
         "date_input_invalid_year_range": "",
         "date_input_invalid_not_allowed": "",
         "date_range_input_invalid_range_input": ""
+    },
+    "theming_attributes": {
+        "listBackgroundDrawable": "",
+        "ringStartColor": "",
+        "rangeFillColor": "",
+        "pstsIndicatorColor": "",
+        "pstsTabBackground": "",
+        "sigColorButtonPrimary": "",
+        "storyReplayViewRingColor": "",
+        "pstsDividerColor": "",
+        "strokeColor": "",
+        "actionSheetDescriptionTextColor": "",
+        "scButtonColor": "",
+        "actionSheetBackgroundDrawable": "",
+        "tabTextColor": "",
+        "recipientPillBackgroundDrawable": "",
+        "itemShapeFillColor": "",
+        "sigColorIconPrimary": "",
+        "actionSheetRoundedBackgroundDrawable": "",
+        "sigColorLayoutPlaceholder": "",
+        "boxBackgroundColor": "",
+        "sigColorChatPendingSending": "",
+        "listDivider": "",
+        "sigExceptionColorCameraGridLines": "",
+        "sigColorIconSecondary": "",
+        "sigColorStoryRingFriendsFeedStoryRing": "",
+        "sigColorStoryRingDiscoverTabThumbnailStoryRing": "",
+        "editTextColor": "",
+        "sigColorChatChat": "",
+        "chipBackgroundColor": "",
+        "sigColorBackgroundMain": "",
+        "sigColorBackgroundSurface": "",
+        "ringColor": "",
+        "recipientInputStyle": "",
+        "sigColorChatSnapWithoutSound": "",
+        "sigColorChatSnapWithSound": "",
+        "sigColorTextPrimary": "",
+        "sigColorBackgroundSurfaceTranslucent": "",
+        "statusBarBackground": "",
+        "sigColorBaseAppYellow": "",
+        "statusBarForeground": "",
+        "sigColorChatConversationsLine": ""
+    },
+    "send_override_dialog": {
+        "saveable_snap_hint": "",
+        "duration": "",
+        "title": "",
+        "unlimited_duration": ""
     }
 }
