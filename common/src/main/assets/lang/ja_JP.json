@@ -118,7 +118,9 @@
                 "config_export_success_toast": "構成は正常にエクスポートされました",
                 "config_import_success_toast": "構成が正常にインポートされました",
                 "config_export_failure_toast": "構成のエクスポートに失敗しました {error}",
-                "saved_config_snackbar": "設定が保存されました"
+                "saved_config_snackbar": "設定が保存されました",
+                "older_required": "",
+                "newer_required": ""
             },
             "manage_scope": {
                 "participants_text": "{count} 人の参加者",
@@ -131,7 +133,8 @@
                 "rules_title": "ルール",
                 "streaks_length_text": "長さ: {length}",
                 "delete_scope_confirm_dialog_title": "{scope} を削除してもよろしいですか?",
-                "reminder_button": "リマインダーを設定する"
+                "reminder_button": "リマインダーを設定する",
+                "notes_placeholder": ""
             },
             "logged_stories": {
                 "story_failed_to_load": "読み込みに失敗しました",
@@ -407,6 +410,10 @@
                     "voice_note_auto_play": {
                         "name": "ボイスメモ自動再生",
                         "description": "現在の音声ノートが終了した後、次の音声ノートを自動的に再生します"
+                    },
+                    "friend_notes": {
+                        "description": "",
+                        "name": ""
                     }
                 },
                 "name": "実験的",
@@ -442,6 +449,10 @@
                             "home_tab": {
                                 "name": "「ホーム」タブ",
                                 "description": "Snapchatを開いたときに起動タブをオーバーライドします"
+                            },
+                            "simple_snapchat": {
+                                "name": "",
+                                "description": ""
                             }
                         },
                         "description": "ユーザーインターフェイスのブートストラップ設定をオーバーライドします"
@@ -517,6 +528,18 @@
                     "custom_theme": {
                         "description": "Snapchatの色をカスタマイズする\n注: ダーク テーマ (AMOLED など) を選択した場合、より良い結果を得るには、アプリの外観設定でダーク モードを有効にする必要がある場合があります",
                         "name": "ボイスメモを再生すると自動的にダウンロードされます"
+                    },
+                    "icon_style": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "custom_friend_feed_label": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "hide_quick_add_suggestions": {
+                        "description": "",
+                        "name": ""
                     }
                 },
                 "description": "Snapchat の外観と操作性を変更する",
@@ -609,6 +632,20 @@
                     "auto_download_voice_notes": {
                         "name": "ボイスメモの自動ダウンロード",
                         "description": "ボイスメモを再生すると自動的にダウンロードされます"
+                    },
+                    "logging_options": {
+                        "name": "",
+                        "properties": {
+                            "logging": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "disappearing_rate": {
+                                "name": "",
+                                "description": ""
+                            }
+                        },
+                        "description": ""
                     }
                 },
                 "name": "ダウンローダー",
@@ -1036,6 +1073,10 @@
                     "disable_log_anonymization": {
                         "name": "ログの匿名化を無効にする",
                         "description": "ログの匿名化を無効にします"
+                    },
+                    "old_tool_box_add_view": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "description": "カスタム スクリプトを実行して SE Extended を拡張する"
@@ -1128,7 +1169,10 @@
                 "hide_stickers_button": "ステッカーを削除ボタン",
                 "hide_chat_camera_button": "チャットカメラボタンを削除",
                 "hide_snap_create_group_buttons": "スナップグループ作成ボタンの削除",
-                "hide_chat_gallery_button": "チャットギャラリーボタンを削除"
+                "hide_chat_gallery_button": "チャットギャラリーボタンを削除",
+                "hide_map_reactions": "",
+                "hide_gift_snapchat_plus_reminders": "",
+                "hide_explorer_token_button": ""
             },
             "hide_story_suggestions": {
                 "hide_my_stories": "私のストーリーを隠す",
@@ -1264,6 +1308,21 @@
                 "cherry_bomb": "チェリーボム",
                 "ocean_depths": "海の深さ",
                 "apple_orchard": "リンゴ園"
+            },
+            "simple_snapchat": {
+                "always_disabled": "",
+                "always_enabled": ""
+            },
+            "snapchat_plus": {
+                "not_subscribed": "",
+                "ad_free": "",
+                "basic": ""
+            },
+            "icon_style": {
+                "two-tone": "",
+                "filled": "",
+                "sharp": "",
+                "outlined": ""
             }
         }
     },
@@ -1513,7 +1572,8 @@
         "cancel": "キャンセル",
         "negative": "いいえ",
         "open": "開ける",
-        "download": "ダウンロード"
+        "download": "ダウンロード",
+        "send": ""
     },
     "friend_menu_option": {
         "stealth_mode": "ステルスモード",
@@ -1586,7 +1646,8 @@
         "already_downloaded_toast": "メディアはすでにダウンロードされています!",
         "dash_no_chapter": "章が見つかりませんでした",
         "failed_gallery_toast": "ギャラリーへの保存に失敗しました {error}",
-        "failed_to_create_preview_toast": "プレビューの作成に失敗しました"
+        "failed_to_create_preview_toast": "プレビューの作成に失敗しました",
+        "content_saved_toast": ""
     },
     "end_to_end_encryption": {
         "accept_public_key_failure_toast": "公開キーの受け入れに失敗しました",
@@ -1652,5 +1713,53 @@
     "streaks_reminder": {
         "notification_title": "縞模様",
         "notification_text": "次の場合は連続記録を失います {friend} で {hoursLeft} 時間"
+    },
+    "theming_attributes": {
+        "actionSheetRoundedBackgroundDrawable": "",
+        "sigExceptionColorCameraGridLines": "",
+        "sigColorIconPrimary": "",
+        "scButtonColor": "",
+        "boxBackgroundColor": "",
+        "sigColorChatPendingSending": "",
+        "chipBackgroundColor": "",
+        "listDivider": "",
+        "editTextColor": "",
+        "sigColorLayoutPlaceholder": "",
+        "sigColorChatConversationsLine": "",
+        "itemShapeFillColor": "",
+        "rangeFillColor": "",
+        "recipientInputStyle": "",
+        "recipientPillBackgroundDrawable": "",
+        "pstsIndicatorColor": "",
+        "strokeColor": "",
+        "sigColorBackgroundSurfaceTranslucent": "",
+        "sigColorIconSecondary": "",
+        "sigColorTextPrimary": "",
+        "sigColorBackgroundSurface": "",
+        "sigColorChatChat": "",
+        "sigColorButtonPrimary": "",
+        "sigColorBaseAppYellow": "",
+        "storyReplayViewRingColor": "",
+        "sigColorBackgroundMain": "",
+        "sigColorStoryRingDiscoverTabThumbnailStoryRing": "",
+        "ringStartColor": "",
+        "sigColorChatSnapWithSound": "",
+        "sigColorStoryRingFriendsFeedStoryRing": "",
+        "statusBarBackground": "",
+        "statusBarForeground": "",
+        "sigColorChatSnapWithoutSound": "",
+        "ringColor": "",
+        "listBackgroundDrawable": "",
+        "pstsTabBackground": "",
+        "pstsDividerColor": "",
+        "actionSheetBackgroundDrawable": "",
+        "actionSheetDescriptionTextColor": "",
+        "tabTextColor": ""
+    },
+    "send_override_dialog": {
+        "saveable_snap_hint": "",
+        "duration": "",
+        "unlimited_duration": "",
+        "title": ""
     }
 }
