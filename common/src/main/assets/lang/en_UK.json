@@ -431,6 +431,20 @@
                     "auto_download_voice_notes": {
                         "name": "Auto Download Voice Notes",
                         "description": "Automatically downloads voice notes when playing them"
+                    },
+                    "logging_options": {
+                        "properties": {
+                            "disappearing_rate": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "logging": {
+                                "description": "",
+                                "name": ""
+                            }
+                        },
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "name": "Downloader",
