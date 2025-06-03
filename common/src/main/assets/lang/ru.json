@@ -245,7 +245,8 @@
         "total_messages": "Всего отправленных/полученных сообщений: {count}",
         "title": "Предварительный просмотр",
         "streak_expiration": "истекает через {day} дней {час} часов {минуту} минут",
-        "unknown_user": "Неизвестный пользователь"
+        "unknown_user": "Неизвестный пользователь",
+        "no_messages": ""
     },
     "rules": {
         "properties": {
@@ -314,7 +315,8 @@
         "positive": "Да",
         "negative": "Нет",
         "cancel": "Отмена",
-        "download": "Скачать"
+        "download": "Скачать",
+        "send": ""
     },
     "end_to_end_encryption": {
         "accept_public_key_button": "Принять открытый ключ",
@@ -1198,6 +1200,10 @@
                     "record_messaging_events": {
                         "name": "Запись событий обмена сообщениями",
                         "description": "Записывает события обмена сообщениями, такие как открытие снимка, чтение сообщения и т. д."
+                    },
+                    "auto_purge": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "description": "Запись активности друзей в Snapchat"
@@ -1254,14 +1260,16 @@
                 "snap": "Snap",
                 "abandon_audio": "Пропущенный аудиовызов",
                 "chat_reaction": "Реакция в ЛС",
-                "group_chat_reaction": "Реакция в группе"
+                "group_chat_reaction": "Реакция в группе",
+                "speaking": ""
             },
             "add_friend_source_spoof": {
                 "added_by_mention": "По упоминанию",
                 "added_by_username": "По имени пользователя",
                 "added_by_group_chat": "В групповом чате",
                 "added_by_qr_code": "По QR-коду",
-                "added_by_community": "По сообществу"
+                "added_by_community": "По сообществу",
+                "added_by_quick_add": ""
             },
             "disable_confirmation_dialogs": {
                 "hide_friend": "Скрыть друга",
@@ -1301,7 +1309,9 @@
             "gallery_media_send_override": {
                 "ORIGINAL": "Оригинал",
                 "NOTE": "Аудио-заметка",
-                "SNAP": "Snap"
+                "SNAP": "Snap",
+                "SAVEABLE_SNAP": "",
+                "always_ask": ""
             },
             "hide_ui_components": {
                 "hide_unread_chat_hint": "Убрать подсказку о непрочитанных сообщениях",
@@ -1309,7 +1319,14 @@
                 "hide_chat_call_buttons": "Убрать кнопки звонка в чате",
                 "hide_live_location_share_button": "Убрать кнопку обмена местоположением в реальном времени",
                 "hide_stickers_button": "Убрать кнопку стикеров",
-                "hide_voice_record_button": "Убрать кнопку голосовой записи"
+                "hide_voice_record_button": "Убрать кнопку голосовой записи",
+                "hide_chat_camera_button": "",
+                "hide_explorer_token_button": "",
+                "hide_map_reactions": "",
+                "hide_gift_snapchat_plus_reminders": "",
+                "hide_post_to_story_buttons": "",
+                "hide_chat_gallery_button": "",
+                "hide_snap_create_group_buttons": ""
             },
             "app_appearance": {
                 "always_light": "Всегда светлый",
@@ -1356,7 +1373,8 @@
             "disable_story_sections": {
                 "following": "Подписан на",
                 "discover": "Исследовать",
-                "friends": "Друзья"
+                "friends": "Друзья",
+                "suggested_stories": ""
             },
             "bypass_video_length_restriction": {
                 "single": "Одиночные медиафайлы",
@@ -1377,6 +1395,61 @@
                 "bitmoji_avatar_changes": "Уведомление о изменении кем-то своего аватара Битмоджи",
                 "bitmoji_scene_changes": "Уведомление о изменении кем-то своего сценария Bitmoji",
                 "bitmoji_background_changes": "Уведомление о изменении кем-то своего фонового изображения в Bitmoji"
+            },
+            "custom_theme": {
+                "industrial_chic": "",
+                "tropical_paradise": "",
+                "alien_landscape": "",
+                "watercolor_wash": "",
+                "spicy_mustard": "",
+                "lemon_drop": "",
+                "modern_farmhouse": "",
+                "apple_orchard": "",
+                "custom": "",
+                "material_you_dark": "",
+                "material_you_light": "",
+                "mint_chocolate": "",
+                "ginger_snap": "",
+                "lemon_meringue": "",
+                "woodland_mystery": "",
+                "cosmic_night": "",
+                "ocean_depths": "",
+                "spring_meadow": "",
+                "art_deco_glam": "",
+                "creamy_vanilla": "",
+                "light_blue": "",
+                "lemon_sorbet": "",
+                "firefly_night": "",
+                "ocean_fog": "",
+                "spicy_chili": "",
+                "midnight_library": "",
+                "galaxy_glitter": "",
+                "peppermint_candy": "",
+                "gingerbread_house": "",
+                "bubblegum_pink": "",
+                "zesty_lemon": "",
+                "earthy_autumn": "",
+                "midnight_slate": "",
+                "dark_blue": "",
+                "lava_flow": "",
+                "amoled_dark_mode": "",
+                "lavender_field": "",
+                "cherry_bomb": ""
+            },
+            "icon_style": {
+                "filled": "",
+                "outlined": "",
+                "two-tone": "",
+                "sharp": ""
+            },
+            "snapchat_plus": {
+                "basic": "",
+                "ad_free": "",
+                "not_subscribed": ""
+            },
+            "simple_snapchat": {
+                "always_disabled": "",
+                "always_enabled": ""
             }
         }
     },
@@ -1466,7 +1539,8 @@
             "original_story": "Оригинальная история",
             "sticker": "наклейка",
             "external_media": "Внешняя медиа",
-            "note": "Примечание"
+            "note": "Примечание",
+            "gif": ""
         },
         "no_attachments_toast": "Вложений не найдено!",
         "already_queued_toast": "СМИ уже в очереди!",
@@ -1485,7 +1559,8 @@
             "title": "Скачать тире медиа",
             "download_all": "Скачать все",
             "segment_text": "Сегмент {from} – {to}"
-        }
+        },
+        "content_saved_toast": ""
     },
     "profile_info": {
         "display_name": "Отображаемое имя",
@@ -1571,7 +1646,8 @@
         "LIVE_LOCATION_SHARE": "Поделиться местоположением в реальном времени",
         "STATUS_CALL_MISSED_AUDIO": "Пропущенный аудиовызов",
         "CHAT": "Чат",
-        "SNAP": "Snap"
+        "SNAP": "Snap",
+        "SHARE": ""
     },
     "media_download_source": {
         "pending": "В ожидании",
@@ -1608,7 +1684,8 @@
         "download_button": "Скачать",
         "delete_logged_message_button": "Удалить созраненные сообщения",
         "convert_message": "Преобразовать сообщение",
-        "edit_message": "Редактировать сообщение"
+        "edit_message": "Редактировать сообщение",
+        "show_chat_edit_history": ""
     },
     "gallery_media_send_override": {
         "multiple_media_toast": "Вы можете отправить только одно медиа за раз"
@@ -1636,5 +1713,53 @@
         "birthday_removed": "{username} удалил свой день рождения ({birthday})",
         "birthday_added": "{username} добавил свой день рождения ({birthday})",
         "bitmoji_background_changed": "{username} изменил свой фон Bitmoji"
+    },
+    "theming_attributes": {
+        "actionSheetRoundedBackgroundDrawable": "",
+        "sigColorIconPrimary": "",
+        "pstsTabBackground": "",
+        "sigColorStoryRingDiscoverTabThumbnailStoryRing": "",
+        "editTextColor": "",
+        "actionSheetDescriptionTextColor": "",
+        "ringColor": "",
+        "sigColorBackgroundSurface": "",
+        "sigColorBackgroundMain": "",
+        "sigColorTextPrimary": "",
+        "pstsIndicatorColor": "",
+        "chipBackgroundColor": "",
+        "recipientInputStyle": "",
+        "sigColorChatConversationsLine": "",
+        "tabTextColor": "",
+        "pstsDividerColor": "",
+        "sigColorChatChat": "",
+        "sigColorChatSnapWithoutSound": "",
+        "actionSheetBackgroundDrawable": "",
+        "listDivider": "",
+        "boxBackgroundColor": "",
+        "sigColorIconSecondary": "",
+        "rangeFillColor": "",
+        "sigColorBaseAppYellow": "",
+        "sigColorBackgroundSurfaceTranslucent": "",
+        "sigColorStoryRingFriendsFeedStoryRing": "",
+        "sigColorChatSnapWithSound": "",
+        "statusBarForeground": "",
+        "ringStartColor": "",
+        "strokeColor": "",
+        "recipientPillBackgroundDrawable": "",
+        "storyReplayViewRingColor": "",
+        "itemShapeFillColor": "",
+        "sigColorChatPendingSending": "",
+        "listBackgroundDrawable": "",
+        "sigColorLayoutPlaceholder": "",
+        "sigExceptionColorCameraGridLines": "",
+        "statusBarBackground": "",
+        "sigColorButtonPrimary": "",
+        "scButtonColor": ""
+    },
+    "send_override_dialog": {
+        "duration": "",
+        "saveable_snap_hint": "",
+        "unlimited_duration": "",
+        "title": ""
     }
 }
