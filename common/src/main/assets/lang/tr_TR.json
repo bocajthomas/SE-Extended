@@ -50,7 +50,9 @@
                 "config_import_failure_toast": "Konfigürasyon içe aktarılamadı {error}",
                 "saved_config_snackbar": "Konfigürasyon kaydedildi",
                 "config_export_success_toast": "Konfigürasyon başarıyla dışa aktarıldı",
-                "config_export_failure_toast": "Konfigürasyon dışa aktarılamadı {error}"
+                "config_export_failure_toast": "Konfigürasyon dışa aktarılamadı {error}",
+                "newer_required": "",
+                "older_required": ""
             },
             "social": {
                 "streaks_expiration_short": "{hours} saat",
@@ -107,7 +109,8 @@
                 "streaks_expiration_text_expired": "Süresi doldu",
                 "reminder_button": "Hatırlatıcı Ayarla",
                 "participants_text": "{sayı} katılımcı",
-                "delete_scope_confirm_dialog_title": "Bir {scope} silmek istediğinizden emin misiniz?"
+                "delete_scope_confirm_dialog_title": "Bir {scope} silmek istediğinizden emin misiniz?",
+                "notes_placeholder": ""
             },
             "logged_stories": {
                 "story_failed_to_load": "Yükleme başarısız oldu",
@@ -372,6 +375,20 @@
                     "auto_download_voice_notes": {
                         "name": "Sesli Notları Otomatik İndir",
                         "description": "Sesli notları oynatırken otomatik olarak indirir"
+                    },
+                    "logging_options": {
+                        "properties": {
+                            "logging": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "disappearing_rate": {
+                                "description": "",
+                                "name": ""
+                            }
+                        },
+                        "name": "",
+                        "description": ""
                     }
                 }
             },
@@ -404,6 +421,10 @@
                             "home_tab": {
                                 "name": "Ana Sayfa Sekmesi",
                                 "description": "Snapchat açılırken başlangıç sekmesini geçersiz kılar"
+                            },
+                            "simple_snapchat": {
+                                "name": "",
+                                "description": ""
                             }
                         }
                     },
@@ -482,6 +503,18 @@
                     "custom_theme": {
                         "name": "Özel Tema",
                         "description": "Snapchat'in Renklerini Özelleştirme\nNot: Koyu bir tema seçerseniz (Amoled gibi), daha iyi sonuçlar için Snapchat ayarlarında karanlık modu etkinleştirmeniz gerekebilir"
+                    },
+                    "icon_style": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "custom_friend_feed_label": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "hide_quick_add_suggestions": {
+                        "name": "",
+                        "description": ""
                     }
                 }
             },
@@ -1060,6 +1093,10 @@
                     "voice_note_auto_play": {
                         "name": "Sesli Not Otomatik Oynatma",
                         "description": "Geçerli sesli not bittikten sonra otomatik olarak bir sonraki sesli notu çalar"
+                    },
+                    "friend_notes": {
+                        "name": "",
+                        "description": ""
                     }
                 }
             },
@@ -1086,6 +1123,10 @@
                     "auto_reload": {
                         "description": "Değiştiklerinde komut dosyalarını otomatik olarak yeniden yükler",
                         "name": "Otomatik Yeniden Yükleme"
+                    },
+                    "old_tool_box_add_view": {
+                        "name": "",
+                        "description": ""
                     }
                 }
             },
@@ -1177,7 +1218,12 @@
                 "hide_voice_record_button": "Ses Kayıt Butonunu Kaldır",
                 "hide_unread_chat_hint": "Okunmamış Sohbet İpucunu Kaldır",
                 "hide_post_to_story_buttons": "Snap göndermeden önce Hikayeye Gönder düğmelerini kaldırın",
-                "hide_map_reactions": "Harita Tepkilerini Kaldır"
+                "hide_map_reactions": "Harita Tepkilerini Kaldır",
+                "hide_gift_snapchat_plus_reminders": "",
+                "hide_snap_create_group_buttons": "",
+                "hide_chat_gallery_button": "",
+                "hide_chat_camera_button": "",
+                "hide_explorer_token_button": ""
             },
             "home_tab": {
                 "map": "Harita",
@@ -1288,7 +1334,56 @@
                 "amoled_dark_mode": "Amoled Karanlık Mod",
                 "custom": "Özel Temalar (Temaları yönetmek için Hızlı Eylemleri kullanın)",
                 "material_you_light": "Material You Aydınlık (Android 12+)",
-                "material_you_dark": "Material You Karanlık (Android 12+)"
+                "material_you_dark": "Material You Karanlık (Android 12+)",
+                "lava_flow": "",
+                "industrial_chic": "",
+                "lemon_meringue": "",
+                "cherry_bomb": "",
+                "ocean_depths": "",
+                "lavender_field": "",
+                "apple_orchard": "",
+                "mint_chocolate": "",
+                "ginger_snap": "",
+                "lemon_drop": "",
+                "art_deco_glam": "",
+                "tropical_paradise": "",
+                "dark_blue": "",
+                "midnight_slate": "",
+                "light_blue": "",
+                "lemon_sorbet": "",
+                "earthy_autumn": "",
+                "spicy_chili": "",
+                "spring_meadow": "",
+                "cosmic_night": "",
+                "ocean_fog": "",
+                "watercolor_wash": "",
+                "midnight_library": "",
+                "woodland_mystery": "",
+                "galaxy_glitter": "",
+                "gingerbread_house": "",
+                "zesty_lemon": "",
+                "creamy_vanilla": "",
+                "firefly_night": "",
+                "bubblegum_pink": "",
+                "peppermint_candy": "",
+                "spicy_mustard": "",
+                "modern_farmhouse": "",
+                "alien_landscape": ""
+            },
+            "snapchat_plus": {
+                "ad_free": "",
+                "not_subscribed": "",
+                "basic": ""
+            },
+            "icon_style": {
+                "filled": "",
+                "two-tone": "",
+                "outlined": "",
+                "sharp": ""
+            },
+            "simple_snapchat": {
+                "always_disabled": "",
+                "always_enabled": ""
             }
         }
     },
@@ -1410,7 +1505,8 @@
             "download_all": "Tümünü İndir",
             "segment_text": "Segment {from} - {to}"
         },
-        "dash_no_chapter": "Bölüm bulunamadı"
+        "dash_no_chapter": "Bölüm bulunamadı",
+        "content_saved_toast": ""
     },
     "streaks_reminder": {
         "notification_title": "Seriler",
@@ -1562,6 +1658,10 @@
         "theming": {
             "name": "Temalandırma",
             "description": "Snapchat'in görünümünü ve hissini özelleştirin"
+        },
+        "disclaimer_statement": {
+            "description": "",
+            "name": ""
         }
     },
     "scopes": {
