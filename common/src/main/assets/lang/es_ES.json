@@ -451,6 +451,14 @@
                     "hide_quick_add_suggestions": {
                         "name": "Ocultar sugerencias de adición rápida",
                         "description": "Eliminación rápida, adicionar sugerencia de amigos"
+                    },
+                    "icon_style": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "custom_friend_feed_label": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "name": "Interfaz de usuario",
@@ -543,6 +551,20 @@
                     "auto_download_voice_notes": {
                         "name": "Descarga automática de notas de voz",
                         "description": "Descarga automáticamente las notas de voz al reproducirlas"
+                    },
+                    "logging_options": {
+                        "properties": {
+                            "logging": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "disappearing_rate": {
+                                "name": "",
+                                "description": ""
+                            }
+                        },
+                        "description": "",
+                        "name": ""
                     }
                 },
                 "description": "Descargar multimedios de Snapchat",
@@ -1154,7 +1176,8 @@
                         "name": "Deshabilitar anonimización de reegistros"
                     },
                     "old_tool_box_add_view": {
-                        "description": "Utiliza la vista de adición antigua para agregar el cuadro de herramientas a snapchat.\nNota: Esta característica es temporal"
+                        "description": "Utiliza la vista de adición antigua para agregar el cuadro de herramientas a snapchat.\nNota: Esta característica es temporal",
+                        "name": ""
                     }
                 },
                 "name": "Codificando"
@@ -1413,6 +1436,12 @@
                 "not_subscribed": "No suscrito",
                 "basic": "Básico",
                 "ad_free": "Sin publicidad"
+            },
+            "icon_style": {
+                "outlined": "",
+                "two-tone": "",
+                "filled": "",
+                "sharp": ""
             }
         }
     },
@@ -1723,7 +1752,9 @@
         "chipBackgroundColor": "Color de fondo del chip",
         "ringStartColor": "Color inicial del anillo",
         "storyReplayViewRingColor": "Repetición del historial Ver el color del círculo",
-        "sigColorStoryRingFriendsFeedStoryRing": "Color del círculo del feed de los amigos y las historias"
+        "sigColorStoryRingFriendsFeedStoryRing": "Color del círculo del feed de los amigos y las historias",
+        "recipientPillBackgroundDrawable": "",
+        "sigColorStoryRingDiscoverTabThumbnailStoryRing": ""
     },
     "send_override_dialog": {
         "title": "Enviar medios como {type}",
