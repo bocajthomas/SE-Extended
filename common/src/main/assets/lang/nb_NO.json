@@ -15,7 +15,11 @@
             "better_location": "Bedre posisjonering",
             "file_imports": "Fil-importeringer",
             "edit_rule": "Rediger regel",
-            "friend_tracker": "Vennesporing"
+            "friend_tracker": "Vennesporing",
+            "edit_theme": "",
+            "manage_repos": "",
+            "theming": "",
+            "manage_rule_feature": ""
         },
         "sections": {
             "social": {
@@ -33,7 +37,9 @@
                 "config_import_failure_toast": "Kunne ikke importere oppsett {error}",
                 "config_export_failure_toast": "Kunne ikke eksportere oppsett {error}",
                 "saved_config_snackbar": "Oppsett lagret",
-                "import_option": "Importer"
+                "import_option": "Importer",
+                "newer_required": "",
+                "older_required": ""
             },
             "tasks": {
                 "no_tasks": "Ingen gjøremål",
@@ -84,7 +90,8 @@
                 "streaks_title": "Streaks",
                 "reminder_button": "Sett påminnelse",
                 "participants_text": "{count} deltakere",
-                "not_found": "Ikke funnet"
+                "not_found": "Ikke funnet",
+                "notes_placeholder": ""
             },
             "logged_stories": {
                 "story_failed_to_load": "Innlasting mislyktes",
@@ -127,7 +134,8 @@
                 "delete_dialog_message": "Slett dette lagrede koordinatet?",
                 "teleport_to_friend_title": "Teleporter til venn",
                 "spoof_location_toggle": "Forfalsk posisjon",
-                "suspend_location_updates": "Stopp flytting av posisjon"
+                "suspend_location_updates": "Stopp flytting av posisjon",
+                "spoofed_coordinates_title": ""
             },
             "messaging_preview": {
                 "delete_all_option": "Slett alt",
@@ -142,6 +150,21 @@
                 "mark_selection_as_seen_option": "Velg markert Snapp som sett",
                 "mark_all_as_seen_option": "Marker alle Snapper som sett",
                 "delete_selection_option": "Slett utvalg"
+            },
+            "manage_rule_feature": {
+                "whitelist_state_subtext": "",
+                "disable_state_option": "",
+                "disable_state_subtext": "",
+                "blacklist_state_subtext": "",
+                "clear_list_button": "",
+                "blacklist_state_button": "",
+                "dialog_clear_confirmation_text": "",
+                "whitelist_state_button": "",
+                "blacklist_state_option": "",
+                "whitelist_state_option": ""
+            },
+            "theming": {
+                "no_themes_hint": ""
             }
         },
         "dialogs": {
@@ -298,7 +321,8 @@
                         "description": "Velg mappen all media skal lastes ned til"
                     },
                     "custom_path_format": {
-                        "name": "Egendefinert stiformat"
+                        "name": "Egendefinert stiformat",
+                        "description": ""
                     },
                     "download_profile_pictures": {
                         "name": "Last ned profilbilder",
@@ -339,6 +363,24 @@
                     "merge_overlays": {
                         "name": "Flett overlag",
                         "description": "Kombinerer tekst og media tilhørende Snapp til én fil"
+                    },
+                    "auto_download_voice_notes": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "logging_options": {
+                        "properties": {
+                            "logging": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "disappearing_rate": {
+                                "description": "",
+                                "name": ""
+                            }
+                        },
+                        "description": "",
+                        "name": ""
                     }
                 },
                 "name": "Nedlaster",
@@ -349,13 +391,20 @@
                     "bootstrap_override": {
                         "properties": {
                             "home_tab": {
-                                "name": "Hjemmefane"
+                                "name": "Hjemmefane",
+                                "description": ""
                             },
                             "app_appearance": {
                                 "name": "Programutseende",
                                 "description": "Setter vedvarende programutseende"
+                            },
+                            "simple_snapchat": {
+                                "name": "",
+                                "description": ""
                             }
-                        }
+                        },
+                        "description": "",
+                        "name": ""
                     },
                     "friend_feed_message_preview": {
                         "properties": {
@@ -402,6 +451,62 @@
                     "edit_text_override": {
                         "name": "Rediger tekstoverstyring",
                         "description": "Overstyrer adferd for tekstfelt"
+                    },
+                    "hide_streak_restore": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "hide_story_suggestions": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "vertical_story_viewer": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "icon_style": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "custom_friend_feed_label": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "custom_theme": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "old_bitmoji_selfie": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "opera_media_quick_info": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "disable_spotlight": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "enable_friend_feed_menu_bar": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "auto_close_friend_feed_menu": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "hide_friend_feed_entry": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "friend_feed_menu_buttons": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "hide_quick_add_suggestions": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "name": "Brukergrensesnitt",
@@ -412,31 +517,48 @@
                     "better_notifications": {
                         "properties": {
                             "download_button": {
-                                "name": "Nedlastingsknapp"
+                                "name": "Nedlastingsknapp",
+                                "description": ""
                             },
                             "reply_button": {
                                 "name": "Svar-knapp",
                                 "description": "Legger til en svarknapp i merknaden"
                             },
                             "smart_replies": {
-                                "name": "Smart-svar"
+                                "name": "Smart-svar",
+                                "description": ""
                             },
                             "mark_as_read_button": {
                                 "name": "«Marker som lest»-knapp",
                                 "description": "Lar deg markere en melding som lest fra merknaden"
                             },
                             "chat_preview": {
-                                "name": "Sludringsforhåndsvisning"
+                                "name": "Sludringsforhåndsvisning",
+                                "description": ""
                             },
                             "mark_as_read_and_save_in_chat": {
-                                "name": "Marker som lest og lagre i sludring"
+                                "name": "Marker som lest og lagre i sludring",
+                                "description": ""
                             },
                             "media_preview": {
-                                "name": "Mediaforhåndsvisning"
+                                "name": "Mediaforhåndsvisning",
+                                "description": ""
                             },
                             "group_notifications": {
                                 "description": "Grupper merknader i én",
                                 "name": "Merknadsgruppering"
+                            },
+                            "media_caption": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "stacked_media_messages": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "friend_add_source": {
+                                "name": "",
+                                "description": ""
                             }
                         },
                         "name": "Bedre merknader",
@@ -452,7 +574,9 @@
                                 "description": "Minste varighet for halvdragning (i sekunder)",
                                 "name": "Minimumsvarighet"
                             }
-                        }
+                        },
+                        "name": "",
+                        "description": ""
                     },
                     "auto_save_messages_in_conversations": {
                         "name": "Auto-lagring av meldinger",
@@ -477,7 +601,8 @@
                         "description": "Forhindrer sletting av meldinger"
                     },
                     "bypass_screenshot_detection": {
-                        "name": "Omgå skjermavbildningsoppdagelse"
+                        "name": "Omgå skjermavbildningsoppdagelse",
+                        "description": ""
                     },
                     "anonymous_story_viewing": {
                         "name": "Anonym historievisning",
@@ -504,7 +629,64 @@
                         "description": "Legger til en knapp for å markere Snapp sett ved visning.\nFungerer selv om smugmodus er påslått."
                     },
                     "skip_when_marking_as_seen": {
-                        "name": "Hopp over ved markering som sett"
+                        "name": "Hopp over ved markering som sett",
+                        "description": ""
+                    },
+                    "hide_bitmoji_presence": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "hide_typing_notifications": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "friend_mutation_notifier": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "gallery_media_send_override": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "prevent_story_rewatch_indicator": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "strip_media_metadata": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "bypass_message_retention_policy": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "bypass_message_action_restrictions": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "hide_peek_a_peek": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "unlimited_snap_view_time": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "auto_mark_as_read": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "loop_media_playback": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "disable_replay_in_ff": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "remove_groups_locked_status": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "name": "Meldinger",
@@ -516,29 +698,241 @@
                     "black_photos": {
                         "name": "Svarte bilder",
                         "description": "Erstatter knipsede bilder med en svart bakgrunn.\nHar ingen innvirkning på videoer."
+                    },
+                    "override_back_resolution": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "hevc_recording": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "back_custom_frame_rate": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "custom_resolution": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "immersive_camera_preview": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "override_front_resolution": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "front_custom_frame_rate": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "force_camera_source_encoding": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "disable_cameras": {
+                        "description": "",
+                        "name": ""
                     }
-                }
+                },
+                "description": ""
             },
             "experimental": {
                 "properties": {
                     "spoof": {
                         "properties": {
                             "android_id": {
-                                "name": "Android-ID"
+                                "name": "Android-ID",
+                                "description": ""
+                            },
+                            "randomize_persistent_device_token": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "play_store_installer_package_name": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "remove_mock_location_flag": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "remove_vpn_transport_flag": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "fingerprint": {
+                                "name": "",
+                                "description": ""
+                            }
+                        },
+                        "name": "",
+                        "description": ""
+                    },
+                    "media_file_picker": {
+                        "name": "Mediafilvelger",
+                        "description": ""
+                    },
+                    "account_switcher": {
+                        "name": "Kontovelger",
+                        "description": "",
+                        "properties": {
+                            "auto_backup_current_account": {
+                                "name": "",
+                                "description": ""
                             }
                         }
                     },
-                    "media_file_picker": {
-                        "name": "Mediafilvelger"
-                    },
-                    "account_switcher": {
-                        "name": "Kontovelger"
-                    },
                     "app_lock": {
-                        "name": "Programlås"
+                        "name": "Programlås",
+                        "properties": {
+                            "lock_on_resume": {
+                                "name": "",
+                                "description": ""
+                            }
+                        },
+                        "description": ""
                     },
                     "edit_message": {
-                        "name": "Rediger meldinger"
+                        "name": "Rediger meldinger",
+                        "description": ""
+                    },
+                    "native_hooks": {
+                        "properties": {
+                            "disable_bitmoji": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "composer_hooks": {
+                                "name": "",
+                                "properties": {
+                                    "bypass_camera_roll_limit": {
+                                        "description": "",
+                                        "name": ""
+                                    },
+                                    "show_first_created_username": {
+                                        "name": "",
+                                        "description": ""
+                                    },
+                                    "composer_logs": {
+                                        "name": "",
+                                        "description": ""
+                                    },
+                                    "composer_console": {
+                                        "description": "",
+                                        "name": ""
+                                    }
+                                },
+                                "description": ""
+                            },
+                            "custom_emoji_font": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "custom_shared_library": {
+                                "description": "",
+                                "name": ""
+                            }
+                        },
+                        "name": "",
+                        "description": ""
+                    },
+                    "best_friend_pinning": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "e2ee": {
+                        "properties": {
+                            "encrypted_message_indicator": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "force_message_encryption": {
+                                "name": "",
+                                "description": ""
+                            }
+                        },
+                        "name": "",
+                        "description": ""
+                    },
+                    "no_friend_score_delay": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "prevent_forced_logout": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "voice_note_auto_play": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "better_transcript": {
+                        "properties": {
+                            "preferred_transcription_lang": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "force_transcription": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "enhanced_transcript_in_notifications": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "enhanced_transcript": {
+                                "name": "",
+                                "description": ""
+                            }
+                        },
+                        "description": "",
+                        "name": ""
+                    },
+                    "call_recorder": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "story_logger": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "friend_notes": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "cof_experiments": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "meo_passcode_bypass": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "convert_message_locally": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "custom_streaks_expiration_format": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "context_menu_fix": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "add_friend_source_spoof": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "hidden_snapchat_plus_features": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "infinite_story_boost": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "name": "Eksperimentelt",
@@ -549,48 +943,204 @@
                     "better_location": {
                         "properties": {
                             "coordinates": {
-                                "name": "Koordinater"
+                                "name": "Koordinater",
+                                "description": ""
+                            },
+                            "walk_radius": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "always_update_location": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "suspend_location_updates": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "spoof_battery_level": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "spoof_headphones": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "show_battery_level": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "spoof_location": {
+                                "description": "",
+                                "name": ""
                             }
                         },
-                        "name": "Bedre posisjonering"
+                        "name": "Bedre posisjonering",
+                        "description": ""
                     },
                     "snapchat_plus": {
-                        "name": "Snapchat Plus"
+                        "name": "Snapchat Plus",
+                        "description": ""
                     },
                     "block_ads": {
-                        "name": "Blokker reklame"
+                        "name": "Blokker reklame",
+                        "description": ""
+                    },
+                    "disable_memories_snap_feed": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "default_video_playback_rate": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "media_upload_quality": {
+                        "properties": {
+                            "force_video_upload_source_quality": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "disable_image_compression": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "custom_image_upload_format": {
+                                "name": "",
+                                "description": ""
+                            }
+                        },
+                        "description": "",
+                        "name": ""
+                    },
+                    "disable_metrics": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "disable_story_sections": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "disable_permission_requests": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "default_volume_controls": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "disable_custom_tabs": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "disable_google_play_dialogs": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "spotlight_comments_username": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "hide_active_music": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "bypass_video_length_restriction": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "disable_confirmation_dialogs": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "disable_telecom_framework": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "auto_updater": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "video_playback_rate_slider": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "disable_snap_splitting": {
+                        "description": "",
+                        "name": ""
                     }
-                }
+                },
+                "name": "",
+                "description": ""
             },
             "scripting": {
                 "name": "Skripting",
                 "properties": {
                     "developer_mode": {
-                        "name": "Utviklermodus"
+                        "name": "Utviklermodus",
+                        "description": ""
                     },
                     "integrated_ui": {
-                        "name": "Integrert grensesnitt"
+                        "name": "Integrert grensesnitt",
+                        "description": ""
+                    },
+                    "old_tool_box_add_view": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "auto_reload": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "disable_log_anonymization": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "module_folder": {
+                        "description": "",
+                        "name": ""
                     }
-                }
+                },
+                "description": ""
             },
             "rules": {
-                "name": "Regler"
+                "name": "Regler",
+                "description": ""
             },
             "streaks_reminder": {
                 "properties": {
                     "interval": {
-                        "name": "Tidsrom"
+                        "name": "Tidsrom",
+                        "description": ""
                     },
                     "remaining_hours": {
-                        "name": "Gjenværende tid"
+                        "name": "Gjenværende tid",
+                        "description": ""
                     },
                     "group_notifications": {
-                        "name": "Gruppemerknader"
+                        "name": "Gruppemerknader",
+                        "description": ""
                     }
-                }
+                },
+                "name": "",
+                "description": ""
             },
             "friend_tracker": {
-                "name": "Vennesporer"
+                "name": "Vennesporer",
+                "description": "",
+                "properties": {
+                    "auto_purge": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "allow_running_in_background": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "record_messaging_events": {
+                        "name": "",
+                        "description": ""
+                    }
+                }
             }
         },
         "options": {
@@ -603,36 +1153,231 @@
             "disable_permission_requests": {
                 "microphone": "Mikrofon",
                 "notifications": "Merknader",
-                "camera": "Kamera"
+                "camera": "Kamera",
+                "nearby_devices": "",
+                "read_contacts": "",
+                "read_media_video": "",
+                "phone_calls": "",
+                "location": "",
+                "read_media_images": ""
             },
             "notifications": {
                 "chat_screenshot": "Skjermavbildning",
-                "chat_screen_record": "Skjermopptak"
+                "chat_screen_record": "Skjermopptak",
+                "chat": "",
+                "abandon_video": "",
+                "initiate_video": "",
+                "typing": "",
+                "snap": "",
+                "chat_reply": "",
+                "stories": "",
+                "speaking": "",
+                "group_chat_reaction": "",
+                "chat_reaction": "",
+                "camera_roll_save": "",
+                "snap_replay": "",
+                "initiate_audio": "",
+                "abandon_audio": ""
             },
             "home_tab": {
                 "map": "Kart",
-                "camera": "Kamera"
+                "camera": "Kamera",
+                "chat": "",
+                "spotlight": "",
+                "discover": ""
             },
             "auto_purge": {
-                "never": "Aldri"
+                "never": "Aldri",
+                "1_hour": "",
+                "12_hours": "",
+                "3_months": "",
+                "2_weeks": "",
+                "6_months": "",
+                "3_hours": "",
+                "1_month": "",
+                "1_week": "",
+                "3_days": "",
+                "1_day": "",
+                "6_hours": ""
             },
             "disable_story_sections": {
                 "friends": "Venner",
-                "suggested_stories": "Foreslåtte historier"
+                "suggested_stories": "Foreslåtte historier",
+                "following": "",
+                "discover": ""
             },
             "app_appearance": {
                 "always_dark": "Alltid mørk",
                 "always_light": "Alltid lys"
             },
             "friend_feed_menu_buttons": {
-                "e2e_encryption": "🔒 Bruk E2E-kryptering"
+                "e2e_encryption": "🔒 Bruk E2E-kryptering",
+                "auto_save": "",
+                "auto_open_snaps": "",
+                "unsaveable_messages": "",
+                "stealth": "",
+                "mark_stories_as_seen_locally": "",
+                "mark_snaps_as_seen": "",
+                "auto_download": "",
+                "conversation_info": ""
             },
             "gallery_media_send_override": {
-                "NOTE": "Lydnotat"
+                "NOTE": "Lydnotat",
+                "SNAP": "",
+                "SAVEABLE_SNAP": "",
+                "ORIGINAL": "",
+                "always_ask": ""
             },
             "disable_cameras": {
                 "front": "Frontkamera",
                 "back": "Baksidekamera"
+            },
+            "custom_theme": {
+                "cherry_bomb": "",
+                "lavender_field": "",
+                "watercolor_wash": "",
+                "spicy_mustard": "",
+                "cosmic_night": "",
+                "art_deco_glam": "",
+                "ocean_depths": "",
+                "modern_farmhouse": "",
+                "bubblegum_pink": "",
+                "spring_meadow": "",
+                "woodland_mystery": "",
+                "spicy_chili": "",
+                "ginger_snap": "",
+                "amoled_dark_mode": "",
+                "material_you_light": "",
+                "custom": "",
+                "zesty_lemon": "",
+                "lemon_meringue": "",
+                "lemon_sorbet": "",
+                "peppermint_candy": "",
+                "gingerbread_house": "",
+                "galaxy_glitter": "",
+                "light_blue": "",
+                "material_you_dark": "",
+                "mint_chocolate": "",
+                "dark_blue": "",
+                "ocean_fog": "",
+                "lava_flow": "",
+                "lemon_drop": "",
+                "creamy_vanilla": "",
+                "midnight_slate": "",
+                "firefly_night": "",
+                "industrial_chic": "",
+                "earthy_autumn": "",
+                "alien_landscape": "",
+                "apple_orchard": "",
+                "tropical_paradise": "",
+                "midnight_library": ""
+            },
+            "auto_download_sources": {
+                "public_stories": "",
+                "friend_snaps": "",
+                "spotlight": "",
+                "friend_stories": ""
+            },
+            "strip_media_metadata": {
+                "hide_extras": "",
+                "hide_caption_text": "",
+                "hide_snap_filters": "",
+                "remove_audio_note_duration": "",
+                "remove_audio_note_transcript_capability": ""
+            },
+            "hide_ui_components": {
+                "hide_chat_gallery_button": "",
+                "hide_gift_snapchat_plus_reminders": "",
+                "hide_live_location_share_button": "",
+                "hide_chat_call_buttons": "",
+                "hide_snap_create_group_buttons": "",
+                "hide_map_reactions": "",
+                "hide_explorer_token_button": "",
+                "hide_chat_camera_button": "",
+                "hide_profile_call_buttons": "",
+                "hide_stickers_button": "",
+                "hide_voice_record_button": "",
+                "hide_post_to_story_buttons": "",
+                "hide_unread_chat_hint": ""
+            },
+            "add_friend_source_spoof": {
+                "added_by_qr_code": "",
+                "added_by_quick_add": "",
+                "added_by_community": "",
+                "added_by_group_chat": "",
+                "added_by_username": "",
+                "added_by_mention": ""
+            },
+            "disable_confirmation_dialogs": {
+                "ignore_friend": "",
+                "remove_friend": "",
+                "erase_message": "",
+                "hide_friend": "",
+                "block_friend": "",
+                "hide_conversation": "",
+                "clear_conversation": ""
+            },
+            "auto_reload": {
+                "all": "",
+                "snapchat_only": ""
+            },
+            "edit_text_override": {
+                "bypass_text_input_limit": "",
+                "multi_line_chat_input": ""
+            },
+            "friend_mutation_notifier": {
+                "bitmoji_scene_changes": "",
+                "bitmoji_avatar_changes": "",
+                "birthday_changes": "",
+                "bitmoji_background_changes": "",
+                "bitmoji_selfie_changes": "",
+                "remove_friend": ""
+            },
+            "message_indicators": {
+                "ovf_editor_indicator": "",
+                "location_indicator": "",
+                "encryption_indicator": "",
+                "director_mode_indicator": "",
+                "platform_indicator": ""
+            },
+            "hide_story_suggestions": {
+                "hide_my_stories": "",
+                "hide_suggested_friend_stories": ""
+            },
+            "icon_style": {
+                "outlined": "",
+                "filled": "",
+                "two-tone": "",
+                "sharp": ""
+            },
+            "path_format": {
+                "create_author_folder": "",
+                "create_source_folder": "",
+                "append_hash": "",
+                "append_source": "",
+                "append_username": "",
+                "append_date_time": ""
+            },
+            "bypass_video_length_restriction": {
+                "single": "",
+                "split": ""
+            },
+            "auto_mark_as_read": {
+                "conversation_read": "",
+                "snap_reply": ""
+            },
+            "simple_snapchat": {
+                "always_enabled": "",
+                "always_disabled": ""
+            },
+            "old_bitmoji_selfie": {
+                "2d": "",
+                "3d": ""
+            },
+            "snapchat_plus": {
+                "ad_free": "",
+                "basic": "",
+                "not_subscribed": ""
             }
         },
         "notices": {
@@ -686,6 +1431,18 @@
         "logger_history": {
             "name": "Loggføringshistorikk",
             "description": "Vis historikk over loggførte meldinger"
+        },
+        "theming": {
+            "name": "",
+            "description": ""
+        },
+        "disclaimer_statement": {
+            "name": "",
+            "description": ""
+        },
+        "security_features": {
+            "name": "",
+            "description": ""
         }
     },
     "content_type": {
@@ -694,21 +1451,52 @@
         "STICKER": "Klistremerke",
         "STATUS_CONVERSATION_CAPTURE_SCREENSHOT": "Skjermavbildning",
         "STATUS_COUNTDOWN": "Nedtelling",
-        "STATUS_CALL_MISSED_AUDIO": "Tapt anrop"
+        "STATUS_CALL_MISSED_AUDIO": "Tapt anrop",
+        "LIVE_LOCATION_SHARE": "",
+        "CREATIVE_TOOL_ITEM": "",
+        "STATUS_CALL_MISSED_VIDEO": "",
+        "STATUS_SAVE_TO_CAMERA_ROLL": "",
+        "CHAT": "",
+        "SNAP": "",
+        "NOTE": "",
+        "MAP_REACTION": "",
+        "FAMILY_CENTER_LEAVE": "",
+        "FAMILY_CENTER_ACCEPT": "",
+        "FAMILY_CENTER_INVITE": "",
+        "STATUS_CONVERSATION_CAPTURE_RECORD": "",
+        "LOCATION": "",
+        "STATUS_PLUS_GIFT": "",
+        "TINY_SNAP": "",
+        "EXTERNAL_MEDIA": ""
     },
     "media_download_source": {
         "none": "Ingen",
-        "profile_picture": "Profilbilde"
+        "profile_picture": "Profilbilde",
+        "pending": "",
+        "chat_media": "",
+        "merged": "",
+        "spotlight": "",
+        "voice_call": "",
+        "story_logger": "",
+        "public_story": "",
+        "message_logger": "",
+        "story": ""
     },
     "friend_menu_option": {
         "preview": "Forhåndsvisning",
-        "stealth_mode": "Smugmodus"
+        "stealth_mode": "Smugmodus",
+        "mark_snaps_as_seen": "",
+        "auto_download_blacklist": "",
+        "anti_auto_save": "",
+        "mark_stories_as_seen_locally": ""
     },
     "chat_action_menu": {
         "preview_button": "Forhåndsvisning",
         "download_button": "Last ned",
         "convert_message": "Konverter melding",
-        "edit_message": "Rediger melding"
+        "edit_message": "Rediger melding",
+        "show_chat_edit_history": "",
+        "delete_logged_message_button": ""
     },
     "opera_context_menu": {
         "download": "Last ned media",
@@ -725,36 +1513,253 @@
     },
     "conversation_preview": {
         "title": "Forhåndsvisning",
-        "unknown_user": "Ukjent bruker"
+        "unknown_user": "Ukjent bruker",
+        "streak_expiration": "",
+        "total_messages": "",
+        "no_messages": ""
     },
     "profile_info": {
         "title": "Profilinfo",
         "first_created_username": "Første opprettede brukernavn",
         "display_name": "Visningsnavn",
         "add_source": "Legg til kilde",
-        "snapchat_plus": "Snapchat Plus"
+        "snapchat_plus": "Snapchat Plus",
+        "birthday": "",
+        "snapchat_plus_state": {
+            "not_subscribed": "",
+            "subscribed": ""
+        },
+        "friendship": "",
+        "mutable_username": "",
+        "hidden_birthday": "",
+        "added_date": ""
     },
     "friendship_link_type": {
-        "deleted": "Slettet"
+        "deleted": "Slettet",
+        "mutual": "",
+        "outgoing": "",
+        "blocked": "",
+        "following": "",
+        "suggested": "",
+        "incoming_follower": "",
+        "incoming": ""
     },
     "bulk_messaging_action": {
         "choose_action_title": "Velg en handling",
         "confirmation_dialog": {
-            "title": "Er du sikker?"
+            "title": "Er du sikker?",
+            "message": ""
         },
         "actions": {
             "remove_friends": "Fjern venner",
             "clear_conversations": "Tøm samtaler"
         },
-        "selection_dialog_continue_button": "Fortsett"
+        "selection_dialog_continue_button": "Fortsett",
+        "progress_status": ""
     },
     "chat_export": {
         "exporter_dialog": {
             "select_conversations_title": "Velg samtaler",
-            "text_field_selection": "{amount} valgt"
+            "text_field_selection": "{amount} valgt",
+            "download_medias_title": "",
+            "amount_of_messages_title": "",
+            "message_type_filter_title": "",
+            "export_file_format_title": "",
+            "text_field_selection_all": ""
         },
         "dialog_negative_button": "Avbryt",
         "dialog_positive_button": "Eksporter",
-        "exported_to": "Eksportert til {path}"
+        "exported_to": "Eksportert til {path}",
+        "writing_output": "",
+        "finished": "",
+        "no_messages_found": "",
+        "export_fail": "",
+        "exporting_message": "",
+        "exporting_chats": "",
+        "processing_chats": ""
+    },
+    "better_notifications": {
+        "button": {
+            "reply": "",
+            "download": "",
+            "mark_as_read": ""
+        }
+    },
+    "button": {
+        "download": "",
+        "negative": "",
+        "positive": "",
+        "open": "",
+        "cancel": "",
+        "ok": "",
+        "send": ""
+    },
+    "profile_picture_downloader": {
+        "background_option": "",
+        "avatar_option": "",
+        "button": "",
+        "title": ""
+    },
+    "download_processor": {
+        "attachment_type": {
+            "snap": "",
+            "external_media": "",
+            "sticker": "",
+            "gif": "",
+            "original_story": "",
+            "note": ""
+        },
+        "download_started_toast": "",
+        "failed_processing_toast": "",
+        "download_toast": "",
+        "failed_no_longer_available_toast": "",
+        "already_downloaded_toast": "",
+        "dash_dialog": {
+            "title": "",
+            "download_all": "",
+            "segment_text": ""
+        },
+        "failed_gallery_toast": "",
+        "unsupported_content_type_toast": "",
+        "failed_to_create_preview_toast": "",
+        "dash_no_chapter": "",
+        "failed_generic_toast": "",
+        "processing_toast": "",
+        "already_queued_toast": "",
+        "no_attachments_toast": "",
+        "select_attachments_title": "",
+        "content_saved_toast": ""
+    },
+    "theming_attributes": {
+        "sigColorBackgroundSurface": "",
+        "sigColorChatSnapWithSound": "",
+        "ringStartColor": "",
+        "scButtonColor": "",
+        "sigColorIconPrimary": "",
+        "pstsIndicatorColor": "",
+        "actionSheetDescriptionTextColor": "",
+        "editTextColor": "",
+        "tabTextColor": "",
+        "pstsTabBackground": "",
+        "chipBackgroundColor": "",
+        "pstsDividerColor": "",
+        "sigColorBackgroundSurfaceTranslucent": "",
+        "listBackgroundDrawable": "",
+        "sigColorBackgroundMain": "",
+        "rangeFillColor": "",
+        "recipientInputStyle": "",
+        "sigColorStoryRingFriendsFeedStoryRing": "",
+        "actionSheetRoundedBackgroundDrawable": "",
+        "statusBarForeground": "",
+        "sigColorChatConversationsLine": "",
+        "sigColorLayoutPlaceholder": "",
+        "sigColorChatPendingSending": "",
+        "ringColor": "",
+        "sigColorTextPrimary": "",
+        "actionSheetBackgroundDrawable": "",
+        "boxBackgroundColor": "",
+        "strokeColor": "",
+        "sigColorChatSnapWithoutSound": "",
+        "statusBarBackground": "",
+        "sigColorChatChat": "",
+        "sigColorStoryRingDiscoverTabThumbnailStoryRing": "",
+        "itemShapeFillColor": "",
+        "listDivider": "",
+        "sigExceptionColorCameraGridLines": "",
+        "recipientPillBackgroundDrawable": "",
+        "sigColorIconSecondary": "",
+        "sigColorBaseAppYellow": "",
+        "sigColorButtonPrimary": "",
+        "storyReplayViewRingColor": ""
+    },
+    "send_override_dialog": {
+        "duration": "",
+        "unlimited_duration": "",
+        "title": "",
+        "saveable_snap_hint": ""
+    },
+    "streaks_reminder": {
+        "notification_title": "",
+        "notification_text": ""
+    },
+    "friend_mutation_observer": {
+        "birthday_added": "",
+        "bitmoji_selfie_changed": "",
+        "birthday_removed": "",
+        "friend_removed": "",
+        "notification_channel_name": "",
+        "bitmoji_avatar_changed": "",
+        "bitmoji_background_changed": "",
+        "bitmoji_scene_changed": "",
+        "birthday_changed": ""
+    },
+    "gallery_media_send_override": {
+        "multiple_media_toast": ""
+    },
+    "mark_as_seen": {
+        "unseen_toast": "",
+        "no_unseen_snaps_toast": "",
+        "already_unseen_toast": "",
+        "already_seen_toast": "",
+        "seen_toast": ""
+    },
+    "end_to_end_encryption": {
+        "toolbox": {
+            "no_shared_key": "",
+            "shared_key_fingerprint": "",
+            "initiate_exchange_button": ""
+        },
+        "confirmation_dialogs": {
+            "title": "",
+            "confirmation_1": "",
+            "confirmation_2": ""
+        },
+        "accept_public_key_button": "",
+        "accept_secret_key_failure_toast": "",
+        "outgoing_pk_message": "",
+        "no_participants_to_encrypt_toast": "",
+        "native_hooks_send_failure_toast": "",
+        "accept_secret_key_success_toast": "",
+        "accept_public_key_failure_toast": "",
+        "outgoing_secret_message": "",
+        "incoming_secret_message": "",
+        "accept_secret_button": "",
+        "accept_public_key_success_toast": "",
+        "incoming_pk_message": "",
+        "encryption_failed_toast": "",
+        "unencrypted_conversation_send_failure_toast": ""
+    },
+    "auto_open_snaps": {
+        "title": "",
+        "notification_content": ""
+    },
+    "material3_strings": {
+        "date_range_picker_title": "",
+        "date_range_picker_day_in_range": "",
+        "date_input_invalid_for_pattern": "",
+        "date_picker_today_description": "",
+        "date_range_picker_end_headline": "",
+        "date_picker_switch_to_input_mode": "",
+        "date_input_invalid_not_allowed": "",
+        "date_range_picker_start_headline": "",
+        "date_range_picker_scroll_to_previous_month": "",
+        "date_input_invalid_year_range": "",
+        "date_picker_switch_to_calendar_mode": "",
+        "date_range_input_invalid_range_input": "",
+        "date_range_picker_scroll_to_next_month": ""
+    },
+    "call_start_confirmation": {
+        "dialog_message": "",
+        "dialog_title": ""
+    },
+    "half_swipe_notifier": {
+        "notification_content_group": "",
+        "notification_content_dm": "",
+        "notification_channel_name": ""
+    },
+    "biometric_auth": {
+        "title": "",
+        "subtitle": "",
+        "unlock_button": ""
     }
 }
