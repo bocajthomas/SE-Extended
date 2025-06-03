@@ -50,7 +50,9 @@
                 "config_import_success_toast": "Configuration importée avec succès",
                 "config_import_failure_toast": "Échec de l'importation de la configuration {error}",
                 "saved_config_snackbar": "Configuration enregistrée",
-                "config_export_failure_toast": "Échec de l'exportation de la configuration {error}"
+                "config_export_failure_toast": "Échec de l'exportation de la configuration {error}",
+                "newer_required": "",
+                "older_required": ""
             },
             "social": {
                 "streaks_expiration_short": "{hours}h",
@@ -89,7 +91,8 @@
                 "streaks_expiration_text": "Expire dans {eta}",
                 "streaks_expiration_text_expired": "Expiré",
                 "reminder_button": "Définir un rappel",
-                "delete_scope_confirm_dialog_title": "Êtes-vous sûr de vouloir supprimer ce {scope} ?"
+                "delete_scope_confirm_dialog_title": "Êtes-vous sûr de vouloir supprimer ce {scope} ?",
+                "notes_placeholder": ""
             },
             "home_logs": {
                 "no_logs_hint": "Aucun journal disponible",
@@ -169,6 +172,18 @@
             },
             "theming": {
                 "no_themes_hint": "Aucun thème trouvé"
+            },
+            "manage_rule_feature": {
+                "disable_state_subtext": "",
+                "blacklist_state_option": "",
+                "clear_list_button": "",
+                "disable_state_option": "",
+                "whitelist_state_subtext": "",
+                "blacklist_state_button": "",
+                "dialog_clear_confirmation_text": "",
+                "blacklist_state_subtext": "",
+                "whitelist_state_button": "",
+                "whitelist_state_option": ""
             }
         },
         "dialogs": {
@@ -360,6 +375,20 @@
                     "auto_download_voice_notes": {
                         "name": "Téléchargement automatique des messages vocaux",
                         "description": "Télécharge automatiquement les messages vocaux lors de leur lecture"
+                    },
+                    "logging_options": {
+                        "properties": {
+                            "disappearing_rate": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "logging": {
+                                "description": "",
+                                "name": ""
+                            }
+                        },
+                        "description": "",
+                        "name": ""
                     }
                 }
             },
@@ -392,6 +421,10 @@
                             "home_tab": {
                                 "name": "Onglet d'accueil",
                                 "description": "Remplacement de l'onglet à l'ouverture"
+                            },
+                            "simple_snapchat": {
+                                "description": "",
+                                "name": ""
                             }
                         }
                     },
@@ -468,7 +501,20 @@
                         "name": "Thème personnalisé"
                     },
                     "auto_close_friend_feed_menu": {
-                        "description": "Ferme automatiquement le menu Friend Feed après avoir appuyé sur un bouton de réglage"
+                        "description": "Ferme automatiquement le menu Friend Feed après avoir appuyé sur un bouton de réglage",
+                        "name": ""
+                    },
+                    "icon_style": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "custom_friend_feed_label": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "hide_quick_add_suggestions": {
+                        "description": "",
+                        "name": ""
                     }
                 }
             },
@@ -890,6 +936,10 @@
                             "custom_emoji_font": {
                                 "name": "Police Emoji personnalisée",
                                 "description": "Vous permet d'utiliser une police emoji personnalisée. Fonctionne uniquement avec les polices .ttf"
+                            },
+                            "custom_shared_library": {
+                                "name": "",
+                                "description": ""
                             }
                         },
                         "description": "Fonctionnalités non fiables qui se greffent au code natif de Snapchat"
@@ -1043,6 +1093,10 @@
                     "voice_note_auto_play": {
                         "name": "Note vocale Lecture automatique",
                         "description": "Lecture automatique de la note vocale suivante après la fin de la note en cours"
+                    },
+                    "friend_notes": {
+                        "name": "",
+                        "description": ""
                     }
                 }
             },
@@ -1069,6 +1123,10 @@
                     "auto_reload": {
                         "description": "Recharge automatiquement les scripts lorsqu'ils sont modifiés",
                         "name": "Rechargement automatique"
+                    },
+                    "old_tool_box_add_view": {
+                        "name": "",
+                        "description": ""
                     }
                 }
             },
@@ -1213,7 +1271,12 @@
                 "hide_live_location_share_button": "Supprimer le bouton de partage de la localisation en direct",
                 "hide_profile_call_buttons": "Supprimer les boutons d'appel sur le profil",
                 "hide_post_to_story_buttons": "Supprimez les boutons Publier dans votre Story avant d'envoyer un Snap",
-                "hide_map_reactions": "Supprimer les réactions de la carte"
+                "hide_map_reactions": "Supprimer les réactions de la carte",
+                "hide_chat_camera_button": "",
+                "hide_chat_gallery_button": "",
+                "hide_gift_snapchat_plus_reminders": "",
+                "hide_explorer_token_button": "",
+                "hide_snap_create_group_buttons": ""
             },
             "edit_text_override": {
                 "bypass_text_input_limit": "Contourner la limite de saisie de texte",
@@ -1282,7 +1345,45 @@
                 "lava_flow": "Coulée de lave",
                 "amoled_dark_mode": "Mode sombre AMOLED",
                 "galaxy_glitter": "Galaxie Paillettes",
-                "cherry_bomb": "Bombe cerise"
+                "cherry_bomb": "Bombe cerise",
+                "material_you_light": "",
+                "material_you_dark": "",
+                "light_blue": "",
+                "dark_blue": "",
+                "midnight_slate": "",
+                "art_deco_glam": "",
+                "earthy_autumn": "",
+                "spicy_chili": "",
+                "ocean_depths": "",
+                "spring_meadow": "",
+                "lemon_sorbet": "",
+                "cosmic_night": "",
+                "gingerbread_house": "",
+                "apple_orchard": "",
+                "firefly_night": "",
+                "lemon_drop": "",
+                "lavender_field": "",
+                "modern_farmhouse": "",
+                "midnight_library": "",
+                "bubblegum_pink": "",
+                "custom": "",
+                "peppermint_candy": "",
+                "spicy_mustard": ""
+            },
+            "simple_snapchat": {
+                "always_enabled": "",
+                "always_disabled": ""
+            },
+            "icon_style": {
+                "two-tone": "",
+                "sharp": "",
+                "outlined": "",
+                "filled": ""
+            },
+            "snapchat_plus": {
+                "ad_free": "",
+                "not_subscribed": "",
+                "basic": ""
             }
         }
     },
@@ -1404,7 +1505,8 @@
             "title": "Télécharger le média Dash",
             "segment_text": "Segment {from} - {to}"
         },
-        "dash_no_chapter": "Aucun chapitre trouvé"
+        "dash_no_chapter": "Aucun chapitre trouvé",
+        "content_saved_toast": ""
     },
     "streaks_reminder": {
         "notification_title": "Rappels des flammes",
@@ -1549,6 +1651,10 @@
         "theming": {
             "name": "Thèmes",
             "description": "Personnaliser l'apparence de Snapchat"
+        },
+        "disclaimer_statement": {
+            "description": "",
+            "name": ""
         }
     },
     "mark_as_seen": {
