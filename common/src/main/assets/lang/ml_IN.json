@@ -41,11 +41,23 @@
             },
             "hide_friend_feed": {
                 "name": "ഫ്രണ്ട് ഫീഡിൽ നിന്ന് മറയ്ക്കുക"
+            },
+            "auto_open_snaps": {
+                "options": {
+                    "whitelist": "",
+                    "blacklist": ""
+                },
+                "description": "",
+                "name": ""
             }
         },
         "modes": {
             "blacklist": "ബ്ലാക്ക്‌ലിസ്റ്റ് മോഡ്",
             "whitelist": "വൈറ്റ്‌ലിസ്റ്റ് മോഡ്"
+        },
+        "toasts": {
+            "disabled": "",
+            "enabled": ""
         }
     },
     "manager": {
@@ -57,22 +69,58 @@
             "home": "വീട്",
             "tasks": "ചുമതലകൾ",
             "social": "സാമൂഹിക",
-            "messaging_preview": "മുഴുവനായും"
+            "messaging_preview": "മുഴുവനായും",
+            "theming": "",
+            "manage_scope": "",
+            "better_location": "",
+            "edit_theme": "",
+            "manage_repos": "",
+            "logger_history": "",
+            "logged_stories": "",
+            "edit_rule": "",
+            "file_imports": "",
+            "friend_tracker": "",
+            "manage_rule_feature": ""
         },
         "sections": {
             "social": {
-                "streaks_expiration_short": "{hours}h"
+                "streaks_expiration_short": "{hours}h",
+                "friends_tab": "",
+                "groups_tab": "",
+                "empty_hint": ""
             },
             "features": {
-                "disabled": "അപ്രാപ്തമാക്കി"
+                "disabled": "അപ്രാപ്തമാക്കി",
+                "config_export_success_toast": "",
+                "config_import_failure_toast": "",
+                "saved_config_snackbar": "",
+                "newer_required": "",
+                "export_option": "",
+                "config_import_success_toast": "",
+                "import_option": "",
+                "older_required": "",
+                "config_export_failure_toast": "",
+                "reset_option": ""
             },
             "tasks": {
-                "no_tasks": "ജോലികളൊന്നുമില്ല"
+                "no_tasks": "ജോലികളൊന്നുമില്ല",
+                "failed_to_open_file": "",
+                "remove_selected_tasks_title": "",
+                "remove_all_tasks_title": "",
+                "delete_files_option": "",
+                "remove_all_tasks_confirm": "",
+                "remove_selected_tasks_confirm": "",
+                "merge_files_toast": ""
             },
             "home": {
                 "update_content": "വേർഷൻ {version} ഇപ്പോൾ ലഭ്യമാണ്",
                 "update_title": "സ്നാപ്ഇൻഹാൻസ് പുതുക്കൽ",
-                "update_button": "ശേഖരിക്കുക"
+                "update_button": "ശേഖരിക്കുക",
+                "debug_build_summary_content": "",
+                "version_title": "",
+                "debug_build_summary_date": "",
+                "quick_actions_title": "",
+                "debug_build_summary_title": ""
             },
             "home_logs": {
                 "no_logs_hint": "ലോഗ്സ് ലഭ്യമല്ല",
@@ -84,7 +132,100 @@
             },
             "home_settings": {
                 "actions_title": "പ്രവർത്തികൾ",
-                "debug_title": "തെറ്റ്"
+                "debug_title": "തെറ്റ്",
+                "message_logger_title": "",
+                "success_toast": "",
+                "clear_button": "",
+                "view_logger_history_button": "",
+                "message_logger_summary": "",
+                "export_button": ""
+            },
+            "manage_scope": {
+                "rules_title": "",
+                "streaks_expiration_text": "",
+                "notes_placeholder": "",
+                "participants_text": "",
+                "reminder_button": "",
+                "delete_scope_confirm_dialog_title": "",
+                "e2ee_title": "",
+                "not_found": "",
+                "streaks_title": "",
+                "logged_stories_button": "",
+                "streaks_length_text": "",
+                "streaks_expiration_text_expired": ""
+            },
+            "logged_stories": {
+                "story_failed_to_load": "",
+                "no_stories": "",
+                "save_from_cache_button": ""
+            },
+            "messaging_preview": {
+                "bridge_connection_failed": "",
+                "unsave_all_option": "",
+                "delete_selection_option": "",
+                "message_fetch_failed": "",
+                "no_message_hint": "",
+                "bridge_init_failed": "",
+                "mark_all_as_seen_option": "",
+                "delete_all_option": "",
+                "save_selection_option": "",
+                "save_all_option": "",
+                "unsave_selection_option": "",
+                "mark_selection_as_seen_option": ""
+            },
+            "logger_history": {
+                "no_more_messages": "",
+                "empty_message": "",
+                "list_group_format": "",
+                "list_friend_format": "",
+                "reverse_order_checkbox": "",
+                "chat_attachment": "",
+                "download_attachment_failed_toast": "",
+                "unknown_sender": "",
+                "message_parse_failed": ""
+            },
+            "file_imports": {
+                "file_imported": "",
+                "file_delete_failed": "",
+                "no_files_hint": "",
+                "file_not_found": "",
+                "import_file_button": "",
+                "file_import_failed": ""
+            },
+            "better_location": {
+                "teleport_to_friend_button": "",
+                "search_bar": "",
+                "suspend_location_updates": "",
+                "teleport_to_friend_title": "",
+                "no_friends_found": "",
+                "no_friends_map": "",
+                "delete_dialog_title": "",
+                "saved_coordinates_title": "",
+                "delete_dialog_message": "",
+                "no_saved_coordinates_hint": "",
+                "spoofed_coordinates_title": "",
+                "latitude_dialog_hint": "",
+                "spoof_location_toggle": "",
+                "save_dialog_button": "",
+                "save_coordinates_dialog_title": "",
+                "saved_name_dialog_hint": "",
+                "choose_location_button": "",
+                "longitude_dialog_hint": ""
+            },
+            "manage_rule_feature": {
+                "disable_state_subtext": "",
+                "whitelist_state_option": "",
+                "dialog_clear_confirmation_text": "",
+                "disable_state_option": "",
+                "blacklist_state_button": "",
+                "clear_list_button": "",
+                "blacklist_state_subtext": "",
+                "blacklist_state_option": "",
+                "whitelist_state_button": "",
+                "whitelist_state_subtext": ""
+            },
+            "theming": {
+                "no_themes_hint": ""
             }
         },
         "dialogs": {
@@ -98,6 +239,23 @@
                 "fetch_error": "ഡാറ്റ ലഭ്യമാക്കുന്നതിൽ പരാജയപ്പെട്ടു",
                 "category_friends": "സുഹൃത്തുക്കൾ",
                 "category_groups": "ഗ്രൂപ്പുകൾ"
+            },
+            "reset_config": {
+                "content": "",
+                "title": "",
+                "success_toast": ""
+            },
+            "export_config": {
+                "title": "",
+                "content": ""
+            },
+            "file_imports": {
+                "settings_select_file_hint": "",
+                "no_files_settings_hint": ""
+            },
+            "messaging_action": {
+                "title": "",
+                "select_all_button": ""
             }
         }
     },
@@ -153,6 +311,10 @@
                             "home_tab": {
                                 "name": "ഹോം ടാബ്",
                                 "description": "Snapchat തുറക്കുമ്പോൾ സ്റ്റാർട്ടപ്പ് ടാബ് അസാധുവാക്കുന്നു"
+                            },
+                            "simple_snapchat": {
+                                "name": "",
+                                "description": ""
                             }
                         },
                         "name": "ബൂട്ട്സ്ട്രാപ്പ് അസാധുവാക്കുക"
@@ -222,6 +384,38 @@
                     "hide_streak_restore": {
                         "description": "ഫ്രണ്ട് ഫീഡിലെ Restore ബട്ടൺ മറയ്ക്കുന്നു",
                         "name": "സ്ട്രീക്ക് വീണ്ടെടുക്കൽ മറയ്ക്കുക"
+                    },
+                    "hide_story_suggestions": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "custom_theme": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "stealth_mode_indicator": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "message_indicators": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "auto_close_friend_feed_menu": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "icon_style": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "hide_quick_add_suggestions": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "custom_friend_feed_label": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "name": "ഉപയോക്തൃ ഇന്റർഫേസ്",
@@ -244,6 +438,30 @@
                     "force_camera_source_encoding": {
                         "description": "ക്യാമറ ഉറവിട എൻകോഡിംഗിനെ നിർബന്ധിക്കുന്നു",
                         "name": "നിർബന്ധിത ക്യാമറ ഉറവിട എൻകോഡിംഗ്"
+                    },
+                    "disable_cameras": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "override_front_resolution": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "custom_resolution": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "front_custom_frame_rate": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "override_back_resolution": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "back_custom_frame_rate": {
+                        "description": "",
+                        "name": ""
                     }
                 },
                 "description": "മികച്ച സ്നാപ്പിനായി ശരിയായ ക്രമീകരണങ്ങൾ ക്രമീകരിക്കുക",
@@ -286,6 +504,98 @@
                     "block_ads": {
                         "name": "പരസ്യങ്ങൾ തടയുക",
                         "description": "പരസ്യങ്ങൾ പ്രദർശിപ്പിക്കുന്നത് തടയുന്നു"
+                    },
+                    "better_location": {
+                        "properties": {
+                            "spoof_location": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "spoof_headphones": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "walk_radius": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "always_update_location": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "show_battery_level": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "suspend_location_updates": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "spoof_battery_level": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "coordinates": {
+                                "name": "",
+                                "description": ""
+                            }
+                        },
+                        "description": "",
+                        "name": ""
+                    },
+                    "default_volume_controls": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "disable_telecom_framework": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "media_upload_quality": {
+                        "properties": {
+                            "custom_image_upload_format": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "disable_image_compression": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "force_video_upload_source_quality": {
+                                "description": "",
+                                "name": ""
+                            }
+                        },
+                        "description": "",
+                        "name": ""
+                    },
+                    "disable_story_sections": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "disable_permission_requests": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "hide_active_music": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "disable_memories_snap_feed": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "disable_custom_tabs": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "video_playback_rate_slider": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "default_video_playback_rate": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "name": "ആഗോള",
@@ -370,6 +680,28 @@
                     "path_format": {
                         "name": "പാത്ത് ഫോർമാറ്റ്",
                         "description": "ഫയൽ പാത്ത് ഫോർമാറ്റ് വ്യക്തമാക്കുക"
+                    },
+                    "download_context_menu": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "auto_download_voice_notes": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "logging_options": {
+                        "description": "",
+                        "properties": {
+                            "disappearing_rate": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "logging": {
+                                "description": "",
+                                "name": ""
+                            }
+                        },
+                        "name": ""
                     }
                 },
                 "description": "Snapchat മീഡിയ ഡൗൺലോഡ് ചെയ്യുക",
@@ -412,6 +744,36 @@
                             "disable_bitmoji": {
                                 "description": "ചങ്ങാതിമാരുടെ പ്രൊഫൈൽ ബിറ്റ്മോജി പ്രവർത്തനരഹിതമാക്കുന്നു",
                                 "name": "ബിറ്റ്‌മോജി പ്രവർത്തനരഹിതമാക്കുക"
+                            },
+                            "composer_hooks": {
+                                "name": "",
+                                "properties": {
+                                    "show_first_created_username": {
+                                        "name": "",
+                                        "description": ""
+                                    },
+                                    "bypass_camera_roll_limit": {
+                                        "description": "",
+                                        "name": ""
+                                    },
+                                    "composer_logs": {
+                                        "description": "",
+                                        "name": ""
+                                    },
+                                    "composer_console": {
+                                        "description": "",
+                                        "name": ""
+                                    }
+                                },
+                                "description": ""
+                            },
+                            "custom_emoji_font": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "custom_shared_library": {
+                                "description": "",
+                                "name": ""
                             }
                         },
                         "description": "Snapchat-ന്റെ നേറ്റീവ് കോഡിലേക്ക് ഹുക്ക് ചെയ്യുന്ന സുരക്ഷിതമല്ലാത്ത ഫീച്ചറുകൾ",
@@ -462,6 +824,84 @@
                     "meo_passcode_bypass": {
                         "name": "എന്റെ കണ്ണുകൾ മാത്രം പാസ്‌കോഡ് ബൈപാസ്",
                         "description": "മൈ ഐസ് ഒൺലി പാസ്‌കോഡ് ബൈപാസ് ചെയ്യുക\nമുമ്പ് പാസ്‌കോഡ് ശരിയായി നൽകിയിട്ടുണ്ടെങ്കിൽ മാത്രമേ ഇത് പ്രവർത്തിക്കൂ"
+                    },
+                    "account_switcher": {
+                        "name": "",
+                        "description": "",
+                        "properties": {
+                            "auto_backup_current_account": {
+                                "name": "",
+                                "description": ""
+                            }
+                        }
+                    },
+                    "call_recorder": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "edit_message": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "cof_experiments": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "app_lock": {
+                        "properties": {
+                            "lock_on_resume": {
+                                "description": "",
+                                "name": ""
+                            }
+                        },
+                        "name": "",
+                        "description": ""
+                    },
+                    "better_transcript": {
+                        "name": "",
+                        "properties": {
+                            "force_transcription": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "preferred_transcription_lang": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "enhanced_transcript_in_notifications": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "enhanced_transcript": {
+                                "description": "",
+                                "name": ""
+                            }
+                        },
+                        "description": ""
+                    },
+                    "friend_notes": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "best_friend_pinning": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "custom_streaks_expiration_format": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "voice_note_auto_play": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "context_menu_fix": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "media_file_picker": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "description": "പരീക്ഷണാത്മക സവിശേഷതകൾ",
@@ -539,7 +979,53 @@
                     },
                     "better_notifications": {
                         "description": "ലഭിച്ച അറിയിപ്പുകളിൽ കൂടുതൽ വിവരങ്ങൾ ചേർക്കുന്നു",
-                        "name": "മികച്ച അറിയിപ്പുകൾ"
+                        "name": "മികച്ച അറിയിപ്പുകൾ",
+                        "properties": {
+                            "group_notifications": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "media_preview": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "smart_replies": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "stacked_media_messages": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "media_caption": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "mark_as_read_button": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "mark_as_read_and_save_in_chat": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "chat_preview": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "reply_button": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "download_button": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "friend_add_source": {
+                                "description": "",
+                                "name": ""
+                            }
+                        }
                     },
                     "auto_save_messages_in_conversations": {
                         "name": "സന്ദേശങ്ങൾ സ്വയമേവ സംരക്ഷിക്കുക",
@@ -568,6 +1054,34 @@
                     "hide_peek_a_peek": {
                         "description": "നിങ്ങൾ ഒരു ചാറ്റിലേക്ക് പകുതി സ്വൈപ്പ് ചെയ്യുമ്പോൾ അറിയിപ്പ് അയയ്ക്കുന്നത് തടയുന്നു",
                         "name": "പീക്ക്-എ-പീക്ക് മറയ്ക്കുക"
+                    },
+                    "friend_mutation_notifier": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "skip_when_marking_as_seen": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "auto_mark_as_read": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "bypass_message_action_restrictions": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "remove_groups_locked_status": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "mark_snap_as_seen_button": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "unlimited_conversation_pinning": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "name": "സന്ദേശമയയ്ക്കൽ",
@@ -618,8 +1132,30 @@
                     "disable_log_anonymization": {
                         "name": "ലോഗ് അജ്ഞാതമാക്കൽ പ്രവർത്തനരഹിതമാക്കുക",
                         "description": "ലോഗുകളുടെ അജ്ഞാതവൽക്കരണം പ്രവർത്തനരഹിതമാക്കുന്നു"
+                    },
+                    "old_tool_box_add_view": {
+                        "name": "",
+                        "description": ""
                     }
                 }
+            },
+            "friend_tracker": {
+                "name": "",
+                "properties": {
+                    "record_messaging_events": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "allow_running_in_background": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "auto_purge": {
+                        "name": "",
+                        "description": ""
+                    }
+                },
+                "description": ""
             }
         },
         "notices": {
@@ -637,7 +1173,8 @@
                 "conversation_info": "👤 സംഭാഷണ വിവരം",
                 "e2e_encryption": "🔒 E2E എൻക്രിപ്ഷൻ ഉപയോഗിക്കുക",
                 "mark_snaps_as_seen": "👀 Snaps കണ്ടതായി അടയാളപ്പെടുത്തുക",
-                "mark_stories_as_seen_locally": "👀 പ്രാദേശികമായി കാണുന്ന കഥകൾ അടയാളപ്പെടുത്തുക"
+                "mark_stories_as_seen_locally": "👀 പ്രാദേശികമായി കാണുന്ന കഥകൾ അടയാളപ്പെടുത്തുക",
+                "auto_open_snaps": ""
             },
             "path_format": {
                 "create_author_folder": "ഓരോ രചയിതാവിനും ഫോൾഡർ സൃഷ്ടിക്കുക",
@@ -674,12 +1211,15 @@
                 "abandon_audio": "മിസ്‌ഡ് ഓഡിയോ കോൾ",
                 "abandon_video": "മിസ്‌ഡ് വീഡിയോ കോൾ",
                 "chat_reaction": "ഡിഎം പ്രതികരണം",
-                "initiate_video": "ഇൻകമിംഗ് വീഡിയോ കോൾ"
+                "initiate_video": "ഇൻകമിംഗ് വീഡിയോ കോൾ",
+                "speaking": ""
             },
             "gallery_media_send_override": {
                 "ORIGINAL": "ഒറിജിനൽ",
                 "NOTE": "ഓഡിയോ കുറിപ്പ്",
-                "SNAP": "സ്നാപ്പ്"
+                "SNAP": "സ്നാപ്പ്",
+                "SAVEABLE_SNAP": "",
+                "always_ask": ""
             },
             "strip_media_metadata": {
                 "hide_snap_filters": "സ്നാപ്പ് ഫിൽട്ടറുകൾ മറയ്ക്കുക",
@@ -694,7 +1234,14 @@
                 "hide_voice_record_button": "വോയ്സ് റെക്കോർഡ് ബട്ടൺ നീക്കം ചെയ്യുക",
                 "hide_profile_call_buttons": "പ്രൊഫൈൽ കോൾ ബട്ടണുകൾ നീക്കം ചെയ്യുക",
                 "hide_stickers_button": "സ്റ്റിക്കറുകൾ ബട്ടൺ നീക്കം ചെയ്യുക",
-                "hide_unread_chat_hint": "വായിക്കാത്ത ചാറ്റ് സൂചന നീക്കം ചെയ്യുക"
+                "hide_unread_chat_hint": "വായിക്കാത്ത ചാറ്റ് സൂചന നീക്കം ചെയ്യുക",
+                "hide_explorer_token_button": "",
+                "hide_snap_create_group_buttons": "",
+                "hide_chat_camera_button": "",
+                "hide_map_reactions": "",
+                "hide_chat_gallery_button": "",
+                "hide_post_to_story_buttons": "",
+                "hide_gift_snapchat_plus_reminders": ""
             },
             "home_tab": {
                 "map": "മാപ്പ്",
@@ -708,7 +1255,8 @@
                 "added_by_group_chat": "ഗ്രൂപ്പ് ചാറ്റ് വഴി",
                 "added_by_qr_code": "QR കോഡ് വഴി",
                 "added_by_community": "കമ്മ്യൂണിറ്റി പ്രകാരം",
-                "added_by_username": "ഉപയോക്തൃനാമം പ്രകാരം"
+                "added_by_username": "ഉപയോക്തൃനാമം പ്രകാരം",
+                "added_by_quick_add": ""
             },
             "bypass_video_length_restriction": {
                 "single": "ഏക മാധ്യമം",
@@ -724,7 +1272,8 @@
                 "hide_friend": "സുഹൃത്തിനെ മറയ്ക്കുക",
                 "hide_conversation": "സംഭാഷണം മറയ്ക്കുക",
                 "remove_friend": "സുഹൃത്തിനെ നീക്കം ചെയ്യുക",
-                "clear_conversation": "ഫ്രണ്ട് ഫീഡിൽ നിന്ന് സംഭാഷണം മായ്‌ക്കുക"
+                "clear_conversation": "ഫ്രണ്ട് ഫീഡിൽ നിന്ന് സംഭാഷണം മായ്‌ക്കുക",
+                "erase_message": ""
             },
             "auto_reload": {
                 "snapchat_only": "Snapchat മാത്രം",
@@ -751,6 +1300,105 @@
             "app_appearance": {
                 "always_light": "എപ്പോഴും വെളിച്ചം",
                 "always_dark": "എപ്പോഴും ഇരുട്ട്"
+            },
+            "custom_theme": {
+                "lava_flow": "",
+                "zesty_lemon": "",
+                "galaxy_glitter": "",
+                "bubblegum_pink": "",
+                "cherry_bomb": "",
+                "light_blue": "",
+                "amoled_dark_mode": "",
+                "spicy_chili": "",
+                "ginger_snap": "",
+                "tropical_paradise": "",
+                "midnight_slate": "",
+                "dark_blue": "",
+                "alien_landscape": "",
+                "woodland_mystery": "",
+                "spring_meadow": "",
+                "watercolor_wash": "",
+                "cosmic_night": "",
+                "ocean_depths": "",
+                "apple_orchard": "",
+                "lemon_drop": "",
+                "lavender_field": "",
+                "earthy_autumn": "",
+                "mint_chocolate": "",
+                "ocean_fog": "",
+                "midnight_library": "",
+                "firefly_night": "",
+                "modern_farmhouse": "",
+                "custom": "",
+                "lemon_sorbet": "",
+                "material_you_light": "",
+                "material_you_dark": "",
+                "gingerbread_house": "",
+                "art_deco_glam": "",
+                "lemon_meringue": "",
+                "industrial_chic": "",
+                "peppermint_candy": "",
+                "creamy_vanilla": "",
+                "spicy_mustard": ""
+            },
+            "friend_mutation_notifier": {
+                "bitmoji_background_changes": "",
+                "remove_friend": "",
+                "bitmoji_scene_changes": "",
+                "bitmoji_selfie_changes": "",
+                "birthday_changes": "",
+                "bitmoji_avatar_changes": ""
+            },
+            "disable_cameras": {
+                "front": "",
+                "back": ""
+            },
+            "disable_story_sections": {
+                "discover": "",
+                "friends": "",
+                "suggested_stories": "",
+                "following": ""
+            },
+            "disable_permission_requests": {
+                "read_media_images": "",
+                "notifications": "",
+                "read_media_video": "",
+                "microphone": "",
+                "camera": "",
+                "nearby_devices": "",
+                "read_contacts": "",
+                "phone_calls": "",
+                "location": ""
+            },
+            "message_indicators": {
+                "location_indicator": "",
+                "ovf_editor_indicator": "",
+                "director_mode_indicator": "",
+                "encryption_indicator": "",
+                "platform_indicator": ""
+            },
+            "icon_style": {
+                "outlined": "",
+                "two-tone": "",
+                "filled": "",
+                "sharp": ""
+            },
+            "auto_mark_as_read": {
+                "conversation_read": "",
+                "snap_reply": ""
+            },
+            "hide_story_suggestions": {
+                "hide_suggested_friend_stories": "",
+                "hide_my_stories": ""
+            },
+            "simple_snapchat": {
+                "always_disabled": "",
+                "always_enabled": ""
+            },
+            "snapchat_plus": {
+                "not_subscribed": "",
+                "basic": "",
+                "ad_free": ""
             }
         }
     },
@@ -774,7 +1422,9 @@
         "FAMILY_CENTER_LEAVE": "ഫാമിലി സെന്റർ ലീവ്",
         "STATUS_PLUS_GIFT": "സ്റ്റാറ്റസ് പ്ലസ് സമ്മാനം",
         "TINY_SNAP": "ചെറിയ സ്നാപ്പ്",
-        "LIVE_LOCATION_SHARE": "തത്സമയ ലൊക്കേഷൻ പങ്കിടുക"
+        "LIVE_LOCATION_SHARE": "തത്സമയ ലൊക്കേഷൻ പങ്കിടുക",
+        "MAP_REACTION": "",
+        "SHARE": ""
     },
     "profile_info": {
         "snapchat_plus_state": {
@@ -811,13 +1461,17 @@
         "merged": "ലയിപ്പിച്ചു",
         "none": "ഒന്നുമില്ല",
         "pending": "തീർപ്പാക്കാത്തത്",
-        "story_logger": "സ്റ്റോറി ലോഗർ"
+        "story_logger": "സ്റ്റോറി ലോഗർ",
+        "voice_call": "",
+        "message_logger": ""
     },
     "chat_action_menu": {
         "download_button": "ഡൗൺലോഡ്",
         "delete_logged_message_button": "ലോഗിൻ ചെയ്ത സന്ദേശം ഇല്ലാതാക്കുക",
         "preview_button": "പ്രിവ്യൂ",
-        "convert_message": "സന്ദേശം പരിവർത്തനം ചെയ്യുക"
+        "convert_message": "സന്ദേശം പരിവർത്തനം ചെയ്യുക",
+        "edit_message": "",
+        "show_chat_edit_history": ""
     },
     "modal_option": {
         "close": "അടയ്ക്കുക",
@@ -827,7 +1481,8 @@
         "streak_expiration": "{day} ദിവസം {hour} മണിക്കൂർ {minute} മിനിറ്റിനുള്ളിൽ കാലഹരണപ്പെടുന്നു",
         "total_messages": "ആകെ അയച്ച/ലഭിച്ച സന്ദേശങ്ങൾ: {count}",
         "title": "പ്രിവ്യൂ",
-        "unknown_user": "അജ്ഞാത ഉപയോക്താവ്"
+        "unknown_user": "അജ്ഞാത ഉപയോക്താവ്",
+        "no_messages": ""
     },
     "opera_context_menu": {
         "created_at": "{date}-ന് സൃഷ്‌ടിച്ചത്",
@@ -878,7 +1533,8 @@
         "negative": "ഇല്ല",
         "cancel": "റദ്ദാക്കുക",
         "download": "ഡൗൺലോഡ്",
-        "open": "തുറക്കുക"
+        "open": "തുറക്കുക",
+        "send": ""
     },
     "better_notifications": {
         "button": {
@@ -908,7 +1564,8 @@
             "sticker": "സ്റ്റിക്കർ",
             "external_media": "ബാഹ്യ മാധ്യമങ്ങൾ",
             "note": "കുറിപ്പ്",
-            "original_story": "ഒറിജിനൽ സ്റ്റോറി"
+            "original_story": "ഒറിജിനൽ സ്റ്റോറി",
+            "gif": ""
         },
         "download_started_toast": "ഡൗൺലോഡ് ആരംഭിച്ചു",
         "unsupported_content_type_toast": "പിന്തുണയ്‌ക്കാത്ത ഉള്ളടക്ക തരം!",
@@ -922,7 +1579,14 @@
         "failed_gallery_toast": "ഗാലറിയിൽ സംരക്ഷിക്കുന്നതിൽ പരാജയപ്പെട്ടു {പിശക്}",
         "select_attachments_title": "ഡൗൺലോഡ് ചെയ്യാൻ അറ്റാച്ച്‌മെന്റുകൾ തിരഞ്ഞെടുക്കുക",
         "processing_toast": "{path} പ്രോസസ്സ് ചെയ്യുന്നു...",
-        "failed_processing_toast": "പ്രോസസ്സിംഗ് പരാജയപ്പെട്ടു {പിശക്}"
+        "failed_processing_toast": "പ്രോസസ്സിംഗ് പരാജയപ്പെട്ടു {പിശക്}",
+        "dash_dialog": {
+            "segment_text": "",
+            "title": "",
+            "download_all": ""
+        },
+        "content_saved_toast": "",
+        "dash_no_chapter": ""
     },
     "streaks_reminder": {
         "notification_title": "വരകൾ",
@@ -942,5 +1606,160 @@
     "scopes": {
         "friend": "സുഹൃത്ത്",
         "group": "കുട്ടായ്മ"
+    },
+    "actions": {
+        "export_chat_messages": {
+            "name": "",
+            "description": ""
+        },
+        "theming": {
+            "name": "",
+            "description": ""
+        },
+        "regen_mappings": {
+            "name": "",
+            "description": ""
+        },
+        "bulk_messaging_action": {
+            "name": "",
+            "description": ""
+        },
+        "security_features": {
+            "description": "",
+            "name": ""
+        },
+        "disclaimer_statement": {
+            "description": "",
+            "name": ""
+        },
+        "logger_history": {
+            "name": "",
+            "description": ""
+        },
+        "file_imports": {
+            "description": "",
+            "name": ""
+        },
+        "clean_snapchat_cache": {
+            "name": "",
+            "description": ""
+        },
+        "manage_friend_list": {
+            "name": "",
+            "description": ""
+        },
+        "change_language": {
+            "name": "",
+            "description": ""
+        },
+        "friend_tracker": {
+            "description": "",
+            "name": ""
+        },
+        "export_memories": {
+            "name": "",
+            "description": ""
+        }
+    },
+    "end_to_end_encryption": {
+        "no_participants_to_encrypt_toast": "",
+        "incoming_secret_message": "",
+        "accept_secret_button": "",
+        "confirmation_dialogs": {
+            "confirmation_2": "",
+            "confirmation_1": "",
+            "title": ""
+        },
+        "accept_secret_key_success_toast": "",
+        "accept_public_key_failure_toast": "",
+        "encryption_failed_toast": "",
+        "unencrypted_conversation_send_failure_toast": "",
+        "toolbox": {
+            "shared_key_fingerprint": "",
+            "initiate_exchange_button": "",
+            "no_shared_key": ""
+        },
+        "outgoing_pk_message": "",
+        "native_hooks_send_failure_toast": "",
+        "accept_public_key_success_toast": "",
+        "accept_public_key_button": "",
+        "accept_secret_key_failure_toast": "",
+        "outgoing_secret_message": "",
+        "incoming_pk_message": ""
+    },
+    "auto_open_snaps": {
+        "notification_content": "",
+        "title": ""
+    },
+    "friend_mutation_observer": {
+        "birthday_removed": "",
+        "notification_channel_name": "",
+        "bitmoji_selfie_changed": "",
+        "birthday_added": "",
+        "bitmoji_avatar_changed": "",
+        "birthday_changed": "",
+        "bitmoji_background_changed": "",
+        "bitmoji_scene_changed": "",
+        "friend_removed": ""
+    },
+    "theming_attributes": {
+        "sigColorBackgroundSurface": "",
+        "listBackgroundDrawable": "",
+        "tabTextColor": "",
+        "statusBarForeground": "",
+        "strokeColor": "",
+        "sigColorChatSnapWithoutSound": "",
+        "chipBackgroundColor": "",
+        "storyReplayViewRingColor": "",
+        "sigColorIconPrimary": "",
+        "sigColorIconSecondary": "",
+        "recipientPillBackgroundDrawable": "",
+        "sigColorStoryRingFriendsFeedStoryRing": "",
+        "sigColorChatPendingSending": "",
+        "sigColorBackgroundMain": "",
+        "actionSheetBackgroundDrawable": "",
+        "actionSheetRoundedBackgroundDrawable": "",
+        "sigColorLayoutPlaceholder": "",
+        "scButtonColor": "",
+        "boxBackgroundColor": "",
+        "editTextColor": "",
+        "pstsIndicatorColor": "",
+        "rangeFillColor": "",
+        "pstsTabBackground": "",
+        "pstsDividerColor": "",
+        "sigExceptionColorCameraGridLines": "",
+        "listDivider": "",
+        "ringColor": "",
+        "ringStartColor": "",
+        "itemShapeFillColor": "",
+        "sigColorStoryRingDiscoverTabThumbnailStoryRing": "",
+        "sigColorBackgroundSurfaceTranslucent": "",
+        "sigColorChatSnapWithSound": "",
+        "sigColorBaseAppYellow": "",
+        "sigColorTextPrimary": "",
+        "sigColorButtonPrimary": "",
+        "statusBarBackground": "",
+        "actionSheetDescriptionTextColor": "",
+        "sigColorChatChat": "",
+        "sigColorChatConversationsLine": "",
+        "recipientInputStyle": ""
+    },
+    "mark_as_seen": {
+        "already_seen_toast": "",
+        "no_unseen_snaps_toast": "",
+        "seen_toast": "",
+        "already_unseen_toast": "",
+        "unseen_toast": ""
+    },
+    "biometric_auth": {
+        "title": "",
+        "subtitle": "",
+        "unlock_button": ""
+    },
+    "send_override_dialog": {
+        "title": "",
+        "unlimited_duration": "",
+        "saveable_snap_hint": "",
+        "duration": ""
     }
 }
