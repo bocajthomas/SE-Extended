@@ -37,8 +37,6 @@
             "friend_tracker": "Friend Tracker",
             "edit_rule": "Edit Rule",
             "file_imports": "File Imports",
-            "theming": "Theming",
-            "edit_theme": "Edit Theme",
             "manage_repos": "Manage Repositories",
             "social": "Social",
             "manage_scope": "Manage Scope",
@@ -189,9 +187,6 @@
                 "search_bar": "Search",
                 "no_friends_map": "No friends on the map",
                 "no_friends_found": "No friends found"
-            },
-            "theming": {
-                "no_themes_hint": "No themes found"
             }
         },
         "dialogs": {
@@ -336,10 +331,6 @@
         "logger_history": {
             "name": "Logger History",
             "description": "View the history of logged messages"
-        },
-        "theming": {
-            "name": "Theming",
-            "description": "Customize the look and feel of Snapchat"
         }
     },
 
@@ -453,10 +444,6 @@
                     "enable_app_appearance": {
                         "name": "Enable App Appearance Settings",
                         "description": "Enables the hidden App Appearance Setting\nMay not be required on newer Snapchat versions"
-                    },
-                    "custom_theme": {
-                        "name": "Custom Theme",
-                        "description": "Customize Snapchat's Colors\nNote: if you choose a dark theme (like Amoled), you may need to enable the dark mode in Snapchat settings for better results"
                     },
                     "friend_feed_message_preview": {
                         "name": "Friend Feed Message Preview",
@@ -1212,12 +1199,6 @@
                 "always_light": "Always Light",
                 "always_dark": "Always Dark"
             },
-            "custom_theme": {
-                "amoled_dark_mode": "Amoled Dark Mode",
-                "custom": "Custom Themes (Use the Quick Actions to manage themes)",
-                "material_you_light": "Material You Light (Android 12+)",
-                "material_you_dark": "Material You Dark (Android 12+)"
-            },
             "friend_feed_menu_buttons": {
                 "auto_download": "\u2B07\uFE0F Auto Download",
                 "auto_save": "\uD83D\uDCAC Auto Save Messages",
@@ -1708,48 +1689,6 @@
         "date_range_input_invalid_range_input": "Invalid date range"
     },
 
-    "theming_attributes": {
-        "sigColorTextPrimary": "Main Text Color",
-        "sigColorChatChat": "Main Friend Feed Text Color",
-        "sigColorBackgroundSurface": "Background Surface Color",
-        "sigColorChatPendingSending": "Secondary Friend Feed Text Color",
-        "sigColorChatSnapWithSound": "Snaps With Sound Text Color",
-        "sigColorChatSnapWithoutSound": "Snaps Without Sound Text Color",
-        "actionSheetDescriptionTextColor": "Action Menu Description Text Color",
-        "sigColorBackgroundMain": "Background Color",
-        "listBackgroundDrawable": "Conversation list Background",
-        "sigColorChatConversationsLine": "Conversations Line Color",
-        "actionSheetBackgroundDrawable": "Action Menu Background Color",
-        "actionSheetRoundedBackgroundDrawable": "Action Menu Round Background Color",
-        "sigColorIconPrimary": "Action Menu Icon Color",
-        "sigExceptionColorCameraGridLines": "Camera Gridlines Color",
-        "listDivider": "List Divider Color",
-        "sigColorIconSecondary": "Secondary Icon Color",
-        "itemShapeFillColor": "Item Shape Fill Color",
-        "ringColor": "Ring Color",
-        "ringStartColor": "Ring Start Color",
-        "sigColorLayoutPlaceholder": "Layout Placeholder Color",
-        "scButtonColor": "Snapchat Button Color",
-        "recipientPillBackgroundDrawable": "Recipient Pill Background",
-        "boxBackgroundColor": "Box Background Color",
-        "editTextColor": "Edit Text Color",
-        "chipBackgroundColor": "Chip Background Color",
-        "recipientInputStyle": "Recipient Input Style",
-        "rangeFillColor": "Range Fill Color",
-        "pstsIndicatorColor": "PSTS Indicator Color",
-        "pstsTabBackground": "PSTS Tab Background",
-        "pstsDividerColor": "PSTS Divider Color",
-        "tabTextColor": "Tab Text Color",
-        "statusBarForeground": "Status Bar Foreground Color",
-        "statusBarBackground": "Status Bar Background Color",
-        "strokeColor": "Stroke Color",
-        "storyReplayViewRingColor": "Story Replay View Ring Color",
-        "sigColorButtonPrimary": "Primary Button Color",
-        "sigColorBaseAppYellow": "Base App Yellow Color",
-        "sigColorBackgroundSurfaceTranslucent": "Translucent Background Surface Color",
-        "sigColorStoryRingFriendsFeedStoryRing": "Story Ring Friends Feed Story Ring Color",
-        "sigColorStoryRingDiscoverTabThumbnailStoryRing": "Story Ring Discover Tab Thumbnail Story Ring Color"
-    },
     "send_override_dialog": {
         "title": "Send media as {type}",
         "duration": "Duration: {duration}",

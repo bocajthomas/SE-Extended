@@ -27,12 +27,6 @@ class UserInterfaceTweaks : ConfigContainer() {
         set(mutableListOf("conversation_info", MessagingRuleType.STEALTH.key))
     }
     val autoCloseFriendFeedMenu = boolean("auto_close_friend_feed_menu")
-    val customTheme = unique("custom_theme",
-        "amoled_dark_mode",
-        "material_you_light",
-        "material_you_dark",
-        "custom",
-    ) { addNotices(FeatureNotice.UNSTABLE); requireRestart(); versionCheck = RES_OBF_VERSION_CHECK.copy(isDisabled = true) }
     val friendFeedMessagePreview = container("friend_feed_message_preview", FriendFeedMessagePreview()) { requireRestart() }
     val snapPreview = boolean("snap_preview") { addNotices(FeatureNotice.UNSTABLE); requireRestart() }
     val bootstrapOverride = container("bootstrap_override", BootstrapOverride()) { requireRestart() }

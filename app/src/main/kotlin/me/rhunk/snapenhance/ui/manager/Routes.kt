@@ -11,23 +11,21 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavGraphBuilder
 import me.rhunk.snapenhance.RemoteSideContext
-import me.rhunk.snapenhance.ui.manager.pages.location.BetterLocationRoot
 import me.rhunk.snapenhance.ui.manager.pages.FileImportsRoot
 import me.rhunk.snapenhance.ui.manager.pages.LoggerHistoryRoot
+import me.rhunk.snapenhance.ui.manager.pages.ManageReposSection
 import me.rhunk.snapenhance.ui.manager.pages.TasksRootSection
 import me.rhunk.snapenhance.ui.manager.pages.features.FeaturesRootSection
+import me.rhunk.snapenhance.ui.manager.pages.features.ManageRuleFeature
 import me.rhunk.snapenhance.ui.manager.pages.home.HomeLogs
 import me.rhunk.snapenhance.ui.manager.pages.home.HomeRootSection
 import me.rhunk.snapenhance.ui.manager.pages.home.HomeSettings
+import me.rhunk.snapenhance.ui.manager.pages.location.BetterLocationRoot
 import me.rhunk.snapenhance.ui.manager.pages.scripting.ScriptingRootSection
 import me.rhunk.snapenhance.ui.manager.pages.social.LoggedStories
 import me.rhunk.snapenhance.ui.manager.pages.social.ManageScope
 import me.rhunk.snapenhance.ui.manager.pages.social.MessagingPreview
 import me.rhunk.snapenhance.ui.manager.pages.social.SocialRootSection
-import me.rhunk.snapenhance.ui.manager.pages.theming.EditThemeSection
-import me.rhunk.snapenhance.ui.manager.pages.ManageReposSection
-import me.rhunk.snapenhance.ui.manager.pages.features.ManageRuleFeature
-import me.rhunk.snapenhance.ui.manager.pages.theming.ThemingRoot
 import me.rhunk.snapenhance.ui.manager.pages.tracker.EditRule
 import me.rhunk.snapenhance.ui.manager.pages.tracker.FriendTrackerManagerRoot
 
@@ -63,8 +61,6 @@ class Routes(
     val editRule = route(RouteInfo("edit_rule/?rule_id={rule_id}"), EditRule())
 
     val fileImports = route(RouteInfo("file_imports"), FileImportsRoot()).parent(home)
-    val theming = route(RouteInfo("theming"), ThemingRoot()).parent(home)
-    val editTheme = route(RouteInfo("edit_theme/?theme_id={theme_id}"), EditThemeSection())
     val manageRepos = route(RouteInfo("manage_repos"), ManageReposSection())
 
     val social = route(RouteInfo("social", icon = Icons.Default.Group, primary = true), SocialRootSection())
