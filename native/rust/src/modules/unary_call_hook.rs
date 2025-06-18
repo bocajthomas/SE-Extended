@@ -104,7 +104,7 @@ def_hook!(
 pub fn init() {
     if let Some(signature) = sig::find_signature(
         &common::CLIENT_MODULE, 
-        "A8 03 1F F8 C2 00 00 94", -0x48,
+        "A8 03 1F F8 ?? 00 00 94 ?? ?? ?? 91", -0x48,
         "0A 90 00 F0 3F F9", -0x37
     ) {
         dobby_hook!(signature as *mut c_void, unary_call);
