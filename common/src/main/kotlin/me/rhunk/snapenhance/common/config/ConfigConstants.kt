@@ -8,4 +8,4 @@ val RES_OBF_VERSION_CHECK = VersionCheck(maxVersion = ("13.7.0.42" to 157172))
 /*
   After this version, Snapchat will start detecting modifications to their app (to be confirmed)
 */
-val MOD_DETECTION_VERSION_CHECK = VersionCheck(maxVersion = ("12.81.0.44 (126022)" to 126023))
+val MOD_DETECTION_VERSION_CHECK = VersionCheck(maxVersion = ("12.33.1.19 (84704)" to 84704))
