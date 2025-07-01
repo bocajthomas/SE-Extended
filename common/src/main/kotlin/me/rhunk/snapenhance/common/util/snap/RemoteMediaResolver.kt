@@ -2,6 +2,7 @@ package me.rhunk.snapenhance.common.util.snap
 
 import me.rhunk.snapenhance.common.Constants
 import me.rhunk.snapenhance.common.util.ktx.await
+import me.rhunk.snapenhance.common.util.protobuf.ProtoReader
 import okhttp3.Headers
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -9,37 +10,28 @@ import java.io.InputStream
 import java.util.Base64
 
 object RemoteMediaResolver {
-    private const val BOLT_HTTP_RESOLVER_URL = "https://web.snapchat.com/bolt-http"
     const val CF_ST_CDN_D = "https://cf-st.sc-cdn.net/d/"
-
-    private val urlCache = mutableMapOf<String, String>()
 
     val okHttpClient = OkHttpClient.Builder()
         .followRedirects(true)
         .retryOnConnectionFailure(true)
         .readTimeout(20, java.util.concurrent.TimeUnit.SECONDS)
-        .addInterceptor { chain ->
-            val request = chain.request()
-            val requestUrl = request.url.toString()
+        .build()
 
-            if (urlCache.containsKey(requestUrl)) {
-                val cachedUrl = urlCache[requestUrl]!!
-                return@addInterceptor chain.proceed(request.newBuilder().url(cachedUrl).build())
-            }
-
-            chain.proceed(request).apply {
-                val responseUrl = this.request.url.toString()
-                if (responseUrl.startsWith("https://cf-st.sc-cdn.net")) {
-                    urlCache[requestUrl] = responseUrl
-                }
-            }
+    fun newResolveRequest(protoKey: ByteArray): Request {
+        val protoReader = ProtoReader(protoKey)
+        val url = if (!protoReader.containsPath(2, 3)) {
+            "https://bolt-gcdn.sc-cdn.net/br/" + protoReader.getString(2, 2)
         }
-        .build()
+        else {
+            "https://gcp.api.snapchat.com/bolt-http/resolve?co=" + Base64.getUrlEncoder().encodeToString(protoKey)
+        }
 
-    fun newResolveRequest(protoKey: ByteArray) = Request.Builder()
-        .url(BOLT_HTTP_RESOLVER_URL + "/resolve?co=" + Base64.getUrlEncoder().encodeToString(protoKey))
-        .addHeader("User-Agent", Constants.USER_AGENT)
-        .build()
+        return Request.Builder()
+            .url(url)
+            .addHeader("User-Agent", Constants.USER_AGENT)
+            .build()
+    }
 
     suspend inline fun downloadMedia(url: String, decryptionCallback: (InputStream) -> InputStream = { it }, result: (InputStream, Long) -> Unit) {
         okHttpClient.newCall(Request.Builder().url(url).build()).await().use { response ->
