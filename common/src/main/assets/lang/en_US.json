@@ -1056,6 +1056,10 @@
                             "preferred_transcription_lang": {
                                 "name": "Preferred Transcription Language",
                                 "description": "The preferred language for the voice note transcript (e.g. EN, ES, FR)"
+                            },
+                            "notification_transcript": {
+                                "name": "Notification Transcript",
+                                "description": "Transcribes voice notes in notifications\nThis feature requires the Chat Preview feature to be enabled in Better Notifications"
                             }
                         }
                     },

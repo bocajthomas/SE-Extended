@@ -24,7 +24,9 @@ import me.rhunk.snapenhance.core.event.events.impl.SnapWidgetBroadcastReceiveEve
 import me.rhunk.snapenhance.core.features.Feature
 import me.rhunk.snapenhance.core.features.impl.FriendMutationObserver
 import me.rhunk.snapenhance.core.features.impl.downloader.MediaDownloader
+import me.rhunk.snapenhance.core.features.impl.downloader.decoder.AttachmentType
 import me.rhunk.snapenhance.core.features.impl.downloader.decoder.MessageDecoder
+import me.rhunk.snapenhance.core.features.impl.experiments.BetterTranscript
 import me.rhunk.snapenhance.core.features.impl.spying.StealthMode
 import me.rhunk.snapenhance.core.util.hook.HookStage
 import me.rhunk.snapenhance.core.util.hook.findRestrictedConstructor
@@ -34,6 +36,7 @@ import me.rhunk.snapenhance.core.util.ktx.setObjectField
 import me.rhunk.snapenhance.core.util.media.PreviewUtils
 import me.rhunk.snapenhance.core.wrapper.impl.Message
 import me.rhunk.snapenhance.core.wrapper.impl.SnapUUID
+import java.nio.ByteBuffer
 import kotlin.coroutines.suspendCoroutine
 
 class Notifications : Feature("Notifications") {
@@ -385,6 +388,29 @@ class Notifications : Feature("Notifications") {
                         message.serialize() ?: ""
                     } else ""
                 }"
+            }
+
+            if (contentType == ContentType.NOTE && context.config.experimental.betterTranscript.takeIf { it.globalState == true }?.notificationTranscript?.get() == true) {
+                MessageDecoder.decode(message.messageContent!!).firstOrNull { it.type == AttachmentType.NOTE  }?.also { media ->
+                    runCatching {
+                        media.openStream { mediaStream, length ->
+                            if (mediaStream == null || length > 25 * 1024 * 1024) {
+                                context.log.error("Failed to open media stream or media is too large")
+                                return@openStream
+                            }
+
+                            val text = context.feature(BetterTranscript::class).transcribe(
+                                ByteBuffer.allocateDirect(length.toInt()).apply {
+                                    put(mediaStream.readBytes())
+                                    rewind()
+                                }) ?: return@openStream
+                            serializedMessage = "\uD83C\uDFA4 $text"
+                            isChatMessage = true
+                        }
+                    }.onFailure {
+                        context.log.error("Failed to transcribe message", it)
+                    }
+                }
             }
 
             if (isChatMessage || config.stackedMediaMessages.get()) {
