@@ -20,8 +20,6 @@ class Experimental : ConfigContainer() {
     class BetterTranscriptConfig: ConfigContainer(hasGlobalState = true) {
         val forceTranscription = boolean("force_transcription") { requireRestart() }
         val preferredTranscriptionLang = string("preferred_transcription_lang") { requireRestart() }
-        val enhancedTranscript = boolean("enhanced_transcript") { requireRestart(); addNotices(FeatureNotice.UNSTABLE) }
-        val enhancedTranscriptInNotifications = boolean("enhanced_transcript_in_notifications") { requireRestart(); addNotices(FeatureNotice.UNSTABLE) }
     }
 
     class ComposerHooksConfig: ConfigContainer(hasGlobalState = true) {

@@ -1056,14 +1056,6 @@
                             "preferred_transcription_lang": {
                                 "name": "Preferred Transcription Language",
                                 "description": "The preferred language for the voice note transcript (e.g. EN, ES, FR)"
-                            },
-                            "enhanced_transcript": {
-                                "name": "Enhanced Transcript",
-                                "description": "Improves the voice note transcript using DeepL.\nBefore using this feature, please ensure that you have read their privacy policy."
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "name": "Enhanced Transcript in Notifications",
-                                "description": "Transcribes voice notes in notifications using DeepL. This requires the Chat Preview feature to be enabled in Better Notifications"
                             }
                         }
                     },
