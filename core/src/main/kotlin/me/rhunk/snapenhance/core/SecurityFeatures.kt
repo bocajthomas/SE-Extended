@@ -18,12 +18,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import me.rhunk.snapenhance.common.bridge.FileHandleScope
-import me.rhunk.snapenhance.common.bridge.InternalFileHandleType
 import me.rhunk.snapenhance.common.bridge.toWrapper
 import me.rhunk.snapenhance.common.config.MOD_DETECTION_VERSION_CHECK
 import me.rhunk.snapenhance.common.config.VersionRequirement
 import me.rhunk.snapenhance.common.ui.createComposeView
+import me.rhunk.snapenhance.core.event.events.impl.UnaryCallEvent
 import me.rhunk.snapenhance.core.ui.CustomComposable
+import me.rhunk.snapenhance.core.util.ktx.getObjectField
 
 class SecurityFeatures(
     private val context: ModContext
@@ -38,67 +39,55 @@ class SecurityFeatures(
         transact(this, 0)?.toString(2)?.padStart(32, '0')?.count { it == '1' }
     }
 
-    private fun isSafeMode(): Boolean {
+    fun init() {
         val snapchatVersionCode = context.androidContext.packageManager?.getPackageInfo(context.androidContext.packageName, 0)?.longVersionCode ?: throw IllegalStateException("Failed to get version code")
-        val shouldUseSafeMode = MOD_DETECTION_VERSION_CHECK.checkVersion(snapchatVersionCode)?.second == VersionRequirement.OLDER_REQUIRED
+        var shouldDisablePlugin = MOD_DETECTION_VERSION_CHECK.checkVersion(snapchatVersionCode)?.second == VersionRequirement.OLDER_REQUIRED
 
+        // load user shared library
         context.config.experimental.nativeHooks.customSharedLibrary.get().takeIf { it.isNotEmpty() }?.let {
             runCatching {
                 context.native.loadSharedLibrary(
                     context.fileHandlerManager.getFileHandle(FileHandleScope.USER_IMPORT.key, it).toWrapper().readBytes()
                 )
                 context.log.verbose("loaded custom shared library")
+                shouldDisablePlugin = false
+
+                lateinit var composable: CustomComposable
+                composable = {
+                    Row(
+                        modifier = Modifier
+                            .padding(16.dp)
+                            .align(Alignment.TopCenter),
+                    ) {
+                        Icon(Icons.Filled.Check, contentDescription = null, tint = Color(0xFF85A947))
+                    }
+
+                    LaunchedEffect(Unit) {
+                        delay(2500)
+                        context.inAppOverlay.removeCustomComposable(composable)
+                    }
+                }
+
+                context.inAppOverlay.addCustomComposable(composable)
             }.onFailure {
                 context.log.error("Failed to load custom shared library", it)
-                return true
             }
-        } ?: context.bridgeClient.getDebugProp("enable_security_features", "false").takeIf { it == "true" }?.runCatching {
-            context.native.loadSharedLibrary(
-                context.fileHandlerManager.getFileHandle(FileHandleScope.INTERNAL.key, InternalFileHandleType.SIF.key)
-                    .toWrapper()
-                    .readBytes()
-                    .takeIf {
-                        it.isNotEmpty()
-                    } ?: throw IllegalStateException("Binary is empty")
-            )
-            context.log.verbose("loaded sif")
-        }?.onFailure {
-            context.log.error("Failed to load sif: " + it.message)
-            return shouldUseSafeMode
-        } ?: context.log.warn("Security features are disabled")
-
-        token // pre init token
-
-        val status = getStatus()
-        val safeMode = shouldUseSafeMode && (status == null || status < 2)
-
-        if (status != null && status >= 2) {
-            context.log.verbose("status=$status")
-            lateinit var composable: CustomComposable
-            composable = {
-                Row(
-                    modifier = Modifier
-                        .padding(16.dp)
-                        .align(Alignment.TopCenter),
-                ) {
-                    Icon(Icons.Filled.Check, contentDescription = null, tint = Color(0xFF85A947))
-                }
-
-                LaunchedEffect(Unit) {
-                    delay(2500)
-                    context.inAppOverlay.removeCustomComposable(composable)
-                }
-            }
-            context.inAppOverlay.addCustomComposable(composable)
         }
 
-        return safeMode
-    }
+        if (context.bridgeClient.getDebugProp("test_mode", "false") == "true") {
+            shouldDisablePlugin = false
+        }
 
-    fun init() {
-        context.isSafeMode = isSafeMode()
-        context.log.verbose("isSafeMode=${context.isSafeMode}")
-        if (!context.isSafeMode) return
+        context.disablePlugin = shouldDisablePlugin
+        context.log.verbose("disablePlugin=${context.disablePlugin}")
+        if (!context.disablePlugin) return
+
+        context.event.subscribe(UnaryCallEvent::class) { event ->
+            val callOptions = event.adapter.arg<Any>(2).let { it.javaClass.getMethod("build").invoke(it) } ?: return@subscribe
+            if (callOptions.getObjectField("mAttestation") != null) {
+                event.canceled = true
+            }
+        }
 
         context.features.addActivityCreateListener { activity ->
             if (!activity.javaClass.name.endsWith("LoginSignupActivity")) return@addActivityCreateListener

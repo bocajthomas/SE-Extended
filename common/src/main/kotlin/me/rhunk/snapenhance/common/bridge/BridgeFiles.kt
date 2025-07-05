@@ -34,8 +34,7 @@ enum class InternalFileHandleType(
     MAPPINGS("mappings", "mappings.json"),
     MESSAGE_LOGGER("message_logger", "message_logger.db", isDatabase = true),
     PINNED_BEST_FRIEND("pinned_best_friend", "pinned_best_friend.txt"),
-    NATIVE_SIG_CACHE("native_sig_cache", "native_sig_cache.txt"),
-    SIF("sif", "libsif.so");
+    NATIVE_SIG_CACHE("native_sig_cache", "native_sig_cache.txt");
 
     fun resolve(context: Context): File = if (isDatabase) {
         context.getDatabasePath(fileName)

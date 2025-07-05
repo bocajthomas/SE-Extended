@@ -39,6 +39,7 @@ class ClassMapper(
             StreaksExpirationMapper(),
             COFObservableMapper(),
             FoldingLayoutMapper(),
+            PlatformClientAttestationMapper(),
         )
     }
 

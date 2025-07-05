@@ -154,9 +154,6 @@ class HomeSettings : Routes.Route() {
             RowAction(key = "change_language") {
                 context.checkForRequirements(Requirements.LANGUAGE)
             }
-            RowAction(key = "security_features") {
-                context.checkForRequirements(Requirements.SIF)
-            }
             RowTitle(title = translation["message_logger_title"])
             ShiftedRow {
                 Column(
@@ -285,7 +282,7 @@ class HomeSettings : Routes.Route() {
                 Column(
                     verticalArrangement = Arrangement.spacedBy(4.dp),
                 ) {
-                    PreferenceToggle(context.sharedPreferences, key = "enable_security_features", text = "Enable Security Features")
+                    PreferenceToggle(context.sharedPreferences, key = "test_mode", text = "Test Mode (Debugging)")
                     PreferenceToggle(context.sharedPreferences, key = "disable_feature_loading", text = "Disable Feature Loading")
                     PreferenceToggle(context.sharedPreferences, key = "disable_mapper", text = "Disable Auto Mapper")
                 }
