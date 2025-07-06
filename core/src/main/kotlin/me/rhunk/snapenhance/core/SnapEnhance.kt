@@ -243,6 +243,10 @@ class SnapEnhance {
                         }?.forEach { method ->
                             method.hook(HookStage.BEFORE) {
                                 appContext.log.verbose("called $method")
+                                if (Throwable().stackTrace.lastOrNull()?.methodName == "getAttestationPayloadProto") {
+                                    appContext.log.verbose("sleeping")
+                                    Thread.sleep(Long.MAX_VALUE)
+                                }
                                 it.setResult(null)
                             }
                         } ?: error("Failed to get pluginNativeClass class")

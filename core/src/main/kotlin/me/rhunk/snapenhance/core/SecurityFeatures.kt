@@ -24,6 +24,8 @@ import me.rhunk.snapenhance.common.config.VersionRequirement
 import me.rhunk.snapenhance.common.ui.createComposeView
 import me.rhunk.snapenhance.core.event.events.impl.UnaryCallEvent
 import me.rhunk.snapenhance.core.ui.CustomComposable
+import me.rhunk.snapenhance.core.util.hook.HookStage
+import me.rhunk.snapenhance.core.util.hook.hook
 import me.rhunk.snapenhance.core.util.ktx.getObjectField
 
 class SecurityFeatures(
@@ -89,6 +91,11 @@ class SecurityFeatures(
             }
         }
 
+        context.androidContext.classLoader.loadClass("com.snapchat.client.client_attestation.ArgosClient\$CppProxy").apply {
+            hook("getArgosTokenAsync", HookStage.BEFORE) { it.setResult(null) }
+            hook("getAttestationHeaders", HookStage.BEFORE) { it.setResult(null) }
+        }
+
         context.features.addActivityCreateListener { activity ->
             if (!activity.javaClass.name.endsWith("LoginSignupActivity")) return@addActivityCreateListener
 
@@ -110,7 +117,7 @@ class SecurityFeatures(
                                     Icon(Icons.Rounded.NotInterested, contentDescription = null, tint = MaterialTheme.colorScheme.onSurface, modifier = Modifier.size(110.dp))
                                     Spacer(Modifier.height(50.dp))
                                     Text(
-                                        "SnapEnhance can't be used to login or signup because your Snapchat version isn't the recommended one (v${MOD_DETECTION_VERSION_CHECK.maxVersion?.first ?: "0.0.0"}). Please downgrade to continue using it.\n\nFor more details, join t.me/snapenhance_chat",
+                                        "SnapEnhance can't be used to login or signup because your Snapchat version isn't the recommended one. Please downgrade to Snapchat v${MOD_DETECTION_VERSION_CHECK.maxVersion?.first ?: "0.0.0"} or disable SnapEnhance in LSPosed to continue.\n\nFor more details, join t.me/snapenhance_chat",
                                         color = MaterialTheme.colorScheme.onSurface,
                                         textAlign = TextAlign.Center,
                                     )
