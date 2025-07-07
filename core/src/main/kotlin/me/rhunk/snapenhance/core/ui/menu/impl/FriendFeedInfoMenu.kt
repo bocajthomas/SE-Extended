@@ -98,6 +98,7 @@ class FriendFeedInfoMenu : AbstractMenu() {
         }
         val finalIcon = icon
         val translation = context.translation.getCategory("profile_info")
+        val firstCreatedUsername = context.database.getFriendOriginalUsername(profile.mutableUsername.toString()) ?: profile.firstCreatedUsername
 
         context.runOnUiThread {
             val addedTimestamp: Long = profile.addedTimestamp.coerceAtLeast(profile.reverseAddedTimestamp)
@@ -109,7 +110,7 @@ class FriendFeedInfoMenu : AbstractMenu() {
             birthday[Calendar.MONTH] = (profile.birthday shr 32).toInt() - 1
 
             builder.setMessage(mapOf(
-                translation["first_created_username"] to profile.firstCreatedUsername,
+                translation["first_created_username"] to firstCreatedUsername,
                 translation["mutable_username"] to profile.mutableUsername,
                 translation["display_name"] to profile.displayName,
                 translation["added_date"] to formatDate(addedTimestamp).takeIf { addedTimestamp > 0 },

@@ -133,13 +133,12 @@ class ComposerHooks: Feature("ComposerHooks") {
             context.feature(MediaDownloader::class).downloadLastOperaMediaAsync(getUntyped(0) == true)
         }
 
-        composerFunction("getFriendInfoByUsername") {
+        composerFunction("getFriendOriginalUsername") {
             if (getSize() < 1) return@composerFunction
             val username = getUntyped(0) as? String ?: return@composerFunction
+
             runCatching {
-                pushUntyped(context.database.getFriendInfoByUsername(username)?.let {
-                    context.gson.toJson(it)
-                })
+                pushUntyped(context.database.getFriendOriginalUsername(username))
             }.onFailure {
                 pushUntyped(null)
             }

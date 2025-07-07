@@ -6,12 +6,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteDatabase.OpenParams
 import android.database.sqlite.SQLiteDatabaseCorruptException
 import me.rhunk.snapenhance.common.database.DatabaseObject
-import me.rhunk.snapenhance.common.database.impl.ConversationMessage
-import me.rhunk.snapenhance.common.database.impl.FriendFeedEntry
-import me.rhunk.snapenhance.common.database.impl.FriendInfo
-import me.rhunk.snapenhance.common.database.impl.StoryEntry
-import me.rhunk.snapenhance.common.database.impl.StorySnapEntry
-import me.rhunk.snapenhance.common.database.impl.UserConversationLink
+import me.rhunk.snapenhance.common.database.impl.*
 import me.rhunk.snapenhance.common.util.ktx.getBlobOrNull
 import me.rhunk.snapenhance.common.util.ktx.getIntOrNull
 import me.rhunk.snapenhance.common.util.ktx.getInteger
@@ -195,6 +190,20 @@ class DatabaseAccess(
                 "userId = ?",
                 arrayOf(userId)
             )
+        }
+    }
+
+    fun getFriendOriginalUsername(mutableUsername: String): String? {
+        return useDatabase(DatabaseType.MAIN)?.performOperation {
+            safeRawQuery(
+                "SELECT originalUsername FROM CombinedUsername WHERE mutableUsername = ?",
+                arrayOf(mutableUsername)
+            )?.use { query ->
+                if (!query.moveToFirst()) {
+                    return@performOperation null
+                }
+                query.getStringOrNull("originalUsername")
+            }
         }
     }
 

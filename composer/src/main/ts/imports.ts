@@ -1,4 +1,4 @@
-import { Config, FriendInfo } from "./types";
+import { Config } from "./types";
 
 declare var _getImportsFunctionName: string;
 declare var _runtimeName: boolean;
@@ -17,8 +17,6 @@ export const getConfig = () => callRemoteFunction("getConfig") as Config;
 
 export const downloadLastOperaMedia = (isLongPress: boolean) => callRemoteFunction("downloadLastOperaMedia", isLongPress);
 
-export function getFriendInfoByUsername(username: string): FriendInfo | null {
-    const friendInfo = callRemoteFunction("getFriendInfoByUsername", username);
-    if (!friendInfo) return null;
-    return JSON.parse(friendInfo);
+export function getFriendOriginalUsername(username: string): string | null {
+    return callRemoteFunction("getFriendOriginalUsername", username);
 }
