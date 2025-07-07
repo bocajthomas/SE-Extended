@@ -20,6 +20,7 @@ import kotlinx.coroutines.launch
 import me.rhunk.snapenhance.common.bridge.FileHandleScope
 import me.rhunk.snapenhance.common.bridge.toWrapper
 import me.rhunk.snapenhance.common.ui.createComposeAlertDialog
+import me.rhunk.snapenhance.core.SnapEnhance
 import me.rhunk.snapenhance.core.features.Feature
 import me.rhunk.snapenhance.core.features.impl.downloader.MediaDownloader
 import me.rhunk.snapenhance.core.util.hook.HookStage
@@ -104,8 +105,6 @@ class ComposerHooks: Feature("ComposerHooks") {
     override fun init() {
         if (config.globalState != true) return
 
-        val nativeBridgeClass = runCatching { findClass("com.snapchat.client.valdi.NativeBridge") }.getOrNull() ?: findClass("com.snapchat.client.composer.NativeBridge")
-
         val importedFunctions = mutableMapOf<String, Any?>()
 
         fun composerFunction(name: String, block: ComposerMarshaller.() -> Unit) {
@@ -175,7 +174,7 @@ class ComposerHooks: Feature("ComposerHooks") {
             context.native.setComposerLoader("""
                 const i = setInterval(() => {
                     try {
-                        const _runtimeName = "${if (nativeBridgeClass.name == "com.snapchat.client.valdi.NativeBridge") "valdi" else "composer"}";
+                        const _runtimeName = "${if (SnapEnhance.classCache.nativeBridge.name == "com.snapchat.client.valdi.NativeBridge") "valdi" else "composer"}";
                         require(_runtimeName + '_core/src/DeviceBridge').getDisplayWidth();
                         clearInterval(i);
                         (() => { const _getImportsFunctionName = "$getImportsFunctionName"; $loaderScript })();
@@ -199,7 +198,7 @@ class ComposerHooks: Feature("ComposerHooks") {
             }
         }
 
-        nativeBridgeClass.hook("registerNativeModuleFactory", HookStage.BEFORE) { param ->
+        SnapEnhance.classCache.nativeBridge.hook("registerNativeModuleFactory", HookStage.BEFORE) { param ->
             val moduleFactory = param.argNullable<Any>(1) ?: return@hook
             if (moduleFactory.javaClass.getMethod("getModulePath").invoke(moduleFactory)?.toString()?.contains("DeviceBridge") != true) return@hook
             Hooker.ephemeralHookObjectMethod(moduleFactory.javaClass, moduleFactory, "loadModule", HookStage.AFTER) { methodParam ->
