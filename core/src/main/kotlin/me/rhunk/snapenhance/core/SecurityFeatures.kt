@@ -26,6 +26,7 @@ import me.rhunk.snapenhance.core.event.events.impl.UnaryCallEvent
 import me.rhunk.snapenhance.core.ui.CustomComposable
 import me.rhunk.snapenhance.core.util.hook.HookStage
 import me.rhunk.snapenhance.core.util.hook.hook
+import me.rhunk.snapenhance.core.util.hook.hookConstructor
 import me.rhunk.snapenhance.core.util.ktx.getObjectField
 
 class SecurityFeatures(
@@ -94,6 +95,11 @@ class SecurityFeatures(
         context.androidContext.classLoader.loadClass("com.snapchat.client.client_attestation.ArgosClient\$CppProxy").apply {
             hook("getArgosTokenAsync", HookStage.BEFORE) { it.setResult(null) }
             hook("getAttestationHeaders", HookStage.BEFORE) { it.setResult(null) }
+        }
+
+        context.androidContext.classLoader.loadClass("com.snap.security.attestation.impl.SCClientAttestationDurableJob")
+            .hookConstructor(HookStage.BEFORE) { param ->
+                param.setArg(0, null)
         }
 
         context.features.addActivityCreateListener { activity ->
