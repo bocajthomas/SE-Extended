@@ -2,7 +2,6 @@ package me.rhunk.snapenhance.common.util.snap
 
 import me.rhunk.snapenhance.common.Constants
 import me.rhunk.snapenhance.common.util.ktx.await
-import me.rhunk.snapenhance.common.util.protobuf.ProtoReader
 import okhttp3.Headers
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -19,16 +18,8 @@ object RemoteMediaResolver {
         .build()
 
     fun newResolveRequest(protoKey: ByteArray): Request {
-        val protoReader = ProtoReader(protoKey)
-        val url = if (!protoReader.containsPath(2, 3)) {
-            "https://bolt-gcdn.sc-cdn.net/br/" + protoReader.getString(2, 2)
-        }
-        else {
-            "https://gcp.api.snapchat.com/bolt-http/resolve?co=" + Base64.getUrlEncoder().encodeToString(protoKey)
-        }
-
         return Request.Builder()
-            .url(url)
+            .url("https://gcp.api.snapchat.com/bolt-http/resolve?co=" + Base64.getUrlEncoder().encodeToString(protoKey))
             .addHeader("User-Agent", Constants.USER_AGENT)
             .build()
     }
