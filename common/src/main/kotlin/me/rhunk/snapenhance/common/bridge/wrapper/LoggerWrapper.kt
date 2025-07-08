@@ -430,6 +430,35 @@ class LoggerWrapper(
                 }.takeIf { it.timestamp > 0L } ?: continue)
             }
         }
+
+        if (edits.isNotEmpty()) {
+            // append original message
+            database.rawQuery("SELECT added_timestamp, message_data FROM messages WHERE conversation_id = ? AND message_id = ?", arrayOf(conversationId, messageId.toString())).use { cursor ->
+                if (!cursor.moveToFirst()) return@use
+
+                val originalMessage = cursor.getBlobOrNull("message_data") ?: return@use
+                val addedTimestamp = cursor.getLongOrNull("added_timestamp") ?: return@use
+
+                val messageObject = gson.fromJson(
+                    originalMessage.toString(Charsets.UTF_8),
+                    JsonObject::class.java
+                )
+
+                val messageTextContent =
+                    messageObject.getAsJsonObject("mMessageContent")?.getAsJsonArray("mContent")
+                        ?.map { it.asByte }?.toByteArray()?.let {
+                            ProtoReader(it).getString(2, 1)
+                        } ?: return@use
+
+                if (edits.firstOrNull()?.message != messageTextContent) {
+                    edits.add(0, LoggedChatEdit().apply {
+                        timestamp = addedTimestamp
+                        message = messageTextContent
+                    })
+                }
+            }
+        }
+
         return edits
     }
 
