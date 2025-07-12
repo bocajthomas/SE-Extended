@@ -20,6 +20,7 @@ import kotlinx.coroutines.launch
 import me.rhunk.snapenhance.common.bridge.FileHandleScope
 import me.rhunk.snapenhance.common.bridge.toWrapper
 import me.rhunk.snapenhance.common.ui.createComposeAlertDialog
+import me.rhunk.snapenhance.core.SnapEnhance
 import me.rhunk.snapenhance.core.features.Feature
 import me.rhunk.snapenhance.core.features.impl.downloader.MediaDownloader
 import me.rhunk.snapenhance.core.util.hook.HookStage
@@ -134,13 +135,12 @@ class ComposerHooks: Feature("ComposerHooks") {
             context.feature(MediaDownloader::class).downloadLastOperaMediaAsync(getUntyped(0) == true)
         }
 
-        composerFunction("getFriendInfoByUsername") {
+        composerFunction("getFriendOriginalUsername") {
             if (getSize() < 1) return@composerFunction
             val username = getUntyped(0) as? String ?: return@composerFunction
+
             runCatching {
-                pushUntyped(context.database.getFriendInfoByUsername(username)?.let {
-                    context.gson.toJson(it)
-                })
+                pushUntyped(context.database.getFriendOriginalUsername(username))
             }.onFailure {
                 pushUntyped(null)
             }
@@ -175,7 +175,7 @@ class ComposerHooks: Feature("ComposerHooks") {
             context.native.setComposerLoader("""
                 const i = setInterval(() => {
                     try {
-                        const _runtimeName = "${if (nativeBridgeClass.name == "com.snapchat.client.valdi.NativeBridge") "valdi" else "composer"}";
+                        const _runtimeName = "${if (SnapEnhance.classCache.nativeBridge.name == "com.snapchat.client.valdi.NativeBridge") "valdi" else "composer"}";
                         require(_runtimeName + '_core/src/DeviceBridge').getDisplayWidth();
                         clearInterval(i);
                         (() => { const _getImportsFunctionName = "$getImportsFunctionName"; $loaderScript })();
@@ -199,7 +199,7 @@ class ComposerHooks: Feature("ComposerHooks") {
             }
         }
 
-        nativeBridgeClass.hook("registerNativeModuleFactory", HookStage.BEFORE) { param ->
+        SnapEnhance.classCache.nativeBridge.hook("registerNativeModuleFactory", HookStage.BEFORE) { param ->
             val moduleFactory = param.argNullable<Any>(1) ?: return@hook
             if (moduleFactory.javaClass.getMethod("getModulePath").invoke(moduleFactory)?.toString()?.contains("DeviceBridge") != true) return@hook
             Hooker.ephemeralHookObjectMethod(moduleFactory.javaClass, moduleFactory, "loadModule", HookStage.AFTER) { methodParam ->

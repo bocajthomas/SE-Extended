@@ -37,6 +37,7 @@ pub fn find_signatures(module_base: usize, size: usize, pattern: &str, once: boo
     }
 
     let mut i = 0;
+    let size = size - bytes.len();
     while i < size {
         let mut found = true;
         let mut j = 0;

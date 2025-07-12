@@ -2,12 +2,12 @@
     "setup": {
         "dialogs": {
             "select_language": "Valitse Kieli",
-            "save_folder": "SnapEnhance vaatii tallennus oikeudet ladatakseen mediaa Snapchatista.\nValitse sijainti mihin media tallennetaan.",
+            "save_folder": "SE Extended vaatii tallennus oikeudet ladatakseen mediaa Snapchatista.\nValitse sijainti mihin media tallennetaan.",
             "select_save_folder_button": "Valitse kansio"
         },
         "mappings": {
-            "dialog": "Useiden Snapchat -versioiden dynaaminen tuki edellyttää kartoituksia. Kartoitukset vaaditaan että SnapEnhance toimisi oikein. Tämän ei pitäisi kestää yli 5 sekuntia.",
-            "generate_failure_no_snapchat": "SnapEnhance ei havainnut Snapchattia, yritä asentaa Snapchat uudelleen.",
+            "dialog": "Luodaan kartoituksia, tämä voi kestää jonkin aikaa...",
+            "generate_failure_no_snapchat": "SE Extended ei havainnut Snapchattia, yritä asentaa Snapchat uudelleen.",
             "generate_failure": "Kartoituksien luomisessa tapahtui virhe. Yritä uudelleen."
         },
         "permissions": {
@@ -15,7 +15,7 @@
             "notification_access": "Ilmoitusten Käyttöoikeus",
             "battery_optimization": "Akun Optimointi",
             "display_over_other_apps": "Näytä Muiden Sovellusten Päällä",
-            "request_button": "Pyyntö"
+            "request_button": "Pyydä"
         }
     },
     "manager": {
@@ -48,7 +48,8 @@
                 "saved_config_snackbar": "Config tallennettu",
                 "config_import_failure_toast": "Configin tuonti epäonnistui {error}",
                 "config_import_success_toast": "Config tuotu onnistuneesti",
-                "config_export_success_toast": "Config viety onnistuneesti"
+                "config_export_success_toast": "Config viety onnistuneesti",
+                "config_export_failure_toast": "Määrityksen vienti epäonnistui {error}"
             },
             "social": {
                 "streaks_expiration_short": "{Tunnit}h",
@@ -75,12 +76,12 @@
                 "view_logger_history_button": "Katso logger historia"
             },
             "home": {
-                "update_title": "SnapEnchance päivitys",
+                "update_title": "SE Extended päivitys",
                 "update_content": "Versio {version} on saatavilla!",
                 "update_button": "Lataa",
                 "debug_build_summary_date": "Kasattu: {date} ({days} days ago)",
                 "debug_build_summary_content": "Versio {versionName} ({versionCode})",
-                "version_title": "V{versionName} · Forked by Jacob.",
+                "version_title": "V{versionName} · Forked by bocajthomas.",
                 "debug_build_summary_title": "Käytössäsi on SE Extendedin Debug versio",
                 "quick_actions_title": "Nopeat toiminnot"
             },
@@ -129,11 +130,11 @@
                 "mark_all_as_seen_option": "Merkitse kaikki Snäpit nähdyksi",
                 "delete_selection_option": "Poista Valinta",
                 "delete_all_option": "Poista Kaikki",
-                "bridge_connection_failed": "Yhdistäminen Snapchattiin siltauksen kautta epäonnistui",
+                "bridge_connection_failed": "Yhteyden muodostaminen siltaan epäonnistui. Varmista, että Snapchat on käynnissä taustalla",
                 "unsave_selection_option": "Poista valittu Tallennus",
                 "unsave_all_option": "Poista tallennus Kaikista",
                 "mark_selection_as_seen_option": "Merkitse valittu Snäppi nähdyksi",
-                "bridge_init_failed": "Viesti sillan käyttöönotto epäonnistui",
+                "bridge_init_failed": "Viestintäsillan alustaminen epäonnistui. Varmista, että Snapchat on käynnissä taustalla",
                 "message_fetch_failed": "Viestien haku epäonnistui",
                 "no_message_hint": "Ei viestiä"
             },
@@ -244,7 +245,7 @@
                     "whitelist": "Tallentamattomat viestit"
                 },
                 "name": "Tallentamattomat viestit",
-                "description": "Estä viestien tallentaminen chatissa muilta ihmisiltä"
+                "description": "Estää muita ihmisiä tallentamasta viestejä pikakeskusteluissa"
             },
             "auto_open_snaps": {
                 "name": "Avaa Snäpit Automaattisesti",
@@ -264,8 +265,7 @@
         "notices": {
             "unstable": "⚠ Epävakaa",
             "ban_risk": "⚠ Voi aiheuttaa eston tilillesi",
-            "internal_behavior": "⚠ Voi rikkoa Snapchatin sisäisiä toiminnallisuuksia",
-            "require_native_hooks": "⚠ Tämä vaatii kokeellisen \"Native Hooks\" ominaisuuden toimiakseen"
+            "internal_behavior": "⚠ Voi rikkoa Snapchatin sisäisiä toiminnallisuuksia"
         },
         "properties": {
             "downloader": {
@@ -344,14 +344,14 @@
                     },
                     "download_context_menu": {
                         "name": "Latauksen lisävalikko",
-                        "description": "Antaa sinun ladata/esikatsella viestit keskustelusta tai tarinasta lisävalikosta\nPitkä painallus napeista pakottaa latauksen"
+                        "description": "Mahdollistaa keskustelun tai tarinan viestien lataamisen/esikatselun kontekstivalikon avulla.\nPainikkeiden pitkä painallus pakottaa latauksen"
                     },
                     "custom_path_format": {
-                        "description": "Määritä mukautettu polku formaatti ladatulle medialla\n\nMahdolliset muuttujat\n - %username%\n - %source%\n - %hash%\n - %date_time%",
-                        "name": "Mukautettu Polku Formaatti"
+                        "description": "Määritä mukautettu polkumuoto ladatulle medialle\n\nSaatavilla olevat muuttujat:\n - %username%\n - %source%\n - %hash%\n - %date_time%",
+                        "name": "Mukautettu polkurakenne"
                     },
                     "opera_download_button": {
-                        "description": "Lisää latauspainike oikeaan yläkulmaan Snappia katsoessa\nPitkä painallus napeista pakottaa latauksen",
+                        "description": "Lisää latauspainikkeen oikeaan yläkulmaan, kun katselet Snapia.\nPainikkeiden pitkä painallus pakottaa latauksen",
                         "name": "Opera Lataus Painike"
                     }
                 }
@@ -658,7 +658,7 @@
                     },
                     "remaining_hours": {
                         "name": "Jäljellä Oleva Aika",
-                        "description": "Jäljellä oleva aika ennen kuin muistutus näytetään"
+                        "description": "Jäljellä oleva aika ennen ilmoituksen näyttämistä (tunteja)"
                     },
                     "group_notifications": {
                         "name": "Ryhmä ilmoitukset",
@@ -844,7 +844,7 @@
                 "abandon_video": "Vastaamaton Videopuhelu"
             },
             "gallery_media_send_override": {
-                "ORIGINAL": "Alkuperäinen",
+                "ORIGINAL": "Alkuperäinen media",
                 "NOTE": "Ääniviesti",
                 "SNAP": "Snap",
                 "always_ask": "Kysy aina"
@@ -983,7 +983,7 @@
             "note": "Merkintä",
             "original_story": "Alkuperäinen Tarina"
         },
-        "select_attachments_title": "Valitse ladattavat liitteet",
+        "select_attachments_title": "Valitse liitteet",
         "download_started_toast": "Lataus aloitettu",
         "unsupported_content_type_toast": "Sisältötyyppiä ei tueta!",
         "failed_no_longer_available_toast": "Media ei ole enää saatavilla",

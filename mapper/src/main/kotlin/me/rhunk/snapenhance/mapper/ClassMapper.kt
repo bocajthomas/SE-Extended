@@ -38,6 +38,8 @@ class ClassMapper(
             MemoriesPresenterMapper(),
             StreaksExpirationMapper(),
             COFObservableMapper(),
+            FoldingLayoutMapper(),
+            PlatformClientAttestationMapper(),
         )
     }
 

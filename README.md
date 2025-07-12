@@ -198,8 +198,7 @@ Please note that this project is currently in development, So bugs and crashes m
 </details>
 
 <details closed>
- <summary>👥 Friend
-  Tracker</summary>
+ <summary>👥 Friend Tracker</summary>
 
 - `Record Messaging Events`
 - `Allow Running In Background`
@@ -287,5 +286,6 @@ SE Extended Uses Some Third-party libraries, These Include
 - [libsu](https://github.com/topjohnwu/libsu)
 - [colorpicker-compose](https://github.com/skydoves/colorpicker-compose)
 
+
 ## 📃 License
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-black.svg)](https://www.gnu.org/licenses/gpl-3.0) [![License](https://img.shields.io/badge/License-Apache_2.0-black.svg)](https://opensource.org/licenses/Apache-2.0) 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-black.svg)](https://www.gnu.org/licenses/gpl-3.0) [![License](https://img.shields.io/badge/License-Apache_2.0-black.svg)](https://opensource.org/licenses/Apache-2.0)

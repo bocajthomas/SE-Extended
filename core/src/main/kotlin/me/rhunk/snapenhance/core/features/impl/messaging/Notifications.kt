@@ -36,7 +36,7 @@ import me.rhunk.snapenhance.core.util.ktx.setObjectField
 import me.rhunk.snapenhance.core.util.media.PreviewUtils
 import me.rhunk.snapenhance.core.wrapper.impl.Message
 import me.rhunk.snapenhance.core.wrapper.impl.SnapUUID
-import okhttp3.RequestBody.Companion.toRequestBody
+import java.nio.ByteBuffer
 import kotlin.coroutines.suspendCoroutine
 
 class Notifications : Feature("Notifications") {
@@ -390,8 +390,7 @@ class Notifications : Feature("Notifications") {
                 }"
             }
 
-            if (contentType == ContentType.NOTE && context.config.experimental.betterTranscript.takeIf { it.globalState == true }?.enhancedTranscriptInNotifications?.get() == true) {
-                val transcriptApi = context.feature(BetterTranscript::class).transcriptApi
+            if (contentType == ContentType.NOTE && context.config.experimental.betterTranscript.takeIf { it.globalState == true }?.notificationTranscript?.get() == true) {
                 MessageDecoder.decode(message.messageContent!!).firstOrNull { it.type == AttachmentType.NOTE  }?.also { media ->
                     runCatching {
                         media.openStream { mediaStream, length ->
@@ -399,10 +398,12 @@ class Notifications : Feature("Notifications") {
                                 context.log.error("Failed to open media stream or media is too large")
                                 return@openStream
                             }
-                            val text = transcriptApi.transcribe(
-                                mediaStream.readBytes().toRequestBody(),
-                                lang = context.config.experimental.betterTranscript.preferredTranscriptionLang.getNullable()?.takeIf { it.isNotBlank() }
-                            )?.takeIf { it.isNotBlank() } ?: return@openStream
+
+                            val text = context.feature(BetterTranscript::class).transcribe(
+                                ByteBuffer.allocateDirect(length.toInt()).apply {
+                                    put(mediaStream.readBytes())
+                                    rewind()
+                                }) ?: return@openStream
                             serializedMessage = "\uD83C\uDFA4 $text"
                             isChatMessage = true
                         }

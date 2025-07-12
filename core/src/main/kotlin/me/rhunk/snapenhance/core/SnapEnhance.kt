@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.res.Resources
 import android.os.Build
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Cancel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -16,7 +18,6 @@ import me.rhunk.snapenhance.common.action.EnumAction
 import me.rhunk.snapenhance.common.bridge.FileHandleScope
 import me.rhunk.snapenhance.common.bridge.InternalFileHandleType
 import me.rhunk.snapenhance.common.bridge.toWrapper
-import me.rhunk.snapenhance.common.config.MOD_DETECTION_VERSION_CHECK
 import me.rhunk.snapenhance.common.data.FriendStreaks
 import me.rhunk.snapenhance.common.data.MessagingFriendInfo
 import me.rhunk.snapenhance.common.data.MessagingGroupInfo
@@ -31,6 +32,7 @@ import me.rhunk.snapenhance.core.util.hook.HookAdapter
 import me.rhunk.snapenhance.core.util.hook.HookStage
 import me.rhunk.snapenhance.core.util.hook.findRestrictedMethod
 import me.rhunk.snapenhance.core.util.hook.hook
+import me.rhunk.snapenhance.mapper.impl.PlatformClientAttestationMapper
 import kotlin.reflect.KClass
 import kotlin.system.exitProcess
 import kotlin.system.measureTimeMillis
@@ -124,7 +126,7 @@ class SnapEnhance {
 
                 hookMainActivity("onResume") {
                     if (appContext.isMainActivityPaused.also {
-                        appContext.isMainActivityPaused = false
+                            appContext.isMainActivityPaused = false
                         }) {
                         appContext.reloadConfig()
                         appContext.executeAsync {
@@ -181,7 +183,11 @@ class SnapEnhance {
                 actionManager.onActivityCreate()
 
                 if (safeMode) {
-                    appContext.log.verbose("Failed to load security features! Snapchat may not work properly")
+                    appContext.inAppOverlay.showStatusToast(
+                        Icons.Outlined.Cancel,
+                        "Failed to load security features! Snapchat may not work properly.",
+                        durationMs = 3000
+                    )
                 }
             }
         }.also { time ->
@@ -225,24 +231,26 @@ class SnapEnhance {
                 else arrayOf(ClassLoader::class.java, String::class.java)
             )
         }!!.apply {
-            if (appContext.isSafeMode) {
+            if (appContext.disablePlugin) {
                 hook(HookStage.BEFORE) { param ->
                     if (param.arg<String>(1) != "scplugin") return@hook
                     param.setResult(null)
-                    appContext.runOnUiThread {
-                        appContext.inAppOverlay.showStatusToast(
-                            Icons.Outlined.Cancel,
-                            "SnapEnhance is not compatible with this version of Snapchat and will result in a ban.\nUse Snapchat ${MOD_DETECTION_VERSION_CHECK.maxVersion?.first ?: "0.0.0"} or older to avoid detections.",
-                            durationMs = 7000,
-                            maxLines = 6
-                        )
+                    appContext.log.verbose("skipped scplugin load")
+
+                    appContext.mappings.useMapper(PlatformClientAttestationMapper::class) {
+                        pluginNativeClass.getAsClass()?.methods?.filter {
+                            it.declaringClass == pluginNativeClass.getAsClass()
+                        }?.forEach { method ->
+                            method.hook(HookStage.BEFORE) {
+                                appContext.log.verbose("called $method")
+                                if (Throwable().stackTrace.lastOrNull()?.methodName == "getAttestationPayloadProto") {
+                                    appContext.log.verbose("sleeping")
+                                    Thread.sleep(Long.MAX_VALUE)
+                                }
+                                it.setResult(null)
+                            }
+                        } ?: error("Failed to get pluginNativeClass class")
                     }
-                    runCatching {
-                        Thread.sleep(Long.MAX_VALUE)
-                    }.onFailure {
-                        appContext.log.error(it)
-                    }
-                    exitProcess(1)
                 }
             }
 

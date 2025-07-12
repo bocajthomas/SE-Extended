@@ -17,7 +17,6 @@ compose-bom = "2024.12.01" # make sure all ui components are fully working after
 #noinspection GradleDependency
 bcprov-jdk18on = "1.78.1"
 dexlib2 = "3.0.9"
-ffmpeg-kit = "6.0-2.LTS"
 gson = "2.11.0"
 junit = "5.10.2"
 material3 = "1.3.1"
@@ -26,6 +25,7 @@ rhino = "1.7.15"
 rhino-android = "1.6.0"
 rust-android = "0.9.6"
 hiddenapibypass = "4.3"
+smart-exception-java = "0.2.1"
 
 [libraries]
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
@@ -46,7 +46,6 @@ colorpicker-compose = { module = "com.github.skydoves:colorpicker-compose", vers
 libsu = { module = "com.github.topjohnwu.libsu:core", version.ref = "libsu" }
 coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx-coroutines-android" }
 dexlib2 = { group = "com.android.tools.smali", name = "smali-dexlib2", version.ref = "dexlib2" }
-ffmpeg-kit = { group = "com.arthenica", name = "ffmpeg-kit-full-gpl", version.ref = "ffmpeg-kit" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
@@ -57,6 +56,7 @@ hiddenapibypass = { module = "org.lsposed.hiddenapibypass:hiddenapibypass", vers
 recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 rhino = { module = "org.mozilla:rhino", version.ref = "rhino" }
 rhino-android = { group = "com.faendir.rhino", name = "rhino-android", version.ref = "rhino-android" }
+smart-exception-java = { module = "com.arthenica:smart-exception-java", version.ref = "smart-exception-java" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

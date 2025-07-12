@@ -101,6 +101,6 @@ class MessagingTweaks : ConfigContainer() {
     val removeGroupsLockedStatus = boolean("remove_groups_locked_status") { requireRestart() }
     val doubleTapChatAction = unique("double_tap_chat_action", "like_message", "copy_text", "delete_message", "mark_as_read", "custom_emoji_reaction") { requireRestart() }
     val doubleTapChatActionCustomEmoji = string("double_tap_chat_action_custom_emoji") {
-        inputCheck = { it.length == 2 && it.toByteArray(Charsets.UTF_8).size >= 4 } }
+        inputCheck = { it.length == 2 && it.toByteArray(Charsets.UTF_8).size >= 4 }
+    }
 }
-

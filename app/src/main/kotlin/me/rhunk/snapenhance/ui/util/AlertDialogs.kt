@@ -4,17 +4,9 @@ import android.content.Context
 import android.view.MotionEvent
 import android.widget.Toast
 import androidx.compose.foundation.ScrollState
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
@@ -23,17 +15,7 @@ import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.DeleteOutline
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Save
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.FilledIconButton
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.RadioButton
-import androidx.compose.material3.Switch
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -47,19 +29,26 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
-import com.github.skydoves.colorpicker.compose.AlphaSlider
-import com.github.skydoves.colorpicker.compose.AlphaTile
-import com.github.skydoves.colorpicker.compose.BrightnessSlider
-import com.github.skydoves.colorpicker.compose.ColorPickerController
-import com.github.skydoves.colorpicker.compose.HsvColorPicker
+import androidx.core.net.toUri
+import com.github.skydoves.colorpicker.compose.*
+import com.google.gson.JsonParser
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import me.rhunk.snapenhance.common.Constants
 import me.rhunk.snapenhance.common.bridge.wrapper.LocaleWrapper
 import me.rhunk.snapenhance.common.config.DataProcessors
 import me.rhunk.snapenhance.common.config.PropertyPair
+import me.rhunk.snapenhance.common.ui.AutoClearKeyboardFocus
+import me.rhunk.snapenhance.common.util.ktx.await
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
@@ -539,6 +528,10 @@ class AlertDialogs(
 
         var customCoordinatesDialog by remember { mutableStateOf(false) }
 
+
+        val coroutineScope = rememberCoroutineScope { Dispatchers.IO }
+        val okHttpClient by lazy { OkHttpClient() }
+
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -548,6 +541,110 @@ class AlertDialogs(
             AndroidView(
                 factory = { mapView.value!! },
             )
+            Column(
+                modifier = Modifier
+                .align(Alignment.TopCenter)
+                    .fillMaxWidth()
+            ) {
+                var locationName by remember { mutableStateOf<String>("") }
+                var addressResults by remember { mutableStateOf<List<Triple<String, String, String>>>(emptyList()) }
+                var searchJob by remember { mutableStateOf<kotlinx.coroutines.Job?>(null) }
+
+                suspend fun search() {
+                    okHttpClient.newCall(Request.Builder()
+                        .url("https://nominatim.openstreetmap.org/search".toUri().buildUpon().appendQueryParameter("q", locationName).appendQueryParameter("format", "jsonv2").build().toString())
+                        .header("User-Agent", Constants.USER_AGENT)
+                        .build()
+                    ).await().use { response ->
+                        if (!response.isSuccessful) {
+                            return@use
+                        }
+
+                        runCatching {
+                            val body = JsonParser.parseString(response.body.string()).asJsonArray
+                            addressResults = body.take(5).map { jsonElement ->
+                                val jsonObject = jsonElement.asJsonObject
+                                Triple(
+                                    jsonObject.get("display_name").asString,
+                                    jsonObject.get("lat").asString,
+                                    jsonObject.get("lon").asString
+                                )
+                            }
+                        }
+                    }
+
+                    searchJob = null
+                }
+
+                TextField(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    value = locationName,
+                    onValueChange = {
+                        locationName = it.replace("\n", "")
+                        if (locationName == "") {
+                            addressResults = emptyList()
+                            searchJob?.cancel()
+                            searchJob = null
+                            return@TextField
+                        }
+                        searchJob?.cancel()
+                        searchJob = coroutineScope.launch {
+                            delay(500)
+                            search()
+                        }
+                    },
+                    label = { Text(text = "Search") },
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.None)
+                )
+
+                AutoClearKeyboardFocus(onFocusClear = {
+                    locationName = ""
+                    addressResults = emptyList()
+                    searchJob?.cancel()
+                    searchJob = null
+                })
+
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(MaterialTheme.colorScheme.background)
+                        .verticalScroll(ScrollState(0)),
+                ) {
+                    if (addressResults.isNotEmpty()) {
+                            addressResults.forEach { address ->
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .clickable {
+                                            marker.value?.position = GeoPoint(address.second.toDouble(), address.third.toDouble())
+                                            mapView.value?.controller?.setCenter(marker.value?.position)
+                                            mapView.value?.invalidate()
+                                        }
+                                ) {
+                                    Text(
+                                        text = address.first,
+                                        modifier = Modifier
+                                            .padding(10.dp)
+                                            .fillMaxWidth(),
+                                    )
+                                }
+                            }
+                    } else {
+                        if (searchJob?.isActive == true) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth().padding(10.dp),
+                                horizontalArrangement = Arrangement.Center
+                            ) {
+                                CircularProgressIndicator()
+                            }
+                        }
+                    }
+                }
+            }
+
+
             Row(
                 modifier = Modifier
                     .align(Alignment.BottomEnd)

@@ -29,9 +29,11 @@ import me.rhunk.snapenhance.common.scripting.ui.EnumScriptInterface
 import me.rhunk.snapenhance.common.scripting.ui.InterfaceManager
 import me.rhunk.snapenhance.common.scripting.ui.ScriptInterface
 import me.rhunk.snapenhance.common.ui.AsyncUpdateDispatcher
+import me.rhunk.snapenhance.common.ui.TopBarActionButton
 import me.rhunk.snapenhance.common.ui.rememberAsyncMutableState
 import me.rhunk.snapenhance.common.ui.rememberAsyncUpdateDispatcher
 import me.rhunk.snapenhance.common.util.ktx.getUrlFromClipboard
+import me.rhunk.snapenhance.common.util.ktx.openLink
 import me.rhunk.snapenhance.storage.isScriptEnabled
 import me.rhunk.snapenhance.storage.setScriptEnabled
 import me.rhunk.snapenhance.ui.manager.Routes
@@ -415,6 +417,9 @@ class ScriptingRootSection : Routes.Route() {
         ) {
             ExtendedFloatingActionButton(
                 onClick = {
+                    if (context.scriptManager.getScriptsFolder() == null) {
+                        return@ExtendedFloatingActionButton
+                    }
                     showImportDialog = true
                 },
                 icon = { Icon(imageVector = Icons.Rounded.Link, contentDescription = "Link") },
@@ -425,12 +430,7 @@ class ScriptingRootSection : Routes.Route() {
             ExtendedFloatingActionButton(
                 onClick = {
                     context.scriptManager.getScriptsFolder()?.let {
-                        context.androidContext.startActivity(
-                            Intent(Intent.ACTION_VIEW).apply {
-                                data = it.uri
-                                flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                            }
-                        )
+                        context.androidContext.openLink(it.uri.toString())
                     }
                 },
                 icon = {
