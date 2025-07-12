@@ -210,7 +210,7 @@ Please note that this project is currently in development, So bugs and crashes m
 You will need to download SE Extended from ether the [Actions](https://github.com/bocajthomas/SE-Extended/actions/workflows/debug.yml) or our [CI Builds](https://t.me/SE_Extended_CI) Channel on telegram<br/>
 
 >[!warning]
->SE Extended is currently detected, v12.81.0.44 or below is not longer safe to use. please use [Stock Snapchat](https://play.google.com/store/apps/details?id=com.snapchat.android)
+>SE Extended is currently detected, Use [v12.33.1.19](https://www.apkmirror.com/apk/snap-inc/snapchat/snapchat-12-33-1-19-release/) or below
 
 ## ❓️Wiki
 The [Wiki](https://github.com/bocajthomas/SE-Extended/wiki) is a place for all information regarding SE Extended.
