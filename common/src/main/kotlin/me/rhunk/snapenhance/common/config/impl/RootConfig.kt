@@ -17,5 +17,5 @@ class RootConfig : ConfigContainer() {
     val streaksReminder = container("streaks_reminder", StreaksReminderConfig()) { icon = Icons.Rounded.Alarm }
     val experimental = container("experimental", Experimental()) { icon = Icons.Rounded.Science; addNotices(FeatureNotice.UNSTABLE) }
     val scripting = container("scripting", Scripting()) { icon = Icons.Rounded.DataObject }
-    val friendTracker = container("friend_tracker", FriendTrackerConfig()) { icon = Icons.Rounded.PersonSearch; nativeHooks() }
+    val friendTracker = container("friend_tracker", FriendTrackerConfig()) { icon = Icons.Rounded.PersonSearch }
 }
