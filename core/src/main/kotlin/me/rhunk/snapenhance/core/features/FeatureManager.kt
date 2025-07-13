@@ -127,6 +127,7 @@ class FeatureManager(
             AccountSwitcher(),
             RemoveGroupsLockedStatus(),
             BypassMessageActionRestrictions(),
+            CustomTheming(),
             BetterLocation(),
             MediaFilePicker(),
             HideActiveMusic(),
