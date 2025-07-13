@@ -33,6 +33,7 @@ import me.rhunk.snapenhance.ui.setup.screens.impl.MappingsScreen
 import me.rhunk.snapenhance.ui.setup.screens.impl.PermissionsScreen
 import me.rhunk.snapenhance.ui.setup.screens.impl.PickLanguageScreen
 import me.rhunk.snapenhance.ui.setup.screens.impl.SaveFolderScreen
+import me.rhunk.snapenhance.ui.setup.screens.impl.DisclaimerScreen
 
 
 class SetupActivity : ComponentActivity() {
