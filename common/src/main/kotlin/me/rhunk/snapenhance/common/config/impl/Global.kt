@@ -3,6 +3,7 @@ package me.rhunk.snapenhance.common.config.impl
 import me.rhunk.snapenhance.common.config.ConfigContainer
 import me.rhunk.snapenhance.common.config.ConfigFlag
 import me.rhunk.snapenhance.common.config.FeatureNotice
+import me.rhunk.snapenhance.common.config.TELECOM_FRAMEWORK_VERSION_CHECK
 
 class Global : ConfigContainer() {
     companion object {
@@ -53,7 +54,7 @@ class Global : ConfigContainer() {
     val videoPlaybackRateSlider = boolean("video_playback_rate_slider") { requireRestart() }
     val disableGooglePlayDialogs = boolean("disable_google_play_dialogs") { requireRestart() }
     val defaultVolumeControls = boolean("default_volume_controls") { requireRestart() }
-    val disableTelecomFramework = boolean("disable_telecom_framework") { requireRestart() }
+    val disableTelecomFramework = boolean("disable_telecom_framework") { requireRestart(); versionCheck = TELECOM_FRAMEWORK_VERSION_CHECK.copy(isDisabled = true)}
     val hideActiveMusic = boolean("hide_active_music") { requireRestart() }
     val disableSnapSplitting = boolean("disable_snap_splitting") { addNotices(FeatureNotice.INTERNAL_BEHAVIOR) }
 }

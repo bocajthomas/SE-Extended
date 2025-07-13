@@ -9,3 +9,8 @@ val RES_OBF_VERSION_CHECK = VersionCheck(maxVersion = ("13.7.0.42" to 157172))
   After this version, Snapchat will start detecting modifications to their app (to be confirmed)
 */
 val MOD_DETECTION_VERSION_CHECK = VersionCheck(maxVersion = ("12.33.1.19 (84704)" to 84704))
+
+/*
+  Starting with this version, Snapchat has integrated the Android Telecom framework. Which causes the crashing on older versions (specifically, those below the 'minVersion' specified) if the "disable telecom framework" feature is enabled. (version is to be confirmed)
+*/
+val TELECOM_FRAMEWORK_VERSION_CHECK = VersionCheck(minVersion = ("12.81.0.44" to 126022))
