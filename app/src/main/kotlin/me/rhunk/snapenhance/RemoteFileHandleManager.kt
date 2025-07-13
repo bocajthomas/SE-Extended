@@ -8,6 +8,7 @@ import me.rhunk.snapenhance.common.bridge.InternalFileHandleType
 import me.rhunk.snapenhance.common.bridge.wrapper.LocaleWrapper
 import me.rhunk.snapenhance.common.logger.AbstractLogger
 import me.rhunk.snapenhance.common.util.ktx.toParcelFileDescriptor
+import me.rhunk.snapenhance.storage.getEnabledThemesContent
 import java.io.File
 import java.io.OutputStream
 
@@ -112,6 +113,12 @@ class RemoteFileHandleManager(
                 return AssetFileHandle(
                     context,
                     "composer/${name.substringAfterLast("/")}"
+                )
+            }
+            FileHandleScope.THEME -> {
+                return ByteArrayFileHandle(
+                    context,
+                    context.gson.toJson(context.database.getEnabledThemesContent()).toByteArray(Charsets.UTF_8)
                 )
             }
             else -> return null
