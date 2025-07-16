@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.LibraryBooks
+import androidx.compose.material.icons.automirrored.rounded.MenuBook
 import androidx.compose.material.icons.rounded.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -149,6 +150,7 @@ class ScriptingRootSection : Routes.Route() {
     private fun ModuleActions(
         script: ModuleInfo,
         canUpdate: Boolean,
+        hasChangeLog: Boolean,
         dismiss: () -> Unit
     ) {
         Dialog(
@@ -178,6 +180,24 @@ class ScriptingRootSection : Routes.Route() {
                                     context.log.error("Failed to update module", it)
                                     context.shortToast("Failed to update module. Check logs for more details")
                                 }
+                            }
+                        }
+
+                        if (hasChangeLog) {
+                            put("View Change Log" to Icons.AutoMirrored.Rounded.MenuBook) {
+                                runCatching {
+                                    context.androidContext.startActivity(
+                                        Intent(Intent.ACTION_VIEW).apply {
+                                            data = script.changelogUrl?.toUri() ?: throw Exception("No changelog URL provided")
+                                            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                                        }
+                                    )
+                                    dismiss()
+                                }.onFailure {
+                                    context.log.error("Failed to open changelog", it)
+                                    context.shortToast("Failed to open changelog. Check logs for more details")
+                                }
+
                             }
                         }
 
@@ -397,6 +417,7 @@ class ScriptingRootSection : Routes.Route() {
             ModuleActions(
                 script = script,
                 canUpdate = latestUpdate != null,
+                hasChangeLog = script.changelogUrl != null,
             ) { openActions = false }
         }
     }
