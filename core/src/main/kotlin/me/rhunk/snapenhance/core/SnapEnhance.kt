@@ -125,6 +125,7 @@ class SnapEnhance {
                 }
 
                 hookMainActivity("onResume") {
+                    appContext.mainActivity = this
                     if (appContext.isMainActivityPaused.also {
                         appContext.isMainActivityPaused = false
                     }) {
