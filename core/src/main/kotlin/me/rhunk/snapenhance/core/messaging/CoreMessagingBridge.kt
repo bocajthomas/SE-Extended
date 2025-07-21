@@ -116,5 +116,5 @@ class CoreMessagingBridge(
         }
     }
 
-    override fun getOneToOneConversationId(userId: String) = context.database.getConversationLinkFromUserId(userId)?.clientConversationId
+    override fun getOneToOneConversationId(userId: String) = context.database.getDMConversationId(userId)
 }

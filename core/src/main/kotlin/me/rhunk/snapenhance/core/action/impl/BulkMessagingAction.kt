@@ -54,7 +54,6 @@ import me.rhunk.snapenhance.core.ui.ViewAppearanceHelper
 import me.rhunk.snapenhance.core.util.EvictingMap
 import me.rhunk.snapenhance.core.util.dataBuilder
 import me.rhunk.snapenhance.mapper.impl.FriendRelationshipChangerMapper
-import java.net.URL
 import java.text.DateFormat
 import java.util.Date
 import kotlin.random.Random
@@ -184,7 +183,7 @@ class BulkMessagingAction : AbstractAction() {
     }
 
     private fun getDMLastMessage(userId: String?): ConversationMessage? {
-        return context.database.getConversationLinkFromUserId(userId ?: return null)?.clientConversationId?.let {
+        return context.database.getDMConversationId(userId ?: return null)?.let {
             context.database.getMessagesFromConversationId(it, 1)
         }?.firstOrNull()
     }
