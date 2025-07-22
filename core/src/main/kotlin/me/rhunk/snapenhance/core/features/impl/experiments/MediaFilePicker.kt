@@ -136,7 +136,7 @@ class MediaFilePicker : Feature("Media File Picker") {
                     ))
                 }
 
-                fun startConversation(audioOnly: Boolean) {
+                fun startConversion(audioOnly: Boolean) {
                     context.coroutineScope.launch {
                         lastMediaDuration = MediaPlayer().run {
                             setDataSource(context.androidContext, event.intent.data!!)
@@ -176,14 +176,14 @@ class MediaFilePicker : Feature("Media File Picker") {
                 val isAudio = context.androidContext.contentResolver.getType(event.intent.data!!)!!.startsWith("audio/")
 
                 if (isAudio || context.config.messaging.galleryMediaSendOverride.getNullable() == null) {
-                    startConversation(isAudio)
+                    startConversion(isAudio)
                     return@subscribe
                 }
 
                 ViewAppearanceHelper.newAlertDialogBuilder(context.mainActivity!!)
                     .setTitle("Convert video file")
                     .setItems(arrayOf("Send as video/audio", "Send as audio only")) { _, which ->
-                        startConversation(which == 1)
+                        startConversion(which == 1)
                     }
                     .setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }.show()
             }

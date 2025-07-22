@@ -125,6 +125,7 @@ class SnapEnhance {
                 }
 
                 hookMainActivity("onResume") {
+                    appContext.mainActivity = this
                     if (appContext.isMainActivityPaused.also {
                             appContext.isMainActivityPaused = false
                         }) {
@@ -325,7 +326,7 @@ class SnapEnhance {
 
                 MessagingFriendInfo(
                     friendUserId,
-                    appContext.database.getConversationLinkFromUserId(friendUserId)?.clientConversationId,
+                    it.key,
                     friend.displayName,
                     friend.mutableUsername ?: friend.usernameForSorting!!,
                     friend.bitmojiAvatarId,
@@ -344,7 +345,7 @@ class SnapEnhance {
                 return appContext.database.getFriendInfo(uuid)?.let {
                     MessagingFriendInfo(
                         userId = it.userId!!,
-                        dmConversationId = appContext.database.getConversationLinkFromUserId(it.userId!!)?.clientConversationId,
+                        dmConversationId = null,
                         displayName = it.displayName,
                         mutableUsername = it.mutableUsername!!,
                         bitmojiId = it.bitmojiAvatarId,
