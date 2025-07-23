@@ -36,7 +36,7 @@ class DisclaimerScreen : SetupScreen() {
                     goNext()
                 }
             ) {
-                Text("OK", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                Text("I Agree", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
         }
     }
