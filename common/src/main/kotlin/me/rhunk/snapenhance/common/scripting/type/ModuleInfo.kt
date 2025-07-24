@@ -16,6 +16,8 @@ data class ModuleInfo(
     val note: String? = null,
     val notice: List<String>,
     val changelogUrl: String? = null,
+    val howToUseUrl: String? = null,
+
 ) {
     fun ensurePermissionGranted(permission: Permissions) {
         if (!grantedPermissions.contains(permission.key)) {
@@ -61,5 +63,6 @@ fun BufferedReader.readModuleInfo(): ModuleInfo {
         note = properties["note"],
         notice = properties["notice"]?.split(",")?.map { it.trim() } ?: emptyList(),
         changelogUrl = properties["changelogUrl"],
+        howToUseUrl = properties["howToUseUrl"],
     )
 }

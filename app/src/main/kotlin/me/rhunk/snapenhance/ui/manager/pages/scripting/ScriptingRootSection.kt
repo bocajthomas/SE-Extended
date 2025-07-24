@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.Help
 import androidx.compose.material.icons.automirrored.rounded.LibraryBooks
 import androidx.compose.material.icons.automirrored.rounded.MenuBook
 import androidx.compose.material.icons.rounded.*
@@ -151,6 +152,7 @@ class ScriptingRootSection : Routes.Route() {
         script: ModuleInfo,
         canUpdate: Boolean,
         hasChangeLog: Boolean,
+        hasHowToUse : Boolean,
         dismiss: () -> Unit
     ) {
         Dialog(
@@ -183,8 +185,25 @@ class ScriptingRootSection : Routes.Route() {
                             }
                         }
 
+                        if (hasHowToUse) {
+                            put("How to Use" to Icons.AutoMirrored.Rounded.Help) {
+                                runCatching {
+                                    context.androidContext.startActivity(
+                                        Intent(Intent.ACTION_VIEW).apply {
+                                            data = script.howToUseUrl?.toUri()
+                                            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                                        }
+                                    )
+                                    dismiss()
+                                }.onFailure {
+                                    context.log.error("Failed to open how to use URL", it)
+                                    context.shortToast("Failed to open how to use URL. Check logs for more details")
+                                }
+                            }
+                        }
+
                         if (hasChangeLog) {
-                            put("View Change Log" to Icons.AutoMirrored.Rounded.MenuBook) {
+                            put("View Changelog" to Icons.AutoMirrored.Rounded.MenuBook) {
                                 runCatching {
                                     context.androidContext.startActivity(
                                         Intent(Intent.ACTION_VIEW).apply {
@@ -418,6 +437,7 @@ class ScriptingRootSection : Routes.Route() {
                 script = script,
                 canUpdate = latestUpdate != null,
                 hasChangeLog = script.changelogUrl != null,
+                hasHowToUse = script.howToUseUrl != null,
             ) { openActions = false }
         }
     }
