@@ -556,6 +556,10 @@ class CustomTheming: Feature("Custom Theming") {
                 val result = param.getResult() as TypedArray
                 val typedArrayData = result.getObjectField("mData") as IntArray
 
+                if (context.bridgeClient.getDebugProp("log_resources") == "true") {
+                    context.log.verbose(context.resources.getResourceName(array[0]))
+                }
+
                 when (val attributeType = result.getType(0)) {
                     TypedValue.TYPE_INT_COLOR_ARGB8, TypedValue.TYPE_INT_COLOR_RGB8, TypedValue.TYPE_INT_COLOR_ARGB4, TypedValue.TYPE_INT_COLOR_RGB4 -> {
                         typedArrayData[1] = customColor // index + STYLE_DATA
