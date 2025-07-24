@@ -3,7 +3,11 @@
         "dialogs": {
             "select_language": "Select Language",
             "save_folder": "SE Extended requires Storage permissions to download and Save Media from Snapchat.\nPlease choose the location where media should be downloaded to.",
-            "select_save_folder_button": "Select Folder"
+            "select_save_folder_button": "Select Folder",
+            "disclaimer": {
+                "statement": "Welcome to the SE Extended Module.\n Disclaimer: \n- Users must take full Responsibility for any risks associated with using this module. \n- The SE Extended Module can modify the behaviour of the Snapchat app. Users should carefully review the module's operations and make their own decisions regarding its usage. \n- The developer accepts no responsibility for any warnings or bans that may occur on your snapchat account that may arise from the use of the SE Extended module, and all consequences are to be borne by the users themselves.",
+                "agree_button": "I Agree"
+            }
         },
         "mappings": {
             "dialog": "Generating Mappings, this may take a while ...",
@@ -191,7 +195,14 @@
                 "no_friends_found": "No friends found"
             },
             "theming": {
-                "no_themes_hint": "No themes found"
+                "no_themes_hint": "No themes found",
+                "search_theme_placeholder": "Search themes",
+                "new_theme_button": "New theme",
+                "import_from_file_button": "Import from file",
+                "import_from_url_button": "Import from URL",
+                "manage_repositories_button": "Manage repositories",
+                "installed_themes_title": "Installed Themes",
+                "theme_catalog_title": "Theme Catalog"
             }
         },
         "dialogs": {
@@ -223,6 +234,17 @@
             "file_imports": {
                 "no_files_settings_hint": "No files found. Make sure you have imported the required files in the File Imports section",
                 "settings_select_file_hint": "Select an imported file"
+            },
+            "import_theme_url": {
+                "title": "Import Theme from URL",
+                "url_hint": "URL",
+                "import_button": "Import"
+            },
+            "theme_settings": {
+                "title": "Theme Settings",
+                "duplicate_button": "Duplicate",
+                "export_button": "Export"
+
             }
         }
     },
@@ -339,7 +361,8 @@
         },
         "theming": {
             "name": "Theming",
-            "description": "Customize the look and feel of Snapchat"
+            "description": "Customize the look and feel of Snapchat",
+
         }
     },
 
