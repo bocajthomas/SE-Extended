@@ -24,10 +24,16 @@ import me.rhunk.snapenhance.common.config.VersionRequirement
 import me.rhunk.snapenhance.common.ui.createComposeView
 import me.rhunk.snapenhance.core.event.events.impl.UnaryCallEvent
 import me.rhunk.snapenhance.core.ui.CustomComposable
+import me.rhunk.snapenhance.core.util.dataBuilder
 import me.rhunk.snapenhance.core.util.hook.HookStage
 import me.rhunk.snapenhance.core.util.hook.hook
 import me.rhunk.snapenhance.core.util.hook.hookConstructor
 import me.rhunk.snapenhance.core.util.ktx.getObjectField
+import me.rhunk.snapenhance.mapper.impl.CallbackMapper
+import me.rhunk.snapenhance.mapper.impl.PlatformClientAttestationMapper
+import java.io.IOException
+import java.lang.reflect.Method
+import kotlin.system.exitProcess
 
 class SecurityFeatures(
     private val context: ModContext
@@ -85,21 +91,87 @@ class SecurityFeatures(
         context.log.verbose("disablePlugin=${context.disablePlugin}")
         if (!context.disablePlugin) return
 
+        val allowedEPs = listOf(
+            "/messagingcoreservice.MessagingCoreService/",
+            "/GetConvoSafetyPrompt",
+            "/GetSnapchatterPublicInfo",
+            "/UserRecentlyActive",
+        )
+
         context.event.subscribe(UnaryCallEvent::class) { event ->
             val callOptions = event.adapter.arg<Any>(2).let { it.javaClass.getMethod("build").invoke(it) } ?: return@subscribe
             if (callOptions.getObjectField("mAttestation") != null) {
+                context.log.verbose("blocked ep ${event.adapter.arg<Any>(0)}", "UnaryCallEvent")
                 event.canceled = true
+                val eventHandler = event.adapter.arg<Any>(3)
+                eventHandler.javaClass.methods.first { it.name == "onEvent" }.also { method ->
+                    method.invoke(eventHandler, null, method.parameterTypes[0].dataBuilder {
+                        set("mStatusCode", "CANCELLED")
+                    })
+                }
             }
         }
 
-        context.androidContext.classLoader.loadClass("com.snapchat.client.client_attestation.ArgosClient\$CppProxy").apply {
-            hook("getArgosTokenAsync", HookStage.BEFORE) { it.setResult(null) }
-            hook("getAttestationHeaders", HookStage.BEFORE) { it.setResult(null) }
+        context.androidContext.classLoader.apply {
+            val argosClientClass = loadClass("com.snapchat.client.client_attestation.ArgosClient\$CppProxy")
+            argosClientClass.apply {
+                hookConstructor(HookStage.BEFORE) { it.setResult(null) }
+                hook("getArgosTokenAsync", HookStage.BEFORE) { it.setResult(null) }
+                hook("getAttestationHeaders", HookStage.BEFORE) { it.setResult(null) }
+            }
+            loadClass("com.snapchat.client.client_attestation.ArgosClient").hook("createInstance", HookStage.BEFORE) { param ->
+                param.setResult(argosClientClass.declaredConstructors.first().also { it.isAccessible = true }.newInstance(0))
+            }
+            loadClass("com.snap.security.attestation.impl.SCClientAttestationDurableJob").hookConstructor(HookStage.BEFORE) { param ->
+                param.setArg(0, null)
+            }
+            loadClass("com.snapchat.client.grpc.AuthContext").hookConstructor(HookStage.AFTER) { param ->
+                val headers by lazy { (param.thisObject<Any>().getObjectField("mHeaders") as? List<*>)?.filterNotNull() ?: emptyList() }
+
+                if (param.thisObject<Any>().getObjectField("mAuthTokenErrorCode") != null ||
+                    headers.isEmpty() ||
+                    headers.mapNotNull { it.getObjectField("mKey")?.toString()?.lowercase() }.any { it != "x-snap-access-token" }
+                ) {
+                    context.log.error("invalid headers ${headers.size}")
+                    exitProcess(139)
+                }
+            }
         }
 
-        context.androidContext.classLoader.loadClass("com.snap.security.attestation.impl.SCClientAttestationDurableJob")
-            .hookConstructor(HookStage.BEFORE) { param ->
-                param.setArg(0, null)
+        context.mappings.useMapper(CallbackMapper::class) {
+            callbacks.getClass("AuthContextDelegate")?.hook("getAuthContext", HookStage.BEFORE) { param ->
+                val authContextRequest = param.arg<Any>(0)
+                val requestPath = authContextRequest.getObjectField("mRequestPath").toString()
+
+                if (authContextRequest.getObjectField("mAttestationRequired") == true) {
+                    if (allowedEPs.any { requestPath.contains(it) }) {
+                        context.log.verbose("ep $requestPath", "AuthContextDelegate")
+                        return@hook
+                    }
+
+                    context.log.verbose("blocked ep $requestPath", "AuthContextDelegate")
+                    param.setResult(null)
+                }
+            } ?: error("AuthContextDelegate not found in mappings")
+        }
+
+        context.mappings.useMapper(PlatformClientAttestationMapper::class) {
+            apiInvocationHandler.getAsClass()?.hook("invoke", HookStage.BEFORE) { param ->
+                val method = param.arg<Method>(1)
+                if (method.annotations.any { it.toString().contains("attestation") }) {
+                    context.log.verbose("blocked call ${method.declaringClass.name}.${method.name}(...)")
+                    if (method.returnType.name.endsWith("Single")) {
+                        param.setResult(
+                            method.returnType.methods.first {
+                                java.lang.reflect.Modifier.isStatic(it.modifiers) && it.parameterCount == 1 && it.parameterTypes[0] == Throwable::class.java
+                            }.invoke(null, IOException())
+                        )
+                        return@hook
+                    }
+
+                    param.setResult(null)
+                }
+            } ?: context.log.warn("apiInvocationHandler not found in mappings")
         }
 
         context.features.addActivityCreateListener { activity ->

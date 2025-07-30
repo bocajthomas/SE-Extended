@@ -154,14 +154,13 @@ class SnapEnhance {
             }
 
             reloadConfig()
-            initWidgetListener()
             initNative()
+            initWidgetListener()
             scope.launch(Dispatchers.IO) {
                 translation.userLocale = getConfigLocale()
                 translation.load()
             }
 
-            mappings.init(androidContext)
             database.init()
             eventDispatcher.init()
             userInterface.init()
@@ -243,12 +242,10 @@ class SnapEnhance {
                             it.declaringClass == pluginNativeClass.getAsClass()
                         }?.forEach { method ->
                             method.hook(HookStage.BEFORE) {
-                                appContext.log.verbose("called $method")
-                                if (Throwable().stackTrace.lastOrNull()?.methodName == "getAttestationPayloadProto") {
-                                    appContext.log.verbose("sleeping")
-                                    Thread.sleep(Long.MAX_VALUE)
-                                }
+                                appContext.log.error("Calling $method", Throwable())
                                 it.setResult(null)
+                                runCatching { exitProcess(139) }
+                                runCatching { Thread.sleep(Long.MAX_VALUE) }
                             }
                         } ?: error("Failed to get pluginNativeClass class")
                     }
