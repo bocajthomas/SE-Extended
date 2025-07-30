@@ -96,6 +96,7 @@ class SecurityFeatures(
             "/GetConvoSafetyPrompt",
             "/GetSnapchatterPublicInfo",
             "/UserRecentlyActive",
+            "/socialsms.SocialSms/UpdateLink", // Direct link sharing
         )
 
         context.event.subscribe(UnaryCallEvent::class) { event ->
