@@ -61,7 +61,7 @@ class ModContext(
     val messageSender = MessageSender(this)
 
     val features = FeatureManager(this)
-    val mappings by lazy { MappingsWrapper(lazyFileHandlerManager) }
+    val mappings by lazy { MappingsWrapper(lazyFileHandlerManager).apply { init(androidContext) } }
     val actionManager = ActionManager(this)
     val database = DatabaseAccess(this)
     val event = EventBus(this)
