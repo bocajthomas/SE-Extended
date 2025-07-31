@@ -1071,10 +1071,6 @@
                         "name": "COF Experiments",
                         "description": "Enables unreleased/beta Snapchat features"
                     },
-                    "edit_message": {
-                        "name": "Edit Messages",
-                        "description": "Allows you to edit messages in conversations"
-                    },
                     "context_menu_fix": {
                         "name": "Context Menu Fix",
                         "description": "Attempt to repair the Friend Feed Menu as when the device is offline it cannot be displayed correctly"
@@ -1440,8 +1436,7 @@
         "download_button": "Download",
         "delete_logged_message_button": "Delete Logged Message",
         "show_chat_edit_history": "Show Chat Edit History",
-        "convert_message": "Convert Message",
-        "edit_message": "Edit Message"
+        "convert_message": "Convert Message"
     },
 
     "opera_context_menu": {
