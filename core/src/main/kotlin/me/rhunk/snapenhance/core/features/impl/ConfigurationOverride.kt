@@ -64,6 +64,10 @@ class ConfigurationOverride : Feature("Configuration Override") {
 
             overrideProperty("BYPASS_AD_FEATURE_GATE", { context.config.global.blockAds.get() },
                 { true })
+
+            overrideProperty("SPONSORED_SNAPS_ENABLED", { context.config.global.blockAds.get() }, { false })
+            overrideProperty("SPONSORED_SNAP_UPDATE_SPONSORED_FEED_ITEM", { context.config.global.blockAds.get() }, { false })
+
             arrayOf("CUSTOM_AD_TRACKER_URL", "CUSTOM_AD_INIT_SERVER_URL", "CUSTOM_AD_SERVER_URL", "INIT_PRIMARY_URL", "INIT_SHADOW_URL", "GRAPHENE_HOST").forEach {
                 overrideProperty(it, { context.config.global.blockAds.get() }, { "http://127.0.0.1" })
             }
