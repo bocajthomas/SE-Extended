@@ -1,17 +1,18 @@
 package me.rhunk.snapenhance.core.features.impl.ui
 
 import android.content.res.Resources
-import android.util.Size
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.MarginLayoutParams
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import me.rhunk.snapenhance.common.util.ktx.findFieldsToString
 import me.rhunk.snapenhance.core.event.events.impl.AddViewEvent
 import me.rhunk.snapenhance.core.event.events.impl.BindViewEvent
 import me.rhunk.snapenhance.core.features.Feature
-import me.rhunk.snapenhance.core.ui.*
+import me.rhunk.snapenhance.core.ui.children
+import me.rhunk.snapenhance.core.ui.getComposerContext
+import me.rhunk.snapenhance.core.ui.hideViewCompletely
+import me.rhunk.snapenhance.core.ui.onLayoutChange
 import me.rhunk.snapenhance.core.util.dataBuilder
 import me.rhunk.snapenhance.core.util.hook.HookStage
 import me.rhunk.snapenhance.core.util.hook.Hooker
@@ -79,7 +80,6 @@ class UITweaks : Feature("UITweaks") {
 
         val chatNoteRecordButton = getId("chat_note_record_button", "id")
         val unreadHintButton = getId("unread_hint_button", "id")
-        val friendCardFrame = getId("friend_card_frame", "id")
 
         Resources::class.java.methods.first { it.name == "getDimensionPixelSize"}.hook(
             HookStage.AFTER,
@@ -92,8 +92,6 @@ class UITweaks : Feature("UITweaks") {
             }
         }
 
-        var friendCardFrameSize: Size? = null
-
         context.event.subscribe(BindViewEvent::class, { hideStorySuggestions.isNotEmpty() }) { event ->
             if (event.view is FrameLayout) {
                 fun removeView() {
@@ -103,33 +101,11 @@ class UITweaks : Feature("UITweaks") {
                 }
 
                 val viewModelString = event.prevModel.toString()
-                val isMyStory by lazy { viewModelString.let { it.startsWith("CircularItemViewModel") && it.contains("storyId=")} }
+                val isMyStory by lazy { viewModelString.let { it.startsWith("StoryCarouselItemViewModel") && it.contains("storyId=") } }
 
                 if (hideStorySuggestions.contains("hide_my_stories") && isMyStory) {
                     removeView()
                     return@subscribe
-                }
-            }
-
-            if (event.view.id == friendCardFrame && hideStorySuggestions.contains("hide_suggested_friend_stories")) {
-                val friendStoryData = event.prevModel::class.java.findFieldsToString(event.prevModel, once = true) { _, value ->
-                    value.contains("FriendStoryData")
-                }.firstOrNull()?.get(event.prevModel) ?: return@subscribe
-
-                event.view.layoutParams.apply {
-                    if (friendCardFrameSize == null && width > 0 && height > 0) {
-                        friendCardFrameSize = Size(width, height)
-                    }
-
-                    if (friendStoryData.toString().contains("isFriendOfFriend=true")) {
-                        width = 0
-                        height = 0
-                    } else {
-                        friendCardFrameSize?.let {
-                            width = it.width
-                            height = it.height
-                        }
-                    }
                 }
             }
         }
