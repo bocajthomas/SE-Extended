@@ -31,21 +31,16 @@ class ClientBootstrapOverride: Feature("ClientBootstrapOverride") {
         }
 
         val homeTab = bootstrapOverrideConfig.homeTab.getNullable()
-        val simpleSnapchat = bootstrapOverrideConfig.simpleSnapchat.getNullable()
 
-        if (homeTab != null || simpleSnapchat != null) {
+        if (homeTab != null) {
             val plusFileBytes = plusFile.exists().let { if (it) plusFile.readBytes() else ProtoWriter().toByteArray() }
 
             plusFile.writeBytes(
                 ProtoEditor(plusFileBytes).apply {
                     edit {
-                        homeTab?.let { currentTab ->
+                        homeTab.let { currentTab ->
                             remove(1)
                             addVarInt(1, UserInterfaceTweaks.BootstrapOverride.tabs.indexOf(currentTab) + 1)
-                        }
-                        simpleSnapchat?.let { simpleSnapchat ->
-                            remove(2)
-                            addVarInt(2, if (simpleSnapchat == "always_enabled") 1 else 0)
                         }
                     }
                 }.toByteArray()
