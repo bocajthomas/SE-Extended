@@ -1234,7 +1234,8 @@
                 "initiate_audio": "Incoming Audio Call",
                 "abandon_audio": "Missed Audio Call",
                 "initiate_video": "Incoming Video Call",
-                "abandon_video": "Missed Video Call"
+                "abandon_video": "Missed Video Call",
+                "map_live_location": "Map Live Location"
             },
             "gallery_media_send_override": {
                 "always_ask": "Always Ask",

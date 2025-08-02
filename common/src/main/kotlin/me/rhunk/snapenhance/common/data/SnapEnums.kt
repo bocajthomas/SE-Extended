@@ -1,5 +1,10 @@
 package me.rhunk.snapenhance.common.data
 
+import me.rhunk.snapenhance.common.data.ContentType.entries
+import me.rhunk.snapenhance.common.data.FriendAddSource.entries
+import me.rhunk.snapenhance.common.data.FriendLinkType.entries
+import me.rhunk.snapenhance.common.data.MixerStoryType.entries
+import me.rhunk.snapenhance.common.data.NotificationType.entries
 import me.rhunk.snapenhance.common.util.protobuf.ProtoReader
 
 enum class MessageState {
@@ -20,6 +25,7 @@ enum class NotificationType (
     CHAT("chat", true),
     CHAT_REPLY("chat_reply", true),
     TYPING("typing", true),
+    MAP_LIVE_LOCATION("map_live_location", true),
     STORIES("stories", true),
     SPEAKING("speaking", true),
     DM_REACTION("chat_reaction", true, null,"snap_reaction", "voicenote_reaction"),
