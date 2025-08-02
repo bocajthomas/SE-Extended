@@ -1156,6 +1156,10 @@
                     "disable_log_anonymization": {
                         "name": "Disable Log Anonymization",
                         "description": "Disables the anonymization of logs"
+                    },
+                    "disable_optimization": {
+                        "name": "Disable Optimization",
+                        "description": "Disables the optimization of scripts. This may cause performance issues."
                     }
                 }
             },

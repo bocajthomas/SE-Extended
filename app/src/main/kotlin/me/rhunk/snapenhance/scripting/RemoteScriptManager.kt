@@ -29,7 +29,11 @@ import kotlin.system.exitProcess
 class RemoteScriptManager(
     val context: RemoteSideContext,
 ) : IScripting.Stub() {
-    val runtime = ScriptRuntime(context.androidContext, context.log).apply {
+    val runtime = ScriptRuntime(
+        config = { context.config.root },
+        androidContext = context.androidContext,
+        logger = context.log
+    ).apply {
         scripting = this@RemoteScriptManager
     }
 

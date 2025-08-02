@@ -9,4 +9,5 @@ class Scripting : ConfigContainer() {
     val autoReload = unique("auto_reload", "snapchat_only", "all")
     val integratedUI = boolean("integrated_ui", false) { requireRestart() }
     val disableLogAnonymization = boolean("disable_log_anonymization", false) { requireRestart() }
+    val disableOptimization = boolean("disable_optimization", false) { requireRestart() }
 }
