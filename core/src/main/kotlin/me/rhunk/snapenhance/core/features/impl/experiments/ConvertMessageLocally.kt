@@ -27,7 +27,7 @@ class ConvertMessageLocally : Feature("Convert Message Edit") {
 
     fun convertMessageInterface(messageInstance: Message) {
         val actions = mutableMapOf<String, (Message) -> Unit>()
-        actions["restore_original"] = actions@{ message ->
+        actions[context.translation["button.restore_original"]] = actions@{ message ->
             val descriptor = message.messageDescriptor ?: return@actions
             messageCache.remove(descriptor.messageId!!)
             context.feature(Messaging::class).conversationManager?.fetchMessage(
@@ -41,7 +41,7 @@ class ConvertMessageLocally : Feature("Convert Message Edit") {
 
         val contentType = messageInstance.messageContent?.contentType
         if (contentType == ContentType.SNAP) {
-            actions["convert_external_media"] = convert@{ message ->
+            actions[context.translation["button.convert_external_media"]] = convert@{ message ->
                 val snapMessageContent = ProtoReader(message.messageContent!!.content!!).followPath(11)
                     ?.getBuffer() ?: return@convert
                 message.messageContent!!.content = ProtoWriter().apply {
