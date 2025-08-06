@@ -283,11 +283,11 @@ class DatabaseAccess(
         } ?: emptyList()
     }
 
-    fun getFeedEntries(limit: Int): List<FriendFeedEntry> {
+    fun getFeedEntries(limit: Int, whereClause: String? = null): List<FriendFeedEntry> {
         val entries = mutableListOf<FriendFeedEntry>()
         return useDatabase(DatabaseType.ARROYO)?.performOperation {
             safeRawQuery(
-                "SELECT * FROM feed_entry ORDER BY last_updated_timestamp DESC LIMIT ?",
+                "SELECT * FROM feed_entry ${whereClause?.let { "WHERE $it" }.orEmpty()} ORDER BY last_updated_timestamp DESC LIMIT ?",
                 arrayOf(limit.toString())
             )?.use { query ->
                 while (query.moveToNext()) {
