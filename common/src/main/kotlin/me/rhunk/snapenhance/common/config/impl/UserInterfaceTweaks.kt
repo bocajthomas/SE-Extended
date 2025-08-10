@@ -13,7 +13,6 @@ class UserInterfaceTweaks : ConfigContainer() {
 
         val appAppearance = unique("app_appearance", "always_light", "always_dark") { requireRestart() }
         val homeTab = unique("home_tab", *tabs) { addNotices(FeatureNotice.UNSTABLE); requireRestart() }
-        val simpleSnapchat = unique("simple_snapchat", "always_enabled", "always_disabled") { addNotices(FeatureNotice.UNSTABLE); requireRestart() }
     }
 
     inner class FriendFeedMessagePreview : ConfigContainer(hasGlobalState = true) {

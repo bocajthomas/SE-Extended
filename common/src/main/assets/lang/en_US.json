@@ -520,10 +520,6 @@
                             "home_tab": {
                                 "name": "Home Tab",
                                 "description": "Overrides the startup tab when opening Snapchat"
-                            },
-                            "simple_snapchat":{
-                                "name": "Simple Snapchat",
-                                "description": "Enables a simplified version of Snapchat"
                             }
                         }
                     },
@@ -1129,10 +1125,6 @@
                         "name": "COF Experiments",
                         "description": "Enables unreleased/beta Snapchat features"
                     },
-                    "edit_message": {
-                        "name": "Edit Messages",
-                        "description": "Allows you to edit messages in conversations"
-                    },
                     "context_menu_fix": {
                         "name": "Context Menu Fix",
                         "description": "Attempt to repair the Friend Feed Menu as when the device is offline it cannot be displayed correctly"
@@ -1226,6 +1218,10 @@
                     "disable_log_anonymization": {
                         "name": "Disable Log Anonymization",
                         "description": "Disables the anonymization of logs"
+                    },
+                    "disable_optimization": {
+                        "name": "Disable Optimization",
+                        "description": "Disables the optimization of scripts. This may cause performance issues."
                     }
                 }
             },
@@ -1341,7 +1337,8 @@
                 "initiate_audio": "Incoming Audio Call",
                 "abandon_audio": "Missed Audio Call",
                 "initiate_video": "Incoming Video Call",
-                "abandon_video": "Missed Video Call"
+                "abandon_video": "Missed Video Call",
+                "map_live_location": "Map Live Location"
             },
             "gallery_media_send_override": {
                 "always_ask": "Always Ask",
@@ -1382,10 +1379,6 @@
                 "camera": "Camera",
                 "discover": "Discover",
                 "spotlight": "Spotlight"
-            },
-            "simple_snapchat": {
-                "always_enabled": "Always Enabled",
-                "always_disabled": "Always Disabled"
             },
             "add_friend_source_spoof": {
                 "added_by_username": "By Username",
@@ -1552,8 +1545,7 @@
         "download_button": "Download",
         "delete_logged_message_button": "Delete Logged Message",
         "show_chat_edit_history": "Show Chat Edit History",
-        "convert_message": "Convert Message",
-        "edit_message": "Edit Message"
+        "convert_message": "Convert Message"
     },
 
     "opera_context_menu": {
@@ -1662,7 +1654,39 @@
         "cancel": "Cancel",
         "open": "Open",
         "download": "Download",
-        "send": "Send"
+        "send": "Send",
+        "restore_original": "Restore Original",
+        "convert_external_media": "Convert External Media"
+    },
+
+    "tracker_events": {
+        "conversation_enter": "Conversation Enter",
+        "conversation_exit": "Conversation Exit",
+        "started_typing": "Started Typing",
+        "stopped_typing": "Stopped Typing",
+        "started_speaking": "Started Speaking",
+        "stopped_speaking": "Stopped Speaking",
+        "started_peeking": "Started Peeking",
+        "stopped_peeking": "Stopped Peeking",
+        "message_read": "Message Read",
+        "message_deleted": "Message Deleted",
+        "message_saved": "Message Saved",
+        "message_unsaved": "Message Unsaved",
+        "message_edited": "Message Edited",
+        "message_reaction_add": "Message Reaction Add",
+        "message_reaction_remove": "Message Reaction Remove",
+        "snap_opened": "Snap Opened",
+        "snap_replayed": "Snap Replayed",
+        "snap_replayed_twice": "Snap Replayed Twice",
+        "snap_screenshot": "Snap Screenshot",
+        "snap_screen_record": "Snap Screen Record"
+    },
+
+    "tracker_actions": {
+        "log": "Log",
+        "in_app_notification": "In-App Notification",
+        "push_notification": "Push Notification",
+        "custom": "Custom"
     },
 
     "better_notifications": {

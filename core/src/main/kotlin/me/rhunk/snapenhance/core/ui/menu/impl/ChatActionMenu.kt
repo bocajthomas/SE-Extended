@@ -185,15 +185,6 @@ class ChatActionMenu : AbstractMenu() {
             })
         }
 
-        if (context.config.experimental.editMessage.get() && messaging.conversationManager?.isEditMessageSupported() == true) {
-            injectButton(Button(viewGroup.context).apply button@{
-                text = this@ChatActionMenu.context.translation["chat_action_menu.edit_message"]
-                setOnClickListener {
-                    menuViewInjector.menu(NewChatActionMenu::class)?.editCurrentMessage(context, closeActionMenu)
-                }
-            })
-        }
-
         if (context.config.experimental.convertMessageLocally.get()) {
             injectButton(Button(viewGroup.context).apply {
                 text = this@ChatActionMenu.context.translation["chat_action_menu.convert_message"]

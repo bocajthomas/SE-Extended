@@ -26,6 +26,8 @@ data class FriendFeedEntry(
     var friendLinkType: Int? = null,
     var bitmojiAvatarId: String? = null,
     var bitmojiSelfieId: String? = null,
+    var streakCount: Int? = null,
+    var streakExpirationTimestampMs: Long? = null,
 ) : DatabaseObject {
     @SuppressLint("Range")
     override fun write(cursor: Cursor) {
@@ -47,6 +49,9 @@ data class FriendFeedEntry(
             friendLinkType = getIntOrNull("friendLinkType")
             bitmojiAvatarId = getStringOrNull("bitmojiAvatarId")
             bitmojiSelfieId = getStringOrNull("bitmojiSelfieId")
+
+            streakCount = getIntOrNull("streak_count")
+            streakExpirationTimestampMs = getLongOrNull("streak_expiration_timestamp_ms")
         }
     }
 }

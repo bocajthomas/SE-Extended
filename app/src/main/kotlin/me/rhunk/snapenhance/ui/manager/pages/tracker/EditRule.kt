@@ -334,7 +334,7 @@ class EditRule : Routes.Route() {
                                             onClick = { showDropdown.value = true },
                                             modifier = Modifier.menuAnchor(MenuAnchorType.PrimaryNotEditable)
                                         ) {
-                                            Text(currentEventType, overflow = TextOverflow.Ellipsis, maxLines = 1)
+                                            Text(context.translation["tracker_events.$currentEventType"], overflow = TextOverflow.Ellipsis, maxLines = 1)
                                         }
                                         DropdownMenu(expanded = showDropdown.value, onDismissRequest = { showDropdown.value = false }) {
                                             TrackerEventType.entries.forEach { eventType ->
@@ -342,7 +342,7 @@ class EditRule : Routes.Route() {
                                                     currentEventType = eventType.key
                                                     showDropdown.value = false
                                                 }, text = {
-                                                    Text(eventType.key)
+                                                    Text(context.translation["tracker_events.${eventType.key}"])
                                                 })
                                             }
                                         }
@@ -357,7 +357,7 @@ class EditRule : Routes.Route() {
                                         .padding(2.dp),
                                 ) {
                                     TrackerRuleAction.entries.forEach { action ->
-                                        ActionCheckbox(action.name, checked = remember { mutableStateOf(addEventActions.contains(action)) }) {
+                                        ActionCheckbox(context.translation["tracker_actions.${action.key}"], checked = remember { mutableStateOf(addEventActions.contains(action)) }) {
                                             if (it) {
                                                 addEventActions += action
                                             } else {
@@ -422,8 +422,8 @@ class EditRule : Routes.Route() {
                                     modifier = Modifier.size(24.dp)
                                 )
                                 Column {
-                                    Text(event.eventType, lineHeight = 20.sp, fontSize = 18.sp, fontWeight = FontWeight.Bold)
-                                    Text(text = event.actions.joinToString(", ") { it.name }, fontSize = 10.sp, fontWeight = FontWeight.Light, overflow = TextOverflow.Ellipsis, maxLines = 1, lineHeight = 14.sp)
+                                    Text(context.translation["tracker_events.${event.eventType}"], lineHeight = 20.sp, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                                    Text(text = event.actions.joinToString(", ") { context.translation["tracker_actions.${it.key}"] }, fontSize = 10.sp, fontWeight = FontWeight.Light, overflow = TextOverflow.Ellipsis, maxLines = 1, lineHeight = 14.sp)
                                 }
                             }
                             OutlinedIconButton(
@@ -454,4 +454,3 @@ class EditRule : Routes.Route() {
         }
     }
 }
-
