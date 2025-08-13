@@ -69,6 +69,7 @@ class UserInterfaceTweaks : ConfigContainer() {
     val friendFeedMessagePreview = container("friend_feed_message_preview", FriendFeedMessagePreview()) { requireRestart() }
     val customFriendFeedLabel = string("custom_friend_feed_label") { requireRestart() }
     val iconStyle = unique("icon_style","outlined", "filled", "sharp", "two-tone") {  requireRestart() }
+    val disableSettingsMenu = boolean("disable_settings_menu") { requireRestart() }
     val snapPreview = boolean("snap_preview") { addNotices(FeatureNotice.UNSTABLE); requireRestart() }
     val bootstrapOverride = container("bootstrap_override", BootstrapOverride()) { requireRestart() }
     val mapFriendNameTags = boolean("map_friend_nametags") { requireRestart() }
