@@ -54,8 +54,10 @@ class ConfigurationOverride : Feature("Configuration Override") {
                 { true })
             overrideProperty("REDUCE_MY_PROFILE_UI_COMPLEXITY", { context.config.userInterface.mapFriendNameTags.get() },
                 { true })
-            overrideProperty("ENABLE_LONG_SNAP_SENDING", { context.config.global.disableSnapSplitting.get() },
-                { true })
+
+            arrayOf("DISABLE_SPLIT_RENDER_PASS_CONTROLLER", "ENABLE_LONG_SNAP_SENDING").forEach {
+                overrideProperty(it, { context.config.global.disableSnapSplitting.get() }, { true })
+            }
 
             overrideProperty("DF_VOPERA_FOR_STORIES", { context.config.userInterface.verticalStoryViewer.get() },
                 { true }, isAppExperiment = true)
