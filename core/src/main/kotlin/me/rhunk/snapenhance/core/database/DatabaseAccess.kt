@@ -299,7 +299,7 @@ class DatabaseAccess(
                 }
                 entries
             }
-        }?.takeIf { it.isNotEmpty() } ?: useDatabase(DatabaseType.MAIN)?.performOperation {
+        } ?: useDatabase(DatabaseType.MAIN)?.performOperation {
             safeRawQuery(
                 "SELECT * FROM FriendsFeedView ORDER BY _id LIMIT ?",
                 arrayOf(limit.toString())
