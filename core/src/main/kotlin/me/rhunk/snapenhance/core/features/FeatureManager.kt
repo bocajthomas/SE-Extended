@@ -144,6 +144,7 @@ class FeatureManager(
             DoubleTapChatAction(),
             SnapScoreChanges(),
             DisableSnapModeRestrictions(),
+            PreventForcedKeyboard(),
         )
 
         features.values.toList().forEach { feature ->

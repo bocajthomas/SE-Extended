@@ -14,11 +14,7 @@ import me.rhunk.snapenhance.core.util.hook.hook
 import me.rhunk.snapenhance.core.util.hook.hookConstructor
 import me.rhunk.snapenhance.core.util.ktx.getObjectField
 import me.rhunk.snapenhance.core.util.ktx.getObjectFieldOrNull
-import me.rhunk.snapenhance.core.wrapper.impl.ConversationManager
-import me.rhunk.snapenhance.core.wrapper.impl.Message
-import me.rhunk.snapenhance.core.wrapper.impl.SnapUUID
-import me.rhunk.snapenhance.core.wrapper.impl.Snapchatter
-import me.rhunk.snapenhance.core.wrapper.impl.toSnapUUID
+import me.rhunk.snapenhance.core.wrapper.impl.*
 import me.rhunk.snapenhance.mapper.impl.CallbackMapper
 import me.rhunk.snapenhance.mapper.impl.FriendsFeedEventDispatcherMapper
 import java.util.UUID
@@ -27,6 +23,9 @@ import java.util.concurrent.Future
 class Messaging : Feature("Messaging") {
     var conversationManager: ConversationManager? = null
         private set
+    var snapManager: Any? = null
+        private set
+
     private var conversationManagerDelegate: Any? = null
     private var identityDelegate: Any? = null
 
@@ -67,6 +66,10 @@ class Messaging : Feature("Messaging") {
                 }
                 conversationManagerReadyListeners.removeIf { it(); true }
             }
+        }
+
+        context.classCache.snapManager.hookConstructor(HookStage.BEFORE) { param ->
+            snapManager = param.thisObject()
         }
 
         context.mappings.useMapper(CallbackMapper::class) {

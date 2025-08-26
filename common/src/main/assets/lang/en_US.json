@@ -602,6 +602,10 @@
                     "edit_text_override": {
                         "name": "Edit Text Override",
                         "description": "Overrides text field behavior"
+                    },
+                    "prevent_forced_keyboard": {
+                        "name": "Prevent Forced Keyboard",
+                        "description": "Prevents Snapchat from automatically popping up the keyboard when you open a conversation"
                     }
                 }
             },
@@ -1461,7 +1465,8 @@
             },
             "auto_mark_as_read": {
                 "conversation_read": "Mark conversation as read when sending a message",
-                "snap_reply": "Mark snaps as read when replying to them"
+                "snap_reply": "Mark snaps as read when replying to them",
+                "save_snap_in_chat": "Mark snaps as read when saving them in chat while in Stealth Mode"
             },
             "friend_mutation_notifier": {
                 "remove_friend": "Notify when someone removes you as a friend",

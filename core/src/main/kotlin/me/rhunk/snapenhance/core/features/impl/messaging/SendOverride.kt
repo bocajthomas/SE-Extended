@@ -150,9 +150,9 @@ class SendOverride : Feature("Send Override") {
             postSavePolicy = null
             if (event.destinations.stories?.isNotEmpty() == true && event.destinations.conversations?.isEmpty() == true) return@subscribe
             val localMessageContent = event.messageContent
-            //prevent story replies
-            if (localMessageContent.contentType != ContentType.EXTERNAL_MEDIA && localMessageContent.instanceNonNull().getObjectFieldOrNull("mExternalContentMetadata")?.getObjectFieldOrNull("mContainsExternalContent") != true) return@subscribe
+            if (localMessageContent.contentType != ContentType.EXTERNAL_MEDIA && localMessageContent.instanceNonNull().getObjectFieldOrNull("mExternalContentMetadata") == null) return@subscribe
 
+            //prevent story replies
             val messageProtoReader = ProtoReader(localMessageContent.content ?: return@subscribe)
             if (messageProtoReader.contains(7)) return@subscribe
 
