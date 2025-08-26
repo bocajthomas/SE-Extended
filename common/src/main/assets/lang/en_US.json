@@ -540,6 +540,10 @@
                     "edit_text_override": {
                         "name": "Edit Text Override",
                         "description": "Overrides text field behavior"
+                    },
+                    "prevent_forced_keyboard": {
+                        "name": "Prevent Forced Keyboard",
+                        "description": "Prevents Snapchat from automatically popping up the keyboard when you open a conversation"
                     }
                 }
             },
