@@ -337,10 +337,12 @@ class SnapEnhance {
     }
 
     private fun syncRemote() {
+        if (!appContext.isLoggedIn()) return
+        
         val myUserId = appContext.database.myUserId
-        val streakEntries = appContext.database.getFeedEntries(Int.MAX_VALUE, whereClause = "streak_count IS NOT NULL AND streak_count > 0").associate {
-            (it.friendUserId ?: it.participants?.firstOrNull { it != myUserId }) to it
-        }.filter { it.key != null }
+        val streakEntries = appContext.database.getFeedEntries(Int.MAX_VALUE, whereClause = "streak_count IS NOT NULL AND streak_count > 0")
+            .associateBy { entry -> (entry.friendUserId ?: entry.participants?.firstOrNull { it != myUserId }) }
+            .filter { it.key != null }
 
         appContext.bridgeClient.sync(object : SyncCallback.Stub() {
             override fun syncFriend(uuid: String): String? {
