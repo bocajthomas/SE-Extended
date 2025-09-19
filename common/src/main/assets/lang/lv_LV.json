@@ -311,10 +311,6 @@
             "name": "",
             "description": ""
         },
-        "security_features": {
-            "name": "",
-            "description": ""
-        },
         "theming": {
             "description": "",
             "name": ""
@@ -940,14 +936,6 @@
                     },
                     "spoof": {
                         "properties": {
-                            "fingerprint": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "android_id": {
-                                "name": "",
-                                "description": ""
-                            },
                             "remove_vpn_transport_flag": {
                                 "description": "",
                                 "name": ""
@@ -959,16 +947,8 @@
                             "remove_mock_location_flag": {
                                 "name": "",
                                 "description": ""
-                            },
-                            "randomize_persistent_device_token": {
-                                "description": "",
-                                "name": ""
                             }
                         },
-                        "name": "",
-                        "description": ""
-                    },
-                    "edit_message": {
                         "name": "",
                         "description": ""
                     },
@@ -1036,15 +1016,7 @@
                                 "name": "",
                                 "description": ""
                             },
-                            "enhanced_transcript_in_notifications": {
-                                "description": "",
-                                "name": ""
-                            },
                             "preferred_transcription_lang": {
-                                "description": "",
-                                "name": ""
-                            },
-                            "enhanced_transcript": {
                                 "description": "",
                                 "name": ""
                             }
@@ -1360,10 +1332,6 @@
                 "create_source_folder": "",
                 "append_hash": ""
             },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
-            },
             "message_indicators": {
                 "location_indicator": "",
                 "platform_indicator": "",
@@ -1441,8 +1409,7 @@
         "notices": {
             "ban_risk": "",
             "unstable": "",
-            "internal_behavior": "",
-            "require_native_hooks": ""
+            "internal_behavior": ""
         }
     },
     "opera_context_menu": {
@@ -1715,7 +1682,6 @@
         "download_button": "",
         "delete_logged_message_button": "",
         "convert_message": "",
-        "edit_message": "",
         "show_chat_edit_history": "",
         "preview_button": ""
     },

@@ -1025,10 +1025,6 @@
                             }
                         }
                     },
-                    "edit_message": {
-                        "name": "Mesajları Düzenle",
-                        "description": "Görüşmelerdeki mesajları düzenlemenizi sağlar"
-                    },
                     "app_lock": {
                         "properties": {
                             "lock_on_resume": {
@@ -1064,14 +1060,6 @@
                             "preferred_transcription_lang": {
                                 "name": "Tercih Edilen Transkripsiyon Dili",
                                 "description": "Sesli not metni için tercih edilen dil (örn. EN, ES, FR)"
-                            },
-                            "enhanced_transcript": {
-                                "name": "Geliştirilmiş Transkript",
-                                "description": "DeepL adresini kullanarak sesli not dökümünü iyileştirir.\nBu özelliği kullanmadan önce lütfen gizlilik politikasını okuduğunuzdan emin olun."
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "description": "DeepL adresini kullanarak bildirimlerdeki sesli notları yazıya döker. Bu, Sohbet Önizleme özelliğinin Daha İyi Bildirimler'de etkinleştirilmesini gerektirir",
-                                "name": "Bildirimlerde Geliştirilmiş Transkript"
                             }
                         },
                         "name": "Daha İyi Transkript",
@@ -1367,10 +1355,6 @@
                 "two-tone": "",
                 "outlined": "",
                 "sharp": ""
-            },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
             }
         }
     },
@@ -1387,7 +1371,6 @@
         "download_button": "İndir",
         "delete_logged_message_button": "Kaydedilen Mesajı Sil",
         "convert_message": "Mesajı Dönüştür",
-        "edit_message": "Mesajı Düzenle",
         "show_chat_edit_history": "Sohbet Düzenleme Geçmişini Göster"
     },
     "opera_context_menu": {
@@ -1637,10 +1620,6 @@
         "file_imports": {
             "name": "Dosya İçe Aktarımları",
             "description": "Snapchat'te kullanmak için dosyaları içe aktarma"
-        },
-        "security_features": {
-            "name": "Güvenlik Özellikleri",
-            "description": "Güvenlik özellikleri tercihlerini değiştir"
         },
         "theming": {
             "name": "Temalandırma",

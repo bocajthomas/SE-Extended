@@ -53,7 +53,6 @@
                 "config_export_failure_toast": "Konfiguration konnte nicht exportiert werden {error}",
                 "older_required": "Dieses Feature benötigt Snapchat v{version} oder älter um ordnungsgemäß zu funktionieren",
                 "newer_required": "Dieses Feature benötigt Snapchat v{version} oder neuer um ordnungsgemäß zu funktionieren"
-
             },
             "social": {
                 "streaks_expiration_short": "{hours}h",
@@ -1032,10 +1031,6 @@
                             }
                         }
                     },
-                    "edit_message": {
-                        "description": "Ermöglicht es Nachrichten in Konversationen zu bearbeiten",
-                        "name": "Nachrichten bearbeiten"
-                    },
                     "app_lock": {
                         "name": "App-Sperre",
                         "description": "Verhindert den Zugriff auf Snapchat ohne dein Passwort",
@@ -1060,17 +1055,9 @@
                                 "name": "Transkription von Sprachnotizen erzwingen",
                                 "description": "Ermöglicht die Transkription aller Sprachnotizen"
                             },
-                            "enhanced_transcript": {
-                                "description": "Verbessert das Transkript von Sprachnotizen mithilfe von DeepL.\nBevor Sie diese Funktion nutzen, stellen Sie bitte sicher, dass Sie deren Datenschutzbestimmungen gelesen haben.",
-                                "name": "Erweitertes Transkript"
-                            },
                             "preferred_transcription_lang": {
                                 "name": "Bevorzugte Transkriptionssprache",
                                 "description": "Die bevorzugte Sprache für das Sprachnotiz-Transkript (z. B. EN, ES, FR)"
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "name": "Verbessertes Transkript in Benachrichtigungen",
-                                "description": "Transkribiert Sprachnotizen in Benachrichtigungen mithilfe von DeepL. Dazu muss die Chat-Vorschau-Funktion in Better Notifications aktiviert sein"
                             }
                         },
                         "name": "Besseres Transkript",
@@ -1374,10 +1361,6 @@
                 "not_subscribed": "",
                 "ad_free": "",
                 "basic": ""
-            },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
             }
         }
     },
@@ -1394,7 +1377,6 @@
         "download_button": "Download",
         "delete_logged_message_button": "Gespeicherte Nachrichten löschen",
         "convert_message": "Nachricht konvertieren",
-        "edit_message": "Nachricht bearbeiten",
         "show_chat_edit_history": "Chat Bearbeitungsverlauf anzeigen"
     },
     "opera_context_menu": {
@@ -1637,10 +1619,6 @@
         "logger_history": {
             "name": "Logger Verlauf",
             "description": "Sehen Sie sich den Verlauf der protokollierten Nachrichten an"
-        },
-        "security_features": {
-            "name": "Sicherheitsfunktionen",
-            "description": "Ändern Sie die Einstellungen für Sicherheitsfunktionen"
         },
         "theming": {
             "name": "Designs",
