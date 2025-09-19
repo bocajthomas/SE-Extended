@@ -3,7 +3,11 @@
         "dialogs": {
             "select_language": "Оберіть мову",
             "save_folder": "SE Extended вимагає дозволів на зберігання для завантаження та збереження медіафайлів із Snapchat.\nБудь ласка, виберіть місце, куди потрібно завантажити медіа.",
-            "select_save_folder_button": "Виберіть папку"
+            "select_save_folder_button": "Виберіть папку",
+            "disclaimer": {
+                "statement": "Ласкаво просимо до розширеного модуля SE.\nЗастереження:\n- Користувачі несуть повну відповідальність за будь-які ризики, пов'язані з використанням цього модуля.\n- Розширений модуль SE може змінювати поведінку додатка Snapchat. Користувачі повинні уважно ознайомитися з роботою модуля та самостійно прийняти рішення щодо його використання. \n- Розробник не несе відповідальності за будь-які попередження або заборони, які можуть виникнути у вашому обліковому записі Snapchat внаслідок використання розширеного модуля SE, і всі наслідки несуть самі користувачі.",
+                "agree_button": "Я погоджуюся"
+            }
         },
         "mappings": {
             "dialog": "Створення зіставлень, це може зайняти деякий час...",
@@ -185,7 +189,14 @@
                 "unknown_sender": "Невідомий відправник"
             },
             "theming": {
-                "no_themes_hint": "Теми не знайдено"
+                "no_themes_hint": "Теми не знайдено",
+                "search_theme_placeholder": "Пошук тем",
+                "new_theme_button": "Нова тема",
+                "import_from_file_button": "Імпорт з файлу",
+                "import_from_url_button": "Імпорт з URL-адреси",
+                "manage_repositories_button": "Керування Репозиторіями",
+                "installed_themes_title": "Встановлені теми",
+                "theme_catalog_title": "Каталог тем"
             }
         },
         "dialogs": {
@@ -217,6 +228,16 @@
             "messaging_action": {
                 "select_all_button": "Виберіть усі",
                 "title": "Виберіть типи вмісту для обробки"
+            },
+            "import_theme_url": {
+                "title": "Імпорт теми з URL-адреси",
+                "url_hint": "URL",
+                "import_button": "Імпорт"
+            },
+            "theme_settings": {
+                "title": "Налаштування теми",
+                "duplicate_button": "Дублікат",
+                "export_button": "Експорт"
             }
         }
     },
@@ -268,6 +289,10 @@
         "theming": {
             "name": "Тематизація",
             "description": "Налаштуйте зовнішній вигляд Snapchat"
+        },
+        "disclaimer_statement": {
+            "name": "Заява про відмову від відповідальності",
+            "description": "Прочитайте заяву про відмову від відповідальності"
         }
     },
     "features": {
@@ -359,6 +384,20 @@
                     "custom_path_format": {
                         "name": "Спеціальний формат шляху",
                         "description": "Укажіть спеціальний формат шляху для завантажених медіа\n\nДоступні змінні:\n - %ім'я користувача%\n - %джерело%\n - %хеш%\n - %date_time%"
+                    },
+                    "logging_options": {
+                        "name": "Параметри ведення журналу",
+                        "description": "Налаштування спливаючого ведення журналу",
+                        "properties": {
+                            "logging": {
+                                "name": "Лісозаготівля",
+                                "description": "Показує спливаючі повідомлення під час завантаження медіафайлів"
+                            },
+                            "disappearing_rate": {
+                                "name": "Зникаючий коефіцієнт",
+                                "description": "Встановлює швидкість зникнення тостів (у мілісекундах).\nЗначення має бути від 100 до 3000"
+                            }
+                        }
                     }
                 },
                 "name": "Завантажувач",
@@ -551,6 +590,10 @@
                     "double_tap_chat_action": {
                         "name": "Дія чату подвійним дотиком",
                         "description": "Виконує спеціальну дію, коли двічі торкається повідомлення в чаті"
+                    },
+                    "disable_snap_mode_restrictions": {
+                        "name": "Вимкнути обмеження режиму прив’язки",
+                        "description": "Дозволяє переглядати самознищувані знімки без обмежень"
                     }
                 },
                 "description": "Змініть спосіб спілкування з друзями",
@@ -669,6 +712,22 @@
                     "hide_streak_restore": {
                         "description": "Приховує кнопку «Відновити» у стрічці друзів",
                         "name": "Приховати відновлення смуги"
+                    },
+                    "icon_style": {
+                        "name": "Стиль піктограми",
+                        "description": "Змінює стиль значків матеріалів\n\nПідтримувані функції:\n- Кнопка завантаження Opera\n- Кнопка «Позначити знімок як побачений»\n- Кнопки меню стрічки друзів\n- Експерименти COF\n- Індикатори повідомлень\n- Ведення журналу"
+                    },
+                    "disable_settings_menu": {
+                        "name": "Вимкнути меню налаштувань",
+                        "description": "Вимикає меню налаштувань у Snapchat"
+                    },
+                    "custom_friend_feed_label": {
+                        "name": "Користувацька мітка стрічки друзів",
+                        "description": "Змінює мітку сторінки у стрічці друзів"
+                    },
+                    "prevent_forced_keyboard": {
+                        "name": "Запобігання примусовому використанню клавіатури",
+                        "description": "Запобігає автоматичному відображенню клавіатури в Snapchat під час відкриття розмови"
                     }
                 },
                 "description": "Змініть зовнішній вигляд Snapchat",
@@ -902,6 +961,10 @@
                                     "composer_console": {
                                         "name": "Консоль композитора",
                                         "description": "Дозволяє виконувати код JavaScript у Composer (лише arm64)"
+                                    },
+                                    "custom_self_destruct_snap_delay": {
+                                        "name": "Затримка спуску за користувацьким самознищенням",
+                                        "description": "Надає більше опцій для таймера самознищення під час надсилання Snap"
                                     }
                                 },
                                 "description": "Впроваджує код у кросплатформну структуру інтерфейсу користувача Composer",
@@ -989,6 +1052,10 @@
                             "preferred_transcription_lang": {
                                 "name": "Бажана мова транскрипції",
                                 "description": "Бажана мова для розшифровки голосової нотатки (наприклад, EN, ES, FR)"
+                            },
+                            "notification_transcript": {
+                                "name": "Розшифровка сповіщення",
+                                "description": "Транскрибує голосові нотатки в сповіщеннях\nДля цієї функції потрібно ввімкнути функцію попереднього перегляду чату в розділі «Кращі сповіщення»"
                             }
                         },
                         "name": "Краща транскрипція",
@@ -1081,6 +1148,14 @@
                     "disable_log_anonymization": {
                         "description": "Вимикає анонімізацію журналів",
                         "name": "Вимкнути анонімізацію журналу"
+                    },
+                    "old_tool_box_add_view": {
+                        "name": "Стара скринька для інструментів Додати вигляд",
+                        "description": "Використовує старий режим додавання, щоб додати панель інструментів до Snapchat.\nПримітка: Ця функція тимчасова"
+                    },
+                    "disable_optimization": {
+                        "name": "Вимкнути оптимізацію",
+                        "description": "Вимикає оптимізацію скриптів. Це може спричинити проблеми з продуктивністю."
                     }
                 },
                 "name": "Сценарії",
@@ -1127,7 +1202,8 @@
                 "initiate_video": "Вхідний відеодзвінок",
                 "abandon_audio": "Пропущений аудіодзвінок",
                 "chat_reply": "Чат Відповідь",
-                "abandon_video": "Пропущений відеодзвінок"
+                "abandon_video": "Пропущений відеодзвінок",
+                "map_live_location": "Розташування на карті в реальному часі"
             },
             "auto_purge": {
                 "3_months": "3 Місяці",
@@ -1166,7 +1242,12 @@
                 "hide_unread_chat_hint": "Видалити непрочитану підказку чату",
                 "hide_profile_call_buttons": "Видалити кнопки виклику профілю",
                 "hide_post_to_story_buttons": "Видаліть кнопки «Опублікувати в історії», перш ніж надсилати знімок",
-                "hide_stickers_button": "Кнопка видалення наклейок"
+                "hide_stickers_button": "Кнопка видалення наклейок",
+                "hide_snap_create_group_buttons": "Вилучити кнопки створення групи Snap",
+                "hide_chat_camera_button": "Вилучити кнопку камери чату",
+                "hide_chat_gallery_button": "Кнопка «Вилучити галерею чату»",
+                "hide_explorer_token_button": "Кнопка вилучення токена дослідника",
+                "hide_gift_snapchat_plus_reminders": "Вилучити нагадування про подарунки Snapchat Plus"
             },
             "disable_story_sections": {
                 "discover": "Відкрийте для себе",
@@ -1241,7 +1322,41 @@
                 "amoled_dark_mode": "Темний режим Amoled",
                 "custom": "Спеціальні теми (використовуйте швидкі дії для керування темами)",
                 "material_you_light": "Material You Світло (Android 12+)",
-                "material_you_dark": "Material You Темний (Android 12+)"
+                "material_you_dark": "Material You Темний (Android 12+)",
+                "light_blue": "Світло-блакитний",
+                "dark_blue": "Темно-синій",
+                "midnight_slate": "Опівнічний шифер",
+                "earthy_autumn": "Земляна осінь",
+                "mint_chocolate": "М'ятний шоколад",
+                "ginger_snap": "Імбирний снеп",
+                "lemon_meringue": "Лимонний безе",
+                "lava_flow": "Потік лави",
+                "ocean_fog": "Океанський туман",
+                "alien_landscape": "Чужий пейзаж",
+                "watercolor_wash": "Миття акварелі",
+                "zesty_lemon": "Пікантний лимон",
+                "tropical_paradise": "Тропічний рай",
+                "industrial_chic": "Індустріальний шик",
+                "cherry_bomb": "Вишнева бомба",
+                "woodland_mystery": "Лісова таємниця",
+                "galaxy_glitter": "Блиск Галактика",
+                "creamy_vanilla": "Вершково-ванільний",
+                "spicy_chili": "Гострий чилі",
+                "spring_meadow": "Весняний луг",
+                "midnight_library": "Опівнічна бібліотека",
+                "lemon_sorbet": "Лимонний сорбет",
+                "cosmic_night": "Космічна ніч",
+                "spicy_mustard": "Гостра гірчиця",
+                "peppermint_candy": "М'ятні цукерки",
+                "gingerbread_house": "Пряниковий будиночок",
+                "art_deco_glam": "Глам ар-деко",
+                "ocean_depths": "Океанські глибини",
+                "bubblegum_pink": "Рожевий Бульбашка",
+                "firefly_night": "Світлячкова ніч",
+                "apple_orchard": "Яблуневий сад",
+                "lavender_field": "Лавандове поле",
+                "lemon_drop": "Лимонна крапля",
+                "modern_farmhouse": "Сучасний фермерський будинок"
             },
             "gallery_media_send_override": {
                 "ORIGINAL": "Оригінальний носій",
@@ -1276,7 +1391,8 @@
             },
             "auto_mark_as_read": {
                 "snap_reply": "Відповідаючи на них, позначайте знімки як прочитані",
-                "conversation_read": "Позначайте бесіду як прочитану під час надсилання повідомлення"
+                "conversation_read": "Позначайте бесіду як прочитану під час надсилання повідомлення",
+                "save_snap_in_chat": "Позначати знімки як прочитані під час збереження їх у чаті в прихованому режимі"
             },
             "logging": {
                 "success": "Успіх",
@@ -1307,6 +1423,12 @@
             "startup_default_camera": {
                 "front": "Фронтальна камера",
                 "back": "Задня камера"
+            },
+            "icon_style": {
+                "outlined": "Окреслено",
+                "filled": "Заповнений",
+                "sharp": "Різкий",
+                "two-tone": "Двоколірний"
             }
         }
     },
@@ -1586,7 +1708,9 @@
         "send": "Надіслати",
         "download": "Завантажити",
         "positive": "Так",
-        "open": "Відкрити"
+        "open": "Відкрити",
+        "restore_original": "Відновити оригінал",
+        "convert_external_media": "Конвертувати зовнішні носії"
     },
     "profile_picture_downloader": {
         "button": "Завантажити зображення профілю",
@@ -1689,5 +1813,33 @@
             "download": "Завантажити",
             "reply": "Відповісти"
         }
+    },
+    "tracker_events": {
+        "conversation_enter": "Вхід до розмови",
+        "conversation_exit": "Вихід з розмови",
+        "started_typing": "Почав друкувати",
+        "stopped_typing": "Перестав друкувати",
+        "started_speaking": "Почав говорити",
+        "stopped_speaking": "Перестав говорити",
+        "started_peeking": "Почав підглядати",
+        "stopped_peeking": "Перестав підглядати",
+        "message_read": "Повідомлення прочитано",
+        "message_deleted": "Повідомлення видалено",
+        "message_saved": "Повідомлення збережено",
+        "message_unsaved": "Повідомлення не збережено",
+        "message_edited": "Повідомлення відредаговано",
+        "message_reaction_add": "Реакція на повідомлення Додати",
+        "message_reaction_remove": "Реакція на повідомлення Вилучити",
+        "snap_opened": "Відкрито Snap",
+        "snap_replayed": "Знімок відтворено повторно",
+        "snap_replayed_twice": "Знімок відтворено двічі",
+        "snap_screenshot": "Знімок екрана",
+        "snap_screen_record": "Запис екрана Snap"
+    },
+    "tracker_actions": {
+        "log": "Журнал",
+        "in_app_notification": "Сповіщення в додатку",
+        "push_notification": "Push-сповіщення",
+        "custom": "Користувацька"
     }
 }
