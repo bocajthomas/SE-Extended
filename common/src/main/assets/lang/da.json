@@ -958,7 +958,7 @@
                             "play_store_installer_package_name": {
                                 "name": "Play Butik Installer Pakkenavn",
                                 "description": "Tilsidesætter installations pakkenavnet til com.android.vending"
-                            },
+                            }
                         }
                     },
                     "infinite_story_boost": {
