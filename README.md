@@ -240,7 +240,7 @@ Thanks to everyone involved
 - Norwegian Bokmål - [comradekingu](https://github.com/comradekingu)
 - Swedish - [comradekingu](https://github.com/comradekingu), [ELLABRAHSIRI](https://github.com/ELLABRAHSIRI)
 - Italian - [vampskillz](https://github.com/vampskillz)
-- Finnish - [jollindeerus](https://github.com/jollindeerus)
+- Finnish - [jollindeerus](https://github.com/jollindeerus), [Ricky-Tigg](https://github.com/Ricky-Tigg)
 - French - [pyramyds](https://github.com/pyramyds), [Mizaruta](https://github.com/Mizaruta)
 - Polish - [tekkenkkk](https://github.com/tekkenkkk), [Red1N-Q](https://github.com/Red1N-Q)
 - Chinese (Simplified) - [fa1seut0pia](https://github.com/fa1seut0pia), [Kobayashi-classmate](https://github.com/Kobayashi-classmate), [RWDai](https://github.com/RWDai), [mevius330](https://github.com/mevius330)
