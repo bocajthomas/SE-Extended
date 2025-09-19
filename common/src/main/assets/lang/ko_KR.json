@@ -173,18 +173,6 @@
                                 "description": "",
                                 "name": ""
                             },
-                            "fingerprint": {
-                                "description": "",
-                                "name": ""
-                            },
-                            "randomize_persistent_device_token": {
-                                "description": "",
-                                "name": ""
-                            },
-                            "android_id": {
-                                "description": "",
-                                "name": ""
-                            },
                             "play_store_installer_package_name": {
                                 "description": "",
                                 "name": ""
@@ -247,15 +235,7 @@
                                 "name": "",
                                 "description": ""
                             },
-                            "enhanced_transcript": {
-                                "name": "",
-                                "description": ""
-                            },
                             "force_transcription": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "enhanced_transcript_in_notifications": {
                                 "name": "",
                                 "description": ""
                             }
@@ -310,10 +290,6 @@
                                 "description": ""
                             }
                         }
-                    },
-                    "edit_message": {
-                        "name": "",
-                        "description": ""
                     },
                     "cof_experiments": {
                         "description": "",
@@ -1117,10 +1093,6 @@
                 "split": "",
                 "single": ""
             },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
-            },
             "snapchat_plus": {
                 "ad_free": "",
                 "basic": "",
@@ -1130,7 +1102,6 @@
         "notices": {
             "unstable": "",
             "ban_risk": "",
-            "require_native_hooks": "",
             "internal_behavior": ""
         }
     },
@@ -1563,10 +1534,6 @@
             "description": "",
             "name": ""
         },
-        "security_features": {
-            "name": "",
-            "description": ""
-        },
         "disclaimer_statement": {
             "name": "",
             "description": ""
@@ -1741,7 +1708,6 @@
     },
     "chat_action_menu": {
         "preview_button": "",
-        "edit_message": "",
         "convert_message": "",
         "show_chat_edit_history": "",
         "delete_logged_message_button": "",

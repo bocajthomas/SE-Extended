@@ -327,10 +327,6 @@
             "name": "Theming",
             "description": "Customize the look and feel of Snapchat"
         },
-        "security_features": {
-            "description": "Change security features preferences",
-            "name": "Security Features"
-        },
         "disclaimer_statement": {
             "name": "Disclaimer Statement",
             "description": "Read the disclaimer statement"
@@ -1041,10 +1037,6 @@
                         "name": "Convert Message Locally",
                         "description": "Converts snaps to chat external media locally. This appears in chat download context menu"
                     },
-                    "edit_message": {
-                        "name": "Edit Messages",
-                        "description": "Allows you to edit messages in conversations"
-                    },
                     "infinite_story_boost": {
                         "description": "Bypass the Story Boost Limit delay",
                         "name": "Infinite Story Boost"
@@ -1111,10 +1103,6 @@
                     },
                     "better_transcript": {
                         "properties": {
-                            "enhanced_transcript": {
-                                "name": "Enhanced Transcript",
-                                "description": "Improves the voice note transcript using DeepL.\nBefore using this feature, please ensure that you have read their privacy policy."
-                            },
                             "force_transcription": {
                                 "name": "Force Voice Note Transcription",
                                 "description": "Allows all voice notes to be transcribed"
@@ -1122,10 +1110,6 @@
                             "preferred_transcription_lang": {
                                 "name": "Preferred Transcription Language",
                                 "description": "The preferred language for the voice note transcript (e.g. EN, ES, FR)"
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "name": "Enhanced Transcript in Notifications",
-                                "description": "Transcribes voice notes in notifications using DeepL. This requires the Chat Preview feature to be enabled in Better Notifications"
                             }
                         },
                         "description": "Improves the voice note transcript",
@@ -1420,10 +1404,6 @@
                 "ad_free": "Ad Free",
                 "not_subscribed": "Not Subscribed"
             },
-            "simple_snapchat": {
-                "always_enabled": "Always Enabled",
-                "always_disabled": "Always Disabled"
-            },
             "icon_style": {
                 "outlined": "Outlined",
                 "filled": "Filled",
@@ -1510,7 +1490,6 @@
         },
         "download_toast": "Downloading {path}...",
         "content_saved_toast": "Saved!"
-
     },
     "streaks_reminder": {
         "notification_title": "Streaks",
@@ -1549,7 +1528,6 @@
         "download_button": "Download",
         "delete_logged_message_button": "Delete Logged Message",
         "convert_message": "Convert Message",
-        "edit_message": "Edit Message",
         "show_chat_edit_history": "Show Chat Edit History"
     },
     "opera_context_menu": {

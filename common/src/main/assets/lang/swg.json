@@ -336,10 +336,6 @@
                     "spoof": {
                         "description": "",
                         "properties": {
-                            "android_id": {
-                                "description": "",
-                                "name": ""
-                            },
                             "play_store_installer_package_name": {
                                 "name": "",
                                 "description": ""
@@ -347,14 +343,6 @@
                             "remove_vpn_transport_flag": {
                                 "description": "",
                                 "name": ""
-                            },
-                            "randomize_persistent_device_token": {
-                                "description": "",
-                                "name": ""
-                            },
-                            "fingerprint": {
-                                "name": "",
-                                "description": ""
                             },
                             "remove_mock_location_flag": {
                                 "name": "",
@@ -365,10 +353,6 @@
                     },
                     "better_transcript": {
                         "properties": {
-                            "enhanced_transcript_in_notifications": {
-                                "description": "",
-                                "name": ""
-                            },
                             "preferred_transcription_lang": {
                                 "name": "",
                                 "description": ""
@@ -376,20 +360,12 @@
                             "force_transcription": {
                                 "description": "",
                                 "name": ""
-                            },
-                            "enhanced_transcript": {
-                                "name": "",
-                                "description": ""
                             }
                         },
                         "name": "",
                         "description": ""
                     },
                     "cof_experiments": {
-                        "description": "",
-                        "name": ""
-                    },
-                    "edit_message": {
                         "description": "",
                         "name": ""
                     },
@@ -865,7 +841,6 @@
             }
         },
         "notices": {
-            "require_native_hooks": "",
             "ban_risk": "",
             "internal_behavior": "",
             "unstable": ""
@@ -1040,10 +1015,6 @@
                 "hide_suggested_friend_stories": "",
                 "hide_my_stories": ""
             },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
-            },
             "add_friend_source_spoof": {
                 "added_by_qr_code": "",
                 "added_by_group_chat": "",
@@ -1133,7 +1104,6 @@
         "delete_logged_message_button": "",
         "preview_button": "",
         "convert_message": "",
-        "edit_message": "",
         "show_chat_edit_history": "",
         "download_button": ""
     },
@@ -1541,10 +1511,6 @@
             "description": ""
         },
         "friend_tracker": {
-            "name": "",
-            "description": ""
-        },
-        "security_features": {
             "name": "",
             "description": ""
         },

@@ -307,10 +307,6 @@
             "name": "Bytt språk",
             "description": "Bytt språk av SnapEnhance"
         },
-        "security_features": {
-            "name": "",
-            "description": ""
-        },
         "file_imports": {
             "name": "",
             "description": ""
@@ -1055,10 +1051,6 @@
                             }
                         }
                     },
-                    "edit_message": {
-                        "description": "Låter dig redigera meddelanden i konversationer",
-                        "name": "Redigera meddelanden"
-                    },
                     "meo_passcode_bypass": {
                         "name": "Mina ögon förbigår bara lösenordet",
                         "description": "Förbigå My Eyes Only-lösenordet\nDetta fungerar bara om lösenordet har angetts korrekt tidigare"
@@ -1110,14 +1102,6 @@
                                 "description": ""
                             },
                             "preferred_transcription_lang": {
-                                "description": "",
-                                "name": ""
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "enhanced_transcript": {
                                 "description": "",
                                 "name": ""
                             }
@@ -1421,10 +1405,6 @@
                 "ad_free": "",
                 "not_subscribed": "",
                 "basic": ""
-            },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
             }
         }
     },
@@ -1587,7 +1567,6 @@
         "created_at": ""
     },
     "chat_action_menu": {
-        "edit_message": "",
         "delete_logged_message_button": "",
         "show_chat_edit_history": "",
         "convert_message": "",

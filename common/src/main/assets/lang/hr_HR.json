@@ -303,10 +303,6 @@
             "name": "",
             "description": ""
         },
-        "security_features": {
-            "name": "",
-            "description": ""
-        },
         "export_chat_messages": {
             "description": "",
             "name": ""
@@ -868,15 +864,7 @@
                     },
                     "better_transcript": {
                         "properties": {
-                            "enhanced_transcript_in_notifications": {
-                                "name": "",
-                                "description": ""
-                            },
                             "force_transcription": {
-                                "description": "",
-                                "name": ""
-                            },
-                            "enhanced_transcript": {
                                 "description": "",
                                 "name": ""
                             },
@@ -885,10 +873,6 @@
                                 "description": ""
                             }
                         },
-                        "description": "",
-                        "name": ""
-                    },
-                    "edit_message": {
                         "description": "",
                         "name": ""
                     },
@@ -912,10 +896,6 @@
                                 "name": "",
                                 "description": ""
                             },
-                            "android_id": {
-                                "description": "",
-                                "name": ""
-                            },
                             "remove_mock_location_flag": {
                                 "description": "",
                                 "name": ""
@@ -923,14 +903,6 @@
                             "play_store_installer_package_name": {
                                 "description": "",
                                 "name": ""
-                            },
-                            "fingerprint": {
-                                "description": "",
-                                "name": ""
-                            },
-                            "randomize_persistent_device_token": {
-                                "name": "",
-                                "description": ""
                             }
                         },
                         "name": "",
@@ -1337,10 +1309,6 @@
                 "hide_snap_filters": "",
                 "hide_caption_text": ""
             },
-            "simple_snapchat": {
-                "always_enabled": "",
-                "always_disabled": ""
-            },
             "disable_confirmation_dialogs": {
                 "ignore_friend": "",
                 "hide_friend": "",
@@ -1441,7 +1409,6 @@
         "notices": {
             "unstable": "",
             "ban_risk": "",
-            "require_native_hooks": "",
             "internal_behavior": ""
         }
     },
@@ -1734,7 +1701,6 @@
         "notification_content_group": ""
     },
     "chat_action_menu": {
-        "edit_message": "",
         "convert_message": "",
         "delete_logged_message_button": "",
         "download_button": "",

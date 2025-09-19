@@ -504,7 +504,7 @@
                     "custom_theme": {
                         "description": "Personnaliser les couleurs de Snapchat\nNote : si vous choisissez un thème sombre (comme AMOLED), vous devrez peut-être activer le mode sombre dans les paramètres d'apparence pour obtenir de meilleurs résultats",
                         "name": "Thème personnalisé"
-                    }   
+                    }
                 }
             },
             "messaging": {
@@ -1031,10 +1031,6 @@
                             }
                         }
                     },
-                    "edit_message": {
-                        "name": "Modifier les messages",
-                        "description": "Vous permet de modifier les messages dans les conversations"
-                    },
                     "app_lock": {
                         "properties": {
                             "lock_on_resume": {
@@ -1067,17 +1063,9 @@
                                 "description": "Permet de transcrire toutes les notes vocales",
                                 "name": "Forcer la transcription des notes vocales"
                             },
-                            "enhanced_transcript": {
-                                "name": "Transcription améliorée",
-                                "description": "Améliore la transcription des notes vocales à l'aide de DeepL.\nAvant d'utiliser cette fonctionnalité, assurez-vous d'avoir lu leur politique de confidentialité."
-                            },
                             "preferred_transcription_lang": {
                                 "name": "Langue de transcription préférée",
                                 "description": "La langue préférée pour la transcription des notes vocales (par exemple EN, ES, FR)"
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "name": "Transcription améliorée dans les notifications",
-                                "description": "Transcrit les notes vocales dans les notifications à l'aide de DeepL. Pour ce faire, la fonction de prévisualisation du chat doit être activée dans Meilleures notifications"
                             }
                         },
                         "name": "Meilleure transcription",
@@ -1363,10 +1351,6 @@
                 "peppermint_candy": "",
                 "spicy_mustard": ""
             },
-            "simple_snapchat": {
-                "always_enabled": "",
-                "always_disabled": ""
-            },
             "icon_style": {
                 "two-tone": "",
                 "sharp": "",
@@ -1393,7 +1377,6 @@
         "download_button": "Télécharger",
         "delete_logged_message_button": "Supprimer le message enregistré",
         "convert_message": "Convertir le message",
-        "edit_message": "Modifier le message",
         "show_chat_edit_history": "Afficher l'historique des modifications du chat"
     },
     "opera_context_menu": {
@@ -1636,10 +1619,6 @@
         "friend_tracker": {
             "name": "Traqueur d'amis",
             "description": "Traquer vos amis sur Snapchat"
-        },
-        "security_features": {
-            "name": "Options de sécurité",
-            "description": "Accéder aux options de sécurité"
         },
         "theming": {
             "name": "Thèmes",

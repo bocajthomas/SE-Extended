@@ -552,19 +552,7 @@
                                 "description": "",
                                 "name": ""
                             },
-                            "randomize_persistent_device_token": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "android_id": {
-                                "description": "",
-                                "name": ""
-                            },
                             "remove_mock_location_flag": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "fingerprint": {
                                 "name": "",
                                 "description": ""
                             }
@@ -578,19 +566,11 @@
                     "better_transcript": {
                         "description": "",
                         "properties": {
-                            "enhanced_transcript": {
-                                "name": "",
-                                "description": ""
-                            },
                             "preferred_transcription_lang": {
                                 "description": "",
                                 "name": ""
                             },
                             "force_transcription": {
-                                "description": "",
-                                "name": ""
-                            },
-                            "enhanced_transcript_in_notifications": {
                                 "description": "",
                                 "name": ""
                             }
@@ -642,10 +622,6 @@
                     "voice_note_auto_play": {
                         "name": "",
                         "description": ""
-                    },
-                    "edit_message": {
-                        "description": "",
-                        "name": ""
                     },
                     "context_menu_fix": {
                         "name": "",
@@ -1258,10 +1234,6 @@
                 "hide_extras": "",
                 "hide_caption_text": ""
             },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
-            },
             "add_friend_source_spoof": {
                 "added_by_community": "",
                 "added_by_qr_code": "",
@@ -1326,7 +1298,6 @@
         "notices": {
             "unstable": "",
             "ban_risk": "",
-            "require_native_hooks": "",
             "internal_behavior": ""
         }
     },
@@ -1386,10 +1357,6 @@
             "name": ""
         },
         "change_language": {
-            "name": "",
-            "description": ""
-        },
-        "security_features": {
             "name": "",
             "description": ""
         },
@@ -1697,7 +1664,6 @@
     "chat_action_menu": {
         "preview_button": "",
         "download_button": "",
-        "edit_message": "",
         "show_chat_edit_history": "",
         "convert_message": "",
         "delete_logged_message_button": ""

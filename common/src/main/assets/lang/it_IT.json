@@ -112,14 +112,6 @@
                     "spoof": {
                         "description": "",
                         "properties": {
-                            "android_id": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "fingerprint": {
-                                "description": "",
-                                "name": ""
-                            },
                             "play_store_installer_package_name": {
                                 "name": "",
                                 "description": ""
@@ -129,10 +121,6 @@
                                 "name": ""
                             },
                             "remove_vpn_transport_flag": {
-                                "description": "",
-                                "name": ""
-                            },
-                            "randomize_persistent_device_token": {
                                 "description": "",
                                 "name": ""
                             }
@@ -197,14 +185,6 @@
                                 "name": "",
                                 "description": ""
                             },
-                            "enhanced_transcript_in_notifications": {
-                                "description": "",
-                                "name": ""
-                            },
-                            "enhanced_transcript": {
-                                "description": "",
-                                "name": ""
-                            },
                             "preferred_transcription_lang": {
                                 "name": "",
                                 "description": ""
@@ -260,10 +240,6 @@
                         "description": ""
                     },
                     "context_menu_fix": {
-                        "name": "",
-                        "description": ""
-                    },
-                    "edit_message": {
                         "name": "",
                         "description": ""
                     },
@@ -977,10 +953,6 @@
                 "remove_audio_note_duration": "",
                 "remove_audio_note_transcript_capability": ""
             },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
-            },
             "snapchat_plus": {
                 "ad_free": "",
                 "not_subscribed": "",
@@ -1103,7 +1075,6 @@
         },
         "notices": {
             "unstable": "",
-            "require_native_hooks": "",
             "internal_behavior": "",
             "ban_risk": ""
         }
@@ -1528,10 +1499,6 @@
             "description": "",
             "name": ""
         },
-        "security_features": {
-            "name": "",
-            "description": ""
-        },
         "theming": {
             "name": "",
             "description": ""
@@ -1716,7 +1683,6 @@
         "unlock_button": ""
     },
     "chat_action_menu": {
-        "edit_message": "",
         "download_button": "",
         "convert_message": "",
         "show_chat_edit_history": "",

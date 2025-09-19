@@ -230,8 +230,7 @@
         "download_button": "Pobierz",
         "delete_logged_message_button": "Usuń zarejestrowaną wiadomość",
         "show_chat_edit_history": "",
-        "convert_message": "",
-        "edit_message": ""
+        "convert_message": ""
     },
     "opera_context_menu": {
         "download": "Pobierz media",
@@ -442,10 +441,6 @@
             "name": "Tematyka",
             "description": "Dostosuj wygląd Snapchata"
         },
-        "security_features": {
-            "description": "Zmień preferencje funkcji bezpieczeństwa",
-            "name": "Funkcje bezpieczeństwa"
-        },
         "disclaimer_statement": {
             "name": "",
             "description": ""
@@ -455,8 +450,7 @@
         "notices": {
             "unstable": "⚠ Niestabilny",
             "ban_risk": "⚠ Ta funkcja może powodować bany",
-            "internal_behavior": "⚠ To może zepsuć wewnętrzne zachowanie Snapchata",
-            "require_native_hooks": ""
+            "internal_behavior": "⚠ To może zepsuć wewnętrzne zachowanie Snapchata"
         },
         "properties": {
             "downloader": {
@@ -830,14 +824,6 @@
                 "properties": {
                     "spoof": {
                         "properties": {
-                            "android_id": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "randomize_persistent_device_token": {
-                                "name": "",
-                                "description": ""
-                            },
                             "play_store_installer_package_name": {
                                 "description": "",
                                 "name": ""
@@ -845,10 +831,6 @@
                             "remove_mock_location_flag": {
                                 "description": "",
                                 "name": ""
-                            },
-                            "fingerprint": {
-                                "name": "",
-                                "description": ""
                             },
                             "remove_vpn_transport_flag": {
                                 "description": "",
@@ -876,14 +858,6 @@
                                 "name": ""
                             },
                             "preferred_transcription_lang": {
-                                "description": "",
-                                "name": ""
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "description": "",
-                                "name": ""
-                            },
-                            "enhanced_transcript": {
                                 "description": "",
                                 "name": ""
                             }
@@ -939,10 +913,6 @@
                         },
                         "name": "",
                         "description": ""
-                    },
-                    "edit_message": {
-                        "description": "",
-                        "name": ""
                     },
                     "meo_passcode_bypass": {
                         "name": "",
@@ -1553,10 +1523,6 @@
             "disable_cameras": {
                 "front": "",
                 "back": ""
-            },
-            "simple_snapchat": {
-                "always_enabled": "",
-                "always_disabled": ""
             }
         }
     },

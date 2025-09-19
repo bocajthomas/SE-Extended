@@ -742,14 +742,6 @@
                 "properties": {
                     "spoof": {
                         "properties": {
-                            "android_id": {
-                                "name": "Android-ID",
-                                "description": ""
-                            },
-                            "randomize_persistent_device_token": {
-                                "description": "",
-                                "name": ""
-                            },
                             "play_store_installer_package_name": {
                                 "name": "",
                                 "description": ""
@@ -761,10 +753,6 @@
                             "remove_vpn_transport_flag": {
                                 "description": "",
                                 "name": ""
-                            },
-                            "fingerprint": {
-                                "name": "",
-                                "description": ""
                             }
                         },
                         "name": "",
@@ -792,10 +780,6 @@
                                 "description": ""
                             }
                         },
-                        "description": ""
-                    },
-                    "edit_message": {
-                        "name": "Rediger meldinger",
                         "description": ""
                     },
                     "native_hooks": {
@@ -875,14 +859,6 @@
                                 "description": ""
                             },
                             "force_transcription": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "enhanced_transcript": {
                                 "name": "",
                                 "description": ""
                             }
@@ -1366,10 +1342,6 @@
                 "conversation_read": "",
                 "snap_reply": ""
             },
-            "simple_snapchat": {
-                "always_enabled": "",
-                "always_disabled": ""
-            },
             "old_bitmoji_selfie": {
                 "2d": "",
                 "3d": ""
@@ -1383,8 +1355,7 @@
         "notices": {
             "unstable": "⚠ Ustabil",
             "ban_risk": "⚠ Denne funksjonen kan utløse bannlysninger",
-            "internal_behavior": "⚠ Dette kan krangle med hvordan Snapchat fungerer",
-            "require_native_hooks": "⚠ Denne funksjonen krever eksperimentelle systemspesifikke kroker for å fungere på rett vis"
+            "internal_behavior": "⚠ Dette kan krangle med hvordan Snapchat fungerer"
         }
     },
     "scopes": {
@@ -1439,10 +1410,6 @@
         "disclaimer_statement": {
             "name": "",
             "description": ""
-        },
-        "security_features": {
-            "name": "",
-            "description": ""
         }
     },
     "content_type": {
@@ -1494,7 +1461,6 @@
         "preview_button": "Forhåndsvisning",
         "download_button": "Last ned",
         "convert_message": "Konverter melding",
-        "edit_message": "Rediger melding",
         "show_chat_edit_history": "",
         "delete_logged_message_button": ""
     },

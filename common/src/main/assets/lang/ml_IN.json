@@ -827,10 +827,6 @@
                         "description": "",
                         "name": ""
                     },
-                    "edit_message": {
-                        "description": "",
-                        "name": ""
-                    },
                     "cof_experiments": {
                         "description": "",
                         "name": ""
@@ -855,14 +851,6 @@
                             "preferred_transcription_lang": {
                                 "name": "",
                                 "description": ""
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "description": "",
-                                "name": ""
-                            },
-                            "enhanced_transcript": {
-                                "description": "",
-                                "name": ""
                             }
                         },
                         "description": ""
@@ -1378,10 +1366,6 @@
                 "hide_suggested_friend_stories": "",
                 "hide_my_stories": ""
             },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
-            },
             "snapchat_plus": {
                 "not_subscribed": "",
                 "basic": "",
@@ -1457,7 +1441,6 @@
         "delete_logged_message_button": "ലോഗിൻ ചെയ്ത സന്ദേശം ഇല്ലാതാക്കുക",
         "preview_button": "പ്രിവ്യൂ",
         "convert_message": "സന്ദേശം പരിവർത്തനം ചെയ്യുക",
-        "edit_message": "",
         "show_chat_edit_history": ""
     },
     "modal_option": {
@@ -1610,10 +1593,6 @@
         "bulk_messaging_action": {
             "name": "",
             "description": ""
-        },
-        "security_features": {
-            "description": "",
-            "name": ""
         },
         "disclaimer_statement": {
             "description": "",

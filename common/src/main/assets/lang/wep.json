@@ -951,10 +951,6 @@
                         },
                         "description": "Ermöglicht es Ihnen, zwischen Konten zu wechseln, ohne sich auszuloggen\nHalten Sie lange auf das Suchsymbol neben Ihrem Bitmoji-Profil, um das Menü zu öffnen\nHinweis: Diese Funktion ist experimentell und wird wahrscheinlich in Zukunft geändert"
                     },
-                    "edit_message": {
-                        "name": "Nachrichten bearbeiten",
-                        "description": "Ermöglicht es Nachrichten in Konversationen zu bearbeiten"
-                    },
                     "app_lock": {
                         "name": "App-Sperre",
                         "description": "Verhindert den Zugriff auf Snapchat ohne einen passcode",
@@ -1017,14 +1013,6 @@
                             "preferred_transcription_lang": {
                                 "name": "",
                                 "description": ""
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "enhanced_transcript": {
-                                "description": "",
-                                "name": ""
                             },
                             "force_transcription": {
                                 "description": "",
@@ -1301,10 +1289,6 @@
                 "filled": "",
                 "sharp": "",
                 "outlined": ""
-            },
-            "simple_snapchat": {
-                "always_enabled": "",
-                "always_disabled": ""
             }
         },
         "notices": {
@@ -1577,10 +1561,6 @@
             "description": "",
             "name": ""
         },
-        "security_features": {
-            "description": "",
-            "name": ""
-        },
         "logger_history": {
             "description": "",
             "name": ""
@@ -1595,7 +1575,6 @@
         "download_button": "Download",
         "delete_logged_message_button": "Gespeicherte Nachrichten löschen",
         "convert_message": "Nachricht konvertieren",
-        "edit_message": "Nachricht bearbeiten",
         "show_chat_edit_history": ""
     },
     "gallery_media_send_override": {

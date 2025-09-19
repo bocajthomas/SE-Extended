@@ -230,7 +230,6 @@
         "download_button": "डाउनलोड करें",
         "delete_logged_message_button": "लॉग किए गए संदेश को हटाएं",
         "convert_message": "",
-        "edit_message": "",
         "show_chat_edit_history": ""
     },
     "opera_context_menu": {
@@ -445,10 +444,6 @@
         "disclaimer_statement": {
             "name": "",
             "description": ""
-        },
-        "security_features": {
-            "description": "",
-            "name": ""
         }
     },
     "features": {
@@ -1019,21 +1014,9 @@
                                 "name": "",
                                 "description": ""
                             },
-                            "randomize_persistent_device_token": {
-                                "description": "",
-                                "name": ""
-                            },
                             "play_store_installer_package_name": {
                                 "description": "",
                                 "name": ""
-                            },
-                            "fingerprint": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "android_id": {
-                                "name": "",
-                                "description": ""
                             }
                         },
                         "description": "",
@@ -1097,14 +1080,6 @@
                                 "description": "",
                                 "name": ""
                             },
-                            "enhanced_transcript_in_notifications": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "enhanced_transcript": {
-                                "description": "",
-                                "name": ""
-                            },
                             "force_transcription": {
                                 "description": "",
                                 "name": ""
@@ -1112,10 +1087,6 @@
                         },
                         "description": "",
                         "name": ""
-                    },
-                    "edit_message": {
-                        "name": "",
-                        "description": ""
                     },
                     "e2ee": {
                         "properties": {
@@ -1493,10 +1464,6 @@
                 "chat": "",
                 "discover": "",
                 "spotlight": ""
-            },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
             },
             "edit_text_override": {
                 "bypass_text_input_limit": "",

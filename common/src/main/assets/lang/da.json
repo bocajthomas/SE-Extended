@@ -1025,10 +1025,6 @@
                         "description": "Forhindrer Snapchat i at logge dig ud, når du logger på en anden enhed",
                         "name": "Undgå tvungen log ud"
                     },
-                    "edit_message": {
-                        "name": "Rediger beskeder",
-                        "description": "Giver dig mulighed for at redigere beskeder i samtaler"
-                    },
                     "app_lock": {
                         "name": "Applås",
                         "description": "Forhindrer adgang til Snapchat uden en adgangskode",
@@ -1054,14 +1050,6 @@
                                 "description": ""
                             },
                             "preferred_transcription_lang": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "enhanced_transcript": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "enhanced_transcript_in_notifications": {
                                 "name": "",
                                 "description": ""
                             }
@@ -1367,10 +1355,6 @@
                 "filled": "",
                 "outlined": "",
                 "sharp": ""
-            },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
             }
         }
     },
@@ -1387,7 +1371,6 @@
         "download_button": "Hent",
         "delete_logged_message_button": "Slet Logget Besked",
         "convert_message": "Konverter besked",
-        "edit_message": "Rediger besked",
         "show_chat_edit_history": ""
     },
     "opera_context_menu": {
@@ -1539,10 +1522,6 @@
         "logger_history": {
             "name": "Log historie",
             "description": "Se historikken for loggede meddelelser"
-        },
-        "security_features": {
-            "name": "",
-            "description": ""
         },
         "disclaimer_statement": {
             "name": "",

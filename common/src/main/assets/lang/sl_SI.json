@@ -694,10 +694,6 @@
                     "better_transcript": {
                         "name": "",
                         "properties": {
-                            "enhanced_transcript_in_notifications": {
-                                "description": "",
-                                "name": ""
-                            },
                             "force_transcription": {
                                 "name": "",
                                 "description": ""
@@ -705,25 +701,13 @@
                             "preferred_transcription_lang": {
                                 "description": "",
                                 "name": ""
-                            },
-                            "enhanced_transcript": {
-                                "name": "",
-                                "description": ""
                             }
                         },
                         "description": ""
                     },
                     "spoof": {
                         "properties": {
-                            "fingerprint": {
-                                "description": "",
-                                "name": ""
-                            },
                             "remove_mock_location_flag": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "android_id": {
                                 "name": "",
                                 "description": ""
                             },
@@ -734,10 +718,6 @@
                             "remove_vpn_transport_flag": {
                                 "description": "",
                                 "name": ""
-                            },
-                            "randomize_persistent_device_token": {
-                                "name": "",
-                                "description": ""
                             }
                         },
                         "description": "",
@@ -748,10 +728,6 @@
                         "description": ""
                     },
                     "story_logger": {
-                        "description": "",
-                        "name": ""
-                    },
-                    "edit_message": {
                         "description": "",
                         "name": ""
                     },
@@ -1250,10 +1226,6 @@
                 "NOTE": "",
                 "SAVEABLE_SNAP": ""
             },
-            "simple_snapchat": {
-                "always_enabled": "",
-                "always_disabled": ""
-            },
             "snapchat_plus": {
                 "basic": "",
                 "ad_free": "",
@@ -1261,7 +1233,6 @@
             }
         },
         "notices": {
-            "require_native_hooks": "",
             "internal_behavior": "",
             "ban_risk": "",
             "unstable": ""
@@ -1412,10 +1383,6 @@
             "name": "",
             "description": ""
         },
-        "security_features": {
-            "description": "",
-            "name": ""
-        },
         "theming": {
             "description": "",
             "name": ""
@@ -1463,7 +1430,6 @@
         "download_button": "",
         "preview_button": "",
         "convert_message": "",
-        "edit_message": "",
         "delete_logged_message_button": ""
     },
     "mark_as_seen": {

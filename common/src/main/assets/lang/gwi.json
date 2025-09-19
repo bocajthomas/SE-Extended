@@ -444,10 +444,6 @@
             "name": "",
             "description": ""
         },
-        "security_features": {
-            "description": "",
-            "name": ""
-        },
         "theming": {
             "name": "",
             "description": ""
@@ -1167,10 +1163,6 @@
                         "name": "Anrufaufzeichner",
                         "description": "Zeichnet automatisch Audioanrufe auf"
                     },
-                    "edit_message": {
-                        "name": "Nachrichten bearbeiten",
-                        "description": "Ermöglicht es Nachrichten in Konversationen zu bearbeiten"
-                    },
                     "app_lock": {
                         "name": "App-Sperre",
                         "description": "Verhindert den Zugriff auf Snapchat ohne einen passcode",
@@ -1221,14 +1213,6 @@
                             "preferred_transcription_lang": {
                                 "description": "",
                                 "name": ""
-                            },
-                            "enhanced_transcript": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "name": "",
-                                "description": ""
                             },
                             "force_transcription": {
                                 "name": "",
@@ -1537,10 +1521,6 @@
                 "outlined": "",
                 "sharp": "",
                 "two-tone": ""
-            },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
             }
         },
         "notices": {
@@ -1586,7 +1566,6 @@
         "download_button": "Download",
         "delete_logged_message_button": "Gespeicherte Nachrichten löschen",
         "convert_message": "Nachricht konvertieren",
-        "edit_message": "Nachricht bearbeiten",
         "show_chat_edit_history": ""
     },
     "opera_context_menu": {

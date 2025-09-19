@@ -1082,10 +1082,6 @@
                         "description": "Oferă o istorie a poveștilor prietenilor",
                         "name": "Înregistrare Poveste"
                     },
-                    "edit_message": {
-                        "description": "Vă permite să editați mesaje în conversații",
-                        "name": "Editați mesajele"
-                    },
                     "e2ee": {
                         "description": "Criptează mesajele dumneavoastră cu AES folosind o cheie secretă partajată\nAsigurați-vă că păstrați cheia într-un loc sigur!",
                         "properties": {
@@ -1145,14 +1141,6 @@
                     "better_transcript": {
                         "properties": {
                             "force_transcription": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "enhanced_transcript": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "enhanced_transcript_in_notifications": {
                                 "name": "",
                                 "description": ""
                             },
@@ -1465,10 +1453,6 @@
                 "filled": "",
                 "two-tone": "",
                 "sharp": ""
-            },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
             }
         }
     },
@@ -1504,10 +1488,6 @@
         "change_language": {
             "name": "Schimbă limba",
             "description": "Schimbați limba SnapEnhance"
-        },
-        "security_features": {
-            "name": "Caracteristici de securitate",
-            "description": "Schimbați preferințele caracteristicilor de securitate"
         },
         "friend_tracker": {
             "description": "Localizează prietenii in Snapchat",
@@ -1629,7 +1609,6 @@
         "download_button": "Descarcă",
         "delete_logged_message_button": "Ștergeți mesajul salvat",
         "convert_message": "Convertiți mesajul",
-        "edit_message": "Editați mesajul",
         "show_chat_edit_history": ""
     },
     "friendship_link_type": {

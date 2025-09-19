@@ -323,10 +323,6 @@
             "name": "لوگر ہسٹری",
             "description": "لاگ ان پیغامات کی تاریخ دیکھیں"
         },
-        "security_features": {
-            "name": "",
-            "description": ""
-        },
         "theming": {
             "description": "",
             "name": ""
@@ -340,8 +336,7 @@
         "notices": {
             "unstable": "⚠ غیر مستحکم",
             "ban_risk": "⚠ یہ خصوصیت پابندی کا سبب بن سکتی ہے",
-            "internal_behavior": "⚠ یہ خصوصیت پابندی کا سبب بن سکتی ہے",
-            "require_native_hooks": "⚠ اس خصوصیت کے لیے تجرباتی مقامی ہکس درست طریقے سے کام کرنے کی ضرورت ہے"
+            "internal_behavior": "⚠ یہ خصوصیت پابندی کا سبب بن سکتی ہے"
         },
         "properties": {
             "downloader": {
@@ -1010,14 +1005,6 @@
                                 "name": "پلے اسٹور انسٹالر پیکیج کا نام",
                                 "description": "انسٹالر پیکیج کے نام کو com.android.vending پر اوور رائیڈ کرتا ہے"
                             },
-                            "fingerprint": {
-                                "name": "ڈیوائس فنگر پرنٹ",
-                                "description": "آپ کے ڈیوائس کے فنگر پرنٹ کو دھوکہ دیتا ہے"
-                            },
-                            "android_id": {
-                                "name": "اینڈرائیڈ آئی ڈی",
-                                "description": "‫آپ کی اینڈرائیڈ آئی ڈی کو متعین قدر کے مطابق بناتا ہے"
-                            },
                             "remove_vpn_transport_flag": {
                                 "name": "VPN ٹرانسپورٹ پرچم کو ہٹا دیں",
                                 "description": "Snapchat کو VPNs کا پتہ لگانے سے روکتا ہے"
@@ -1025,10 +1012,6 @@
                             "remove_mock_location_flag": {
                                 "name": "فرضی مقام کا جھنڈا ہٹا دیں",
                                 "description": "‮Snapchat کو فرضی مقام کا پتہ لگانے سے روکتا ہے"
-                            },
-                            "randomize_persistent_device_token": {
-                                "name": "پرسسٹنٹ ڈیوائس ٹوکن کو بے ترتیب بنائیں",
-                                "description": "ہر لاگ ان کے بعد ایک بے ترتیب ڈیوائس ٹوکن تیار کرتا ہے"
                             }
                         }
                     },
@@ -1069,24 +1052,12 @@
                             "preferred_transcription_lang": {
                                 "name": "ترجیحی نقل کی زبان",
                                 "description": "وائس نوٹ کی نقل کے لیے ترجیحی زبان (مثلاً EN، ES، FR)"
-                            },
-                            "enhanced_transcript": {
-                                "name": "بہتر ٹرانسکرپٹ",
-                                "description": "ڈیپ ایل کا استعمال کرتے ہوئے صوتی نوٹ کی نقل کو بہتر بناتا ہے۔\nاس خصوصیت کو استعمال کرنے سے پہلے، براہ کرم یقینی بنائیں کہ آپ نے ان کی رازداری کی پالیسی کو پڑھ لیا ہے."
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "name": "اطلاعات میں بہتر ٹرانسکرپٹ",
-                                "description": "ڈیپ ایل کا استعمال کرتے ہوئے اطلاعات میں صوتی نوٹوں کو نقل کرتا ہے۔ اس کے لیے بہتر اطلاعات میں چیٹ پیش نظارہ کی خصوصیت کو فعال کرنے کی ضرورت ہے"
                             }
                         }
                     },
                     "cof_experiments": {
                         "name": "COF تجربات",
                         "description": "غیر ریلیز شدہ/بیٹا اسنیپ چیٹ خصوصیات کو فعال کرتا ہے"
-                    },
-                    "edit_message": {
-                        "name": "پیغامات میں ترمیم کریں",
-                        "description": "آپ کو بات چیت میں پیغامات میں ترمیم کرنے کی اجازت دیتا ہے"
                     },
                     "context_menu_fix": {
                         "name": "سیاق و سباق کا مینو درست کریں",
@@ -1434,10 +1405,6 @@
                 "sharp": "",
                 "two-tone": ""
             },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
-            },
             "snapchat_plus": {
                 "basic": "",
                 "not_subscribed": "",
@@ -1495,8 +1462,7 @@
         "download_button": "",
         "delete_logged_message_button": "",
         "show_chat_edit_history": "",
-        "convert_message": "",
-        "edit_message": ""
+        "convert_message": ""
     },
     "opera_context_menu": {
         "download": "",

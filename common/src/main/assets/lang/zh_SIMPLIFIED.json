@@ -31,8 +31,7 @@
         "download_button": "下载",
         "delete_logged_message_button": "删除已记录的消息",
         "show_chat_edit_history": "显示聊天编辑历史记录",
-        "convert_message": "转换消息",
-        "edit_message": "编辑留言"
+        "convert_message": "转换消息"
     },
     "opera_context_menu": {
         "download": "下载媒体",
@@ -167,7 +166,6 @@
                 "config_export_failure_toast": "导出配置失败 {error}",
                 "older_required": "此功能需要 Snapchat v{version} 或更早版本才能正常工作",
                 "newer_required": "此功能要求Snapchat v{version}或更新版本才能正确工作"
-
             },
             "tasks": {
                 "no_tasks": "没有任务",
@@ -178,7 +176,6 @@
                 "remove_all_tasks_confirm": "删除所有任务?",
                 "delete_files_option": "也删除文件",
                 "failed_to_open_file": "无法打开文件"
-
             },
             "social": {
                 "streaks_expiration_short": "{hours}小时",
@@ -408,10 +405,6 @@
             "name": "记录器历史记录",
             "description": "查看记录消息的历史记录"
         },
-        "security_features": {
-            "name": "安全特性",
-            "description": "更改安全功能偏好"
-        },
         "theming": {
             "name": "主题化",
             "description": "自定义 Snapchat 的外观和风格"
@@ -425,8 +418,7 @@
         "notices": {
             "unstable": "⚠ 不稳定",
             "ban_risk": "⚠ 此功能可能会导致禁止",
-            "internal_behavior": "⚠ 这可能会破坏 Snapchat 的内部行为",
-            "require_native_hooks": "⚠ 此功能需要实验性 Native Hooks 才能正常工作"
+            "internal_behavior": "⚠ 这可能会破坏 Snapchat 的内部行为"
         },
         "properties": {
             "downloader": {
@@ -1095,14 +1087,6 @@
                                 "name": "Play 商店安装程序包名称",
                                 "description": "将安装程序包名称覆盖为 com.android.vending"
                             },
-                            "fingerprint": {
-                                "name": "设备指纹",
-                                "description": "欺骗您的设备指纹"
-                            },
-                            "android_id": {
-                                "name": "安卓ID",
-                                "description": "将您的 Android ID 欺骗为指定值"
-                            },
                             "remove_vpn_transport_flag": {
                                 "name": "删除 VPN 传输标志",
                                 "description": "阻止 Snapchat 检测 VPN"
@@ -1110,10 +1094,6 @@
                             "remove_mock_location_flag": {
                                 "name": "删除模拟位置标志",
                                 "description": "阻止 Snapchat 检测模拟位置"
-                            },
-                            "randomize_persistent_device_token": {
-                                "name": "随机化持久设备令牌",
-                                "description": "每次登录后生成随机设备令牌"
                             }
                         }
                     },
@@ -1153,14 +1133,6 @@
                             "preferred_transcription_lang": {
                                 "name": "首选转录语言",
                                 "description": "语音注释文本的首选语言（例如 EN、ES、FR）"
-                            },
-                            "enhanced_transcript": {
-                                "name": "增强的成绩单",
-                                "description": "使用 DeepL 改进语音笔记转录。\n在使用此功能之前，请确保您已阅读他们的隐私政策。"
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "name": "通知中的增强文字记录",
-                                "description": "使用 DeepL 转录通知中的语音注释。这需要在更好的通知中启用聊天预览功能"
                             }
                         },
                         "description": "改进语音笔记转录"
@@ -1168,10 +1140,6 @@
                     "cof_experiments": {
                         "name": "COF实验",
                         "description": "启用未发布/测试版 Snapchat 功能"
-                    },
-                    "edit_message": {
-                        "name": "编辑消息",
-                        "description": "允许您编辑对话中的消息"
                     },
                     "context_menu_fix": {
                         "name": "上下文菜单修复",
@@ -1512,10 +1480,6 @@
                 "lemon_drop": "柠檬滴",
                 "modern_farmhouse": "现代农舍",
                 "apple_orchard": "苹果园"
-            },
-            "simple_snapchat": {
-                "always_disabled": "始终禁用",
-                "always_enabled": "始终启用"
             },
             "snapchat_plus": {
                 "not_subscribed": "未订阅",

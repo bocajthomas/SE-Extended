@@ -278,14 +278,6 @@
                                 "name": "Play ストア インストーラー パッケージ名",
                                 "description": "インストーラー パッケージ名を com.android.vending にオーバーライドします"
                             },
-                            "fingerprint": {
-                                "name": "デバイスの指紋",
-                                "description": "デバイスの指紋を偽装します"
-                            },
-                            "android_id": {
-                                "description": "Android ID を指定された値に偽装します",
-                                "name": "アンドロイドID"
-                            },
                             "remove_mock_location_flag": {
                                 "name": "疑似ロケーションフラグを削除",
                                 "description": "Snapchat がモックの位置を検出できないようにします"
@@ -293,10 +285,6 @@
                             "remove_vpn_transport_flag": {
                                 "description": "Snapchat が VPN を検出できないようにします",
                                 "name": "VPN トランスポート フラグを削除する"
-                            },
-                            "randomize_persistent_device_token": {
-                                "name": "永続的なデバイストークンをランダム化する",
-                                "description": "各ログイン後にランダムなデバイストークンを生成します"
                             }
                         },
                         "description": "あなたに関するさまざまな情報を偽装する"
@@ -319,14 +307,6 @@
                             "preferred_transcription_lang": {
                                 "description": "音声メモのトランスクリプトに使用する優先言語 (例: EN、ES、FR)",
                                 "name": "優先される文字起こし言語"
-                            },
-                            "enhanced_transcript": {
-                                "description": "DeepL を使用して音声メモのトランスクリプトを改善します。\nこの機能を使用する前に、プライバシー ポリシーを必ずお読みください。",
-                                "name": "強化されたトランスクリプト"
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "description": "DeepL を使用して通知内の音声メモを文字に起こします。これには、Better Notices でチャット プレビュー機能を有効にする必要があります",
-                                "name": "通知のトランスクリプトの強化"
                             }
                         },
                         "description": "音声メモのトランスクリプトを改善します"
@@ -360,10 +340,6 @@
                         },
                         "name": "アプリロック",
                         "description": "パスコードなしでSnapchatにアクセスできないようにする"
-                    },
-                    "edit_message": {
-                        "name": "メッセージの編集",
-                        "description": "会話内のメッセージを編集できます"
                     },
                     "meo_passcode_bypass": {
                         "description": "My Eyes Only パスコードをバイパスする\nこれは、パスコードが正しく入力されている場合にのみ機能します",
@@ -1085,7 +1061,6 @@
         "notices": {
             "unstable": "⚠不安定",
             "ban_risk": "⚠ この機能によりアクセス禁止が発生する可能性があります",
-            "require_native_hooks": "⚠ この機能が正しく動作するには、実験的なネイティブフックが必要です",
             "internal_behavior": "⚠ これにより、Snapchat の内部動作が中断される可能性があります"
         },
         "options": {
@@ -1309,10 +1284,6 @@
                 "ocean_depths": "海の深さ",
                 "apple_orchard": "リンゴ園"
             },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
-            },
             "snapchat_plus": {
                 "not_subscribed": "",
                 "ad_free": "",
@@ -1432,10 +1403,6 @@
             "name": "ロガー履歴",
             "description": "ログに記録されたメッセージの履歴を表示する"
         },
-        "security_features": {
-            "name": "セキュリティ機能",
-            "description": "セキュリティ機能の設定を変更する"
-        },
         "disclaimer_statement": {
             "name": "免責事項",
             "description": "免責事項をお読みください"
@@ -1483,7 +1450,6 @@
         "message_logger": "メッセージロガー"
     },
     "chat_action_menu": {
-        "edit_message": "メッセージの編集",
         "download_button": "ダウンロード",
         "preview_button": "プレビュー",
         "delete_logged_message_button": "記録されたメッセージの削除",

@@ -319,10 +319,6 @@
             "description": "Ver el historial de mensajes guardados",
             "name": "Historial del registro"
         },
-        "security_features": {
-            "name": "Características de seguridad",
-            "description": "Cambiar las preferencias de las funciones de seguridad"
-        },
         "theming": {
             "name": "Temática",
             "description": "Personaliza el aspecto de Snapchat"
@@ -1053,10 +1049,6 @@
                             }
                         }
                     },
-                    "edit_message": {
-                        "name": "Editar mensajes",
-                        "description": "Le permite editar mensajes en conversaciones"
-                    },
                     "app_lock": {
                         "name": "Bloqueo de aplicación",
                         "description": "Impide el acceso a Snapchat sin contraseña",
@@ -1111,17 +1103,9 @@
                         "name": "Mejor transcripción",
                         "description": "Mejora la transcripción de notas de voz",
                         "properties": {
-                            "enhanced_transcript_in_notifications": {
-                                "description": "Transcribe notas de voz en las notificaciones utilizando DeepL. Esto requiere que la función de la vista previa del chat esté activada en Mejores notificaciones",
-                                "name": "Transcripción mejorada en las notificaciones"
-                            },
                             "force_transcription": {
                                 "description": "Permite transcribir todas las notas de voz",
                                 "name": "Forzar transcripción de notas de voz"
-                            },
-                            "enhanced_transcript": {
-                                "name": "Transcripción mejorada",
-                                "description": "Mejora la transcripción de notas de voz mediante DeepL.\nAntes de utilizar esta función, asegúrate de haber leído su política de privacidad."
                             },
                             "preferred_transcription_lang": {
                                 "name": "Idioma de transcripción preferido",
@@ -1415,10 +1399,6 @@
                 "midnight_library": "Biblioteca de medianoche",
                 "watercolor_wash": "Acuarela"
             },
-            "simple_snapchat": {
-                "always_enabled": "Siempre habilitado",
-                "always_disabled": "Siempre deshabilitado"
-            },
             "snapchat_plus": {
                 "not_subscribed": "No suscrito",
                 "basic": "Básico",
@@ -1576,7 +1556,6 @@
     },
     "chat_action_menu": {
         "delete_logged_message_button": "Borrar mensaje registrado",
-        "edit_message": "Editar mensaje",
         "convert_message": "Convertir mensaje",
         "preview_button": "Vista previa",
         "download_button": "Descargar",

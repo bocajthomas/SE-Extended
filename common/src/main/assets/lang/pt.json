@@ -4,7 +4,6 @@
         "download_button": "Descarregar",
         "delete_logged_message_button": "",
         "show_chat_edit_history": "",
-        "edit_message": "",
         "convert_message": ""
     },
     "modal_option": {
@@ -292,10 +291,6 @@
         "theming": {
             "description": "",
             "name": ""
-        },
-        "security_features": {
-            "name": "",
-            "description": ""
         },
         "disclaimer_statement": {
             "name": "",
@@ -648,18 +643,6 @@
                     },
                     "spoof": {
                         "properties": {
-                            "android_id": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "randomize_persistent_device_token": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "fingerprint": {
-                                "description": "",
-                                "name": ""
-                            },
                             "play_store_installer_package_name": {
                                 "description": "",
                                 "name": ""
@@ -700,14 +683,6 @@
                                 "description": "",
                                 "name": ""
                             },
-                            "enhanced_transcript_in_notifications": {
-                                "description": "",
-                                "name": ""
-                            },
-                            "enhanced_transcript": {
-                                "name": "",
-                                "description": ""
-                            },
                             "force_transcription": {
                                 "name": "",
                                 "description": ""
@@ -717,10 +692,6 @@
                         "description": ""
                     },
                     "cof_experiments": {
-                        "description": "",
-                        "name": ""
-                    },
-                    "edit_message": {
                         "description": "",
                         "name": ""
                     },
@@ -1399,10 +1370,6 @@
                 "hide_snap_filters": "",
                 "hide_caption_text": ""
             },
-            "simple_snapchat": {
-                "always_enabled": "",
-                "always_disabled": ""
-            },
             "snapchat_plus": {
                 "ad_free": "",
                 "basic": "",
@@ -1447,7 +1414,6 @@
         "notices": {
             "ban_risk": "",
             "internal_behavior": "",
-            "require_native_hooks": "",
             "unstable": ""
         }
     },

@@ -529,18 +529,6 @@
                                 "name": "",
                                 "description": ""
                             },
-                            "fingerprint": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "android_id": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "randomize_persistent_device_token": {
-                                "description": "",
-                                "name": ""
-                            },
                             "remove_vpn_transport_flag": {
                                 "description": "",
                                 "name": ""
@@ -567,15 +555,7 @@
                                 "description": "",
                                 "name": ""
                             },
-                            "enhanced_transcript_in_notifications": {
-                                "description": "",
-                                "name": ""
-                            },
                             "preferred_transcription_lang": {
-                                "description": "",
-                                "name": ""
-                            },
-                            "enhanced_transcript": {
                                 "description": "",
                                 "name": ""
                             }
@@ -618,10 +598,6 @@
                         "name": ""
                     },
                     "no_friend_score_delay": {
-                        "name": "",
-                        "description": ""
-                    },
-                    "edit_message": {
                         "name": "",
                         "description": ""
                     },
@@ -1008,10 +984,6 @@
                 "NOTE": "",
                 "SNAP": "",
                 "SAVEABLE_SNAP": ""
-            },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
             },
             "edit_text_override": {
                 "multi_line_chat_input": "",
@@ -1476,10 +1448,6 @@
             "name": "Sproch änderä",
             "description": "Ändert d'Sproch vo SnapEnhance"
         },
-        "security_features": {
-            "name": "",
-            "description": ""
-        },
         "logger_history": {
             "name": "",
             "description": ""
@@ -1682,7 +1650,6 @@
         "mark_stories_as_seen_locally": ""
     },
     "chat_action_menu": {
-        "edit_message": "",
         "show_chat_edit_history": "",
         "preview_button": "",
         "download_button": "",

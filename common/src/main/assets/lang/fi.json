@@ -50,7 +50,6 @@
                 "config_import_failure_toast": "Configin tuonti epäonnistui {error}",
                 "config_import_success_toast": "Config tuotu onnistuneesti",
                 "config_export_success_toast": "Config viety onnistuneesti",
-
                 "config_export_failure_toast": "Kokoonpanon vienti epäonnistui {error}",
                 "newer_required": "Tämä ominaisuus vaatii Snapchatin v{version} tai uudemman toimiakseen oikein",
                 "older_required": "Tämä ominaisuus vaatii Snapchatin v{version} tai vanhemman toimiakseen oikein"
@@ -948,19 +947,7 @@
                         "name": "Väärennä",
                         "description": "Väärennä erinäisiä tietoja sinusta",
                         "properties": {
-                            "fingerprint": {
-                                "name": "Laitteen sormenjälki",
-                                "description": ""
-                            },
-                            "android_id": {
-                                "name": "Androidin ID",
-                                "description": ""
-                            },
                             "play_store_installer_package_name": {
-                                "name": "",
-                                "description": ""
-                            },
-                            "randomize_persistent_device_token": {
                                 "name": "",
                                 "description": ""
                             },
@@ -1010,10 +997,6 @@
                     },
                     "better_transcript": {
                         "properties": {
-                            "enhanced_transcript": {
-                                "name": "Parannettu transkriptio",
-                                "description": ""
-                            },
                             "force_transcription": {
                                 "name": "",
                                 "description": ""
@@ -1021,10 +1004,6 @@
                             "preferred_transcription_lang": {
                                 "description": "",
                                 "name": ""
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "name": "",
-                                "description": ""
                             }
                         },
                         "name": "Parempi transkriptio",
@@ -1042,10 +1021,6 @@
                     },
                     "cof_experiments": {
                         "name": "COF experiments",
-                        "description": ""
-                    },
-                    "edit_message": {
-                        "name": "Muokkaa viestejä",
                         "description": ""
                     },
                     "story_logger": {
@@ -1332,10 +1307,6 @@
                 "location_indicator": "",
                 "director_mode_indicator": ""
             },
-            "simple_snapchat": {
-                "always_disabled": "",
-                "always_enabled": ""
-            },
             "disable_permission_requests": {
                 "read_media_images": "",
                 "notifications": "",
@@ -1400,7 +1371,6 @@
         "download_button": "Lataa",
         "delete_logged_message_button": "Poista kirjattu viesti",
         "convert_message": "",
-        "edit_message": "",
         "show_chat_edit_history": ""
     },
     "opera_context_menu": {
@@ -1544,10 +1514,6 @@
         "clean_snapchat_cache": {
             "name": "Puhdista Snapchatin Välimuisti",
             "description": "Puhdistaa Snapchatin Välimuistin"
-        },
-        "security_features": {
-            "description": "Muuta turvaominaisuuksien asetuksia",
-            "name": "Suojausominaisuudet"
         },
         "theming": {
             "name": "Teema",

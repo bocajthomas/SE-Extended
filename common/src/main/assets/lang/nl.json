@@ -955,32 +955,12 @@
                             "preferred_transcription_lang": {
                                 "name": "Voorkeurstaal voor Ondertitels",
                                 "description": "De voorkeurstaal voor de ondertiteling (b.v. EN, ES, FR, NL)"
-                            },
-                            "enhanced_transcript": {
-                                "name": "Verbeterde Ondertitels",
-                                "description": "Verbetert de ondertitels met gebruik van DeepL\nZorg dat je hun privacy policy hebt gelezen voor je deze functie gebruikt."
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "name": "Verbeterde Ondertitels in Meldingen",
-                                "description": "Voegt ondertitels vertaald met DeepL toe aan meldingen. Hiervoor moet Chat Preview aanstaan bij Betere Meldingen"
                             }
                         },
                         "description": "Verbetert de ondertitels van spraakberichten"
                     },
                     "spoof": {
                         "properties": {
-                            "randomize_persistent_device_token": {
-                                "name": "Maak je Persistent Device Token willekeurig",
-                                "description": "Genereert een random token elke keer dat je inlogt"
-                            },
-                            "fingerprint": {
-                                "name": "Vingerafdruk van Apparaat",
-                                "description": "Spooft de apparaatvingerafdruk"
-                            },
-                            "android_id": {
-                                "description": "Spooft je Android ID naar het gegeven ID",
-                                "name": "Android ID"
-                            },
                             "remove_vpn_transport_flag": {
                                 "name": "Verwijder VPN Transportvlag",
                                 "description": "Zorgt ervoor dat Snapchat je VPN niet kan detecteren"
@@ -1044,10 +1024,6 @@
                     "voice_note_auto_play": {
                         "description": "Speelt het volgende audiobericht automatisch af als het vorige bericht gedaan is",
                         "name": "Audiobericht Auto Play"
-                    },
-                    "edit_message": {
-                        "name": "Bewerkbare Berichten",
-                        "description": "Zorgt ervoor dat je berichten kunt bewerken in gesprekken"
                     },
                     "convert_message_locally": {
                         "description": "Converteert Snaps naar externe media in de chat (enkel lokaal). Deze knop is te vinden bij het chat download menu",
@@ -1335,10 +1311,6 @@
                 "progress": "Voortgang",
                 "failure": "Gefaalt"
             },
-            "simple_snapchat": {
-                "always_enabled": "Altijd Ingeschakeld",
-                "always_disabled": "Altijd Uitgeschakeld"
-            },
             "icon_style": {
                 "outlined": "Uitgelijnd",
                 "filled": "Gevuld",
@@ -1418,10 +1390,6 @@
         "regen_mappings": {
             "name": "Mappings Regenereren",
             "description": "Mappings Handmatig Regenereren"
-        },
-        "security_features": {
-            "name": "Beveiliging functies",
-            "description": "Verander beveiliging functies voorkeuren"
         },
         "file_imports": {
             "description": "Importeer bestanden voor gebruik in snapchat",
@@ -1572,7 +1540,6 @@
         "background_option": "Achtergrond"
     },
     "chat_action_menu": {
-        "edit_message": "Bewerk bericht",
         "preview_button": "Voorbeeld",
         "download_button": "Download",
         "convert_message": "Converteer Bericht",

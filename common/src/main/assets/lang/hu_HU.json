@@ -999,10 +999,6 @@
                         "name": "Hívásrögzítő",
                         "description": "Automatikusan rögzíti a hanghívásokat"
                     },
-                    "edit_message": {
-                        "description": "Lehetővé teszi az üzenetek szerkesztését a beszélgetésekben",
-                        "name": "Üzenetek szerkesztése"
-                    },
                     "media_file_picker": {
                         "name": "Média fájlválasztó",
                         "description": "Lehetővé teszi, hogy bármelyik videó/hangfájlt kiválaszd a galériából"
@@ -1062,17 +1058,9 @@
                                 "name": "Előnyben részesített átirat nyelve",
                                 "description": "Az előnyben részesített nyelv a hangüzenet átiratához (pl. EN, ES, FR)"
                             },
-                            "enhanced_transcript_in_notifications": {
-                                "description": "Hangüzenetek átiratát készíti el értesítésekben a DeepL segítségével. Ehhez szükséges, hogy a \"Csevegés Előnézet\" funkció engedélyezve legyen a \"Jobb Értesítések\" beállításainál",
-                                "name": "Fejlettebb Átirat Értesítésekben"
-                            },
                             "force_transcription": {
                                 "name": "Kényszerítse a hangüzenet átiratát",
                                 "description": "Lehetővé teszi, hogy az összes hangüzenet átiratát elkészítse"
-                            },
-                            "enhanced_transcript": {
-                                "name": "Fejlettebb átirat",
-                                "description": "Javítja a hangüzenet átiratát a DeepL segítségével.\nMielőtt használná ezt a funkciót, kérjük, győződjön meg arról, hogy elolvasta a DeepL adatvédelmi szabályzatát."
                             }
                         },
                         "name": "Jobb átirat"
@@ -1357,10 +1345,6 @@
                 "spicy_mustard": "Fűszeres Mustár",
                 "peppermint_candy": "Borsmentás Cukorka"
             },
-            "simple_snapchat": {
-                "always_enabled": "Mindig Engedélyezve",
-                "always_disabled": "Mindig Kikapcsolva"
-            },
             "snapchat_plus": {
                 "not_subscribed": "Nincs Feliratkozva",
                 "basic": "Alap",
@@ -1387,7 +1371,6 @@
         "download_button": "Letöltés",
         "delete_logged_message_button": "Naplózott üzenet törlése",
         "convert_message": "Üzenet átalakítása",
-        "edit_message": "Üzenet szerkesztése",
         "show_chat_edit_history": "Chat szerkesztési előzmények megjelenítése"
     },
     "opera_context_menu": {
@@ -1567,10 +1550,6 @@
         "logger_history": {
             "name": "Naplózó előzmények",
             "description": "Nézd meg az előményeket a naplózott üzenetekről"
-        },
-        "security_features": {
-            "name": "Biztonsági Funkciók",
-            "description": "Módosítsa a biztonsági funkciók beállításait"
         },
         "theming": {
             "description": "Testreszabhatja a Snapchat megjelenését és stílusát",
