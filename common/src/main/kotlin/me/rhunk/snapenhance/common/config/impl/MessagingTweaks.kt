@@ -9,6 +9,10 @@ import me.rhunk.snapenhance.common.util.PURGE_TRANSLATION_KEY
 import me.rhunk.snapenhance.common.util.PURGE_VALUES
 
 class MessagingTweaks : ConfigContainer() {
+    companion object {
+        const val DELETED_MESSAGE_COLOR = 0x6Eb71c1c;
+    }
+
     inner class HalfSwipeNotifierConfig : ConfigContainer(hasGlobalState = true) {
         val minDuration: PropertyValue<Int> = integer("min_duration", defaultValue = 0) {
             inputCheck = { it.toIntOrNull()?.coerceAtLeast(0) != null && maxDuration.get() >= it.toInt() }
@@ -23,8 +27,7 @@ class MessagingTweaks : ConfigContainer() {
         val autoPurge = unique("auto_purge", *PURGE_VALUES) {
             customOptionTranslationPath = PURGE_TRANSLATION_KEY
             disabledKey = PURGE_DISABLED_KEY
-        }.apply { set("never") }
-
+        }.apply { set("3_days") }
         val messageFilter = multiple("message_filter", "CHAT",
             "SNAP",
             "NOTE",
@@ -33,6 +36,7 @@ class MessagingTweaks : ConfigContainer() {
         ) {
             customOptionTranslationPath = "content_type"
         }
+        val deletedMessageColor = color("deleted_message_color", DELETED_MESSAGE_COLOR)
     }
 
     class BetterNotifications: ConfigContainer() {
@@ -58,7 +62,7 @@ class MessagingTweaks : ConfigContainer() {
     val hideBitmojiPresence = boolean("hide_bitmoji_presence")
     val hideTypingNotifications = boolean("hide_typing_notifications")
     val unlimitedSnapViewTime = boolean("unlimited_snap_view_time")
-    val autoMarkAsRead = multiple("auto_mark_as_read", "snap_reply", "conversation_read") { requireRestart() }
+    val autoMarkAsRead = multiple("auto_mark_as_read", "snap_reply", "conversation_read", "save_snap_in_chat") { requireRestart() }
     val markSnapAsSeenButton = boolean("mark_snap_as_seen_button") { requireRestart() }
     val skipWhenMarkingAsSeen = boolean("skip_when_marking_as_seen") { requireRestart() }
     val loopMediaPlayback = boolean("loop_media_playback") { requireRestart() }
@@ -66,6 +70,7 @@ class MessagingTweaks : ConfigContainer() {
     val halfSwipeNotifier = container("half_swipe_notifier", HalfSwipeNotifierConfig()) { requireRestart()}
     val callStartConfirmation = boolean("call_start_confirmation") { requireRestart() }
     val unlimitedConversationPinning = boolean("unlimited_conversation_pinning") { requireRestart() }
+    val disableSnapModeRestrictions = boolean("disable_snap_mode_restrictions") { requireRestart() }
     val autoSaveMessagesInConversations = multiple("auto_save_messages_in_conversations",
         "CHAT",
         "SNAP",
@@ -75,7 +80,6 @@ class MessagingTweaks : ConfigContainer() {
     ) { requireRestart(); customOptionTranslationPath = "content_type" }
     val preventMessageSending = multiple("prevent_message_sending", *NotificationType.getOutgoingValues().map { it.key }.toTypedArray()) {
         customOptionTranslationPath = "features.options.notifications"
-        nativeHooks()
     }
     val friendMutationNotifier = multiple("friend_mutation_notifier",
         "remove_friend",
@@ -89,10 +93,14 @@ class MessagingTweaks : ConfigContainer() {
     val notificationBlacklist = multiple("notification_blacklist", *NotificationType.getIncomingValues().map { it.key }.toTypedArray()) {
         customOptionTranslationPath = "features.options.notifications"
     }
-    val messageLogger = container("message_logger", MessageLoggerConfig()) { addNotices(FeatureNotice.UNSTABLE); requireRestart() }
-    val galleryMediaSendOverride = unique("gallery_media_send_override", "always_ask", "SNAP", "NOTE", "SAVEABLE_SNAP") { requireRestart(); nativeHooks() }
+    val messageLogger = container("message_logger", MessageLoggerConfig()) { requireRestart() }
+    val galleryMediaSendOverride = unique("gallery_media_send_override", "always_ask", "SNAP", "NOTE", "SAVEABLE_SNAP") { requireRestart() }
     val stripMediaMetadata = multiple("strip_media_metadata", "hide_caption_text", "hide_snap_filters", "hide_extras", "remove_audio_note_duration", "remove_audio_note_transcript_capability") { requireRestart() }
     val bypassMessageRetentionPolicy = boolean("bypass_message_retention_policy") { addNotices(FeatureNotice.UNSTABLE); requireRestart() }
     val bypassMessageActionRestrictions = boolean("bypass_message_action_restrictions") { requireRestart() }
     val removeGroupsLockedStatus = boolean("remove_groups_locked_status") { requireRestart() }
+    val doubleTapChatAction = unique("double_tap_chat_action", "like_message", "copy_text", "delete_message", "mark_as_read", "custom_emoji_reaction") { requireRestart() }
+    val doubleTapChatActionCustomEmoji = string("double_tap_chat_action_custom_emoji") {
+        inputCheck = { it.length == 2 && it.toByteArray(Charsets.UTF_8).size >= 4 }
+    }
 }

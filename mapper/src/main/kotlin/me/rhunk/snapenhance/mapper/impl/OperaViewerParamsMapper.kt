@@ -9,8 +9,6 @@ import me.rhunk.snapenhance.mapper.ext.getClassName
 
 class OperaViewerParamsMapper : AbstractClassMapper("OperaViewerParams") {
     val classReference = classReference("class")
-    val getMethod = string("getMethod")
-    val getOrDefaultMethod = string("getOrDefaultMethod")
 
     private fun Method.hasHashMapReference(methodName: String) = implementation?.instructions?.any {
         val instruction = it as? Instruction35c ?: return@any false
@@ -21,25 +19,17 @@ class OperaViewerParamsMapper : AbstractClassMapper("OperaViewerParams") {
     init {
         mapper {
             for (classDef in classes) {
-                classDef.fields.firstOrNull { it.type == "Ljava/util/concurrent/ConcurrentHashMap;" } ?: continue
                 if (classDef.methods.firstOrNull { it.name == "toString" }?.implementation?.findConstString("Params") != true) continue
 
-                val getOrDefaultDexMethod = classDef.methods.firstOrNull { method ->
+                classDef.methods.firstOrNull { method ->
                     method.returnType == "Ljava/lang/Object;" &&
-                    method.parameters.size == 2 &&
-                    method.parameterTypes[1] == "Ljava/lang/Object;" &&
                     method.hasHashMapReference("get")
-                } ?: return@mapper
+                } ?: continue
+                classDef.methods.firstOrNull { method ->
+                    method.returnType == "V" &&
+                    method.hasHashMapReference("remove")
+                } ?: continue
 
-                val getDexMethod = classDef.methods.firstOrNull { method ->
-                    method.returnType == "Ljava/lang/Object;" &&
-                    method.parameters.size == 1 &&
-                    method.parameterTypes[0] == getOrDefaultDexMethod.parameterTypes[0] &&
-                    method.hasHashMapReference("get")
-                } ?: return@mapper
-
-                getMethod.set(getDexMethod.name)
-                getOrDefaultMethod.set(getOrDefaultDexMethod.name)
                 classReference.set(classDef.getClassName())
                 return@mapper
             }

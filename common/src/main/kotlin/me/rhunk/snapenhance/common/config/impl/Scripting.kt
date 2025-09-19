@@ -11,4 +11,5 @@ class Scripting : ConfigContainer() {
     val integratedUI = boolean("integrated_ui", false) { requireRestart(); versionCheck = RES_OBF_VERSION_CHECK.copy(isDisabled = true)  }
     val oldToolBoxAddView = boolean("old_tool_box_add_view", false) { requireRestart(); versionCheck = RES_OBF_VERSION_CHECK.copy(isDisabled = true)  }
     val disableLogAnonymization = boolean("disable_log_anonymization", false) { requireRestart() }
+    val disableOptimization = boolean("disable_optimization", false) { requireRestart() }
 }

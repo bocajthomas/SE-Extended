@@ -4,12 +4,14 @@ import android.content.Context
 import android.os.ParcelFileDescriptor
 import me.rhunk.snapenhance.bridge.scripting.IScripting
 import me.rhunk.snapenhance.common.BuildConfig
+import me.rhunk.snapenhance.common.config.impl.RootConfig
 import me.rhunk.snapenhance.common.logger.AbstractLogger
 import me.rhunk.snapenhance.common.scripting.type.readModuleInfo
 import org.mozilla.javascript.ScriptableObject
 import java.io.InputStream
 
 open class ScriptRuntime(
+    val config: () -> RootConfig,
     val androidContext: Context,
     logger: AbstractLogger,
 ) {

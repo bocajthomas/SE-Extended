@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import androidx.core.content.edit
 import androidx.core.net.toUri
 import androidx.navigation.NavBackStackEntry
 import kotlinx.coroutines.launch
@@ -52,9 +53,9 @@ class HomeSettings : Routes.Route() {
                 .clickable {
                     value = !value
                     sharedPreferences
-                        .edit()
-                        .putBoolean(realKey, value)
-                        .apply()
+                        .edit() {
+                            putBoolean(realKey, value)
+                        }
                 },
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
@@ -153,12 +154,11 @@ class HomeSettings : Routes.Route() {
             RowAction(key = "change_language") {
                 context.checkForRequirements(Requirements.LANGUAGE)
             }
+
             RowAction(key = "disclaimer_statement") {
                 context.checkForRequirements(Requirements.DISCLAIMER)
             }
-            RowAction(key = "security_features") {
-                context.checkForRequirements(Requirements.SIF)
-            }
+
             RowTitle(title = translation["message_logger_title"])
             ShiftedRow {
                 Column(
@@ -253,7 +253,7 @@ class HomeSettings : Routes.Route() {
                             value = selectedFileType.fileName,
                             onValueChange = {},
                             readOnly = true,
-                            modifier = Modifier.menuAnchor()
+                            modifier = Modifier.menuAnchor(MenuAnchorType.PrimaryNotEditable)
                         )
 
                         ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
@@ -287,10 +287,10 @@ class HomeSettings : Routes.Route() {
                 Column(
                     verticalArrangement = Arrangement.spacedBy(4.dp),
                 ) {
+                    PreferenceToggle(context.sharedPreferences, key = "test_mode", text = "Test Mode (FOR DEBUGGING ONLY)")
+                    PreferenceToggle(context.sharedPreferences, key = "log_resources", text = "Log Resources")
                     PreferenceToggle(context.sharedPreferences, key = "disable_feature_loading", text = "Disable Feature Loading")
                     PreferenceToggle(context.sharedPreferences, key = "disable_mapper", text = "Disable Auto Mapper")
-                    PreferenceToggle(context.sharedPreferences, key = "disable_sif", text = "Disable Security Features")
-                    PreferenceToggle(context.sharedPreferences, key = "disable_mod_detection_version_check", text = "Disable Mod Detection Version Check")
                 }
             }
             Spacer(modifier = Modifier.height(50.dp))

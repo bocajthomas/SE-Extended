@@ -282,8 +282,7 @@
         "notices": {
             "unstable": "⚠️ Ustabil",
             "ban_risk": "⚠️ Denne funktion kan medføre forbud",
-            "internal_behavior": "⚠️ Dette kan ødelægge Snapchat intern opførsel",
-            "require_native_hooks": "⚠️ Denne funktion kræver eksperimentelle indfødte kroge til at fungere korrekt"
+            "internal_behavior": "⚠️ Dette kan ødelægge Snapchat intern opførsel"
         },
         "properties": {
             "downloader": {
@@ -948,10 +947,6 @@
                         "name": "Spoof",
                         "description": "Spoof forskellige oplysninger om dig",
                         "properties": {
-                            "fingerprint": {
-                                "description": "Spoof din enheds fingeraftryk",
-                                "name": "Enhedens fingeraftryk"
-                            },
                             "remove_vpn_transport_flag": {
                                 "name": "Fjern VPN-transportflag",
                                 "description": "Forhindrer Snapchat i at opdage VPN'er"
@@ -960,18 +955,10 @@
                                 "description": "Forhindrer Snapchat i at registrere falsk placering",
                                 "name": "Fjern Falsk Location Flag"
                             },
-                            "randomize_persistent_device_token": {
-                                "name": "Randomiser vedvarende enhedstoken",
-                                "description": "Genererer et tilfældigt enhedstoken efter hvert login"
-                            },
                             "play_store_installer_package_name": {
                                 "name": "Play Butik Installer Pakkenavn",
                                 "description": "Tilsidesætter installations pakkenavnet til com.android.vending"
                             },
-                            "android_id": {
-                                "name": "Android ID",
-                                "description": "Spoof dit Android-id til den angivne værdi"
-                            }
                         }
                     },
                     "infinite_story_boost": {

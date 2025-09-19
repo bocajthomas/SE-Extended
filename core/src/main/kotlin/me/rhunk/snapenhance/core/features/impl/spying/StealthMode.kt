@@ -10,15 +10,19 @@ import java.util.concurrent.CopyOnWriteArraySet
 
 class StealthMode : MessagingRuleFeature("StealthMode", MessagingRuleType.STEALTH) {
     private val displayedMessageQueue = CopyOnWriteArraySet<Long>()
+    private val snapInteractionQueue = CopyOnWriteArraySet<Long>()
 
     fun addDisplayedMessageException(clientMessageId: Long) {
         displayedMessageQueue.add(clientMessageId)
     }
 
+    fun addSnapInteractionException(messageId: Long) {
+        snapInteractionQueue.add(messageId)
+    }
+
+
     override fun init() {
-        val isConversationInStealthMode: (SnapUUID) -> Boolean = hook@{
-            context.feature(StealthMode::class).canUseRule(it.toString())
-        }
+        val isConversationInStealthMode: (SnapUUID) -> Boolean = { canUseRule(it.toString()) }
 
         arrayOf("mediaMessagesDisplayed", "displayedMessages").forEach { methodName: String ->
             context.classCache.conversationManager.hook(methodName, HookStage.BEFORE) { param ->
@@ -30,6 +34,7 @@ class StealthMode : MessagingRuleFeature("StealthMode", MessagingRuleType.STEALT
         }
 
         context.event.subscribe(OnSnapInteractionEvent::class) { event ->
+            if (snapInteractionQueue.removeIf { event.messageId == it }) return@subscribe
             if (isConversationInStealthMode(event.conversationId)) {
                 event.canceled = true
             }

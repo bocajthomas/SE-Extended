@@ -16,8 +16,7 @@ enum class FeatureNotice(
 ) {
     UNSTABLE("unstable"),
     BAN_RISK("ban_risk"),
-    INTERNAL_BEHAVIOR("internal_behavior"),
-    REQUIRE_NATIVE_HOOKS("require_native_hooks");
+    INTERNAL_BEHAVIOR("internal_behavior");
 
     val id get() = 1 shl ordinal
 }
@@ -88,10 +87,6 @@ class ConfigParams(
 
     fun addFlags(vararg values: ConfigFlag) {
         this._flags = (this._flags ?: 0) or values.fold(0) { acc, flag -> acc or flag.id }
-    }
-
-    fun nativeHooks() {
-        addNotices(FeatureNotice.REQUIRE_NATIVE_HOOKS)
     }
 
     fun requireRestart() {

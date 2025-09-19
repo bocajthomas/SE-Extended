@@ -31,25 +31,18 @@
             "logged_stories": "Zapisane zgodbe",
             "manage_scope": "Upravljaj Scope",
             "messaging_preview": "Predogled",
-            "edit_theme": "",
-            "friend_tracker": "",
-            "file_imports": "",
-            "better_location": "",
-            "theming": "",
-            "manage_repos": "",
-            "manage_rule_feature": "",
-            "edit_rule": ""
+            "better_location": "Izboljšana lokacija",
+            "manage_repos": "Upravljaj repozitorije",
+            "file_imports": "Uvoz datotek",
+            "friend_tracker": "Sledilec prijateljev",
+            "edit_rule": "Uredi pravilo",
+            "edit_theme": "Uredi temo"
         },
         "sections": {
             "tasks": {
                 "no_tasks": "Ni nalog",
-                "merge_files_toast": "",
-                "failed_to_open_file": "",
-                "delete_files_option": "",
-                "remove_selected_tasks_confirm": "",
-                "remove_all_tasks_title": "",
-                "remove_selected_tasks_title": "",
-                "remove_all_tasks_confirm": ""
+                "merge_button": "Združi",
+                "failed_to_open_file": "Napaka pri odpiranju datoteke"
             },
             "features": {
                 "disabled": "Onemogočeno",
@@ -74,11 +67,11 @@
                 "update_title": "SnapEnhance nadgradnja",
                 "update_content": "Verzija {version} je na voljo!",
                 "update_button": "Prenos",
-                "version_title": "",
-                "debug_build_summary_content": "",
-                "debug_build_summary_date": "",
-                "debug_build_summary_title": "",
-                "quick_actions_title": ""
+                "debug_build_summary_title": "Uporabljate razhroščevalno različico SnapEnhancea",
+                "debug_build_summary_date": "Dan izgradnje: {date} ({days} days ago)",
+                "quick_actions_title": "Hitra dejanja",
+                "version_title": "v{versionName} · naredil rhunk",
+                "debug_build_summary_content": "Verzija {versionName} ({versionCode})"
             },
             "home_logs": {
                 "no_logs_hint": "Ni dostopnih logov",
@@ -86,134 +79,17 @@
                 "export_logs_button": "Izvozi loge",
                 "saving_logs_toast": "Shranjevanje logov, to lahko vzame nekaj časa",
                 "saved_logs_success_toast": "Logi uspešno shranjeni",
-                "saved_logs_failure_toast": ""
+                "saved_logs_failure_toast": "Napaka pri shranjevanju zapisnikov"
             },
             "home_settings": {
                 "success_toast": "Končano!",
                 "message_logger_summary": "{messageCount} sporočil\n{storyCount} zgodb",
                 "export_button": "Izvozi",
                 "clear_button": "Počisti",
-                "actions_title": "",
-                "debug_title": "",
-                "message_logger_title": "",
-                "view_logger_history_button": ""
-            },
-            "better_location": {
-                "spoofed_coordinates_title": "",
-                "suspend_location_updates": "",
-                "saved_coordinates_title": "",
-                "saved_name_dialog_hint": "",
-                "save_dialog_button": "",
-                "no_friends_map": "",
-                "choose_location_button": "",
-                "save_coordinates_dialog_title": "",
-                "no_saved_coordinates_hint": "",
-                "teleport_to_friend_button": "",
-                "delete_dialog_title": "",
-                "delete_dialog_message": "",
-                "no_friends_found": "",
-                "teleport_to_friend_title": "",
-                "latitude_dialog_hint": "",
-                "longitude_dialog_hint": "",
-                "search_bar": "",
-                "spoof_location_toggle": ""
-            },
-            "theming": {
-                "no_themes_hint": ""
-            },
-            "logger_history": {
-                "message_parse_failed": "",
-                "list_friend_format": "",
-                "list_group_format": "",
-                "reverse_order_checkbox": "",
-                "empty_message": "",
-                "no_more_messages": "",
-                "download_attachment_failed_toast": "",
-                "chat_attachment": "",
-                "unknown_sender": ""
-            },
-            "manage_scope": {
-                "logged_stories_button": "",
-                "e2ee_title": "",
-                "not_found": "",
-                "rules_title": "",
-                "participants_text": "",
-                "streaks_expiration_text_expired": "",
-                "streaks_expiration_text": "",
-                "streaks_title": "",
-                "notes_placeholder": "",
-                "streaks_length_text": "",
-                "reminder_button": "",
-                "delete_scope_confirm_dialog_title": ""
-            },
-            "logged_stories": {
-                "story_failed_to_load": "",
-                "no_stories": "",
-                "save_from_cache_button": ""
-            },
-            "messaging_preview": {
-                "save_selection_option": "",
-                "save_all_option": "",
-                "no_message_hint": "",
-                "mark_selection_as_seen_option": "",
-                "unsave_all_option": "",
-                "delete_all_option": "",
-                "mark_all_as_seen_option": "",
-                "bridge_connection_failed": "",
-                "bridge_init_failed": "",
-                "message_fetch_failed": "",
-                "delete_selection_option": "",
-                "unsave_selection_option": ""
-            },
-            "file_imports": {
-                "no_files_hint": "",
-                "file_not_found": "",
-                "import_file_button": "",
-                "file_imported": "",
-                "file_import_failed": "",
-                "file_delete_failed": ""
-            },
-            "manage_rule_feature": {
-                "disable_state_option": "",
-                "disable_state_subtext": "",
-                "whitelist_state_option": "",
-                "blacklist_state_option": "",
-                "whitelist_state_button": "",
-                "clear_list_button": "",
-                "blacklist_state_subtext": "",
-                "blacklist_state_button": "",
-                "dialog_clear_confirmation_text": "",
-                "whitelist_state_subtext": ""
-            }
-        },
-        "dialogs": {
-            "messaging_action": {
-                "title": "",
-                "select_all_button": ""
-            },
-            "export_config": {
-                "content": "",
-                "title": ""
-            },
-            "file_imports": {
-                "no_files_settings_hint": "",
-                "settings_select_file_hint": ""
-            },
-            "scripting_warning": {
-                "content": "",
-                "title": ""
-            },
-            "add_friend": {
-                "fetch_error": "",
-                "search_hint": "",
-                "category_friends": "",
-                "category_groups": "",
-                "title": ""
-            },
-            "reset_config": {
-                "content": "",
-                "title": "",
-                "success_toast": ""
+                "actions_title": "Dejanja",
+                "message_logger_title": "Zapisovalnik sporočil",
+                "debug_title": "Razhroščevanje",
+                "view_logger_history_button": "Ogled zgodovine zapiskov"
             }
         }
     },

@@ -27,46 +27,19 @@ class DeviceSpooferHook: Feature("Device Spoofer")  {
 
 		if (context.config.experimental.spoof.globalState != true) return
 
-		val fingerprint by context.config.experimental.spoof.fingerprint
-		val androidId by context.config.experimental.spoof.androidId
 		val removeMockLocationFlag by context.config.experimental.spoof.removeMockLocationFlag
 		val overridePlayStoreInstallerPackageName by context.config.experimental.spoof.overridePlayStoreInstallerPackageName
 		val removeVpnTransportFlag by context.config.experimental.spoof.removeVpnTransportFlag
-		val randomizePersistentDeviceToken by context.config.experimental.spoof.randomizePersistentDeviceToken
 
 		//Installer package name
 		if(overridePlayStoreInstallerPackageName) {
 			hookInstallerPackageName()
 		}
 
-		findClass("android.provider.Settings\$NameValueCache").apply {
-			hook("getStringForUser", HookStage.BEFORE) { hookAdapter ->
-				val key = hookAdapter.argNullable<String>(1) ?: return@hook
-				when (key) {
-					"android_id" -> {
-						if (androidId.isNotEmpty()) {
-							hookAdapter.setResult(androidId)
-						}
-					}
-					"ALLOW_MOCK_LOCATION" -> {
-						if (removeMockLocationFlag) {
-							hookAdapter.setResult("0")
-						}
-					}
-				}
-			}
-		}
-
 		if (removeMockLocationFlag) {
 			Location::class.java.hook("isMock", HookStage.BEFORE) { param ->
 				param.setResult(false)
 			}
-		}
-
-		if (randomizePersistentDeviceToken) {
-			context.androidContext.filesDir.resolve("Snapchat").listFiles()?.firstOrNull {
-				it.name.startsWith("device_token")
-			}?.delete()
 		}
 
 		if (removeVpnTransportFlag) {
@@ -78,15 +51,6 @@ class DeviceSpooferHook: Feature("Device Spoofer")  {
 					val capabilities = instance.getNetworkCapabilities(network) ?: return@filter false
 					!capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN)
 				}.toTypedArray())
-			}
-		}
-
-		if (fingerprint.isNotEmpty()) {
-			Build.FINGERPRINT // init fingerprint field
-			Build::class.java.getField("FINGERPRINT").apply {
-				isAccessible = true
-				set(null, fingerprint)
-				isAccessible = false
 			}
 		}
 	}

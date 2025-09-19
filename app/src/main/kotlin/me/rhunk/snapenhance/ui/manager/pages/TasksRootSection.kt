@@ -1,4 +1,4 @@
-package me.rhunk.snapenhance.ui.manager.pages
+ package me.rhunk.snapenhance.ui.manager.pages
 
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
@@ -312,14 +312,14 @@ class TasksRootSection : Routes.Route() {
             .pointerInput(Unit) {
                 detectTapGestures(
                     onTap = {
-                        if (taskSelection.size > 0) {
+                        if (taskSelection.isNotEmpty()) {
                             toggleSelection()
                             return@detectTapGestures
                         }
                         openFile()
                     },
                     onLongPress = {
-                        if (taskSelection.size > 0) {
+                        if (taskSelection.isNotEmpty()) {
                             openFile()
                             return@detectTapGestures
                         }

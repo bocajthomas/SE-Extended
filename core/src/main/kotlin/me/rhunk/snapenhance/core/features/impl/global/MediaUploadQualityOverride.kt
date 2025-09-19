@@ -15,7 +15,7 @@ class MediaUploadQualityOverride : Feature("Media Upload Quality Override") {
                     mediaQualityLevelProviderMethod.getAsString()!!,
                     HookStage.BEFORE
                 ) { param ->
-                    param.setResult((param.method() as Method).returnType.enumConstants.firstOrNull { it.toString() == "LEVEL_MAX" } )
+                    param.setResult((param.method() as Method).returnType.enumConstants!!.firstOrNull { it.toString() == "LEVEL_MAX" } )
                 }
             }
         }

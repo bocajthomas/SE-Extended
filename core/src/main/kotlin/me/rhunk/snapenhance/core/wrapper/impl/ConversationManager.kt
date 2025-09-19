@@ -27,6 +27,7 @@ class ConversationManager(
     private val clearConversation by lazy { findMethodByName("clearConversation") }
     private val getOneOnOneConversationIds by lazy { findMethodByName("getOneOnOneConversationIds") }
     private val dismissStreakRestore by lazy { findMethodByName("dismissStreakRestore") }
+    private val reactToMessageMethod by lazy { findMethodByName("reactToMessage") }
 
 
     private fun getCallbackClass(name: String): Class<*> {
@@ -43,7 +44,7 @@ class ConversationManager(
             instanceNonNull(),
             SnapUUID(conversationId).instanceNonNull(),
             messageId,
-            context.classCache.messageUpdateEnum.enumConstants.first { it.toString() == action.toString() },
+            context.classCache.messageUpdateEnum.enumConstants!!.first { it.toString() == action.toString() },
             CallbackBuilder(getCallbackClass("Callback"))
                 .override("onSuccess") { onResult(null) }
                 .override("onError") { onResult(it.arg<Any>(0).toString()) }.build()
@@ -182,5 +183,25 @@ class ConversationManager(
             .override("onSuccess") { onSuccess() }
             .override("onError") { onError(it.arg<Any>(0).toString()) }.build()
         dismissStreakRestore.invoke(instanceNonNull(), conversationId.toSnapUUID().instanceNonNull(), callback)
+    }
+
+    fun reactToMessage(conversationId: String, messageId: Long, emoji: String? = null, intentionType: Long? = null, onSuccess: () -> Unit, onError: (error: String) -> Unit) {
+        reactToMessageMethod.invoke(
+            instanceNonNull(),
+            conversationId.toSnapUUID().instanceNonNull(),
+            messageId,
+            reactToMessageMethod.parameterTypes[2].dataBuilder {
+                set("mEmoji", emoji)
+                set("mIntentionType", intentionType)
+            },
+            reactToMessageMethod.parameterTypes[3].dataBuilder {
+                set("mMetricsMessageMediaType", "NO_MEDIA")
+                set("mMetricsMessageType", "TEXT")
+                set("mReactionSource", "NONE")
+            },
+            CallbackBuilder(getCallbackClass("Callback"))
+            .override("onSuccess") { onSuccess() }
+            .override("onError") { onError(it.arg<Any>(0).toString()) }.build()
+        )
     }
 }

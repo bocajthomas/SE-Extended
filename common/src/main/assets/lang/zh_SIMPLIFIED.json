@@ -2,7 +2,7 @@
     "setup": {
         "dialogs": {
             "select_language": "选择语言",
-            "save_folder": "SnapEnhance 需要存储权限才能从 Snapchat 下载和保存媒体。\n请选择媒体下载的位置。",
+            "save_folder": "SE Extended 需要存储权限才能从 Snapchat 下载和保存媒体。\n请选择媒体下载的位置。",
             "select_save_folder_button": "选择文件夹"
         },
         "mappings": {
@@ -130,7 +130,7 @@
             "home": {
                 "update_button": "下载",
                 "update_content": "版本 {version} 可用！",
-                "update_title": "SnapEnhance 更新",
+                "update_title": "SE Extended 更新",
                 "quick_actions_title": "快速行动",
                 "version_title": "V{versionName} · 分叉者博卡伊托马斯",
                 "debug_build_summary_title": "您正在运行 SE Extended 的调试版本",
@@ -167,6 +167,7 @@
                 "config_export_failure_toast": "导出配置失败 {error}",
                 "older_required": "此功能需要 Snapchat v{version} 或更早版本才能正常工作",
                 "newer_required": "此功能要求Snapchat v{version}或更新版本才能正确工作"
+
             },
             "tasks": {
                 "no_tasks": "没有任务",
@@ -177,6 +178,7 @@
                 "remove_all_tasks_confirm": "删除所有任务?",
                 "delete_files_option": "也删除文件",
                 "failed_to_open_file": "无法打开文件"
+
             },
             "social": {
                 "streaks_expiration_short": "{hours}小时",
@@ -200,13 +202,13 @@
             },
             "messaging_preview": {
                 "no_message_hint": "没有消息",
-                "bridge_init_failed": "消息桥初始化失败",
+                "bridge_init_failed": "消息网络初始化失败 请确保Snapchat正在后台运行",
                 "save_selection_option": "保存选择",
                 "save_all_option": "保存全部",
                 "mark_selection_as_seen_option": "将选定的快照标记为可见",
                 "mark_all_as_seen_option": "将所有快照标记为已看到",
                 "unsave_all_option": "全部取消保存",
-                "bridge_connection_failed": "无法通过桥接服务连接到 Snapchat",
+                "bridge_connection_failed": "连接网桥失败。请确保 Snapchat 正在后台运行",
                 "unsave_selection_option": "取消保存选择",
                 "delete_selection_option": "删除选择",
                 "delete_all_option": "删除所有",
@@ -276,9 +278,10 @@
             "add_friend": {
                 "search_hint": "搜索",
                 "fetch_error": "获取数据失败",
-                "category_groups": "团体",
-                "category_friends": "朋友们",
-                "title": "添加好友或群组"
+                "category_groups": "群组",
+                "category_friends": "好友",
+                "title": "添加好友或群组",
+                "participants_text": "{count} 个成员"
             },
             "reset_config": {
                 "content": "您确定要重置配置吗？",
@@ -290,7 +293,7 @@
                 "select_all_button": "全选"
             },
             "scripting_warning": {
-                "content": "SnapEnhance 包含一个脚本工具，允许在您的设备上执行用户定义的代码。请格外小心，仅安装来自已知可靠来源的模块。未经授权或未经验证的模块可能会给您的系统带来安全风险。",
+                "content": "SnapEnhance 包含一个脚本工具，允许在您的设备上执行用户自定义的代码。请格外小心，仅安装来自已知且可靠来源的模块。未经授权或未经验证的模块可能会给您的系统带来安全风险。",
                 "title": "警告"
             },
             "export_config": {
@@ -311,7 +314,7 @@
         "properties": {
             "auto_download": {
                 "name": "自动下载",
-                "description": "自动下载快照当查看它们时",
+                "description": "当查看时自动下载快照",
                 "options": {
                     "blacklist": "从自动下载中排除",
                     "whitelist": "自动下载"

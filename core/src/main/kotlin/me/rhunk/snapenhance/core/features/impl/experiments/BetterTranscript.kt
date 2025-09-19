@@ -1,7 +1,6 @@
 package me.rhunk.snapenhance.core.features.impl.experiments
 
 import me.rhunk.snapenhance.common.data.ContentType
-import me.rhunk.snapenhance.common.util.TranscriptApi
 import me.rhunk.snapenhance.common.util.protobuf.ProtoEditor
 import me.rhunk.snapenhance.core.event.events.impl.BuildMessageEvent
 import me.rhunk.snapenhance.core.features.Feature
@@ -10,21 +9,42 @@ import me.rhunk.snapenhance.core.util.hook.HookStage
 import me.rhunk.snapenhance.core.util.hook.hook
 import me.rhunk.snapenhance.core.util.ktx.getObjectFieldOrNull
 import me.rhunk.snapenhance.core.util.ktx.setObjectField
-import okhttp3.RequestBody.Companion.toRequestBody
-import java.lang.reflect.Method
 import java.nio.ByteBuffer
 
 class BetterTranscript: Feature("Better Transcript") {
-    val transcriptApi by lazy { TranscriptApi() }
+    private val voiceML: Any by lazy {
+        findClass("com.snapchat.client.voiceml.IVoiceMLSDK").getMethod("create").invoke(null) ?: error("Failed to create IVoiceMLSDK instance")
+    }
+
+    private fun createAsrConfig(): Any? {
+        findClass("com.snapchat.client.voiceml.IConfigFactory").methods.first { it.name == "simpleAsrConfig" }.let { method ->
+            return method.invoke(null, method.parameterTypes[0].dataBuilder {
+                set("mSampleRate", 44100)
+                set("mLanguageModel", "en")
+                set("mUseCase", "VOICENOTESTRANSCRIPTION")
+                set("mAppVersion", "voice note transcript")
+                set("mUiLanguage", "en")
+                set("mAuthType", "SNAPTOKEN")
+                set("mEncoding", "AAC")
+            })
+        }
+    }
+
+    fun transcribe(audio: ByteBuffer): String? {
+        val transcribeMethod = voiceML.javaClass.methods.first { it.name == "asrTranscribe" }
+        val snapToken = context.database.getAccessTokens(context.database.myUserId)?.get("api-gateway") ?: error("Failed to get api-gateway token")
+
+        return transcribeMethod.invoke(voiceML, snapToken, createAsrConfig(), audio)
+            ?.let { asrResult ->
+                asrResult.getObjectFieldOrNull("mTranscription")?.toString()
+            }
+    }
 
     override fun init() {
         if (context.config.experimental.betterTranscript.globalState != true) return
 
         onNextActivityCreate {
             val config = context.config.experimental.betterTranscript
-            val preferredTranscriptionLang = config.preferredTranscriptionLang.getNullable()?.takeIf {
-                it.isNotBlank()
-            }
 
             if (config.forceTranscription.get()) {
                 context.event.subscribe(BuildMessageEvent::class, priority = 104) { event ->
@@ -40,34 +60,9 @@ class BetterTranscript: Feature("Better Transcript") {
             }
 
             findClass("com.snapchat.client.voiceml.IVoiceMLSDK\$CppProxy").hook("asrTranscribe", HookStage.BEFORE) { param ->
-                if (config.enhancedTranscript.get()) {
-                    val buffer = param.arg<ByteBuffer>(2).let {
-                        it.rewind()
-                        ByteArray(it.remaining()).also { it1 -> it.get(it1); it.rewind() }
-                    }
-                    val result = runCatching {
-                        transcriptApi.transcribe(
-                            buffer.toRequestBody(),
-                            lang = config.preferredTranscriptionLang.getNullable()?.takeIf {
-                                it.isNotBlank()
-                            }?.uppercase()
-                        )
-                    }.onFailure {
-                        context.log.error("Failed to transcribe audio", it)
-                        context.shortToast("Failed to transcribe audio! Check logcat for more details.")
-                    }.getOrNull()
-
-                    param.setResult(
-                        (param.method() as Method).returnType.dataBuilder {
-                            set("mError", result == null)
-                            set("mNlpResponses", ArrayList<Any>())
-                            set("mWordInfo", ArrayList<Any>())
-                            set("mTranscription", result)
-                        }
-                    )
-                    return@hook
-                }
-                preferredTranscriptionLang?.lowercase()?.let {
+                config.preferredTranscriptionLang.getNullable()?.takeIf {
+                    it.isNotBlank()
+                }?.trim()?.lowercase()?.let {
                     val asrConfig = param.arg<Any>(1)
                     asrConfig.getObjectFieldOrNull("mBaseConfig")?.apply {
                         setObjectField("mLanguageModel", it)

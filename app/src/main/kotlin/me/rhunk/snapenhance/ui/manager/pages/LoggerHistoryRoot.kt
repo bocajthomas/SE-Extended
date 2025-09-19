@@ -15,7 +15,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -48,6 +47,7 @@ import me.rhunk.snapenhance.download.DownloadProcessor
 import me.rhunk.snapenhance.storage.findFriend
 import me.rhunk.snapenhance.ui.manager.Routes
 import java.text.DateFormat
+import java.util.concurrent.ConcurrentHashMap
 import kotlin.math.absoluteValue
 
 
@@ -219,6 +219,8 @@ class LoggerHistoryRoot : Routes.Route() {
             loggerWrapper = LoggerWrapper(context.androidContext)
         }
 
+        val conversationInfoCache = remember { ConcurrentHashMap<String, String?>() }
+
         Column {
             var expanded by remember { mutableStateOf(false) }
 
@@ -241,15 +243,19 @@ class LoggerHistoryRoot : Routes.Route() {
                 }
 
                 val selectedConversationInfo by rememberAsyncMutableState(defaultValue = null, keys = arrayOf(selectedConversation)) {
-                    selectedConversation?.let { loggerWrapper.getConversationInfo(it) }
+                    selectedConversation?.let {
+                        conversationInfoCache.getOrPut(it) {
+                            formatConversationInfo(loggerWrapper.getConversationInfo(it))
+                        }
+                    }
                 }
 
                 OutlinedTextField(
-                    value = remember(selectedConversationInfo) { formatConversationInfo(selectedConversationInfo) ?: "Select a conversation" },
+                    value = selectedConversationInfo ?: "Select a conversation",
                     onValueChange = {},
                     readOnly = true,
                     modifier = Modifier
-                        .menuAnchor()
+                        .menuAnchor(MenuAnchorType.PrimaryNotEditable)
                         .fillMaxWidth()
                 )
 
@@ -264,7 +270,9 @@ class LoggerHistoryRoot : Routes.Route() {
                             expanded = false
                         }, text = {
                             val conversationInfo by rememberAsyncMutableState(defaultValue = null, keys = arrayOf(conversationId)) {
-                                formatConversationInfo(loggerWrapper.getConversationInfo(conversationId))
+                                conversationInfoCache.getOrPut(conversationId) {
+                                    formatConversationInfo(loggerWrapper.getConversationInfo(conversationId))
+                                }
                             }
 
                             Text(

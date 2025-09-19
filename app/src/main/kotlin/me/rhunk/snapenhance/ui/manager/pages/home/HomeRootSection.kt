@@ -20,6 +20,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.vectorResource
@@ -48,6 +49,7 @@ import me.rhunk.snapenhance.ui.manager.Routes
 import me.rhunk.snapenhance.ui.manager.data.Updater
 import me.rhunk.snapenhance.ui.util.ActivityLauncherHelper
 import java.text.DateFormat
+import androidx.core.net.toUri
 
 class HomeRootSection : Routes.Route() {
     companion object {
@@ -99,7 +101,7 @@ class HomeRootSection : Routes.Route() {
         kotlin.runCatching {
             context.activity?.startActivity(Intent(Intent.ACTION_VIEW).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                data = Uri.parse(link)
+                data = link.toUri()
             })
         }.onFailure {
             context.log.error("Couldn't open link", it)
@@ -110,20 +112,27 @@ class HomeRootSection : Routes.Route() {
     @Composable
     fun ExternalLinkIcon(
         modifier: Modifier = Modifier,
-        size: Dp = 32.dp,
+        size: Dp = 45.dp,
         imageVector: ImageVector,
-        link: String
+        link: String,
+        iconScale: Float = 1.0f
     ) {
-        Icon(
-            imageVector = imageVector,
-            contentDescription = null,
-            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier
+        Box(
+            modifier = modifier
                 .size(size)
                 .clip(RoundedCornerShape(50))
-                .then(modifier)
-                .clickable { openLink(link) }
-        )
+                .clickable { openLink(link) },
+            contentAlignment = Alignment.Center
+        ) {
+            Icon(
+                imageVector = imageVector,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier
+                    .size(size * 0.75f)
+                    .scale(iconScale)
+            )
+        }
     }
 
     override val init: () -> Unit = {
@@ -184,7 +193,8 @@ class HomeRootSection : Routes.Route() {
 
             Row(
                 horizontalArrangement = Arrangement.spacedBy(
-                    15.dp, Alignment.CenterHorizontally
+                    13.dp,
+                    Alignment.CenterHorizontally
                 ),
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
@@ -194,27 +204,29 @@ class HomeRootSection : Routes.Route() {
 
                 ExternalLinkIcon(
                     imageVector = ImageVector.vectorResource(id = R.drawable.ic_telegram),
-                    link = "https://t.me/SE_Extended"
+                    link = "https://t.me/SE_Extended",
+                    iconScale = 1.0f
                 )
 
                 ExternalLinkIcon(
                     imageVector = ImageVector.vectorResource(id = R.drawable.ic_github),
-                    link = "https://github.com/bocajthomas/SE-Extended"
+                    link = "https://github.com/bocajthomas/SE-Extended",
+                    iconScale = 1.0f
                 )
 
                 ExternalLinkIcon(
-                    modifier = Modifier.offset(x = (-3).dp),
-                    size = 40.dp,
                     imageVector = Icons.AutoMirrored.Rounded.Help,
-                    link = "https://github.com/bocajthomas/SE-Extended/wiki"
+                    link = "https://github.com/bocajthomas/SE-Extended/wiki",
+                    iconScale = 1.2f
                 )
 
                 ExternalLinkIcon(
-                    size = 40.dp,
                     imageVector = Icons.Rounded.Paid,
-                    link = "https://ko-fi.com/seextended"
+                    link = "https://ko-fi.com/seextended",
+                    iconScale = 1.2f
                 )
             }
+
 
             val selectedTiles = rememberAsyncMutableStateList(defaultValue = listOf()) {
                 context.database.getQuickTiles()

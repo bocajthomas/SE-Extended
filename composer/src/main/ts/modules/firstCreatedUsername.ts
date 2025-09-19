@@ -1,5 +1,5 @@
 import { defineModule } from "../types";
-import { getFriendInfoByUsername } from "../imports";
+import { getFriendOriginalUsername } from "../imports";
 import { interceptComponent } from "../utils";
 
 export default defineModule({
@@ -12,9 +12,8 @@ export default defineModule({
             {
                 onRender: (component: any, _args: any[], render: () => void) => {
                     if (component.viewModel) {
-                        let userInfo = getFriendInfoByUsername(component.viewModel.username);
-                        if (userInfo) {
-                            let firstCreatedUsername = userInfo.username.split("|")[0];
+                        let firstCreatedUsername = getFriendOriginalUsername(component.viewModel.username);
+                        if (firstCreatedUsername) {
                             if (firstCreatedUsername != component.viewModel.username) {
                                 component.viewModel.username += " (" + firstCreatedUsername + ")";
                             }

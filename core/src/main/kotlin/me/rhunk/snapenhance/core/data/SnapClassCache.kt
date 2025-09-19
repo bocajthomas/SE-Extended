@@ -17,7 +17,7 @@ class SnapClassCache (
     val feedEntry by lazy { findClass("com.snapchat.client.messaging.FeedEntry") }
     val conversation by lazy { findClass("com.snapchat.client.messaging.Conversation") }
     val feedManager by lazy { findClass("com.snapchat.client.messaging.FeedManager\$CppProxy") }
-    val nativeBridge by lazy { findClass("com.snapchat.client.composer.NativeBridge") }
+    val nativeBridge by lazy { runCatching { findClass("com.snapchat.client.valdi.NativeBridge") }.getOrNull() ?: findClass("com.snapchat.client.composer.NativeBridge") }
     val composerView by lazy { findClass("com.snap.composer.views.ComposerView") }
     val composerAction by lazy { findClass("com.snap.composer.actions.ComposerAction") }
     val composerFunctionActionAdapter by lazy { findClass("com.snap.composer.callable.ComposerFunctionActionAdapter") }

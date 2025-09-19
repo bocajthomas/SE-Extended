@@ -6,11 +6,14 @@ import android.graphics.Paint
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.Shape
 import android.view.ViewGroup
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import me.rhunk.snapenhance.common.data.ContentType
 import me.rhunk.snapenhance.common.util.protobuf.ProtoReader
 import me.rhunk.snapenhance.core.event.events.impl.BindViewEvent
 import me.rhunk.snapenhance.core.features.Feature
 import me.rhunk.snapenhance.core.ui.addForegroundDrawable
+import me.rhunk.snapenhance.core.ui.randomTag
 import me.rhunk.snapenhance.core.ui.removeForegroundDrawable
 import me.rhunk.snapenhance.core.util.EvictingMap
 import me.rhunk.snapenhance.core.util.hook.HookStage
@@ -23,6 +26,8 @@ import java.io.File
 class SnapPreview : Feature("SnapPreview") {
     private val mediaFileCache = EvictingMap<String, File>(500) // mMediaId => mediaFile
     private val bitmapCache = EvictingMap<String, Bitmap>(50) // filePath => bitmap
+
+    private val fetchJobTab = randomTag()
 
     override fun init() {
         if (!context.config.userInterface.snapPreview.get()) return
@@ -69,9 +74,21 @@ class SnapPreview : Feature("SnapPreview") {
 
                     val mediaIdKey = messageReader.getString(4, 5, 1, 3, 2, 2) ?: return@chatMessage
 
+                    var mediaFile = mediaFileCache[mediaIdKey] ?: return@chatMessage
+                    val mediaFilePath = mediaFile.absolutePath
+
+                    (messageLinearLayout.getTag(fetchJobTab) as? Job)?.cancel()
+
+                    if (bitmapCache[mediaFilePath] == null) {
+                        messageLinearLayout.setTag(fetchJobTab, context.coroutineScope.launch {
+                            bitmapCache[mediaFilePath] = decodeMedia(mediaFile) ?: return@launch
+                            messageLinearLayout.postInvalidate()
+                        })
+                    }
+
                     messageLinearLayout.addForegroundDrawable("snapPreview", ShapeDrawable(object: Shape() {
                         override fun draw(canvas: Canvas, paint: Paint) {
-                            val bitmap = mediaFileCache[mediaIdKey]?.let { decodeMedia(it) } ?: return
+                            val bitmap = bitmapCache[mediaFilePath] ?: return
 
                             canvas.drawBitmap(bitmap,
                                 canvas.width.toFloat() - bitmap.width - chatMediaCardSnapMarginStartSdl.toFloat() - chatMediaCardSnapMargin.toFloat(),

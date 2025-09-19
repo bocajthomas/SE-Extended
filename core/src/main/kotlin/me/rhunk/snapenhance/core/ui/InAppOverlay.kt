@@ -7,6 +7,7 @@ import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.rememberSplineBasedDecay
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.gestures.AnchoredDraggableState
 import androidx.compose.foundation.gestures.DraggableAnchors
@@ -157,26 +158,25 @@ class InAppOverlay(
                 }
 
                 val deviceWidth = LocalContext.current.resources.displayMetrics.widthPixels
+                val delayAnimationSpec =  rememberSplineBasedDecay<Float>()
                 val draggableState = remember {
                     AnchoredDraggableState(
                         initialValue = 0,
+                        anchors = DraggableAnchors {
+                            -1 at -deviceWidth.toFloat()
+                            0 at 0f
+                            1 at deviceWidth.toFloat()
+                        },
                         positionalThreshold = { distance: Float -> distance * 0.5f },
                         velocityThreshold = { deviceWidth / 2f },
-                        animationSpec = tween(),
+                        snapAnimationSpec = tween(),
+                        decayAnimationSpec = delayAnimationSpec,
                         confirmValueChange = {
                             if (it == 0) return@AnchoredDraggableState true
                             toast.visible = false
                             true
                         }
-                    ).apply {
-                        updateAnchors(
-                            DraggableAnchors {
-                                -1 at -deviceWidth.toFloat()
-                                0 at 0f
-                                1 at deviceWidth.toFloat()
-                            }
-                        )
-                    }
+                    )
                 }
 
                 Box(

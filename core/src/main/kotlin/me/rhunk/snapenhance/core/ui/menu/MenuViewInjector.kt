@@ -1,10 +1,10 @@
 package me.rhunk.snapenhance.core.ui.menu
 
 import android.annotation.SuppressLint
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.LinearLayout
 import me.rhunk.snapenhance.core.event.events.impl.AddViewEvent
 import me.rhunk.snapenhance.core.features.Feature
 import me.rhunk.snapenhance.core.features.impl.COFOverride
@@ -38,8 +38,7 @@ class MenuViewInjector : Feature("MenuViewInjector") {
         onNextActivityCreate(defer = true) {
             menuMap.forEach { it.value.init() }
 
-            val chatActionMenu = context.resources.getIdentifier("chat_action_menu", "id")
-            val hasV2ActionMenu = { context.feature(COFOverride::class).hasActionMenuV2 }
+            val hasV2ActionMenu = { true }
 
             context.event.subscribe(AddViewEvent::class) { event ->
                 menuMap.forEach { it.value.onViewAdded(event) }
@@ -58,13 +57,17 @@ class MenuViewInjector : Feature("MenuViewInjector") {
                 val viewGroup: ViewGroup = event.parent
                 val childView: View = event.view
 
-                if (viewGroup !is LinearLayout && childView.id == chatActionMenu && context.isDeveloper) {
-                    event.view = LinearLayout(childView.context).apply {
-                        orientation = LinearLayout.VERTICAL
-                        addView(
-                            (menuMap[NewChatActionMenu::class]!! as NewChatActionMenu).createDebugInfoView(childView.context)
-                        )
-                        addView(event.view)
+                if (childView.javaClass.name.endsWith("ActionMenuChatItemContainer") && context.isDeveloper) {
+                    childView.post {
+                        (event.parent.parent as ViewGroup).addView(
+                            (menuMap[NewChatActionMenu::class] as NewChatActionMenu).createDebugInfoView(context.mainActivity!!).apply {
+                                layoutParams = FrameLayout.LayoutParams(
+                                    ViewGroup.LayoutParams.MATCH_PARENT,
+                                    ViewGroup.LayoutParams.WRAP_CONTENT
+                                ).apply {
+                                    gravity = Gravity.TOP or Gravity.START
+                                }
+                            }, 0)
                     }
                 }
 

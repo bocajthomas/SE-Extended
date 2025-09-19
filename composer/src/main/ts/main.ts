@@ -4,6 +4,7 @@ import { modules } from "./types";
 import "./modules/operaDownloadButton";
 import "./modules/firstCreatedUsername";
 import "./modules/bypassCameraRollSelectionLimit";
+import "./modules/selfDestructSnapDelay";
 
 
 try {
@@ -21,12 +22,13 @@ try {
         }
         try {
             m.init();
+            console.debug(`module ${m.name} initialized`);
         } catch (e) {
             console.error(`failed to initialize module ${m.name}`, e, e.stack);
         }
     });
 
-    console.log("modules loaded!");
+    console.debug("modules loaded!");
 } catch (e) {
     log("error", "Failed to load composer modules\n" + e + "\n" + e.stack)
 }

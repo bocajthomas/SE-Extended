@@ -11,7 +11,7 @@ class DisableMetrics : Feature("DisableMetrics") {
 
         context.event.subscribe(NetworkApiRequestEvent::class) { param ->
             val url = param.url
-            if (url.contains("app-analytics") || url.endsWith("metrics")) {
+            if (url.contains("app-analytics") || url.endsWith("metrics") || url.contains("streaming-collector")) {
                 param.canceled = true
             }
         }

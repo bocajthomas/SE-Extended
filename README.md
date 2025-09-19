@@ -198,8 +198,7 @@ Please note that this project is currently in development, So bugs and crashes m
 </details>
 
 <details closed>
- <summary>👥 Friend
-  Tracker</summary>
+ <summary>👥 Friend Tracker</summary>
 
 - `Record Messaging Events`
 - `Allow Running In Background`
@@ -210,7 +209,7 @@ Please note that this project is currently in development, So bugs and crashes m
 You will need to download SE Extended from ether the [Actions](https://github.com/bocajthomas/SE-Extended/actions/workflows/debug.yml) or our [CI Builds](https://t.me/SE_Extended_CI) Channel on telegram<br/>
 
 >[!warning]
->SE Extended is currently detected, v12.81.0.44 or below is not longer safe to use. please use [Stock Snapchat](https://play.google.com/store/apps/details?id=com.snapchat.android)
+>SE Extended is currently detected, Use [v12.33.1.19](https://www.apkmirror.com/apk/snap-inc/snapchat/snapchat-12-33-1-19-release/) or below
 
 ## ❓️Wiki
 The [Wiki](https://github.com/bocajthomas/SE-Extended/wiki) is a place for all information regarding SE Extended.
@@ -225,7 +224,6 @@ Please consider [donating](https://ko-fi.com/seextended)
 ## 🤝 Contributing
 Contributions are welcome!<br/>
 Thanks to everyone involved
-
 **Pull Requests:**
 - [ΞTΞRNAL](https://github.com/particle-box)
   - feat(core/ui_tweaks): multiple hide ui components [#106](https://github.com/bocajthomas/SE-Extended/pull/106)
@@ -242,7 +240,7 @@ Thanks to everyone involved
 - Norwegian Bokmål - [comradekingu](https://github.com/comradekingu)
 - Swedish - [comradekingu](https://github.com/comradekingu), [ELLABRAHSIRI](https://github.com/ELLABRAHSIRI)
 - Italian - [vampskillz](https://github.com/vampskillz)
-- Finnish - [jollindeerus](https://github.com/jollindeerus)
+- Finnish - [jollindeerus](https://github.com/jollindeerus), [Ricky-Tigg](https://github.com/Ricky-Tigg)
 - French - [pyramyds](https://github.com/pyramyds), [Mizaruta](https://github.com/Mizaruta)
 - Polish - [tekkenkkk](https://github.com/tekkenkkk), [Red1N-Q](https://github.com/Red1N-Q)
 - Chinese (Simplified) - [fa1seut0pia](https://github.com/fa1seut0pia), [Kobayashi-classmate](https://github.com/Kobayashi-classmate), [RWDai](https://github.com/RWDai), [mevius330](https://github.com/mevius330)
@@ -276,8 +274,8 @@ We do not collect any user information. However, Please be aware that third-part
 </details>
 
 ## 🙏 Credits
-SE Extended Uses Some Third-party libraries, These Include
-
+SE Extended Uses Some Third-party libraries, These Include 
+- [SnapEnhance](https://github.com/rhunk/SnapEnhance)
 - [libxposed](https://github.com/libxposed/api)
 - [ffmpeg-kit-full-gpl](https://github.com/arthenica/ffmpeg-kit)
 - [osmdroid](https://github.com/osmdroid/osmdroid)
@@ -288,5 +286,6 @@ SE Extended Uses Some Third-party libraries, These Include
 - [libsu](https://github.com/topjohnwu/libsu)
 - [colorpicker-compose](https://github.com/skydoves/colorpicker-compose)
 
+
 ## 📃 License
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-black.svg)](https://www.gnu.org/licenses/gpl-3.0) [![License](https://img.shields.io/badge/License-Apache_2.0-black.svg)](https://opensource.org/licenses/Apache-2.0) 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-black.svg)](https://www.gnu.org/licenses/gpl-3.0) [![License](https://img.shields.io/badge/License-Apache_2.0-black.svg)](https://opensource.org/licenses/Apache-2.0)

@@ -78,18 +78,30 @@ class LogReader(
     }
 
     private fun queryLineCount(): Int {
+        val buffer = ByteArray(1024 * 1024)
+
         synchronized(randomAccessFile) {
             randomAccessFile.seek(0)
             var lineCount = 0
-            var lastPointer: Long
-            var line: String?
+            var read: Int
+            var lastPointer: Long = 0
+            var line: StringBuilder? = null
 
-            while (randomAccessFile.also {
-                    lastPointer = it.filePointer
-                }.readLine().also { line = it } != null) {
-                if (line?.startsWith('|') == true) {
-                    lineCount++
-                    startLineIndexes.add(lastPointer + 1)
+            while (randomAccessFile.read(buffer).also { read = it } != -1) {
+                for (i in 0 until read) {
+                    val char = buffer[i].toInt().toChar()
+                    if (line == null) {
+                        line = StringBuilder()
+                        lastPointer = randomAccessFile.filePointer - read + i
+                    }
+                    line.append(char)
+                    if (char == '\n') {
+                        if (line.startsWith('|')) {
+                            lineCount++
+                            startLineIndexes.add(lastPointer + 1)
+                        }
+                        line = null
+                    }
                 }
             }
 
@@ -100,7 +112,7 @@ class LogReader(
     private fun getLine(index: Int): String? {
         if (index <= 0 || index > lineCount) return null
         synchronized(randomAccessFile) {
-            randomAccessFile.seek(startLineIndexes[index])
+            randomAccessFile.seek(startLineIndexes.getOrNull(index) ?: return null)
             return readLogLine()?.toString()
         }
     }

@@ -340,8 +340,7 @@
         "notices": {
             "ban_risk": "⚠ This feature may cause bans",
             "unstable": "⚠ Unstable",
-            "internal_behavior": "⚠ This may break Snapchat's internal behavior",
-            "require_native_hooks": "⚠ This feature requires experimental Native Hooks to work correctly"
+            "internal_behavior": "⚠ This may break Snapchat's internal behavior"
         },
         "properties": {
             "downloader": {
@@ -1008,21 +1007,9 @@
                                 "name": "Play Store Installer Package Name",
                                 "description": "Overrides the installer package name to com.android.vending"
                             },
-                            "fingerprint": {
-                                "name": "Device Fingerprint",
-                                "description": "Spoofs your device Fingerprint"
-                            },
-                            "android_id": {
-                                "name": "Android ID",
-                                "description": "Spoofs your Android ID to the specified value"
-                            },
                             "remove_vpn_transport_flag": {
                                 "name": "Remove VPN Transport Flag",
                                 "description": "Prevents Snapchat from detecting VPNs"
-                            },
-                            "randomize_persistent_device_token": {
-                                "name": "Randomize Persistent Device Token",
-                                "description": "Generates a random device token after each login"
                             }
                         },
                         "description": "Spoof various information about you",
@@ -1523,6 +1510,7 @@
         },
         "download_toast": "Downloading {path}...",
         "content_saved_toast": "Saved!"
+
     },
     "streaks_reminder": {
         "notification_title": "Streaks",

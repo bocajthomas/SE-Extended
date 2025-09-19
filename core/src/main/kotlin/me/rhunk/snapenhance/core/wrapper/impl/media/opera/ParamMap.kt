@@ -8,9 +8,9 @@ import java.util.concurrent.ConcurrentHashMap
 
 @Suppress("UNCHECKED_CAST")
 class ParamMap(obj: Any?) : AbstractWrapper(obj) {
-    private val paramMapField: Field by lazy {
+    val paramMapField: Field by lazy {
         instanceNonNull()::class.java.findFields(once = true) {
-            it.type == ConcurrentHashMap::class.java
+            it.type == ConcurrentHashMap::class.java || runCatching { it.get(instance) }.getOrNull() is ConcurrentHashMap<*, *>
         }.firstOrNull() ?: throw RuntimeException("Could not find paramMap field")
     }
 

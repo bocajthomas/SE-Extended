@@ -5,7 +5,9 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.Help
 import androidx.compose.material.icons.automirrored.rounded.LibraryBooks
+import androidx.compose.material.icons.automirrored.rounded.MenuBook
 import androidx.compose.material.icons.rounded.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -29,9 +31,11 @@ import me.rhunk.snapenhance.common.scripting.ui.EnumScriptInterface
 import me.rhunk.snapenhance.common.scripting.ui.InterfaceManager
 import me.rhunk.snapenhance.common.scripting.ui.ScriptInterface
 import me.rhunk.snapenhance.common.ui.AsyncUpdateDispatcher
+import me.rhunk.snapenhance.common.ui.TopBarActionButton
 import me.rhunk.snapenhance.common.ui.rememberAsyncMutableState
 import me.rhunk.snapenhance.common.ui.rememberAsyncUpdateDispatcher
 import me.rhunk.snapenhance.common.util.ktx.getUrlFromClipboard
+import me.rhunk.snapenhance.common.util.ktx.openLink
 import me.rhunk.snapenhance.storage.isScriptEnabled
 import me.rhunk.snapenhance.storage.setScriptEnabled
 import me.rhunk.snapenhance.ui.manager.Routes
@@ -147,6 +151,8 @@ class ScriptingRootSection : Routes.Route() {
     private fun ModuleActions(
         script: ModuleInfo,
         canUpdate: Boolean,
+        hasChangeLog: Boolean,
+        hasHowToUse : Boolean,
         dismiss: () -> Unit
     ) {
         Dialog(
@@ -176,6 +182,41 @@ class ScriptingRootSection : Routes.Route() {
                                     context.log.error("Failed to update module", it)
                                     context.shortToast("Failed to update module. Check logs for more details")
                                 }
+                            }
+                        }
+
+                        if (hasHowToUse) {
+                            put("How to Use" to Icons.AutoMirrored.Rounded.Help) {
+                                runCatching {
+                                    context.androidContext.startActivity(
+                                        Intent(Intent.ACTION_VIEW).apply {
+                                            data = script.howToUseUrl?.toUri()
+                                            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                                        }
+                                    )
+                                    dismiss()
+                                }.onFailure {
+                                    context.log.error("Failed to open how to use URL", it)
+                                    context.shortToast("Failed to open how to use URL. Check logs for more details")
+                                }
+                            }
+                        }
+
+                        if (hasChangeLog) {
+                            put("View Changelog" to Icons.AutoMirrored.Rounded.MenuBook) {
+                                runCatching {
+                                    context.androidContext.startActivity(
+                                        Intent(Intent.ACTION_VIEW).apply {
+                                            data = script.changelogUrl?.toUri() ?: throw Exception("No changelog URL provided")
+                                            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                                        }
+                                    )
+                                    dismiss()
+                                }.onFailure {
+                                    context.log.error("Failed to open changelog", it)
+                                    context.shortToast("Failed to open changelog. Check logs for more details")
+                                }
+
                             }
                         }
 
@@ -395,6 +436,8 @@ class ScriptingRootSection : Routes.Route() {
             ModuleActions(
                 script = script,
                 canUpdate = latestUpdate != null,
+                hasChangeLog = script.changelogUrl != null,
+                hasHowToUse = script.howToUseUrl != null,
             ) { openActions = false }
         }
     }
@@ -415,6 +458,9 @@ class ScriptingRootSection : Routes.Route() {
         ) {
             ExtendedFloatingActionButton(
                 onClick = {
+                    if (context.scriptManager.getScriptsFolder() == null) {
+                        return@ExtendedFloatingActionButton
+                    }
                     showImportDialog = true
                 },
                 icon = { Icon(imageVector = Icons.Rounded.Link, contentDescription = "Link") },
@@ -425,12 +471,7 @@ class ScriptingRootSection : Routes.Route() {
             ExtendedFloatingActionButton(
                 onClick = {
                     context.scriptManager.getScriptsFolder()?.let {
-                        context.androidContext.startActivity(
-                            Intent(Intent.ACTION_VIEW).apply {
-                                data = it.uri
-                                flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                            }
-                        )
+                        context.androidContext.openLink(it.uri.toString())
                     }
                 },
                 icon = {

@@ -270,8 +270,21 @@ class MediaDownloader : MessagingRuleFeature("MediaDownloader", MessagingRuleTyp
         }
     }
 
-    private fun downloadOperaMedia(downloadManagerClient: DownloadManagerClient, mediaInfoMap: Map<SplitMediaAssetType, MediaInfo>) {
+    private fun downloadOperaMedia(downloadManagerClient: DownloadManagerClient, mediaInfoMap: Map<SplitMediaAssetType, MediaInfo>, paramMap: ParamMap) {
         if (mediaInfoMap.isEmpty()) return
+
+        paramMap["SNAP_ID"]?.toString()?.let { snapId ->
+            context.database.getStorySnapEntry(snapId)?.let { storySnapEntry ->
+                downloadManagerClient.downloadSingleMedia(
+                    storySnapEntry.mediaUrl ?: throw Exception("Media URL not found"),
+                    DownloadMediaType.fromUri(Uri.parse(storySnapEntry.mediaUrl)),
+                    (storySnapEntry.mediaKey to storySnapEntry.mediaIv).takeIf { it.first != null && it.second != null }?.let { (key, iv) ->
+                        MediaEncryptionKeyPair(key!!, iv!!, urlSafe = false)
+                    }
+                )
+                return
+            }
+        }
 
         val originalMediaInfo = mediaInfoMap[SplitMediaAssetType.ORIGINAL]!!
         val originalMediaInfoReference = handleLocalReferences(originalMediaInfo.uri)
@@ -349,7 +362,7 @@ class MediaDownloader : MessagingRuleFeature("MediaDownloader", MessagingRuleTyp
                 downloadSource = MediaDownloadSource.CHAT_MEDIA,
                 friendInfo = author,
                 forceAllowDuplicate = forceAllowDuplicate
-            ), mediaInfoMap)
+            ), mediaInfoMap, paramMap)
 
             return
         }
@@ -396,39 +409,11 @@ class MediaDownloader : MessagingRuleFeature("MediaDownloader", MessagingRuleTyp
                 downloadSource = MediaDownloadSource.STORY,
                 friendInfo = author,
                 forceAllowDuplicate = forceAllowDuplicate,
-            ), mediaInfoMap)
+            ), mediaInfoMap, paramMap)
             return
         }
 
         val snapSource = paramMap["SNAP_SOURCE"].toString()
-
-        //public stories
-        if ((snapSource == "PUBLIC_USER" || snapSource == "SAVED_STORY") &&
-            (forceDownload || shouldAutoDownload("public_stories"))) {
-
-            val author = (
-                paramMap["USER_ID"]?.let { context.database.getFriendInfo(it.toString())?.mutableUsername } // only for following users
-                ?: paramMap["USERNAME"]?.toString()?.takeIf {
-                    it.contains("value=")
-                }?.substringAfter("value=")?.substringBefore(")")?.substringBefore(",")
-                ?: paramMap["CONTEXT_USER_IDENTITY"]?.toString()?.takeIf {
-                    it.contains("username=")
-                }?.substringAfter("username=")?.substringBefore(",")
-                // fallback display name
-                ?: paramMap["USER_DISPLAY_NAME"]?.toString()?.takeIf { it.isNotEmpty() }
-                ?: paramMap["TIME_STAMP"]?.toString()
-                ?: "unknown"
-            ).sanitizeForPath()
-
-            downloadOperaMedia(provideDownloadManagerClient(
-                mediaIdentifier = paramMap["SNAP_ID"].toString(),
-                mediaAuthor = author,
-                downloadSource = MediaDownloadSource.PUBLIC_STORY,
-                creationTimestamp = paramMap["SNAP_TIMESTAMP"]?.toString()?.toLongOrNull(),
-                forceAllowDuplicate = forceAllowDuplicate,
-            ), mediaInfoMap)
-            return
-        }
 
         //spotlight
         if (snapSource == "SINGLE_SNAP_STORY" && (forceDownload || shouldAutoDownload("spotlight"))) {
@@ -438,7 +423,7 @@ class MediaDownloader : MessagingRuleFeature("MediaDownloader", MessagingRuleTyp
                 mediaAuthor = paramMap["CREATOR_DISPLAY_NAME"].toString(),
                 creationTimestamp = paramMap["SNAP_TIMESTAMP"]?.toString()?.toLongOrNull(),
                 forceAllowDuplicate = forceAllowDuplicate,
-            ), mediaInfoMap)
+            ), mediaInfoMap, paramMap)
             return
         }
 
@@ -544,6 +529,31 @@ class MediaDownloader : MessagingRuleFeature("MediaDownloader", MessagingRuleTyp
                 }.show()
             }
         }
+
+        if (!forceDownload && !shouldAutoDownload("public_stories")) return
+
+        //public stories
+        val author = (
+                paramMap["USER_ID"]?.let { context.database.getFriendInfo(it.toString())?.mutableUsername } // only for following users
+                    ?: paramMap["USERNAME"]?.toString()?.takeIf {
+                        it.contains("value=")
+                    }?.substringAfter("value=")?.substringBefore(")")?.substringBefore(",")
+                    ?: paramMap["CONTEXT_USER_IDENTITY"]?.toString()?.takeIf {
+                        it.contains("username=")
+                    }?.substringAfter("username=")?.substringBefore(",")
+                    // fallback display name
+                    ?: paramMap["USER_DISPLAY_NAME"]?.toString()?.takeIf { it.isNotEmpty() }
+                    ?: paramMap["TIME_STAMP"]?.toString()
+                    ?: "unknown"
+                ).sanitizeForPath()
+
+        downloadOperaMedia(provideDownloadManagerClient(
+            mediaIdentifier = paramMap["SNAP_ID"].toString(),
+            mediaAuthor = author,
+            downloadSource = MediaDownloadSource.PUBLIC_STORY,
+            creationTimestamp = paramMap["SNAP_TIMESTAMP"]?.toString()?.toLongOrNull(),
+            forceAllowDuplicate = forceAllowDuplicate,
+        ), mediaInfoMap, paramMap)
     }
 
     private fun shouldAutoDownload(keyFilter: String? = null): Boolean {

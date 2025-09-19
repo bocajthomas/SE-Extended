@@ -3,11 +3,11 @@
         "dialogs": {
             "select_language": "Choisir la langue",
             "select_save_folder_button": "Sélectionner un dossier",
-            "save_folder": "SnapEnhance requiert des autorisations de stockage pour télécharger et enregistrer des médias depuis Snapchat.\nVeuillez choisir l'emplacement où les médias doivent être téléchargés."
+            "save_folder": "SE Extended requiert des autorisations de stockage pour télécharger et enregistrer des médias depuis Snapchat.\nVeuillez choisir l'emplacement où les médias doivent être téléchargés."
         },
         "mappings": {
             "dialog": "Génération des mappings, cela peut prendre un certain temps...",
-            "generate_failure_no_snapchat": "SnapEnhance n'a pas pu détecter Snapchat, essayez de réinstaller Snapchat.",
+            "generate_failure_no_snapchat": "SE Extended n'a pas pu détecter Snapchat, essayez de réinstaller Snapchat.",
             "generate_failure": "Une erreur s'est produite lors de la génération des mappings, veuillez réessayer."
         },
         "permissions": {
@@ -51,8 +51,9 @@
                 "config_import_failure_toast": "Échec de l'importation de la configuration {error}",
                 "saved_config_snackbar": "Configuration enregistrée",
                 "config_export_failure_toast": "Échec de l'exportation de la configuration {error}",
-                "newer_required": "",
-                "older_required": ""
+                "older_required": "Cette fonctionnalité nécessite Snapchat v{version} ou une version antérieure pour fonctionner correctement",
+                "newer_required": "Cette fonctionnalité nécessite Snapchat v{version} ou une version plus récente pour fonctionner correctement",
+                "search_button": "Recherche"
             },
             "social": {
                 "streaks_expiration_short": "{hours}h",
@@ -68,7 +69,8 @@
                 "delete_files_option": "Supprimer également les fichiers",
                 "remove_selected_tasks_confirm": "Supprimer {count} tâches ?",
                 "remove_all_tasks_confirm": "Supprimer toutes les tâches ?",
-                "failed_to_open_file": "Échec de l'ouverture du fichier"
+                "failed_to_open_file": "Échec de l'ouverture du fichier",
+                "merge_button": "Fusionner"
             },
             "home": {
                 "update_content": "La version {version} est disponible !",
@@ -92,7 +94,7 @@
                 "streaks_expiration_text_expired": "Expiré",
                 "reminder_button": "Définir un rappel",
                 "delete_scope_confirm_dialog_title": "Êtes-vous sûr de vouloir supprimer ce {scope} ?",
-                "notes_placeholder": ""
+                "notes_placeholder": "Cliquez pour ajouter une note"
             },
             "home_logs": {
                 "no_logs_hint": "Aucun journal disponible",
@@ -192,7 +194,8 @@
                 "search_hint": "Rechercher",
                 "fetch_error": "Échec de la récupération des données",
                 "category_groups": "Groupes",
-                "category_friends": "Amis"
+                "category_friends": "Amis",
+                "participants_text": "{count} participants"
             },
             "scripting_warning": {
                 "content": "SnapEnhance inclut un outil de développement de scripts, permettant l'exécution d'un code défini par l'utilisateur sur votre appareil. Soyez extrêmement prudent et n'installez que des modules provenant de sources connues et fiables. Les modules non autorisés ou non vérifiés peuvent présenter des risques pour la sécurité de votre système.",
@@ -271,6 +274,9 @@
                     "blacklist": "Exclure de l'ouverture automatique des Snaps",
                     "whitelist": "Ouverture automatique des Snaps"
                 }
+            },
+            "exclude_message_logger": {
+                "name": "Exclure du journal des messages"
             }
         },
         "toasts": {
@@ -282,8 +288,7 @@
         "notices": {
             "unstable": "⚠️ Instable",
             "ban_risk": "⚠️ Cette fonctionnalité pourrait causer des bannissements",
-            "internal_behavior": "⚠️ Cela peut casser le comportement interne de Snapchat",
-            "require_native_hooks": "⚠️ Cette fonctionnalité nécessite des accrochages natifs expérimentaux pour fonctionner correctement"
+            "internal_behavior": "⚠️ Cela peut casser le comportement interne de Snapchat"
         },
         "properties": {
             "downloader": {
@@ -423,8 +428,8 @@
                                 "description": "Remplacement de l'onglet à l'ouverture"
                             },
                             "simple_snapchat": {
-                                "description": "",
-                                "name": ""
+                                "description": "Permet une version simplifiée de Snapchat",
+                                "name": "Snapchat simple"
                             }
                         }
                     },
@@ -499,23 +504,7 @@
                     "custom_theme": {
                         "description": "Personnaliser les couleurs de Snapchat\nNote : si vous choisissez un thème sombre (comme AMOLED), vous devrez peut-être activer le mode sombre dans les paramètres d'apparence pour obtenir de meilleurs résultats",
                         "name": "Thème personnalisé"
-                    },
-                    "auto_close_friend_feed_menu": {
-                        "description": "Ferme automatiquement le menu Friend Feed après avoir appuyé sur un bouton de réglage",
-                        "name": ""
-                    },
-                    "icon_style": {
-                        "description": "",
-                        "name": ""
-                    },
-                    "custom_friend_feed_label": {
-                        "description": "",
-                        "name": ""
-                    },
-                    "hide_quick_add_suggestions": {
-                        "description": "",
-                        "name": ""
-                    }
+                    }   
                 }
             },
             "messaging": {
@@ -615,6 +604,10 @@
                             "keep_my_own_messages": {
                                 "name": "Conserver mes propres messages",
                                 "description": "Empêche la suppression de vos propres messages"
+                            },
+                            "deleted_message_color": {
+                                "description": "Définit la couleur des messages supprimés",
+                                "name": "Couleur du message supprimé"
                             }
                         }
                     },
@@ -695,6 +688,14 @@
                     "skip_when_marking_as_seen": {
                         "name": "Ignorer lors du marquage comme vu",
                         "description": "Passe automatiquement au Snap suivant lors du marquage d'un Snap comme vu.\nÀ utiliser en combinaison avec le Bouton Marquer Snap comme vu"
+                    },
+                    "double_tap_chat_action_custom_emoji": {
+                        "name": "Action de chat en appuyant deux fois Réaction Emoji personnalisée",
+                        "description": "Définit une réaction emoji personnalisée pour l'action de chat en double-cliquant"
+                    },
+                    "double_tap_chat_action": {
+                        "name": "Action de chat en appuyant deux fois",
+                        "description": "Effectue une action personnalisée en appuyant deux fois sur un message dans le chat"
                     }
                 }
             },
@@ -879,6 +880,10 @@
                     "front_custom_frame_rate": {
                         "name": "Fréquence d'images personnalisée à l'avant",
                         "description": "Remplace la fréquence d'images de la caméra frontale"
+                    },
+                    "startup_default_camera": {
+                        "name": "Caméra par défaut de démarrage",
+                        "description": "Définit l'appareil photo par défaut lors de l'ouverture de Snapchat"
                     }
                 }
             },
@@ -948,21 +953,9 @@
                         "name": "Falsification",
                         "description": "Falsifier diverses informations vous concernant",
                         "properties": {
-                            "randomize_persistent_device_token": {
-                                "description": "Génère un jeton aléatoire après chaque connexion",
-                                "name": "Randomiser le jeton persistant de l'appareil"
-                            },
                             "remove_mock_location_flag": {
                                 "name": "Supprimer le flag de Mock Location",
                                 "description": "Empêche Snapchat de détecter les localisations Mock"
-                            },
-                            "android_id": {
-                                "name": "ID Android",
-                                "description": "Modifie l'identifiant Android avec la valeur spécifiée"
-                            },
-                            "fingerprint": {
-                                "description": "Change la fingerprint de votre appareil",
-                                "name": "Fingerprint de l'appareil"
                             },
                             "remove_vpn_transport_flag": {
                                 "description": "Empêche Snapchat de détecter les VPN",
@@ -975,7 +968,7 @@
                         }
                     },
                     "infinite_story_boost": {
-                        "name": "Booster de story infini",
+                        "name": "Boost de story infini",
                         "description": "Contournez le délai de Boost de Story"
                     },
                     "no_friend_score_delay": {
@@ -1332,12 +1325,12 @@
             },
             "custom_theme": {
                 "mint_chocolate": "Chocolat à la menthe",
-                "ginger_snap": "­Tarte au gingembre",
+                "ginger_snap": "Tarte au gingembre",
                 "lemon_meringue": "Meringue au citron",
                 "ocean_fog": "Brume de l'océan",
                 "alien_landscape": "Paysage extraterrestre",
                 "watercolor_wash": "Peinture à l'eau",
-                "zesty_lemon": "­Zeste de citron",
+                "zesty_lemon": "Zeste de citron",
                 "tropical_paradise": "Paradis tropical",
                 "industrial_chic": "Chic industriel",
                 "woodland_mystery": "Mystère des bois",
@@ -1506,7 +1499,7 @@
             "segment_text": "Segment {from} - {to}"
         },
         "dash_no_chapter": "Aucun chapitre trouvé",
-        "content_saved_toast": ""
+        "content_saved_toast": "Sauvegarder!"
     },
     "streaks_reminder": {
         "notification_title": "Rappels des flammes",

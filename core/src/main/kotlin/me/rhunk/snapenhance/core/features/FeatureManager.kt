@@ -28,6 +28,10 @@ class FeatureManager(
     private val features = mutableMapOf<KClass<out Feature>, Feature>()
     private val onActivityCreateListeners = mutableListOf<(Activity) -> Unit>()
 
+    fun addActivityCreateListener(block: (Activity) -> Unit) {
+        onActivityCreateListeners.add(block)
+    }
+
     private fun register(vararg featureList: Feature) {
         if (context.bridgeClient.getDebugProp("disable_feature_loading") == "true") {
             context.log.warn("Feature loading is disabled")
@@ -61,7 +65,6 @@ class FeatureManager(
     fun init() {
         register(
             Debug(),
-            SecurityFeatures(),
             EndToEndEncryption(),
             ScopeSync(),
             PreventMessageListAutoScroll(),
@@ -102,7 +105,7 @@ class FeatureManager(
             FriendFeedMessagePreview(),
             HideStreakRestore(),
             HideFriendFeedEntry(),
-            HideQuickAddSuggestions(),
+            RequerySqlite(),
             CallButtonsOverride(),
             SnapPreview(),
             BypassScreenshotDetection(),
@@ -138,6 +141,10 @@ class FeatureManager(
             BetterTranscript(),
             VoiceNoteOverride(),
             FriendNotes(),
+            DoubleTapChatAction(),
+            SnapScoreChanges(),
+            DisableSnapModeRestrictions(),
+            PreventForcedKeyboard(),
         )
 
         features.values.toList().forEach { feature ->

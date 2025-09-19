@@ -381,7 +381,6 @@ class FeaturesRootSection : Routes.Route() {
             FeatureNotice.UNSTABLE.key to Color(0xFFFFFB87),
             FeatureNotice.BAN_RISK.key to Color(0xFFFF8585),
             FeatureNotice.INTERNAL_BEHAVIOR.key to Color(0xFFFFFB87),
-            FeatureNotice.REQUIRE_NATIVE_HOOKS.key to Color(0xFFFF5722),
         )
 
         val versionCheck = remember { property.key.params.versionCheck }

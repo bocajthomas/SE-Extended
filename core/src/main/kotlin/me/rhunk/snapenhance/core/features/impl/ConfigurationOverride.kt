@@ -53,8 +53,10 @@ class ConfigurationOverride : Feature("Configuration Override") {
                 { true })
             overrideProperty("REDUCE_MY_PROFILE_UI_COMPLEXITY", { context.config.userInterface.mapFriendNameTags.get() },
                 { true })
-            overrideProperty("ENABLE_LONG_SNAP_SENDING", { context.config.global.disableSnapSplitting.get() },
-                { true })
+
+            arrayOf("DISABLE_SPLIT_RENDER_PASS_CONTROLLER", "ENABLE_LONG_SNAP_SENDING").forEach {
+                overrideProperty(it, { context.config.global.disableSnapSplitting.get() }, { true })
+            }
 
             overrideProperty("DF_VOPERA_FOR_STORIES", { context.config.userInterface.verticalStoryViewer.get() },
                 { true }, isAppExperiment = true)
@@ -63,6 +65,10 @@ class ConfigurationOverride : Feature("Configuration Override") {
 
             overrideProperty("BYPASS_AD_FEATURE_GATE", { context.config.global.blockAds.get() },
                 { true })
+
+            overrideProperty("SPONSORED_SNAPS_ENABLED", { context.config.global.blockAds.get() }, { false })
+            overrideProperty("SPONSORED_SNAP_UPDATE_SPONSORED_FEED_ITEM", { context.config.global.blockAds.get() }, { false })
+
             arrayOf("CUSTOM_AD_TRACKER_URL", "CUSTOM_AD_INIT_SERVER_URL", "CUSTOM_AD_SERVER_URL", "INIT_PRIMARY_URL", "INIT_SHADOW_URL", "GRAPHENE_HOST").forEach {
                 overrideProperty(it, { context.config.global.blockAds.get() }, { "http://127.0.0.1" })
             }
@@ -134,12 +140,6 @@ class ConfigurationOverride : Feature("Configuration Override") {
 
                         val propertyOverride = propertyOverrides[keyInfo.name] ?: return@hook
                         propertyOverride.isAppExperiment.takeIf { propertyOverride.filter(keyInfo) }?.let { param.setResult(it) }
-                    }
-                }
-
-                if (context.config.experimental.hiddenSnapchatPlusFeatures.get()) {
-                    customBooleanPropertyRules.add { key ->
-                        key.category == "PLUS" && key.defaultValue is Boolean && key.name?.endsWith("_GATE") == true
                     }
                 }
             }.onFailure {

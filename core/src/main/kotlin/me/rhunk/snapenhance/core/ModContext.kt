@@ -61,7 +61,7 @@ class ModContext(
     val messageSender = MessageSender(this)
 
     val features = FeatureManager(this)
-    val mappings by lazy { MappingsWrapper(lazyFileHandlerManager) }
+    val mappings by lazy { MappingsWrapper(lazyFileHandlerManager).apply { init(androidContext) } }
     val actionManager = ActionManager(this)
     val database = DatabaseAccess(this)
     val event = EventBus(this)
@@ -75,6 +75,8 @@ class ModContext(
     val isDeveloper by lazy { config.scripting.developerMode.get() }
 
     var isMainActivityPaused = true
+    var disablePlugin = false
+
 
     fun <T : Feature> feature(featureClass: KClass<T>): T {
         return features.get(featureClass)!!

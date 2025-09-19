@@ -282,8 +282,7 @@
         "notices": {
             "unstable": "⚠ Instabil",
             "ban_risk": "⚠ Ez a funkció tiltást eredményezhet",
-            "internal_behavior": "⚠ Ez a funkció hibát okozhat a Snapchat működésében",
-            "require_native_hooks": "⚠ Ez egy kísérleti beállítás, amelyhez Natív hookok használata szükséges"
+            "internal_behavior": "⚠ Ez a funkció hibát okozhat a Snapchat működésében"
         },
         "properties": {
             "downloader": {
@@ -952,21 +951,9 @@
                                 "description": "Felülírja a telepítőcsomag nevét com.android.vending-re",
                                 "name": "Play áruház telepítő csomag neve"
                             },
-                            "android_id": {
-                                "description": "Meghamisítja az Android ID-t a megadott értékre",
-                                "name": "Android ID"
-                            },
-                            "fingerprint": {
-                                "description": "Átírja a készülék ujjlenyomatát",
-                                "name": "Készülék ujjlenyomata"
-                            },
                             "remove_mock_location_flag": {
                                 "description": "Megakadályozza, hogy a Snapchat felismerje a Mock helyét",
                                 "name": "Távolítsa el a Mock Location Flag-et"
-                            },
-                            "randomize_persistent_device_token": {
-                                "name": "Állandó eszköz token véletlenszerűvé tétele",
-                                "description": "Minden bejelentkezés után véletlenszerű eszköz-token generálása"
                             },
                             "remove_vpn_transport_flag": {
                                 "name": "VPN szállítási zászló eltávolítása",

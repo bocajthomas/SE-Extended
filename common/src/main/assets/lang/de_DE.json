@@ -53,6 +53,7 @@
                 "config_export_failure_toast": "Konfiguration konnte nicht exportiert werden {error}",
                 "older_required": "Dieses Feature benötigt Snapchat v{version} oder älter um ordnungsgemäß zu funktionieren",
                 "newer_required": "Dieses Feature benötigt Snapchat v{version} oder neuer um ordnungsgemäß zu funktionieren"
+
             },
             "social": {
                 "streaks_expiration_short": "{hours}h",
@@ -68,13 +69,14 @@
                 "delete_files_option": "Auch Dateien löschen",
                 "remove_selected_tasks_confirm": "{count} Aufgaben entfernen?",
                 "remove_all_tasks_confirm": "Alle Aufgaben entfernen?",
-                "failed_to_open_file": "Datei konnte nicht geöffnet werden"
+                "failed_to_open_file": "Datei konnte nicht geöffnet werden",
+                "merge_button": "Zusammenführen"
             },
             "home": {
                 "update_title": "SnapEnhance Update",
                 "update_content": "Version {version} ist verfügbar!",
                 "update_button": "Herunterladen",
-                "version_title": "V{versionName} · Ein Fork von Jacob",
+                "version_title": "V{versionName} · Ein Fork von bocajthomas",
                 "quick_actions_title": "Schnelle Aktionen",
                 "debug_build_summary_title": "Sie führen einen debug build von SE Extended",
                 "debug_build_summary_content": "Ausführung {versionName} ({versionCode})",
@@ -104,8 +106,8 @@
                 "save_from_cache_button": "Aus Zwischenspeicher speichern"
             },
             "messaging_preview": {
-                "bridge_connection_failed": "Verbindung zu Snapchat über den Brückendienst fehlgeschlagen",
-                "bridge_init_failed": "Initialisierung der Nachrichtenbrücke fehlgeschlagen",
+                "bridge_connection_failed": "Verbindung zu Snapchat über den Brückendienst fehlgeschlagen. Stellen Sie sicher das Snapchat im Hintergrund läuft",
+                "bridge_init_failed": "Initialisierung der Nachrichtenbrücke fehlgeschlagen. Stelle sicher, dass Snapchat im Hintergrund läuft",
                 "message_fetch_failed": "Fehler beim Abrufen der Nachrichten",
                 "no_message_hint": "Keine Nachricht",
                 "save_selection_option": "Auswahl speichern",
@@ -192,7 +194,8 @@
                 "search_hint": "Suchen",
                 "fetch_error": "Fehler beim Abrufen der Daten",
                 "category_groups": "Gruppen",
-                "category_friends": "Freunde"
+                "category_friends": "Freunde",
+                "participants_text": "{count} Teilnehmer"
             },
             "scripting_warning": {
                 "content": "SE Extended enthält ein Skripting-Tool, das die Ausführung von benutzerdefinierten Code auf Ihrem Gerät ermöglicht. Seien Sie äußerst vorsichtig und installieren Sie nur Module aus bekannten, zuverlässigen Quellen. Unautorisierte oder ungeprüfte Module können Sicherheitsrisiken für Ihr System darstellen.",
@@ -282,8 +285,7 @@
         "notices": {
             "unstable": "⚠ Instabil",
             "ban_risk": "⚠ Dieses Feature kann zu Bans führen",
-            "internal_behavior": "⚠ Dies kann das interne Verhalten von Snapchat stören",
-            "require_native_hooks": "⚠ Um korrekt zu funktionieren erfordert dieses Feature experimentelle Native Hooks"
+            "internal_behavior": "⚠ Dies kann das interne Verhalten von Snapchat stören"
         },
         "properties": {
             "downloader": {
@@ -423,8 +425,8 @@
                                 "description": "Überschreibt den Start-Tab beim Öffnen von Snapchat"
                             },
                             "simple_snapchat": {
-                                "description": "",
-                                "name": ""
+                                "description": "Aktiviert eine vereinfachte Version von Snapchat",
+                                "name": "Einfaches Snapchat"
                             }
                         }
                     },
@@ -615,6 +617,10 @@
                             "keep_my_own_messages": {
                                 "name": "Eigene Nachrichten behalten",
                                 "description": "Verhindert, dass Ihre eigenen Nachrichten gelöscht werden"
+                            },
+                            "deleted_message_color": {
+                                "name": "Gelöschte Nachrichten Farbe",
+                                "description": "Setzt die Farbe von gelöschten Nachrichten"
                             }
                         }
                     },
@@ -768,7 +774,7 @@
                             },
                             "suspend_location_updates": {
                                 "name": "Button zum Deaktivieren",
-                                "description": "Fügt in den Karteneinstellungen einen Button hinzu, um Standortaktualisierungen zu pausieren"
+                                "description": "Fügt in den Karteneinstellungen einen Knopf hinzu, um Standortaktualisierungen zu pausieren"
                             },
                             "walk_radius": {
                                 "name": "Radius",
@@ -948,21 +954,9 @@
                         "name": "Simulieren",
                         "description": "Verschiedene Informationen über dich vortäuschen",
                         "properties": {
-                            "randomize_persistent_device_token": {
-                                "description": "Erzeugt ein zufälliges Geräte-Token nach jedem Login",
-                                "name": "Dauerhaftes Geräte-Token zufällig auswählen"
-                            },
                             "remove_mock_location_flag": {
                                 "name": "Kennzeichnung für den gefälschten Standort entfernen",
                                 "description": "Verhindert, dass Snapchat gefälschte Standorte erkennt"
-                            },
-                            "android_id": {
-                                "name": "Android ID",
-                                "description": "Fälscht deine Android ID mit dem angegebenen Wert"
-                            },
-                            "fingerprint": {
-                                "description": "Fälscht den Sicherheitsabdruck deines Gerätes",
-                                "name": "Geräte-Fingerabdruck"
                             },
                             "remove_vpn_transport_flag": {
                                 "description": "Hindert Snapchat daran, VPNs zu erkennen",
@@ -1204,7 +1198,7 @@
                 "speaking": "Sprache"
             },
             "gallery_media_send_override": {
-                "ORIGINAL": "Original",
+                "ORIGINAL": "Originale Medien",
                 "NOTE": "Audio-Notiz",
                 "SNAP": "Schnapp",
                 "always_ask": "Immer Fragen",
@@ -1665,7 +1659,7 @@
         "already_seen_toast": "Bereits markiert als gesehen!"
     },
     "scopes": {
-        "friend": "Freund:in",
+        "friend": "Freund in",
         "group": "Gruppe"
     },
     "end_to_end_encryption": {

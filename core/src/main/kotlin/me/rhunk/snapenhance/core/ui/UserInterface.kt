@@ -5,6 +5,7 @@ import android.graphics.Typeface
 import android.util.TypedValue
 import android.view.Gravity
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import me.rhunk.snapenhance.core.ModContext
 import me.rhunk.snapenhance.core.util.hook.HookStage
 import me.rhunk.snapenhance.core.util.hook.hook
@@ -13,14 +14,13 @@ import me.rhunk.snapenhance.core.util.ktx.isDarkTheme
 class UserInterface(
     private val context: ModContext
 ) {
-    private val fontMap = mutableMapOf<Int, Int>()
+    private val fontMap = mutableMapOf<Int, Typeface>()
 
     val colorPrimary get() = if (context.androidContext.isDarkTheme()) 0xfff5f5f5.toInt() else 0xff212121.toInt()
     val actionSheetBackground get() = if (context.androidContext.isDarkTheme()) 0xff1e1e1e.toInt() else 0xffffffff.toInt()
 
-    val avenirNextTypeface: Typeface by lazy {
-        fontMap[600]?.let { context.resources.getFont(it) } ?: Typeface.MONOSPACE
-    }
+    val avenirNextFontId = 500
+    val avenirNextTypeface get() = fontMap[avenirNextFontId] ?: fontMap.entries.minByOrNull { it.key }?.value ?: Typeface.DEFAULT
 
     fun dpToPx(dp: Int): Int {
         return (dp * context.resources.displayMetrics.density).toInt()
@@ -29,10 +29,6 @@ class UserInterface(
     @Suppress("unused")
     fun pxToDp(px: Int): Int {
         return (px / context.resources.displayMetrics.density).toInt()
-    }
-
-    fun getFontResource(weight: Int): Int? {
-        return fontMap[weight]
     }
 
     fun applyActionButtonTheme(view: TextView) {
@@ -50,13 +46,38 @@ class UserInterface(
     }
 
     fun init() {
-        Resources::class.java.hook("getValue", HookStage.AFTER) { param ->
-            val typedValue = param.arg<TypedValue>(1)
-            val path = typedValue.string ?: return@hook
-            if (!path.startsWith("res/") || !path.endsWith(".ttf")) return@hook
+        ResourcesCompat::class.java.hook("getFont", HookStage.BEFORE) { param ->
+            val id = param.arg<Int>(1)
+            if (id == avenirNextFontId) {
+                param.setResult(avenirNextTypeface)
+            } else if (fontMap.containsKey(id)) {
+                param.setResult(fontMap[id])
+            }
+        }
 
-            val typeface = context.resources.getFont(typedValue.resourceId)
-            fontMap.getOrPut(typeface.weight) { typedValue.resourceId }
+        lateinit var unhook: () -> Unit
+
+        unhook = Resources::class.java.hook("getValue", HookStage.AFTER) { param ->
+            val typedValue = param.argNullable<TypedValue>(1)?.takeIf {
+                it.resourceId != 0 &&
+                        it.type == TypedValue.TYPE_STRING && it.string?.endsWith(".ttf") == true
+            } ?: return@hook
+
+            unhook()
+
+            var offset = typedValue.resourceId.shr(8).shl(8)
+
+            while (true) {
+                try {
+                    if (context.resources.getResourceTypeName(++offset) != "font") break
+                    val font = runCatching { context.resources.getFont(offset) }.getOrNull() ?: break
+                    fontMap[font.weight] = font
+                } catch (_: Throwable) {
+                    break
+                }
+            }
+        }.let { unhooks ->
+            { unhooks.forEach { it.unhook() } }
         }
     }
 }

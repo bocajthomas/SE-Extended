@@ -247,7 +247,7 @@ fun LogsTab(
                         ) {
                             Card(
                                 modifier = Modifier
-                                    .menuAnchor()
+                                    .menuAnchor(MenuAnchorType.PrimaryNotEditable)
                                     .padding(2.dp)
                             ) {
                                 Text("Export as $exportType", modifier = Modifier.padding(8.dp))
@@ -352,7 +352,7 @@ fun LogsTab(
                     ) {
                         Card(
                             modifier = Modifier
-                                .menuAnchor()
+                                .menuAnchor(MenuAnchorType.PrimaryNotEditable)
                                 .padding(2.dp)
                         ) {
                             Text(filterType.name, modifier = Modifier.padding(8.dp))
@@ -425,7 +425,7 @@ fun LogsTab(
                     value = filter,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .menuAnchor()
+                        .menuAnchor(MenuAnchorType.PrimaryNotEditable)
                         .padding(8.dp),
                     onValueChange = {
                         filter = it

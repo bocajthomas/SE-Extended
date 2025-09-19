@@ -27,6 +27,10 @@ class CameraTweaks : Feature("Camera Tweaks") {
     override fun init() {
         val config = context.config.camera
 
+        config.startupDefaultCamera.getNullable()?.let { defaultCamera ->
+            context.database.setCameraType(if (defaultCamera == "back") "BACK_FACING" else "FRONT_FACING")
+        }
+
         val frontCameraId by lazy {
             runCatching { context.androidContext.getSystemService(CameraManager::class.java).run {
                 cameraIdList.firstOrNull { getCameraCharacteristics(it).get(CameraCharacteristics.LENS_FACING) == CameraCharacteristics.LENS_FACING_FRONT }

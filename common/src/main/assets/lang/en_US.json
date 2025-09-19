@@ -3,7 +3,11 @@
         "dialogs": {
             "select_language": "Select Language",
             "save_folder": "SE Extended requires Storage permissions to download and Save Media from Snapchat.\nPlease choose the location where media should be downloaded to.",
-            "select_save_folder_button": "Select Folder"
+            "select_save_folder_button": "Select Folder",
+            "disclaimer": {
+                "statement": "Welcome to the SE Extended Module.\n Disclaimer: \n- Users must take full Responsibility for any risks associated with using this module. \n- The SE Extended Module can modify the behaviour of the Snapchat app. Users should carefully review the module's operations and make their own decisions regarding its usage. \n- The developer accepts no responsibility for any warnings or bans that may occur on your snapchat account that may arise from the use of the SE Extended module, and all consequences are to be borne by the users themselves.",
+                "agree_button": "I Agree"
+            }
         },
         "mappings": {
             "dialog": "Generating Mappings, this may take a while ...",
@@ -75,6 +79,7 @@
             },
             "tasks": {
                 "no_tasks": "No tasks",
+                "merge_button": "Merge",
                 "failed_to_open_file": "Failed to open file",
                 "merge_files_toast": "Merging {count} files",
                 "remove_selected_tasks_title": "Are you sure you want to remove selected tasks?",
@@ -94,7 +99,8 @@
                 "config_export_failure_toast": "Failed to export config {error}",
                 "saved_config_snackbar": "Config saved",
                 "older_required": "This feature requires Snapchat v{version} or older to work correctly",
-                "newer_required": "This feature requires Snapchat v{version} or newer to work correctly"
+                "newer_required": "This feature requires Snapchat v{version} or newer to work correctly",
+                "search_button": "Search"
             },
             "manage_rule_feature": {
                 "disable_state_option": "Disabled",
@@ -187,7 +193,14 @@
                 "no_friends_found": "No friends found"
             },
             "theming": {
-                "no_themes_hint": "No themes found"
+                "no_themes_hint": "No themes found",
+                "search_theme_placeholder": "Search themes",
+                "new_theme_button": "New theme",
+                "import_from_file_button": "Import from file",
+                "import_from_url_button": "Import from URL",
+                "manage_repositories_button": "Manage repositories",
+                "installed_themes_title": "Installed Themes",
+                "theme_catalog_title": "Theme Catalog"
             }
         },
         "dialogs": {
@@ -196,7 +209,8 @@
                 "search_hint": "Search",
                 "fetch_error": "Failed to fetch data",
                 "category_groups": "Groups",
-                "category_friends": "Friends"
+                "category_friends": "Friends",
+                "participants_text": "{count} participants"
             },
             "scripting_warning": {
                 "title": "Warning",
@@ -218,6 +232,17 @@
             "file_imports": {
                 "no_files_settings_hint": "No files found. Make sure you have imported the required files in the File Imports section",
                 "settings_select_file_hint": "Select an imported file"
+            },
+            "import_theme_url": {
+                "title": "Import Theme from URL",
+                "url_hint": "URL",
+                "import_button": "Import"
+            },
+            "theme_settings": {
+                "title": "Theme Settings",
+                "duplicate_button": "Duplicate",
+                "export_button": "Export"
+
             }
         }
     },
@@ -279,6 +304,9 @@
             },
             "pin_conversation": {
                 "name": "Pin Conversation"
+            },
+            "exclude_message_logger": {
+                "name": "Exclude From Message Logger"
             }
         }
     },
@@ -315,10 +343,6 @@
             "name": "Disclaimer Statement",
             "description": "Read the disclaimer statement"
         },
-        "security_features": {
-            "name": "Security Features",
-            "description": "Change security features preferences"
-        },
         "file_imports": {
             "name": "File Imports",
             "description": "Import files for use in Snapchat"
@@ -334,14 +358,14 @@
         "theming": {
             "name": "Theming",
             "description": "Customize the look and feel of Snapchat"
+
         }
     },
     "features": {
         "notices": {
-            "unstable": "⚠ Unstable",
-            "ban_risk": "⚠ This feature may cause bans",
-            "internal_behavior": "⚠ This may break Snapchat internal behavior",
-            "require_native_hooks": "⚠ This feature requires experimental Native Hooks to work correctly"
+            "unstable": "\u26A0 Unstable",
+            "ban_risk": "\u26A0 This feature may cause bans",
+            "internal_behavior": "\u26A0 This may break Snapchat internal behavior"
         },
         "properties": {
             "downloader": {
@@ -466,6 +490,10 @@
                         "name": "Icon Style",
                         "description": "Changes the style of material icons\n\nFeatures Supported:\n - Opera Download Button \n - Mark Snap As Seen Button \n - Friend Feed Menu Buttons\n - COF Experiments\n - Message Indicators\n - Logging"
                     },
+                    "disable_settings_menu": {
+                        "name": "Disable Settings Menu",
+                        "description": "Disables the settings menu in snapchat"
+                    },
                     "friend_feed_message_preview": {
                         "name": "Friend Feed Message Preview",
                         "description": "Shows a preview of the last messages in the Friend Feed",
@@ -573,6 +601,10 @@
                     "edit_text_override": {
                         "name": "Edit Text Override",
                         "description": "Overrides text field behavior"
+                    },
+                    "prevent_forced_keyboard": {
+                        "name": "Prevent Forced Keyboard",
+                        "description": "Prevents Snapchat from automatically popping up the keyboard when you open a conversation"
                     }
                 }
             },
@@ -649,6 +681,10 @@
                     "unlimited_conversation_pinning": {
                         "name": "Unlimited Conversation Pinning",
                         "description": "Allows you to pin an unlimited amount of conversations locally"
+                    },
+                    "disable_snap_mode_restrictions": {
+                        "name": "Disable Snap Mode Restrictions",
+                        "description": "Allows you to view self-destructing Snaps without restrictions"
                     },
                     "prevent_message_sending": {
                         "name": "Prevent Message Sending",
@@ -727,6 +763,10 @@
                             "message_filter": {
                                 "name": "Message Filter",
                                 "description": "Select which messages should get logged (empty for all messages)"
+                            },
+                            "deleted_message_color": {
+                                "name": "Deleted Message Color",
+                                "description": "Sets the color of deleted messages"
                             }
                         }
                     },
@@ -753,6 +793,14 @@
                     "remove_groups_locked_status": {
                         "name": "Remove Groups Locked Status",
                         "description": "Allows you to view group information after being kicked"
+                    },
+                    "double_tap_chat_action": {
+                        "name": "Double Tap Chat Action",
+                        "description": "Performs a custom action when double tapping a message in chat"
+                    },
+                    "double_tap_chat_action_custom_emoji": {
+                        "name": "Double Tap Chat Action Custom Emoji Reaction",
+                        "description": "Sets a custom emoji reaction for the double tap chat action"
                     }
                 }
             },
@@ -934,6 +982,10 @@
                         "name": "Force Camera Source Encoding",
                         "description": "Forces the camera source encoding"
                     },
+                    "startup_default_camera": {
+                        "name": "Startup Default Camera",
+                        "description": "Sets the default camera when opening Snapchat"
+                    },
                     "hevc_recording": {
                         "name": "HEVC Recording",
                         "description": "Uses HEVC (H.265) codec for video recording"
@@ -978,6 +1030,10 @@
                                         "name": "Bypass Camera Roll Limit",
                                         "description": "Increases the maximum amount of media you can send from the camera roll"
                                     },
+                                    "custom_self_destruct_snap_delay": {
+                                        "name": "Custom Self Destruct Snap Delay",
+                                        "description": "Gives more options for the self-destruct timer when sending a Snap"
+                                    },
                                     "composer_console": {
                                         "name": "Composer Console",
                                         "description": "Allows you to execute JavaScript code in Composer (ARM64 only)"
@@ -1010,14 +1066,6 @@
                                 "name": "Play Store Installer Package Name",
                                 "description": "Overrides the installer package name to com.android.vending"
                             },
-                            "fingerprint": {
-                                "name": "Device Fingerprint",
-                                "description": "Spoofs your device Fingerprint"
-                            },
-                            "android_id": {
-                                "name": "Android ID",
-                                "description": "Spoofs your Android ID to the specified value"
-                            },
                             "remove_vpn_transport_flag": {
                                 "name": "Remove VPN Transport Flag",
                                 "description": "Prevents Snapchat from detecting VPNs"
@@ -1025,10 +1073,6 @@
                             "remove_mock_location_flag": {
                                 "name": "Remove Mock Location Flag",
                                 "description": "Prevents Snapchat from detecting Mock location"
-                            },
-                            "randomize_persistent_device_token": {
-                                "name": "Randomize Persistent Device Token",
-                                "description": "Generates a random device token after each login"
                             }
                         }
                     },
@@ -1070,13 +1114,9 @@
                                 "name": "Preferred Transcription Language",
                                 "description": "The preferred language for the voice note transcript (e.g. EN, ES, FR)"
                             },
-                            "enhanced_transcript": {
-                                "name": "Enhanced Transcript",
-                                "description": "Improves the voice note transcript using DeepL.\nBefore using this feature, please ensure that you have read their privacy policy."
-                            },
-                            "enhanced_transcript_in_notifications": {
-                                "name": "Enhanced Transcript in Notifications",
-                                "description": "Transcribes voice notes in notifications using DeepL. This requires the Chat Preview feature to be enabled in Better Notifications"
+                            "notification_transcript": {
+                                "name": "Notification Transcript",
+                                "description": "Transcribes voice notes in notifications\nThis feature requires the Chat Preview feature to be enabled in Better Notifications"
                             }
                         }
                     },
@@ -1091,10 +1131,6 @@
                     "cof_experiments": {
                         "name": "COF Experiments",
                         "description": "Enables unreleased/beta Snapchat features"
-                    },
-                    "edit_message": {
-                        "name": "Edit Messages",
-                        "description": "Allows you to edit messages in conversations"
                     },
                     "context_menu_fix": {
                         "name": "Context Menu Fix",
@@ -1155,6 +1191,10 @@
                     "prevent_forced_logout": {
                         "name": "Prevent Forced Logout",
                         "description": "Prevents Snapchat from logging you out when you login on another device"
+                    },
+                    "snapscore_changes": {
+                        "name": "Snapscore Changes",
+                        "description": "Tracks changes in friends Snapscore\nUse this feature in newer versions of Snapchat only"
                     }
                 }
             },
@@ -1185,6 +1225,10 @@
                     "disable_log_anonymization": {
                         "name": "Disable Log Anonymization",
                         "description": "Disables the anonymization of logs"
+                    },
+                    "disable_optimization": {
+                        "name": "Disable Optimization",
+                        "description": "Disables the optimization of scripts. This may cause performance issues."
                     }
                 }
             },
@@ -1212,6 +1256,7 @@
                 "always_light": "Always Light",
                 "always_dark": "Always Dark"
             },
+
             "custom_theme": {
                 "amoled_dark_mode": "AMOLED Dark Mode",
                 "custom": "Custom Themes (Use the Quick Actions to manage themes)",
@@ -1299,7 +1344,8 @@
                 "initiate_audio": "Incoming Audio Call",
                 "abandon_audio": "Missed Audio Call",
                 "initiate_video": "Incoming Video Call",
-                "abandon_video": "Missed Video Call"
+                "abandon_video": "Missed Video Call",
+                "map_live_location": "Map Live Location"
             },
             "gallery_media_send_override": {
                 "always_ask": "Always Ask",
@@ -1340,10 +1386,6 @@
                 "camera": "Camera",
                 "discover": "Discover",
                 "spotlight": "Spotlight"
-            },
-            "simple_snapchat": {
-                "always_enabled": "Always Enabled",
-                "always_disabled": "Always Disabled"
             },
             "add_friend_source_spoof": {
                 "added_by_username": "By Username",
@@ -1422,7 +1464,8 @@
             },
             "auto_mark_as_read": {
                 "conversation_read": "Mark conversation as read when sending a message",
-                "snap_reply": "Mark snaps as read when replying to them"
+                "snap_reply": "Mark snaps as read when replying to them",
+                "save_snap_in_chat": "Mark snaps as read when saving them in chat while in Stealth Mode"
             },
             "friend_mutation_notifier": {
                 "remove_friend": "Notify when someone removes you as a friend",
@@ -1442,6 +1485,17 @@
                 "filled": "Filled",
                 "sharp": "Sharp",
                 "two-tone": "Two Tone"
+            },
+            "double_tap_chat_action": {
+                "like_message": "Like Message",
+                "copy_text": "Copy Text to Clipboard",
+                "delete_message": "Delete Message",
+                "mark_as_read": "Mark as Read",
+                "custom_emoji_reaction": "Custom Emoji Reaction"
+            },
+            "startup_default_camera": {
+                "front": "Front Camera",
+                "back": "Back Camera"
             }
         }
     },
@@ -1495,8 +1549,7 @@
         "download_button": "Download",
         "delete_logged_message_button": "Delete Logged Message",
         "show_chat_edit_history": "Show Chat Edit History",
-        "convert_message": "Convert Message",
-        "edit_message": "Edit Message"
+        "convert_message": "Convert Message"
     },
     "opera_context_menu": {
         "download": "Download Media",
@@ -1595,7 +1648,39 @@
         "cancel": "Cancel",
         "open": "Open",
         "download": "Download",
-        "send": "Send"
+        "send": "Send",
+        "restore_original": "Restore Original",
+        "convert_external_media": "Convert External Media"
+    },
+
+    "tracker_events": {
+        "conversation_enter": "Conversation Enter",
+        "conversation_exit": "Conversation Exit",
+        "started_typing": "Started Typing",
+        "stopped_typing": "Stopped Typing",
+        "started_speaking": "Started Speaking",
+        "stopped_speaking": "Stopped Speaking",
+        "started_peeking": "Started Peeking",
+        "stopped_peeking": "Stopped Peeking",
+        "message_read": "Message Read",
+        "message_deleted": "Message Deleted",
+        "message_saved": "Message Saved",
+        "message_unsaved": "Message Unsaved",
+        "message_edited": "Message Edited",
+        "message_reaction_add": "Message Reaction Add",
+        "message_reaction_remove": "Message Reaction Remove",
+        "snap_opened": "Snap Opened",
+        "snap_replayed": "Snap Replayed",
+        "snap_replayed_twice": "Snap Replayed Twice",
+        "snap_screenshot": "Snap Screenshot",
+        "snap_screen_record": "Snap Screen Record"
+    },
+
+    "tracker_actions": {
+        "log": "Log",
+        "in_app_notification": "In-App Notification",
+        "push_notification": "Push Notification",
+        "custom": "Custom"
     },
     "better_notifications": {
         "button": {
@@ -1756,6 +1841,7 @@
         "sigColorStoryRingFriendsFeedStoryRing": "Story Ring Friends Feed Story Ring Color",
         "sigColorStoryRingDiscoverTabThumbnailStoryRing": "Story Ring Discover Tab Thumbnail Story Ring Color"
     },
+
     "send_override_dialog": {
         "title": "Send media as {type}",
         "duration": "Duration: {duration}",

@@ -5,16 +5,16 @@ import me.rhunk.snapenhance.common.logger.AbstractLogger
 import me.rhunk.snapenhance.common.scripting.ScriptRuntime
 import me.rhunk.snapenhance.common.scripting.bindings.BindingSide
 import me.rhunk.snapenhance.core.ModContext
-import me.rhunk.snapenhance.core.scripting.impl.CoreEvents
-import me.rhunk.snapenhance.core.scripting.impl.CoreIPC
-import me.rhunk.snapenhance.core.scripting.impl.CoreMessaging
-import me.rhunk.snapenhance.core.scripting.impl.CoreScriptConfig
-import me.rhunk.snapenhance.core.scripting.impl.CoreScriptHooker
+import me.rhunk.snapenhance.core.scripting.impl.*
 
 class CoreScriptRuntime(
     private val modContext: ModContext,
     logger: AbstractLogger,
-): ScriptRuntime(modContext.androidContext, logger) {
+): ScriptRuntime(
+    config = { modContext.config },
+    androidContext = modContext.androidContext,
+    logger = logger
+) {
     // we assume that the bridge is reloaded the next time we connect to it
     private var isBridgeReloaded = false
 

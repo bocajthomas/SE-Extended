@@ -20,13 +20,13 @@ class Experimental : ConfigContainer() {
     class BetterTranscriptConfig: ConfigContainer(hasGlobalState = true) {
         val forceTranscription = boolean("force_transcription") { requireRestart() }
         val preferredTranscriptionLang = string("preferred_transcription_lang") { requireRestart() }
-        val enhancedTranscript = boolean("enhanced_transcript") { requireRestart(); addNotices(FeatureNotice.UNSTABLE) }
-        val enhancedTranscriptInNotifications = boolean("enhanced_transcript_in_notifications") { requireRestart(); addNotices(FeatureNotice.UNSTABLE) }
+        val notificationTranscript = boolean("notification_transcript") { requireRestart() }
     }
 
     class ComposerHooksConfig: ConfigContainer(hasGlobalState = true) {
         val showFirstCreatedUsername = boolean("show_first_created_username")
         val bypassCameraRollLimit = boolean("bypass_camera_roll_limit")
+        val customSelfDestructSnapDelay = boolean("custom_self_destruct_snap_delay")
         val composerConsole = boolean("composer_console")
         val composerLogs = boolean("composer_logs")
     }
@@ -71,7 +71,6 @@ class Experimental : ConfigContainer() {
     val betterTranscript = container("better_transcript", BetterTranscriptConfig()) { requireRestart() }
     val voiceNoteAutoPlay = boolean("voice_note_auto_play") { requireRestart() }
     val friendNotes = boolean("friend_notes") { requireRestart() }
-    val editMessage = boolean("edit_message") { requireRestart() }
     val contextMenuFix = boolean("context_menu_fix") { requireRestart() }
     val cofExperiments = multiple("cof_experiments", *cofExperimentList.toTypedArray()) { requireRestart(); addFlags(ConfigFlag.NO_TRANSLATE); addNotices(FeatureNotice.UNSTABLE) }
     val appLock = container("app_lock", AppLockConfig()) { requireRestart(); addNotices(FeatureNotice.UNSTABLE) }
@@ -79,7 +78,7 @@ class Experimental : ConfigContainer() {
     val meoPasscodeBypass = boolean("meo_passcode_bypass")
     val noFriendScoreDelay = boolean("no_friend_score_delay") { requireRestart()}
     val bestFriendPinning = boolean("best_friend_pinning") { requireRestart(); addNotices(FeatureNotice.UNSTABLE) }
-    val e2eEncryption = container("e2ee", E2EEConfig()) { requireRestart(); nativeHooks() }
+    val e2eEncryption = container("e2ee", E2EEConfig()) { requireRestart() }
     val hiddenSnapchatPlusFeatures = boolean("hidden_snapchat_plus_features") {
         addNotices(FeatureNotice.BAN_RISK, FeatureNotice.UNSTABLE)
         requireRestart()
@@ -94,4 +93,5 @@ class Experimental : ConfigContainer() {
         "added_by_quick_add",
     ) { addNotices(FeatureNotice.BAN_RISK) }
     val preventForcedLogout = boolean("prevent_forced_logout") { requireRestart(); addNotices(FeatureNotice.BAN_RISK, FeatureNotice.INTERNAL_BEHAVIOR); }
+    val snapScoreChanges = boolean("snapscore_changes") { requireRestart() }
 }

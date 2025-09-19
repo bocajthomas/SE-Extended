@@ -47,9 +47,9 @@ class ManageFriendList : AbstractAction() {
                 null,
                 friendRelationshipChangerInstance,
                 userId,
-                addFriend.parameterTypes[2].enumConstants.first { it.toString() == "ADDED_BY_USERNAME" },
-                addFriend.parameterTypes[3].enumConstants.first { it.toString() == "SEARCH" },
-                addFriend.parameterTypes[4].enumConstants.first { it.toString() == "SEARCH" },
+                addFriend.parameterTypes[2].enumConstants!!.first { it.toString() == "ADDED_BY_USERNAME" },
+                addFriend.parameterTypes[3].enumConstants!!.first { it.toString() == "SEARCH" },
+                addFriend.parameterTypes[4].enumConstants!!.first { it.toString() == "SEARCH" },
                 0
             )
         }

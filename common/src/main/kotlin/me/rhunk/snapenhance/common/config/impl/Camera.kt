@@ -54,6 +54,7 @@ class Camera : ConfigContainer() {
     val backCustomFrameRate = unique("back_custom_frame_rate", *customFrameRates) { requireRestart(); addFlags(ConfigFlag.NO_TRANSLATE) }
     val hevcRecording = boolean("hevc_recording") { requireRestart() }
     val forceCameraSourceEncoding = boolean("force_camera_source_encoding")
+    val startupDefaultCamera = unique("startup_default_camera", "front", "back") { requireRestart() }
     val overrideFrontResolution get() = _overrideFrontResolution
     val overrideBackResolution get() = _overrideBackResolution
 

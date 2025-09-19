@@ -152,7 +152,7 @@ class ThemingRoot: Routes.Route() {
                 OutlinedTextField(
                     value = searchFilter.value,
                     onValueChange = { searchFilter.value = it },
-                    placeholder = { Text("Search") },
+                    placeholder = { Text(context.translation["manager.sections.theming.search_theme_placeholder"]) },
                     modifier = Modifier
                         .weight(1f)
                         .focusRequester(focusRequester)
@@ -184,13 +184,13 @@ class ThemingRoot: Routes.Route() {
 
             AlertDialog(
                 onDismissRequest = { showImportFromUrlDialog = false },
-                title = { Text("Import theme from URL") },
+                title = { Text(context.translation["manager.dialogs.import_theme_url.title"]) },
                 text = {
                     val focusRequester = remember { FocusRequester() }
                     TextField(
                         value = url,
                         onValueChange = { url = it },
-                        label = { Text("URL") },
+                        label = { Text(context.translation["manager.dialogs.import_theme_url.url_hint"]) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .focusRequester(focusRequester)
@@ -226,7 +226,7 @@ class ThemingRoot: Routes.Route() {
                         },
                         modifier = Modifier.fillMaxWidth()
                     ) {
-                        Text("Import")
+                        Text(context.translation["manager.dialogs.import_theme_url.import_button"])
                     }
                 }
             )
@@ -244,7 +244,7 @@ class ThemingRoot: Routes.Route() {
                             Icon(Icons.Rounded.Add, contentDescription = null)
                         },
                         text = {
-                            Text("New theme")
+                            Text(translation["new_theme_button"])
                         }
                     )
                     Spacer(modifier = Modifier.height(8.dp))
@@ -256,7 +256,7 @@ class ThemingRoot: Routes.Route() {
                             Icon(Icons.Rounded.Upload, contentDescription = null)
                         },
                         text = {
-                            Text("Import from file")
+                            Text(translation["import_from_file_button"])
                         }
                     )
                     Spacer(modifier = Modifier.height(8.dp))
@@ -266,7 +266,7 @@ class ThemingRoot: Routes.Route() {
                             Icon(Icons.Rounded.Link, contentDescription = null)
                         },
                         text = {
-                            Text("Import from URL")
+                            Text(translation["import_from_url_button"])
                         }
                     )
                 }
@@ -279,7 +279,7 @@ class ThemingRoot: Routes.Route() {
                             Icon(Icons.Rounded.Public, contentDescription = null)
                         },
                         text = {
-                            Text("Manage repositories")
+                            Text(translation["manage_repositories_button"])
                         }
                     )
                 }
@@ -374,13 +374,13 @@ class ThemingRoot: Routes.Route() {
                 if (showSettings) {
                     val actionsRow = remember {
                         mapOf(
-                            ("Duplicate" to Icons.Rounded.ContentCopy) to { duplicateTheme(theme) },
-                            ("Export" to Icons.Rounded.Download) to { exportTheme(theme) }
+                            (context.translation["manager.dialogs.theme_settings.duplicate_button"] to Icons.Rounded.ContentCopy) to { duplicateTheme(theme) },
+                            (context.translation["manager.dialogs.theme_settings.export_button"] to Icons.Rounded.Download) to { exportTheme(theme) }
                         )
                     }
                     AlertDialog(
                         onDismissRequest = { showSettings = false },
-                        title = { Text("Theme settings") },
+                        title = { context.translation["manager.dialogs.theme_settings.title"] },
                         text = {
                             Column(
                                 modifier = Modifier.fillMaxWidth(),
@@ -416,7 +416,7 @@ class ThemingRoot: Routes.Route() {
     @OptIn(ExperimentalFoundationApi::class)
     override val content: @Composable (NavBackStackEntry) -> Unit = {
         val coroutineScope = rememberCoroutineScope()
-        val titles = remember { listOf("Installed Themes", "Catalog") }
+        val titles = remember { listOf(translation["installed_themes_title"], translation["theme_catalog_title"]) }
         val pagerState = rememberPagerState { titles.size }
         currentPage = pagerState.currentPage
 

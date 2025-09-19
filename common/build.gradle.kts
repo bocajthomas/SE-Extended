@@ -30,7 +30,7 @@ android {
             standardOutput = gitHash
         }
         buildConfigField("String", "GIT_HASH", "\"${gitHash.toString(Charsets.UTF_8).trim()}\"")
-        buildConfigField("String", "SIF_ENDPOINT", "\"${properties["debug_sif_endpoint"]?.toString() ?: "https://codeberg.org/SnapEnhance/resources/raw/branch/main/sif"}\"")
+        buildConfigField("String", "SIF_ENDPOINT", "\"${properties["debug_sif_endpoint"]?.toString() ?: "https://github.com/SnapEnhance/resources/raw/refs/heads/main/sif"}\"")
     }
 
     compileOptions {

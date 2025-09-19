@@ -10,6 +10,7 @@
 -keep class androidx.compose.ui.R$* { *; }
 -keep class androidx.navigation.** { *; }
 -keep class me.rhunk.snapenhance.** { *; }
+-keep class androidx.core.content.res.ResourcesCompat { *; }
 
 -keepclassmembers class * implements android.os.Parcelable {
     public static final ** CREATOR;

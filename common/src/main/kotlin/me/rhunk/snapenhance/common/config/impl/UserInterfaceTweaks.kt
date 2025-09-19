@@ -13,7 +13,6 @@ class UserInterfaceTweaks : ConfigContainer() {
 
         val appAppearance = unique("app_appearance", "always_light", "always_dark") { requireRestart() }
         val homeTab = unique("home_tab", *tabs) { addNotices(FeatureNotice.UNSTABLE); requireRestart() }
-        val simpleSnapchat = unique("simple_snapchat", "always_enabled", "always_disabled") { addNotices(FeatureNotice.UNSTABLE); requireRestart() }
     }
 
     inner class FriendFeedMessagePreview : ConfigContainer(hasGlobalState = true) {
@@ -70,6 +69,7 @@ class UserInterfaceTweaks : ConfigContainer() {
     val friendFeedMessagePreview = container("friend_feed_message_preview", FriendFeedMessagePreview()) { requireRestart() }
     val customFriendFeedLabel = string("custom_friend_feed_label") { requireRestart() }
     val iconStyle = unique("icon_style","outlined", "filled", "sharp", "two-tone") {  requireRestart() }
+    val disableSettingsMenu = boolean("disable_settings_menu") { requireRestart() }
     val snapPreview = boolean("snap_preview") { addNotices(FeatureNotice.UNSTABLE); requireRestart() }
     val bootstrapOverride = container("bootstrap_override", BootstrapOverride()) { requireRestart() }
     val mapFriendNameTags = boolean("map_friend_nametags") { requireRestart() }
@@ -89,4 +89,5 @@ class UserInterfaceTweaks : ConfigContainer() {
     val editTextOverride = multiple("edit_text_override", "multi_line_chat_input", "bypass_text_input_limit") {
         requireRestart(); addNotices(FeatureNotice.BAN_RISK, FeatureNotice.INTERNAL_BEHAVIOR)
     }
+    val preventForcedKeyboard = boolean("prevent_forced_keyboard") { requireRestart() }
 }

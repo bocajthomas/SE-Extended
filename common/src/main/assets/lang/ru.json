@@ -639,18 +639,6 @@
                                 "name": "Отпечаток устройства",
                                 "description": "Подделывает отпечаток вашего устройства"
                             },
-                            "randomize_persistent_device_token": {
-                                "description": "Генерирует случайный токен устройства после каждого входа в систему",
-                                "name": "Случайный постоянный токен устройства"
-                            },
-                            "android_id": {
-                                "name": "Идентификатор Android",
-                                "description": "Подделывает ваш идентификатор Android на указанное значение"
-                            },
-                            "remove_vpn_transport_flag": {
-                                "description": "Предотвращает обнаружение VPN Snapchat",
-                                "name": "Удалить флаг транспорта VPN"
-                            },
                             "remove_mock_location_flag": {
                                 "description": "Предотвращает обнаружение фиктивного местоположения Snapchat",
                                 "name": "Удалить флаг мокрого местоположения"
@@ -1212,8 +1200,7 @@
         "notices": {
             "unstable": "⚠ Нестабильный",
             "ban_risk": "⚠ Эта функция может стать причиной бана",
-            "internal_behavior": "⚠ Это может нарушить внутреннее поведение Snapchat",
-            "require_native_hooks": "⚠ Для корректной работы этой функции требуются экспериментальные Native Hooks"
+            "internal_behavior": "⚠ Это может нарушить внутреннее поведение Snapchat"
         },
         "options": {
             "home_tab": {

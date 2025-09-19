@@ -29,6 +29,7 @@ class ClassMapper(
             PlusSubscriptionMapper(),
             StoryBoostStateMapper(),
             FriendsFeedEventDispatcherMapper(),
+            ChatEventDispatcherMapper(),
             CompositeConfigurationProviderMapper(),
             ScoreUpdateMapper(),
             FriendRelationshipChangerMapper(),
@@ -37,6 +38,8 @@ class ClassMapper(
             MemoriesPresenterMapper(),
             StreaksExpirationMapper(),
             COFObservableMapper(),
+            FoldingLayoutMapper(),
+            PlatformClientAttestationMapper(),
         )
     }
 

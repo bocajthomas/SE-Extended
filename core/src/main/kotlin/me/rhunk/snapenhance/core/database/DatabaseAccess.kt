@@ -6,17 +6,14 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteDatabase.OpenParams
 import android.database.sqlite.SQLiteDatabaseCorruptException
 import me.rhunk.snapenhance.common.database.DatabaseObject
-import me.rhunk.snapenhance.common.database.impl.ConversationMessage
-import me.rhunk.snapenhance.common.database.impl.FriendFeedEntry
-import me.rhunk.snapenhance.common.database.impl.FriendInfo
-import me.rhunk.snapenhance.common.database.impl.StoryEntry
-import me.rhunk.snapenhance.common.database.impl.UserConversationLink
+import me.rhunk.snapenhance.common.database.impl.*
 import me.rhunk.snapenhance.common.util.ktx.getBlobOrNull
 import me.rhunk.snapenhance.common.util.ktx.getIntOrNull
 import me.rhunk.snapenhance.common.util.ktx.getInteger
 import me.rhunk.snapenhance.common.util.ktx.getStringOrNull
 import me.rhunk.snapenhance.common.util.protobuf.ProtoReader
 import me.rhunk.snapenhance.core.ModContext
+import me.rhunk.snapenhance.core.wrapper.impl.toSnapUUID
 import me.rhunk.snapenhance.nativelib.NativeLib
 
 
@@ -24,13 +21,23 @@ enum class DatabaseType(
     val fileName: String
 ) {
     MAIN("main.db"),
-    ARROYO("arroyo.db")
+    CORE("core.db"),
+    ARROYO("arroyo.db"),
+    SIMPLE_DB_HELPER("simple_db_helper.db")
 }
 
 class DatabaseAccess(
     private val context: ModContext
 ) {
     private val openedDatabases = mutableMapOf<DatabaseType, SQLiteDatabase>()
+
+    private val hasArroyoConversationTable by lazy {
+        useDatabase(DatabaseType.ARROYO)?.performOperation {
+            safeRawQuery("SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'conversation'")?.use { query ->
+                query.moveToFirst() && query.getStringOrNull("name") == "conversation"
+            }
+        } == true
+    }
 
     private fun useDatabase(database: DatabaseType, writeMode: Boolean = false): SQLiteDatabase? {
         // only cache read-only databases
@@ -90,7 +97,44 @@ class DatabaseAccess(
         }.getOrNull()
     }
 
+    private val friendDMsCache by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
+        getFeedEntries(Int.MAX_VALUE)
+            .filter { it.conversationType == 0 && it.participantsSize == 2 }
+            .associate { it.participants?.firstOrNull { it != myUserId } to it.key }
+            .toMutableMap()
+    }
+
     private val dmOtherParticipantCache by lazy {
+        if (hasArroyoConversationTable) {
+            return@lazy useDatabase(DatabaseType.ARROYO)?.performOperation {
+                safeRawQuery(
+                    "SELECT client_conversation_id, conversation_metadata FROM conversation",
+                )?.use { query ->
+                    val result = mutableMapOf<String, String?>()
+                    if (!query.moveToFirst()) {
+                        return@performOperation null
+                    }
+                    do {
+                        val conversationId = query.getStringOrNull("client_conversation_id") ?: continue
+                        val conversationMetadata = ProtoReader(query.getBlobOrNull("conversation_metadata") ?: continue)
+
+                        val participants = mutableListOf<String>()
+                        conversationMetadata.eachBuffer(3) {
+                            participants.add(getByteArray(1, 1)?.toSnapUUID()?.toString() ?: return@eachBuffer)
+                        }
+
+                        result[conversationId] = if (participants.size == 2) {
+                            participants.firstOrNull { it != myUserId }?.also {
+                                result[it] = null
+                            }
+                        } else null
+                    } while (query.moveToNext())
+
+                    result
+                }
+            }?.toMutableMap() ?: mutableMapOf()
+        }
+
         (useDatabase(DatabaseType.ARROYO)?.performOperation {
             safeRawQuery(
                 "SELECT client_conversation_id, conversation_type, user_id FROM user_conversation WHERE user_id != ?",
@@ -152,17 +196,6 @@ class DatabaseAccess(
         obj
     }
 
-    fun getFeedEntryByUserId(userId: String): FriendFeedEntry? {
-        return useDatabase(DatabaseType.MAIN)?.performOperation {
-            readDatabaseObject(
-                FriendFeedEntry(),
-                "FriendsFeedView",
-                "friendUserId = ?",
-                arrayOf(userId)
-            )
-        }
-    }
-
     val myUserId by lazy {
         context.androidContext.getSharedPreferences("user_session_shared_pref", 0).getString("key_user_id", null) ?:
         useDatabase(DatabaseType.ARROYO)?.performOperation {
@@ -178,7 +211,14 @@ class DatabaseAccess(
     }
 
     fun getFeedEntryByConversationId(conversationId: String): FriendFeedEntry? {
-        return useDatabase(DatabaseType.MAIN)?.performOperation {
+        return useDatabase(DatabaseType.ARROYO)?.performOperation {
+            readDatabaseObject(
+                FriendFeedEntry(),
+                "feed_entry",
+                "client_conversation_id = ?",
+                arrayOf(conversationId)
+            )
+        } ?: useDatabase(DatabaseType.MAIN)?.performOperation {
             readDatabaseObject(
                 FriendFeedEntry(),
                 "FriendsFeedView",
@@ -196,6 +236,20 @@ class DatabaseAccess(
                 "userId = ?",
                 arrayOf(userId)
             )
+        }
+    }
+
+    fun getFriendOriginalUsername(mutableUsername: String): String? {
+        return useDatabase(DatabaseType.MAIN)?.performOperation {
+            safeRawQuery(
+                "SELECT originalUsername FROM CombinedUsername WHERE mutableUsername = ?",
+                arrayOf(mutableUsername)
+            )?.use { query ->
+                if (!query.moveToFirst()) {
+                    return@performOperation null
+                }
+                query.getStringOrNull("originalUsername")
+            }
         }
     }
 
@@ -229,21 +283,35 @@ class DatabaseAccess(
         } ?: emptyList()
     }
 
-    fun getFeedEntries(limit: Int): List<FriendFeedEntry> {
-        return useDatabase(DatabaseType.MAIN)?.performOperation {
+    fun getFeedEntries(limit: Int, whereClause: String? = null): List<FriendFeedEntry> {
+        val entries = mutableListOf<FriendFeedEntry>()
+        return useDatabase(DatabaseType.ARROYO)?.performOperation {
             safeRawQuery(
-                "SELECT * FROM FriendsFeedView ORDER BY _id LIMIT ?",
+                "SELECT * FROM feed_entry ${whereClause?.let { "WHERE $it" }.orEmpty()} ORDER BY last_updated_timestamp DESC LIMIT ?",
                 arrayOf(limit.toString())
             )?.use { query ->
-                val list = mutableListOf<FriendFeedEntry>()
                 while (query.moveToNext()) {
                     val friendFeedEntry = FriendFeedEntry()
                     try {
                         friendFeedEntry.write(query)
                     } catch (_: Throwable) {}
-                    list.add(friendFeedEntry)
+                    entries.add(friendFeedEntry)
                 }
-                list
+                entries
+            }
+        } ?: useDatabase(DatabaseType.MAIN)?.performOperation {
+            safeRawQuery(
+                "SELECT * FROM FriendsFeedView ORDER BY _id LIMIT ?",
+                arrayOf(limit.toString())
+            )?.use { query ->
+                while (query.moveToNext()) {
+                    val friendFeedEntry = FriendFeedEntry()
+                    try {
+                        friendFeedEntry.write(query)
+                    } catch (_: Throwable) {}
+                    entries.add(friendFeedEntry)
+                }
+                entries
             }
         } ?: emptyList()
     }
@@ -271,6 +339,10 @@ class DatabaseAccess(
     }
 
     fun getConversationType(conversationId: String): Int? {
+        if (hasArroyoConversationTable) {
+            return getFeedEntryByConversationId(conversationId)?.conversationType
+        }
+
         return useDatabase(DatabaseType.ARROYO)?.performOperation {
             safeRawQuery(
                 "SELECT conversation_type FROM user_conversation WHERE client_conversation_id = ?",
@@ -284,36 +356,67 @@ class DatabaseAccess(
         }
     }
 
-    fun getConversationLinkFromUserId(userId: String): UserConversationLink? {
+    fun getDMConversationId(userId: String): String? {
+        if (hasArroyoConversationTable) {
+            return friendDMsCache[userId]
+        }
+
         return useDatabase(DatabaseType.ARROYO)?.performOperation {
             readDatabaseObject(
                 UserConversationLink(),
                 "user_conversation",
                 "user_id = ? AND conversation_type = 0",
                 arrayOf(userId)
-            )
+            )?.clientConversationId
+        }
+    }
+
+    private fun getConversationParticipantsRaw(conversationId: String): List<String>? {
+        if (hasArroyoConversationTable) {
+            return useDatabase(DatabaseType.ARROYO)?.performOperation {
+                safeRawQuery(
+                    "SELECT conversation_metadata FROM conversation WHERE client_conversation_id = ?",
+                    arrayOf(conversationId)
+                )?.use { query ->
+                    val participants = mutableListOf<String>()
+                    if (!query.moveToFirst()) {
+                        return@performOperation null
+                    }
+                    val conversationMetadata = ProtoReader(query.getBlobOrNull("conversation_metadata") ?: return@performOperation null)
+
+                    conversationMetadata.eachBuffer(3) {
+                        participants.add(getByteArray(1, 1)?.toSnapUUID()?.toString() ?: return@eachBuffer)
+                    }
+
+                    participants
+                }
+            }
+        }
+
+        return useDatabase(DatabaseType.ARROYO)?.performOperation {
+            safeRawQuery(
+                "SELECT user_id FROM user_conversation WHERE client_conversation_id = ?",
+                arrayOf(conversationId)
+            )?.use { query ->
+                if (!query.moveToFirst()) {
+                    return@performOperation emptyList()
+                }
+                val participants = mutableListOf<String>()
+                do {
+                    query.getStringOrNull("user_id")?.let { participants.add(it) }
+                } while (query.moveToNext())
+                participants
+            }
         }
     }
 
     fun getDMOtherParticipant(conversationId: String): String? {
         if (dmOtherParticipantCache.containsKey(conversationId)) return dmOtherParticipantCache[conversationId]
-        return useDatabase(DatabaseType.ARROYO)?.performOperation {
-            safeRawQuery(
-                "SELECT user_id FROM user_conversation WHERE client_conversation_id = ? AND conversation_type = 0",
-                arrayOf(conversationId)
-            )?.use { query ->
-                val participants = mutableListOf<String>()
-                if (!query.moveToFirst()) {
-                    return@performOperation null
-                }
-                do {
-                    participants.add(query.getStringOrNull("user_id")!!)
-                } while (query.moveToNext())
-                participants.firstOrNull { it != myUserId }
-            }.also { dmOtherParticipantCache[conversationId] = it }
+
+        return getConversationParticipantsRaw(conversationId)?.takeIf { it.size == 2 }?.firstOrNull { it != myUserId }.also {
+            dmOtherParticipantCache[conversationId] = it
         }
     }
-
 
     fun getStoryEntryFromId(storyId: String): StoryEntry? {
         return useDatabase(DatabaseType.MAIN)?.performOperation  {
@@ -323,28 +426,10 @@ class DatabaseAccess(
 
     fun getConversationParticipants(conversationId: String, useCache: Boolean = true): List<String>? {
         if (dmOtherParticipantCache[conversationId] != null && useCache) return dmOtherParticipantCache[conversationId]?.let { listOf(myUserId, it) }
-        return useDatabase(DatabaseType.ARROYO)?.performOperation {
-            safeRawQuery(
-                "SELECT user_id, conversation_type FROM user_conversation WHERE client_conversation_id = ?",
-                arrayOf(conversationId)
-            )?.use { cursor ->
-                if (!cursor.moveToFirst()) {
-                    return@performOperation null
-                }
-                val participants = mutableListOf<String>()
-                var conversationType = -1
-                do {
-                    if (conversationType == -1) conversationType = cursor.getInteger("conversation_type")
-                    participants.add(cursor.getStringOrNull("user_id")!!)
-                } while (cursor.moveToNext())
 
-                if (!dmOtherParticipantCache.containsKey(conversationId)) {
-                    dmOtherParticipantCache[conversationId] = when (conversationType) {
-                        0 -> participants.firstOrNull { it != myUserId }
-                        else -> null
-                    }
-                }
-                participants
+        return getConversationParticipantsRaw(conversationId)?.also {
+            if (!dmOtherParticipantCache.containsKey(conversationId)) {
+                dmOtherParticipantCache[conversationId] = it.firstOrNull { it != myUserId }
             }
         }
     }
@@ -484,5 +569,41 @@ class DatabaseAccess(
                 )
             }
         }?.close()
+    }
+
+    fun getStorySnapEntry(rawSnapId: String): StorySnapEntry? {
+        return useDatabase(DatabaseType.SIMPLE_DB_HELPER)?.performOperation {
+            readDatabaseObject(
+                StorySnapEntry(),
+                "DiscoverStorySnap",
+                "rawSnapId = ?",
+                arrayOf(rawSnapId)
+            )
+        }
+    }
+
+    fun setCameraType(cameraType: String) {
+        useDatabase(DatabaseType.CORE, writeMode = true)?.use { database ->
+            database.performOperation {
+                if (rawQuery("SELECT * FROM Preferences WHERE 'key' = 'CAMERA~CAMERA_TYPE'", null).use { !it.moveToFirst() }) {
+                    insert(
+                        "Preferences",
+                        null,
+                        ContentValues().apply {
+                            put("key", "CAMERA~CAMERA_TYPE")
+                            put("type", 0)
+                            put("stringValue", cameraType)
+                        }
+                    )
+                } else update(
+                    "Preferences",
+                    ContentValues().apply {
+                        put("stringValue", cameraType)
+                    },
+                    "key = ?",
+                    arrayOf("CAMERA~CAMERA_TYPE")
+                )
+            }
+        }
     }
 }

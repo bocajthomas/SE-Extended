@@ -22,10 +22,12 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.*
 import me.rhunk.snapenhance.common.data.ContentType
 import me.rhunk.snapenhance.common.database.impl.FriendFeedEntry
 import me.rhunk.snapenhance.common.ui.createComposeAlertDialog
+import me.rhunk.snapenhance.common.ui.rememberAsyncMutableState
 import me.rhunk.snapenhance.core.action.AbstractAction
 import me.rhunk.snapenhance.core.features.impl.messaging.Messaging
 import me.rhunk.snapenhance.core.logger.CoreLogger
@@ -72,6 +74,8 @@ class ExportChatMessages : AbstractAction() {
         val messageTypeFilter = remember { mutableStateListOf<ContentType>() }
         var amountOfMessages by remember { mutableIntStateOf(-1) }
         var downloadMedias by remember { mutableStateOf(false) }
+        val allFriends by rememberAsyncMutableState(null) { context.database.getAllFriends().associateBy { it.userId!! } }
+        val myUserId = context.database.myUserId
 
         Column(
             modifier = Modifier
@@ -95,14 +99,14 @@ class ExportChatMessages : AbstractAction() {
                         onValueChange = {},
                         readOnly = true,
                         singleLine = true,
-                        modifier = Modifier.menuAnchor()
+                        modifier = Modifier.menuAnchor(MenuAnchorType.PrimaryNotEditable)
                     )
 
                     ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
                         LazyColumn(
                             modifier = Modifier.size(LocalConfiguration.current.screenWidthDp.dp, 300.dp)
                         ) {
-                            items(feedEntries) { feedEntry ->
+                            items(feedEntries, key = { it.key!! }) { feedEntry ->
                                 DropdownMenuItem(
                                     modifier = Modifier.fillMaxWidth(),
                                     onClick = {
@@ -114,11 +118,26 @@ class ExportChatMessages : AbstractAction() {
                                             verticalAlignment = Alignment.CenterVertically
                                         ) {
                                             Checkbox(checked = selectedFeedEntries.contains(feedEntry), onCheckedChange = null)
-                                            Text(
-                                                text = feedEntry.feedDisplayName ?: feedEntry.friendDisplayName ?: "unknown",
-                                                overflow = TextOverflow.Ellipsis,
-                                                maxLines = 1
-                                            )
+                                            Column {
+                                                Text(
+                                                    text = remember(feedEntry) {
+                                                        (if (feedEntry.conversationType == 1) feedEntry.feedDisplayName else feedEntry.participants?.filter { it != myUserId }?.firstOrNull()?.let { userId ->
+                                                            allFriends?.get(userId)?.let { friend -> friend.displayName?.let { "$it (${friend.mutableUsername})" } ?: friend.mutableUsername }
+                                                        }) ?: "Unknown"
+                                                    },
+                                                    overflow = TextOverflow.Ellipsis,
+                                                    lineHeight = 15.sp,
+                                                    maxLines = 1
+                                                )
+                                                if (feedEntry.conversationType == 1) {
+                                                    Text(
+                                                        text = "${feedEntry.participantsSize} participants",
+                                                        fontSize = 10.sp,
+                                                        lineHeight = 15.sp,
+                                                        overflow = TextOverflow.Ellipsis,
+                                                    )
+                                                }
+                                            }
                                         }
                                     }
                                 )
@@ -140,7 +159,7 @@ class ExportChatMessages : AbstractAction() {
                         value = exportType.extension,
                         onValueChange = {},
                         readOnly = true,
-                        modifier = Modifier.menuAnchor()
+                        modifier = Modifier.menuAnchor(MenuAnchorType.PrimaryNotEditable)
                     )
 
                     ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
@@ -169,7 +188,7 @@ class ExportChatMessages : AbstractAction() {
                         } ?: exporterTranslation["text_field_selection_all"],
                         onValueChange = {},
                         readOnly = true,
-                        modifier = Modifier.menuAnchor()
+                        modifier = Modifier.menuAnchor(MenuAnchorType.PrimaryNotEditable)
                     )
 
                     ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
@@ -332,11 +351,12 @@ class ExportChatMessages : AbstractAction() {
     ) {
         //first fetch the first message
         val conversationId = feedEntry.key!!
-        val conversationName = feedEntry.feedDisplayName ?: feedEntry.friendDisplayName!!.split("|").lastOrNull() ?: "unknown"
         val conversationParticipants = context.database.getConversationParticipants(feedEntry.key!!, useCache = false)
             ?.mapNotNull {
                 context.database.getFriendInfo(it)
             }?.associateBy { it.userId!! } ?: emptyMap()
+
+        val conversationName = feedEntry.feedDisplayName ?: conversationParticipants.values.take(3).joinToString("_") { it.mutableUsername ?: "" }
 
         val publicFolder = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "SnapEnhance").also { if (!it.exists()) it.mkdirs() }
         val outputFile = publicFolder.resolve("conversation_${conversationName}_${System.currentTimeMillis()}.${exportParams.exportFormat.extension}")

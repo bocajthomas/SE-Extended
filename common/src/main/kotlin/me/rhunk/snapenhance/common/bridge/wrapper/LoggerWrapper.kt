@@ -399,14 +399,6 @@ class LoggerWrapper(
     }
 
     fun getConversationInfo(conversationId: String): ConversationInfo? {
-        val participantSize = database.rawQuery("SELECT COUNT(DISTINCT user_id) FROM messages WHERE conversation_id = ?", arrayOf(conversationId)).use {
-            if (!it.moveToFirst()) return null
-            it.getInt(0)
-        }
-        val groupTitle = if (participantSize > 2) database.rawQuery("SELECT group_title FROM messages WHERE conversation_id = ? AND group_title IS NOT NULL LIMIT 1", arrayOf(conversationId)).use {
-            if (!it.moveToFirst()) return@use null
-            it.getStringOrNull("group_title")
-        } else null
         val usernames = database.rawQuery("SELECT DISTINCT username FROM messages WHERE conversation_id = ?", arrayOf(conversationId)).use {
             val usernames = mutableListOf<String>()
             while (it.moveToNext()) {
@@ -415,7 +407,14 @@ class LoggerWrapper(
             usernames
         }
 
-        return ConversationInfo(conversationId, participantSize, groupTitle, usernames)
+        if (usernames.size > 2) { usernames.remove("myai") }
+
+        val groupTitle = if (usernames.size > 2) database.rawQuery("SELECT group_title FROM messages WHERE conversation_id = ? AND group_title IS NOT NULL LIMIT 1", arrayOf(conversationId)).use {
+            if (!it.moveToFirst()) return@use null
+            it.getStringOrNull("group_title")
+        } else null
+
+        return ConversationInfo(conversationId, usernames.size, groupTitle, usernames)
     }
 
     override fun getChatEdits(conversationId: String, messageId: Long): List<LoggedChatEdit> {
@@ -431,6 +430,35 @@ class LoggerWrapper(
                 }.takeIf { it.timestamp > 0L } ?: continue)
             }
         }
+
+        if (edits.isNotEmpty()) {
+            // append original message
+            database.rawQuery("SELECT added_timestamp, message_data FROM messages WHERE conversation_id = ? AND message_id = ?", arrayOf(conversationId, messageId.toString())).use { cursor ->
+                if (!cursor.moveToFirst()) return@use
+
+                val originalMessage = cursor.getBlobOrNull("message_data") ?: return@use
+                val addedTimestamp = cursor.getLongOrNull("added_timestamp") ?: return@use
+
+                val messageObject = gson.fromJson(
+                    originalMessage.toString(Charsets.UTF_8),
+                    JsonObject::class.java
+                )
+
+                val messageTextContent =
+                    messageObject.getAsJsonObject("mMessageContent")?.getAsJsonArray("mContent")
+                        ?.map { it.asByte }?.toByteArray()?.let {
+                            ProtoReader(it).getString(2, 1)
+                        } ?: return@use
+
+                if (edits.firstOrNull()?.message != messageTextContent) {
+                    edits.add(0, LoggedChatEdit().apply {
+                        timestamp = addedTimestamp
+                        message = messageTextContent
+                    })
+                }
+            }
+        }
+
         return edits
     }
 

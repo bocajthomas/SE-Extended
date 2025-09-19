@@ -1104,8 +1104,7 @@
         "notices": {
             "unstable": "⚠ Instabil",
             "ban_risk": "⚠ Dieses Feature chan zu Bans führä",
-            "internal_behavior": "⚠ Das chan s internä Verhaltä vo Snapchat störä",
-            "require_native_hooks": "⚠ Um korrekt z'funktionierä erfordäret dieses Feature experimentelli Native Hooks"
+            "internal_behavior": "⚠ Das chan s internä Verhaltä vo Snapchat störä"
         }
     },
     "biometric_auth": {

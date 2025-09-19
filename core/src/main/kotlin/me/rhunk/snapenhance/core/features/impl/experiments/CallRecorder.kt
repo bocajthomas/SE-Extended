@@ -33,13 +33,22 @@ class CallRecorder : Feature("Call Recorder") {
         val streamHandlers = ConcurrentHashMap<Int, MutableList<(data: ByteArray) -> Unit>>() // audioTrack -> handlers
         val participants = CopyOnWriteArrayList<String>()
 
-        findClass("com.snapchat.talkcorev3.CallingSessionState").hookConstructor(HookStage.AFTER) { param ->
+        runCatching {
+            findClass("com.snapchat.talkcorev3.CallingSessionState")
+        }.getOrNull()?.hookConstructor(HookStage.AFTER) { param ->
             val instance = param.thisObject<Any>()
             val callingState = instance.getObjectFieldOrNull("mLocalUser")?.getObjectField("mCallingState")
 
             if (callingState.toString() == "IN_CALL") {
                 participants.clear()
                 participants.addAll((instance.getObjectField("mParticipants") as Map<*, *>).keys.map { it.toString() })
+            }
+        } ?: findClass("com.snapchat.talkcorev3.TSCallingStateUpdateParams").hookConstructor(HookStage.AFTER) { param ->
+            val instance = param.thisObject<Any>()
+
+            if (instance.getObjectFieldOrNull("mInCall") == true) {
+                participants.clear()
+                participants.addAll((instance.getObjectField("mParticipants") as Set<*>).map { it.toString() })
             }
         }
 

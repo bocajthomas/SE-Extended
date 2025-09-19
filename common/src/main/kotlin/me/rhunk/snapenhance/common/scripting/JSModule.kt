@@ -15,8 +15,10 @@ import me.rhunk.snapenhance.common.scripting.ktx.scriptableObject
 import me.rhunk.snapenhance.common.scripting.type.ModuleInfo
 import me.rhunk.snapenhance.common.scripting.type.Permissions
 import me.rhunk.snapenhance.common.scripting.ui.InterfaceManager
-import org.mozilla.javascript.*
 import org.mozilla.javascript.Function
+import org.mozilla.javascript.ScriptableObject
+import org.mozilla.javascript.Undefined
+import org.mozilla.javascript.Wrapper
 import java.io.Reader
 import java.lang.reflect.Modifier
 import kotlin.reflect.KClass
@@ -235,7 +237,7 @@ class JSModule(
             }
         }
 
-        contextScope(shouldOptimize = true) {
+        contextScope(shouldOptimize = scriptRuntime.config().scripting.disableOptimization.getNullable() != true) {
             evaluateReader(moduleObject, reader, moduleInfo.name, 1, null)
         }
     }

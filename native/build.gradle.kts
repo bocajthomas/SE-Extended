@@ -69,3 +69,13 @@ val cleanNatives by tasks.registering {
 tasks.named("preBuild").configure {
     dependsOn(cleanNatives)
 }
+
+afterEvaluate {
+    tasks.named("mergeDebugJniLibFolders").configure {
+        dependsOn("buildAndRename")
+    }
+
+    tasks.named("mergeDebugNativeLibs").configure {
+        dependsOn("buildAndRename")
+    }
+}

@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.res.Resources
 import android.os.Build
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Cancel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,6 +32,7 @@ import me.rhunk.snapenhance.core.util.hook.HookAdapter
 import me.rhunk.snapenhance.core.util.hook.HookStage
 import me.rhunk.snapenhance.core.util.hook.findRestrictedMethod
 import me.rhunk.snapenhance.core.util.hook.hook
+import me.rhunk.snapenhance.mapper.impl.PlatformClientAttestationMapper
 import kotlin.reflect.KClass
 import kotlin.system.exitProcess
 import kotlin.system.measureTimeMillis
@@ -122,8 +125,9 @@ class SnapEnhance {
                 }
 
                 hookMainActivity("onResume") {
+                    appContext.mainActivity = this
                     if (appContext.isMainActivityPaused.also {
-                        appContext.isMainActivityPaused = false
+                            appContext.isMainActivityPaused = false
                         }) {
                         appContext.reloadConfig()
                         appContext.executeAsync {
@@ -150,14 +154,13 @@ class SnapEnhance {
             }
 
             reloadConfig()
-            initWidgetListener()
             initNative()
+            initWidgetListener()
             scope.launch(Dispatchers.IO) {
                 translation.userLocale = getConfigLocale()
                 translation.load()
             }
 
-            mappings.init(androidContext)
             database.init()
             eventDispatcher.init()
             userInterface.init()
@@ -180,7 +183,11 @@ class SnapEnhance {
                 actionManager.onActivityCreate()
 
                 if (safeMode) {
-                    appContext.log.verbose("Failed to load security features! Snapchat may not work properly")
+                    appContext.inAppOverlay.showStatusToast(
+                        Icons.Outlined.Cancel,
+                        "Failed to load security features! Snapchat may not work properly.",
+                        durationMs = 3000
+                    )
                 }
             }
         }.also { time ->
@@ -196,7 +203,6 @@ class SnapEnhance {
                 it.isNotEmpty()
             }?.toString(Charsets.UTF_8)?.also {
                 appContext.native.signatureCache = it
-                appContext.log.verbose("old signature cache $it")
             }
 
         val lateInit = appContext.native.initOnce {
@@ -217,35 +223,7 @@ class SnapEnhance {
             }
         }
 
-        appContext.config.experimental.nativeHooks.customSharedLibrary.get().takeIf { it.isNotEmpty() }?.let {
-            runCatching {
-                appContext.native.loadSharedLibrary(
-                    appContext.fileHandlerManager.getFileHandle(FileHandleScope.USER_IMPORT.key, it).toWrapper().readBytes()
-                )
-                appContext.log.verbose("loaded custom shared library")
-            }.onFailure {
-                appContext.log.error("Failed to load custom shared library", it)
-            }
-        }
-
-        if (appContext.bridgeClient.getDebugProp("disable_sif", "false") != "true") {
-            runCatching {
-                appContext.native.loadSharedLibrary(
-                    appContext.fileHandlerManager.getFileHandle(FileHandleScope.INTERNAL.key, InternalFileHandleType.SIF.key)
-                        .toWrapper()
-                        .readBytes()
-                        .takeIf {
-                            it.isNotEmpty()
-                        } ?: throw IllegalStateException("buffer is empty")
-                )
-                appContext.log.verbose("loaded sif")
-            }.onFailure {
-                safeMode = true
-                appContext.log.error("Failed to load sif", it)
-            }
-        } else {
-            appContext.log.warn("sif is disabled")
-        }
+        SecurityFeatures(appContext).init()
 
         Runtime::class.java.findRestrictedMethod {
             it.name == "loadLibrary0" && it.parameterTypes.contentEquals(
@@ -253,17 +231,24 @@ class SnapEnhance {
                 else arrayOf(ClassLoader::class.java, String::class.java)
             )
         }!!.apply {
-            if (safeMode) {
+            if (appContext.disablePlugin) {
                 hook(HookStage.BEFORE) { param ->
                     if (param.arg<String>(1) != "scplugin") return@hook
                     param.setResult(null)
-                    appContext.log.warn("Can't load scplugin in safe mode")
-                    runCatching {
-                        Thread.sleep(Long.MAX_VALUE)
-                    }.onFailure {
-                        appContext.log.error(it)
+                    appContext.log.verbose("skipped scplugin load")
+
+                    appContext.mappings.useMapper(PlatformClientAttestationMapper::class) {
+                        pluginNativeClass.getAsClass()?.methods?.filter {
+                            it.declaringClass == pluginNativeClass.getAsClass()
+                        }?.forEach { method ->
+                            method.hook(HookStage.BEFORE) {
+                                appContext.log.error("Calling $method", Throwable())
+                                it.setResult(null)
+                                runCatching { exitProcess(139) }
+                                runCatching { Thread.sleep(Long.MAX_VALUE) }
+                            }
+                        } ?: error("Failed to get pluginNativeClass class")
                     }
-                    exitProcess(1)
                 }
             }
 
@@ -271,7 +256,6 @@ class SnapEnhance {
             hook(HookStage.AFTER) { param ->
                 if (param.arg<String>(1) != "client") return@hook
                 unhook()
-                appContext.log.verbose("libclient lateInit")
                 lateInit()
             }.also { unhook = { it.unhook() } }
         }
@@ -324,22 +308,26 @@ class SnapEnhance {
             event.canceled = true
             val feedEntries = appContext.database.getFeedEntries(Int.MAX_VALUE)
 
-            val groups = feedEntries.filter { it.friendUserId == null }.map {
+            val groups = feedEntries.filter { it.conversationType == 1 }.map {
                 MessagingGroupInfo(
                     it.key!!,
-                    it.feedDisplayName!!,
+                    it.feedDisplayName ?: "",
                     it.participantsSize
                 )
             }
 
-            val friends = feedEntries.filter { it.friendUserId != null }.map {
+            val friends = feedEntries.filter { it.conversationType == 0 }.mapNotNull {
+                val friendUserId = it.friendUserId ?: it.participants?.firstOrNull { it != appContext.database.myUserId }
+                ?: return@mapNotNull null
+                val friend = appContext.database.getFriendInfo(friendUserId) ?: return@mapNotNull null
+
                 MessagingFriendInfo(
-                    it.friendUserId!!,
-                    appContext.database.getConversationLinkFromUserId(it.friendUserId!!)?.clientConversationId,
-                    it.friendDisplayName,
-                    it.friendDisplayUsername!!.split("|")[1],
-                    it.bitmojiAvatarId,
-                    it.bitmojiSelfieId,
+                    friendUserId,
+                    it.key,
+                    friend.displayName,
+                    friend.mutableUsername ?: friend.usernameForSorting!!,
+                    friend.bitmojiAvatarId,
+                    friend.bitmojiSelfieId,
                     streaks = null
                 )
             }
@@ -349,12 +337,19 @@ class SnapEnhance {
     }
 
     private fun syncRemote() {
+        if (!appContext.isLoggedIn()) return
+        
+        val myUserId = appContext.database.myUserId
+        val streakEntries = appContext.database.getFeedEntries(Int.MAX_VALUE, whereClause = "streak_count IS NOT NULL AND streak_count > 0")
+            .associateBy { entry -> (entry.friendUserId ?: entry.participants?.firstOrNull { it != myUserId }) }
+            .filter { it.key != null }
+
         appContext.bridgeClient.sync(object : SyncCallback.Stub() {
             override fun syncFriend(uuid: String): String? {
                 return appContext.database.getFriendInfo(uuid)?.let {
                     MessagingFriendInfo(
                         userId = it.userId!!,
-                        dmConversationId = appContext.database.getConversationLinkFromUserId(it.userId!!)?.clientConversationId,
+                        dmConversationId = null,
                         displayName = it.displayName,
                         mutableUsername = it.mutableUsername!!,
                         bitmojiId = it.bitmojiAvatarId,
@@ -364,7 +359,12 @@ class SnapEnhance {
                                 expirationTimestamp = it.streakExpirationTimestamp,
                                 length = it.streakLength
                             )
-                        } else null
+                        } else streakEntries[it.userId]?.let {
+                            FriendStreaks(
+                                expirationTimestamp = it.streakExpirationTimestampMs ?: return@let null,
+                                length = it.streakCount ?: return@let null
+                            )
+                        }
                     ).toSerialized()
                 }
             }
@@ -373,7 +373,7 @@ class SnapEnhance {
                 return appContext.database.getFeedEntryByConversationId(uuid)?.let {
                     MessagingGroupInfo(
                         it.key!!,
-                        it.feedDisplayName!!,
+                        it.feedDisplayName ?: "",
                         it.participantsSize
                     ).toSerialized()
                 }
