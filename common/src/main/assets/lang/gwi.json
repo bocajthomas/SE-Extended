@@ -23,7 +23,8 @@
         "streak_expiration": "läuft in {day} Tagen, {hour} Stunden, {minute} Minuten ab",
         "total_messages": "Insgesamt gesendete/empfangene Nachrichten: {count}",
         "title": "Vorschau",
-        "unknown_user": "Unbekannter Benutzer"
+        "unknown_user": "Unbekannter Benutzer",
+        "no_messages": ""
     },
     "chat_export": {
         "processing_chats": "{amount} Konversationen werden verarbeitet...",
@@ -52,7 +53,8 @@
         "download": "Download",
         "positive": "Ja",
         "negative": "Nein",
-        "cancel": "Abbrechen"
+        "cancel": "Abbrechen",
+        "send": ""
     },
     "download_processor": {
         "dash_dialog": {
@@ -81,7 +83,8 @@
         "failed_to_create_preview_toast": "Fehler beim Erstellen der Vorschau",
         "failed_processing_toast": "Fehler beim Verarbeiten {error}",
         "failed_gallery_toast": "Speichern in der Galerie fehlgeschlagen {error}",
-        "dash_no_chapter": "Kein Abschnitt gefunden"
+        "dash_no_chapter": "Kein Abschnitt gefunden",
+        "content_saved_toast": ""
     },
     "auto_open_snaps": {
         "title": "Auto-Öffnen von Snaps",
@@ -150,13 +153,24 @@
             "friend_tracker": "Freundtracker:in",
             "edit_rule": "Regel bearbeiten",
             "social": "Sozial",
-            "manage_scope": "Verwalte Scope"
+            "manage_scope": "Verwalte Scope",
+            "better_location": "",
+            "theming": "",
+            "edit_theme": "",
+            "manage_repos": "",
+            "manage_rule_feature": "",
+            "file_imports": ""
         },
         "sections": {
             "home": {
                 "update_title": "SnapEnhance Update",
                 "update_button": "Herunterladen",
-                "update_content": "Version {version} ist verfügbar!"
+                "update_content": "Version {version} ist verfügbar!",
+                "debug_build_summary_title": "",
+                "version_title": "",
+                "quick_actions_title": "",
+                "debug_build_summary_date": "",
+                "debug_build_summary_content": ""
             },
             "social": {
                 "empty_hint": "(leer)",
@@ -189,7 +203,8 @@
                 "remove_all_tasks_title": "Sind Sie sicher, dass Sie alle Aufgaben entfernen möchten?",
                 "delete_files_option": "Auch Dateien löschen",
                 "remove_selected_tasks_confirm": "{count} Aufgaben entfernen?",
-                "remove_all_tasks_confirm": "Alle Aufgaben entfernen?"
+                "remove_all_tasks_confirm": "Alle Aufgaben entfernen?",
+                "failed_to_open_file": ""
             },
             "features": {
                 "disabled": "Deaktiviert",
@@ -199,7 +214,10 @@
                 "config_export_success_toast": "Einstellungen erfolgreich exportiert",
                 "config_import_success_toast": "Einstellungen erfolgreich importiert",
                 "config_import_failure_toast": "Einstellungen konnten nicht importiert werden. {error}",
-                "saved_config_snackbar": "Einstellungen gespeichert"
+                "saved_config_snackbar": "Einstellungen gespeichert",
+                "older_required": "",
+                "newer_required": "",
+                "config_export_failure_toast": ""
             },
             "manage_scope": {
                 "logged_stories_button": "Aufgezeichnete Stories anschauen",
@@ -212,7 +230,8 @@
                 "streaks_expiration_text": "Läuft ab in {eta}",
                 "streaks_expiration_text_expired": "Abgelaufen",
                 "reminder_button": "Erinnerung erstellen",
-                "delete_scope_confirm_dialog_title": "Sind Sie sicher, dass Sie ein {scope} löschen wollen?"
+                "delete_scope_confirm_dialog_title": "Sind Sie sicher, dass Sie ein {scope} löschen wollen?",
+                "notes_placeholder": ""
             },
             "logged_stories": {
                 "story_failed_to_load": "Laden fehlgeschlagen",
@@ -243,6 +262,49 @@
                 "message_parse_failed": "Nachricht konnte nicht verarbeitet werden",
                 "unknown_sender": "Unbekannter Absender",
                 "download_attachment_failed_toast": "Fehler beim Herunterladen des Anhangs"
+            },
+            "better_location": {
+                "longitude_dialog_hint": "",
+                "suspend_location_updates": "",
+                "no_saved_coordinates_hint": "",
+                "saved_coordinates_title": "",
+                "delete_dialog_title": "",
+                "spoof_location_toggle": "",
+                "delete_dialog_message": "",
+                "teleport_to_friend_title": "",
+                "search_bar": "",
+                "no_friends_found": "",
+                "save_coordinates_dialog_title": "",
+                "no_friends_map": "",
+                "latitude_dialog_hint": "",
+                "spoofed_coordinates_title": "",
+                "saved_name_dialog_hint": "",
+                "save_dialog_button": "",
+                "choose_location_button": "",
+                "teleport_to_friend_button": ""
+            },
+            "theming": {
+                "no_themes_hint": ""
+            },
+            "manage_rule_feature": {
+                "whitelist_state_button": "",
+                "whitelist_state_subtext": "",
+                "blacklist_state_option": "",
+                "clear_list_button": "",
+                "dialog_clear_confirmation_text": "",
+                "whitelist_state_option": "",
+                "disable_state_option": "",
+                "blacklist_state_button": "",
+                "disable_state_subtext": "",
+                "blacklist_state_subtext": ""
+            },
+            "file_imports": {
+                "file_import_failed": "",
+                "file_imported": "",
+                "file_delete_failed": "",
+                "file_not_found": "",
+                "no_files_hint": "",
+                "import_file_button": ""
             }
         },
         "dialogs": {
@@ -265,6 +327,14 @@
             "messaging_action": {
                 "title": "Wählen Sie die zu verarbeitenden Inhaltstypen um fortzufahren",
                 "select_all_button": "Alle auswählen"
+            },
+            "export_config": {
+                "title": "",
+                "content": ""
+            },
+            "file_imports": {
+                "no_files_settings_hint": "",
+                "settings_select_file_hint": ""
             }
         }
     },
@@ -357,6 +427,30 @@
         "change_language": {
             "name": "Sprache ändern",
             "description": "Ändere die Sprache von SnapEnhance"
+        },
+        "file_imports": {
+            "name": "",
+            "description": ""
+        },
+        "disclaimer_statement": {
+            "name": "",
+            "description": ""
+        },
+        "logger_history": {
+            "description": "",
+            "name": ""
+        },
+        "friend_tracker": {
+            "name": "",
+            "description": ""
+        },
+        "security_features": {
+            "description": "",
+            "name": ""
+        },
+        "theming": {
+            "name": "",
+            "description": ""
         }
     },
     "features": {
@@ -444,6 +538,24 @@
                     "custom_path_format": {
                         "name": "Benutzerdefiniertes Pfadformat",
                         "description": "Legen Sie ein benutzerdefiniertes Pfadformat für heruntergeladene Medien fest\n\nVerfügbare Variablen:\n - %username%\n - %source%\n - %hash%\n - %date_time%"
+                    },
+                    "auto_download_voice_notes": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "logging_options": {
+                        "properties": {
+                            "disappearing_rate": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "logging": {
+                                "description": "",
+                                "name": ""
+                            }
+                        },
+                        "description": "",
+                        "name": ""
                     }
                 },
                 "name": "Downloader",
@@ -481,6 +593,10 @@
                             "home_tab": {
                                 "name": "Home Registerkarte",
                                 "description": "Überschreibt den Start-Tab beim Öffnen von Snapchat"
+                            },
+                            "simple_snapchat": {
+                                "description": "",
+                                "name": ""
                             }
                         }
                     },
@@ -547,6 +663,26 @@
                     "edit_text_override": {
                         "name": "Textfeld-Verhalten überschreiben",
                         "description": "Überschreibt das Verhalten von Textfeldern"
+                    },
+                    "auto_close_friend_feed_menu": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "custom_friend_feed_label": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "custom_theme": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "icon_style": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "hide_quick_add_suggestions": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "description": "Ändere das Aussehen von Snapchat"
@@ -643,7 +779,53 @@
                     },
                     "better_notifications": {
                         "name": "Bessere Benachrichtigungen",
-                        "description": "Zeige weitere Informationen in Benachrichtigungen an"
+                        "description": "Zeige weitere Informationen in Benachrichtigungen an",
+                        "properties": {
+                            "chat_preview": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "group_notifications": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "download_button": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "friend_add_source": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "media_caption": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "media_preview": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "mark_as_read_button": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "mark_as_read_and_save_in_chat": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "stacked_media_messages": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "smart_replies": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "reply_button": {
+                                "name": "",
+                                "description": ""
+                            }
+                        }
                     },
                     "notification_blacklist": {
                         "name": "Benachrichtigungs Blacklist",
@@ -672,6 +854,14 @@
                     "remove_groups_locked_status": {
                         "name": "Entfernen des Gruppen-Sperrstatus",
                         "description": "Ermöglicht es Ihnen, nach dem Rauswurf Gruppeninformationen anzuzeigen"
+                    },
+                    "mark_snap_as_seen_button": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "skip_when_marking_as_seen": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "name": "Mitteilungen",
@@ -732,6 +922,10 @@
                             "spoof_headphones": {
                                 "name": "Simuliere Kopfhörer",
                                 "description": "Verfälscht den Status des Musikhörens auf der Karte"
+                            },
+                            "show_battery_level": {
+                                "name": "",
+                                "description": ""
                             }
                         }
                     },
@@ -798,6 +992,10 @@
                     "hide_active_music": {
                         "name": "Aktive Musik ausblenden",
                         "description": "Verhindert, dass Snapchat erkennt, dass Sie Musik hören.\nSo können Sie mithilfe der Lautstärketasten Snaps aufnehmen, während Sie Musik hören"
+                    },
+                    "disable_telecom_framework": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "name": "Global",
@@ -924,6 +1122,14 @@
                             "disable_bitmoji": {
                                 "name": "Bitmojis deaktivieren",
                                 "description": "Deaktiviert das Bitmoji des Freund:innenprofil"
+                            },
+                            "custom_shared_library": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "custom_emoji_font": {
+                                "name": "",
+                                "description": ""
                             }
                         }
                     },
@@ -1008,6 +1214,44 @@
                     "prevent_forced_logout": {
                         "name": "Erzwungenen Logout verhindern",
                         "description": "Verhindert, dass Snapchat dich abmeldet, wenn du dich auf einem anderen Gerät anmeldest"
+                    },
+                    "better_transcript": {
+                        "description": "",
+                        "properties": {
+                            "preferred_transcription_lang": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "enhanced_transcript": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "enhanced_transcript_in_notifications": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "force_transcription": {
+                                "name": "",
+                                "description": ""
+                            }
+                        },
+                        "name": ""
+                    },
+                    "cof_experiments": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "friend_notes": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "context_menu_fix": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "voice_note_auto_play": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "name": "Experimentell",
@@ -1036,6 +1280,10 @@
                     "disable_log_anonymization": {
                         "name": "Log-Anonymisierung deaktivieren",
                         "description": "Deaktiviert die Anonymisierung von Logs"
+                    },
+                    "old_tool_box_add_view": {
+                        "name": "",
+                        "description": ""
                     }
                 }
             },
@@ -1050,6 +1298,10 @@
                     "allow_running_in_background": {
                         "name": "Hintergrundnutzung erlauben",
                         "description": "Ermöglicht die Ausführung des Trackers im Hintergrund. Hinweis: Dadurch wird Ihr Akku erheblich entladen"
+                    },
+                    "auto_purge": {
+                        "name": "",
+                        "description": ""
                     }
                 }
             }
@@ -1126,7 +1378,8 @@
                 "always_ask": "Immer Fragen",
                 "ORIGINAL": "Original",
                 "NOTE": "Audio-Notiz",
-                "SNAP": "Snap"
+                "SNAP": "Snap",
+                "SAVEABLE_SNAP": ""
             },
             "strip_media_metadata": {
                 "hide_caption_text": "Bildunterschriftstext ausblenden",
@@ -1141,7 +1394,14 @@
                 "hide_live_location_share_button": "Schaltfläche Live-Standortfreigabe entfernen",
                 "hide_stickers_button": "Entferne Stickers Taste",
                 "hide_voice_record_button": "Knopf für Sprachaufzeichnung entfernen",
-                "hide_unread_chat_hint": "Hinweis auf ungelesene Chats entfernen"
+                "hide_unread_chat_hint": "Hinweis auf ungelesene Chats entfernen",
+                "hide_chat_gallery_button": "",
+                "hide_map_reactions": "",
+                "hide_snap_create_group_buttons": "",
+                "hide_chat_camera_button": "",
+                "hide_gift_snapchat_plus_reminders": "",
+                "hide_post_to_story_buttons": "",
+                "hide_explorer_token_button": ""
             },
             "hide_story_suggestions": {
                 "hide_suggested_friend_stories": "Empfohlene Stories von Freunden ausblenden",
@@ -1159,7 +1419,8 @@
                 "added_by_mention": "Durch Erwähnung",
                 "added_by_group_chat": "Per Gruppenchat",
                 "added_by_qr_code": "Per QR-Code",
-                "added_by_community": "Per Community"
+                "added_by_community": "Per Community",
+                "added_by_quick_add": ""
             },
             "bypass_video_length_restriction": {
                 "single": "Einzelnes Medium",
@@ -1189,7 +1450,8 @@
             "disable_story_sections": {
                 "friends": "Freunde",
                 "following": "Folge Ich",
-                "discover": "Entdecken"
+                "discover": "Entdecken",
+                "suggested_stories": ""
             },
             "disable_cameras": {
                 "front": "Selfie Kamera",
@@ -1224,6 +1486,61 @@
                 "bitmoji_avatar_changes": "Benachrichtige, wenn jemand sein Bitmoji-Avatar ändert",
                 "bitmoji_background_changes": "Benachrichtige, wenn jemand den Hintergrund seines Bitmoji ändert",
                 "bitmoji_scene_changes": "Benachrichtige, wenn jemand seine Bitmoji-Szene ändert"
+            },
+            "custom_theme": {
+                "dark_blue": "",
+                "midnight_slate": "",
+                "firefly_night": "",
+                "bubblegum_pink": "",
+                "earthy_autumn": "",
+                "amoled_dark_mode": "",
+                "custom": "",
+                "zesty_lemon": "",
+                "mint_chocolate": "",
+                "ginger_snap": "",
+                "apple_orchard": "",
+                "modern_farmhouse": "",
+                "ocean_depths": "",
+                "art_deco_glam": "",
+                "lemon_drop": "",
+                "material_you_light": "",
+                "lemon_meringue": "",
+                "lava_flow": "",
+                "galaxy_glitter": "",
+                "industrial_chic": "",
+                "tropical_paradise": "",
+                "light_blue": "",
+                "spicy_chili": "",
+                "spring_meadow": "",
+                "creamy_vanilla": "",
+                "cosmic_night": "",
+                "material_you_dark": "",
+                "watercolor_wash": "",
+                "midnight_library": "",
+                "alien_landscape": "",
+                "gingerbread_house": "",
+                "peppermint_candy": "",
+                "ocean_fog": "",
+                "cherry_bomb": "",
+                "woodland_mystery": "",
+                "lemon_sorbet": "",
+                "spicy_mustard": "",
+                "lavender_field": ""
+            },
+            "snapchat_plus": {
+                "not_subscribed": "",
+                "basic": "",
+                "ad_free": ""
+            },
+            "icon_style": {
+                "filled": "",
+                "outlined": "",
+                "sharp": "",
+                "two-tone": ""
+            },
+            "simple_snapchat": {
+                "always_disabled": "",
+                "always_enabled": ""
             }
         },
         "notices": {
@@ -1261,14 +1578,16 @@
         "STATUS_PLUS_GIFT": "Status Plus Geschenk",
         "TINY_SNAP": "Winziger Snap",
         "STATUS_COUNTDOWN": "Countdown",
-        "MAP_REACTION": "Kartenreaktion"
+        "MAP_REACTION": "Kartenreaktion",
+        "SHARE": ""
     },
     "chat_action_menu": {
         "preview_button": "Vorschau",
         "download_button": "Download",
         "delete_logged_message_button": "Gespeicherte Nachrichten löschen",
         "convert_message": "Nachricht konvertieren",
-        "edit_message": "Nachricht bearbeiten"
+        "edit_message": "Nachricht bearbeiten",
+        "show_chat_edit_history": ""
     },
     "opera_context_menu": {
         "download": "Medien herunterladen",
@@ -1381,5 +1700,53 @@
         "outgoing_secret_message": "Schlüsselaustausch-Antwort",
         "incoming_pk_message": "Sie haben gerade eine Anfrage für einen öffentlichen Schlüssel erhalten. Klicken Sie unten, um sie anzunehmen.",
         "incoming_secret_message": "Ihr Freund hat gerade Ihren öffentlichen Schlüssel akzeptiert. Klicken Sie unten, um das Passwort zu akzeptieren."
+    },
+    "theming_attributes": {
+        "sigColorBackgroundMain": "",
+        "boxBackgroundColor": "",
+        "recipientPillBackgroundDrawable": "",
+        "scButtonColor": "",
+        "editTextColor": "",
+        "sigColorBaseAppYellow": "",
+        "ringStartColor": "",
+        "chipBackgroundColor": "",
+        "sigColorChatChat": "",
+        "sigColorBackgroundSurface": "",
+        "listBackgroundDrawable": "",
+        "sigColorChatPendingSending": "",
+        "sigColorChatConversationsLine": "",
+        "sigColorChatSnapWithoutSound": "",
+        "sigColorIconSecondary": "",
+        "itemShapeFillColor": "",
+        "listDivider": "",
+        "sigColorIconPrimary": "",
+        "recipientInputStyle": "",
+        "pstsIndicatorColor": "",
+        "rangeFillColor": "",
+        "pstsDividerColor": "",
+        "pstsTabBackground": "",
+        "tabTextColor": "",
+        "strokeColor": "",
+        "sigColorBackgroundSurfaceTranslucent": "",
+        "sigColorTextPrimary": "",
+        "sigColorChatSnapWithSound": "",
+        "actionSheetBackgroundDrawable": "",
+        "actionSheetDescriptionTextColor": "",
+        "statusBarForeground": "",
+        "actionSheetRoundedBackgroundDrawable": "",
+        "sigColorStoryRingDiscoverTabThumbnailStoryRing": "",
+        "storyReplayViewRingColor": "",
+        "statusBarBackground": "",
+        "sigColorButtonPrimary": "",
+        "sigColorLayoutPlaceholder": "",
+        "sigExceptionColorCameraGridLines": "",
+        "sigColorStoryRingFriendsFeedStoryRing": "",
+        "ringColor": ""
+    },
+    "send_override_dialog": {
+        "duration": "",
+        "unlimited_duration": "",
+        "saveable_snap_hint": "",
+        "title": ""
     }
 }

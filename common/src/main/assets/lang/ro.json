@@ -18,7 +18,8 @@
         "streak_expiration": "expiră în {day} zile {hour} ore {minute} minute",
         "total_messages": "Total mesaje trimise/primite: {count}",
         "title": "Previzualizare",
-        "unknown_user": "Utilizator Necunoscut"
+        "unknown_user": "Utilizator Necunoscut",
+        "no_messages": ""
     },
     "profile_info": {
         "display_name": "Nume afișat",
@@ -63,7 +64,8 @@
         "negative": "Nu",
         "cancel": "Anulare",
         "open": "Deschide",
-        "download": "Descarcă"
+        "download": "Descarcă",
+        "send": ""
     },
     "download_processor": {
         "download_started_toast": "Descărcarea a început",
@@ -80,7 +82,8 @@
             "note": "Notă",
             "original_story": "Povestea originală",
             "sticker": "Autocolant",
-            "snap": "Snap"
+            "snap": "Snap",
+            "gif": ""
         },
         "select_attachments_title": "Selectați atașamentele de descărcat",
         "failed_gallery_toast": "Nu s-a salvat în galerie {error}",
@@ -91,7 +94,8 @@
         },
         "no_attachments_toast": "Nu s-au găsit atașamente!",
         "failed_processing_toast": "Procesarea eșuată {error}",
-        "dash_no_chapter": "Nu a fost găsit niciun capitol"
+        "dash_no_chapter": "Nu a fost găsit niciun capitol",
+        "content_saved_toast": ""
     },
     "setup": {
         "mappings": {
@@ -228,7 +232,8 @@
                 "streaks_expiration_text": "Expiră în {eta}",
                 "streaks_expiration_text_expired": "Expirat",
                 "reminder_button": "Setați memento",
-                "delete_scope_confirm_dialog_title": "Sigur doriți să ștergeți un {scope}?"
+                "delete_scope_confirm_dialog_title": "Sigur doriți să ștergeți un {scope}?",
+                "notes_placeholder": ""
             },
             "logged_stories": {
                 "story_failed_to_load": "Încărcarea a eșuat",
@@ -418,6 +423,10 @@
                             "app_appearance": {
                                 "name": "Aspectul aplicației",
                                 "description": "Setează un aspect persistent al aplicației"
+                            },
+                            "simple_snapchat": {
+                                "description": "",
+                                "name": ""
                             }
                         }
                     },
@@ -482,6 +491,14 @@
                     "hide_quick_add_suggestions": {
                         "name": "Ascundeți sugestiile de adăugare rapidă",
                         "description": "Elimină sugestiile de adăugare rapidă de prieteni"
+                    },
+                    "icon_style": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "custom_friend_feed_label": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "name": "Interfața cu utilizatorul",
@@ -554,6 +571,42 @@
                             "chat_preview": {
                                 "description": "Afișează o previzualizare a mesajelor primite în notificare",
                                 "name": "Previzualizare chat"
+                            },
+                            "stacked_media_messages": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "download_button": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "media_caption": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "reply_button": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "friend_add_source": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "smart_replies": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "media_preview": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "mark_as_read_button": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "mark_as_read_and_save_in_chat": {
+                                "description": "",
+                                "name": ""
                             }
                         }
                     },
@@ -672,6 +725,10 @@
                             "walk_radius": {
                                 "name": "Raza de deplasare",
                                 "description": "Mergeți la întâmplare în această rază (ft)"
+                            },
+                            "show_battery_level": {
+                                "description": "",
+                                "name": ""
                             }
                         }
                     },
@@ -734,6 +791,28 @@
                     "disable_custom_tabs": {
                         "name": "Dezactivați filele personalizate",
                         "description": "Deschide linkuri în aplicațiile acceptate și nu în browserul web"
+                    },
+                    "disable_telecom_framework": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "media_upload_quality": {
+                        "description": "",
+                        "properties": {
+                            "disable_image_compression": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "force_video_upload_source_quality": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "custom_image_upload_format": {
+                                "description": "",
+                                "name": ""
+                            }
+                        },
+                        "name": ""
                     }
                 },
                 "name": "Global",
@@ -826,6 +905,20 @@
                     "auto_download_voice_notes": {
                         "name": "Descărcare automată a notelor vocale",
                         "description": "Descărcă automat notele vocale când le redați"
+                    },
+                    "logging_options": {
+                        "properties": {
+                            "logging": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "disappearing_rate": {
+                                "description": "",
+                                "name": ""
+                            }
+                        },
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "description": "Descarcă conținut media de pe Snapchat",
@@ -968,6 +1061,14 @@
                                     }
                                 },
                                 "description": "Injectează cod în framework-ul UI cross-platform Composer"
+                            },
+                            "custom_emoji_font": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "custom_shared_library": {
+                                "description": "",
+                                "name": ""
                             }
                         },
                         "name": "Hook-uri Native(Un set de funcții încorporate care permit dezvoltatorilor să adauge funcționalități la componente)",
@@ -1036,6 +1137,44 @@
                     "best_friend_pinning": {
                         "name": "Fixarea celui mai bun prieten",
                         "description": "Vă permite să fixați un prieten drept cel mai bun prieten numărul unu. Notă: numai tu poți să-ți vezi cel mai bun prieten fixat"
+                    },
+                    "cof_experiments": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "better_transcript": {
+                        "properties": {
+                            "force_transcription": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "enhanced_transcript": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "enhanced_transcript_in_notifications": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "preferred_transcription_lang": {
+                                "name": "",
+                                "description": ""
+                            }
+                        },
+                        "description": "",
+                        "name": ""
+                    },
+                    "context_menu_fix": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "voice_note_auto_play": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "friend_notes": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "description": "Caracteristici experimentale",
@@ -1063,9 +1202,31 @@
                     "developer_mode": {
                         "name": "Modul dezvoltator",
                         "description": "Afișează informații de depanare pe interfața de utilizare a Snapchat"
+                    },
+                    "old_tool_box_add_view": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "description": "Rulați scripturi personalizate pentru a extinde SnapEnhance"
+            },
+            "friend_tracker": {
+                "name": "",
+                "properties": {
+                    "auto_purge": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "allow_running_in_background": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "record_messaging_events": {
+                        "description": "",
+                        "name": ""
+                    }
+                },
+                "description": ""
             }
         },
         "notices": {
@@ -1151,7 +1312,8 @@
                 "chat_screen_record": "Înregistrare ecran",
                 "snap_replay": "Redare Repetată a Snap-ului",
                 "camera_roll_save": "Salvare în Rola de Cameră",
-                "abandon_video": "Apel video pierdut"
+                "abandon_video": "Apel video pierdut",
+                "speaking": ""
             },
             "path_format": {
                 "create_author_folder": "Creați un folder pentru fiecare autor",
@@ -1173,7 +1335,14 @@
                 "hide_unread_chat_hint": "Elimină Sugerarea de Chaturi Necitite",
                 "hide_profile_call_buttons": "Eliminați butoanele de apel din profil",
                 "hide_chat_call_buttons": "Eliminați butoanele de apel din conversație",
-                "hide_voice_record_button": "Eliminați butonul de înregistrare vocală"
+                "hide_voice_record_button": "Eliminați butonul de înregistrare vocală",
+                "hide_post_to_story_buttons": "",
+                "hide_map_reactions": "",
+                "hide_chat_gallery_button": "",
+                "hide_snap_create_group_buttons": "",
+                "hide_explorer_token_button": "",
+                "hide_chat_camera_button": "",
+                "hide_gift_snapchat_plus_reminders": ""
             },
             "hide_story_suggestions": {
                 "hide_suggested_friend_stories": "Ascunde poveștile prietenilor sugerați",
@@ -1191,12 +1360,14 @@
                 "added_by_mention": "După mențiune",
                 "added_by_qr_code": "După codul QR",
                 "added_by_group_chat": "După conversația de grup",
-                "added_by_community": "După comunitate"
+                "added_by_community": "După comunitate",
+                "added_by_quick_add": ""
             },
             "disable_story_sections": {
                 "friends": "Prieteni",
                 "following": "Urmărire",
-                "discover": "Descoperă"
+                "discover": "Descoperă",
+                "suggested_stories": ""
             },
             "disable_cameras": {
                 "front": "Camera frontală",
@@ -1213,7 +1384,8 @@
                 "SNAP": "Snap",
                 "ORIGINAL": "Original",
                 "NOTE": "Notă audio",
-                "always_ask": "Intreaba mereu"
+                "always_ask": "Intreaba mereu",
+                "SAVEABLE_SNAP": ""
             },
             "app_appearance": {
                 "always_light": "Întotdeauna Luminat",
@@ -1242,6 +1414,61 @@
                 "bitmoji_background_changes": "Notifică când cineva își schimbă fundalul Bitmoji",
                 "bitmoji_scene_changes": "Notifică când cineva își schimbă scena Bitmoji",
                 "bitmoji_selfie_changes": "Notifică când cineva își schimbă selfie-ul Bitmoji"
+            },
+            "custom_theme": {
+                "light_blue": "",
+                "midnight_slate": "",
+                "earthy_autumn": "",
+                "mint_chocolate": "",
+                "lava_flow": "",
+                "tropical_paradise": "",
+                "industrial_chic": "",
+                "lemon_sorbet": "",
+                "cosmic_night": "",
+                "gingerbread_house": "",
+                "art_deco_glam": "",
+                "bubblegum_pink": "",
+                "firefly_night": "",
+                "amoled_dark_mode": "",
+                "lemon_drop": "",
+                "modern_farmhouse": "",
+                "ocean_depths": "",
+                "material_you_light": "",
+                "custom": "",
+                "material_you_dark": "",
+                "cherry_bomb": "",
+                "ocean_fog": "",
+                "zesty_lemon": "",
+                "alien_landscape": "",
+                "woodland_mystery": "",
+                "midnight_library": "",
+                "peppermint_candy": "",
+                "watercolor_wash": "",
+                "galaxy_glitter": "",
+                "spicy_mustard": "",
+                "creamy_vanilla": "",
+                "lavender_field": "",
+                "lemon_meringue": "",
+                "apple_orchard": "",
+                "dark_blue": "",
+                "ginger_snap": "",
+                "spicy_chili": "",
+                "spring_meadow": ""
+            },
+            "snapchat_plus": {
+                "basic": "",
+                "ad_free": "",
+                "not_subscribed": ""
+            },
+            "icon_style": {
+                "outlined": "",
+                "filled": "",
+                "two-tone": "",
+                "sharp": ""
+            },
+            "simple_snapchat": {
+                "always_disabled": "",
+                "always_enabled": ""
             }
         }
     },
@@ -1324,7 +1551,8 @@
         "STATUS_PLUS_GIFT": "Cadou Status Plus",
         "TINY_SNAP": "Snap Mic",
         "STATUS_COUNTDOWN": "Numărătoare inversă",
-        "MAP_REACTION": "Reacția pe hartă"
+        "MAP_REACTION": "Reacția pe hartă",
+        "SHARE": ""
     },
     "media_download_source": {
         "profile_picture": "Poză de profil",
@@ -1401,7 +1629,8 @@
         "download_button": "Descarcă",
         "delete_logged_message_button": "Ștergeți mesajul salvat",
         "convert_message": "Convertiți mesajul",
-        "edit_message": "Editați mesajul"
+        "edit_message": "Editați mesajul",
+        "show_chat_edit_history": ""
     },
     "friendship_link_type": {
         "mutual": "Reciproc",
@@ -1471,5 +1700,53 @@
         "bitmoji_scene_changed": "{username} și-a schimbat scena Bitmoji",
         "bitmoji_selfie_changed": "{username} și-a schimbat selfie-ul Bitmoji",
         "bitmoji_background_changed": "{username} și-a schimbat fundalul Bitmoji"
+    },
+    "theming_attributes": {
+        "strokeColor": "",
+        "statusBarBackground": "",
+        "sigColorBackgroundSurfaceTranslucent": "",
+        "sigColorChatConversationsLine": "",
+        "sigColorBackgroundMain": "",
+        "sigColorChatSnapWithSound": "",
+        "actionSheetDescriptionTextColor": "",
+        "sigColorChatSnapWithoutSound": "",
+        "sigExceptionColorCameraGridLines": "",
+        "sigColorIconPrimary": "",
+        "ringColor": "",
+        "actionSheetRoundedBackgroundDrawable": "",
+        "sigColorLayoutPlaceholder": "",
+        "ringStartColor": "",
+        "editTextColor": "",
+        "boxBackgroundColor": "",
+        "recipientPillBackgroundDrawable": "",
+        "pstsIndicatorColor": "",
+        "recipientInputStyle": "",
+        "rangeFillColor": "",
+        "tabTextColor": "",
+        "statusBarForeground": "",
+        "sigColorStoryRingFriendsFeedStoryRing": "",
+        "storyReplayViewRingColor": "",
+        "sigColorButtonPrimary": "",
+        "sigColorStoryRingDiscoverTabThumbnailStoryRing": "",
+        "scButtonColor": "",
+        "sigColorBackgroundSurface": "",
+        "listDivider": "",
+        "itemShapeFillColor": "",
+        "sigColorIconSecondary": "",
+        "chipBackgroundColor": "",
+        "sigColorTextPrimary": "",
+        "actionSheetBackgroundDrawable": "",
+        "sigColorBaseAppYellow": "",
+        "listBackgroundDrawable": "",
+        "pstsTabBackground": "",
+        "sigColorChatPendingSending": "",
+        "sigColorChatChat": "",
+        "pstsDividerColor": ""
+    },
+    "send_override_dialog": {
+        "saveable_snap_hint": "",
+        "duration": "",
+        "title": "",
+        "unlimited_duration": ""
     }
 }

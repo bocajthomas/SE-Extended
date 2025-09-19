@@ -655,7 +655,7 @@
                     },
                     "icon_style": {
                         "name": "图标风格",
-                        "description": "更改材质图标的样式\n\n支持的功能:\n- Opera 下载按钮\n- 将捕捉标记为“已见”按钮\n- 好友动态菜单按钮\n- COF实验\n- 消息指示器"
+                        "description": "更改材质图标的样式\n\n支持的功能:\n- Opera 下载按钮\n- 将捕捉标记为“已见”按钮\n- 好友动态菜单按钮\n- COF实验\n- 消息指示器\n- 记录"
                     }
                 },
                 "description": "更改 Snapchat 的外观和风格",
@@ -1413,8 +1413,8 @@
                 "split": "分割媒体"
             },
             "old_bitmoji_selfie": {
-                "2d": "2D Bitmoji",
-                "3d": "3D Bitmoji"
+                "2d": "2D卡通形象",
+                "3d": "3D卡通形象"
             },
             "disable_confirmation_dialogs": {
                 "erase_message": "删除消息",
@@ -1672,7 +1672,7 @@
         "incoming_secret_message": "您的好友刚刚接受了您的公钥。点击下面接受密码。",
         "accept_secret_key_success_toast": "完成了！你现在可以与这位朋友传输加密信息了。",
         "accept_public_key_failure_toast": "无法接收公钥",
-        "accept_secret_key_failure_toast": "无法接受密钥。",
+        "accept_secret_key_failure_toast": "无法接受密钥",
         "accept_public_key_button": "接收公钥",
         "toolbox": {
             "initiate_exchange_button": "发起密钥交换",

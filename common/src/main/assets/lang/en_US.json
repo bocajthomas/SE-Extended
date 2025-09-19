@@ -22,12 +22,10 @@
             "request_button": "Request"
         }
     },
-
     "scopes": {
         "friend": "Friend",
         "group": "Group"
     },
-
     "manager": {
         "routes": {
             "tasks": "Tasks",
@@ -150,7 +148,7 @@
                 "save_all_option": "Save All",
                 "unsave_selection_option": "Unsave Selection",
                 "unsave_all_option": "Unsave All",
-                "mark_selection_as_seen_option":  "Mark selected Snap as seen",
+                "mark_selection_as_seen_option": "Mark selected Snap as seen",
                 "mark_all_as_seen_option": "Mark all Snaps as seen",
                 "delete_selection_option": "Delete Selection",
                 "delete_all_option": "Delete All"
@@ -248,7 +246,6 @@
             }
         }
     },
-
     "rules": {
         "toasts": {
             "enabled": "{ruleName} enabled",
@@ -313,7 +310,6 @@
             }
         }
     },
-
     "actions": {
         "clean_snapchat_cache": {
             "name": "Clean Snapchat Cache",
@@ -365,7 +361,6 @@
 
         }
     },
-
     "features": {
         "notices": {
             "unstable": "\u26A0 Unstable",
@@ -524,6 +519,10 @@
                             "home_tab": {
                                 "name": "Home Tab",
                                 "description": "Overrides the startup tab when opening Snapchat"
+                            },
+                            "simple_snapchat": {
+                                "name": "Simple Snapchat",
+                                "description": "Enables a simplified version of Snapchat"
                             }
                         }
                     },
@@ -597,7 +596,7 @@
                     },
                     "stealth_mode_indicator": {
                         "name": "Stealth Mode Indicator",
-                        "description": "Adds a \uD83D\uDC7B emoji next to conversations in stealth mode"
+                        "description": "Adds a 👻 emoji next to conversations in stealth mode"
                     },
                     "edit_text_override": {
                         "name": "Edit Text Override",
@@ -1169,7 +1168,7 @@
                         "properties": {
                             "encrypted_message_indicator": {
                                 "name": "Encrypted Message Indicator",
-                                "description": "Adds a \uD83D\uDD12 emoji next to encrypted messages"
+                                "description": "Adds a 🔒 emoji next to encrypted messages"
                             },
                             "force_message_encryption": {
                                 "name": "Force Message Encryption",
@@ -1299,15 +1298,15 @@
                 "modern_farmhouse": "Modern Farmhouse"
             },
             "friend_feed_menu_buttons": {
-                "auto_download": "\u2B07\uFE0F Auto Download",
-                "auto_save": "\uD83D\uDCAC Auto Save Messages",
-                "unsaveable_messages": "\u2B07\uFE0F Unsaveable Messages",
-                "auto_open_snaps": "\uD83D\uDCF7 Auto Open Snaps",
-                "stealth": "\uD83D\uDC7B Stealth Mode",
-                "mark_snaps_as_seen": "\uD83D\uDC40 Mark Snaps as seen",
-                "mark_stories_as_seen_locally": "\uD83D\uDC40 Mark Stories as seen locally",
-                "conversation_info": "\uD83D\uDC64 Conversation Info",
-                "e2e_encryption": "\uD83D\uDD12 Use E2E Encryption"
+                "auto_download": "⬇️ Auto Download",
+                "auto_save": "💬 Auto Save Messages",
+                "unsaveable_messages": "⬇️ Unsaveable Messages",
+                "auto_open_snaps": "📷 Auto Open Snaps",
+                "stealth": "👻 Stealth Mode",
+                "mark_snaps_as_seen": "👀 Mark Snaps as seen",
+                "mark_stories_as_seen_locally": "👀 Mark Stories as seen locally",
+                "conversation_info": "👤 Conversation Info",
+                "e2e_encryption": "🔒 Use E2E Encryption"
             },
             "path_format": {
                 "create_author_folder": "Create folder for each author",
@@ -1441,7 +1440,7 @@
                 "following": "Following",
                 "discover": "Discover"
             },
-            "disable_cameras":{
+            "disable_cameras": {
                 "front": "Front Camera",
                 "back": "Back Camera"
             },
@@ -1457,11 +1456,11 @@
                 "phone_calls": "Phone Calls"
             },
             "message_indicators": {
-                "encryption_indicator": "Adds a \uD83D\uDD12 icon next to messages that have been sent only to you",
+                "encryption_indicator": "Adds a 🔒 icon next to messages that have been sent only to you",
                 "platform_indicator": "Adds the platform icon from which a media was sent (e.g. Android, iOS, Web)",
-                "location_indicator": "Adds a \uD83D\uDCCD icon to snaps when they have been sent with location enabled",
+                "location_indicator": "Adds a 📍 icon to snaps when they have been sent with location enabled",
                 "ovf_editor_indicator": "Indicates if a snap has been sent using OVF Editor",
-                "director_mode_indicator": "Adds a \u270F\uFE0F icon to snaps when they have been sent using Director Mode, which can be used to send gallery images as snaps"
+                "director_mode_indicator": "Adds a ✏️ icon to snaps when they have been sent using Director Mode, which can be used to send gallery images as snaps"
             },
             "auto_mark_as_read": {
                 "conversation_read": "Mark conversation as read when sending a message",
@@ -1500,7 +1499,6 @@
             }
         }
     },
-
     "friend_menu_option": {
         "mark_snaps_as_seen": "Mark Snaps as seen",
         "mark_stories_as_seen_locally": "Mark Stories as seen locally",
@@ -1509,7 +1507,6 @@
         "auto_download_blacklist": "Auto Download Blacklist",
         "anti_auto_save": "Anti Auto Save"
     },
-
     "content_type": {
         "CHAT": "Chat",
         "SNAP": "Snap",
@@ -1534,7 +1531,6 @@
         "STATUS_COUNTDOWN": "Countdown",
         "MAP_REACTION": "Map Reaction"
     },
-
     "media_download_source": {
         "none": "None",
         "pending": "Pending",
@@ -1548,7 +1544,6 @@
         "merged": "Merged",
         "voice_call": "Voice Call"
     },
-
     "chat_action_menu": {
         "preview_button": "Preview",
         "download_button": "Download",
@@ -1556,7 +1551,6 @@
         "show_chat_edit_history": "Show Chat Edit History",
         "convert_message": "Convert Message"
     },
-
     "opera_context_menu": {
         "download": "Download Media",
         "sent_at": "Sent at {date}",
@@ -1566,16 +1560,13 @@
         "media_duration": "Media duration: {duration} ms",
         "show_debug_info": "Show Debug Info"
     },
-
     "modal_option": {
         "profile_info": "Profile Info",
         "close": "Close"
     },
-
     "gallery_media_send_override": {
         "multiple_media_toast": "You can only send one media at a time"
     },
-
     "mark_as_seen": {
         "no_unseen_snaps_toast": "No unseen Snaps found!",
         "seen_toast": "Marked as seen!",
@@ -1583,7 +1574,6 @@
         "already_seen_toast": "Already marked as seen!",
         "already_unseen_toast": "Already marked as unseen!"
     },
-
     "conversation_preview": {
         "streak_expiration": "expires in {day} days {hour} hours {minute} minutes",
         "total_messages": "Total sent/received messages: {count}",
@@ -1591,7 +1581,6 @@
         "unknown_user": "Unknown User",
         "no_messages": "No messages found!"
     },
-
     "profile_info": {
         "title": "Profile Info",
         "first_created_username": "First Created Username",
@@ -1608,7 +1597,6 @@
             "not_subscribed": "Not Subscribed"
         }
     },
-
     "friendship_link_type": {
         "mutual": "Mutual",
         "outgoing": "Outgoing",
@@ -1619,7 +1607,6 @@
         "incoming": "Incoming",
         "incoming_follower": "Incoming Follower"
     },
-
     "bulk_messaging_action": {
         "choose_action_title": "Choose an action",
         "progress_status": "Processing {index} of {total}",
@@ -1633,7 +1620,6 @@
             "clear_conversations": "Clear Conversations"
         }
     },
-
     "chat_export": {
         "exporter_dialog": {
             "select_conversations_title": "Select Conversations",
@@ -1655,7 +1641,6 @@
         "no_messages_found": "No messages found!",
         "exporting_message": "Exporting {conversation}..."
     },
-
     "button": {
         "ok": "OK",
         "positive": "Yes",
@@ -1697,7 +1682,6 @@
         "push_notification": "Push Notification",
         "custom": "Custom"
     },
-
     "better_notifications": {
         "button": {
             "reply": "Reply",
@@ -1705,25 +1689,21 @@
             "mark_as_read": "Mark as Read"
         }
     },
-
     "profile_picture_downloader": {
         "button": "Download Profile Picture",
         "title": "Profile Picture Downloader",
         "avatar_option": "Avatar",
         "background_option": "Background"
     },
-
     "call_start_confirmation": {
         "dialog_title": "Start Call",
         "dialog_message": "Are you sure you want to start a call?"
     },
-
     "half_swipe_notifier": {
         "notification_channel_name": "Half Swipe",
         "notification_content_dm": "{friend} just half-swiped into your chat for {duration} seconds",
         "notification_content_group": "{friend} just half-swiped into {group} for {duration} seconds"
     },
-
     "download_processor": {
         "attachment_type": {
             "snap": "Snap",
@@ -1754,18 +1734,15 @@
             "segment_text": "Segment {from} - {to}"
         }
     },
-
     "streaks_reminder": {
         "notification_title": "Streaks",
         "notification_text": "You will lose your Streak with {friend} in {hoursLeft} hours"
     },
-
     "biometric_auth": {
         "unlock_button": "Unlock",
         "title": "Unlock Snapchat",
         "subtitle": "Please authenticate to unlock Snapchat"
     },
-
     "end_to_end_encryption": {
         "toolbox": {
             "no_shared_key": "You don't have a shared secret with this friend yet. Click below to initiate a new one.",
@@ -1792,12 +1769,10 @@
         "incoming_pk_message": "You just received a public key request. Click below to accept it.",
         "incoming_secret_message": "Your friend just accepted your public key. Click below to accept the secret."
     },
-
     "auto_open_snaps": {
         "title": "Auto Open Snaps",
         "notification_content": "{count} Snaps opened"
     },
-
     "friend_mutation_observer": {
         "notification_channel_name": "Friend Mutation Observer",
         "friend_removed": "{username} has removed you as a friend",
@@ -1809,7 +1784,6 @@
         "bitmoji_background_changed": "{username} has changed their Bitmoji background",
         "bitmoji_scene_changed": "{username} has changed their Bitmoji scene"
     },
-
     "material3_strings": {
         "date_range_picker_start_headline": "From",
         "date_range_picker_end_headline": "To",
@@ -1825,7 +1799,6 @@
         "date_input_invalid_not_allowed": "Invalid date",
         "date_range_input_invalid_range_input": "Invalid date range"
     },
-
     "theming_attributes": {
         "sigColorTextPrimary": "Main Text Color",
         "sigColorChatChat": "Main Friend Feed Text Color",

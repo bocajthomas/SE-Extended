@@ -34,7 +34,11 @@
             "friend_tracker": "Ven Tracker",
             "edit_rule": "Rediger regel",
             "better_location": "Bedre beliggenhed",
-            "file_imports": "Filimport"
+            "file_imports": "Filimport",
+            "edit_theme": "",
+            "theming": "",
+            "manage_repos": "",
+            "manage_rule_feature": ""
         },
         "sections": {
             "features": {
@@ -46,7 +50,9 @@
                 "config_export_success_toast": "Konfigurationen blev eksporteret",
                 "config_import_failure_toast": "Kunne ikke importere konfiguration {error}",
                 "saved_config_snackbar": "Konfiguration gemt",
-                "config_export_failure_toast": "Kunne ikke eksportere konfiguration {error}"
+                "config_export_failure_toast": "Kunne ikke eksportere konfiguration {error}",
+                "older_required": "",
+                "newer_required": ""
             },
             "social": {
                 "streaks_expiration_short": "{hours} timer",
@@ -86,7 +92,8 @@
                 "streaks_length_text": "Længde: {length}",
                 "streaks_expiration_text": "Udløber om {eta}",
                 "streaks_expiration_text_expired": "Udløbet",
-                "delete_scope_confirm_dialog_title": "Er du sikker på, at du vil slette et {scope}?"
+                "delete_scope_confirm_dialog_title": "Er du sikker på, at du vil slette et {scope}?",
+                "notes_placeholder": ""
             },
             "logged_stories": {
                 "no_stories": "Ingen historier fundet",
@@ -160,7 +167,23 @@
                 "no_friends_found": "Ingen venner fundet",
                 "saved_coordinates_title": "Gemte koordinater",
                 "delete_dialog_message": "Er du sikker på, at du vil slette denne gemte koordinat?",
-                "no_friends_map": "Ingen venner på kortet"
+                "no_friends_map": "Ingen venner på kortet",
+                "spoofed_coordinates_title": ""
+            },
+            "theming": {
+                "no_themes_hint": ""
+            },
+            "manage_rule_feature": {
+                "whitelist_state_button": "",
+                "dialog_clear_confirmation_text": "",
+                "whitelist_state_subtext": "",
+                "disable_state_option": "",
+                "whitelist_state_option": "",
+                "blacklist_state_subtext": "",
+                "blacklist_state_option": "",
+                "blacklist_state_button": "",
+                "disable_state_subtext": "",
+                "clear_list_button": ""
             }
         },
         "dialogs": {
@@ -347,6 +370,24 @@
                     "custom_path_format": {
                         "name": "Brugerdefineret sti",
                         "description": "Angiv et brugerdefineret stiformat for downloadede medier\n\nTilgængelige variabler:\n- %brugernavn%\n- %kilde%\n- %hash%\n- %dato_tid%"
+                    },
+                    "auto_download_voice_notes": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "logging_options": {
+                        "description": "",
+                        "properties": {
+                            "logging": {
+                                "description": "",
+                                "name": ""
+                            },
+                            "disappearing_rate": {
+                                "description": "",
+                                "name": ""
+                            }
+                        },
+                        "name": ""
                     }
                 }
             },
@@ -379,6 +420,10 @@
                             "home_tab": {
                                 "name": "Fanebladet Hjem",
                                 "description": "Tilsidesætter fanen opstart, når du åbner Snapchat"
+                            },
+                            "simple_snapchat": {
+                                "description": "",
+                                "name": ""
                             }
                         }
                     },
@@ -453,6 +498,22 @@
                     "auto_close_friend_feed_menu": {
                         "name": "Auto Luk Venne Feed Menu",
                         "description": "Lukker automatisk Friend Feed-menuen efter at have trykket på en indstillingsknap"
+                    },
+                    "custom_theme": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "icon_style": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "custom_friend_feed_label": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "hide_quick_add_suggestions": {
+                        "description": "",
+                        "name": ""
                     }
                 }
             },
@@ -699,6 +760,10 @@
                             "walk_radius": {
                                 "name": "Gå radius",
                                 "description": "Gå tilfældigt rundt inden for denne radius (ft)"
+                            },
+                            "show_battery_level": {
+                                "description": "",
+                                "name": ""
                             }
                         }
                     },
@@ -871,6 +936,10 @@
                             "custom_emoji_font": {
                                 "name": "Brugerdefineret Emoji-skrifttype",
                                 "description": "Giver dig mulighed for at bruge en brugerdefineret emoji-skrifttype. Virker kun med .ttf-skrifttyper"
+                            },
+                            "custom_shared_library": {
+                                "name": "",
+                                "description": ""
                             }
                         }
                     },
@@ -977,6 +1046,44 @@
                     "best_friend_pinning": {
                         "description": "Tillader dig at fastgøre en ven som din bedste ven nummer ét. Bemærk: Kun du kan se din fastgjorte bedste ven",
                         "name": "Pinning af bedste ven"
+                    },
+                    "better_transcript": {
+                        "properties": {
+                            "force_transcription": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "preferred_transcription_lang": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "enhanced_transcript": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "enhanced_transcript_in_notifications": {
+                                "name": "",
+                                "description": ""
+                            }
+                        },
+                        "name": "",
+                        "description": ""
+                    },
+                    "friend_notes": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "cof_experiments": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "context_menu_fix": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "voice_note_auto_play": {
+                        "description": "",
+                        "name": ""
                     }
                 }
             },
@@ -1003,6 +1110,10 @@
                     "disable_log_anonymization": {
                         "name": "Deaktiver log anonymisering",
                         "description": "Deaktiverer anonymisering af logfiler"
+                    },
+                    "old_tool_box_add_view": {
+                        "description": "",
+                        "name": ""
                     }
                 }
             },
@@ -1083,7 +1194,8 @@
                 "ORIGINAL": "Original",
                 "NOTE": "Lyd Note",
                 "SNAP": "Snap",
-                "always_ask": "Spørg altid for at være sikker"
+                "always_ask": "Spørg altid for at være sikker",
+                "SAVEABLE_SNAP": ""
             },
             "hide_ui_components": {
                 "hide_profile_call_buttons": "Fjern Profilopkaldsknapper",
@@ -1091,7 +1203,14 @@
                 "hide_live_location_share_button": "Fjern Knappen Live Placeringsdeling",
                 "hide_stickers_button": "Fjern Klistermærker Knap",
                 "hide_voice_record_button": "Fjern Stemmeoptagelsesknap",
-                "hide_unread_chat_hint": "Fjern ulæst chat tip"
+                "hide_unread_chat_hint": "Fjern ulæst chat tip",
+                "hide_snap_create_group_buttons": "",
+                "hide_post_to_story_buttons": "",
+                "hide_explorer_token_button": "",
+                "hide_gift_snapchat_plus_reminders": "",
+                "hide_map_reactions": "",
+                "hide_chat_camera_button": "",
+                "hide_chat_gallery_button": ""
             },
             "home_tab": {
                 "map": "Kort",
@@ -1105,7 +1224,8 @@
                 "added_by_mention": "Efter Omtale",
                 "added_by_group_chat": "Efter Gruppechat",
                 "added_by_qr_code": "Via QR-kode",
-                "added_by_community": "Af Fællesskabet"
+                "added_by_community": "Af Fællesskabet",
+                "added_by_quick_add": ""
             },
             "bypass_video_length_restriction": {
                 "single": "Enkelt medie",
@@ -1171,7 +1291,8 @@
             "disable_story_sections": {
                 "discover": "Opdage",
                 "friends": "Venner",
-                "following": "Følge"
+                "following": "Følge",
+                "suggested_stories": ""
             },
             "hide_story_suggestions": {
                 "hide_my_stories": "Skjul mine historier",
@@ -1195,6 +1316,61 @@
                 "bitmoji_avatar_changes": "Giv besked, når nogen ændrer deres Bitmoji avatar",
                 "bitmoji_background_changes": "Giv besked, når nogen ændrer deres Bitmoji baggrund",
                 "bitmoji_scene_changes": "Giv besked, når nogen ændrer deres Bitmoji scene"
+            },
+            "custom_theme": {
+                "custom": "",
+                "apple_orchard": "",
+                "light_blue": "",
+                "tropical_paradise": "",
+                "zesty_lemon": "",
+                "ginger_snap": "",
+                "lemon_drop": "",
+                "amoled_dark_mode": "",
+                "mint_chocolate": "",
+                "material_you_dark": "",
+                "industrial_chic": "",
+                "lavender_field": "",
+                "material_you_light": "",
+                "earthy_autumn": "",
+                "galaxy_glitter": "",
+                "woodland_mystery": "",
+                "ocean_depths": "",
+                "dark_blue": "",
+                "midnight_slate": "",
+                "ocean_fog": "",
+                "watercolor_wash": "",
+                "spring_meadow": "",
+                "spicy_chili": "",
+                "midnight_library": "",
+                "gingerbread_house": "",
+                "peppermint_candy": "",
+                "lemon_sorbet": "",
+                "cosmic_night": "",
+                "modern_farmhouse": "",
+                "firefly_night": "",
+                "art_deco_glam": "",
+                "alien_landscape": "",
+                "spicy_mustard": "",
+                "lava_flow": "",
+                "creamy_vanilla": "",
+                "lemon_meringue": "",
+                "bubblegum_pink": "",
+                "cherry_bomb": ""
+            },
+            "snapchat_plus": {
+                "basic": "",
+                "not_subscribed": "",
+                "ad_free": ""
+            },
+            "icon_style": {
+                "two-tone": "",
+                "filled": "",
+                "outlined": "",
+                "sharp": ""
+            },
+            "simple_snapchat": {
+                "always_disabled": "",
+                "always_enabled": ""
             }
         }
     },
@@ -1211,7 +1387,8 @@
         "download_button": "Hent",
         "delete_logged_message_button": "Slet Logget Besked",
         "convert_message": "Konverter besked",
-        "edit_message": "Rediger besked"
+        "edit_message": "Rediger besked",
+        "show_chat_edit_history": ""
     },
     "opera_context_menu": {
         "download": "Hent medie",
@@ -1233,7 +1410,8 @@
         "streak_expiration": "udløber på {day} dage {hour} timer {minute} minutter",
         "total_messages": "Total sendt/modtagne meddelelser: {count}",
         "title": "Forhåndsvisning",
-        "unknown_user": "Ukendt bruger"
+        "unknown_user": "Ukendt bruger",
+        "no_messages": ""
     },
     "profile_info": {
         "title": "Profiloplysninger",
@@ -1278,7 +1456,8 @@
         "negative": "Nej",
         "cancel": "Annuller",
         "open": "Åbn",
-        "download": "Hent"
+        "download": "Hent",
+        "send": ""
     },
     "profile_picture_downloader": {
         "button": "Download Profilbillede",
@@ -1313,7 +1492,8 @@
             "title": "Download dash-medier",
             "segment_text": "Segment {from} - {to}"
         },
-        "dash_no_chapter": "Intet kapitel fundet"
+        "dash_no_chapter": "Intet kapitel fundet",
+        "content_saved_toast": ""
     },
     "streaks_reminder": {
         "notification_title": "Streaks",
@@ -1359,6 +1539,18 @@
         "logger_history": {
             "name": "Log historie",
             "description": "Se historikken for loggede meddelelser"
+        },
+        "security_features": {
+            "name": "",
+            "description": ""
+        },
+        "disclaimer_statement": {
+            "name": "",
+            "description": ""
+        },
+        "theming": {
+            "description": "",
+            "name": ""
         }
     },
     "material3_strings": {
@@ -1508,5 +1700,53 @@
         "bitmoji_scene_changed": "{username} har ændret deres Bitmoji scene",
         "bitmoji_background_changed": "{username} har ændret deres Bitmoji baggrund",
         "notification_channel_name": "Venmutationobserver"
+    },
+    "theming_attributes": {
+        "sigColorChatSnapWithoutSound": "",
+        "sigExceptionColorCameraGridLines": "",
+        "actionSheetDescriptionTextColor": "",
+        "sigColorChatSnapWithSound": "",
+        "sigColorTextPrimary": "",
+        "pstsIndicatorColor": "",
+        "actionSheetRoundedBackgroundDrawable": "",
+        "sigColorChatConversationsLine": "",
+        "itemShapeFillColor": "",
+        "sigColorIconSecondary": "",
+        "listDivider": "",
+        "ringStartColor": "",
+        "sigColorLayoutPlaceholder": "",
+        "pstsTabBackground": "",
+        "statusBarBackground": "",
+        "sigColorButtonPrimary": "",
+        "strokeColor": "",
+        "sigColorBackgroundSurfaceTranslucent": "",
+        "sigColorChatChat": "",
+        "sigColorBackgroundSurface": "",
+        "recipientPillBackgroundDrawable": "",
+        "scButtonColor": "",
+        "boxBackgroundColor": "",
+        "sigColorBackgroundMain": "",
+        "pstsDividerColor": "",
+        "tabTextColor": "",
+        "chipBackgroundColor": "",
+        "editTextColor": "",
+        "sigColorStoryRingDiscoverTabThumbnailStoryRing": "",
+        "sigColorBaseAppYellow": "",
+        "storyReplayViewRingColor": "",
+        "sigColorStoryRingFriendsFeedStoryRing": "",
+        "actionSheetBackgroundDrawable": "",
+        "listBackgroundDrawable": "",
+        "sigColorIconPrimary": "",
+        "rangeFillColor": "",
+        "sigColorChatPendingSending": "",
+        "recipientInputStyle": "",
+        "ringColor": "",
+        "statusBarForeground": ""
+    },
+    "send_override_dialog": {
+        "duration": "",
+        "unlimited_duration": "",
+        "saveable_snap_hint": "",
+        "title": ""
     }
 }

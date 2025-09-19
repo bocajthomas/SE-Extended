@@ -49,7 +49,8 @@
         "negative": "না",
         "cancel": "বাতিল করুন",
         "open": "খুলুন",
-        "download": "ডাউনলোড"
+        "download": "ডাউনলোড",
+        "send": ""
     },
     "download_processor": {
         "download_started_toast": "ডাউনলোড শুরু হয়েছে",
@@ -78,7 +79,8 @@
         "failed_processing_toast": "প্রক্রিয়াকরণ ব্যর্থ হয়েছে {error}",
         "failed_gallery_toast": "গ্যালারিতে সংরক্ষণ ব্যর্থ হয়েছে {error}",
         "no_attachments_toast": "কোনও সংযুক্তি খুঁজে পাওয়া যায়নি !",
-        "dash_no_chapter": "কোন অধ্যায় খুঁজে পাওয়া যায়নি"
+        "dash_no_chapter": "কোন অধ্যায় খুঁজে পাওয়া যায়নি",
+        "content_saved_toast": ""
     },
     "setup": {
         "mappings": {
@@ -118,7 +120,8 @@
             "better_location": "বেটার অবস্থান",
             "theming": "থিমিং",
             "edit_theme": "থিম সম্পাদনা করুন",
-            "manage_repos": "রেপোসিটরি ম্যানেজ করুন"
+            "manage_repos": "রেপোসিটরি ম্যানেজ করুন",
+            "manage_rule_feature": ""
         },
         "sections": {
             "features": {
@@ -130,7 +133,9 @@
                 "config_import_success_toast": "কনফিগ সফলভাবে আমদানি করা হয়েছে",
                 "saved_config_snackbar": "কনফিগার সংরক্ষণ করা হয়েছে",
                 "config_import_failure_toast": "কনফিগ আমদানি করতে ব্যর্থ হয়েছে {error}",
-                "config_export_failure_toast": "কনফিগ রপ্তানি করতে ব্যর্থ {error}"
+                "config_export_failure_toast": "কনফিগ রপ্তানি করতে ব্যর্থ {error}",
+                "newer_required": "",
+                "older_required": ""
             },
             "social": {
                 "streaks_expiration_short": "{hours}h",
@@ -169,7 +174,8 @@
                 "streaks_expiration_text": "{eta}-এ মেয়াদ শেষ হবে",
                 "streaks_expiration_text_expired": "মেয়াদোত্তীর্ণ",
                 "reminder_button": "অনুস্মারক সেট করুন",
-                "delete_scope_confirm_dialog_title": "নিশ্চিত আপনি একটি {scope} মুছতে চান?"
+                "delete_scope_confirm_dialog_title": "নিশ্চিত আপনি একটি {scope} মুছতে চান?",
+                "notes_placeholder": ""
             },
             "home": {
                 "update_content": "সংস্করণ {version} উপলব্ধ!",
@@ -249,6 +255,18 @@
             },
             "theming": {
                 "no_themes_hint": "কোনো থিম পাওয়া যায়নি"
+            },
+            "manage_rule_feature": {
+                "disable_state_option": "",
+                "whitelist_state_option": "",
+                "disable_state_subtext": "",
+                "blacklist_state_option": "",
+                "blacklist_state_button": "",
+                "dialog_clear_confirmation_text": "",
+                "whitelist_state_subtext": "",
+                "blacklist_state_subtext": "",
+                "whitelist_state_button": "",
+                "clear_list_button": ""
             }
         },
         "dialogs": {
@@ -399,6 +417,10 @@
         "security_features": {
             "name": "নিরাপত্তা বৈশিষ্ট্য",
             "description": "নিরাপত্তা বৈশিষ্ট্য অ্যাক্সেস করুন"
+        },
+        "disclaimer_statement": {
+            "description": "",
+            "name": ""
         }
     },
     "features": {
@@ -487,6 +509,24 @@
                     "download_context_menu": {
                         "name": "ডাউনলোড কনটেক্সট মেনু",
                         "description": "কনটেক্সট মেনু ব্যবহার করে কথোপকথন বা গল্প থেকে মেসেজ ডাউনলোড/প্রিভিউ করতে অনুমতি দেয়।\nবোতামে দীর্ঘ চাপ ডাউনলোড জোর করে করবে"
+                    },
+                    "auto_download_voice_notes": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "logging_options": {
+                        "properties": {
+                            "disappearing_rate": {
+                                "name": "",
+                                "description": ""
+                            },
+                            "logging": {
+                                "name": "",
+                                "description": ""
+                            }
+                        },
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "name": "ডাউনলোডার"
@@ -539,6 +579,10 @@
                             "home_tab": {
                                 "name": "হোম ট্যাব",
                                 "description": "স্ন্যাপচ্যাট খুললে স্টার্টআপ ট্যাব ওভাররাইড করে"
+                            },
+                            "simple_snapchat": {
+                                "name": "",
+                                "description": ""
                             }
                         }
                     },
@@ -597,6 +641,18 @@
                     "custom_theme": {
                         "name": "কাস্টম থিম",
                         "description": "স্ন্যাপচ্যাটের রং কাস্টমাইজ করুন\nনোট: আপনি যদি একটি ডার্ক থিম (যেমন AMOLED) বেছে নেন, তবে ভাল ফলাফলের জন্য অ্যাপ অ্যাপিয়ারেন্স সেটিংসে ডার্ক মোড সক্রিয় করতে হতে পারে"
+                    },
+                    "hide_quick_add_suggestions": {
+                        "name": "",
+                        "description": ""
+                    },
+                    "icon_style": {
+                        "description": "",
+                        "name": ""
+                    },
+                    "custom_friend_feed_label": {
+                        "description": "",
+                        "name": ""
                     }
                 },
                 "name": "ব্যবহারকারীর ইন্টারফেস"
@@ -836,6 +892,10 @@
                             "spoof_headphones": {
                                 "name": "হেডফোন নকল করুন",
                                 "description": "মানচিত্রে সঙ্গীত শোনার অবস্থা নকল করে"
+                            },
+                            "show_battery_level": {
+                                "name": "",
+                                "description": ""
                             }
                         },
                         "description": "স্ন্যাপচ্যাটের অবস্থান উন্নত করে",
@@ -970,6 +1030,10 @@
                             "custom_emoji_font": {
                                 "description": "আপনাকে কাস্টম ইমোজি ফন্ট ব্যবহার করতে দেয়। শুধুমাত্র .ttf ফন্টগুলির সাথে কাজ করে",
                                 "name": "কাস্টম ইমোজি ফন্ট"
+                            },
+                            "custom_shared_library": {
+                                "name": "",
+                                "description": ""
                             }
                         },
                         "name": "নেটিভ হুকস",
@@ -1086,6 +1150,10 @@
                     "voice_note_auto_play": {
                         "name": "ভয়েস নোট অটো প্লে",
                         "description": "বর্তমান ভয়েস নোট শেষ হওয়ার পর স্বয়ংক্রিয়ভাবে পরবর্তী ভয়েস নোট চালু হয়"
+                    },
+                    "friend_notes": {
+                        "name": "",
+                        "description": ""
                     }
                 },
                 "description": "পরীক্ষামূলক বৈশিষ্ট্য",
@@ -1112,6 +1180,10 @@
                     "developer_mode": {
                         "name": "ডেভেলপার মোড",
                         "description": "স্ন্যাপচ্যাটের UI-এ ডিবাগ তথ্য দেখায়"
+                    },
+                    "old_tool_box_add_view": {
+                        "description": "",
+                        "name": ""
                     }
                 },
                 "description": "স্ন্যাপএনহ্যান্স প্রসারিত করতে কাস্টম স্ক্রিপ্ট চালান",
@@ -1275,7 +1347,8 @@
                 "always_ask": "সর্বদা জিজ্ঞাসা করুন",
                 "NOTE": "অডিও নোট",
                 "SNAP": "স্ন্যাপ",
-                "ORIGINAL": "মূল মিডিয়া"
+                "ORIGINAL": "মূল মিডিয়া",
+                "SAVEABLE_SNAP": ""
             },
             "hide_ui_components": {
                 "hide_profile_call_buttons": "প্রোফাইল কল বোতামগুলি অপসারণ করুন",
@@ -1289,7 +1362,8 @@
                 "hide_chat_camera_button": "চ্যাট ক্যামেরা বোতাম সরান",
                 "hide_explorer_token_button": "এক্সপ্লোরার টোকেন বোতাম সরান",
                 "hide_gift_snapchat_plus_reminders": "গিফট স্ন্যাপচ্যাট প্লাস অনুস্মারকগুলি সরান",
-                "hide_chat_gallery_button": "চ্যাট গ্যালারি বোতাম সরান"
+                "hide_chat_gallery_button": "চ্যাট গ্যালারি বোতাম সরান",
+                "hide_map_reactions": ""
             },
             "strip_media_metadata": {
                 "remove_audio_note_transcript_capability": "অডিও নোট ট্রান্সক্রিপ্ট ক্ষমতা অপসারণ করুন",
@@ -1422,6 +1496,21 @@
                 "lavender_field": "ল্যাভেন্ডার ফিল্ড",
                 "lemon_drop": "লেমন ড্রপ",
                 "modern_farmhouse": "মডার্ন ফার্মহাউস"
+            },
+            "simple_snapchat": {
+                "always_enabled": "",
+                "always_disabled": ""
+            },
+            "icon_style": {
+                "outlined": "",
+                "filled": "",
+                "sharp": "",
+                "two-tone": ""
+            },
+            "snapchat_plus": {
+                "basic": "",
+                "ad_free": "",
+                "not_subscribed": ""
             }
         },
         "notices": {
@@ -1655,6 +1744,9 @@
         "sigColorStoryRingDiscoverTabThumbnailStoryRing": "গল্প রিং আবিষ্কার ট্যাব থাম্বনেইল গল্প রিং রঙ"
     },
     "send_override_dialog": {
-        "title": "মিডিয়া পাঠান এভাবে: "
+        "title": "মিডিয়া পাঠান এভাবে: ",
+        "duration": "",
+        "saveable_snap_hint": "",
+        "unlimited_duration": ""
     }
 }

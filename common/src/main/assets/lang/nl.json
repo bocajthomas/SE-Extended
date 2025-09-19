@@ -1055,7 +1055,13 @@
                     },
                     "app_lock": {
                         "name": "App Vergrendeling",
-                        "description": "Vergrendeld Snapchat met je apparaatvergrendeling (vingerafdruk, gezichtsherkenning, ...)"
+                        "description": "Vergrendeld Snapchat met je apparaatvergrendeling (vingerafdruk, gezichtsherkenning, ...)",
+                        "properties": {
+                            "lock_on_resume": {
+                                "description": "",
+                                "name": ""
+                            }
+                        }
                     },
                     "infinite_story_boost": {
                         "name": "Oneindige Story Boost",
@@ -1078,7 +1084,8 @@
                         "name": "Aangepast Streaks Vervaltijdformaat"
                     },
                     "add_friend_source_spoof": {
-                        "description": "Spooft de afkomst van een vriendschapsverzoek"
+                        "description": "Spooft de afkomst van een vriendschapsverzoek",
+                        "name": ""
                     },
                     "story_logger": {
                         "name": "verhaal Logger",
@@ -1116,7 +1123,8 @@
                         "name": "Schakel het anonimiseren van logs uit"
                     },
                     "old_tool_box_add_view": {
-                        "description": "Gebruik de oude \"add view\" om de toolbox aan Snapchat toe te voegen.\nDeze functie is tijdelijk"
+                        "description": "Gebruik de oude \"add view\" om de toolbox aan Snapchat toe te voegen.\nDeze functie is tijdelijk",
+                        "name": ""
                     }
                 },
                 "name": "Scripts"
@@ -1174,7 +1182,8 @@
                 "spotlight": "Uitgelicht"
             },
             "hide_story_suggestions": {
-                "hide_my_stories": "Verberg mijn verhalen"
+                "hide_my_stories": "Verberg mijn verhalen",
+                "hide_suggested_friend_stories": ""
             },
             "auto_reload": {
                 "all": "Alles (Snapchat + SE Extended)",
@@ -1363,7 +1372,8 @@
                 "hide_gift_snapchat_plus_reminders": "Verberg de \"Geef Snapchat+ cadeau\"-herinneringen",
                 "hide_stickers_button": "Verberg de Stickers-knop",
                 "hide_snap_create_group_buttons": "Verwijder de ...",
-                "hide_chat_call_buttons": "Verberg de Oproepknoppen in de chat"
+                "hide_chat_call_buttons": "Verberg de Oproepknoppen in de chat",
+                "hide_explorer_token_button": ""
             },
             "snapchat_plus": {
                 "not_subscribed": "Niet geabonneerd",
@@ -1371,7 +1381,8 @@
                 "ad_free": "Reclamevrij"
             },
             "auto_mark_as_read": {
-                "snap_reply": "Markeer snaps als gelezen als je erop antwoord"
+                "snap_reply": "Markeer snaps als gelezen als je erop antwoord",
+                "conversation_read": ""
             }
         }
     },
@@ -1455,7 +1466,15 @@
         "LOCATION": "Locatie",
         "STICKER": "Sticker",
         "STATUS_CALL_MISSED_AUDIO": "Gemist Audiogesprek",
-        "STATUS_CALL_MISSED_VIDEO": "Gemist Videogesprek"
+        "STATUS_CALL_MISSED_VIDEO": "Gemist Videogesprek",
+        "TINY_SNAP": "",
+        "LIVE_LOCATION_SHARE": "",
+        "CREATIVE_TOOL_ITEM": "",
+        "STATUS_COUNTDOWN": "",
+        "FAMILY_CENTER_LEAVE": "",
+        "STATUS_PLUS_GIFT": "",
+        "FAMILY_CENTER_INVITE": "",
+        "MAP_REACTION": ""
     },
     "send_override_dialog": {
         "title": "Stuur media als {type}",
@@ -1599,7 +1618,8 @@
         "pending": "Bezig",
         "spotlight": "Spotlight",
         "profile_picture": "Profielfoto",
-        "story_logger": "Verhaallogger"
+        "story_logger": "Verhaallogger",
+        "merged": ""
     },
     "end_to_end_encryption": {
         "native_hooks_send_failure_toast": "Verzenden mislukt! Zet Native Hook alsjeblieft aan in de instellingen.",
@@ -1663,7 +1683,9 @@
         "failed_to_create_preview_toast": "Voorbeeld creeëren mislukt",
         "failed_processing_toast": "Verwerking mislukt: {error}",
         "dash_dialog": {
-            "download_all": "Alles Downloaden"
+            "download_all": "Alles Downloaden",
+            "title": "",
+            "segment_text": ""
         },
         "failed_gallery_toast": "Opslaan naar gallerij mislukt: {error}",
         "dash_no_chapter": "Geen hoofdstuk gevonden",
@@ -1687,7 +1709,8 @@
         "bitmoji_selfie_changed": "{username} heeft zijn/haar Bitmoji-selfie aangepast",
         "bitmoji_avatar_changed": "{username} heeft zijn/haar Bitmoji-avatar aangepast",
         "bitmoji_background_changed": "{username} heeft zijn/haar Bitmoji-achtergrond aangepast",
-        "bitmoji_scene_changed": "{username} heeft zijn/haar Bitmoji-pose aangepast"
+        "bitmoji_scene_changed": "{username} heeft zijn/haar Bitmoji-pose aangepast",
+        "notification_channel_name": ""
     },
     "streaks_reminder": {
         "notification_title": "Streaks",
@@ -1695,5 +1718,47 @@
     },
     "gallery_media_send_override": {
         "multiple_media_toast": "Je kunt maar 1 mediaelement tegelijk sturen"
+    },
+    "theming_attributes": {
+        "actionSheetRoundedBackgroundDrawable": "",
+        "itemShapeFillColor": "",
+        "sigColorIconSecondary": "",
+        "editTextColor": "",
+        "sigColorChatSnapWithoutSound": "",
+        "actionSheetBackgroundDrawable": "",
+        "sigColorChatConversationsLine": "",
+        "pstsTabBackground": "",
+        "sigColorBackgroundSurface": "",
+        "ringColor": "",
+        "rangeFillColor": "",
+        "sigColorLayoutPlaceholder": "",
+        "sigColorChatPendingSending": "",
+        "sigColorChatSnapWithSound": "",
+        "recipientPillBackgroundDrawable": "",
+        "sigColorBackgroundSurfaceTranslucent": "",
+        "storyReplayViewRingColor": "",
+        "actionSheetDescriptionTextColor": "",
+        "sigColorIconPrimary": "",
+        "sigColorBaseAppYellow": "",
+        "sigColorButtonPrimary": "",
+        "boxBackgroundColor": "",
+        "scButtonColor": "",
+        "statusBarBackground": "",
+        "recipientInputStyle": "",
+        "listDivider": "",
+        "listBackgroundDrawable": "",
+        "sigColorChatChat": "",
+        "sigColorBackgroundMain": "",
+        "chipBackgroundColor": "",
+        "sigColorTextPrimary": "",
+        "sigExceptionColorCameraGridLines": "",
+        "sigColorStoryRingFriendsFeedStoryRing": "",
+        "tabTextColor": "",
+        "pstsIndicatorColor": "",
+        "statusBarForeground": "",
+        "ringStartColor": "",
+        "strokeColor": "",
+        "pstsDividerColor": "",
+        "sigColorStoryRingDiscoverTabThumbnailStoryRing": ""
     }
 }
