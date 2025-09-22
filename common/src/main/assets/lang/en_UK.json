@@ -3,7 +3,11 @@
         "dialogs": {
             "select_language": "Select Language",
             "select_save_folder_button": "Select Folder",
-            "save_folder": "SE Extended requires Storage permissions to download and Save Media from Snapchat.\nPlease choose the location where media should be downloaded to."
+            "save_folder": "SE Extended requires Storage permissions to download and Save Media from Snapchat.\nPlease choose the location where media should be downloaded to.",
+            "disclaimer": {
+                "statement": "Welcome to the SE Extended Module.\nDisclaimer:\n- Users must take full Responsibility for any risks associated with using this module.\n- The SE Extended Module can modify the behaviour of the Snapchat app. Users should carefully review the module's operations and make their own decisions regarding its usage.\n- The developer accepts no responsibility for any warnings or bans that may occur on your snapchat account that may arise from the use of the SE Extended module, and all consequences are to be borne by the users themselves.",
+                "agree_button": "I Agree"
+            }
         },
         "mappings": {
             "generate_failure_no_snapchat": "SE Extended was unable to detect Snapchat, please try reinstalling Snapchat.",
@@ -52,7 +56,8 @@
                 "saved_config_snackbar": "Config saved",
                 "config_export_failure_toast": "Failed to export config {error}",
                 "older_required": "This feature requires Snapchat v{version} or older to work correctly",
-                "newer_required": "This feature requires Snapchat v{version} or newer to work correctly"
+                "newer_required": "This feature requires Snapchat v{version} or newer to work correctly",
+                "search_button": "Search"
             },
             "tasks": {
                 "no_tasks": "No Tasks",
@@ -62,7 +67,8 @@
                 "delete_files_option": "Also Delete Files",
                 "remove_selected_tasks_confirm": "Remove {count} Tasks?",
                 "remove_all_tasks_confirm": "Remove All Tasks?",
-                "failed_to_open_file": "Failed to open file"
+                "failed_to_open_file": "Failed to open file",
+                "merge_button": "Merge"
             },
             "social": {
                 "streaks_expiration_short": "{hours}h",
@@ -171,7 +177,14 @@
                 "suspend_location_updates": "Suspend Location Updates"
             },
             "theming": {
-                "no_themes_hint": "No themes found"
+                "no_themes_hint": "No themes found",
+                "search_theme_placeholder": "Search themes",
+                "new_theme_button": "New theme",
+                "import_from_file_button": "Import from file",
+                "import_from_url_button": "Import from URL",
+                "manage_repositories_button": "Manage repositories",
+                "installed_themes_title": "Installed Themes",
+                "theme_catalog_title": "Theme Catalog"
             },
             "manage_rule_feature": {
                 "disable_state_option": "Disabled",
@@ -192,7 +205,8 @@
                 "search_hint": "Search",
                 "fetch_error": "Failed to fetch data",
                 "category_groups": "Groups",
-                "category_friends": "Friends"
+                "category_friends": "Friends",
+                "participants_text": "{count} participants"
             },
             "scripting_warning": {
                 "title": "Warning",
@@ -214,6 +228,16 @@
             "file_imports": {
                 "settings_select_file_hint": "Select an imported file",
                 "no_files_settings_hint": "No files found. Make sure you have imported the required files in the File Imports section"
+            },
+            "import_theme_url": {
+                "title": "Import Theme from URL",
+                "url_hint": "URL",
+                "import_button": "Import"
+            },
+            "theme_settings": {
+                "title": "Theme Settings",
+                "duplicate_button": "Duplicate",
+                "export_button": "Export"
             }
         }
     },
