@@ -3,7 +3,11 @@
         "dialogs": {
             "select_language": "选择语言",
             "save_folder": "SE Extended 需要存储权限才能从 Snapchat 下载和保存媒体。\n请选择媒体下载的位置。",
-            "select_save_folder_button": "选择文件夹"
+            "select_save_folder_button": "选择文件夹",
+            "disclaimer": {
+                "statement": "欢迎来到 SE Extended 模块.\n• 免责声明:\n- 用户必须对使用本模块所涉及的任何风险承担全部责任.\n- 该 SE Extended 模块 可以修改行为的 Snapchat 应用程序. 用户应仔细审查该模块的操作,并自行决定其使用方式\n- 开发商对您可能遭遇的任何警告或封禁概不负责 snapchat 因使用该账户可能产生的账户 SE Extended 模块 所有后果均由用户自行承担.",
+                "agree_button": "我同意"
+            }
         },
         "mappings": {
             "dialog": "生成映射，这可能需要一段时间......",
@@ -97,7 +101,9 @@
         "cancel": "取消",
         "open": "打开",
         "download": "下载",
-        "send": "发送"
+        "send": "发送",
+        "restore_original": "恢复原始状态",
+        "convert_external_media": "转换外部媒体"
     },
     "scopes": {
         "friend": "朋友",
@@ -165,7 +171,8 @@
                 "reset_option": "重置",
                 "config_export_failure_toast": "导出配置失败 {error}",
                 "older_required": "此功能需要 Snapchat v{version} 或更早版本才能正常工作",
-                "newer_required": "此功能要求Snapchat v{version}或更新版本才能正确工作"
+                "newer_required": "此功能要求Snapchat v{version}或更新版本才能正确工作",
+                "search_button": "搜索"
             },
             "tasks": {
                 "no_tasks": "没有任务",
@@ -175,7 +182,8 @@
                 "remove_selected_tasks_confirm": "删除 {count} 个任务？",
                 "remove_all_tasks_confirm": "删除所有任务?",
                 "delete_files_option": "也删除文件",
-                "failed_to_open_file": "无法打开文件"
+                "failed_to_open_file": "无法打开文件",
+                "merge_button": "合并"
             },
             "social": {
                 "streaks_expiration_short": "{hours}小时",
@@ -256,7 +264,14 @@
                 "no_friends_found": "没有找到好友"
             },
             "theming": {
-                "no_themes_hint": "没有找到主题"
+                "no_themes_hint": "没有找到主题",
+                "search_theme_placeholder": "搜索主题",
+                "new_theme_button": "新主题",
+                "import_from_file_button": "从文件导入",
+                "import_from_url_button": "从URL导入",
+                "manage_repositories_button": "管理存储库",
+                "installed_themes_title": "已安装主题",
+                "theme_catalog_title": "主题目录"
             },
             "manage_rule_feature": {
                 "disable_state_option": "残疾人",
@@ -300,6 +315,16 @@
             "file_imports": {
                 "no_files_settings_hint": "没有找到文件. 确保您已在文件导入部分导入所需的文件",
                 "settings_select_file_hint": "选择导入的文件"
+            },
+            "import_theme_url": {
+                "title": "从URL导入主题",
+                "url_hint": "URL",
+                "import_button": "导入"
+            },
+            "theme_settings": {
+                "title": "主题设置",
+                "duplicate_button": "重复项",
+                "export_button": "导出"
             }
         }
     },
@@ -357,6 +382,9 @@
             },
             "pin_conversation": {
                 "name": "引脚对话"
+            },
+            "exclude_message_logger": {
+                "name": "从消息记录器中排除"
             }
         },
         "modes": {
@@ -648,6 +676,14 @@
                     "icon_style": {
                         "name": "图标风格",
                         "description": "更改材质图标的样式\n\n支持的功能:\n- Opera 下载按钮\n- 将捕捉标记为“已见”按钮\n- 好友动态菜单按钮\n- COF实验\n- 消息指示器\n- 记录"
+                    },
+                    "disable_settings_menu": {
+                        "name": "禁用设置菜单",
+                        "description": "禁用Snapchat中的设置菜单"
+                    },
+                    "prevent_forced_keyboard": {
+                        "name": "防止强制键盘输入",
+                        "description": "防止Snapchat在您打开对话时自动弹出键盘"
                     }
                 },
                 "description": "更改 Snapchat 的外观和风格",
@@ -783,6 +819,10 @@
                             "auto_purge": {
                                 "name": "自动清除",
                                 "description": "自动删除早于指定时间的缓存消息"
+                            },
+                            "deleted_message_color": {
+                                "name": "已删除消息颜色",
+                                "description": "设置已删除消息的颜色"
                             }
                         }
                     },
@@ -829,6 +869,18 @@
                     "bypass_message_action_restrictions": {
                         "name": "绕过消息操作限制",
                         "description": "允许您在不打开快照的情况下对其做出反应或保存不可保存的消息"
+                    },
+                    "disable_snap_mode_restrictions": {
+                        "name": "禁用对齐模式限制",
+                        "description": "允许您无限制地查看会自动销毁的快拍"
+                    },
+                    "double_tap_chat_action": {
+                        "name": "双击聊天操作",
+                        "description": "在聊天中双击消息时执行自定义操作"
+                    },
+                    "double_tap_chat_action_custom_emoji": {
+                        "name": "双击聊天操作自定义表情反应",
+                        "description": "为双击聊天操作设置自定义表情符号反应"
                     }
                 },
                 "description": "改变你与朋友互动的方式"
@@ -1013,6 +1065,10 @@
                     "hevc_recording": {
                         "name": "HEVC 录制",
                         "description": "使用 HEVC (H.265) 编解码器进行视频录制"
+                    },
+                    "startup_default_camera": {
+                        "name": "初始化默认相机",
+                        "description": "设置打开Snapchat时的默认相机"
                     }
                 },
                 "name": "相机"
@@ -1062,6 +1118,10 @@
                                     "composer_logs": {
                                         "name": "作曲家日志",
                                         "description": "将 Composer 的控制台日志重定向到 SE Extended"
+                                    },
+                                    "custom_self_destruct_snap_delay": {
+                                        "name": "自定义自毁快拍延迟",
+                                        "description": "发送快拍时提供更多自毁计时器选项"
                                     }
                                 }
                             },
@@ -1133,6 +1193,10 @@
                             "preferred_transcription_lang": {
                                 "name": "首选转录语言",
                                 "description": "语音注释文本的首选语言（例如 EN、ES、FR）"
+                            },
+                            "notification_transcript": {
+                                "name": "通知记录",
+                                "description": "将语音笔记转录为通知文本\n此功能需要在Better Notifications中启用聊天预览功能"
                             }
                         },
                         "description": "改进语音笔记转录"
@@ -1208,6 +1272,10 @@
                     "friend_notes": {
                         "name": "朋友备注",
                         "description": "允许您向好友个人资料添加注释"
+                    },
+                    "snapscore_changes": {
+                        "name": "Snapscore变更",
+                        "description": "追踪好友的快拍得分变化\n此功能仅适用于新版Snapchat"
                     }
                 }
             },
@@ -1238,6 +1306,10 @@
                     "old_tool_box_add_view": {
                         "description": "使用旧的添加视图将工具箱添加到snapchat。\n注意：此功能是暂时的",
                         "name": "旧工具箱添加视图"
+                    },
+                    "disable_optimization": {
+                        "name": "禁用优化",
+                        "description": "禁用脚本优化功能. 这可能会导致性能问题"
                     }
                 }
             },
@@ -1326,7 +1398,8 @@
                 "initiate_audio": "音频来电",
                 "abandon_audio": "错过的音频通话",
                 "initiate_video": "视频来电",
-                "abandon_video": "错过视频通话"
+                "abandon_video": "错过视频通话",
+                "map_live_location": "实时定位地图"
             },
             "gallery_media_send_override": {
                 "always_ask": "总是问",
@@ -1439,7 +1512,8 @@
             },
             "auto_mark_as_read": {
                 "conversation_read": "将对话标记为已读发送消息时",
-                "snap_reply": "回复时将快照标记为已读"
+                "snap_reply": "回复时将快照标记为已读",
+                "save_snap_in_chat": "马克在隐身模式下将聊天记录保存时，会自动勾选“已读”选项"
             },
             "custom_theme": {
                 "custom": "自定义主题（使用快速操作来管理主题）",
@@ -1491,6 +1565,17 @@
                 "filled": "充满",
                 "sharp": "锋利的",
                 "two-tone": "二音"
+            },
+            "double_tap_chat_action": {
+                "like_message": "点赞消息",
+                "copy_text": "将文本复制到剪贴板",
+                "delete_message": "删除消息",
+                "mark_as_read": "标记为已读",
+                "custom_emoji_reaction": "自定义表情符号反应"
+            },
+            "startup_default_camera": {
+                "front": "前置摄像头",
+                "back": "后置摄像头"
             }
         }
     },
@@ -1728,5 +1813,33 @@
         "unlimited_duration": "无限",
         "title": "将媒体发送为 {type}",
         "duration": "期间: {duration}"
+    },
+    "tracker_events": {
+        "conversation_enter": "对话开始",
+        "conversation_exit": "对话退出",
+        "started_typing": "开始输入",
+        "stopped_typing": "停止输入",
+        "started_speaking": "开始说话",
+        "stopped_speaking": "停止说话",
+        "started_peeking": "开始偷看",
+        "stopped_peeking": "停止偷看",
+        "message_read": "消息已读",
+        "message_deleted": "消息已删除",
+        "message_saved": "消息已保存",
+        "message_unsaved": "消息未保存",
+        "message_edited": "消息已编辑",
+        "message_reaction_add": "消息反应添加",
+        "message_reaction_remove": "消息反应 移除",
+        "snap_opened": "快拍开启",
+        "snap_replayed": "快拍重播",
+        "snap_replayed_twice": "快拍重播两次",
+        "snap_screenshot": "截屏",
+        "snap_screen_record": "快拍屏幕录制"
+    },
+    "tracker_actions": {
+        "log": "日志",
+        "in_app_notification": "应用内通知",
+        "push_notification": "推送通知",
+        "custom": "定制"
     }
 }
