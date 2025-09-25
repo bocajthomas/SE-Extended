@@ -303,6 +303,9 @@
                     "blacklist": "Exclude from Automatic Snap Opening",
                     "whitelist": "Automatically Opens Snaps"
                 }
+            },
+            "exclude_message_logger": {
+                "name": "Exclude From Message Logger"
             }
         }
     },
@@ -454,16 +457,16 @@
                     "logging_options": {
                         "properties": {
                             "disappearing_rate": {
-                                "name": "",
+                                "name": "Disappearing Rate",
                                 "description": ""
                             },
                             "logging": {
-                                "description": "",
-                                "name": ""
+                                "description": "Shows toasts when media is downloading",
+                                "name": "Logging"
                             }
                         },
-                        "name": "",
-                        "description": ""
+                        "name": "Logging Options",
+                        "description": "Logging Toast Settings"
                     }
                 },
                 "name": "Downloader",
