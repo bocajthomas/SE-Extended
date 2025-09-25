@@ -813,7 +813,7 @@
                         "properties": {
                             "force_video_upload_source_quality": {
                                 "name": "Forcer la qualité source de l'importation vidéo",
-                                "description": "Force Snapchat à utiliser la qualité source lors de l'importation de vidéos\nVeuillez noter que cela ne supprimera peut-être pas les métadonnées du média."
+                                "description": "Force Snapchat à utiliser la qualité source lors de l'importation de vidéos\nVeuillez noter que cela ne supprimera peut-être pas les métadonnées du média"
                             },
                             "disable_image_compression": {
                                 "name": "Désactiver la compression d'image",
