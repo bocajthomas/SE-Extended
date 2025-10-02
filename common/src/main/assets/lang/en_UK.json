@@ -458,7 +458,7 @@
                         "properties": {
                             "disappearing_rate": {
                                 "name": "Disappearing Rate",
-                                "description": ""
+                                "description": "Sets the disappearing rate of toasts in (in milliseconds)\nValue must be between 100 and 3000"
                             },
                             "logging": {
                                 "description": "Shows toasts when media is downloading",
@@ -588,11 +588,19 @@
                     },
                     "icon_style": {
                         "name": "Icon Style",
-                        "description": "Changes the style of material icons\n\nFeatures Supported:\n - Opera Download Button \n - Mark Snap As Seen Button \n - Friend Feed Menu Buttons\n - COF Experiments\n - Message Indicators"
+                        "description": "Changes the style of material icons\n\nFeatures Supported:\n - Opera Download Button \n - Mark Snap As Seen Button \n - Friend Feed Menu Buttons\n - COF Experiments\n - Message Indicators\n- Logging"
                     },
                     "custom_friend_feed_label": {
                         "description": "Changes the page label on the friend feed",
                         "name": "Custom Friend Feed Label"
+                    },
+                    "disable_settings_menu": {
+                        "name": "Disable Settings Menu",
+                        "description": "Disables the settings menu in snapchat"
+                    },
+                    "prevent_forced_keyboard": {
+                        "name": "Prevent Forced Keyboard",
+                        "description": "Prevents Snapchat from automatically popping up the keyboard when you open a conversation"
                     }
                 },
                 "name": "User Interface",
@@ -736,6 +744,10 @@
                             "keep_my_own_messages": {
                                 "name": "Keep My Own Messages",
                                 "description": "Prevents your own messages from being deleted"
+                            },
+                            "deleted_message_color": {
+                                "name": "Deleted Message Colour",
+                                "description": "Sets the colour of deleted messages"
                             }
                         }
                     },
@@ -774,6 +786,18 @@
                     "mark_snap_as_seen_button": {
                         "description": "Adds a button to mark a Snap as seen when viewing it.\nThis will work even when Stealth Mode is enabled",
                         "name": "Mark Snap as Seen Button"
+                    },
+                    "disable_snap_mode_restrictions": {
+                        "name": "Disable Snap Mode Restrictions",
+                        "description": "Allows you to view self-destructing Snaps without restrictions"
+                    },
+                    "double_tap_chat_action": {
+                        "name": "Double Tap Chat Action",
+                        "description": "Performs a custom action when double tapping a message in chat"
+                    },
+                    "double_tap_chat_action_custom_emoji": {
+                        "name": "Double Tap Chat Action Custom Emoji Reaction",
+                        "description": "Sets a custom emoji reaction for the double tap chat action"
                     }
                 },
                 "description": "Change how you interact with friends"
@@ -955,6 +979,10 @@
                     "hevc_recording": {
                         "name": "HEVC Recording",
                         "description": "Uses HEVC (H.265) codec for video recording"
+                    },
+                    "startup_default_camera": {
+                        "name": "Startup Default Camera",
+                        "description": "Sets the default camera when opening Snapchat"
                     }
                 }
             },
@@ -1005,6 +1033,10 @@
                                     "show_first_created_username": {
                                         "description": "Shows the first created username next to the current username in the profile page",
                                         "name": "Show First Created Username"
+                                    },
+                                    "custom_self_destruct_snap_delay": {
+                                        "name": "Custom Self Destruct Snap Delay",
+                                        "description": "Gives more options for the self-destruct timer when sending a Snap"
                                     }
                                 },
                                 "name": "Composer Hooks",
@@ -1137,6 +1169,10 @@
                             "preferred_transcription_lang": {
                                 "name": "Preferred Transcription Language",
                                 "description": "The preferred language for the voice note transcript (e.g. EN, ES, FR)"
+                            },
+                            "notification_transcript": {
+                                "name": "Notification Transcript",
+                                "description": "Transcribes voice notes in notifications\nThis feature requires the Chat Preview feature to be enabled in Better Notifications"
                             }
                         },
                         "description": "Improves the voice note transcript",
@@ -1149,6 +1185,10 @@
                     "friend_notes": {
                         "description": "Allows you to add notes to friends profiles",
                         "name": "Friend Notes"
+                    },
+                    "snapscore_changes": {
+                        "name": "Snapscore Changes",
+                        "description": "Tracks changes in friends Snapscore\nUse this feature in newer versions of Snapchat only"
                     }
                 }
             },
@@ -1183,6 +1223,10 @@
                     "old_tool_box_add_view": {
                         "description": "Uses the old add view to add the tool box to snapchat.\nNote: This feature is temporary",
                         "name": "Old Tool Box Add View"
+                    },
+                    "disable_optimization": {
+                        "name": "Disable Optimization",
+                        "description": "Disables the optimization of scripts. This may cause performance issues."
                     }
                 }
             },
@@ -1284,7 +1328,8 @@
                 "abandon_audio": "Missed Audio Call",
                 "initiate_video": "Incoming Video Call",
                 "abandon_video": "Missed Video Call",
-                "speaking": "Talking"
+                "speaking": "Talking",
+                "map_live_location": "Map Live Location"
             },
             "gallery_media_send_override": {
                 "ORIGINAL": "Original Media",
@@ -1376,7 +1421,8 @@
             },
             "auto_mark_as_read": {
                 "conversation_read": "Mark conversation as read upon sending a message",
-                "snap_reply": "Mark snaps as read when replying to them"
+                "snap_reply": "Mark snaps as read when replying to them",
+                "save_snap_in_chat": "Mark snaps as read when saving them in chat while in Stealth Mode"
             },
             "friend_mutation_notifier": {
                 "remove_friend": "Notify when someone removes you as a friend",
@@ -1436,6 +1482,17 @@
                 "filled": "Filled",
                 "sharp": "Sharp",
                 "two-tone": "Two Tone"
+            },
+            "double_tap_chat_action": {
+                "like_message": "Like Message",
+                "copy_text": "Copy Text to Clipboard",
+                "delete_message": "Delete Message",
+                "mark_as_read": "Mark as Read",
+                "custom_emoji_reaction": "Custom Emoji Reaction"
+            },
+            "startup_default_camera": {
+                "front": "Front Camera",
+                "back": "Back Camera"
             }
         }
     },
@@ -1654,7 +1711,9 @@
         "cancel": "Cancel",
         "open": "Open",
         "download": "Download",
-        "send": "Send"
+        "send": "Send",
+        "restore_original": "Restore Original",
+        "convert_external_media": "Convert External Media"
     },
     "half_swipe_notifier": {
         "notification_channel_name": "Half Swipe",
@@ -1754,5 +1813,33 @@
         "unlimited_duration": "Unlimited",
         "duration": "Duration: {duration}",
         "saveable_snap_hint": "Make Snap saveable in the chat"
+    },
+    "tracker_events": {
+        "conversation_enter": "Conversation Enter",
+        "conversation_exit": "Conversation Exit",
+        "started_typing": "Started Typing",
+        "stopped_typing": "Stopped Typing",
+        "started_speaking": "Started Speaking",
+        "stopped_speaking": "Stopped Speaking",
+        "started_peeking": "Started Peeking",
+        "stopped_peeking": "Stopped Peeking",
+        "message_read": "Message Read",
+        "message_deleted": "Message Deleted",
+        "message_saved": "Message Saved",
+        "message_unsaved": "Message Unsaved",
+        "message_edited": "Message Edited",
+        "message_reaction_add": "Message Reaction Add",
+        "message_reaction_remove": "Message Reaction Remove",
+        "snap_opened": "Snap Opened",
+        "snap_replayed": "Snap Replayed",
+        "snap_replayed_twice": "Snap Replayed Twice",
+        "snap_screenshot": "Snap Screenshot",
+        "snap_screen_record": "Snap Screen Record"
+    },
+    "tracker_actions": {
+        "log": "Log",
+        "in_app_notification": "In-App Notification",
+        "push_notification": "Push Notification",
+        "custom": "Custom"
     }
 }
