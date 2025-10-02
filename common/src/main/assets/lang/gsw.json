@@ -1140,7 +1140,11 @@
         "dialogs": {
             "select_language": "Sprach uswähle",
             "save_folder": "SE Extended benötigt Speicherberächtigunge zum Abelade und Speichere vo Medie vo Snapchat.\nBitte wähl de Ort us wo d Medie sölled abeglade werde.",
-            "select_save_folder_button": "Ordner uswähle"
+            "select_save_folder_button": "Ordner uswähle",
+            "disclaimer": {
+                "statement": "Willkomme im SE Extended Modul.\n• Haftig:\n- D'Benutzer müesse d'volli Verantwortig für all Risike träge, wo mit de Benutzig vo däm Modul verbunde sind.\n- D' SE Extended Modul chönne s'Verhalte vo däm verändere Snapchat app. D'Benutzer sötted d'Funktionswiis vom Modul gnau überprüefe und dänn selber entscheide, öb si's wänd bruuche.\n- Dr Entwickler isch nit verantwortlich für Warnige oder Banns, wo uf dynem Account chönne passiere snapchat account wo vom Gebruch vom SE Extended Modul, und alli Folge müesse d'Benutzer sälber trääge.",
+                "agree_button": "I verstah"
+            }
         },
         "mappings": {
             "dialog": "S generiere vo mappings chan es wiili duure ...",
@@ -1173,7 +1177,8 @@
                 "remove_all_tasks_title": "Sind Sie sicher, dass Sie alli Ufgabe möchted lösche?",
                 "delete_files_option": "Au Dateiä löschä",
                 "remove_all_tasks_confirm": "Alli Ufgabe lösche?",
-                "failed_to_open_file": ""
+                "failed_to_open_file": "Datei het nid chönne geöffnet wärde",
+                "merge_button": "Zämmefüege"
             },
             "features": {
                 "disabled": "Deaktiviert",
@@ -1184,9 +1189,10 @@
                 "config_import_success_toast": "Istelligä erfolgrich importiert",
                 "config_import_failure_toast": "Istelligä chönd nid importiert werdä {error}",
                 "saved_config_snackbar": "Konfiguration gspeicheret",
-                "config_export_failure_toast": "",
-                "newer_required": "",
-                "older_required": ""
+                "config_export_failure_toast": "Nit klappt zue usfüehre Konfig {error}",
+                "newer_required": "Für das bruuchsch Snapchat v{version} oder nöier, dass'es richtig lauft",
+                "older_required": "Für das bruuchsch Snapchat v{version} oder älter go richtig funktioniere",
+                "search_button": "Suechi"
             },
             "manage_scope": {
                 "streaks_expiration_text_expired": "Abglaufe",
@@ -1200,7 +1206,7 @@
                 "streaks_title": "Flämmli",
                 "streaks_length_text": "Längi: {length}",
                 "streaks_expiration_text": "Lauft ab i {eta}",
-                "notes_placeholder": ""
+                "notes_placeholder": "Klick für e Notiz"
             },
             "logged_stories": {
                 "story_failed_to_load": "Fehler bim Lade",
@@ -1225,11 +1231,11 @@
                 "update_title": "SE Extended Update",
                 "update_content": "Version {version} isch verfüegbar!",
                 "update_button": "Abelade",
-                "version_title": "",
-                "debug_build_summary_title": "",
-                "quick_actions_title": "",
-                "debug_build_summary_date": "",
-                "debug_build_summary_content": ""
+                "version_title": "v{versionName} · Ussgabel vom bocajthomas",
+                "debug_build_summary_title": "Du bisch grad am debugge baue vo SE Extended",
+                "quick_actions_title": "Schnälli Aktione",
+                "debug_build_summary_date": "Baudatum: {date} ({days} vor Dääg)",
+                "debug_build_summary_content": "Version {versionName} ({versionCode})"
             },
             "home_settings": {
                 "actions_title": "Massnahme",
@@ -1259,47 +1265,54 @@
                 "message_parse_failed": "Fehler bim Parse vo de Nachricht"
             },
             "better_location": {
-                "no_friends_found": "",
-                "saved_name_dialog_hint": "",
-                "spoof_location_toggle": "",
-                "teleport_to_friend_button": "",
-                "save_dialog_button": "",
-                "choose_location_button": "",
-                "longitude_dialog_hint": "",
-                "saved_coordinates_title": "",
-                "delete_dialog_title": "",
-                "no_friends_map": "",
-                "no_saved_coordinates_hint": "",
-                "suspend_location_updates": "",
-                "teleport_to_friend_title": "",
-                "spoofed_coordinates_title": "",
-                "search_bar": "",
-                "save_coordinates_dialog_title": "",
-                "latitude_dialog_hint": "",
-                "delete_dialog_message": ""
+                "no_friends_found": "Keini Kollege gfunde",
+                "saved_name_dialog_hint": "Gschpeicherte Name",
+                "spoof_location_toggle": "Falsche Standortgäbig",
+                "teleport_to_friend_button": "Zuem Kolleg teleportiere",
+                "save_dialog_button": "Späichere",
+                "choose_location_button": "Wähl de Ort",
+                "longitude_dialog_hint": "Längigrad",
+                "saved_coordinates_title": "Gspychereti Koordinate",
+                "delete_dialog_title": "Gspychereti Koordinate lösche",
+                "no_friends_map": "Keini Kollege uf dr Charte",
+                "no_saved_coordinates_hint": "Keini gspycherete Koordinate",
+                "suspend_location_updates": "Standortaktualisierige unterbräche",
+                "teleport_to_friend_title": "Zuem Kolleg teleportiere",
+                "spoofed_coordinates_title": "Breitigrad {latitude}, Längigrad {longitude}",
+                "search_bar": "Suechi",
+                "save_coordinates_dialog_title": "Koordinate schpyychere",
+                "latitude_dialog_hint": "Breitigrad",
+                "delete_dialog_message": "Bisch sicher, dass dää gspycherete Koordinate wotsch lösche?"
             },
             "manage_rule_feature": {
-                "whitelist_state_option": "",
-                "disable_state_subtext": "",
-                "whitelist_state_button": "",
-                "dialog_clear_confirmation_text": "",
-                "blacklist_state_button": "",
-                "clear_list_button": "",
-                "blacklist_state_option": "",
-                "disable_state_option": "",
-                "blacklist_state_subtext": "",
-                "whitelist_state_subtext": ""
+                "whitelist_state_option": "Niemert ussert...",
+                "disable_state_subtext": "Keini Fründ/Gruppe sind betroffe",
+                "whitelist_state_button": "Wähl Fründ/Gruppe wo erlaubt sind",
+                "dialog_clear_confirmation_text": "Bisch sicher, dass d' Lischt wetsch leere?",
+                "blacklist_state_button": "Uusgschlosseni Fründe/Gruppe uuswähle",
+                "clear_list_button": "Eifachi Fründ-/Gruppe-Lischt",
+                "blacklist_state_option": "All usser ...",
+                "disable_state_option": "Gschränkt",
+                "blacklist_state_subtext": "Ussert {count} Kollege/Gruppe sind alli devo betroffe",
+                "whitelist_state_subtext": "Betrifft nume {count} Fründe/Gruppe wäge däre Regle"
             },
             "theming": {
-                "no_themes_hint": ""
+                "no_themes_hint": "Keini Theme gfunde",
+                "search_theme_placeholder": "Themes sueche",
+                "new_theme_button": "Nöis Theme",
+                "import_from_file_button": "Importiere vo Datei",
+                "import_from_url_button": "Importiere vo URL",
+                "manage_repositories_button": "Repos verwautä",
+                "installed_themes_title": "Installierti Themes",
+                "theme_catalog_title": "Theme-Lischt"
             },
             "file_imports": {
-                "import_file_button": "",
-                "file_not_found": "",
-                "file_delete_failed": "",
-                "file_imported": "",
-                "no_files_hint": "",
-                "file_import_failed": ""
+                "import_file_button": "Datei importiere",
+                "file_not_found": "Datei nit gfunde",
+                "file_delete_failed": "Datei isch nit glöscht worde",
+                "file_imported": "Datei erfolgrych importiert",
+                "no_files_hint": "Do chasch Dateie für d' Benutzig in Snapchat importiere. Drück uf de Knopf unte zum e Datei importiere.",
+                "file_import_failed": "S'Importiere vo de Datei isch fählgschlage: {error}"
             }
         },
         "routes": {
@@ -1316,12 +1329,12 @@
             "manage_scope": "Rahme verwalte",
             "messaging_preview": "Vorschau",
             "scripts": "Skripte",
-            "manage_repos": "",
-            "theming": "",
-            "better_location": "",
-            "edit_theme": "",
-            "file_imports": "",
-            "manage_rule_feature": ""
+            "manage_repos": "Verwaltig vo Repositorie",
+            "theming": "Gschtaltig",
+            "better_location": "Bässeri Lag",
+            "edit_theme": "Theme bearbeite",
+            "file_imports": "Datei Imprt",
+            "manage_rule_feature": "Regle-Funktion verwalte"
         },
         "dialogs": {
             "add_friend": {
@@ -1329,7 +1342,8 @@
                 "search_hint": "Düresueche",
                 "fetch_error": "Fehler bim Abruefe vo Date",
                 "category_groups": "Gruppe",
-                "category_friends": "Fründe"
+                "category_friends": "Fründe",
+                "participants_text": "{count} Deilnämmer"
             },
             "scripting_warning": {
                 "title": "Warnig",
@@ -1345,12 +1359,22 @@
                 "select_all_button": "Aui uswähle"
             },
             "file_imports": {
-                "no_files_settings_hint": "",
-                "settings_select_file_hint": ""
+                "no_files_settings_hint": "Kei Dateie gfunde. Lueg, dass d' die benötigte Dateie im Abschnitt 'Datei-Import' importiert hesch",
+                "settings_select_file_hint": "Wähl en importierti Datei us"
             },
             "export_config": {
-                "title": "",
-                "content": ""
+                "title": "Heikli Date uusfiere?",
+                "content": "Wetsch d Konfig mit sensible Date exportiere? (Wie Geokoordinate usw.)"
+            },
+            "import_theme_url": {
+                "title": "Theme vo URL importiere",
+                "url_hint": "URL",
+                "import_button": "Import"
+            },
+            "theme_settings": {
+                "title": "Theme-Istellige",
+                "duplicate_button": "Dopplet",
+                "export_button": "Uusfuhr"
             }
         }
     },
@@ -1408,6 +1432,9 @@
             },
             "pin_conversation": {
                 "name": "Konversation anpinnen"
+            },
+            "exclude_message_logger": {
+                "name": "Uusschlüsse vom Nochrichtelogger"
             }
         },
         "toasts": {
@@ -1454,7 +1481,7 @@
         },
         "file_imports": {
             "description": "",
-            "name": ""
+            "name": "Datei Import"
         },
         "friend_tracker": {
             "name": "",
@@ -1465,8 +1492,8 @@
             "description": ""
         },
         "disclaimer_statement": {
-            "name": "",
-            "description": ""
+            "name": "Haftigsausschluss",
+            "description": "Lies d'Haftigsusschlusserklärig"
         }
     },
     "streaks_reminder": {
