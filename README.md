@@ -4,7 +4,7 @@
 [![Debug CI](https://github.com/bocajthomas/SE-Extended/actions/workflows/debug.yml/badge.svg)](https://github.com/bocajthomas/SE-Extended/actions/workflows/debug.yml) [![Translation status](https://hosted.weblate.org/widget/se-extended/se-extended/svg-badge.svg)](https://hosted.weblate.org/engage/se-extended/)
 
 # SE Extended
-SE Extended is a [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#use-someone-elses-project-as-a-starting-point-for-your-own-idea) from [SnapEnhance](https://github.com/rhunk/SnapEnhance) that uses the Xposed Framework to enhance your Snapchat experience. <br/><br/>
+SE Extended is a [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#use-someone-elses-project-as-a-starting-point-for-your-own-idea) from [SnapEnhance](https://github.com/rhunk/SnapEnhance) that uses the Xposed Framework to extend your Snapchat experience. <br/><br/>
 
 Please note that this project is currently in development, So bugs and crashes may occur. If you encounter any issues, we encourage you to report them. To do this simply visit our [issues](https://github.com/bocajthomas/SE-Extended/issues/new?assignees=&labels=bug&projects=&template=bug_report.yml&title=...) page and create an issue, make sure to follow the guidelines.
 </div>
@@ -51,6 +51,7 @@ Please note that this project is currently in development, So bugs and crashes m
 - `Friend Feed Message Preview`
 - `Custom Friend Feed Label`
 - `Icon Style`
+- `Disable Settings Menu`
 - `Snap Preview`
 - `Bootstrap Override` (Default Home Tab & Persistent App Appearance)
 - `Enhance Friend Map Nametags`
@@ -88,6 +89,7 @@ Please note that this project is currently in development, So bugs and crashes m
 - `Half Swipe Notifier`
 - `Call Start Confirmation`
 - `Unlimited Conversation Pinning`
+- `Disable Snap Mode Restrictions`
 - `Auto Save Messages`
 - `Prevent Message Sending`
 - `Friend Mutation Notifier`
@@ -99,6 +101,8 @@ Please note that this project is currently in development, So bugs and crashes m
 - `Bypass Message Retention Policy`
 - `Bypass Message Action Restrictions`
 - `Remove Groups Locked Status`
+- `Double Tap Action`
+- `Double Tap Chat Custom Emoji Reaction`
  </details>
 
 <details closed>
@@ -145,6 +149,7 @@ Please note that this project is currently in development, So bugs and crashes m
 - `Back Custom Frame Rate`
 - `HEVC Recording`
 - `Force Camera Source Encoding`
+- `Startup Default Camera`
 - `Custom Resolution`
 - `Override Front Resolution`
 - `Override Back Resolution`
@@ -171,7 +176,6 @@ Please note that this project is currently in development, So bugs and crashes m
 - `Better Transcript`
 - `Voice Note Auto Play`
 - `Feiend Notes`
-- `Edit Messages`
 - `Context Menu Fix`
 - `COF Experiments`
 - `App Lock`
@@ -184,6 +188,7 @@ Please note that this project is currently in development, So bugs and crashes m
 - `Custom Streaks Expiration Format`
 - `Add Friend Source Spoof`
 - `Prevent Forced Logout`
+- `Snapscore Changes`
 </details>
 
 <details closed>
@@ -195,6 +200,7 @@ Please note that this project is currently in development, So bugs and crashes m
 - `Integated UI`
 - `Old Tool Box Add View`
 - `Disable Log Anonymization`
+- `Disable Optimization`
 </details>
 
 <details closed>
@@ -204,6 +210,8 @@ Please note that this project is currently in development, So bugs and crashes m
 - `Allow Running In Background`
 - `Auto Purge`
 </details>
+
+See [Changes Compared to SnapEnhance](https://github.com/bocajthomas/SE-Extended/wiki/Changes-Compared-to-SnapEnhance) for a full explaination of this fork changes
 
 ## ⬇️ Download
 You will need to download SE Extended from ether the [Actions](https://github.com/bocajthomas/SE-Extended/actions/workflows/debug.yml) or our [CI Builds](https://t.me/SE_Extended_CI) Channel on telegram<br/>
