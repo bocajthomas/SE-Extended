@@ -211,6 +211,8 @@ Please note that this project is currently in development, So bugs and crashes m
 - `Auto Purge`
 </details>
 
+See [Changes Compared to SnapEnhance](https://github.com/bocajthomas/SE-Extended/wiki/Changes-Compared-to-SnapEnhance) for a full explaination of this fork changes
+
 ## ⬇️ Download
 You will need to download SE Extended from ether the [Actions](https://github.com/bocajthomas/SE-Extended/actions/workflows/debug.yml) or our [CI Builds](https://t.me/SE_Extended_CI) Channel on telegram<br/>
 
