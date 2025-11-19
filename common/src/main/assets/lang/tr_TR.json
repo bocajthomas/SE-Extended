@@ -3,7 +3,10 @@
         "dialogs": {
             "select_language": "Dil Seçin",
             "save_folder": "SnapEnhance, Snapchat'ten Medya indirmek ve Kaydetmek için Depolama izinleri gerektirir.\nLütfen medyanın indirileceği konumu seçin.",
-            "select_save_folder_button": "Klasör Seç"
+            "select_save_folder_button": "Klasör Seç",
+            "disclaimer": {
+                "statement": "SE Extended Modülüne hoş geldiniz.\n\nUyarı:\n\nKullanıcılar, bu modülü kullanmanın beraberinde getirdiği tüm risklerin sorumluluğunu tamamen kendileri üstlenir.\n\nSE Extended Modülü, Snapchat uygulamasının davranışını değiştirebilir. Kullanıcılar modülün işleyişini dikkatlice incelemeli ve kullanımıyla ilgili kendi kararlarını vermelidir.\n\nGeliştirici, SE Extended modülünün kullanımından kaynaklanabilecek uyarı veya hesap banlarından hiçbir şekilde sorumlu değildir; tüm sonuçlardan kullanıcılar sorumludur."
+            }
         },
         "mappings": {
             "dialog": "Eşlemeler oluşturuluyor, bu biraz zaman alabilir ...",
