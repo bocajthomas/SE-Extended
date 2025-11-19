@@ -101,7 +101,7 @@ class SecurityFeatures(
 
         context.event.subscribe(UnaryCallEvent::class) { event ->
             val callOptions = event.adapter.arg<Any>(2).let { it.javaClass.getMethod("build").invoke(it) } ?: return@subscribe
-            if (callOptions.getObjectField("mAttestation") != null) {
+            if (callOptions.getObjectField("mAttestation") != null || event.uri.endsWith("/IncomingFriendSync")) {
                 context.log.verbose("blocked ep ${event.adapter.arg<Any>(0)}", "UnaryCallEvent")
                 event.canceled = true
                 val eventHandler = event.adapter.arg<Any>(3)
@@ -135,6 +135,14 @@ class SecurityFeatures(
                 ) {
                     context.log.error("invalid headers ${headers.size}")
                     exitProcess(139)
+                }
+            }
+            loadClass("com.snapchat.client.duplex.DuplexClient\$CppProxy").hook("registerHandler",
+                HookStage.BEFORE) { param ->
+                val path = param.arg<String>(0)
+                if (path == "hermod_dup") {
+                    param.setResult(null)
+                    return@hook
                 }
             }
         }
@@ -190,7 +198,9 @@ class SecurityFeatures(
                                 modifier = Modifier.fillMaxSize()
                             ) {
                                 Column(
-                                    modifier = Modifier.align(Alignment.Center).padding(16.dp),
+                                    modifier = Modifier
+                                        .align(Alignment.Center)
+                                        .padding(16.dp),
                                     horizontalAlignment = Alignment.CenterHorizontally,
                                 ) {
                                     Icon(Icons.Rounded.NotInterested, contentDescription = null, tint = MaterialTheme.colorScheme.onSurface, modifier = Modifier.size(110.dp))
