@@ -91,7 +91,11 @@
         "dialogs": {
             "select_language": "নির্বাচন ভাষা",
             "save_folder": "স্ন্যাপএনহান্স-এর স্ন্যাপচ্যাট থেকে মিডিয়া ডাউনলোড এবং সংরক্ষণ করার জন্য স্টোরেজ অনুমতি প্রয়োজন।\nঅনুগ্রহ করে নির্বাচন করুন যে মিডিয়া কোথায় ডাউনলোড করা উচিত।",
-            "select_save_folder_button": "ফোল্ডার নির্বাচন করুন"
+            "select_save_folder_button": "ফোল্ডার নির্বাচন করুন",
+            "disclaimer": {
+                "statement": "SE এক্সটেন্ডেড মডিউলে আপনাকে স্বাগতম।\n\nদাবিত্যাগ:\n- এই মডিউল ব্যবহারের সাথে সম্পর্কিত যেকোনো ঝুঁকির জন্য ব্যবহারকারীদের সম্পূর্ণ দায়িত্ব নিতে হবে।\n- SE এক্সটেন্ডেড মডিউল স্ন্যাপচ্যাট অ্যাপের আচরণ পরিবর্তন করতে পারে। ব্যবহারকারীদের মডিউলের কার্যক্রম সাবধানে পর্যালোচনা করা উচিত এবং এর ব্যবহার সম্পর্কে তাদের নিজস্ব সিদ্ধান্ত নেওয়া উচিত।\n- SE এক্সটেন্ডেড মডিউল ব্যবহারের ফলে আপনার স্ন্যাপচ্যাট অ্যাকাউন্টে যে কোনও সতর্কতা বা নিষেধাজ্ঞার জন্য ডেভেলপার কোনও দায় স্বীকার করে না এবং সমস্ত পরিণতি ব্যবহারকারীদের নিজেরাই বহন করতে হবে।",
+                "agree_button": "আমি রাজি"
+            }
         },
         "permissions": {
             "dialog": "চালিয়ে যেতে আপনাকে নিম্নলিখিত শর্তগুলি মেনে চলতে হবে:",
@@ -121,7 +125,7 @@
             "theming": "থিমিং",
             "edit_theme": "থিম সম্পাদনা করুন",
             "manage_repos": "রেপোসিটরি ম্যানেজ করুন",
-            "manage_rule_feature": ""
+            "manage_rule_feature": "নিয়ম বৈশিষ্ট্য পরিচালনা করুন"
         },
         "sections": {
             "features": {
@@ -134,8 +138,9 @@
                 "saved_config_snackbar": "কনফিগার সংরক্ষণ করা হয়েছে",
                 "config_import_failure_toast": "কনফিগ আমদানি করতে ব্যর্থ হয়েছে {error}",
                 "config_export_failure_toast": "কনফিগ রপ্তানি করতে ব্যর্থ {error}",
-                "newer_required": "",
-                "older_required": ""
+                "newer_required": "এই বৈশিষ্ট্যটি সঠিকভাবে কাজ করার জন্য Snapchat v{version} বা তার নতুন সংস্করণ প্রয়োজন",
+                "older_required": "এই বৈশিষ্ট্যটি সঠিকভাবে কাজ করার জন্য Snapchat v{version} বা তার বেশি পুরনো সংস্করণ প্রয়োজন",
+                "search_button": "খুজুন"
             },
             "social": {
                 "streaks_expiration_short": "{hours}h",
@@ -151,7 +156,8 @@
                 "remove_all_tasks_title": "নিশ্চিত আপনি সব কাজ অপসারণ করতে চান?",
                 "remove_all_tasks_confirm": "সমস্ত কাজ মুছে ফেলুন?",
                 "merge_files_toast": "{count} ফাইল মিশ্রণ",
-                "failed_to_open_file": "ফাইল খুলতে ব্যর্থ"
+                "failed_to_open_file": "ফাইল খুলতে ব্যর্থ",
+                "merge_button": "একত্রিত করা"
             },
             "home_settings": {
                 "export_button": "রপ্তানি",
@@ -182,7 +188,7 @@
                 "update_title": "স্ন্যাপএনহ্যান্স আপডেট",
                 "update_button": "ডাউনলোড",
                 "debug_build_summary_title": "আপনি এসই এক্সটেন্ডেড-এর একটি ডিবাগ বিল্ড চালাচ্ছেন",
-                "version_title": "V{versionName} · জ্যাকব দ্বারা ফর্কড",
+                "version_title": "V{versionName} · bocajthomas দ্বারা ফর্ক করা",
                 "debug_build_summary_content": "সংস্করণ {versionName} ({versionCode})",
                 "debug_build_summary_date": "বিল্ডের তারিখ: {date} ({days} দিন আগে)",
                 "quick_actions_title": "দ্রুত ক্রিয়াকলাপ"
@@ -257,15 +263,15 @@
                 "no_themes_hint": "কোনো থিম পাওয়া যায়নি"
             },
             "manage_rule_feature": {
-                "disable_state_option": "",
+                "disable_state_option": "অক্ষম",
                 "whitelist_state_option": "",
-                "disable_state_subtext": "",
+                "disable_state_subtext": "কোনও বন্ধু/গ্রুপ প্রভাবিত হবে না",
                 "blacklist_state_option": "",
                 "blacklist_state_button": "",
                 "dialog_clear_confirmation_text": "",
-                "whitelist_state_subtext": "",
+                "whitelist_state_subtext": "এই নিয়মের দ্বারা শুধুমাত্র {count} জন বন্ধু/গ্রুপ প্রভাবিত হবে",
                 "blacklist_state_subtext": "",
-                "whitelist_state_button": "",
+                "whitelist_state_button": "অনুমোদিত বন্ধু/গ্রুপ নির্বাচন করুন",
                 "clear_list_button": ""
             }
         },
@@ -1723,7 +1729,7 @@
         "sigColorStoryRingDiscoverTabThumbnailStoryRing": "গল্প রিং আবিষ্কার ট্যাব থাম্বনেইল গল্প রিং রঙ"
     },
     "send_override_dialog": {
-        "title": "মিডিয়া পাঠান এভাবে: ",
+        "title": "মিডিয়া পাঠান {type} করে",
         "duration": "",
         "saveable_snap_hint": "",
         "unlimited_duration": ""
