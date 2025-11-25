@@ -275,11 +275,11 @@
     "rules": {
         "properties": {
             "stealth": {
-                "name": "Режим скрытности",
+                "name": "Режим невидимки",
                 "description": "Не позволяет никому узнать, что вы открыли их Snap/чаты и разговоры",
                 "options": {
                     "blacklist": "Исключить из скрытого режима",
-                    "whitelist": "Режим скрытности"
+                    "whitelist": "Скрытый режим"
                 }
             },
             "pin_conversation": {
@@ -664,7 +664,7 @@
                                 "name": "Пользовательский шрифт Emoji"
                             }
                         },
-                        "name": "Native Hooks",
+                        "name": "Коренные крючки",
                         "description": "Небезопасные функции, которые встраиваются в нативный код Snapchat"
                     },
                     "spoof": {
@@ -847,7 +847,7 @@
                     },
                     "notification_blacklist": {
                         "name": "Выберите уведомления, которые следует заблокировать",
-                        "description": "Журнал сообщений"
+                        "description": "Выберите уведомление которые должы быть блокированы"
                     },
                     "message_logger": {
                         "name": "Предотвращает удаление сообщений",
@@ -1081,7 +1081,7 @@
                     },
                     "snapchat_plus": {
                         "description": "Активирует функции Snapchat Plus\nНекоторые функции на стороне сервера могут не работать",
-                        "name": "Snapchat Plus"
+                        "name": "Снэпчат Плюс"
                     },
                     "disable_confirmation_dialogs": {
                         "name": "Отключить диалоги подтверждения",
@@ -1265,7 +1265,7 @@
             "home_tab": {
                 "chat": "Чат",
                 "discover": "Открытие",
-                "spotlight": "Spotlight",
+                "spotlight": "В центре внимания",
                 "map": "Карта",
                 "camera": "Камера"
             },
@@ -1303,11 +1303,12 @@
                 "stories": "Истории",
                 "initiate_video": "Входящий видеовызов",
                 "abandon_video": "Пропущенный видеовызов",
-                "snap": "Snap",
+                "snap": "Снэп",
                 "abandon_audio": "Пропущенный аудиовызов",
                 "chat_reaction": "Реакция в ЛС",
                 "group_chat_reaction": "Реакция в группе",
-                "speaking": ""
+                "speaking": "Говорит",
+                "map_live_location": "Карта местоположения в реальном времени"
             },
             "add_friend_source_spoof": {
                 "added_by_mention": "По упоминанию",
@@ -1315,7 +1316,7 @@
                 "added_by_group_chat": "В групповом чате",
                 "added_by_qr_code": "По QR-коду",
                 "added_by_community": "По сообществу",
-                "added_by_quick_add": ""
+                "added_by_quick_add": "Через быстрое добавление (высокий риск бана)"
             },
             "disable_confirmation_dialogs": {
                 "hide_friend": "Скрыть друга",
@@ -1353,11 +1354,11 @@
                 "auto_open_snaps": "📷 Автоматическое открытие Снапов"
             },
             "gallery_media_send_override": {
-                "ORIGINAL": "Оригинал",
+                "ORIGINAL": "Оригинальная медия",
                 "NOTE": "Аудио-заметка",
-                "SNAP": "Snap",
-                "SAVEABLE_SNAP": "",
-                "always_ask": ""
+                "SNAP": "Снэп",
+                "SAVEABLE_SNAP": "Сохраняемый снимок",
+                "always_ask": "Всегда спрашивать"
             },
             "hide_ui_components": {
                 "hide_unread_chat_hint": "Убрать подсказку о непрочитанных сообщениях",
@@ -1366,13 +1367,13 @@
                 "hide_live_location_share_button": "Убрать кнопку обмена местоположением в реальном времени",
                 "hide_stickers_button": "Убрать кнопку стикеров",
                 "hide_voice_record_button": "Убрать кнопку голосовой записи",
-                "hide_chat_camera_button": "",
-                "hide_explorer_token_button": "",
-                "hide_map_reactions": "",
-                "hide_gift_snapchat_plus_reminders": "",
-                "hide_post_to_story_buttons": "",
-                "hide_chat_gallery_button": "",
-                "hide_snap_create_group_buttons": ""
+                "hide_chat_camera_button": "Удалить кнопку камеры чата",
+                "hide_explorer_token_button": "Кнопка удаления токена исследователя",
+                "hide_map_reactions": "Удалить реакции карты",
+                "hide_gift_snapchat_plus_reminders": "Удалить напоминания о подарках в Snapchat Plus",
+                "hide_post_to_story_buttons": "Удалить кнопки «Опубликовать в истории»",
+                "hide_chat_gallery_button": "Кнопка «Удалить галерею чата»",
+                "hide_snap_create_group_buttons": "Удалить кнопки создания Snap группы"
             },
             "app_appearance": {
                 "always_light": "Всегда светлый",
@@ -1381,7 +1382,7 @@
             "auto_download_sources": {
                 "friend_stories": "Истории друзей",
                 "public_stories": "Публичные истории",
-                "spotlight": "Spotlight",
+                "spotlight": "В центре внимания",
                 "friend_snaps": "Snap друзей"
             },
             "logging": {
@@ -1420,7 +1421,7 @@
                 "following": "Подписан на",
                 "discover": "Исследовать",
                 "friends": "Друзья",
-                "suggested_stories": ""
+                "suggested_stories": "Рекомендованые истории"
             },
             "bypass_video_length_restriction": {
                 "single": "Одиночные медиафайлы",
@@ -1432,7 +1433,8 @@
             },
             "auto_mark_as_read": {
                 "conversation_read": "Пометить беседу как прочитанную при отправке сообщения",
-                "snap_reply": "Отмечать снэпы как прочитанные при ответе на них"
+                "snap_reply": "Отмечать снэпы как прочитанные при ответе на них",
+                "save_snap_in_chat": "Отмечайте снимки как прочитанные при сохранении их в чате в скрытом режиме"
             },
             "friend_mutation_notifier": {
                 "bitmoji_selfie_changes": "Уведомление о изменении кем-то своего битмоджи-селфи",
@@ -1443,55 +1445,55 @@
                 "bitmoji_background_changes": "Уведомление о изменении кем-то своего фонового изображения в Bitmoji"
             },
             "custom_theme": {
-                "industrial_chic": "",
-                "tropical_paradise": "",
-                "alien_landscape": "",
-                "watercolor_wash": "",
-                "spicy_mustard": "",
-                "lemon_drop": "",
-                "modern_farmhouse": "",
-                "apple_orchard": "",
+                "industrial_chic": "Индустриальный шик",
+                "tropical_paradise": "Тропический рай",
+                "alien_landscape": "Пейзаж иннопланетян",
+                "watercolor_wash": "Акварельная размывка",
+                "spicy_mustard": "Острая горчица",
+                "lemon_drop": "Лимонная капля",
+                "modern_farmhouse": "Современный фермерский дом",
+                "apple_orchard": "Яблоневый сад",
                 "custom": "Пользовательские темы (используйте быстрые действия для управления темами)",
                 "material_you_dark": "Материал, который вы темните (Android 12+)",
                 "material_you_light": "Материал, который вы освещаете (Android 12+)",
                 "mint_chocolate": "Мятный шоколад",
                 "ginger_snap": "Имбирное печенье",
                 "lemon_meringue": "Лимонное безе",
-                "woodland_mystery": "",
-                "cosmic_night": "",
-                "ocean_depths": "",
-                "spring_meadow": "",
-                "art_deco_glam": "",
-                "creamy_vanilla": "",
+                "woodland_mystery": "Лесная тайна",
+                "cosmic_night": "Космическая ночь",
+                "ocean_depths": "Глубины океана",
+                "spring_meadow": "Весенний луг",
+                "art_deco_glam": "Гламур в стиле ар-деко",
+                "creamy_vanilla": "Кремовая ваниль",
                 "light_blue": "Светло-Синий",
-                "lemon_sorbet": "",
-                "firefly_night": "",
-                "ocean_fog": "",
-                "spicy_chili": "",
-                "midnight_library": "",
-                "galaxy_glitter": "",
-                "peppermint_candy": "",
-                "gingerbread_house": "",
-                "bubblegum_pink": "",
-                "zesty_lemon": "",
+                "lemon_sorbet": "Лимонный сорбет",
+                "firefly_night": "Ночь светлячков",
+                "ocean_fog": "Лягушка океана",
+                "spicy_chili": "Острый чили",
+                "midnight_library": "Полуночная библиотека",
+                "galaxy_glitter": "Галактический блеск",
+                "peppermint_candy": "Матный конфеты",
+                "gingerbread_house": "Пряничный домик",
+                "bubblegum_pink": "Жвачка",
+                "zesty_lemon": "Пикантный лимон",
                 "earthy_autumn": "Земляная осень",
                 "midnight_slate": "Полуночный сланец",
                 "dark_blue": "Темно-Синий",
                 "lava_flow": "Лавовый поток",
                 "amoled_dark_mode": "Темный режим AMOLED",
-                "lavender_field": "",
-                "cherry_bomb": ""
+                "lavender_field": "Лавандовое поле",
+                "cherry_bomb": "Вишневая бомба"
             },
             "icon_style": {
                 "filled": "",
-                "outlined": "",
+                "outlined": "Очерченный",
                 "two-tone": "",
                 "sharp": ""
             },
             "snapchat_plus": {
-                "basic": "",
-                "ad_free": "",
-                "not_subscribed": ""
+                "basic": "Стандартный",
+                "ad_free": "Без рекламы",
+                "not_subscribed": "Не подписан"
             }
         }
     },
@@ -1684,7 +1686,7 @@
         "LIVE_LOCATION_SHARE": "Поделиться местоположением в реальном времени",
         "STATUS_CALL_MISSED_AUDIO": "Пропущенный аудиовызов",
         "CHAT": "Чат",
-        "SNAP": "Snap",
+        "SNAP": "Cнэп",
         "SHARE": ""
     },
     "media_download_source": {
