@@ -1,21 +1,21 @@
 {
     "setup": {
         "dialogs": {
-            "select_language": "",
-            "save_folder": "",
-            "select_save_folder_button": "",
+            "select_language": "اختَر اللغة",
+            "save_folder": "SE Extended يتطلّب أذونات التخزين لتنزيل وحفظ وسائط من سناب شات.\nرجاءً اختَر الموقع الذي تُريد تنزيل الوسائط إليه.",
+            "select_save_folder_button": "حدِّد المُجلَّد",
             "disclaimer": {
-                "statement": "",
-                "agree_button": ""
+                "statement": "مرحبًا بكم في وحدة SE Extended.\nإخلاء المسؤولية:\n- يتحمّل المُستخدمون المسؤولية الكاملة عن أي مخاطر مُرتبطة باستخدام هذه الوحدة.\n- يُمكن لوحدة SE Extended تعديل أداء تطبيق سناب شات. يجب على المُستخدمين مُراجعة عمليات الوحدة بعناية واتّخاذ قراراتهم الخاصة بشأن استخدامها.\n- لا يتحمّل المُطوِّر أي مسؤولية عن أي تحذيرات أو عمليات حظر قد تظهر على حساب سناب شات الخاص بك نتيجة استخدام وحدة SE Extended ويتحمّل المُستخدمون جميع العواقب.",
+                "agree_button": "أوافق"
             }
         },
         "mappings": {
-            "dialog": "",
-            "generate_failure_no_snapchat": "",
-            "generate_failure": ""
+            "dialog": "يجري إنشاء المُخطَّطات، قد يستغرق هذا بعض الوقت…",
+            "generate_failure_no_snapchat": "لم يتمكّن SE Extended اكتشاف سناب شات، رجاءً عاود تثبيت سناب شات.",
+            "generate_failure": "حدث خطأ أثناء محاولة إنشاء المُخطَّطات، رجاءً حاول مرّة أخرى."
         },
         "permissions": {
-            "dialog": "",
+            "dialog": "للمتابعة، يجب عليك تلبية المُتطلَّبات التالية:",
             "notification_access": "",
             "battery_optimization": "",
             "display_over_other_apps": "",
