@@ -1,77 +1,77 @@
 {
     "setup": {
         "dialogs": {
-            "select_language": "اختَر اللغة",
-            "save_folder": "SE Extended يتطلّب أذونات التخزين لتنزيل وحفظ وسائط من سناب شات.\nرجاءً اختَر الموقع الذي تُريد تنزيل الوسائط إليه.",
-            "select_save_folder_button": "حدِّد المُجلَّد",
+            "select_language": "اختر اللغة",
+            "save_folder": "SE Extended يتطلب أذونات التخزين لتنزيل وحفظ وسائط من سناب شات.\nرجاءً اختر الموقع الذي تُريد تنزيل الوسائط إليه.",
+            "select_save_folder_button": "حدّد المجلد",
             "disclaimer": {
-                "statement": "مرحبًا بكم في وحدة SE Extended.\nإخلاء المسؤولية:\n- يتحمّل المُستخدمون المسؤولية الكاملة عن أي مخاطر مُرتبطة باستخدام هذه الوحدة.\n- يُمكن لوحدة SE Extended تعديل أداء تطبيق سناب شات. يجب على المُستخدمين مُراجعة عمليات الوحدة بعناية واتّخاذ قراراتهم الخاصة بشأن استخدامها.\n- لا يتحمّل المُطوِّر أي مسؤولية عن أي تحذيرات أو عمليات حظر قد تظهر على حساب سناب شات الخاص بك نتيجة استخدام وحدة SE Extended ويتحمّل المُستخدمون جميع العواقب.",
+                "statement": "مرحبًا بكم في وحدة SE Extended.\nإخلاء المسؤولية:\n- يتحمّل المُستخدمون المسؤولية الكاملة عن أي مخاطر مُرتبطة باستخدام هذه الوحدة.\n- يُمكن لوحدة SE Extended تعديل أداء تطبيق سناب شات. يجب على المُستخدمين مُراجعة عمليات الوحدة بعناية واتّخاذ قراراتهم الخاصة بشأن استخدامها.\n- لا يتحمّل المطوّر أي مسؤولية عن أي تحذيرات أو عمليات حظر قد تظهر على حساب سناب شات الخاص بك نتيجة استخدام وحدة SE Extended ويتحمّل المُستخدمون جميع العواقب.",
                 "agree_button": "أوافق"
             }
         },
         "mappings": {
-            "dialog": "يجري إنشاء المُخطَّطات، قد يستغرق هذا بعض الوقت…",
-            "generate_failure_no_snapchat": "لم يتمكّن SE Extended اكتشاف سناب شات، رجاءً عاود تثبيت سناب شات.",
-            "generate_failure": "حدث خطأ أثناء محاولة إنشاء المُخطَّطات، رجاءً حاول مرّة أخرى."
+            "dialog": "يجري إنشاء المخطّطات، قد يستغرق هذا بعض الوقت…",
+            "generate_failure_no_snapchat": "لم يتمكّن SE Extended اكتشاف سناب شات، رجاءً أعد تثبيت سناب شات.",
+            "generate_failure": "حدث خطأ أثناء محاولة إنشاء المخطّطات، رجاءً حاول مرّة أخرى."
         },
         "permissions": {
-            "dialog": "للمتابعة، يجب عليك تلبية المُتطلَّبات التالية:",
-            "notification_access": "",
-            "battery_optimization": "",
-            "display_over_other_apps": "",
-            "request_button": ""
+            "dialog": "للمتابعة، يجب عليك تلبية المتطلبات التالية:",
+            "notification_access": "الوصول إلى الإشعارات",
+            "battery_optimization": "تحسين أداء البطارية",
+            "display_over_other_apps": "العرض فوق التطبيقات الأخرى",
+            "request_button": "طلب"
         }
     },
     "scopes": {
-        "friend": "",
-        "group": ""
+        "friend": "صديق",
+        "group": "مجموعة"
     },
     "manager": {
         "routes": {
-            "tasks": "",
-            "features": "",
-            "manage_rule_feature": "",
-            "home": "",
-            "home_settings": "",
-            "home_logs": "",
-            "logger_history": "",
-            "logged_stories": "",
-            "friend_tracker": "",
-            "edit_rule": "",
-            "file_imports": "",
-            "theming": "",
-            "edit_theme": "",
-            "manage_repos": "",
-            "social": "",
-            "manage_scope": "",
-            "messaging_preview": "",
-            "scripts": "",
-            "better_location": ""
+            "tasks": "مهام",
+            "features": "ميزات",
+            "manage_rule_feature": "ميزة إدارة القواعد",
+            "home": "الرئيسية",
+            "home_settings": "الإعدادات",
+            "home_logs": "سجلّات",
+            "logger_history": "تاريخ المسجّل",
+            "logged_stories": "قصص مسجلة",
+            "friend_tracker": "متتبِّع الأصدقاء",
+            "edit_rule": "تعديل القاعدة",
+            "file_imports": "استيراد الملفات",
+            "theming": "سمة",
+            "edit_theme": "تعديل السمة",
+            "manage_repos": "إدارة التخزينات",
+            "social": "اجتماعية",
+            "manage_scope": "إدارة الحيّز",
+            "messaging_preview": "معاينة",
+            "scripts": "نصوص",
+            "better_location": "موقع أفضل"
         },
         "sections": {
             "home": {
-                "version_title": "",
-                "update_title": "",
-                "update_content": "",
-                "update_button": "",
-                "debug_build_summary_title": "",
-                "debug_build_summary_content": "",
-                "debug_build_summary_date": "",
-                "quick_actions_title": ""
+                "version_title": "الإصدار {versionName} · فُرِّع من قِبل bocajthomas",
+                "update_title": "تحديث SE Extended",
+                "update_content": "النسخة {version} أُتيحت!",
+                "update_button": "تحميل",
+                "debug_build_summary_title": "أنت تقوم بتشغيل نسخة تصحيح أخطاء من SE Extended",
+                "debug_build_summary_content": "الإصدار {versionName} ({versionCode})",
+                "debug_build_summary_date": "تاريخ النسخة: {date} ({days} من الأيام)",
+                "quick_actions_title": "إجراءات سريعة"
             },
             "home_logs": {
-                "no_logs_hint": "",
-                "clear_logs_button": "",
-                "export_logs_button": "",
-                "saving_logs_toast": "",
-                "saved_logs_success_toast": "",
-                "saved_logs_failure_toast": ""
+                "no_logs_hint": "لا توجد سجلّات متاحة",
+                "clear_logs_button": "مسح السجلّات",
+                "export_logs_button": "تصدير السجلّات",
+                "saving_logs_toast": "يجري حفظ السجلّات، قد يستغرق هذا بعض الوقت…",
+                "saved_logs_success_toast": "تم حفظ السجلّات بنجاح",
+                "saved_logs_failure_toast": "فشل حفظ السجلات"
             },
             "home_settings": {
-                "actions_title": "",
-                "message_logger_title": "",
-                "debug_title": "",
-                "success_toast": "",
+                "actions_title": "إجراءات",
+                "message_logger_title": "مسجّل الرسائل",
+                "debug_title": "تصحيح الأخطاء",
+                "success_toast": "انتهى!",
                 "message_logger_summary": "",
                 "export_button": "",
                 "clear_button": "",
