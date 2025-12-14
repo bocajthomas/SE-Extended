@@ -148,175 +148,175 @@
                 "save_all_option": "حفظ الكل",
                 "unsave_selection_option": "إلغاء حفظ التحديد",
                 "unsave_all_option": "إلغاء حفظ الكل",
-                "mark_selection_as_seen_option": "",
-                "mark_all_as_seen_option": "",
-                "delete_selection_option": "",
-                "delete_all_option": ""
+                "mark_selection_as_seen_option": "وضع على اللقطة المحدَّدة علامة \"شوهِدَت\"",
+                "mark_all_as_seen_option": "وضع على كل اللقطات علامة \"شوهِدَت\"",
+                "delete_selection_option": "مسح التحديد",
+                "delete_all_option": "مسح الكل"
             },
             "logger_history": {
-                "list_friend_format": "",
-                "list_group_format": "",
-                "no_more_messages": "",
-                "reverse_order_checkbox": "",
-                "chat_attachment": "",
-                "empty_message": "",
-                "message_parse_failed": "",
-                "unknown_sender": "",
-                "download_attachment_failed_toast": ""
+                "list_friend_format": "الصديق {name}",
+                "list_group_format": "المجموعة {name}",
+                "no_more_messages": "لا مزيد من الرسائل",
+                "reverse_order_checkbox": "ترتيب عكسي",
+                "chat_attachment": "المُرفَق {index}",
+                "empty_message": "رسالة دردشة فارغة",
+                "message_parse_failed": "فشل تحليل الرسالة",
+                "unknown_sender": "مرسِل مجهول",
+                "download_attachment_failed_toast": "فشل تحميل المُرفَق"
             },
             "file_imports": {
-                "import_file_button": "",
-                "file_not_found": "",
-                "file_import_failed": "",
-                "file_imported": "",
-                "file_delete_failed": "",
-                "no_files_hint": ""
+                "import_file_button": "استيراد الملف",
+                "file_not_found": "لم يتم العثور على الملف",
+                "file_import_failed": "فشل استيراد الملف: {error}",
+                "file_imported": "تم استيراد الملف بنجاح",
+                "file_delete_failed": "فشل مسح الملف",
+                "no_files_hint": "هنا يمكِنك استيراد الملفات لاستخدامها في سناب شات. اضغط على الزر أدناه لاستيراد ملف."
             },
             "better_location": {
-                "spoofed_coordinates_title": "",
-                "save_coordinates_dialog_title": "",
-                "saved_name_dialog_hint": "",
-                "latitude_dialog_hint": "",
-                "longitude_dialog_hint": "",
-                "save_dialog_button": "",
-                "choose_location_button": "",
-                "teleport_to_friend_button": "",
-                "spoof_location_toggle": "",
-                "suspend_location_updates": "",
-                "saved_coordinates_title": "",
-                "no_saved_coordinates_hint": "",
-                "delete_dialog_title": "",
-                "delete_dialog_message": "",
-                "teleport_to_friend_title": "",
-                "search_bar": "",
-                "no_friends_map": "",
-                "no_friends_found": ""
+                "spoofed_coordinates_title": "عرض {latitude}، طول {longitude}",
+                "save_coordinates_dialog_title": "حفظ الإحداثيات",
+                "saved_name_dialog_hint": "تم حفظ الاسم",
+                "latitude_dialog_hint": "خط العرض",
+                "longitude_dialog_hint": "خط الطُول",
+                "save_dialog_button": "حفظ",
+                "choose_location_button": "اختر الموقع",
+                "teleport_to_friend_button": "الانتقال إلى صديق",
+                "spoof_location_toggle": "زيِّف الموقع",
+                "suspend_location_updates": "تعليق تحديثات الموقع",
+                "saved_coordinates_title": "تم حفظ الإحداثيات",
+                "no_saved_coordinates_hint": "لا توجد إحداثيات محفوظة",
+                "delete_dialog_title": "مسح الإحداثي المحفوظ",
+                "delete_dialog_message": "هل أنت متأكد من أنك تريد حذف هذا الإحداثي المحفوظ؟",
+                "teleport_to_friend_title": "الانتقال إلى صديق",
+                "search_bar": "بحث",
+                "no_friends_map": "لا يوجد أصدقاء على الخريطة",
+                "no_friends_found": "لم يتم العثور على أصدقاء"
             },
             "theming": {
-                "no_themes_hint": "",
-                "search_theme_placeholder": "",
-                "new_theme_button": "",
-                "import_from_file_button": "",
-                "import_from_url_button": "",
-                "manage_repositories_button": "",
-                "installed_themes_title": "",
-                "theme_catalog_title": ""
+                "no_themes_hint": "لم يتم العثور على سمّات",
+                "search_theme_placeholder": "البحث عن سمّات",
+                "new_theme_button": "سمّة جديدة",
+                "import_from_file_button": "الاستيراد من ملف",
+                "import_from_url_button": "الاستيراد من عنوان URL",
+                "manage_repositories_button": "إدارة التخزينات",
+                "installed_themes_title": "السمات المثبَّتة",
+                "theme_catalog_title": "كتلوج السمّات"
             }
         },
         "dialogs": {
             "add_friend": {
-                "title": "",
-                "search_hint": "",
-                "fetch_error": "",
-                "category_groups": "",
-                "category_friends": "",
-                "participants_text": ""
+                "title": "إضافة صديق أو مجموعة",
+                "search_hint": "بحث",
+                "fetch_error": "فشل إحضار البيانات",
+                "category_groups": "المجموعات",
+                "category_friends": "الأصدقاء",
+                "participants_text": "{count} من المُشارِكين"
             },
             "scripting_warning": {
-                "title": "",
-                "content": ""
+                "title": "تحذير",
+                "content": "يتضمّن SE Extended أداة برمجة نصية، يسمح بتنفيذ تعليمات برمجية محدَّدة من قِبل المستخدِم على جهازك. توخّى الحذر وقُم بتثبيت الوحدات من مصادر معروفة، وموثوقة فقط. قد تشكِّل الوحدات غير المصرَّح بها أو غير المتحقَّق منها مخاطر أمنية على نظامك."
             },
             "reset_config": {
-                "title": "",
-                "content": "",
-                "success_toast": ""
+                "title": "إعادة الإعداد",
+                "content": "هل أنت متأكد من أنك تريد إعادة تعيين الإعداد؟",
+                "success_toast": "تمّت إعادة الإعداد بنجاح"
             },
             "export_config": {
-                "title": "",
-                "content": ""
+                "title": "تصدير بيانات حسّاسة؟",
+                "content": "هل تُريد تصدير الإعداد الذي يحتوي على بيانات حسّاسة؟ (مثل إحداثيات الموقع، إلى آخِره…)"
             },
             "messaging_action": {
-                "title": "",
-                "select_all_button": ""
+                "title": "اختر أنواع المحتوى المراد معالَجتها",
+                "select_all_button": "تحديد الكل"
             },
             "file_imports": {
-                "no_files_settings_hint": "",
-                "settings_select_file_hint": ""
+                "no_files_settings_hint": "لم يتم العثور على أي ملفات. تأكَّد من استيراد الملفات المطلوبة في قسم استيراد الملفات",
+                "settings_select_file_hint": "حدّد ملفًا مستوردًا"
             },
             "import_theme_url": {
-                "title": "",
-                "url_hint": "",
-                "import_button": ""
+                "title": "استيراد سمّة من عنوان URL",
+                "url_hint": "عنوان URL",
+                "import_button": "استيراد"
             },
             "theme_settings": {
-                "title": "",
-                "duplicate_button": "",
-                "export_button": ""
+                "title": "إعدادات السمّة",
+                "duplicate_button": "كرِّر",
+                "export_button": "تصدير"
             }
         }
     },
     "rules": {
         "toasts": {
-            "enabled": "",
-            "disabled": ""
+            "enabled": "تم تفعيل {ruleName}",
+            "disabled": "تم تعطيل {ruleName}"
         },
         "modes": {
-            "blacklist": "",
-            "whitelist": ""
+            "blacklist": "وضع القائمة السوداء",
+            "whitelist": "وضع القائمة البيضاء"
         },
         "properties": {
             "auto_download": {
-                "name": "",
-                "description": "",
+                "name": "تنزيل تلقائي",
+                "description": "نزِّل اللقطات تلقائيًا عند مشاهدتها",
                 "options": {
-                    "blacklist": "",
-                    "whitelist": ""
+                    "blacklist": "استثنِ من التنزيل التلقائي",
+                    "whitelist": "تنزيل تلقائي"
                 }
             },
             "stealth": {
-                "name": "",
-                "description": "",
+                "name": "وضع التخفي",
+                "description": "يمنع أي شخص من معرفة أنك فتحت لقطاتهم/دردشاتهم ومحادثاتهم",
                 "options": {
-                    "blacklist": "",
-                    "whitelist": ""
+                    "blacklist": "استثنِ من وضع التخفي",
+                    "whitelist": "وضع التخفي"
                 }
             },
             "auto_save": {
-                "name": "",
-                "description": "",
+                "name": "حفظ تلقائي",
+                "description": "يحفظ رسائل الدردشة عند مشاهدتها",
                 "options": {
-                    "blacklist": "",
-                    "whitelist": ""
+                    "blacklist": "استثنِ من الحفظ التلقائي",
+                    "whitelist": "حفظ تلقائي"
                 }
             },
             "unsaveable_messages": {
-                "name": "",
-                "description": "",
+                "name": "الرسائل غير القابلة للحفظ",
+                "description": "يمنع حفظ الرسائل في الدردشة من قبل آخرين",
                 "options": {
-                    "blacklist": "",
-                    "whitelist": ""
+                    "blacklist": "استثنِ من الرسائل غير القابلة للحفظ",
+                    "whitelist": "الرسائل غير القابلة للحفظ"
                 }
             },
             "auto_open_snaps": {
-                "name": "",
-                "description": "",
+                "name": "افتح اللقطات تلقائيًا",
+                "description": "يفتح اللقطات تلقائيًا عند استلامها",
                 "options": {
-                    "blacklist": "",
-                    "whitelist": ""
+                    "blacklist": "استثنِ من فتح اللقطات تلقائيًا",
+                    "whitelist": "افتح اللقطات تلقائيًا"
                 }
             },
             "hide_friend_feed": {
-                "name": ""
+                "name": "إخفاء من صفحة الأصدقاء"
             },
             "e2e_encryption": {
-                "name": ""
+                "name": "استخدِم التشفير من طرف إلى طرف"
             },
             "pin_conversation": {
-                "name": ""
+                "name": "ثبِّت المحادثة"
             },
             "exclude_message_logger": {
-                "name": ""
+                "name": "استثنِ من مسجِّل الرسائل"
             }
         }
     },
     "actions": {
         "clean_snapchat_cache": {
-            "name": "",
-            "description": ""
+            "name": "نظِّف ذاكرة تخزين سناب شات المؤقَّتة",
+            "description": "ينظِّف ذاكرة تخزين سناب شات المؤقَّتة"
         },
         "manage_friend_list": {
-            "name": "",
-            "description": ""
+            "name": "إدارة قائمة الأصدقاء",
+            "description": "يستورد/يصدّر قائمة أصدقائك عند النسخ الاحتياطي"
         },
         "export_chat_messages": {
             "name": "",
