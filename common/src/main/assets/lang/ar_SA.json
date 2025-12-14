@@ -396,54 +396,54 @@
                     },
                     "force_image_format": {
                         "name": "تنسيق الصورة بالقوّة",
-                        "description": ""
+                        "description": "يفرض حفظ الصور بتنسيق محدَّد"
                     },
                     "force_voice_note_format": {
-                        "name": "",
-                        "description": ""
+                        "name": "تنسيق الملاحظات الصوتية بالقوّة",
+                        "description": "يفرض الملاحظات الصوتية لتُحفَظ بتنسيق محدَّد"
                     },
                     "auto_download_voice_notes": {
-                        "name": "",
-                        "description": ""
+                        "name": "تنزيل الملاحظات الصوتية تلقائيًا",
+                        "description": "ينزِّل الملاحظات الصوتية تلقائيًا عند تشغيلها"
                     },
                     "download_profile_pictures": {
-                        "name": "",
-                        "description": ""
+                        "name": "تنزيل صور الملف الشخصي",
+                        "description": "يُتيح لك تنزيل صور الملف الشخصي من صفحة الملف الشخصي"
                     },
                     "opera_download_button": {
-                        "name": "",
-                        "description": ""
+                        "name": "زر تنزيل الأوبرا",
+                        "description": "يضيف زر تنزيل في الزاوية اليمنى العليا عند عرض لقطة.\nالضغط المطوَّل على الأزرار سيؤدي إلى التنزيل الإجباري."
                     },
                     "download_context_menu": {
-                        "name": "",
-                        "description": ""
+                        "name": "تنزيل قائمة السياق",
+                        "description": "يُتيح لك تنزيل/معاينة الرسائل من محادثة أو قصة باستخدام قائمة السياق.\nالضغط المطوَّل على الأزرار سيؤدي إلى التنزيل الإجباري"
                     },
                     "ffmpeg_options": {
-                        "name": "",
-                        "description": "",
+                        "name": "خيارات FFmpeg",
+                        "description": "تحديد خيارات FFmpeg إضافية",
                         "properties": {
                             "threads": {
-                                "name": "",
-                                "description": ""
+                                "name": "Threads",
+                                "description": "كمية Threads للاستخدام"
                             },
                             "preset": {
-                                "name": "",
-                                "description": ""
+                                "name": "إعداد مُسبَق",
+                                "description": "ضبط سرعة التحويل"
                             },
                             "constant_rate_factor": {
-                                "name": "",
-                                "description": ""
+                                "name": "عامِل المعدَّل الثابت",
+                                "description": "تعيين عامِل المعدَّل الثابت لمشفِّر الفيديو\nمن ٠ إلى ٥١ لـlibx264"
                             },
                             "video_bitrate": {
-                                "name": "",
-                                "description": ""
+                                "name": "معدَّل بتات الفيديو",
+                                "description": "تعيين معدَّل بتات الفيديو (كيلوبت في الثانية)"
                             },
                             "audio_bitrate": {
-                                "name": "",
-                                "description": ""
+                                "name": "معدَّل بتات الصوت",
+                                "description": "تعيين معدَّل بتات الصوت (كيلوبت في الثانية)"
                             },
                             "custom_video_codec": {
-                                "name": "",
+                                "name": "برنامج ترميز الفيديو المخصَّص",
                                 "description": ""
                             },
                             "custom_audio_codec": {
