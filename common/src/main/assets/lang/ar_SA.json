@@ -319,83 +319,83 @@
             "description": "يستورد/يصدّر قائمة أصدقائك عند النسخ الاحتياطي"
         },
         "export_chat_messages": {
-            "name": "",
-            "description": ""
+            "name": "تصدير رسائل الدردشة",
+            "description": "يصدّر رسائل المحادثة إلى ملف JSON/HTML/TXT"
         },
         "export_memories": {
-            "name": "",
-            "description": ""
+            "name": "تصدير الذكريات",
+            "description": "يصدّر الذكريات إلى ملف ZIP"
         },
         "bulk_messaging_action": {
-            "name": "",
-            "description": ""
+            "name": "إجراء الرسائل الجماعية",
+            "description": "يقوم بتنفيذ عمليات مثل حذف الأصدقاء أو الحذف الجماعي للمحادثات"
         },
         "regen_mappings": {
-            "name": "",
-            "description": ""
+            "name": "إعادة إنشاء المخطّطات",
+            "description": "إعادة إنشاء المخطّطات يدويًا"
         },
         "change_language": {
-            "name": "",
-            "description": ""
+            "name": "تغيير اللغة",
+            "description": "تغيير لغة SE Extended"
         },
         "disclaimer_statement": {
-            "name": "",
-            "description": ""
+            "name": "بيان إخلاء المسؤولية",
+            "description": "اقرأ بيان إخلاء المسؤولية"
         },
         "file_imports": {
-            "name": "",
-            "description": ""
+            "name": "استيراد الملفات",
+            "description": "استيراد الملفات لاستخدامها في Snapchat"
         },
         "friend_tracker": {
-            "name": "",
-            "description": ""
+            "name": "متتبِّع الأصدقاء",
+            "description": "يتتبّع أصدقائك على سناب شات"
         },
         "logger_history": {
-            "name": "",
-            "description": ""
+            "name": "تاريخ المسجّل",
+            "description": "يظهر تاريخ الرسائل المسجَّلة"
         },
         "theming": {
-            "name": "",
-            "description": ""
+            "name": "السمّة",
+            "description": "قم بتخصيص مظهر وتجربة استخدام سناب شات"
         }
     },
     "features": {
         "notices": {
-            "unstable": "",
-            "ban_risk": "",
-            "internal_behavior": ""
+            "unstable": "⚠ غير مستقر",
+            "ban_risk": "⚠ قد تؤدي هذه الميزة إلى عمليات حظر",
+            "internal_behavior": "⚠ قد يؤدي ذلك إلى تعطيل سلوك سناب شات الداخلي"
         },
         "properties": {
             "downloader": {
-                "name": "",
-                "description": "",
+                "name": "المنزِّل",
+                "description": "تنزيل وسائط سناب شات",
                 "properties": {
                     "save_folder": {
-                        "name": "",
-                        "description": ""
+                        "name": "حفظ المجلد",
+                        "description": "حدِّد المجلد الذي يجب تنزيل جميع الوسائط إليه"
                     },
                     "auto_download_sources": {
-                        "name": "",
-                        "description": ""
+                        "name": "مصادر التنزيل التلقائي",
+                        "description": "حدِّد المصادر التي تريد تنزيلها تلقائيًا منه"
                     },
                     "prevent_self_auto_download": {
-                        "name": "",
-                        "description": ""
+                        "name": "منع التنزيل التلقائي الذاتي",
+                        "description": "يمنع لقطاتك الخاصة من أن تُنزَّل تلقائيًا"
                     },
                     "path_format": {
-                        "name": "",
-                        "description": ""
+                        "name": "تنسيق المسار",
+                        "description": "حدِّد تنسيق مسار الملف"
                     },
                     "allow_duplicate": {
-                        "name": "",
-                        "description": ""
+                        "name": "السماح بالتكرار",
+                        "description": "يسمح بنفس الوسائط أن تُنزَّل عدة مرات"
                     },
                     "merge_overlays": {
-                        "name": "",
-                        "description": ""
+                        "name": "دمج الطبقات",
+                        "description": "يجمع النص والوسائط الخاصة بلقطة في ملف واحد"
                     },
                     "force_image_format": {
-                        "name": "",
+                        "name": "تنسيق الصورة بالقوّة",
                         "description": ""
                     },
                     "force_voice_note_format": {
