@@ -36,7 +36,7 @@
             "home_logs": "سجلّات",
             "logger_history": "تاريخ المسجّل",
             "logged_stories": "قصص مسجلة",
-            "friend_tracker": "متتبِّع الأصدقاء",
+            "friend_tracker": "متتبّع الأصدقاء",
             "edit_rule": "تعديل القاعدة",
             "file_imports": "استيراد الملفات",
             "theming": "سمة",
@@ -52,7 +52,7 @@
             "home": {
                 "version_title": "الإصدار {versionName} · فُرِّع من قِبل bocajthomas",
                 "update_title": "تحديث SE Extended",
-                "update_content": "النسخة {version} أُتيحت!",
+                "update_content": "الإصدار {version} متاح!",
                 "update_button": "تحميل",
                 "debug_build_summary_title": "أنت تقوم بتشغيل نسخة تصحيح أخطاء من SE Extended",
                 "debug_build_summary_content": "الإصدار {versionName} ({versionCode})",
@@ -89,7 +89,7 @@
                 "remove_all_tasks_confirm": "مسح جميع المهام؟"
             },
             "features": {
-                "disabled": "معطَّل",
+                "disabled": "معطّل",
                 "export_option": "تصدير",
                 "import_option": "استيراد",
                 "reset_option": "إعادة",
@@ -347,12 +347,12 @@
             "description": "استيراد الملفات لاستخدامها في Snapchat"
         },
         "friend_tracker": {
-            "name": "متتبِّع الأصدقاء",
+            "name": "متتبّع الأصدقاء",
             "description": "يتتبّع أصدقائك على سناب شات"
         },
         "logger_history": {
             "name": "تاريخ المسجّل",
-            "description": "يظهر تاريخ الرسائل المسجَّلة"
+            "description": "يظهر تاريخ الرسائل المسجّلة"
         },
         "theming": {
             "name": "السمّة",
@@ -367,16 +367,16 @@
         },
         "properties": {
             "downloader": {
-                "name": "المنزِّل",
+                "name": "المنزّل",
                 "description": "تنزيل وسائط سناب شات",
                 "properties": {
                     "save_folder": {
                         "name": "حفظ المجلد",
-                        "description": "حدِّد المجلد الذي يجب تنزيل جميع الوسائط إليه"
+                        "description": "حدّد المجلد الذي يجب تنزيل جميع الوسائط إليه"
                     },
                     "auto_download_sources": {
                         "name": "مصادر التنزيل التلقائي",
-                        "description": "حدِّد المصادر التي تريد تنزيلها تلقائيًا منه"
+                        "description": "حدّد المصادر التي تريد تنزيلها تلقائيًا منه"
                     },
                     "prevent_self_auto_download": {
                         "name": "منع التنزيل التلقائي الذاتي",
@@ -384,7 +384,7 @@
                     },
                     "path_format": {
                         "name": "تنسيق المسار",
-                        "description": "حدِّد تنسيق مسار الملف"
+                        "description": "حدّد تنسيق مسار الملف"
                     },
                     "allow_duplicate": {
                         "name": "السماح بالتكرار",
@@ -396,15 +396,15 @@
                     },
                     "force_image_format": {
                         "name": "تنسيق الصورة بالقوّة",
-                        "description": "يفرض حفظ الصور بتنسيق محدَّد"
+                        "description": "يفرض حفظ الصور بتنسيق محدّد"
                     },
                     "force_voice_note_format": {
                         "name": "تنسيق الملاحظات الصوتية بالقوّة",
-                        "description": "يفرض الملاحظات الصوتية لتُحفَظ بتنسيق محدَّد"
+                        "description": "يفرض الملاحظات الصوتية لتُحفَظ بتنسيق محدّد"
                     },
                     "auto_download_voice_notes": {
                         "name": "تنزيل الملاحظات الصوتية تلقائيًا",
-                        "description": "ينزِّل الملاحظات الصوتية تلقائيًا عند تشغيلها"
+                        "description": "ينزّل الملاحظات الصوتية تلقائيًا عند تشغيلها"
                     },
                     "download_profile_pictures": {
                         "name": "تنزيل صور الملف الشخصي",
@@ -412,11 +412,11 @@
                     },
                     "opera_download_button": {
                         "name": "زر تنزيل الأوبرا",
-                        "description": "يضيف زر تنزيل في الزاوية اليمنى العليا عند عرض لقطة.\nالضغط المطوَّل على الأزرار سيؤدي إلى التنزيل الإجباري."
+                        "description": "يضيف زر تنزيل في الزاوية اليمنى العليا عند عرض لقطة.\nالضغط المطوّل على الأزرار سيؤدي إلى التنزيل الإجباري"
                     },
                     "download_context_menu": {
                         "name": "تنزيل قائمة السياق",
-                        "description": "يُتيح لك تنزيل/معاينة الرسائل من محادثة أو قصة باستخدام قائمة السياق.\nالضغط المطوَّل على الأزرار سيؤدي إلى التنزيل الإجباري"
+                        "description": "يُتيح لك تنزيل/معاينة الرسائل من محادثة أو قصة باستخدام قائمة السياق.\nالضغط المطوّل على الأزرار سيؤدي إلى التنزيل الإجباري"
                     },
                     "ffmpeg_options": {
                         "name": "خيارات FFmpeg",
@@ -428,53 +428,53 @@
                             },
                             "preset": {
                                 "name": "إعداد مُسبَق",
-                                "description": "ضبط سرعة التحويل"
+                                "description": "اضبط سرعة التحويل"
                             },
                             "constant_rate_factor": {
-                                "name": "عامِل المعدَّل الثابت",
-                                "description": "تعيين عامِل المعدَّل الثابت لمشفِّر الفيديو\nمن ٠ إلى ٥١ لـlibx264"
+                                "name": "عامل المعدّل الثابت",
+                                "description": "عيّن عامل المعدّل الثابت لمشفّر الفيديو\nمن ٠ إلى ٥١ لـlibx264"
                             },
                             "video_bitrate": {
-                                "name": "معدَّل بتات الفيديو",
-                                "description": "تعيين معدَّل بتات الفيديو (كيلوبت في الثانية)"
+                                "name": "معدّل بتات الفيديو",
+                                "description": "عيّن معدّل بتات الفيديو (كيلوبت في الثانية)"
                             },
                             "audio_bitrate": {
-                                "name": "معدَّل بتات الصوت",
-                                "description": "تعيين معدَّل بتات الصوت (كيلوبت في الثانية)"
+                                "name": "معدّل بتات الصوت",
+                                "description": "تعيين معدّل بتات الصوت (كيلوبت في الثانية)"
                             },
                             "custom_video_codec": {
-                                "name": "برنامج ترميز الفيديو المخصَّص",
-                                "description": ""
+                                "name": "برنامج ترميز الفيديو المخصّص",
+                                "description": "تعيين برنامج ترميز فيديو مخصّص (على سبيل المثال: libx264)"
                             },
                             "custom_audio_codec": {
-                                "name": "",
-                                "description": ""
+                                "name": "برنامج ترميز صوت مخصّص",
+                                "description": "عيّن برنامج ترميز صوت مخصّص (على سبيل المثال: AAC)"
                             }
                         }
                     },
                     "logging_options": {
-                        "name": "",
-                        "description": "",
+                        "name": "خيارات التسجيل",
+                        "description": "إعدادات تسجيل Toast",
                         "properties": {
                             "logging": {
-                                "name": "",
-                                "description": ""
+                                "name": "تسجيل",
+                                "description": "يعرض توستات عند تنزيل الوسائط"
                             },
                             "disappearing_rate": {
-                                "name": "",
-                                "description": ""
+                                "name": "معدّل الاختفاء",
+                                "description": "يضبط معدل اختفاء التوستات (بالملّي ثانية)\nيجب أن تكون القيمة بين ١٠٠ وثلاثة آلاف"
                             }
                         }
                     },
                     "custom_path_format": {
-                        "name": "",
-                        "description": ""
+                        "name": "تنسيق المسار المخصّص",
+                        "description": "تحديد تنسيق مسار مخصّص للوسائط التي تم تنزيلها\n\nالمتغيّرات المتاحة:\n - %username%\n - %source%\n - %hash%\n - %date_time%"
                     }
                 }
             },
             "user_interface": {
-                "name": "",
-                "description": "",
+                "name": "واجهة المستخدم",
+                "description": "تغيير شكل ومظهر Snapchat",
                 "properties": {
                     "enable_app_appearance": {
                         "name": "",
