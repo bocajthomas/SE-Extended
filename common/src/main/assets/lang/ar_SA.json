@@ -545,43 +545,43 @@
                         "description": "يُخفي زر الاستعادة في موجز الأصدقاء"
                     },
                     "hide_quick_add_suggestions": {
-                        "name": "",
-                        "description": ""
+                        "name": "اخفِ اقتراحات الإضافة السريعة",
+                        "description": "يمسح اقتراحات إضافة الأصدقاء السريعة"
                     },
                     "hide_story_suggestions": {
-                        "name": "",
-                        "description": ""
+                        "name": "اخفِ اقتراحات القصص",
+                        "description": "يمسح اقتراحات من صفحة القصص"
                     },
                     "hide_ui_components": {
-                        "name": "",
-                        "description": ""
+                        "name": "إخفاء مكوّنات واجهة المستخدم",
+                        "description": "حدّد مكوّنات واجهة المستخدم التي تُريد إخفاءها"
                     },
                     "opera_media_quick_info": {
-                        "name": "",
-                        "description": ""
+                        "name": "معلومات سريعة عن وسائط أوبرا",
+                        "description": "يعرض معلومات مفيدة عن الوسائط مثل تاريخ الإنشاء في قائمة سياق عارض أوبرا"
                     },
                     "old_bitmoji_selfie": {
-                        "name": "",
-                        "description": ""
+                        "name": "سيلفي بتموجي القديم",
+                        "description": "يُعيد صور سيلفي بتموجي من إصدارات سناب شات الأقدم"
                     },
                     "disable_spotlight": {
-                        "name": "",
-                        "description": ""
+                        "name": "تعطيل منصّة الأضواء",
+                        "description": "يعطّل صفحة منصّة الأضواء"
                     },
                     "custom_friend_feed_label": {
-                        "name": "",
-                        "description": ""
+                        "name": "تسمية مخصّصة لموجز الأصدقاء",
+                        "description": "يغيّر تسمية الصفحة على موجز الأصدقاء"
                     },
                     "friend_feed_menu_buttons": {
-                        "name": "",
-                        "description": ""
+                        "name": "أزرار قائمة موجز الأصدقاء",
+                        "description": "حدّد الأزرار التي تُريد عرضها في قائمة موجز الأصدقاء"
                     },
                     "auto_close_friend_feed_menu": {
-                        "name": "",
-                        "description": ""
+                        "name": "أغلِق قائمة موجز الأصدقاء تلقائيًا",
+                        "description": "يُغلِق قائمة موجز الأصدقاء تلقائيًا بعد الضغط على زر إعداد"
                     },
                     "vertical_story_viewer": {
-                        "name": "",
+                        "name": "عارض القصص العمودي",
                         "description": ""
                     },
                     "enable_friend_feed_menu_bar": {
