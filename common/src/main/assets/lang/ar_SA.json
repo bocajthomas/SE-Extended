@@ -486,63 +486,63 @@
                     },
                     "icon_style": {
                         "name": "نمط الأيقونة",
-                        "description": ""
+                        "description": "تغيير نمط أيقونات المواد\n\nالميزات المدعومة:\n - زر تنزيل الأوبرا\n - زر وضع علامة \"شوهد\" على اللقطة\n - أزرار قائمة موجز الأصدقاء\n - تجارب COF\n - مؤشّرات الرسائل\n - تسجيل الدخول"
                     },
                     "disable_settings_menu": {
-                        "name": "",
-                        "description": ""
+                        "name": "تعطيل قائمة الإعدادات",
+                        "description": "يعطّل قائمة الإعدادات في سناب شات"
                     },
                     "friend_feed_message_preview": {
-                        "name": "",
-                        "description": "",
+                        "name": "معاينة رسالة موجز الأصدقاء",
+                        "description": "يعرض معاينة لآخر الرسائل في موجز الأصدقاء",
                         "properties": {
                             "amount": {
-                                "name": "",
-                                "description": ""
+                                "name": "الكمية",
+                                "description": "كمية الرسائل المراد معاينتها"
                             }
                         }
                     },
                     "snap_preview": {
-                        "name": "",
-                        "description": ""
+                        "name": "معاينة اللقطة",
+                        "description": "يعرض معاينة صغيرة بجوار اللقطات غير المُشاهَدة في الدردشة"
                     },
                     "bootstrap_override": {
-                        "name": "",
-                        "description": "",
+                        "name": "تجاوز التمهيد",
+                        "description": "‌يتجاوز إعدادات التمهيد لواجهة المستخدم",
                         "properties": {
                             "app_appearance": {
-                                "name": "",
-                                "description": ""
+                                "name": "مظهر التطبيق",
+                                "description": "يعيّن مظهرًا ثابتًا للتطبيق"
                             },
                             "home_tab": {
-                                "name": "",
-                                "description": ""
+                                "name": "علامة تبويب الرئيسية",
+                                "description": "يتجاوز علامة تبويب بدء التشغيل عند فتح سناب شات"
                             },
                             "simple_snapchat": {
-                                "name": "",
-                                "description": ""
+                                "name": "سناب شات بسيط",
+                                "description": "يُتيح نسخةً مبسّطةً من سناب شات"
                             }
                         }
                     },
                     "map_friend_nametags": {
-                        "name": "",
-                        "description": ""
+                        "name": "علامات أسماء محسّنة لخريطة الأصدقاء",
+                        "description": "يحسّن علامات أسماء الأصدقاء في Snapmap"
                     },
                     "prevent_message_list_auto_scroll": {
-                        "name": "",
-                        "description": ""
+                        "name": "منع التمرير التلقائي لقائمة الرسائل",
+                        "description": "يمنع قائمة الرسائل من التمرير إلى الأسفل عند إرسال/استلام رسالة"
                     },
                     "streak_expiration_info": {
-                        "name": "",
-                        "description": ""
+                        "name": "عرض معلومات انتهاء صلاحية اللقطات المُتتالية",
+                        "description": "يظهر موقّت انتهاء صلاحية اللقطات المُتتالية بجوار عدّاد اللقطات المُتتالية"
                     },
                     "hide_friend_feed_entry": {
-                        "name": "",
-                        "description": ""
+                        "name": "إخفاء إدخال موجز الأصدقاء",
+                        "description": "يُخفي صديقًا معيّنًا من موجز الأصدقاء\nاستخدم علامة تبويب \"الاجتماعية\" لإدارة هذه الميزة"
                     },
                     "hide_streak_restore": {
-                        "name": "",
-                        "description": ""
+                        "name": "اخفِ استعادة اللقطات المُتتالية",
+                        "description": "يُخفي زر الاستعادة في موجز الأصدقاء"
                     },
                     "hide_quick_add_suggestions": {
                         "name": "",
