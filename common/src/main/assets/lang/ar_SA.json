@@ -582,73 +582,73 @@
                     },
                     "vertical_story_viewer": {
                         "name": "عارض القصص العمودي",
-                        "description": ""
+                        "description": "يمكّن عارض القصة العمودي لكل القصص"
                     },
                     "enable_friend_feed_menu_bar": {
-                        "name": "",
-                        "description": ""
+                        "name": "شريط قائمة موجز الأصدقاء",
+                        "description": "يمكّن شريط قائمة موجز الأصدقاء الجديد"
                     },
                     "message_indicators": {
-                        "name": "",
-                        "description": ""
+                        "name": "مؤشّرات الرسائل",
+                        "description": "يُضيف رموز مؤشّرات محددة إلى الرسائل\nملاحظة: قد لا تكون المؤشّرات دقيقة بنسبة ١٠٠٪"
                     },
                     "stealth_mode_indicator": {
-                        "name": "",
-                        "description": ""
+                        "name": "مؤشّر وضع التخفي",
+                        "description": "يُضيف رمز 👻 التعبيري بجوار المحادثات في وضع التخفي"
                     },
                     "edit_text_override": {
-                        "name": "",
-                        "description": ""
+                        "name": "تجاوز تعديل النص",
+                        "description": "يتجاوز سلوك حقل النص"
                     },
                     "prevent_forced_keyboard": {
-                        "name": "",
-                        "description": ""
+                        "name": "منع لوحة المفاتيح بالقوّة",
+                        "description": "يمنع سناب شات من إظهار لوحة المفاتيح تلقائيًا عندما تفتح محادثة"
                     }
                 }
             },
             "messaging": {
-                "name": "",
-                "description": "",
+                "name": "المُراسلة",
+                "description": "غيّر كيف تتفاعل مع أصدقاءك",
                 "properties": {
                     "bypass_screenshot_detection": {
-                        "name": "",
-                        "description": ""
+                        "name": "تجاوز كشف لقطات الشاشة",
+                        "description": "يمنع سناب شات من اكتشاف التقاطك لقطة شاشة"
                     },
                     "anonymous_story_viewing": {
-                        "name": "",
-                        "description": ""
+                        "name": "عرض قصة مجهولة",
+                        "description": "يمنع أي شخص من معرفة أنّك شاهدت قصته"
                     },
                     "prevent_story_rewatch_indicator": {
-                        "name": "",
-                        "description": ""
+                        "name": "منع مؤشّر إعادة مُشاهدة القصة",
+                        "description": "يمنع أي شخص من معرفة أنك شاهدت قصته مرة أخرى"
                     },
                     "hide_peek_a_peek": {
-                        "name": "",
-                        "description": ""
+                        "name": "اخفِ Peek-a-Peek",
+                        "description": "يمنع إرسال الإشعارات عند التمرير نصف مرّة إلى الدردشة"
                     },
                     "hide_bitmoji_presence": {
-                        "name": "",
-                        "description": ""
+                        "name": "اخفِ حضور بتموجي",
+                        "description": "يمنع ظهور بتموجي الخاص بك أثناء الدردشة"
                     },
                     "hide_typing_notifications": {
-                        "name": "",
-                        "description": ""
+                        "name": "اخفِ إشعارات الكتابة",
+                        "description": "يمنع أي شخص من معرفة أنّك تكتب رسالة"
                     },
                     "unlimited_snap_view_time": {
-                        "name": "",
-                        "description": ""
+                        "name": "وقت عرض لقطة غير محدود",
+                        "description": "يُزيل الحد الزمني لعرض اللقطات"
                     },
                     "auto_mark_as_read": {
-                        "name": "",
-                        "description": ""
+                        "name": "وضع علامة \"مقروء\" تلقائيًا",
+                        "description": "يضع علامة \"مقروء\" تلقائيًا على الرسائل/اللقطات حتى عند تمكين وضع التخفي"
                     },
                     "mark_snap_as_seen_button": {
-                        "name": "",
-                        "description": ""
+                        "name": "زر وضع علامة \"شوهد\" على اللقطة",
+                        "description": "يُضيف زرًا لتمييز لقطة على أنه تمّت مُشاهدتها عند عرضها.\nسيعمل هذا حتى عند تمكين وضع التخفي"
                     },
                     "skip_when_marking_as_seen": {
-                        "name": "",
-                        "description": ""
+                        "name": "تخطّى عند وضع علامة \"تمت مشاهدته\"",
+                        "description": "يتخطّى تلقائيًا إلى اللقطة التالية عند وضع علامة \"شوهد\" على لقطة ما.\n\nاستخدمه مع زر \"وضع علامة 'شوهد'\" على اللقطة"
                     },
                     "loop_media_playback": {
                         "name": "",
