@@ -682,38 +682,38 @@
                     },
                     "disable_snap_mode_restrictions": {
                         "name": "عطّل قيود وضع الالتقاط",
-                        "description": ""
+                        "description": "يُتيح لك مُشاهدة اللقطات التي تتلف ذاتيًا دون قيود"
                     },
                     "prevent_message_sending": {
-                        "name": "",
-                        "description": ""
+                        "name": "منع إرسال الرسائل",
+                        "description": "يمنع إرسال أنواع معيّنة من الرسائل"
                     },
                     "friend_mutation_notifier": {
-                        "name": "",
-                        "description": ""
+                        "name": "مُعلم تغيّرات الأصدقاء",
+                        "description": "يُعلمك عندما يحدث تغيير في ملف تعريف أحد الأصدقاء"
                     },
                     "better_notifications": {
-                        "name": "",
-                        "description": "",
+                        "name": "إشعارات أفضل",
+                        "description": "يضيف المزيد من المعلومات في الإشعارات المُستلَمة",
                         "properties": {
                             "group_notifications": {
-                                "name": "",
-                                "description": ""
+                                "name": "جمّع الإشعارات",
+                                "description": "يجمّع الإشعارات في إشعار واحد"
                             },
                             "chat_preview": {
-                                "name": "",
-                                "description": ""
+                                "name": "معاينة الدردشة",
+                                "description": "يعرض معاينة للرسائل المُستلَمة في الإشعار"
                             },
                             "media_preview": {
-                                "name": "",
-                                "description": ""
+                                "name": "معاينة الوسائط",
+                                "description": "يعرض معاينة أنواع الوسائط المحدّدة في الإشعار"
                             },
                             "media_caption": {
-                                "name": "",
-                                "description": ""
+                                "name": "تسميات توضيحية للوسائط",
+                                "description": "يعرض التسمية التوضيحية المُرفَقة بالوسائط في الإشعار"
                             },
                             "stacked_media_messages": {
-                                "name": "",
+                                "name": "رسائل الوسائط المكدّسة",
                                 "description": ""
                             },
                             "friend_add_source": {
