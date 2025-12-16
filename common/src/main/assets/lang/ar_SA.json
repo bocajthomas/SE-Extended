@@ -655,33 +655,33 @@
                         "description": "يُكرّر تشغيل الوسائط عند مُشاهدة اللقطات/القصص"
                     },
                     "disable_replay_in_ff": {
-                        "name": "",
-                        "description": ""
+                        "name": "عطّل إعادة التشغيل في FF",
+                        "description": "يعطّل هذا الخيار إمكانية إعادة التشغيل بالضغط المطوّل من موجز الأصدقاء"
                     },
                     "half_swipe_notifier": {
-                        "name": "",
-                        "description": "",
+                        "name": "منبّه نصف التمرير",
+                        "description": "يُعلمك عندما يقوم شخصٌ ما بالتمرير نصف مرة في محادثة",
                         "properties": {
                             "min_duration": {
-                                "name": "",
-                                "description": ""
+                                "name": "الحد الأدنى للمدّة",
+                                "description": "الحد الأدنى لمدّة التمرير النصفي (بالثواني)"
                             },
                             "max_duration": {
-                                "name": "",
-                                "description": ""
+                                "name": "الحد الأقصى للمدّة",
+                                "description": "الحد الأقصى لمدّة التمرير النصفي (بالثواني)"
                             }
                         }
                     },
                     "call_start_confirmation": {
-                        "name": "",
-                        "description": ""
+                        "name": "تأكيد بدء المكالمة",
+                        "description": "يعرض مربّعًا للتأكيد عند بدء مكالمة"
                     },
                     "unlimited_conversation_pinning": {
-                        "name": "",
-                        "description": ""
+                        "name": "تثبيت محادثات‌ غير محدود",
+                        "description": "يُتيح لك تثبيت عدد غير محدود من المحادثات محليًا"
                     },
                     "disable_snap_mode_restrictions": {
-                        "name": "",
+                        "name": "عطّل قيود وضع الالتقاط",
                         "description": ""
                     },
                     "prevent_message_sending": {
