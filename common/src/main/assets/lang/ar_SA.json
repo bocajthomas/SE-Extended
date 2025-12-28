@@ -717,41 +717,41 @@
                                 "description": "يجمع رسائل الوسائط المتعدّدة في إشعار نصي واحد عندما يتعذّر مُعاينتها. استخدمه مع ميزة مُعاينة الدردشة"
                             },
                             "friend_add_source": {
-                                "name": "",
-                                "description": ""
+                                "name": "مصدر إضافة الصديق",
+                                "description": "يُظهر مصدر طلب صداقة في الإشعار"
                             },
                             "reply_button": {
-                                "name": "",
-                                "description": ""
+                                "name": "زر الردّ",
+                                "description": "يضيف زر ردٍّ إلى الإشعار"
                             },
                             "smart_replies": {
-                                "name": "",
-                                "description": ""
+                                "name": "ردود ذكية",
+                                "description": "يضيف ردود مُقترَحة إلى الإشعارات (آندرويد ١٠ وما فوق). استخدمه مع زر الردّ"
                             },
                             "download_button": {
-                                "name": "",
-                                "description": ""
+                                "name": "زر التنزيل",
+                                "description": "يتيح لك تنزيل وسائط من الإشعار"
                             },
                             "mark_as_read_button": {
-                                "name": "",
-                                "description": ""
+                                "name": "زر ضع علامة كمقروء",
+                                "description": "يتيح لك وضع علامة \"مقروء\" على الرسالة من الإشعار"
                             },
                             "mark_as_read_and_save_in_chat": {
-                                "name": "",
-                                "description": ""
+                                "name": "وضع علامة \"مقروء\" وحفظ في الدردشة",
+                                "description": "يضيف علامة \"مقروء\" ويحفظه في زر الدردشة إلى الإشعار"
                             }
                         }
                     },
                     "notification_blacklist": {
-                        "name": "",
-                        "description": ""
+                        "name": "قائمة الإشعارات المحظورة",
+                        "description": "حدّد الإشعارات التي يجب حظرها"
                     },
                     "message_logger": {
-                        "name": "",
-                        "description": "",
+                        "name": "مسجّل الرسائل",
+                        "description": "يمنع حذف الرسائل",
                         "properties": {
                             "keep_my_own_messages": {
-                                "name": "",
+                                "name": "احتفظ برسائلي الخاصة",
                                 "description": ""
                             },
                             "auto_purge": {
