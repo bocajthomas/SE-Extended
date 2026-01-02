@@ -733,7 +733,7 @@
                                 "description": "يتيح لك تنزيل وسائط من الإشعار"
                             },
                             "mark_as_read_button": {
-                                "name": "زر ضع علامة كمقروء",
+                                "name": "زر \"وضع علامة كمقروء\"",
                                 "description": "يتيح لك وضع علامة \"مقروء\" على الرسالة من الإشعار"
                             },
                             "mark_as_read_and_save_in_chat": {
@@ -744,7 +744,7 @@
                     },
                     "notification_blacklist": {
                         "name": "قائمة الإشعارات المحظورة",
-                        "description": "حدّد الإشعارات التي يجب حظرها"
+                        "description": "حدِّد الإشعارات التي يجب حظرها"
                     },
                     "message_logger": {
                         "name": "مسجّل الرسائل",
@@ -752,52 +752,52 @@
                         "properties": {
                             "keep_my_own_messages": {
                                 "name": "احتفظ برسائلي الخاصة",
-                                "description": ""
+                                "description": "يمنع حذف رسائلك الخاصة"
                             },
                             "auto_purge": {
-                                "name": "",
-                                "description": ""
+                                "name": "التصفية التلقائية",
+                                "description": "يقوم تلقائيًا بحذف الرسائل المخزّنة مؤقّتًا والتي يزيد عمرها عن المدة الزمنية المحددة"
                             },
                             "message_filter": {
-                                "name": "",
-                                "description": ""
+                                "name": "فلترة الرسائل",
+                                "description": "حدِّد الرسائل التي يجب تسجيلها (اترك الحقل فارغًا لجميع الرسائل)"
                             },
                             "deleted_message_color": {
-                                "name": "",
-                                "description": ""
+                                "name": "لون الرسالة المحذوفة",
+                                "description": "يحدّد لون الرسائل المحذوفة"
                             }
                         }
                     },
                     "auto_save_messages_in_conversations": {
-                        "name": "",
-                        "description": ""
+                        "name": "احفظ الرسائل تلقائيًا",
+                        "description": "يحفظ تلقائيًا جميع الرسائل في المحادثات"
                     },
                     "gallery_media_send_override": {
-                        "name": "",
-                        "description": ""
+                        "name": "تجاوز إرسال وسائط المعرض",
+                        "description": "يقوم بتقليد مصدر الوسائط عند الإرسال من المعرض"
                     },
                     "strip_media_metadata": {
-                        "name": "",
-                        "description": ""
+                        "name": "أزِل بيانات تعريف الوسائط",
+                        "description": "يزيل البيانات الوصفية للوسائط قبل إرسالها كرسالة"
                     },
                     "bypass_message_retention_policy": {
-                        "name": "",
-                        "description": ""
+                        "name": "تجاوَز سياسة الاحتفاظ بالرسائل",
+                        "description": "يمنع حذف الرسائل بعد عرضها"
                     },
                     "bypass_message_action_restrictions": {
-                        "name": "",
-                        "description": ""
+                        "name": "تجاوَز قيود إجراءات الرسائل",
+                        "description": "يتيح لك هذا التطبيق التفاعل مع لقطة دون فتحه أو حفظ رسالة غير قابلة للحفظ"
                     },
                     "remove_groups_locked_status": {
-                        "name": "",
-                        "description": ""
+                        "name": "أزِل حالة قفل المجموعات",
+                        "description": "يتيح لك هذا الخيار عرض معلومات المجموعة بعد طردك منها"
                     },
                     "double_tap_chat_action": {
-                        "name": "",
-                        "description": ""
+                        "name": "إجراء الدردشة بالنقر المزدوج",
+                        "description": "ينفذ إجراءً مخصّصًا عند النقر المزدوج على رسالة في الدردشة"
                     },
                     "double_tap_chat_action_custom_emoji": {
-                        "name": "",
+                        "name": "انقر نقرًا مزدوجًا على إجراء الدردشة \"ردّة فعل مخصّصة بالرموز التعبيرية\"",
                         "description": ""
                     }
                 }
