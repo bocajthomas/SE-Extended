@@ -798,28 +798,28 @@
                     },
                     "double_tap_chat_action_custom_emoji": {
                         "name": "انقر نقرًا مزدوجًا على إجراء الدردشة \"ردّة فعل مخصّصة بالرموز التعبيرية\"",
-                        "description": ""
+                        "description": "يُعيّن ردّ فعل مخصّص لتفاعل النقر المزدوج في الدردشة"
                     }
                 }
             },
             "global": {
-                "name": "",
-                "description": "",
+                "name": "عالمي",
+                "description": "عدِّل إعدادات سناب شات العامة",
                 "properties": {
                     "better_location": {
-                        "name": "",
-                        "description": "",
+                        "name": "موقع أفضل",
+                        "description": "يُحسّن موقع سناب شات",
                         "properties": {
                             "spoof_location": {
-                                "name": "",
-                                "description": ""
+                                "name": "موقع مزيّف",
+                                "description": "يُغيّر موقعك إلى موقع مُحدّد"
                             },
                             "coordinates": {
-                                "name": "",
-                                "description": ""
+                                "name": "الإحداثيات",
+                                "description": "حدِّد إحداثيات الموقع المزيّف"
                             },
                             "walk_radius": {
-                                "name": "",
+                                "name": "شعاع المشي",
                                 "description": ""
                             },
                             "always_update_location": {
