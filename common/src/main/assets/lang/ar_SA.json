@@ -900,10 +900,10 @@
                     },
                     "spotlight_comments_username": {
                         "name": "تعليقات مميزة اسم المستخدم",
-                        "description": ""
+                        "description": "يعرض اسم المُستخدِم الخاص بالمؤلّف في تعليقات منصة الأضواء"
                     },
                     "bypass_video_length_restriction": {
-                        "name": "",
+                        "name": "تجاوَز قيود طول الفيديو",
                         "description": ""
                     },
                     "default_video_playback_rate": {
