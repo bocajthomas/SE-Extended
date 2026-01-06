@@ -888,18 +888,18 @@
                     },
                     "disable_custom_tabs": {
                         "name": "عطّل علامات التبويب المخصّصة",
-                        "description": ""
+                        "description": "يفتح الروابط في تطبيقات مدعومة بدلاً من متصفح الويب"
                     },
                     "disable_permission_requests": {
-                        "name": "",
-                        "description": ""
+                        "name": "عطّل طلبات الإذن",
+                        "description": "يمنع سناب شات من طلب أذونات محدّدة"
                     },
                     "disable_memories_snap_feed": {
-                        "name": "",
-                        "description": ""
+                        "name": "عطّل موجز الذكريات",
+                        "description": "يمنع سناب شات من عرض الذكريات الحديثة عند التمرير لأعلى في الكاميرا"
                     },
                     "spotlight_comments_username": {
-                        "name": "",
+                        "name": "تعليقات مميزة اسم المستخدم",
                         "description": ""
                     },
                     "bypass_video_length_restriction": {
