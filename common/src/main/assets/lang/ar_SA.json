@@ -931,46 +931,46 @@
                         "description": "يمنع تطبيق سناب شات من معرفة أنّك تستمع إلى الموسيقى\nسيُتيح لك هذا الالتقاط باستخدام أزرار التحكم في مستوى الصوت أثناء الاستماع إلى الموسيقى"
                     },
                     "disable_snap_splitting": {
-                        "name": "",
-                        "description": ""
+                        "name": "عطّل تقسيم اللقطة",
+                        "description": "يمنع تقسيم اللقطات إلى أجزاء متعدّدة\nستتحوّل الصور التي تُرسلها إلى مقاطع فيديو"
                     }
                 }
             },
             "rules": {
-                "name": "",
-                "description": ""
+                "name": "القواعد",
+                "description": "إدارة الميزات التلقائية للأفراد"
             },
             "camera": {
-                "name": "",
-                "description": "",
+                "name": "الكاميرا",
+                "description": "اضبط الإعدادات المُناسِبة للحصول على لقطة مثالية",
                 "properties": {
                     "disable_cameras": {
-                        "name": "",
-                        "description": ""
+                        "name": "عطّل الكاميرات",
+                        "description": "يمنع سناب شات من استخدام الكاميرات المحدّدة"
                     },
                     "black_photos": {
-                        "name": "",
-                        "description": ""
+                        "name": "صور سوداء",
+                        "description": "يستبدل الصور المُلتقَطة بخلفية سوداء\nلن تتأثّر مقاطع الڤيديو"
                     },
                     "immersive_camera_preview": {
-                        "name": "",
-                        "description": ""
+                        "name": "معاينة غامِرة",
+                        "description": "يمنع سناب شات من اقتصاص معاينة الكاميرا\nقد يتسبّب هذا في وميض الكاميرا على بعض الأجهزة"
                     },
                     "override_front_resolution": {
-                        "name": "",
-                        "description": ""
+                        "name": "تجاوَز دقّة الشاشة الأمامية",
+                        "description": "يتجاوز دقّة الكاميرا الأمامية"
                     },
                     "override_back_resolution": {
-                        "name": "",
-                        "description": ""
+                        "name": "تجاوَز الدقّة الخلفية",
+                        "description": "يتجاوز دقّة الكاميرا الخلفية"
                     },
                     "custom_resolution": {
-                        "name": "",
-                        "description": ""
+                        "name": "دقّة مخصّصة",
+                        "description": "يُحدّد هذا الخيار دقّة كاميرا مخصّصة، العرض × الارتفاع (على سبيل المثال ١٩٢٠×١٠٨٠). \nيجب أن يدعم جهازك هذه الدقّة المخصّصة"
                     },
                     "front_custom_frame_rate": {
-                        "name": "",
-                        "description": ""
+                        "name": "معدّل الإطارات المخصّص للواجهة الأمامية",
+                        "description": "يتجاوز معدّل إطارات الكاميرا الأمامية"
                     },
                     "back_custom_frame_rate": {
                         "name": "",
