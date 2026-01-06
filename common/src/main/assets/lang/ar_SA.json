@@ -820,26 +820,26 @@
                             },
                             "walk_radius": {
                                 "name": "شعاع المشي",
-                                "description": ""
+                                "description": "تجوّل بشكل عشوائي ضمن هذا النطاق (قدم)"
                             },
                             "always_update_location": {
-                                "name": "",
-                                "description": ""
+                                "name": "حدّث الموقع دائمًا",
+                                "description": "يفرض على سناب شات أن يُحدّث الموقع حتى في حالة عدم استلام بيانات نظام تحديد المواقع العالمي (GPS)"
                             },
                             "suspend_location_updates": {
-                                "name": "",
-                                "description": ""
+                                "name": "إيقاف تحديثات الموقع",
+                                "description": "يمنع موقعك من التحديث"
                             },
                             "spoof_battery_level": {
-                                "name": "",
-                                "description": ""
+                                "name": "تزييف مستوى البطارية",
+                                "description": "يزيّف مستوى بطارية جهازك على الخريطة\nالقيمة يجب أن تكون بين صفر (٠) ومئة (١٠٠)"
                             },
                             "spoof_headphones": {
-                                "name": "",
-                                "description": ""
+                                "name": "سمّاعات مزيّفة",
+                                "description": "يزيّف حالة الاستماع إلى الموسيقى على الخريطة"
                             },
                             "show_battery_level": {
-                                "name": "",
+                                "name": "اعرض مستوى البطارية",
                                 "description": ""
                             }
                         }
