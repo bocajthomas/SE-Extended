@@ -973,7 +973,7 @@
                         "description": "يتجاوز معدّل إطارات الكاميرا الأمامية"
                     },
                     "back_custom_frame_rate": {
-                        "name": "",
+                        "name": "معدّل إطارات خلفي مخصّص",
                         "description": ""
                     },
                     "force_camera_source_encoding": {
