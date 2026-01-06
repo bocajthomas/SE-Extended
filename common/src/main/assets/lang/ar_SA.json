@@ -840,54 +840,54 @@
                             },
                             "show_battery_level": {
                                 "name": "اعرض مستوى البطارية",
-                                "description": ""
+                                "description": "يعرض مستوى بطارية أصدقائك على الخريطة"
                             }
                         }
                     },
                     "snapchat_plus": {
-                        "name": "",
-                        "description": ""
+                        "name": "سناب شات+",
+                        "description": "يُمكّن ميزات سناب شات+\nبعض الميزات التي تعمل على جانب الخادم قد لا تعمل"
                     },
                     "media_upload_quality": {
-                        "name": "",
-                        "description": "",
+                        "name": "جودة تحميل الوسائط",
+                        "description": "يتجاوز جودة تحميل الوسائط",
                         "properties": {
                             "force_video_upload_source_quality": {
-                                "name": "",
-                                "description": ""
+                                "name": "فرض جودة مصدر تحميل الفيديو",
+                                "description": "يجبر سناب شات على استخدام جودة المصدر عند تحميل الفيديوهات\nيُرجى ملاحظة أن هذا قد لا يزيل البيانات الوصفية من الوسائط"
                             },
                             "disable_image_compression": {
-                                "name": "",
-                                "description": ""
+                                "name": "عطّل ضغط الصور",
+                                "description": "يُعطّل ضغط الصور عند تحميل الوسائط"
                             },
                             "custom_image_upload_format": {
-                                "name": "",
-                                "description": ""
+                                "name": "تنسيق تحميل صور مخصّص",
+                                "description": "يُحدّد تنسيق تحميل الصور المخصّص\nاختر تنسيقًا لا يُفقِد الجودة (مثل .PNG) للحصول على أفضل جودة"
                             }
                         }
                     },
                     "disable_confirmation_dialogs": {
-                        "name": "",
-                        "description": ""
+                        "name": "عطّل مربّعات حوار التأكيد",
+                        "description": "يؤكّد الإجراءات المحدّدة تلقائيًا"
                     },
                     "auto_updater": {
-                        "name": "",
-                        "description": ""
+                        "name": "المحدّث التلقائي",
+                        "description": "يتحقّق تلقائيًا من وجود تحديثات جديدة"
                     },
                     "disable_metrics": {
-                        "name": "",
-                        "description": ""
+                        "name": "عطّل المقاييس",
+                        "description": "يحظر إرسال بيانات تحليلية محدّدة إلى سناب شات"
                     },
                     "disable_story_sections": {
-                        "name": "",
-                        "description": ""
+                        "name": "عطّل أقسام القصة",
+                        "description": "يزيل أقسامًا من صفحة القصص\nقد يتطلّب الأمر إعادة تحميلٍ ليعمل بشكل صحيح"
                     },
                     "block_ads": {
-                        "name": "",
-                        "description": ""
+                        "name": "احظر الإعلانات",
+                        "description": "يمنع عرض الإعلانات"
                     },
                     "disable_custom_tabs": {
-                        "name": "",
+                        "name": "عطّل علامات التبويب المخصّصة",
                         "description": ""
                     },
                     "disable_permission_requests": {
