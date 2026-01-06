@@ -904,10 +904,10 @@
                     },
                     "bypass_video_length_restriction": {
                         "name": "تجاوَز قيود طول الفيديو",
-                        "description": ""
+                        "description": "فردي: يُرسِل فيديو واحد\nمُقسَّم: قسّم الفيديوهات بعد التحرير"
                     },
                     "default_video_playback_rate": {
-                        "name": "",
+                        "name": "معدّل تشغيل الفيديو الافتراضي",
                         "description": ""
                     },
                     "video_playback_rate_slider": {
