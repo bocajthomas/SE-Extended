@@ -1069,44 +1069,44 @@
                                 "description": "يمنع تطبيق سناب شات من اكتشاف الشبكات الافتراضية الخاصة (VPN)"
                             },
                             "remove_mock_location_flag": {
-                                "name": "",
-                                "description": ""
+                                "name": "إزالة علامة الموقع الوهمي",
+                                "description": "يمنع سناب شات من اكتشاف الموقع الوهمي"
                             }
                         }
                     },
                     "convert_message_locally": {
-                        "name": "",
-                        "description": ""
+                        "name": "حوّل الرسالة محليًا",
+                        "description": "يحوّل الصور إلى وسائط خارجية للدردشة محليًا. يُظهر هذا الخيار في قائمة سياق تنزيل الدردشة"
                     },
                     "media_file_picker": {
-                        "name": "",
-                        "description": ""
+                        "name": "منتقي ملفات الوسائط",
+                        "description": "يُتيح لك انتقاء أي ملف فيديو/صوت من المعرض"
                     },
                     "story_logger": {
-                        "name": "",
-                        "description": ""
+                        "name": "مسجّل القصص",
+                        "description": "يقدّم تاريخًا لقصص الأصدقاء"
                     },
                     "call_recorder": {
-                        "name": "",
-                        "description": ""
+                        "name": "مسجّل المكالمات",
+                        "description": "يسجّل المكالمات الصوتية تلقائيًا"
                     },
                     "account_switcher": {
-                        "name": "",
-                        "description": "",
+                        "name": "مبدّل الحسابات",
+                        "description": "يُتيح لك التبديل بين الحسابات دون تسجيل الخروج\nاضغط مطولاً على أيقونة البحث بجوار ملف تعريف بتموجي الخاص بك لفتح القائمة\nملاحظة: هذه الميزة تجريبية ومن المرجّح أن تتغيّر في المستقبل",
                         "properties": {
                             "auto_backup_current_account": {
-                                "name": "",
-                                "description": ""
+                                "name": "النسخ الاحتياطي التلقائي للحساب الجاري",
+                                "description": "يقوم التطبيق تلقائيًا بعمل نسخة احتياطية من الحساب الحالي عند تسجيل الخروج أو تبديل الحسابات"
                             }
                         }
                     },
                     "better_transcript": {
-                        "name": "",
-                        "description": "",
+                        "name": "نص أفضل",
+                        "description": "يحسّن نص الملاحظات الصوتية",
                         "properties": {
                             "force_transcription": {
-                                "name": "",
-                                "description": ""
+                                "name": "افرض تحويل الملاحظات الصوتية إلى نص",
+                                "description": "يسمح بتحويل جميع الملاحظات الصوتية إلى نص مكتوب"
                             },
                             "preferred_transcription_lang": {
                                 "name": "",
