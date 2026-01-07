@@ -1052,21 +1052,21 @@
                             },
                             "custom_shared_library": {
                                 "name": "مكتبة مشتركة مخصّصة",
-                                "description": ""
+                                "description": "يقوم بتحميل مكتبة مشتركة مخصّصة إلى سناب شات. هذه الميزة مخصّصة لأغراض الاختبار فقط"
                             }
                         }
                     },
                     "spoof": {
-                        "name": "",
-                        "description": "",
+                        "name": "تزييف",
+                        "description": "زيّف معلومات مختلفة عنك",
                         "properties": {
                             "play_store_installer_package_name": {
-                                "name": "",
-                                "description": ""
+                                "name": "اسم حزمة تثبيت متجر Play",
+                                "description": "يُغيّر اسم حزمة المثبّت إلى com.android.vending"
                             },
                             "remove_vpn_transport_flag": {
-                                "name": "",
-                                "description": ""
+                                "name": "أزِل علامة نقل VPN",
+                                "description": "يمنع تطبيق سناب شات من اكتشاف الشبكات الافتراضية الخاصة (VPN)"
                             },
                             "remove_mock_location_flag": {
                                 "name": "",
