@@ -1009,7 +1009,7 @@
                 }
             },
             "experimental": {
-                "name": "تجريبي",
+                "name": "تجريبيّ",
                 "description": "ميزات تجريبية",
                 "properties": {
                     "native_hooks": {
@@ -1017,41 +1017,41 @@
                         "description": "ميزات غير آمنة تتّصل بكود سناب شات المحليّ",
                         "properties": {
                             "composer_hooks": {
-                                "name": "خطّافات توليفية",
+                                "name": "خطّافات Composer",
                                 "description": "يقوم بإدراج الأكواد في إطار عمل واجهة المستخدم متعدّد المنصات Composer",
                                 "properties": {
                                     "show_first_created_username": {
-                                        "name": "",
-                                        "description": ""
+                                        "name": "اعرض اسم المستخدم الذي تمّ إنشاؤه أولاً",
+                                        "description": "يعرض اسم المستخدم الأول الذي تمّ إنشاؤه بجوار اسم المستخدم الحالي في صفحة الملف الشخصي"
                                     },
                                     "bypass_camera_roll_limit": {
-                                        "name": "",
-                                        "description": ""
+                                        "name": "تجاوز حدّ ألبوم الصور",
+                                        "description": "يُزيد من الحدّ الأقصى لكمية الوسائط التي يمكنك إرسالها من ألبوم الصور"
                                     },
                                     "custom_self_destruct_snap_delay": {
-                                        "name": "",
-                                        "description": ""
+                                        "name": "تأخير مخصّص للحذف الذاتي للقطة",
+                                        "description": "يُتيح المزيد من الخيارات لموقّت التدمير الذاتي عند إرسال لقطة"
                                     },
                                     "composer_console": {
-                                        "name": "",
-                                        "description": ""
+                                        "name": "وحدة تحكُّم Composer",
+                                        "description": "يُتيح لك تنفيذ كود جافا سكربت في Composer (ARM64 فقط)"
                                     },
                                     "composer_logs": {
-                                        "name": "",
-                                        "description": ""
+                                        "name": "سجلّات Composer",
+                                        "description": "يُعيد توجيه سجلات وحدة تحكُّم Composer إلى SE Extended"
                                     }
                                 }
                             },
                             "disable_bitmoji": {
-                                "name": "",
-                                "description": ""
+                                "name": "عطّل بتموجي",
+                                "description": "يعطّل بتموجي الخاص بملف تعريف الأصدقاء"
                             },
                             "custom_emoji_font": {
-                                "name": "",
-                                "description": ""
+                                "name": "خط إيموجي مخصّص",
+                                "description": "يُتيح لك استخدام خط إيموجي مخصص.\nيعمل فقط مع خطوط .TTF"
                             },
                             "custom_shared_library": {
-                                "name": "",
+                                "name": "مكتبة مشتركة مخصّصة",
                                 "description": ""
                             }
                         }
