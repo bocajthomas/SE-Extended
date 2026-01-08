@@ -1120,10 +1120,10 @@
                     },
                     "voice_note_auto_play": {
                         "name": "شغّل الملاحظات الصوتية تلقائيًّا",
-                        "description": ""
+                        "description": "يقوم بتشغيل الملاحظة الصوتية التالية تلقائيًا بعد انتهاء الملاحظة الحالية"
                     },
                     "friend_notes": {
-                        "name": "",
+                        "name": "ملاحظات الأصدقاء",
                         "description": ""
                     },
                     "cof_experiments": {
