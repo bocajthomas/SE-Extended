@@ -1124,62 +1124,62 @@
                     },
                     "friend_notes": {
                         "name": "ملاحظات الأصدقاء",
-                        "description": ""
+                        "description": "يُتيح لك إضافة ملاحظات إلى ملفات تعريف الأصدقاء"
                     },
                     "cof_experiments": {
-                        "name": "",
-                        "description": ""
+                        "name": "تجارب COF",
+                        "description": "يُفعّل ميزات سناب شات غير المُصدرة/التجريبية"
                     },
                     "context_menu_fix": {
-                        "name": "",
-                        "description": ""
+                        "name": "إصلاح قائمة السياق",
+                        "description": "محاولة لإصلاح قائمة الأصدقاء، حيث لا يُمكن عرضها عندما يكون الجهاز غير متصل بالإنترنت"
                     },
                     "app_lock": {
-                        "name": "",
-                        "description": "",
+                        "name": "قفل التطبيق",
+                        "description": "يمنع الوصول إلى سناب شات بدون رمز مرور",
                         "properties": {
                             "lock_on_resume": {
-                                "name": "",
-                                "description": ""
+                                "name": "قفل عند الاستئناف",
+                                "description": "يتمّ قفل التطبيق عند إعادة فتحه"
                             }
                         }
                     },
                     "infinite_story_boost": {
-                        "name": "",
-                        "description": ""
+                        "name": "تعزيز القصة اللانهائي",
+                        "description": "يتجاوز تأخير حدّ تعزيز القصة"
                     },
                     "meo_passcode_bypass": {
-                        "name": "",
-                        "description": ""
+                        "name": "تجاوز رمز مرور \"عيناي فقط\"",
+                        "description": "يتجاوز رمز مرور \"عيناي فقط\"\nلن ينجح هذا إلا إذا تم إدخال رمز المرور بشكل صحيح من قبل"
                     },
                     "no_friend_score_delay": {
-                        "name": "",
-                        "description": ""
+                        "name": "تأخير تسجيل النقاط بدون صديق",
+                        "description": "يُزيل التأخير عند عرض نقاط الأصدقاء"
                     },
                     "best_friend_pinning": {
-                        "name": "",
-                        "description": ""
+                        "name": "ثبّت أفضل صديق",
+                        "description": "يُتيح لك هذا الخيار تثبيت صديق كأفضل صديق لديك. ملاحظة: أنت فقط من يستطيع رؤية صديقك المُثبّت"
                     },
                     "e2ee": {
-                        "name": "",
-                        "description": "",
+                        "name": "التشفير من طرف إلى طرف",
+                        "description": "يقوم بتشفير رسائلك باستخدام خوارزمية التشفير المُتقدّمة (AES) ومفتاح سري مُشترك\nتأكّد من حفظ مفتاحك في مكان آمن!",
                         "properties": {
                             "encrypted_message_indicator": {
-                                "name": "",
-                                "description": ""
+                                "name": "مؤشّر الرسائل المشفّرة",
+                                "description": "يُضيف رمز 🔒 بجانب الرسائل المشفّرة"
                             },
                             "force_message_encryption": {
-                                "name": "",
-                                "description": ""
+                                "name": "افرض تشفير الرسالة",
+                                "description": "يمنع إرسال الرسائل المشفّرة إلى الأشخاص الذين لم يُفعّلوا التشفير من طرف إلى طرف، وذلك فقط عند تحديد محادثات متعدّدة"
                             }
                         }
                     },
                     "add_friend_source_spoof": {
-                        "name": "",
-                        "description": ""
+                        "name": "أضِف مصدر صداقة مزيّف",
+                        "description": "يزيّف مصدر طلب الصداقة"
                     },
                     "hidden_snapchat_plus_features": {
-                        "name": "",
+                        "name": "ميزات سناب شات+ مخفية",
                         "description": ""
                     },
                     "custom_streaks_expiration_format": {
