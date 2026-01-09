@@ -1180,41 +1180,41 @@
                     },
                     "hidden_snapchat_plus_features": {
                         "name": "ميزات سناب شات+ مخفية",
-                        "description": ""
+                        "description": "يُفعّل ميزات سناب شات+ غير المُصدرة/التجريبية\nقد لا يعمل على إصدارات سناب شات القديمة"
                     },
                     "custom_streaks_expiration_format": {
-                        "name": "",
-                        "description": ""
+                        "name": "تنسيق انتهاء صلاحية السلاسل المخصّصة",
+                        "description": "يخصّص تنسيق انتهاء صلاحية السلاسل\n\nالمتغيّرات المتاحة:\n - %c: عدد السلاسل\n - %e: إيموجي الساعة الرملية\n - %d: الأيام\n - %h: الساعات\n - %m: الدقائق\n - %s: الثواني\n - %w: الوقت المتبقّي"
                     },
                     "prevent_forced_logout": {
-                        "name": "",
-                        "description": ""
+                        "name": "امنع تسجيل الخروج الإجباري",
+                        "description": "يمنع تطبيق سناب شات من تسجيل خروجك عند تسجيل الدخول على جهاز آخر"
                     },
                     "snapscore_changes": {
-                        "name": "",
-                        "description": ""
+                        "name": "تغييرات Snapscore",
+                        "description": "يتتبّع التغييرات في سناب سكور الخاصة بالأصدقاء\nاستخدم هذه الميزة في الإصدارات الأحدث من سناب شات فقط"
                     }
                 }
             },
             "scripting": {
-                "name": "",
-                "description": "",
+                "name": "كتابة النص",
+                "description": "يشغّل البرامج النصية المخصّصة لتوسيع SE Extended",
                 "properties": {
                     "developer_mode": {
-                        "name": "",
-                        "description": ""
+                        "name": "وضع المطوّر",
+                        "description": "يعرض معلومات تصحيح الأخطاء على واجهة مستخدم سناب شات"
                     },
                     "module_folder": {
-                        "name": "",
-                        "description": ""
+                        "name": "مجلد الوحدة",
+                        "description": "المجلد الذي توجد فيه النصوص"
                     },
                     "auto_reload": {
-                        "name": "",
-                        "description": ""
+                        "name": "إعادة التحميل التلقائي",
+                        "description": "يقوم بإعادة تحميل النصوص تلقائيًا عند تغييرها"
                     },
                     "integrated_ui": {
-                        "name": "",
-                        "description": ""
+                        "name": "واجهة مستخدم متكاملة",
+                        "description": "يسمح للنصوص بإضافة مكوّنات واجهة مستخدم مخصصة إلى سناب شات"
                     },
                     "old_tool_box_add_view": {
                         "name": "",
