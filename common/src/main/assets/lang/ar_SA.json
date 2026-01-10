@@ -1217,69 +1217,69 @@
                         "description": "يسمح للنصوص بإضافة مكوّنات واجهة مستخدم مخصصة إلى سناب شات"
                     },
                     "old_tool_box_add_view": {
-                        "name": "",
-                        "description": ""
+                        "name": "إضافة عرض إلى صندوق الأدوات القديم",
+                        "description": "يستخدم طريقة العرض القديمة لإضافة صندوق الأدوات إلى سناب شات.\nملاحظة: الميزة مؤقَّتة"
                     },
                     "disable_log_anonymization": {
-                        "name": "",
-                        "description": ""
+                        "name": "عطّل إخفاء هوية السجل",
+                        "description": "يعطّل إخفاء هوية السجلات"
                     },
                     "disable_optimization": {
-                        "name": "",
-                        "description": ""
+                        "name": "عطّل التحسين",
+                        "description": "يعطّل تحسين النصوص. قد يتسبّب ذلك في مشاكل في الأداء."
                     }
                 }
             },
             "friend_tracker": {
-                "name": "",
-                "description": "",
+                "name": "متتبّع الأصدقاء",
+                "description": "يسجّل نشاط الصديق على سناب شات",
                 "properties": {
                     "record_messaging_events": {
-                        "name": "",
-                        "description": ""
+                        "name": "سجّل أحداث المراسلة",
+                        "description": "يسجّل أحداث المراسلة مثل فتح لقطة، قراءة رسالة، وما إلى ذلك."
                     },
                     "allow_running_in_background": {
-                        "name": "",
-                        "description": ""
+                        "name": "السماح بالتشغيل في الخلفية",
+                        "description": "يسمح هذا الخيار بتشغيل جهاز التتبُّع في الخلفية. ملاحظة: سيؤدي ذلك إلى استنزاف البطارية بشكلٍ ملحوظ"
                     },
                     "auto_purge": {
-                        "name": "",
-                        "description": ""
+                        "name": "التنظيف التلقائي",
+                        "description": "يقوم تلقائيًا بحذف الأحداث المخزّنة مؤقتًا التي يزيد عمرها عن المدة الزمنية المحدّدة"
                     }
                 }
             }
         },
         "options": {
             "app_appearance": {
-                "always_light": "",
-                "always_dark": ""
+                "always_light": "دائمًا فاتح",
+                "always_dark": "دائمًا داكن"
             },
             "custom_theme": {
-                "amoled_dark_mode": "",
-                "custom": "",
-                "material_you_light": "",
-                "material_you_dark": "",
-                "light_blue": "",
-                "dark_blue": "",
-                "midnight_slate": "",
-                "earthy_autumn": "",
-                "mint_chocolate": "",
-                "ginger_snap": "",
-                "lemon_meringue": "",
-                "lava_flow": "",
-                "ocean_fog": "",
-                "alien_landscape": "",
-                "watercolor_wash": "",
-                "zesty_lemon": "",
-                "tropical_paradise": "",
-                "industrial_chic": "",
-                "cherry_bomb": "",
-                "woodland_mystery": "",
-                "galaxy_glitter": "",
-                "creamy_vanilla": "",
-                "spicy_chili": "",
-                "spring_meadow": "",
-                "midnight_library": "",
+                "amoled_dark_mode": "وضع داكن بتنسيق AMOLED",
+                "custom": "السمات المخصّصة (استخدم الإجراءات السريعة لإدارة السمات)",
+                "material_you_light": "وضع ماتيريال يو فاتح (آندرويد ١٢ فما فوق)",
+                "material_you_dark": "وضع ماتيريال يو داكن (آندرويد ١٢ فما فوق)",
+                "light_blue": "أزرق فاتح",
+                "dark_blue": "أزرق داكن",
+                "midnight_slate": "لوحة منتصف الليل",
+                "earthy_autumn": "خريف ترابي",
+                "mint_chocolate": "شوكولاتة بالنعناع",
+                "ginger_snap": "لقطة الزنجبيل",
+                "lemon_meringue": "مرنغ الليمون",
+                "lava_flow": "تدفُّق الحمم",
+                "ocean_fog": "ضباب المحيط",
+                "alien_landscape": "الطبيعة الفضائية",
+                "watercolor_wash": "غسل الألوان المائية",
+                "zesty_lemon": "ليمون مُنعش",
+                "tropical_paradise": "جنّة استوائية",
+                "industrial_chic": "أناقة صناعية",
+                "cherry_bomb": "كرز متفجّر",
+                "woodland_mystery": "لغز الغابة",
+                "galaxy_glitter": "بريق المجرة",
+                "creamy_vanilla": "فانيلا كريمية",
+                "spicy_chili": "فلفل حار",
+                "spring_meadow": "مرج الربيع",
+                "midnight_library": "مكتبة منتصف الليل",
                 "lemon_sorbet": "",
                 "cosmic_night": "",
                 "spicy_mustard": "",
