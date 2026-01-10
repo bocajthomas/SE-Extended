@@ -1462,51 +1462,51 @@
             "auto_mark_as_read": {
                 "conversation_read": "وضع علامة \"مقروء\" على المحادثة عند إرسال رسالة",
                 "snap_reply": "وضع علامة \"مقروء\" على المحادثة عند إرسال رسالة",
-                "save_snap_in_chat": ""
+                "save_snap_in_chat": "وضع علامة \"مقروء\" على الرسائل عند حفظها في الدردشة أثناء وجودك في وضع التخفي"
             },
             "friend_mutation_notifier": {
-                "remove_friend": "",
-                "birthday_changes": "",
-                "bitmoji_selfie_changes": "",
-                "bitmoji_avatar_changes": "",
-                "bitmoji_background_changes": "",
-                "bitmoji_scene_changes": ""
+                "remove_friend": "تلقّي إشعار عند قيام شخصٍ ما بإزالتك من قائمة الأصدقاء",
+                "birthday_changes": "تلقّي إشعار عندما أحدًا يُغيّر تاريخ ميلاده",
+                "bitmoji_selfie_changes": "تلقّي إشعار عندما أحدًا يُغيّر سيلفي بتموجي الخاص بهم",
+                "bitmoji_avatar_changes": "تلقّي إشعار عندما أحدًا يُغيّر أفاتار بتموجي الخاص بهم",
+                "bitmoji_background_changes": "تلقّي إشعار عندما أحدًا يُغيّر خلفية بتموجي الخاص بهم",
+                "bitmoji_scene_changes": "تلقّي إشعار عندما أحدًا يُغيّر مشهد بتموجي الخاص بهم"
             },
             "snapchat_plus": {
-                "not_subscribed": "",
-                "basic": "",
-                "ad_free": ""
+                "not_subscribed": "ليس مُشترِك",
+                "basic": "أساسي",
+                "ad_free": "خالٍ من الإعلانات"
             },
             "icon_style": {
-                "outlined": "",
-                "filled": "",
-                "sharp": "",
-                "two-tone": ""
+                "outlined": "محدّد",
+                "filled": "مملوء",
+                "sharp": "حاد",
+                "two-tone": "لونان"
             },
             "double_tap_chat_action": {
-                "like_message": "",
-                "copy_text": "",
-                "delete_message": "",
-                "mark_as_read": "",
-                "custom_emoji_reaction": ""
+                "like_message": "إبداء الإعجاب على الرسالة",
+                "copy_text": "نسخ النص إلى الحافظة",
+                "delete_message": "مسح الرسالة",
+                "mark_as_read": "وضع علامة ”مقروء“",
+                "custom_emoji_reaction": "ردّة فعل مخصّصة بالرموز التعبيرية"
             },
             "startup_default_camera": {
-                "front": "",
-                "back": ""
+                "front": "الكاميرا الأمامية",
+                "back": "الكاميرا الخلفية"
             }
         }
     },
     "friend_menu_option": {
-        "mark_snaps_as_seen": "",
-        "mark_stories_as_seen_locally": "",
-        "preview": "",
-        "stealth_mode": "",
-        "auto_download_blacklist": "",
-        "anti_auto_save": ""
+        "mark_snaps_as_seen": "وضع علامة ”مقروء“ على اللقطات",
+        "mark_stories_as_seen_locally": "وضع علامة ”مُشاهَد“ على القصص محليًا",
+        "preview": "معاينة",
+        "stealth_mode": "وضع التخفي",
+        "auto_download_blacklist": "نزّل القائمة السوداء تلقائيًا",
+        "anti_auto_save": "منع الحفظ التلقائي"
     },
     "content_type": {
-        "CHAT": "",
-        "SNAP": "",
+        "CHAT": "الدردشة",
+        "SNAP": "لقطة",
         "EXTERNAL_MEDIA": "",
         "NOTE": "",
         "STICKER": "",
