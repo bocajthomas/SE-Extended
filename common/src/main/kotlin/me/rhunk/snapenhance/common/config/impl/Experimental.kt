@@ -23,16 +23,16 @@ class Experimental : ConfigContainer() {
         val notificationTranscript = boolean("notification_transcript") { requireRestart() }
     }
 
-    class ComposerHooksConfig: ConfigContainer(hasGlobalState = true) {
+    class ValdiHooksConfig: ConfigContainer(hasGlobalState = true) {
         val showFirstCreatedUsername = boolean("show_first_created_username")
         val bypassCameraRollLimit = boolean("bypass_camera_roll_limit")
         val customSelfDestructSnapDelay = boolean("custom_self_destruct_snap_delay")
-        val composerConsole = boolean("composer_console")
-        val composerLogs = boolean("composer_logs")
+        val valdiConsole = boolean("composer_console")
+        val valdiLogs = boolean("composer_logs")
     }
 
     class NativeHooks : ConfigContainer() {
-        val composerHooks = container("composer_hooks", ComposerHooksConfig()) { requireRestart() }
+        val valdiHooks = container("composer_hooks", ValdiHooksConfig()) { requireRestart() }
         val disableBitmoji = boolean("disable_bitmoji")
         val customEmojiFont = string("custom_emoji_font") {
             requireRestart()

@@ -20,3 +20,7 @@ export const downloadLastOperaMedia = (isLongPress: boolean) => callRemoteFuncti
 export function getFriendOriginalUsername(username: string): string | null {
     return callRemoteFunction("getFriendOriginalUsername", username);
 }
+
+export function setEvalFunction(func: (code: string, callback: any) => any): void {
+    callRemoteFunction("setEvalFunction", func);
+}

@@ -1,26 +1,14 @@
-package me.rhunk.snapenhance.core.wrapper.impl.composer
+package me.rhunk.snapenhance.core.wrapper.impl.valdi
 
 import me.rhunk.snapenhance.core.SnapEnhance
 import me.rhunk.snapenhance.core.wrapper.AbstractWrapper
-import java.lang.reflect.Proxy
 
-fun createComposerFunction(block: (args: Array<*>) -> Any?): Any {
-    return SnapEnhance.classCache.composerFunctionActionAdapter.constructors.first().newInstance(
-        Proxy.newProxyInstance(
-            SnapEnhance.classCache.composerAction.classLoader,
-            arrayOf(SnapEnhance.classCache.composerAction),
-        ) { _, _, args ->
-            block(args?.get(0) as Array<*>)
-        }
-    )
-}
-
-class ComposerViewNode(obj: Long) : AbstractWrapper(obj) {
+class ValdiViewNode(obj: Long) : AbstractWrapper(obj) {
     companion object {
-        fun fromNode(composerViewNode: Any?): ComposerViewNode? {
-            return (composerViewNode?.javaClass?.methods?.firstOrNull {
+        fun fromNode(viewNode: Any?): ValdiViewNode? {
+            return (viewNode?.javaClass?.methods?.firstOrNull {
                 it.name == "getNativeHandle"
-            }?.invoke(composerViewNode) as? Long)?.let { ComposerViewNode(it) } ?: return null
+            }?.invoke(viewNode) as? Long)?.let { ValdiViewNode(it) } ?: return null
         }
     }
 
@@ -36,11 +24,11 @@ class ComposerViewNode(obj: Long) : AbstractWrapper(obj) {
         }?.invoke(null, instanceNonNull(), name, value, false)
     }
 
-    fun getChildren(): List<ComposerViewNode> {
+    fun getChildren(): List<ValdiViewNode> {
         return ((SnapEnhance.classCache.nativeBridge.methods.firstOrNull {
             it.name == "getRetainedViewNodeChildren"
         }?.invoke(null, instanceNonNull(), 1))!! as? LongArray)?.map {
-            ComposerViewNode(it)
+            ValdiViewNode(it)
         } ?: emptyList()
     }
 

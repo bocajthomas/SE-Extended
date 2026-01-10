@@ -13,7 +13,7 @@ mod modules;
 
 use android_logger::Config;
 use log::LevelFilter;
-use modules::{composer_hook, custom_font_hook, duplex_hook, fstat_hook, linker_hook, sqlite_hook, unary_call_hook};
+use modules::{valdi_hook, custom_font_hook, duplex_hook, fstat_hook, linker_hook, sqlite_hook, unary_call_hook};
 
 use jni::objects::{JObject, JString};
 use jni::sys::{jint, jstring, JNI_VERSION_1_6};
@@ -68,7 +68,7 @@ fn init(mut env: JNIEnv, _class: JObject, signature_cache: JString) -> jstring {
     async_init!(
         duplex_hook::init(),
         unary_call_hook::init(),
-        composer_hook::init(),
+        valdi_hook::init(),
         sqlite_hook::init()
     );
     
@@ -135,14 +135,9 @@ pub extern "system" fn JNI_OnLoad(_vm: JavaVM, _: *mut c_void) -> jint {
                 fn_ptr: sqlite_hook::lock_database as *mut c_void,
             },
             NativeMethod {
-                name: "setComposerLoader".into(),
+                name: "setValdiLoader".into(),
                 sig: "(Ljava/lang/String;)V".into(),
-                fn_ptr: composer_hook::set_composer_loader as *mut c_void,
-            },
-            NativeMethod {
-                name: "composerEval".into(),
-                sig: "(Ljava/lang/String;)Ljava/lang/String;".into(),
-                fn_ptr: composer_hook::composer_eval as *mut c_void,
+                fn_ptr: valdi_hook::set_valdi_loader as *mut c_void,
             }
         ]
     ).expect("Failed to register native methods");

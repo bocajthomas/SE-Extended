@@ -38,7 +38,7 @@ dependencies {
     implementation(project(":common"))
     implementation(project(":mapper"))
     implementation(project(":native"))
-    implementation(project(":composer"))
+    implementation(project(":valdi"))
 
     implementation(libs.androidx.activity.ktx)
     implementation(platform(libs.androidx.compose.bom))

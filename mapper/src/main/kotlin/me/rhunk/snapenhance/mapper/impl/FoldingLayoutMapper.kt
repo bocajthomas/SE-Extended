@@ -20,8 +20,8 @@ class FoldingLayoutMapper: AbstractClassMapper("FoldingLayoutMapper") {
             recyclerViewField.set(foldingLayoutManagerClass.fields.firstOrNull { it.type == "Landroidx/recyclerview/widget/RecyclerView;" }?.name ?: return@mapper)
 
             foldingLayoutManagerClass.methods.firstOrNull {
-                it.parameterTypes.size == 1 && it.returnType == "V" && it.implementation?.instructions?.any {
-                    ((it as? Instruction35c)?.reference as? MethodReference)?.name == "invoke"
+                it.parameterTypes.size == 1 && it.returnType == "V" && it.implementation?.instructions?.any { instruction ->
+                    ((instruction as? Instruction35c)?.reference as? MethodReference)?.name == "post"
                 } == true
             }?.let { method ->
                 onLayoutCompletedMethod.set(method.name)

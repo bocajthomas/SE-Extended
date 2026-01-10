@@ -48,7 +48,8 @@ class HideFriendFeedEntry : MessagingRuleFeature("HideFriendFeedEntry", ruleType
                 }
             }
 
-            callbacks.getClass("FetchAndSyncFeedCallback")
+            callbacks.getAsMap()?.entries?.firstOrNull { it.key.startsWith("FetchAndSyncFeed") && it.key.endsWith("Callback") }
+                ?.let { findClass(it.value ?: return@let null) }
                 ?.hook("onFetchAndSyncFeedComplete", HookStage.BEFORE) { param ->
                     val deletedConversations: ArrayList<Any> = param.arg(2)
                     filterFriendFeed(param.arg(0), deletedConversations)
@@ -59,11 +60,12 @@ class HideFriendFeedEntry : MessagingRuleFeature("HideFriendFeedEntry", ruleType
                         }) {
                         param.setArg(4, true)
                     }
-                }
+                } ?: context.log.warn("Failed to hook FetchAndSyncFeedCallback")
+
             callbacks.getClass("SyncFeedCallback")
                 ?.hook("onSyncFeedComplete", HookStage.BEFORE) { param ->
                     filterFriendFeed(param.arg(0), param.arg(2))
-                }
+                } ?: context.log.warn("Failed to hook SyncFeedCallback")
         }
     }
 

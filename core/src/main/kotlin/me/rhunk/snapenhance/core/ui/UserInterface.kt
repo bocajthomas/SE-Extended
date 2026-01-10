@@ -20,7 +20,7 @@ class UserInterface(
     val actionSheetBackground get() = if (context.androidContext.isDarkTheme()) 0xff1e1e1e.toInt() else 0xffffffff.toInt()
 
     val avenirNextFontId = 500
-    val avenirNextTypeface get() = fontMap[avenirNextFontId] ?: fontMap.entries.minByOrNull { it.key }?.value ?: Typeface.DEFAULT
+    val avenirNextTypeface get() = fontMap[avenirNextFontId] ?: fontMap.entries.filter { !it.value.isItalic }.minByOrNull { it.key }?.value ?: Typeface.DEFAULT
 
     fun dpToPx(dp: Int): Int {
         return (dp * context.resources.displayMetrics.density).toInt()
@@ -71,6 +71,7 @@ class UserInterface(
                 try {
                     if (context.resources.getResourceTypeName(++offset) != "font") break
                     val font = runCatching { context.resources.getFont(offset) }.getOrNull() ?: break
+                    if (font.isItalic) continue
                     fontMap[font.weight] = font
                 } catch (_: Throwable) {
                     break

@@ -10,7 +10,7 @@ import me.rhunk.snapenhance.core.event.events.impl.AddViewEvent
 import me.rhunk.snapenhance.core.event.events.impl.BindViewEvent
 import me.rhunk.snapenhance.core.features.Feature
 import me.rhunk.snapenhance.core.ui.children
-import me.rhunk.snapenhance.core.ui.getComposerContext
+import me.rhunk.snapenhance.core.ui.getValdiContext
 import me.rhunk.snapenhance.core.ui.hideViewCompletely
 import me.rhunk.snapenhance.core.ui.onLayoutChange
 import me.rhunk.snapenhance.core.util.dataBuilder
@@ -136,7 +136,7 @@ class UITweaks : Feature("UITweaks") {
 
             if (hiddenElements.contains("hide_billboard_prompt") && event.parent.javaClass.name.endsWith("BillboardFeedHeaderPromptComponent")) {
                 hideView(event.parent)
-                view.getComposerContext()?.componentContext?.get()?.dataBuilder {
+                view.getValdiContext()?.componentContext?.get()?.dataBuilder {
                     val dismissFunction = get<Any>("_onDismiss") ?: return@subscribe
                     dismissFunction.javaClass.getMethod("invoke").invoke(dismissFunction)
                 }

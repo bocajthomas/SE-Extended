@@ -9,7 +9,7 @@ import me.rhunk.snapenhance.core.event.events.impl.BindViewEvent
 import me.rhunk.snapenhance.core.features.Feature
 import me.rhunk.snapenhance.core.features.impl.downloader.MediaDownloader
 import me.rhunk.snapenhance.core.features.impl.messaging.Messaging
-import me.rhunk.snapenhance.core.ui.getComposerContext
+import me.rhunk.snapenhance.core.ui.getValdiContext
 import me.rhunk.snapenhance.core.util.dataBuilder
 import me.rhunk.snapenhance.core.util.hook.HookStage
 import me.rhunk.snapenhance.core.util.hook.hook
@@ -138,7 +138,7 @@ class VoiceNoteOverride: Feature("Voice Note Override") {
                     val messagePluginContentHolder = event.view.findViewById<ViewGroup>(context.resources.getId("plugin_content_holder")) ?: return@subscribe
                     val composerRootView = messagePluginContentHolder.getChildAt(0) ?: return@subscribe
 
-                    val composerContext = composerRootView.getComposerContext() ?: return@subscribe
+                    val composerContext = composerRootView.getValdiContext() ?: return@subscribe
                     val playbackViewComponentContext = composerContext.componentContext?.get() ?: return@subscribe
 
                     if (event.databaseMessage?.contentType != ContentType.NOTE.id) return@subscribe

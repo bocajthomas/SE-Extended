@@ -1,10 +1,10 @@
-package me.rhunk.snapenhance.core.wrapper.impl.composer
+package me.rhunk.snapenhance.core.wrapper.impl.valdi
 
 import me.rhunk.snapenhance.core.wrapper.AbstractWrapper
 import java.lang.ref.WeakReference
 import java.lang.reflect.Proxy
 
-class ComposerContext(obj: Any): AbstractWrapper(obj) {
+class ValdiContext(obj: Any): AbstractWrapper(obj) {
     val componentPath by field<String>("componentPath")
     val viewModel by field<Any?>("innerViewModel")
     val moduleName by field<String>("moduleName")

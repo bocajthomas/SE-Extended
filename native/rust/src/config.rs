@@ -12,7 +12,7 @@ pub fn native_config() -> NativeConfig {
 pub(crate) struct NativeConfig {
     pub disable_bitmoji: bool,
     pub disable_metrics: bool,
-    pub composer_hooks: bool,
+    pub valdi_hooks: bool,
     pub custom_emoji_font_path: Option<String>,
 }
 
@@ -39,7 +39,7 @@ impl NativeConfig {
         Ok(Self {
             disable_bitmoji: get_boolean!("disableBitmoji"),
             disable_metrics: get_boolean!("disableMetrics"),
-            composer_hooks: get_boolean!("composerHooks"),
+            valdi_hooks: get_boolean!("valdiHooks"),
             custom_emoji_font_path: get_string!("customEmojiFontPath"),
         })
     }

@@ -132,7 +132,7 @@ class FeatureManager(
             HideActiveMusic(),
             AutoOpenSnaps(),
             CustomStreaksExpirationFormat(),
-            ComposerHooks(),
+            ValdiHooks(),
             DisableCustomTabs(),
             BestFriendPinning(),
             ContextMenuFix(),
