@@ -430,6 +430,10 @@
                     "custom_path_format": {
                         "name": "Custom Path Format",
                         "description": "Specify a custom path format for downloaded media\n\nAvailable variables:\n - %username%\n - %source%\n - %hash%\n - %date_time%"
+                    },
+                    "file_hash_check": {
+                        "name": "File Hash Check",
+                        "description": "Checks the hash of existing files to prevent duplicate downloads. It may slow down the downloading process"
                     }
                 }
             },

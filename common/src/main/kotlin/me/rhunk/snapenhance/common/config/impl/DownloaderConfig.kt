@@ -50,4 +50,5 @@ class DownloaderConfig : ConfigContainer() {
         set(mutableListOf("success", "progress", "failure"))
     }
     val customPathFormat = string("custom_path_format") { addNotices(FeatureNotice.UNSTABLE) }
+    val fileHashCheck = boolean("file_hash_check")
 }
