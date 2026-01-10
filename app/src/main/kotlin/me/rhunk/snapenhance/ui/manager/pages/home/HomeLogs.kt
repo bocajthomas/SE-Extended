@@ -22,17 +22,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavBackStackEntry
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import me.rhunk.snapenhance.LogReader
 import me.rhunk.snapenhance.common.logger.LogChannel
 import me.rhunk.snapenhance.common.logger.LogLevel
@@ -130,6 +126,9 @@ class HomeLogs : Routes.Route() {
             refreshLogs()
         }
 
+        val configuration = LocalConfiguration.current
+        val displayWidthDp = remember { configuration.screenWidthDp.dp }
+
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -176,7 +175,7 @@ class HomeLogs : Routes.Route() {
                                 modifier = Modifier
                                     .padding(4.dp)
                                     .fillMaxWidth()
-                                    .defaultMinSize(minHeight = 30.dp),
+                                    .defaultMinSize(minHeight = 30.dp, minWidth = displayWidthDp),
                             ) {
                                 Row(
                                     verticalAlignment = Alignment.CenterVertically,
