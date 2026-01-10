@@ -99,7 +99,7 @@
                 "config_export_failure_toast": "فشل تصدير الإعداد {error}",
                 "saved_config_snackbar": "تم حفظ الإعداد",
                 "older_required": "تتطلب هذه الميزة سناب شات بالإصدار {version} أو أقدم ليعمل بشكلٍ صحيح",
-                "newer_required": "تتطلب هذه الميزة سناب شات بالإصدار {version} أو أجدد ليعمل بشكلٍ صحيح",
+                "newer_required": "تتطلب هذه الميزة سناب شات بالإصدار {version} أو أحدث ليعمل بشكلٍ صحيح",
                 "search_button": "بحث"
             },
             "manage_rule_feature": {
@@ -533,15 +533,15 @@
                         "description": "يمنع قائمة الرسائل من التمرير إلى الأسفل عند إرسال/استلام رسالة"
                     },
                     "streak_expiration_info": {
-                        "name": "عرض معلومات انتهاء صلاحية اللقطات المُتتالية",
-                        "description": "يظهر موقّت انتهاء صلاحية اللقطات المُتتالية بجوار عدّاد اللقطات المُتتالية"
+                        "name": "عرض معلومات انتهاء صلاحية اللقطات المتتالية",
+                        "description": "يظهر موقّت انتهاء صلاحية اللقطات المتتالية بجوار عدّاد اللقطات المتتالية"
                     },
                     "hide_friend_feed_entry": {
-                        "name": "إخفاء إدخال موجز الأصدقاء",
+                        "name": "اخفِ إدخال موجز الأصدقاء",
                         "description": "يُخفي صديقًا معيّنًا من موجز الأصدقاء\nاستخدم علامة تبويب \"الاجتماعية\" لإدارة هذه الميزة"
                     },
                     "hide_streak_restore": {
-                        "name": "اخفِ استعادة اللقطات المُتتالية",
+                        "name": "اخفِ استعادة اللقطات المتتالية",
                         "description": "يُخفي زر الاستعادة في موجز الأصدقاء"
                     },
                     "hide_quick_add_suggestions": {
@@ -553,7 +553,7 @@
                         "description": "يمسح اقتراحات من صفحة القصص"
                     },
                     "hide_ui_components": {
-                        "name": "إخفاء مكوّنات واجهة المستخدم",
+                        "name": "اخفِ مكوّنات واجهة المستخدم",
                         "description": "حدّد مكوّنات واجهة المستخدم التي تُريد إخفاءها"
                     },
                     "opera_media_quick_info": {
@@ -565,7 +565,7 @@
                         "description": "يُعيد صور سيلفي بتموجي من إصدارات سناب شات الأقدم"
                     },
                     "disable_spotlight": {
-                        "name": "تعطيل منصّة الأضواء",
+                        "name": "عطّل منصّة الأضواء",
                         "description": "يعطّل صفحة منصّة الأضواء"
                     },
                     "custom_friend_feed_label": {
@@ -1139,7 +1139,7 @@
                         "description": "يمنع الوصول إلى سناب شات بدون رمز مرور",
                         "properties": {
                             "lock_on_resume": {
-                                "name": "قفل عند الاستئناف",
+                                "name": "أقفِل عند الاستئناف",
                                 "description": "يتمّ قفل التطبيق عند إعادة فتحه"
                             }
                         }
@@ -1342,126 +1342,126 @@
                 "abandon_audio": "مكالمة صوتية فائتة",
                 "initiate_video": "مكالمة فيديو واردة",
                 "abandon_video": "مكالمة فيديو فائتة",
-                "map_live_location": ""
+                "map_live_location": "خريطة الموقع المباشر"
             },
             "gallery_media_send_override": {
-                "always_ask": "",
-                "ORIGINAL": "",
-                "NOTE": "",
-                "SNAP": "",
-                "SAVEABLE_SNAP": ""
+                "always_ask": "دائمًا اسأل",
+                "ORIGINAL": "الوسيط الأصلي",
+                "NOTE": "ملاحظة صوتية",
+                "SNAP": "لقطة",
+                "SAVEABLE_SNAP": "لقطة قابلة للحفظ"
             },
             "strip_media_metadata": {
-                "hide_caption_text": "",
-                "hide_snap_filters": "",
-                "hide_extras": "",
-                "remove_audio_note_duration": "",
-                "remove_audio_note_transcript_capability": ""
+                "hide_caption_text": "اخفِ نص التعليق",
+                "hide_snap_filters": "أخفِ فلاتر اللقطة",
+                "hide_extras": "اخفِ الإضافات (على سبيل المثال: الإشارات)",
+                "remove_audio_note_duration": "أزِل مدة الملاحظة الصوتية",
+                "remove_audio_note_transcript_capability": "أزِل إمكانية تحويل الملاحظات الصوتية إلى نص"
             },
             "hide_ui_components": {
-                "hide_profile_call_buttons": "",
-                "hide_snap_create_group_buttons": "",
-                "hide_chat_call_buttons": "",
-                "hide_chat_camera_button": "",
-                "hide_chat_gallery_button": "",
-                "hide_explorer_token_button": "",
-                "hide_live_location_share_button": "",
-                "hide_stickers_button": "",
-                "hide_voice_record_button": "",
-                "hide_unread_chat_hint": "",
-                "hide_post_to_story_buttons": "",
-                "hide_gift_snapchat_plus_reminders": "",
-                "hide_map_reactions": ""
+                "hide_profile_call_buttons": "أزِل أزرار الاتّصال بالملف الشخصي",
+                "hide_snap_create_group_buttons": "أزِل أزرار إنشاء مجموعة اللقطات",
+                "hide_chat_call_buttons": "أزِل أزرار مكالمات الدردشة",
+                "hide_chat_camera_button": "أزِل زر كاميرا الدردشة",
+                "hide_chat_gallery_button": "أزِل زر معرض الدردشة",
+                "hide_explorer_token_button": "أزِل زر رمز المستكشف المميّز",
+                "hide_live_location_share_button": "أزِل زر مشاركة الموقع المباشر",
+                "hide_stickers_button": "زر إزالة الملصقات",
+                "hide_voice_record_button": "أزِل زر تسجيل الصوت",
+                "hide_unread_chat_hint": "أزِل تلميح الدردشة غير المقروءة",
+                "hide_post_to_story_buttons": "أزِل أزرار ”النشر في القصة“",
+                "hide_gift_snapchat_plus_reminders": "أزِل تذكيرات سناب شات+ الخاصة بالهدايا",
+                "hide_map_reactions": "أزِل تفاعلات الخريطة"
             },
             "hide_story_suggestions": {
-                "hide_suggested_friend_stories": "",
-                "hide_my_stories": ""
+                "hide_suggested_friend_stories": "اخفِ قصص الأصدقاء المقترحين",
+                "hide_my_stories": "اخفِ قصصي"
             },
             "home_tab": {
-                "map": "",
-                "chat": "",
-                "camera": "",
-                "discover": "",
-                "spotlight": ""
+                "map": "خريطة",
+                "chat": "دردشة",
+                "camera": "كاميرا",
+                "discover": "اكتشِف",
+                "spotlight": "منصة الأضواء"
             },
             "add_friend_source_spoof": {
-                "added_by_username": "",
-                "added_by_mention": "",
-                "added_by_group_chat": "",
-                "added_by_qr_code": "",
-                "added_by_community": "",
-                "added_by_quick_add": ""
+                "added_by_username": "من المستخدم",
+                "added_by_mention": "من ذِكْر",
+                "added_by_group_chat": "من الدردشة الجماعية",
+                "added_by_qr_code": "من رمز الاستجابة السريعة",
+                "added_by_community": "من المجتمع",
+                "added_by_quick_add": "من الإضافة السريعة (خطر عالي للحظر)"
             },
             "bypass_video_length_restriction": {
-                "single": "",
-                "split": ""
+                "single": "وسيط منفرد",
+                "split": "وسيط مقسّم"
             },
             "old_bitmoji_selfie": {
-                "2d": "",
-                "3d": ""
+                "2d": "بتموجي ثنائي الأبعاد",
+                "3d": "بتموجي ثلاثي الأبعاد"
             },
             "disable_confirmation_dialogs": {
-                "erase_message": "",
-                "remove_friend": "",
-                "block_friend": "",
-                "ignore_friend": "",
-                "hide_friend": "",
-                "hide_conversation": "",
-                "clear_conversation": ""
+                "erase_message": "امسح الرسالة",
+                "remove_friend": "أزِل الصديق",
+                "block_friend": "احظر الصديق",
+                "ignore_friend": "تجاهَل الصديق",
+                "hide_friend": "اخفِ الصديق",
+                "hide_conversation": "اخفِ المحادثة",
+                "clear_conversation": "أزِل محادثة من موجز الأصدقاء"
             },
             "auto_reload": {
-                "snapchat_only": "",
-                "all": ""
+                "snapchat_only": "سناب شات فقط",
+                "all": "الكل (سناب شات + SE Extended)"
             },
             "edit_text_override": {
-                "multi_line_chat_input": "",
-                "bypass_text_input_limit": ""
+                "multi_line_chat_input": "إدخال الدردشة متعدّدة الأسطر",
+                "bypass_text_input_limit": "تجاوَز حدّ إدخال النص"
             },
             "auto_purge": {
-                "never": "",
-                "1_hour": "",
-                "3_hours": "",
-                "6_hours": "",
-                "12_hours": "",
-                "1_day": "",
-                "3_days": "",
-                "1_week": "",
-                "2_weeks": "",
-                "1_month": "",
-                "3_months": "",
-                "6_months": ""
+                "never": "أبدًا",
+                "1_hour": "ساعة واحدة",
+                "3_hours": "ثلاث ساعات",
+                "6_hours": "ستة ساعات",
+                "12_hours": "إثنا عشرة ساعة",
+                "1_day": "يوم واحد",
+                "3_days": "ثلاثة أيام",
+                "1_week": "أسبوع",
+                "2_weeks": "أسبوعان",
+                "1_month": "شهر واحد",
+                "3_months": "ثلاثة أشهر",
+                "6_months": "ستة أشهر"
             },
             "disable_story_sections": {
-                "friends": "",
-                "suggested_stories": "",
-                "following": "",
-                "discover": ""
+                "friends": "الأصدقاء",
+                "suggested_stories": "القصص المقترَحة",
+                "following": "من أتابع",
+                "discover": "اكتشاف"
             },
             "disable_cameras": {
-                "front": "",
-                "back": ""
+                "front": "كاميرا أمامية",
+                "back": "كاميرا خلفية"
             },
             "disable_permission_requests": {
-                "notifications": "",
-                "read_media_images": "",
-                "read_media_video": "",
-                "camera": "",
-                "microphone": "",
-                "location": "",
-                "read_contacts": "",
-                "nearby_devices": "",
-                "phone_calls": ""
+                "notifications": "الإشعارات",
+                "read_media_images": "قراءة صور الوسائط",
+                "read_media_video": "قراءة فيديو الوسائط",
+                "camera": "الكاميرا",
+                "microphone": "الميكروفون",
+                "location": "الموقع",
+                "read_contacts": "قراءة جهات الاتّصال",
+                "nearby_devices": "الأجهزة القريبة",
+                "phone_calls": "المكالمات الهاتفية"
             },
             "message_indicators": {
-                "encryption_indicator": "",
-                "platform_indicator": "",
-                "location_indicator": "",
-                "ovf_editor_indicator": "",
-                "director_mode_indicator": ""
+                "encryption_indicator": "يضيف رمز 🔒 بجوار الرسائل التي تم إرسالها إليك فقط",
+                "platform_indicator": "يضيف أيقونة النظام الأساسي الذي تم إرسال وسيط منه (مثل آندرويد، iOS، والويب)",
+                "location_indicator": "يضيف رمز 📍 إلى اللقطات عندما يتمّ إرسالها مع تمكين الموقع",
+                "ovf_editor_indicator": "يُشير إلى ما إذا تمّ إرسال لقطة باستخدام محرّر OVF",
+                "director_mode_indicator": "يضيف رمز ✏️ إلى اللقطات عند إرسالها باستخدام وضع المخرج، والذي يُمكن استخدامه لإرسال صور المعرض كلقطات"
             },
             "auto_mark_as_read": {
-                "conversation_read": "",
-                "snap_reply": "",
+                "conversation_read": "وضع علامة \"مقروء\" على المحادثة عند إرسال رسالة",
+                "snap_reply": "وضع علامة \"مقروء\" على المحادثة عند إرسال رسالة",
                 "save_snap_in_chat": ""
             },
             "friend_mutation_notifier": {
