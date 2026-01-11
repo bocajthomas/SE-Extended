@@ -1573,31 +1573,31 @@
     },
     "conversation_preview": {
         "streak_expiration": "تنتهي صلاحيته في {day} من الأيام، {hour} من الساعات، {minute} من الدقائق",
-        "total_messages": "",
-        "title": "",
-        "unknown_user": "",
-        "no_messages": ""
+        "total_messages": "إجماليّ الرسائل المرسَلة/المستلَمة: {count}",
+        "title": "معاينة",
+        "unknown_user": "مستخدم مجهول",
+        "no_messages": "لم يتمّ العثور على أي رسائل!"
     },
     "profile_info": {
-        "title": "",
-        "first_created_username": "",
-        "mutable_username": "",
-        "display_name": "",
-        "added_date": "",
-        "birthday": "",
-        "hidden_birthday": "",
-        "friendship": "",
-        "add_source": "",
-        "snapchat_plus": "",
+        "title": "معلومات الملف الشخصي",
+        "first_created_username": "اسم المستخدم الذي تمّ إنشاؤه أولاً",
+        "mutable_username": "اسم مستخدم قابل للتغيير",
+        "display_name": "اسم العرض",
+        "added_date": "التاريخ المُضاف",
+        "birthday": "يوم الميلاد: {month} {day}",
+        "hidden_birthday": "يوم الميلاد: مخفي",
+        "friendship": "الصداقة",
+        "add_source": "أضِف مصدرًا",
+        "snapchat_plus": "سناب شات بلس",
         "snapchat_plus_state": {
-            "subscribed": "",
-            "not_subscribed": ""
+            "subscribed": "مشترك",
+            "not_subscribed": "غير مشترك"
         }
     },
     "friendship_link_type": {
-        "mutual": "",
-        "outgoing": "",
-        "blocked": "",
+        "mutual": "مشترَك",
+        "outgoing": "اجتماعيّ",
+        "blocked": "محظور",
         "deleted": "",
         "following": "",
         "suggested": "",
