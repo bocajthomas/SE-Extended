@@ -1545,15 +1545,15 @@
         "preview_button": "معاينة",
         "download_button": "تحميل",
         "delete_logged_message_button": "حذف الرسالة المسجّلة",
-        "show_chat_edit_history": "",
-        "convert_message": ""
+        "show_chat_edit_history": "عرض تاريخ تعديل الدردشة",
+        "convert_message": "تحويل الرسالة"
     },
     "opera_context_menu": {
-        "download": "",
-        "sent_at": "",
-        "created_at": "",
-        "expires_at": "",
-        "media_size": "",
+        "download": "تنزيل الوسائط",
+        "sent_at": "أُرسل في {date}",
+        "created_at": "أُنشئ في {date}",
+        "expires_at": "تنتهي صلاحيتها في {date}",
+        "media_size": "حجم الوسيط: {date}",
         "media_duration": "",
         "show_debug_info": ""
     },
