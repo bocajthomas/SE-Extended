@@ -1598,37 +1598,37 @@
         "mutual": "مشترَك",
         "outgoing": "اجتماعيّ",
         "blocked": "محظور",
-        "deleted": "",
-        "following": "",
-        "suggested": "",
-        "incoming": "",
-        "incoming_follower": ""
+        "deleted": "محذوف",
+        "following": "متابَع",
+        "suggested": "مقترَح",
+        "incoming": "وارد",
+        "incoming_follower": "متابِع جديد"
     },
     "bulk_messaging_action": {
-        "choose_action_title": "",
-        "progress_status": "",
-        "selection_dialog_continue_button": "",
+        "choose_action_title": "اختر إجراءً",
+        "progress_status": "يتمّ معالجة {index} من {total}",
+        "selection_dialog_continue_button": "إكمال",
         "confirmation_dialog": {
-            "title": "",
-            "message": ""
+            "title": "هل أنت متأكد؟",
+            "message": "سيؤثّر هذا على جميع الأصدقاء المختارين. لا يمكن التراجع عن هذا الإجراء."
         },
         "actions": {
-            "remove_friends": "",
-            "clear_conversations": ""
+            "remove_friends": "أزِل الأصدقاء",
+            "clear_conversations": "امسح المحادثات"
         }
     },
     "chat_export": {
         "exporter_dialog": {
-            "select_conversations_title": "",
-            "text_field_selection": "",
-            "text_field_selection_all": "",
-            "export_file_format_title": "",
-            "message_type_filter_title": "",
-            "amount_of_messages_title": "",
-            "download_medias_title": ""
+            "select_conversations_title": "اختر المحادثات",
+            "text_field_selection": "{} تمّ اختياره",
+            "text_field_selection_all": "الكل",
+            "export_file_format_title": "تصدير تنسيق الملف",
+            "message_type_filter_title": "تصفية الرسائل حسب النوع",
+            "amount_of_messages_title": "عدد الرسائل (اتركه فارغًا لتصدير الكل)",
+            "download_medias_title": "تحميل الوسائط"
         },
-        "dialog_negative_button": "",
-        "dialog_positive_button": "",
+        "dialog_negative_button": "ألغِ",
+        "dialog_positive_button": "صدّر",
         "exported_to": "",
         "exporting_chats": "",
         "processing_chats": "",
