@@ -233,7 +233,7 @@ class TasksRootSection : Routes.Route() {
                                     }
                                 }
                                 activeTasks = listOf()
-                                context.taskManager.getActiveTasks().clear()
+                                context.taskManager.clearActiveTasks()
                             }
                         }
                     ) {
