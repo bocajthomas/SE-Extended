@@ -1554,25 +1554,25 @@
         "created_at": "أُنشئ في {date}",
         "expires_at": "تنتهي صلاحيتها في {date}",
         "media_size": "حجم الوسيط: {date}",
-        "media_duration": "",
-        "show_debug_info": ""
+        "media_duration": "مدة الوسيط: {duration} ملي ثانية",
+        "show_debug_info": "عرض معلومات التصحيح"
     },
     "modal_option": {
-        "profile_info": "",
-        "close": ""
+        "profile_info": "معلومات الملف الشخصي",
+        "close": "إغلاق"
     },
     "gallery_media_send_override": {
-        "multiple_media_toast": ""
+        "multiple_media_toast": "لا يمكنك إرسال سوى وسيط واحد في كل مرة"
     },
     "mark_as_seen": {
-        "no_unseen_snaps_toast": "",
-        "seen_toast": "",
-        "unseen_toast": "",
-        "already_seen_toast": "",
-        "already_unseen_toast": ""
+        "no_unseen_snaps_toast": "لم يتم العثور على أي لقطات لم يتمّ مشاهدتها!",
+        "seen_toast": "تمّ وضع علامة \"مُشاهَد\"!",
+        "unseen_toast": "تمّ وضع علامة \"لم يتمّ مشاهدته\"!",
+        "already_seen_toast": "تمّ وضع علامة \"مُشاهَد\" بالفعل!",
+        "already_unseen_toast": "تمّ وضع علامة ”لم يتمّ مشاهدته“!"
     },
     "conversation_preview": {
-        "streak_expiration": "",
+        "streak_expiration": "تنتهي صلاحيته في {day} من الأيام، {hour} من الساعات، {minute} من الدقائق",
         "total_messages": "",
         "title": "",
         "unknown_user": "",
