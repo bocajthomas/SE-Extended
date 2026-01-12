@@ -83,7 +83,9 @@
                 "clear_button": "Pulisci",
                 "debug_title": "Debug",
                 "actions_title": "Azioni",
-                "export_button": "Esporta"
+                "export_button": "Esporta",
+                "import_button": "Importa",
+                "import_success_toast": "Database importato con successo"
             },
             "home": {
                 "update_button": "Scarica",

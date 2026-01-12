@@ -111,6 +111,8 @@
                 "success_toast": "Succès !",
                 "message_logger_summary": "{messageCount} message(s)\n{storyCount} stories",
                 "export_button": "Exporter",
+                "import_button": "Importer",
+                "import_success_toast": "Base de données importée avec succès",
                 "clear_button": "Vider",
                 "view_logger_history_button": "Afficher l'historique de l'enregistreur"
             },

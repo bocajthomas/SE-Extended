@@ -70,6 +70,8 @@
                 "success_toast": "Done!",
                 "message_logger_summary": "{messageCount} messages\n{storyCount} stories",
                 "export_button": "Export",
+                "import_button": "Import",
+                "import_success_toast": "Database imported successfully",
                 "clear_button": "Clear",
                 "view_logger_history_button": "View Logger History"
             },

@@ -40,6 +40,8 @@
             },
             "home_settings": {
                 "export_button": "Экспорт",
+                "import_button": "Импорт",
+                "import_success_toast": "База данных успешно импортирована",
                 "clear_button": "Очистить",
                 "view_logger_history_button": "Посмотреть логгер историй",
                 "message_logger_title": "Логгер сообщений",

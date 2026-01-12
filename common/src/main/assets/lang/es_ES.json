@@ -66,6 +66,8 @@
                 "success_toast": "¡Hecho!",
                 "message_logger_summary": "{messageCount} mensajes\n{storyCount} historias",
                 "export_button": "Exportar",
+                "import_button": "Importar",
+                "import_success_toast": "Base de datos importada exitosamente",
                 "clear_button": "Borrar",
                 "view_logger_history_button": "Ver historial del registrador"
             },

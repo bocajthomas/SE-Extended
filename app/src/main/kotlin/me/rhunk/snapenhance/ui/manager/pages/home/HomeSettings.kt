@@ -1,6 +1,7 @@
 package me.rhunk.snapenhance.ui.manager.pages.home
 
 import android.content.SharedPreferences
+import android.database.sqlite.SQLiteDatabase
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -26,6 +27,7 @@ import me.rhunk.snapenhance.ui.manager.Routes
 import me.rhunk.snapenhance.ui.setup.Requirements
 import me.rhunk.snapenhance.ui.util.ActivityLauncherHelper
 import me.rhunk.snapenhance.ui.util.AlertDialogs
+import me.rhunk.snapenhance.ui.util.openFile
 import me.rhunk.snapenhance.ui.util.saveFile
 
 class HomeSettings : Routes.Route() {
@@ -165,40 +167,104 @@ class HomeSettings : Routes.Route() {
                     var storedStoriesCount by rememberAsyncMutableState(defaultValue = 0) {
                         context.messageLogger.getStoredStoriesCount()
                     }
+                    Text(
+                        translation.format("message_logger_summary",
+                        "messageCount" to storedMessagesCount.toString(),
+                        "storyCount" to storedStoriesCount.toString()
+                    ), maxLines = 2, modifier = Modifier.padding(5.dp))
                     Row(
                         horizontalArrangement = Arrangement.spacedBy(10.dp),
-                        verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(5.dp)
                     ) {
-                        Column(
-                            modifier = Modifier.weight(1f),
-                            verticalArrangement = Arrangement.spacedBy(2.dp),
-                        ) {
-                            Text(
-                                translation.format("message_logger_summary",
-                                "messageCount" to storedMessagesCount.toString(),
-                                "storyCount" to storedStoriesCount.toString()
-                            ), maxLines = 2)
-                        }
-                        Button(onClick = {
-                            runCatching {
-                                activityLauncherHelper.saveFile("message_logger.db", "application/octet-stream") { uri ->
-                                    context.androidContext.contentResolver.openOutputStream(uri.toUri())?.use { outputStream ->
-                                        context.messageLogger.databaseFile.inputStream().use { inputStream ->
-                                            inputStream.copyTo(outputStream)
+                        Button(
+                            onClick = {
+                                runCatching {
+                                    activityLauncherHelper.saveFile("message_logger.db", "application/octet-stream") { uri ->
+                                        context.androidContext.contentResolver.openOutputStream(uri.toUri())?.use { outputStream ->
+                                            context.messageLogger.databaseFile.inputStream().use { inputStream ->
+                                                inputStream.copyTo(outputStream)
+                                            }
                                         }
                                     }
+                                }.onFailure {
+                                    context.log.error("Failed to export database", it)
+                                    context.longToast("Failed to export database! ${it.localizedMessage}")
                                 }
-                            }.onFailure {
-                                context.log.error("Failed to export database", it)
-                                context.longToast("Failed to export database! ${it.localizedMessage}")
-                            }
-                        }) {
+                            },
+                            modifier = Modifier.weight(1f)
+                        ) {
                             Text(text = translation["export_button"])
                         }
-                        Button(onClick = {
+                        Button(
+                            onClick = {
+                                runCatching {
+                                    activityLauncherHelper.openFile("application/octet-stream") { uri ->
+                                        context.androidContext.contentResolver.openInputStream(uri.toUri())?.use { inputStream ->
+                                            val tempFile = context.androidContext.cacheDir.resolve("temp_import.db")
+                                            val backupFile = context.androidContext.cacheDir.resolve("backup_db.db")
+                                            
+                                            try {
+                                                tempFile.outputStream().use { outputStream ->
+                                                    inputStream.copyTo(outputStream)
+                                                }
+
+                                                val tableCount = SQLiteDatabase.openDatabase(
+                                                    tempFile.absolutePath,
+                                                    null,
+                                                    SQLiteDatabase.OPEN_READONLY
+                                                ).use { database ->
+                                                    database.rawQuery(
+                                                        "SELECT name FROM sqlite_master WHERE type='table' AND name IN ('messages', 'chat_edits', 'stories', 'tracker_events')",
+                                                        null
+                                                    ).use { it.count }
+                                                }
+
+                                                if (tableCount < 4) {
+                                                    throw IllegalArgumentException("Invalid database: missing required tables")
+                                                }
+                                                
+                                                context.messageLogger.closeDatabase()
+                                                context.messageLogger.databaseFile.copyTo(backupFile, overwrite = true)
+                                                
+                                                tempFile.copyTo(context.messageLogger.databaseFile, overwrite = true)
+                                                
+                                                try {
+                                                    context.messageLogger.init()
+                                                    
+                                                    context.coroutineScope.launch {
+                                                        storedMessagesCount = context.messageLogger.getStoredMessageCount()
+                                                        storedStoriesCount = context.messageLogger.getStoredStoriesCount()
+                                                    }
+                                                    
+                                                    backupFile.delete()
+                                                    context.shortToast(translation["import_success_toast"])
+                                                } catch (e: Exception) {
+                                                    context.log.error("Database validation failed, rolling back", e)
+                                                    context.messageLogger.closeDatabase()
+                                                    backupFile.copyTo(context.messageLogger.databaseFile, overwrite = true)
+                                                    context.messageLogger.init()
+                                                    throw e
+                                                }
+                                            } finally {
+                                                tempFile.delete()
+                                                backupFile.delete()
+                                            }
+                                        }
+                                    }
+                                }.onFailure {
+                                    context.log.error("Failed to import database", it)
+                                    context.longToast("Failed to import database! ${it.localizedMessage}")
+                                }
+                            },
+                            modifier = Modifier.weight(1f)
+                        ) {
+                            Text(text = translation["import_button"])
+                        }
+                    }
+                    Button(
+                        onClick = {
                             runCatching {
                                 context.messageLogger.purgeAll()
                                 storedMessagesCount = 0
@@ -209,9 +275,12 @@ class HomeSettings : Routes.Route() {
                             }.onSuccess {
                                 context.shortToast(translation["success_toast"])
                             }
-                        }) {
-                            Text(text = translation["clear_button"])
-                        }
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(5.dp)
+                    ) {
+                        Text(text = translation["clear_button"])
                     }
                     OutlinedButton(
                         modifier = Modifier
