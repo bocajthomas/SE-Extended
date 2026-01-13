@@ -1620,7 +1620,7 @@
     "chat_export": {
         "exporter_dialog": {
             "select_conversations_title": "اختر المحادثات",
-            "text_field_selection": "{} تمّ اختياره",
+            "text_field_selection": "{amount} تمّ اختياره",
             "text_field_selection_all": "الكل",
             "export_file_format_title": "تصدير تنسيق الملف",
             "message_type_filter_title": "تصفية الرسائل حسب النوع",
@@ -1630,9 +1630,9 @@
         "dialog_negative_button": "ألغِ",
         "dialog_positive_button": "صدّر",
         "exported_to": "تمّ التصدير إلى {path}",
-        "exporting_chats": "",
-        "processing_chats": "",
-        "export_fail": "",
+        "exporting_chats": "يتمّ تصدير الدردشات…",
+        "processing_chats": "يتمّ معالجة {amount} من المحادثات…",
+        "export_fail": "فشل تصدير المحادثة {conversation}",
         "writing_output": "",
         "finished": "",
         "no_messages_found": "",
