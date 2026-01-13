@@ -1710,47 +1710,47 @@
         },
         "select_attachments_title": "حدّد المرفَقات",
         "download_started_toast": "بدأ التنزيل",
-        "unsupported_content_type_toast": "",
-        "failed_no_longer_available_toast": "",
-        "no_attachments_toast": "",
-        "already_queued_toast": "",
-        "already_downloaded_toast": "",
-        "content_saved_toast": "",
-        "download_toast": "",
-        "processing_toast": "",
-        "failed_generic_toast": "",
-        "failed_to_create_preview_toast": "",
-        "failed_processing_toast": "",
-        "failed_gallery_toast": "",
-        "dash_no_chapter": "",
+        "unsupported_content_type_toast": "نوع محتوى غير مدعوم!",
+        "failed_no_longer_available_toast": "الوسيط لم يعد متاحًا",
+        "no_attachments_toast": "لم يتمّ العثور على أي مرفَقات!",
+        "already_queued_toast": "الوسيط موجود بالفعل في الطابور!",
+        "already_downloaded_toast": "الوسيط منزّل بالفعل!",
+        "content_saved_toast": "تمّ الحفظ!",
+        "download_toast": "يتمّ تنزيل {path}…",
+        "processing_toast": "يتمّ معالجة {path}…",
+        "failed_generic_toast": "فشل التنزيل",
+        "failed_to_create_preview_toast": "فشل إنشاء المعاينة",
+        "failed_processing_toast": "فشلت معالجة {error}",
+        "failed_gallery_toast": "فشل الحفظ في المعرض {error}",
+        "dash_no_chapter": "لم يتمّ العثور على فصل",
         "dash_dialog": {
-            "title": "",
-            "download_all": "",
-            "segment_text": ""
+            "title": "تحميل وسيط سريع",
+            "download_all": "تحميل الكل",
+            "segment_text": "المقطع من {from} إلى {to}"
         }
     },
     "streaks_reminder": {
-        "notification_title": "",
-        "notification_text": ""
+        "notification_title": "اللقطات المتتالية",
+        "notification_text": "ستفقد سلسلة لقطاتك مع {friend} خلال {hoursLeft} من الساعات"
     },
     "biometric_auth": {
-        "unlock_button": "",
-        "title": "",
-        "subtitle": ""
+        "unlock_button": "فتح",
+        "title": "فتح سناب شات",
+        "subtitle": "يُرجى المصادقة لفتح سناب شات"
     },
     "end_to_end_encryption": {
         "toolbox": {
-            "no_shared_key": "",
-            "shared_key_fingerprint": "",
-            "initiate_exchange_button": ""
+            "no_shared_key": "ليس لديك سر مشترَك مع هذا الصديق حتى الآن. انقر أدناه لبدء سر جديد.",
+            "shared_key_fingerprint": "بصمتك هي:\n\n{fingerprint}\n\nتأكّد من التحقُّق مما إذا كانت تُطابق بصمة إصبعك بصمة إصبع صديقك!",
+            "initiate_exchange_button": "ابدأ عملية تبادُل المفاتيح"
         },
         "confirmation_dialogs": {
-            "title": "",
-            "confirmation_1": "",
-            "confirmation_2": ""
+            "title": "التشفير من طرف إلى طرف",
+            "confirmation_1": "تحذير: سيؤدي هذا إلى استبدال مفتاحك الحالي. ستفقد الوصول إلى جميع الرسائل المشفّرة من هذا الصديق. هل أنت متأكّد من رغبتك في المتابعة؟",
+            "confirmation_2": "هل أنت متأكّد حقًا من رغبتك في الاستمرار؟ هذه فرصتك الأخيرة للتراجُع."
         },
-        "unencrypted_conversation_send_failure_toast": "",
-        "native_hooks_send_failure_toast": "",
+        "unencrypted_conversation_send_failure_toast": "لا يمكنك إرسال محتوى مشفّر إلى محادثات مشفّرة وغير مشفّرة!",
+        "native_hooks_send_failure_toast": "فشل الإرسال! يُرجى تفعيل الخطّافات المحلية في الإعدادات.",
         "no_participants_to_encrypt_toast": "",
         "encryption_failed_toast": "",
         "accept_public_key_success_toast": "",
