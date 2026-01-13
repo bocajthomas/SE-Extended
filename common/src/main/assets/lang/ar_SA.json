@@ -1633,83 +1633,83 @@
         "exporting_chats": "يتمّ تصدير الدردشات…",
         "processing_chats": "يتمّ معالجة {amount} من المحادثات…",
         "export_fail": "فشل تصدير المحادثة {conversation}",
-        "writing_output": "",
-        "finished": "",
-        "no_messages_found": "",
-        "exporting_message": ""
+        "writing_output": "يتمّ كتابة المخرَجات…",
+        "finished": "تمّ! يمكنك الآن إغلاق هذه النافذة.",
+        "no_messages_found": "لم يتمّ العثور على رسائل!",
+        "exporting_message": "يتمّ تصدير {conversation}…"
     },
     "button": {
-        "ok": "",
-        "positive": "",
-        "negative": "",
-        "cancel": "",
-        "open": "",
-        "download": "",
-        "send": "",
-        "restore_original": "",
-        "convert_external_media": ""
+        "ok": "حسنًا",
+        "positive": "نعم",
+        "negative": "لا",
+        "cancel": "ألغِ",
+        "open": "فتح",
+        "download": "تحميل",
+        "send": "إرسال",
+        "restore_original": "استعادة الأصليّ",
+        "convert_external_media": "تحويل الوسائط الخارجية"
     },
     "tracker_events": {
-        "conversation_enter": "",
-        "conversation_exit": "",
-        "started_typing": "",
-        "stopped_typing": "",
-        "started_speaking": "",
-        "stopped_speaking": "",
-        "started_peeking": "",
-        "stopped_peeking": "",
-        "message_read": "",
-        "message_deleted": "",
-        "message_saved": "",
-        "message_unsaved": "",
-        "message_edited": "",
-        "message_reaction_add": "",
-        "message_reaction_remove": "",
-        "snap_opened": "",
-        "snap_replayed": "",
-        "snap_replayed_twice": "",
-        "snap_screenshot": "",
-        "snap_screen_record": ""
+        "conversation_enter": "دخول المحادثة",
+        "conversation_exit": "الخروج من المحادثة",
+        "started_typing": "بدأ الكتابة",
+        "stopped_typing": "توقّف عن الكتابة",
+        "started_speaking": "بدأ التحدُّث",
+        "stopped_speaking": "توقّف عن التحدُّث",
+        "started_peeking": "بدأ الاختلاس",
+        "stopped_peeking": "توقّف عن الاختلاس",
+        "message_read": "تمّ قراءة الرسالة",
+        "message_deleted": "تمّ حذف الرسالة",
+        "message_saved": "تمّ حفظ الرسالة",
+        "message_unsaved": "تمّ إلغاء حفظ الرسالة",
+        "message_edited": "تمّ تعديل الرسالة",
+        "message_reaction_add": "إضافة ردّ فعل على الرسالة",
+        "message_reaction_remove": "إزالة ردّ فعل الرسالة",
+        "snap_opened": "تمّ فتح اللقطة",
+        "snap_replayed": "تمّ إعادة تشغيل اللقطة",
+        "snap_replayed_twice": "تمّ إعادة تشغيل اللقطة مرتين",
+        "snap_screenshot": "التقاط اللقطة",
+        "snap_screen_record": "تسجيل اللقطة"
     },
     "tracker_actions": {
-        "log": "",
-        "in_app_notification": "",
-        "push_notification": "",
-        "custom": ""
+        "log": "سجلّ",
+        "in_app_notification": "إشعار داخل التطبيق",
+        "push_notification": "إشعار فوريّ",
+        "custom": "مخصّص"
     },
     "better_notifications": {
         "button": {
-            "reply": "",
-            "download": "",
-            "mark_as_read": ""
+            "reply": "الردّ",
+            "download": "تحميل",
+            "mark_as_read": "وضع علامة ”مقروء“"
         }
     },
     "profile_picture_downloader": {
-        "button": "",
-        "title": "",
-        "avatar_option": "",
-        "background_option": ""
+        "button": "تنزيل صورة الملف الشخصي",
+        "title": "منزّل صورة الملف الشخصي",
+        "avatar_option": "الأفاتار",
+        "background_option": "الخلفية"
     },
     "call_start_confirmation": {
-        "dialog_title": "",
-        "dialog_message": ""
+        "dialog_title": "بدء المكالمة",
+        "dialog_message": "هل أنت متأكّد من رغبتك في بدء مكالمة؟"
     },
     "half_swipe_notifier": {
-        "notification_channel_name": "",
-        "notification_content_dm": "",
-        "notification_content_group": ""
+        "notification_channel_name": "تمرير نصفيّ",
+        "notification_content_dm": "{friend} مرّر للتو نصف تمريرة إلى محادثتك لمدة {duration} من الثواني",
+        "notification_content_group": "{friend} مرّر للتو نصف تمريرة إلى {group} لمدة {duration} من الثواني"
     },
     "download_processor": {
         "attachment_type": {
-            "snap": "",
-            "sticker": "",
-            "gif": "",
-            "external_media": "",
-            "note": "",
-            "original_story": ""
+            "snap": "لقطة",
+            "sticker": "ملصق",
+            "gif": "GIF",
+            "external_media": "وسائط خارجية",
+            "note": "ملحوظة",
+            "original_story": "قصة أصلية"
         },
-        "select_attachments_title": "",
-        "download_started_toast": "",
+        "select_attachments_title": "حدّد المرفَقات",
+        "download_started_toast": "بدأ التنزيل",
         "unsupported_content_type_toast": "",
         "failed_no_longer_available_toast": "",
         "no_attachments_toast": "",
