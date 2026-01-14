@@ -1832,14 +1832,14 @@
         "storyReplayViewRingColor": "لون حلقة عرض إعادة تشغيل القصة",
         "sigColorButtonPrimary": "لون الزر الأساسيّ",
         "sigColorBaseAppYellow": "لون التطبيق الأساسي أصفر",
-        "sigColorBackgroundSurfaceTranslucent": "",
-        "sigColorStoryRingFriendsFeedStoryRing": "",
-        "sigColorStoryRingDiscoverTabThumbnailStoryRing": ""
+        "sigColorBackgroundSurfaceTranslucent": "لون سطح الخلفية الشفّاف",
+        "sigColorStoryRingFriendsFeedStoryRing": "لون حلقة قصّة موجز أصدقاء حلقة القصّة",
+        "sigColorStoryRingDiscoverTabThumbnailStoryRing": "لون حلقة قصّة صورة علامة تبويب استكشاف حلقة القصّة المصغّرة"
     },
     "send_override_dialog": {
-        "title": "",
-        "duration": "",
-        "saveable_snap_hint": "",
-        "unlimited_duration": ""
+        "title": "أرسِل الوسيط كـ {type}",
+        "duration": "المدة: {duration}",
+        "saveable_snap_hint": "اجعل اللقطة قابلة للحفظ في الدردشة",
+        "unlimited_duration": "غير محدود"
     }
 }
