@@ -436,6 +436,10 @@
                     "file_hash_check": {
                         "name": "File Hash Check",
                         "description": "Checks the hash of existing files to prevent duplicate downloads. It may slow down the downloading process"
+                    },
+                    "call_recorder": {
+                        "name": "Call Recorder",
+                        "description": "Automatically records audio calls"
                     }
                 }
             },
@@ -1033,10 +1037,6 @@
                         "name": "Story Logger",
                         "description": "Provides a history of friends stories"
                     },
-                    "call_recorder": {
-                        "name": "Call Recorder",
-                        "description": "Automatically records audio calls"
-                    },
                     "account_switcher": {
                         "name": "Account Switcher",
                         "description": "Allows you to switch between accounts without logging out\nLong press on the search icon next to your Bitmoji profile to open the menu\nNote: This feature is experimental and will likely change in the future",
@@ -1387,6 +1387,11 @@
             "startup_default_camera": {
                 "front": "Front Camera",
                 "back": "Back Camera"
+            },
+            "call_recorder": {
+                "only_record_self": "Only Record Self",
+                "only_record_others": "Only Record Others",
+                "record_both": "Record Both Sides"
             }
         }
     },

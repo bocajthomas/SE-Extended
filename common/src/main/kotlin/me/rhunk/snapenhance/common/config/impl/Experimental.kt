@@ -66,7 +66,6 @@ class Experimental : ConfigContainer() {
     val convertMessageLocally = boolean("convert_message_locally") { requireRestart() }
     val mediaFilePicker = boolean("media_file_picker") { requireRestart(); addNotices(FeatureNotice.UNSTABLE) }
     val storyLogger = boolean("story_logger") { requireRestart(); addNotices(FeatureNotice.UNSTABLE); }
-    val callRecorder = boolean("call_recorder") { requireRestart(); addNotices(FeatureNotice.UNSTABLE); }
     val accountSwitcher = container("account_switcher", AccountSwitcherConfig()) { requireRestart(); addNotices(FeatureNotice.UNSTABLE) }
     val betterTranscript = container("better_transcript", BetterTranscriptConfig()) { requireRestart() }
     val voiceNoteAutoPlay = boolean("voice_note_auto_play") { requireRestart() }
