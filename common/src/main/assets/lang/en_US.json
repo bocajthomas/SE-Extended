@@ -440,6 +440,10 @@
                     "call_recorder": {
                         "name": "Call Recorder",
                         "description": "Automatically records audio calls"
+                    },
+                    "chat_wallpaper_downloader": {
+                        "name": "Chat Wallpaper Downloader",
+                        "description": "Allows you to download chat wallpapers from the profile page"
                     }
                 }
             },
@@ -1441,7 +1445,8 @@
         "story_logger": "Story Logger",
         "message_logger": "Message Logger",
         "merged": "Merged",
-        "voice_call": "Voice Call"
+        "voice_call": "Voice Call",
+        "chat_wallpaper": "Chat Wallpaper"
     },
 
     "chat_action_menu": {
@@ -1726,5 +1731,9 @@
         "duration": "Duration: {duration}",
         "saveable_snap_hint": "Make Snap saveable in the chat",
         "unlimited_duration": "Unlimited"
+    },
+
+    "chat_wallpaper_downloader": {
+        "download_button": "Download Chat Wallpaper"
     }
 }

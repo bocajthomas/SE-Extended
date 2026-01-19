@@ -52,4 +52,5 @@ class DownloaderConfig : ConfigContainer() {
     val customPathFormat = string("custom_path_format") { addNotices(FeatureNotice.UNSTABLE) }
     val fileHashCheck = boolean("file_hash_check")
     val callRecorder = unique("call_recorder", "only_record_self", "only_record_others", "record_both") { requireRestart(); addNotices(FeatureNotice.UNSTABLE); }
+    val chatWallpaperDownloader = boolean("chat_wallpaper_downloader") { requireRestart() }
 }
