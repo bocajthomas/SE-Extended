@@ -8,6 +8,7 @@ import me.rhunk.snapenhance.core.features.Feature
 import me.rhunk.snapenhance.core.ui.getValdiContext
 import me.rhunk.snapenhance.core.ui.getValdiViewNode
 import me.rhunk.snapenhance.core.util.ktx.getObjectField
+import me.rhunk.snapenhance.core.util.ktx.getObjectFieldOrNull
 import me.rhunk.snapenhance.core.wrapper.impl.SnapUUID
 
 class SnapScoreChanges: Feature("Snap Score Changes") {
@@ -37,7 +38,7 @@ class SnapScoreChanges: Feature("Snap Score Changes") {
                 val composerView = (event.view as ViewGroup).getChildAt(0) ?: return@subscribe
                 val composerContext = composerView.getValdiContext() ?: return@subscribe
 
-                lastViewedUserId = composerContext.viewModel?.getObjectField("_userId")?.toString()
+                lastViewedUserId = composerContext.viewModel?.getObjectFieldOrNull("_userId")?.toString()
             }
 
             if (event.viewClassName.endsWith("ProfileFlatlandFriendSnapScoreIdentityPillDialogView")) {
