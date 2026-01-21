@@ -43,7 +43,12 @@ pub struct ValdiModule {
 impl ValdiModule {
     pub fn parse(buffer: Vec<u8>) -> Result<ValdiModule, Error> {
         let mut offset = 0;
-        let magic = u32::from_be_bytes([buffer[offset], buffer[offset + 1], buffer[offset + 2], buffer[offset + 3]]);
+        let magic = u32::from_be_bytes([
+            buffer[offset],
+            buffer[offset + 1],
+            buffer[offset + 2],
+            buffer[offset + 3],
+        ]);
 
         offset += 4;
 
@@ -74,7 +79,7 @@ impl ValdiModule {
 
             let (tag_size, has_padding) = read_u32(&buffer, &mut offset)?;
             let tag_buffer = buffer[offset..offset + tag_size as usize].to_vec();
-            
+
             offset += tag_size as usize;
 
             let padding = 4 - (tag_size % 4);
@@ -86,13 +91,12 @@ impl ValdiModule {
             tags.push(ModuleTag::new(has_padding, tag_buffer));
         }
 
-        let tags = tags.chunks(2).map(|chunk| {
-            (chunk[0].clone(), chunk[1].clone())
-        }).collect();
+        let tags = tags
+            .chunks(2)
+            .map(|chunk| (chunk[0].clone(), chunk[1].clone()))
+            .collect();
 
-        Ok(ValdiModule {
-            tags,
-        })
+        Ok(ValdiModule { tags })
     }
 
     pub fn to_bytes(&self) -> Vec<u8> {
@@ -102,7 +106,7 @@ impl ValdiModule {
             buffer.push(value as u8);
             buffer.push(((value >> 8) & 0xff) as u8);
             buffer.push(((value >> 16) & 0xff) as u8);
-            buffer.push(((value >> 24) & 0x7f) as u8 | if has_padding { 0x80 } else { 0x00 }); 
+            buffer.push(((value >> 24) & 0x7f) as u8 | if has_padding { 0x80 } else { 0x00 });
         }
 
         fn write_tag(buffer: &mut Vec<u8>, tag: ModuleTag) {
@@ -140,4 +144,3 @@ impl ValdiModule {
         self.tags = tags;
     }
 }
-

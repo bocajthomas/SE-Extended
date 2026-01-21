@@ -35,16 +35,3 @@ macro_rules! dobby_hook {
         }
     };
 }
-
-#[macro_export]
-macro_rules! dobby_hook_sym {
-    ($lib:expr, $sym:expr, $hook:expr) => {
-        if let Some(hook_symbol) = dobby_rs::resolve_symbol($lib, $sym) {
-            crate::dobby_hook!(hook_symbol, $hook);
-            debug!("hooked symbol: {}", $sym);
-        } else {
-            panic!("Failed to resolve symbol: {}", $sym);
-        }
-    };
-}
-

@@ -36,8 +36,14 @@ cargo {
     module = "rust"
     libname = nativeName.toString()
     targetIncludes = arrayOf("libsnapenhance.so")
-    profile = "release"
-    targets = listOf("arm64", "arm")
+    val debugFlavor = properties["debug_flavor"]
+    profile = if (debugFlavor != null) "debug" else "release"
+    targets = mutableListOf("arm64", "arm").apply {
+        debugFlavor?.let { flavor ->
+            clear()
+            add(if (flavor.toString().startsWith("armv8")) "arm64" else "arm")
+        }
+    }
 }
 
 fun getNativeFiles() = File(projectDir, "build/rustJniLibs/android").listFiles()?.flatMap { abiFolder ->

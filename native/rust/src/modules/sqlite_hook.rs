@@ -1,25 +1,34 @@
-use std::{collections::HashMap, ffi::{c_void, CStr}, mem::size_of, ptr::addr_of_mut, sync::Mutex};
+use std::{
+    collections::HashMap,
+    ffi::{c_void, CStr},
+    mem::size_of,
+    ptr::addr_of_mut,
+    sync::Mutex,
+};
 
-use jni::{objects::{JObject, JString}, JNIEnv};
+use jni::{
+    objects::{JObject, JString},
+    JNIEnv,
+};
 use nix::libc::{self, pthread_mutex_t};
 use once_cell::sync::Lazy;
 
 use crate::{common, def_hook, dobby_hook, sig, util::get_jni_string};
 
-
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 struct Sqlite3Mutex {
-    mutex: pthread_mutex_t
+    mutex: pthread_mutex_t,
 }
 
 #[repr(C)]
 struct Sqlite3 {
     pad: [u8; 3 * size_of::<usize>()],
-    mutex: *mut Sqlite3Mutex
+    mutex: *mut Sqlite3Mutex,
 }
 
-static SQLITE3_MUTEX_MAP: Lazy<Mutex<HashMap<String, pthread_mutex_t>>> = Lazy::new(|| Mutex::new(HashMap::new()));
+static SQLITE3_MUTEX_MAP: Lazy<Mutex<HashMap<String, pthread_mutex_t>>> =
+    Lazy::new(|| Mutex::new(HashMap::new()));
 
 def_hook!(
     sqlite3_open,
@@ -31,27 +40,38 @@ def_hook!(
             let sqlite3_mutex = (**pp_db).mutex;
 
             if sqlite3_mutex != std::ptr::null_mut() {
-                let filename = CStr::from_ptr(filename).to_string_lossy().to_string().split("/").last().expect("Failed to get filename").to_string();
+                let filename = CStr::from_ptr(filename)
+                    .to_string_lossy()
+                    .to_string()
+                    .split("/")
+                    .last()
+                    .expect("Failed to get filename")
+                    .to_string();
                 debug!("sqlite3_open hook {:?}", filename);
 
-                SQLITE3_MUTEX_MAP.lock().unwrap().insert(
-                    filename,
-                    (*sqlite3_mutex).mutex
-                );
+                SQLITE3_MUTEX_MAP
+                    .lock()
+                    .unwrap()
+                    .insert(filename, (*sqlite3_mutex).mutex);
             }
         }
 
         result
-    }  
+    }
 );
 
-
 pub fn lock_database(mut env: JNIEnv, _: *mut c_void, filename: JString, runnable: JObject) {
-    let database_filename = get_jni_string(&mut env, filename).expect("Failed to get database filename");
-    let mutex = SQLITE3_MUTEX_MAP.lock().unwrap().get(&database_filename).map(|mutex| *mutex);
+    let database_filename =
+        get_jni_string(&mut env, filename).expect("Failed to get database filename");
+    let mutex = SQLITE3_MUTEX_MAP
+        .lock()
+        .unwrap()
+        .get(&database_filename)
+        .map(|mutex| *mutex);
 
     let call_runnable = || {
-        env.call_method(runnable, "run", "()V", &[]).expect("Failed to call run method");
+        env.call_method(runnable, "run", "()V", &[])
+            .expect("Failed to call run method");
     };
 
     if let Some(mut mutex) = mutex {
@@ -71,16 +91,17 @@ pub fn lock_database(mut env: JNIEnv, _: *mut c_void, filename: JString, runnabl
     }
 }
 
-
 pub fn init() {
     if let Some(signature) = sig::find_signature(
-        &common::CLIENT_MODULE, 
-        "FF FF 00 A9 3F 00 00 F9", -0x3C,
-        "9A 46 90 46 78 44 89 46 05 68",-0xd
+        &common::CLIENT_MODULE,
+        "FF FF 00 A9 3F 00 00 F9",
+        -0x3C,
+        "9A 46 90 46 78 44 89 46 05 68",
+        -0xd,
     ) {
         debug!("Found sqlite3_open signature: {:#x}", signature);
         dobby_hook!(signature as *mut c_void, sqlite3_open);
     } else {
-        warn!("Failed to find sqlite3_open signature");
+        panic!("Failed to find sqlite3_open signature");
     }
 }

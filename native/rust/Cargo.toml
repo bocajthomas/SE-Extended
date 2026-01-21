@@ -7,9 +7,15 @@ edition = "2021"
 [lib]
 crate-type = ["cdylib"]
 
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+
 [dependencies]
 android_logger = "0.14.1"
 dobby-rs = "0.1.0"
+goblin = "0.10.4"
 jni = "0.21.1"
 log = "0.4.25"
 nix = { version = "0.29.0", features = ["fs"] }

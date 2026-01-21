@@ -1,11 +1,16 @@
-use std::{error::Error, sync::Mutex};
-use jni::{objects::JObject, JNIEnv};
 use crate::util::get_jni_string;
+use jni::{objects::JObject, JNIEnv};
+use std::{error::Error, sync::Mutex};
 
 static NATIVE_CONFIG: Mutex<Option<NativeConfig>> = Mutex::new(None);
 
 pub fn native_config() -> NativeConfig {
-    NATIVE_CONFIG.lock().unwrap().as_ref().expect("NativeConfig not loaded").clone()
+    NATIVE_CONFIG
+        .lock()
+        .unwrap()
+        .as_ref()
+        .expect("NativeConfig not loaded")
+        .clone()
 }
 
 #[derive(Debug, Clone)]
@@ -27,11 +32,13 @@ impl NativeConfig {
         macro_rules! get_string {
             ($field:expr) => {
                 match env.get_field(&obj, $field, "Ljava/lang/String;")?.l()? {
-                    jstring => if !jstring.is_null() {
-                        Some(get_jni_string(env, jstring.into())?)
-                    } else {
-                        None
-                    },
+                    jstring => {
+                        if !jstring.is_null() {
+                            Some(get_jni_string(env, jstring.into())?)
+                        } else {
+                            None
+                        }
+                    }
                 }
             };
         }
@@ -45,10 +52,11 @@ impl NativeConfig {
     }
 }
 
-pub fn load_config(mut env: JNIEnv, _class: JObject, obj: JObject)  {
-    NATIVE_CONFIG.lock().unwrap().replace(
-        NativeConfig::new(&mut env, obj).expect("Failed to load NativeConfig")
-    );
-    
+pub fn load_config(mut env: JNIEnv, _class: JObject, obj: JObject) {
+    NATIVE_CONFIG
+        .lock()
+        .unwrap()
+        .replace(NativeConfig::new(&mut env, obj).expect("Failed to load NativeConfig"));
+
     info!("Config loaded {:?}", native_config());
 }
