@@ -1,7 +1,11 @@
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 package me.rhunk.snapenhance.ui.manager.pages.social
 
 import android.content.Intent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -10,7 +14,9 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -24,21 +30,17 @@ import me.rhunk.snapenhance.common.data.MessagingFriendInfo
 import me.rhunk.snapenhance.common.data.MessagingGroupInfo
 import me.rhunk.snapenhance.common.data.MessagingRuleType
 import me.rhunk.snapenhance.common.data.SocialScope
-import me.rhunk.snapenhance.common.ui.AutoClearKeyboardFocus
-import me.rhunk.snapenhance.common.ui.EditNoteTextField
-import me.rhunk.snapenhance.common.ui.rememberAsyncMutableState
-import me.rhunk.snapenhance.common.ui.rememberAsyncMutableStateList
+import me.rhunk.snapenhance.common.ui.*
 import me.rhunk.snapenhance.common.util.snap.BitmojiSelfie
 import me.rhunk.snapenhance.storage.*
 import me.rhunk.snapenhance.ui.manager.Routes
-import me.rhunk.snapenhance.ui.util.AlertDialogs
-import me.rhunk.snapenhance.ui.util.Dialog
+import me.rhunk.snapenhance.ui.util.BottomSheets
 import me.rhunk.snapenhance.ui.util.coil.BitmojiImage
 import kotlin.io.encoding.Base64
 import kotlin.io.encoding.ExperimentalEncodingApi
 
 class ManageScope: Routes.Route() {
-    private val dialogs by lazy { AlertDialogs(context.translation) }
+    private val bottomSheets by lazy { BottomSheets(context.translation) }
 
     private fun deleteScope(scope: SocialScope, id: String, coroutineScope: CoroutineScope) {
         when (scope) {
@@ -54,28 +56,69 @@ class ManageScope: Routes.Route() {
 
     override val topBarActions: @Composable (RowScope.() -> Unit) = topBarActions@{
         val navBackStackEntry by routes.navController.currentBackStackEntryAsState()
-        var deleteConfirmDialog by remember { mutableStateOf(false) }
+        var deleteConfirmBottomSheet by remember { mutableStateOf(false) }
         val coroutineScope = rememberCoroutineScope()
+        val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
 
-        if (deleteConfirmDialog) {
-            val scope = navBackStackEntry?.arguments?.getString("scope")?.let { SocialScope.getByName(it) } ?: return@topBarActions
+        if (deleteConfirmBottomSheet) {
+            val scope =
+                navBackStackEntry?.arguments?.getString("scope")?.let { SocialScope.getByName(it) }
+                    ?: return@topBarActions
             val id = navBackStackEntry?.arguments?.getString("id")!!
 
-            Dialog(onDismissRequest = {
-                deleteConfirmDialog = false
-            }) {
-                remember { AlertDialogs(context.translation) }.ConfirmDialog(
-                    title = translation.format("delete_scope_confirm_dialog_title", "scope" to context.translation["scopes.${scope.key}"]),
-                    onDismiss = { deleteConfirmDialog = false },
-                    onConfirm = {
-                        deleteScope(scope, id, coroutineScope); deleteConfirmDialog = false
+            ModalBottomSheet(
+                onDismissRequest = { deleteConfirmBottomSheet = false },
+                sheetState = sheetState,
+                sheetGesturesEnabled = false,
+                shape = bottomSheetShape
+            ) {
+                LazyColumn(
+                    modifier = Modifier
+                        .padding(10.dp, 10.dp, 10.dp, 10.dp),
+                    verticalArrangement = Arrangement.spacedBy(3.dp)
+                ) {
+                    item {
+                        Column {
+                            Text(
+                                text = translation.format("delete_scope_confirm_dialog_title", "scope" to context.translation["scopes.${scope.key}"]),
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(bottom = 10.dp)
+                            )
+                            HorizontalDivider(
+                                modifier = Modifier
+                                    .padding(top = 15.dp, bottom = 10.dp)
+                                    .fillMaxWidth()
+                            )
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.End
+                            ) {
+                                Button(
+                                    onClick = { deleteConfirmBottomSheet = false },
+                                    shapes = ButtonDefaults.shapes()
+                                ) {
+                                    Text(context.translation["button.cancel"])
+                                }
+                                Spacer(modifier = Modifier.width(10.dp))
+                                Button(
+                                    onClick = {
+                                        deleteScope(scope, id, coroutineScope); deleteConfirmBottomSheet = false
+                                    },
+                                    shapes = ButtonDefaults.shapes()
+                                ) {
+                                    Text(context.translation["button.ok"])
+                                }
+                            }
+                        }
                     }
-                )
+                }
             }
         }
 
         IconButton(
-            onClick = { deleteConfirmDialog = true },
+            onClick = { deleteConfirmBottomSheet = true },
+            shapes = IconButtonDefaults.shapes()
         ) {
             Icon(
                 imageVector = Icons.Rounded.DeleteForever,
@@ -92,6 +135,7 @@ class ManageScope: Routes.Route() {
             modifier = Modifier
                 .verticalScroll(rememberScrollState())
                 .fillMaxSize()
+                .screenContentPadding(staticVertical = 10.dp)
         ) {
             var bottomComposable by remember {
                 mutableStateOf(null as (@Composable () -> Unit)?)
@@ -187,33 +231,53 @@ class ManageScope: Routes.Route() {
 
         SectionTitle(translation["rules_title"])
 
-        ContentCard {
-            MessagingRuleType.entries.forEach { ruleType ->
+        Column(
+            verticalArrangement = Arrangement.spacedBy(3.dp)
+        ) {
+            MessagingRuleType.entries.forEachIndexed { index, ruleType ->
                 var ruleEnabled by remember(rules.size) {
                     mutableStateOf(rules.any { it.key == ruleType.key })
                 }
-
                 val ruleState = context.config.root.rules.getRuleState(ruleType)
-
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.padding(all = 4.dp)
-                ) {
-                    Text(
-                        text = if (ruleType.listMode && ruleState != null) {
-                            context.translation["rules.properties.${ruleType.key}.options.${ruleState.key}"]
-                        } else context.translation["rules.properties.${ruleType.key}.name"],
-                        modifier = Modifier
-                            .weight(1f)
-                            .padding(start = 5.dp, end = 5.dp)
-                    )
-                    Switch(checked = ruleEnabled,
-                        enabled = if (ruleType.listMode) ruleState != null else true,
-                        onCheckedChange = {
-                            context.database.setRule(id, ruleType.key, it)
-                            ruleEnabled = it
+                val cardShape = cardShape(MessagingRuleType.entries.size, index)
+                ElevatedCard(
+                    modifier = Modifier.fillMaxWidth()
+                        .clip(cardShape)
+                        .clickable {
+                            if (ruleType.listMode && ruleState == null) return@clickable
+                            val newCheckedState = !ruleEnabled
+                            context.database.setRule(id, ruleType.key, newCheckedState)
+                            ruleEnabled = newCheckedState
                         }
-                    )
+                        .then(
+                            if (ruleType.listMode && ruleState == null) {
+                                Modifier.graphicsLayer(alpha = 0.5f)
+                            } else Modifier
+                        ),
+                    shape = cardShape
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .padding(horizontal = 10.dp)
+                            .fillMaxWidth()
+                    ) {
+                        Text(
+                            text = if (ruleType.listMode && ruleState != null) {
+                                context.translation["rules.properties.${ruleType.key}.options.${ruleState.key}"]
+                            } else context.translation["rules.properties.${ruleType.key}.name"],
+                            modifier = Modifier
+                                .weight(1f)
+                        )
+                        Switch(
+                            checked = ruleEnabled,
+                            enabled = if (ruleType.listMode) ruleState != null else true,
+                            onCheckedChange = {
+                                context.database.setRule(id, ruleType.key, it)
+                                ruleEnabled = it
+                            }
+                        )
+                    }
                 }
             }
         }
@@ -223,8 +287,8 @@ class ManageScope: Routes.Route() {
     private fun ContentCard(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
         ElevatedCard(
             modifier = Modifier
-                .padding(10.dp)
-                .fillMaxWidth()
+                .fillMaxWidth(),
+            shape = cardShapeSingle
         ) {
             Column(
                 modifier = Modifier
@@ -285,6 +349,8 @@ class ManageScope: Routes.Route() {
         streaks: FriendStreaks?,
         setBottomComposable: ((@Composable () -> Unit)?) -> Unit = {}
     ) {
+        val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+
         LaunchedEffect(Unit) {
             setBottomComposable {
                 Spacer(modifier = Modifier.height(16.dp))
@@ -294,14 +360,18 @@ class ManageScope: Routes.Route() {
                     var hasSecretKey by rememberAsyncMutableState(defaultValue = false) {
                         context.e2eeImplementation.friendKeyExists(friend.userId)
                     }
-                    var importDialog by remember { mutableStateOf(false) }
+                    var importBottomSheet by remember { mutableStateOf(false) }
 
-                    if (importDialog) {
-                        Dialog(
-                            onDismissRequest = { importDialog = false }
+                    if (importBottomSheet) {
+                        ModalBottomSheet(
+                            onDismissRequest = { importBottomSheet = false },
+                            sheetState = sheetState,
+                            sheetGesturesEnabled = false,
+                            shape = bottomSheetShape
                         ) {
-                            dialogs.RawInputDialog(onDismiss = { importDialog = false  }, onConfirm = { newKey ->
-                                importDialog = false
+                            bottomSheets.RawInputBottomSheet(
+                                onDismiss = { importBottomSheet = false  }, onConfirm = { newKey ->
+                                    importBottomSheet = false
                                 runCatching {
                                     val key = Base64.decode(newKey)
                                     if (key.size != 32) {
@@ -329,24 +399,27 @@ class ManageScope: Routes.Route() {
                             horizontalArrangement = Arrangement.spacedBy(10.dp)
                         ) {
                             if (hasSecretKey) {
-                                OutlinedButton(onClick = {
-                                    context.coroutineScope.launch {
-                                        val secretKey = Base64.encode(context.e2eeImplementation.getSharedSecretKey(friend.userId) ?: return@launch)
-                                        //TODO: fingerprint auth
-                                        context.activity!!.startActivity(Intent.createChooser(Intent().apply {
-                                            action = Intent.ACTION_SEND
-                                            putExtra(Intent.EXTRA_TEXT, secretKey)
-                                            type = "text/plain"
-                                        }, "").apply {
-                                            putExtra(Intent.EXTRA_INITIAL_INTENTS, arrayOf(
-                                                Intent().apply {
-                                                    putExtra(Intent.EXTRA_TEXT, secretKey)
-                                                    putExtra(Intent.EXTRA_SUBJECT, secretKey)
-                                                })
+                                OutlinedButton(
+                                    onClick = {
+                                        context.coroutineScope.launch {
+                                            val secretKey = Base64.encode(context.e2eeImplementation.getSharedSecretKey(friend.userId) ?: return@launch)
+                                            //TODO: fingerprint auth
+                                            context.activity!!.startActivity(Intent.createChooser(Intent().apply {
+                                                action = Intent.ACTION_SEND
+                                                putExtra(Intent.EXTRA_TEXT, secretKey)
+                                                type = "text/plain" },"").apply {
+                                                    putExtra(Intent.EXTRA_INITIAL_INTENTS, arrayOf(
+                                                        Intent().apply {
+                                                            putExtra(Intent.EXTRA_TEXT, secretKey)
+                                                            putExtra(Intent.EXTRA_SUBJECT, secretKey)
+                                                        })
+                                                    )
+                                                }
                                             )
-                                        })
-                                    }
-                                }) {
+                                        }
+                                    },
+                                    shapes = ButtonDefaults.shapes()
+                                ) {
                                     Text(
                                         text = "Export Base64",
                                         maxLines = 1
@@ -354,7 +427,10 @@ class ManageScope: Routes.Route() {
                                 }
                             }
 
-                            OutlinedButton(onClick = { importDialog = true }) {
+                            OutlinedButton(
+                                onClick = { importBottomSheet = true },
+                                shapes = ButtonDefaults.shapes()
+                            ) {
                                 Text(
                                     text = "Import Base64",
                                     maxLines = 1
@@ -394,56 +470,77 @@ class ManageScope: Routes.Route() {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(10.dp, Alignment.CenterHorizontally),
             ) {
-                Button(onClick = {
-                    routes.loggedStories.navigate {
-                        put("id", id)
-                    }
-                }) {
+                Button(
+                    onClick = {
+                        routes.loggedStories.navigate {
+                            put("id", id)
+                        }
+                    },
+                    shapes = ButtonDefaults.shapes()
+                ) {
                     Text(translation["logged_stories_button"])
                 }
             }
-
             Spacer(modifier = Modifier.height(16.dp))
         }
 
-        Column {
-            //streaks
-            streaks?.let {
-                var shouldNotify by remember { mutableStateOf(it.notify) }
-                SectionTitle(translation["streaks_title"])
-                ContentCard {
+        // streaks
+        streaks?.let {
+            var shouldNotify by remember { mutableStateOf(it.notify) }
+            SectionTitle(translation["streaks_title"])
+
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(3.dp)
+            ){
+                ElevatedCard(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = cardShapeGroupedTop
+                ) {
                     Row(
-                        verticalAlignment = Alignment.CenterVertically
+                        modifier = Modifier.fillMaxWidth().padding(all = 15.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Column(
-                            modifier = Modifier.weight(1f),
-                        ) {
-                            Text(
-                                text = translation.format(
-                                    "streaks_length_text", "length" to streaks.length.toString()
-                                ), maxLines = 1
-                            )
-                            Text(
-                                text = computeStreakETA(streaks.expirationTimestamp)?.let { translation.format(
-                                    "streaks_expiration_text",
-                                    "eta" to it
-                                ) } ?: translation["streaks_expiration_text_expired"],
-                                maxLines = 1
-                            )
-                        }
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Text(
-                                text = translation["reminder_button"],
-                                maxLines = 1,
-                                modifier = Modifier.padding(end = 10.dp)
-                            )
-                            Switch(checked = shouldNotify, onCheckedChange = {
+                        Text(
+                            text = translation.format(
+                                "streaks_length_text", "length" to streaks.length.toString()
+                            ),
+                            maxLines = 1
+                        )
+                        Text(
+                            text = computeStreakETA(streaks.expirationTimestamp)?.let {
+                                translation.format(
+                                    "streaks_expiration_text", "eta" to it
+                                )
+                            } ?: translation["streaks_expiration_text_expired"],
+                            maxLines = 1
+                        )
+                    }
+                }
+
+                ElevatedCard(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = cardShapeGroupedBottom
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth().padding(15.dp, 5.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Text(
+                            text = translation["reminder_button"],
+                            maxLines = 1,
+                            modifier = Modifier.padding(end = 10.dp)
+                        )
+                        Switch(
+                            checked = shouldNotify,
+                            onCheckedChange = {
                                 context.database.setFriendStreaksNotify(id, it)
                                 shouldNotify = it
-                            })
-                        }
+                            }
+                        )
                     }
                 }
             }

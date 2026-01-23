@@ -4,7 +4,7 @@ import java.io.BufferedReader
 
 data class ModuleInfo(
     val name: String,
-    val version: String,
+    val version: String?,
     val displayName: String? = null,
     val description: String? = null,
     val updateUrl: String? = null,
@@ -17,6 +17,7 @@ data class ModuleInfo(
     val notice: List<String>,
     val changelogUrl: String? = null,
     val howToUseUrl: String? = null,
+    val scriptCoverUrl: String? = null
 
 ) {
     fun ensurePermissionGranted(permission: Permissions) {
@@ -64,5 +65,6 @@ fun BufferedReader.readModuleInfo(): ModuleInfo {
         notice = properties["notice"]?.split(",")?.map { it.trim() } ?: emptyList(),
         changelogUrl = properties["changelogUrl"],
         howToUseUrl = properties["howToUseUrl"],
+        scriptCoverUrl = properties["scriptCoverUrl"]
     )
 }

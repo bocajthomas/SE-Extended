@@ -1,27 +1,27 @@
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 package me.rhunk.snapenhance.ui.manager.pages.home
 
 import android.content.Intent
-import android.net.Uri
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.Help
 import androidx.compose.material.icons.rounded.Paid
 import androidx.compose.material.icons.rounded.BugReport
-import androidx.compose.material.icons.rounded.MoreVert
+import androidx.compose.material.icons.rounded.Edit
 import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.SpanStyle
@@ -35,30 +35,27 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
 import androidx.navigation.NavBackStackEntry
 import kotlinx.coroutines.launch
 import me.rhunk.snapenhance.R
 import me.rhunk.snapenhance.action.EnumQuickActions
 import me.rhunk.snapenhance.common.BuildConfig
 import me.rhunk.snapenhance.common.action.EnumAction
-import me.rhunk.snapenhance.common.ui.rememberAsyncMutableState
-import me.rhunk.snapenhance.common.ui.rememberAsyncMutableStateList
+import me.rhunk.snapenhance.common.ui.*
 import me.rhunk.snapenhance.storage.getQuickTiles
 import me.rhunk.snapenhance.storage.setQuickTiles
+import me.rhunk.snapenhance.ui.components.LazyColumnBottomSheet
 import me.rhunk.snapenhance.ui.manager.Routes
-import me.rhunk.snapenhance.ui.manager.data.Updater
 import me.rhunk.snapenhance.ui.util.ActivityLauncherHelper
+import me.rhunk.snapenhance.ui.manager.data.updater.*
 import java.text.DateFormat
-import androidx.core.net.toUri
 
 class HomeRootSection : Routes.Route() {
     companion object {
         val cardMargin = 10.dp
     }
-
     private lateinit var activityLauncherHelper: ActivityLauncherHelper
-
-
     private val cards by lazy {
         EnumQuickActions.entries.map {
             (context.translation["actions.${it.key}.name"] to it.icon) to it.action
@@ -73,30 +70,7 @@ class HomeRootSection : Routes.Route() {
         }
     }
 
-    @Composable
-    private fun InfoCard(
-        content: @Composable ColumnScope.() -> Unit,
-    ) {
-        OutlinedCard(
-            modifier = Modifier
-                .padding(start = cardMargin, end = cardMargin)
-                .fillMaxWidth(),
-            colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surfaceVariant,
-                contentColor = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-        ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(all = 10.dp)
-            ) {
-                content()
-            }
-        }
-    }
-
-
+    // TODO: Refactor into a helper class
     private fun openLink(link: String) {
         kotlin.runCatching {
             context.activity?.startActivity(Intent(Intent.ACTION_VIEW).apply {
@@ -109,6 +83,7 @@ class HomeRootSection : Routes.Route() {
         }
     }
 
+    // TODO: Refactor into components/
     @Composable
     fun ExternalLinkIcon(
         modifier: Modifier = Modifier,
@@ -118,20 +93,22 @@ class HomeRootSection : Routes.Route() {
         iconScale: Float = 1.0f
     ) {
         Box(
-            modifier = modifier
-                .size(size)
-                .clip(RoundedCornerShape(50))
-                .clickable { openLink(link) },
+            modifier = modifier.size(size),
             contentAlignment = Alignment.Center
         ) {
-            Icon(
-                imageVector = imageVector,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier
-                    .size(size * 0.75f)
-                    .scale(iconScale)
-            )
+            IconButton(
+                onClick = { openLink(link) },
+                shapes = IconButtonDefaults.shapes()
+            ) {
+                Icon(
+                    imageVector = imageVector,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier
+                        .size(size * 0.75f)
+                        .scale(iconScale)
+                )
+            }
         }
     }
 
@@ -140,18 +117,20 @@ class HomeRootSection : Routes.Route() {
     }
 
     override val topBarActions: @Composable (RowScope.() -> Unit) = {
-        IconButton(onClick = {
-            routes.homeLogs.navigate()
-        }) {
+        IconButton(
+            onClick = { routes.homeLogs.navigate() },
+            shapes = IconButtonDefaults.shapes()
+        ) {
             Icon(Icons.Rounded.BugReport, contentDescription = null)
         }
-        IconButton(onClick = {
-            routes.settings.navigate()
-        }) {
+
+        IconButton(
+            onClick = { routes.homeSettings.navigate() },
+            shapes = IconButtonDefaults.shapes()
+        ) {
             Icon(Icons.Rounded.Settings, contentDescription = null)
         }
     }
-
 
     @OptIn(ExperimentalLayoutApi::class)
     override val content: @Composable (NavBackStackEntry) -> Unit = {
@@ -160,11 +139,12 @@ class HomeRootSection : Routes.Route() {
                 Font(R.font.avenir_next_medium, FontWeight.Medium)
             )
         }
-
+        val scrollState = remember { ScrollState(0) }
+        val clicks = remember { mutableIntStateOf(0) }
         Column(
             modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(ScrollState(0))
+                .verticalScroll(scrollState)
+                .screenContentPadding(staticVertical = 10.dp)
         ) {
             Text(
                 text = remember {
@@ -188,7 +168,16 @@ class HomeRootSection : Routes.Route() {
                         Font(R.font.avenir_next_medium, FontWeight.Medium)
                     )
                 },
-                modifier = Modifier.align(Alignment.CenterHorizontally),
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .clickable {
+                        clicks.intValue += 1
+
+                        if (clicks.intValue >= 5) {
+                            routes.easterEgg.navigate()
+                            clicks.intValue = 0
+                        }
+                    },
             )
 
             Row(
@@ -203,7 +192,7 @@ class HomeRootSection : Routes.Route() {
             ) {
 
                 ExternalLinkIcon(
-                    imageVector = ImageVector.vectorResource(id = R.drawable.ic_telegram),
+                    imageVector = ImageVector.vectorResource(id = R.drawable.ic_telegram_round),
                     link = "https://t.me/SE_Extended",
                     iconScale = 1.0f
                 )
@@ -226,177 +215,292 @@ class HomeRootSection : Routes.Route() {
                     iconScale = 1.2f
                 )
             }
-
-
             val selectedTiles = rememberAsyncMutableStateList(defaultValue = listOf()) {
                 context.database.getQuickTiles()
             }
+            var shouldShowUpdates by context.sharedPreferences.rememberMutableBooleanPreferenceState(
+                key = "app_update_checker",
+                defaultValue = true
+            )
+            var promoMode by context.sharedPreferences.rememberMutableBooleanPreferenceState(
+                key = "promo_mode",
+                defaultValue = false
+            )
+            var latestUpdate by remember { mutableStateOf(UpdateFetcher.cachedRelease) }
+            val progress by downloadProgress.collectAsState()
+            val isDownloading by isDownloading.collectAsState()
+            val androidContext = LocalContext.current
+            val isUpdateCardVisible = if (shouldShowUpdates) latestUpdate != null else false
+            val isDebugCardVisible = BuildConfig.DEBUG
+            val updateCardShape = if (isDebugCardVisible) cardShapeGroupedTop else cardShapeSingle
+            val debugInfoCardShape = when {
+                isUpdateCardVisible -> cardShapeGroupedBottom
+                else -> cardShapeSingle
+            }
 
-            val latestUpdate by rememberAsyncMutableState(defaultValue = null) { Updater.latestRelease }
-
-            if (latestUpdate != null) {
-                Spacer(modifier = Modifier.height(10.dp))
-                InfoCard {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Column {
-                            Text(
-                                text = translation["update_title"],
-                                fontSize = 14.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Text(
-                                fontSize = 12.sp,
-                                text = translation.format(
-                                    "update_content",
-                                    "version" to (latestUpdate?.versionName ?: "unknown")
-                                ),
-                                lineHeight = 20.sp,
-                                overflow = TextOverflow.Ellipsis,
-                            )
-                        }
-                        Button(
-                            modifier = Modifier.height(40.dp),
-                            onClick = {
-                                latestUpdate?.releaseUrl?.let { openLink(it) }
-                            }
-                        ) {
-                            Text(text = translation["update_button"])
-                        }
-                    }
+            LaunchedEffect(Unit) {
+                if (!shouldShowUpdates) return@LaunchedEffect
+                UpdateFetcher.fetchUpdateInBackground { result ->
+                    latestUpdate = result
                 }
             }
 
-            if (BuildConfig.DEBUG) {
-                Spacer(modifier = Modifier.height(10.dp))
-                InfoCard {
-                    Text(
-                        text = translation["debug_build_summary_title"],
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Bold,
-                    )
-                    val buildSummary = buildAnnotatedString {
-                        withStyle(
-                            style = SpanStyle(
-                                fontSize = 13.sp,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                fontWeight = FontWeight.Light
-                            )
+            Column(
+                modifier = Modifier.fillMaxWidth().animateContentSize(),
+                verticalArrangement = Arrangement.spacedBy(3.dp),
+            ) {
+
+                if (promoMode) return@Column
+
+                if (isUpdateCardVisible || isDebugCardVisible) {
+                    Spacer(modifier = Modifier.height(10.dp))
+                }
+
+                if (isUpdateCardVisible) {
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                            contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+                        ),
+                        shape = updateCardShape
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(all = 10.dp)
                         ) {
-                            append(
-                                remember {
-                                    translation.format(
-                                        "debug_build_summary_content",
-                                        "versionName" to BuildConfig.VERSION_NAME,
-                                        "versionCode" to BuildConfig.VERSION_CODE.toString(),
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Column {
+                                    Text(
+                                        text = translation["update_title"],
+                                        fontSize = 14.sp,
+                                        fontWeight = FontWeight.Bold,
+                                    )
+                                    Text(
+                                        fontSize = 12.sp,
+                                        text = translation.format(
+                                            "update_content",
+                                            "version" to (latestUpdate?.versionName ?: "unknown")
+                                        ),
+                                        lineHeight = 20.sp,
+                                        overflow = TextOverflow.Ellipsis,
                                     )
                                 }
-                            )
-                            append(" - ")
-                        }
-                        pushStringAnnotation(
-                            tag = "git_hash",
-                            annotation = BuildConfig.GIT_HASH
-                        )
-                        withStyle(
-                            style = SpanStyle(
-                                fontSize = 13.sp, fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.primary
-                            )
-                        ) {
-                            append(BuildConfig.GIT_HASH.substring(0, 7))
-                        }
-                        pop()
-                    }
-                    ClickableText(
-                        text = buildSummary,
-                        onClick = { offset ->
-                            buildSummary.getStringAnnotations(
-                                tag = "git_hash", start = offset, end = offset
-                            ).firstOrNull()?.let {
-                                openLink("https://github.com/bocajthomas/SE-Extended/commit/${it.item}")
+                                Button(
+                                    modifier = Modifier.height(40.dp),
+                                    onClick = {
+                                        downloadUpdate(
+                                            context = androidContext,
+                                            logger = context.log,
+                                            fileProviderAuthority = androidContext.packageName + ".fileprovider"
+                                        )
+                                    },
+                                    enabled = !isDownloading,
+                                    shapes = ButtonDefaults.shapes()
+                                ) {
+                                    if (isDownloading) {
+                                        Text(text = translation["downloading_button"])
+                                    } else {
+                                        Text(text = translation["download_button"])
+                                    }
+                                }
+                            }
+
+                            if (isDownloading) {
+                                Spacer(modifier = Modifier.height(5.dp))
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.SpaceBetween,
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    LinearWavyProgressIndicator(
+                                        progress = { progress },
+                                        modifier = Modifier
+                                            .weight(1f)
+                                            .height(8.dp)
+                                            .padding(end = 10.dp)
+                                    )
+
+                                    Text(
+                                        text = "${(progress * 100).toInt()}%",
+                                        fontSize = 14.sp,
+                                        lineHeight = 20.sp,
+                                        overflow = TextOverflow.Ellipsis,
+                                    )
+                                }
                             }
                         }
-                    )
-                    Text(
-                        fontSize = 12.sp,
-                        text = remember {
-                            translation.format(
-                                "debug_build_summary_date",
-                                "date" to DateFormat.getDateTimeInstance()
-                                    .format(BuildConfig.BUILD_TIMESTAMP),
-                                "days" to ((System.currentTimeMillis() - BuildConfig.BUILD_TIMESTAMP) / 86400000).toInt()
-                                    .toString()
+                    }
+                }
+
+                if (isDebugCardVisible) {
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                            contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+                        ),
+                        shape = debugInfoCardShape
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(all = 10.dp)
+                        ) {
+                            Text(
+                                text = translation["debug_build_summary_title"],
+                                fontSize = 14.sp,
+                                fontWeight = FontWeight.Bold,
                             )
-                        },
-                        lineHeight = 20.sp,
-                        fontWeight = FontWeight.Light
-                    )
+                            val buildSummary = buildAnnotatedString {
+                                withStyle(
+                                    style = SpanStyle(
+                                        fontSize = 13.sp,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        fontWeight = FontWeight.Light
+                                    )
+                                ) {
+                                    append(
+                                        remember {
+                                            translation.format(
+                                                "debug_build_summary_content",
+                                                "versionName" to BuildConfig.VERSION_NAME,
+                                                "versionCode" to BuildConfig.VERSION_CODE.toString(),
+                                            )
+                                        }
+                                    )
+                                    append(" - ")
+                                }
+                                pushStringAnnotation(
+                                    tag = "git_hash",
+                                    annotation = BuildConfig.GIT_HASH
+                                )
+                                withStyle(
+                                    style = SpanStyle(
+                                        fontSize = 13.sp, fontWeight = FontWeight.Bold,
+                                        color = MaterialTheme.colorScheme.primary
+                                    )
+                                ) {
+                                    append(BuildConfig.GIT_HASH.substring(0, 7))
+                                }
+                                pop()
+                            }
+                            ClickableText(
+                                text = buildSummary,
+                                onClick = { offset ->
+                                    buildSummary.getStringAnnotations(
+                                        tag = "git_hash", start = offset, end = offset
+                                    ).firstOrNull()?.let {
+                                        openLink("https://github.com/bocajthomas/SE-Extended/commit/${it.item}")
+                                    }
+                                }
+                            )
+                            Text(
+                                fontSize = 12.sp,
+                                text = remember {
+                                    translation.format(
+                                        "debug_build_summary_date",
+                                        "date" to DateFormat.getDateTimeInstance()
+                                            .format(BuildConfig.BUILD_TIMESTAMP),
+                                        "days" to ((System.currentTimeMillis() - BuildConfig.BUILD_TIMESTAMP) / 86400000).toInt()
+                                            .toString()
+                                    )
+                                },
+                                lineHeight = 20.sp,
+                                fontWeight = FontWeight.Light
+                            )
+                        }
+                    }
                 }
             }
 
             var showQuickActionsMenu by remember { mutableStateOf(false) }
-
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 20.dp, end = 10.dp, top = 5.dp),
+                    .padding(start = 10.dp, end = 5.dp, top = 5.dp, bottom = 5.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
                     translation["quick_actions_title"], fontSize = 20.sp,
                     modifier = Modifier.weight(1f)
                 )
-                Box {
-                    IconButton(
-                        onClick = { showQuickActionsMenu = !showQuickActionsMenu },
+
+                IconButton(
+                    onClick = { showQuickActionsMenu = !showQuickActionsMenu },
+                    shapes = IconButtonDefaults.shapes()
+                ) {
+                    Icon(Icons.Rounded.Edit, contentDescription = null)
+                }
+
+                if (showQuickActionsMenu) {
+                    LazyColumnBottomSheet(
+                        onDismiss = { showQuickActionsMenu = false },
                     ) {
-                        Icon(Icons.Rounded.MoreVert, contentDescription = null)
-                    }
-                    DropdownMenu(
-                        expanded = showQuickActionsMenu,
-                        onDismissRequest = { showQuickActionsMenu = false }
-                    ) {
-                        cards.forEach { (card, _) ->
-                            fun toggle(state: Boolean? = null) {
-                                if (state?.let { !it } ?: selectedTiles.contains(card.first)) {
-                                    selectedTiles.remove(card.first)
-                                } else {
-                                    selectedTiles.add(0, card.first)
+                        val cardList = cards.toList()
+
+                        Column(
+                            verticalArrangement = Arrangement.spacedBy(3.dp)
+                        ) {
+                            cardList.forEachIndexed { index, (cardInfo, action) ->
+                                val (title, icon) = cardInfo
+
+                                fun toggle(state: Boolean? = null) {
+                                    val isCurrentlySelected = selectedTiles.contains(title)
+                                    val targetState = state ?: !isCurrentlySelected
+
+                                    if (targetState) {
+                                        selectedTiles.add(0, title)
+                                    } else {
+                                        selectedTiles.remove(title)
+                                    }
+
+                                    context.coroutineScope.launch {
+                                        context.database.setQuickTiles(selectedTiles)
+                                    }
                                 }
-                                context.coroutineScope.launch {
-                                    context.database.setQuickTiles(selectedTiles)
+
+                                Card(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    shape = cardShape(cardList.size, index)
+                                ) {
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.SpaceBetween,
+                                        modifier = Modifier.clickable { toggle() }
+                                            .fillMaxWidth()
+                                    ) {
+                                        Text(
+                                            text = title,
+                                            fontSize = 16.sp,
+                                            modifier = Modifier.weight(1f)
+                                                .padding(start = 10.dp)
+                                        )
+
+                                        Checkbox(
+                                            checked = selectedTiles.contains(title),
+                                            onCheckedChange = {
+                                                toggle(it)
+                                            }
+                                        )
+                                    }
                                 }
                             }
-
-                            DropdownMenuItem(onClick = { toggle() }, text = {
-                                Row(
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    modifier = Modifier.padding(all = 5.dp)
-                                ) {
-                                    Checkbox(
-                                        checked = selectedTiles.contains(card.first),
-                                        onCheckedChange = {
-                                            toggle(it)
-                                        }
-                                    )
-                                    Text(text = card.first)
-                                }
-                            })
                         }
                     }
                 }
             }
 
             FlowRow(
-                modifier = Modifier
-                    .padding(all = cardMargin)
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 maxItemsInEachRow = 3,
-                horizontalArrangement = Arrangement.SpaceEvenly,
+                horizontalArrangement = Arrangement.spacedBy(5.dp),
+                verticalArrangement = Arrangement.spacedBy(5.dp)
             ) {
                 val tileHeight = LocalDensity.current.run {
                     remember { (context.androidContext.resources.displayMetrics.widthPixels / 3).toDp() - cardMargin / 2 }
@@ -410,21 +514,21 @@ class HomeRootSection : Routes.Route() {
                     ElevatedCard(
                         modifier = Modifier
                             .height(tileHeight)
-                            .weight(1f)
-                            .padding(all = 6.dp),
-                        onClick = { action(routes) }
+                            .weight(1f),
+                        onClick = { action(routes) },
+                        shape = cardShapeSingle
                     ) {
                         Column(
                             modifier = Modifier
                                 .fillMaxSize()
                                 .padding(all = 5.dp),
                             horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.SpaceEvenly,
+                            verticalArrangement = Arrangement.SpaceEvenly
                         ) {
                             Icon(
                                 imageVector = card.second, contentDescription = null,
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                                modifier = Modifier.size(45.dp)
+                                modifier = Modifier.size(42.dp)
                             )
                             Text(
                                 text = card.first,
@@ -432,7 +536,7 @@ class HomeRootSection : Routes.Route() {
                                 fontSize = 11.sp,
                                 fontWeight = FontWeight.Bold,
                                 textAlign = TextAlign.Center,
-                                overflow = TextOverflow.Ellipsis,
+                                overflow = TextOverflow.Ellipsis
                             )
                         }
                     }

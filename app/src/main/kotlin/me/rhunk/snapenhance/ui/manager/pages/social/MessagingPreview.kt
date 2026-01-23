@@ -1,3 +1,4 @@
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 package me.rhunk.snapenhance.ui.manager.pages.social
 
 import android.content.Intent
@@ -5,11 +6,14 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.MoreVert
@@ -22,6 +26,8 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavBackStackEntry
@@ -37,6 +43,8 @@ import me.rhunk.snapenhance.common.messaging.MessagingConstraints
 import me.rhunk.snapenhance.common.messaging.MessagingTask
 import me.rhunk.snapenhance.common.messaging.MessagingTaskConstraint
 import me.rhunk.snapenhance.common.messaging.MessagingTaskType
+import me.rhunk.snapenhance.common.ui.lazyColumnContentPadding
+import me.rhunk.snapenhance.common.ui.screenContentPadding
 import me.rhunk.snapenhance.common.util.protobuf.ProtoReader
 import me.rhunk.snapenhance.common.util.snap.SnapWidgetBroadcastReceiverHelper
 import me.rhunk.snapenhance.ui.manager.Routes
@@ -281,54 +289,48 @@ class MessagingPreview: Routes.Route() {
             }
         }
 
-        MaterialTheme(
-            colorScheme = MaterialTheme.colorScheme.copy(
-                surface = MaterialTheme.colorScheme.inverseSurface,
-                onSurface = MaterialTheme.colorScheme.inverseOnSurface
-            ),
-            shapes = MaterialTheme.shapes.copy(medium = RoundedCornerShape(50.dp))
+
+        DropdownMenu(
+            expanded = taskSelectionDropdown && messages.isNotEmpty(), onDismissRequest = { taskSelectionDropdown = false }
         ) {
-            DropdownMenu(
-                expanded = taskSelectionDropdown && messages.isNotEmpty(), onDismissRequest = { taskSelectionDropdown = false }
-            ) {
-                val hasSelection = selectedMessages.isNotEmpty()
-                ActionButton(text = translation[if (hasSelection) "save_selection_option" else "save_all_option"], icon = Icons.Rounded.BookmarkAdded) {
-                    launchMessagingTask(MessagingTaskType.SAVE)
-                    if (hasSelection) runCurrentTask()
-                    else selectConstraintsDialog = true
+            val hasSelection = selectedMessages.isNotEmpty()
+            ActionButton(text = translation[if (hasSelection) "save_selection_option" else "save_all_option"], icon = Icons.Rounded.BookmarkAdded) {
+                launchMessagingTask(MessagingTaskType.SAVE)
+                if (hasSelection) runCurrentTask()
+                else selectConstraintsDialog = true
+            }
+            ActionButton(text = translation[if (hasSelection) "unsave_selection_option" else "unsave_all_option"], icon = Icons.Rounded.BookmarkBorder) {
+                launchMessagingTask(MessagingTaskType.UNSAVE)
+                if (hasSelection) runCurrentTask()
+                else selectConstraintsDialog = true
+            }
+            ActionButton(text = translation[if (hasSelection) "mark_selection_as_seen_option" else "mark_all_as_seen_option"], icon = Icons.Rounded.RemoveRedEye) {
+                if (messagingBridge == null) {
+                    context.longToast(translation["bridge_connection_failed"])
+                    return@ActionButton
                 }
-                ActionButton(text = translation[if (hasSelection) "unsave_selection_option" else "unsave_all_option"], icon = Icons.Rounded.BookmarkBorder) {
-                    launchMessagingTask(MessagingTaskType.UNSAVE)
-                    if (hasSelection) runCurrentTask()
-                    else selectConstraintsDialog = true
-                }
-                ActionButton(text = translation[if (hasSelection) "mark_selection_as_seen_option" else "mark_all_as_seen_option"], icon = Icons.Rounded.RemoveRedEye) {
-                    if (messagingBridge == null) {
-                        context.longToast(translation["bridge_connection_failed"])
-                        return@ActionButton
-                    }
-                    launchMessagingTask(
-                        MessagingTaskType.READ, listOf(
+                launchMessagingTask(
+                    MessagingTaskType.READ, listOf(
                         MessagingConstraints.NO_USER_ID(messagingBridge!!.myUserId),
                         MessagingConstraints.CONTENT_TYPE(arrayOf(ContentType.SNAP))
-                    ))
-                    runCurrentTask()
+                    )
+                )
+                runCurrentTask()
+            }
+            ActionButton(text = translation[if (hasSelection) "delete_selection_option" else "delete_all_option"], icon = Icons.Rounded.DeleteForever) {
+                if (messagingBridge == null) {
+                    context.longToast(translation["bridge_connection_failed"])
+                    return@ActionButton
                 }
-                ActionButton(text = translation[if (hasSelection) "delete_selection_option" else "delete_all_option"], icon = Icons.Rounded.DeleteForever) {
-                    if (messagingBridge == null) {
-                        context.longToast(translation["bridge_connection_failed"])
-                        return@ActionButton
+                launchMessagingTask(MessagingTaskType.DELETE, listOf(MessagingConstraints.USER_ID(messagingBridge!!.myUserId), {
+                    contentType != ContentType.STATUS.id
+                })) { message ->
+                    coroutineScope.launch {
+                        message.contentType = ContentType.STATUS.id
                     }
-                    launchMessagingTask(MessagingTaskType.DELETE, listOf(MessagingConstraints.USER_ID(messagingBridge!!.myUserId), {
-                        contentType != ContentType.STATUS.id
-                    })) { message ->
-                        coroutineScope.launch {
-                            message.contentType = ContentType.STATUS.id
-                        }
-                    }
-                    if (hasSelection) runCurrentTask()
-                    else selectConstraintsDialog = true
                 }
+                if (hasSelection) runCurrentTask()
+                else selectConstraintsDialog = true
             }
         }
     }
@@ -344,42 +346,83 @@ class MessagingPreview: Routes.Route() {
             }
         }
 
+        val fullRounded = 20.dp
+        val cornerRadiusLarge = 15.dp
+        val cornerRadiusSmall = 5.dp
+        val otherMessageColor = Color(0xFF3B3B3B)
+        val ownMessageColor = Color.White
+        val otherTextColor = Color.White
+        val ownTextColor = Color.Black
+
         LazyColumn(
             reverseLayout = true,
-            modifier = Modifier
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxSize(),
             state = previewScrollState,
+            contentPadding = lazyColumnContentPadding(staticVertical = 10.dp)
         ) {
-            items(messages, key = { it.serverMessageId }) {message ->
+            items(messages.size) { index ->
+                val message = messages[index]
                 val messageReader = remember(message.contentType) { ProtoReader(message.content) }
                 val contentType = ContentType.fromMessageContainer(messageReader)
+                val isOwnMessage = message.senderId == messagingBridge?.myUserId
 
-                Card(
+                val prevMessageIndex = index + 1
+                val nextMessageIndex = index - 1
+                val isStartOfGroup = prevMessageIndex >= messages.size || messages[prevMessageIndex].senderId != message.senderId
+                val isEndOfGroup = nextMessageIndex < 0 || messages[nextMessageIndex].senderId != message.senderId
+
+                val cardColor = if (isOwnMessage) ownMessageColor else otherMessageColor
+                val textColor = if (isOwnMessage) ownTextColor else otherTextColor
+
+                val bubbleShape = RoundedCornerShape(
+                    topStart = if (isOwnMessage) fullRounded else if (isStartOfGroup) cornerRadiusLarge else cornerRadiusSmall,
+                    topEnd = if (!isOwnMessage) fullRounded else if (isStartOfGroup) cornerRadiusLarge else cornerRadiusSmall,
+                    bottomStart = if (isOwnMessage) fullRounded else if (isEndOfGroup) cornerRadiusLarge else cornerRadiusSmall,
+                    bottomEnd = if (!isOwnMessage) fullRounded else if (isEndOfGroup) cornerRadiusLarge else cornerRadiusSmall
+                )
+
+                Row(
                     modifier = Modifier
-                        .padding(5.dp)
-                        .pointerInput(Unit) {
-                            if (contentType == ContentType.STATUS) return@pointerInput
-                            detectTapGestures(
-                                onLongPress = {
-                                    toggleSelectedMessage(message.clientMessageId)
-                                },
-                                onTap = {
-                                    if (selectedMessages.isNotEmpty()) {
-                                        toggleSelectedMessage(message.clientMessageId)
-                                    }
-                                }
-                            )
-                        },
-                    colors = CardDefaults.cardColors(
-                        containerColor = if (selectedMessages.contains(message.clientMessageId)) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceVariant
-                    ),
+                        .fillMaxWidth()
+                        .padding(horizontal = 10.dp, vertical = 2.dp),
+                    horizontalArrangement = if (isOwnMessage) Arrangement.End else Arrangement.Start
                 ) {
-                    val contentMessage = remember(message.contentType) { "[${contentType?.let { contentTypeTranslation.getOrNull(it.name) ?: it.name } }] ${messageReader.getString(2, 1) ?: "" }" }
-                    Row(
+                    Card(
                         modifier = Modifier
-                            .padding(5.dp)
+                            .widthIn(max = 200.dp)
+                            .pointerInput(Unit) {
+                                if (contentType == ContentType.STATUS) return@pointerInput
+                                detectTapGestures(
+                                    onLongPress = {
+                                        toggleSelectedMessage(message.clientMessageId)
+                                    },
+                                    onTap = {
+                                        if (selectedMessages.isNotEmpty()) {
+                                            toggleSelectedMessage(message.clientMessageId)
+                                        }
+                                    }
+                                )
+                            },
+                        shape = bubbleShape,
+                        colors = CardDefaults.cardColors(
+                            containerColor = if (selectedMessages.contains(message.clientMessageId)) {
+                                MaterialTheme.colorScheme.primaryContainer
+                            } else {
+                                cardColor
+                            }
+                        ),
                     ) {
-                        Text(contentMessage)
+                        val contentMessage = remember(message.contentType) {
+                            "[${contentType?.let { contentTypeTranslation.getOrNull(it.name) ?: it.name } }] ${messageReader.getString(2, 1) ?: "" }"
+                        }
+                        Row(
+                            modifier = Modifier.padding(10.dp)
+                        ) {
+                            Text(
+                                text = contentMessage,
+                                color = textColor
+                            )
+                        }
                     }
                 }
             }
@@ -405,7 +448,6 @@ class MessagingPreview: Routes.Route() {
         }
     }
 
-
     @Composable
     private fun LoadingRow() {
         Row(
@@ -414,12 +456,9 @@ class MessagingPreview: Routes.Route() {
                 .padding(40.dp),
             horizontalArrangement = Arrangement.Center
         ) {
-            CircularProgressIndicator(
-                modifier = Modifier
-                    .padding()
-                    .size(30.dp),
-                strokeWidth = 3.dp,
-                color = MaterialTheme.colorScheme.primary
+            CircularWavyProgressIndicator(
+                modifier = Modifier.size(50.dp),
+                color = MaterialTheme.colorScheme.onPrimary
             )
         }
     }
@@ -516,6 +555,9 @@ class MessagingPreview: Routes.Route() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .screenContentPadding(staticVertical = 0.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
             if (hasBridgeError) {
                 Text(translation["bridge_connection_failed"])

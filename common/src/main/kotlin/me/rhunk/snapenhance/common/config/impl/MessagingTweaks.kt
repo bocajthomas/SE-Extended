@@ -27,7 +27,7 @@ class MessagingTweaks : ConfigContainer() {
         val autoPurge = unique("auto_purge", *PURGE_VALUES) {
             customOptionTranslationPath = PURGE_TRANSLATION_KEY
             disabledKey = PURGE_DISABLED_KEY
-        }.apply { set("3_days") }
+        }
         val messageFilter = multiple("message_filter", "CHAT",
             "SNAP",
             "NOTE",

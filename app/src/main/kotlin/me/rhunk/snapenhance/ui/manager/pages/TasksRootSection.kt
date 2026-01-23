@@ -1,7 +1,9 @@
- package me.rhunk.snapenhance.ui.manager.pages
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
+package me.rhunk.snapenhance.ui.manager.pages
 
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -18,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.input.pointer.pointerInput
@@ -36,11 +39,13 @@ import me.rhunk.snapenhance.bridge.DownloadCallback
 import me.rhunk.snapenhance.common.data.download.DownloadMetadata
 import me.rhunk.snapenhance.common.data.download.MediaDownloadSource
 import me.rhunk.snapenhance.common.data.download.createNewFilePath
-import me.rhunk.snapenhance.common.ui.rememberAsyncMutableState
+import me.rhunk.snapenhance.common.ui.*
 import me.rhunk.snapenhance.common.util.ktx.longHashCode
 import me.rhunk.snapenhance.download.DownloadProcessor
 import me.rhunk.snapenhance.download.FFMpegProcessor
 import me.rhunk.snapenhance.task.*
+import me.rhunk.snapenhance.ui.components.DismissibleCardItem
+import me.rhunk.snapenhance.ui.components.LazyColumnBottomSheet
 import me.rhunk.snapenhance.ui.manager.Routes
 import me.rhunk.snapenhance.ui.util.OnLifecycleEvent
 import me.rhunk.snapenhance.ui.util.coil.cacheKey
@@ -140,7 +145,7 @@ class TasksRootSection : Routes.Route() {
     }
 
     override val topBarActions: @Composable (RowScope.() -> Unit) = {
-        var showConfirmDialog by remember { mutableStateOf(false) }
+        var showConfirmBottomSheet by remember { mutableStateOf(false) }
         val coroutineScope = rememberCoroutineScope()
 
         if (taskSelection.size > 1) {
@@ -149,62 +154,81 @@ class TasksRootSection : Routes.Route() {
             }
 
             if (canMergeSelection) {
-                IconButton(onClick = {
-                    mergeSelection(taskSelection.toList().also {
-                        taskSelection.clear()
-                    }.map { it.first to it.second!! })
-                }) {
+                IconButton(
+                    onClick = {
+                        mergeSelection(taskSelection.toList().also {
+                            taskSelection.clear()
+                        }.map { it.first to it.second!! })
+                    },
+                    shapes = IconButtonDefaults.shapes()
+                ) {
                     Icon(Icons.Rounded.Merge, contentDescription = "Merge")
                 }
             }
         }
 
-        IconButton(onClick = {
-            showConfirmDialog = true
-        }) {
+        IconButton(
+            onClick = { showConfirmBottomSheet = true },
+            shapes = IconButtonDefaults.shapes()
+        ) {
             Icon(Icons.Rounded.Delete, contentDescription = "Clear tasks")
         }
 
-        if (showConfirmDialog) {
+        if (showConfirmBottomSheet) {
             var alsoDeleteFiles by remember { mutableStateOf(false) }
 
-            AlertDialog(
-                onDismissRequest = { showConfirmDialog = false },
-                title = {
+            LazyColumnBottomSheet(
+                onDismiss = { showConfirmBottomSheet = false },
+            ) {
+                if (taskSelection.isNotEmpty()) {
+                    Text(translation.format("remove_selected_tasks_confirm", "count" to taskSelection.size.toString()))
+                } else {
+                    Text(translation["remove_all_tasks_confirm"])
+                }
+
+                Column {
                     if (taskSelection.isNotEmpty()) {
-                        Text(translation.format("remove_selected_tasks_confirm", "count" to taskSelection.size.toString()))
-                    } else {
-                        Text(translation["remove_all_tasks_confirm"])
-                    }
-                },
-                text = {
-                    Column {
-                        if (taskSelection.isNotEmpty()) {
-                            Text(translation["remove_selected_tasks_title"])
-                            Row (
-                                modifier = Modifier
-                                    .padding(top = 10.dp)
-                                    .fillMaxWidth()
-                                    .clickable {
-                                        alsoDeleteFiles = !alsoDeleteFiles
-                                    },
-                                horizontalArrangement = Arrangement.spacedBy(5.dp),
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Checkbox(checked = alsoDeleteFiles, onCheckedChange = {
-                                    alsoDeleteFiles = it
-                                })
-                                Text(translation["delete_files_option"])
-                            }
-                        } else {
-                            Text(translation["remove_all_tasks_title"])
+                        Text(translation["remove_selected_tasks_title"])
+                        Row (
+                            modifier = Modifier
+                                .padding(top = 10.dp)
+                                .fillMaxWidth()
+                                .clickable {
+                                    alsoDeleteFiles = !alsoDeleteFiles
+                                },
+                            horizontalArrangement = Arrangement.spacedBy(5.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Checkbox(checked = alsoDeleteFiles, onCheckedChange = {
+                                alsoDeleteFiles = it
+                            })
+                            Text(translation["delete_files_option"])
                         }
+                    } else {
+                        Text(translation["remove_all_tasks_title"])
                     }
-                },
-                confirmButton = {
+                }
+
+                HorizontalDivider(
+                    modifier = Modifier
+                        .padding(top = 15.dp, bottom = 10.dp)
+                        .fillMaxWidth()
+                )
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.End,
+                ) {
+                    Button(
+                        onClick = { showConfirmBottomSheet = false },
+                        shapes = ButtonDefaults.shapes()
+                    ) {
+                        Text(context.translation["button.negative"])
+                    }
+                    Spacer(modifier = Modifier.width(10.dp))
                     Button(
                         onClick = {
-                            showConfirmDialog = false
+                            showConfirmBottomSheet = false
                             if (taskSelection.isNotEmpty()) {
                                 taskSelection.forEach { (task, documentFile) ->
                                     coroutineScope.launch(Dispatchers.IO) {
@@ -232,31 +256,27 @@ class TasksRootSection : Routes.Route() {
                                 activeTasks = listOf()
                                 context.taskManager.getActiveTasks().clear()
                             }
-                        }
+                        },
+                        shapes = ButtonDefaults.shapes()
                     ) {
                         Text(context.translation["button.positive"])
                     }
-                },
-                dismissButton = {
-                    Button(
-                        onClick = {
-                            showConfirmDialog = false
-                        }
-                    ) {
-                        Text(context.translation["button.negative"])
-                    }
                 }
-            )
+            }
         }
     }
 
     @Composable
-    private fun TaskCard(modifier: Modifier, task: Task, pendingTask: PendingTask? = null) {
+    private fun TaskCardContent(
+        task: Task,
+        pendingTask: PendingTask? = null,
+        isSelected: Boolean = false,
+        toggleSelection: () -> Unit = {},
+        shape: Shape
+    ) {
         var taskStatus by remember { mutableStateOf(task.status) }
         var taskProgressLabel by remember { mutableStateOf<String?>(null) }
         var taskProgress by remember { mutableIntStateOf(-1) }
-        val isSelected by remember { derivedStateOf { taskSelection.any { it.first == task } } }
-
         var documentFileMimeType by remember { mutableStateOf("") }
         var isDocumentFileReadable by remember { mutableStateOf(true) }
         val documentFile by rememberAsyncMutableState(defaultValue = null, keys = arrayOf(taskStatus.key)) {
@@ -265,7 +285,6 @@ class TasksRootSection : Routes.Route() {
                 isDocumentFileReadable = canRead()
             }
         }
-
 
         val listener = remember { PendingTaskListener(
             onStateChange = {
@@ -287,14 +306,6 @@ class TasksRootSection : Routes.Route() {
             }
         }
 
-        fun toggleSelection() {
-            if (isSelected) {
-                taskSelection.removeIf { it.first == task }
-                return
-            }
-            taskSelection.add(task to documentFile)
-        }
-
         fun openFile() {
             if (!isDocumentFileReadable || documentFile == null) return
             runCatching {
@@ -308,32 +319,35 @@ class TasksRootSection : Routes.Route() {
             }
         }
 
-        OutlinedCard(modifier = modifier
-            .pointerInput(Unit) {
-                detectTapGestures(
-                    onTap = {
-                        if (taskSelection.isNotEmpty()) {
-                            toggleSelection()
-                            return@detectTapGestures
-                        }
-                        openFile()
-                    },
-                    onLongPress = {
-                        if (taskSelection.isNotEmpty()) {
+        OutlinedCard(
+            modifier = Modifier
+                .pointerInput(Unit) {
+                    detectTapGestures(
+                        onTap = {
+                            if (taskSelection.isNotEmpty()) {
+                                toggleSelection()
+                                return@detectTapGestures
+                            }
                             openFile()
-                            return@detectTapGestures
+                        },
+                        onLongPress = {
+                            if (taskSelection.isNotEmpty()) {
+                                openFile()
+                                return@detectTapGestures
+                            }
+                            toggleSelection()
                         }
-                        toggleSelection()
-                    }
-                )
-            }
-            .let {
-                if (isSelected) {
-                    it
-                        .border(2.dp, MaterialTheme.colorScheme.primary)
-                        .clip(MaterialTheme.shapes.medium)
-                } else it
-            }
+                    )
+                }
+                .let {
+                    if (isSelected) {
+                        it
+                            .border(2.dp, MaterialTheme.colorScheme.primary)
+                            .clip(shape)
+                    } else it
+                }
+                .fillMaxWidth(),
+            shape = shape
         ) {
             Row(
                 modifier = Modifier.padding(12.dp),
@@ -445,11 +459,24 @@ class TasksRootSection : Routes.Route() {
         }
     }
 
+
     override val content: @Composable (NavBackStackEntry) -> Unit = {
         val scrollState = rememberLazyListState()
         val scope = rememberCoroutineScope()
         recentTasks = remember { mutableStateListOf() }
+        val allTasks = activeTasks.map { it.task to it } + recentTasks.map { it to null }
+        val totalTaskCount = allTasks.size
         var lastFetchedTaskId by remember { mutableStateOf(null as Long?) }
+
+        fun handleDismissal(task: Task, pendingTask: PendingTask?) {
+            taskSelection.removeIf { it.first == task }
+            pendingTask?.cancel()
+            scope.launch(Dispatchers.IO) {
+                context.taskManager.removeTask(task)
+            }
+            recentTasks.remove(task)
+            activeTasks = activeTasks.filter { it.task != task }
+        }
 
         fun fetchNewRecentTasks() {
             scope.launch(Dispatchers.IO) {
@@ -478,32 +505,84 @@ class TasksRootSection : Routes.Route() {
             }
         }
 
+        // TODO: refactor into sub actions
+
         LazyColumn(
             state = scrollState,
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(3.dp),
+            contentPadding = lazyColumnContentPadding(staticVertical = 10.dp)
         ) {
             item {
                 if (activeTasks.isEmpty() && recentTasks.isEmpty()) {
-                    Column(
-                        modifier = Modifier.fillMaxSize(),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.Center
+                    Box(
+                        modifier = Modifier.fillParentMaxSize(),
+                        contentAlignment = Alignment.Center
                     ) {
-                        translation["no_tasks"].let {
-                            Icon(Icons.Rounded.CheckCircle, contentDescription = it, tint = MaterialTheme.colorScheme.primary)
-                            Text(it, style = MaterialTheme.typography.bodyLarge)
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center
+                        ) {
+                            ElevatedCard(
+                                modifier = Modifier
+                                    .padding(16.dp)
+                                    .size(200.dp),
+                                shape = MaterialShapes.Ghostish.toShape()
+                            ) {
+                                Box(
+                                    modifier = Modifier.fillMaxSize(),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Rounded.TaskAlt,
+                                        contentDescription = null,
+                                        modifier = Modifier.size(100.dp)
+                                    )
+                                }
+                            }
+                            Text(
+                                text = translation["tasks_empty"],
+                                style = MaterialTheme.typography.bodyMedium,
+                                modifier = Modifier.padding(8.dp)
+                            )
+                            Text(
+                                text = translation["tasks_empty_desc"],
+                                style = MaterialTheme.typography.bodySmall,
+                                modifier = Modifier.padding(8.dp)
+                            )
                         }
                     }
                 }
             }
-            items(activeTasks, key = { it.taskId }) {pendingTask ->
-                TaskCard(modifier = Modifier.padding(8.dp), pendingTask.task, pendingTask = pendingTask)
-            }
-            items(recentTasks, key = { it.hash }) { task ->
-                TaskCard(modifier = Modifier.padding(8.dp), task)
+
+            items(allTasks, key = { it.first.hash }) { (task, pendingTask) ->
+                val index = allTasks.indexOfFirst { it.first == task }
+                val shape = cardShape(allTasks.size, index)
+
+                val isSelected by remember { derivedStateOf { taskSelection.any { it.first == task } } }
+
+                DismissibleCardItem(
+                    onDelete = { handleDismissal(task, pendingTask) },
+                    modifier = Modifier.animateItem(
+                        placementSpec = tween(durationMillis = 400),
+                        fadeOutSpec = tween(durationMillis = 300)
+                    ),
+                    shape = shape
+                ) {
+                    TaskCardContent(
+                        task = task,
+                        pendingTask = pendingTask,
+                        isSelected = isSelected,
+                        toggleSelection = {
+                            val documentFile = DocumentFile.fromSingleUri(context.androidContext, task.extra?.toUri() ?: return@TaskCardContent)
+                            if (isSelected) taskSelection.removeIf { it.first == task }
+                            else taskSelection.add(task to documentFile)
+                        },
+                        shape = shape
+                    )
+                }
             }
             item {
-                Spacer(modifier = Modifier.height(40.dp))
                 LaunchedEffect(remember { derivedStateOf { scrollState.firstVisibleItemIndex } }) {
                     fetchNewRecentTasks()
                 }

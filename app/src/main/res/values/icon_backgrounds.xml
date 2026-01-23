@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="default_icon_background">#000000</color>
+    <color name="king_icon_background">#000000</color>
+    <color name="inverse_icon_background">#FFFFFF</color>
+    <color name="light_blue_icon_background">#55C9FF</color>
+    <color name="light_green_icon_background">#4DFFC1</color>
+    <color name="light_pink_icon_background">#F86AFF</color>
+    <color name="dark_purple_icon_background">#390052</color>
+    <color name="golden_earth_icon_background">#2D3436</color>
+    <color name="honeycomb_icon_background">#FECA57</color>
+    <color name="regal_dusk_icon_background">#4B6587</color>
+    <color name="cloud_nine_icon_background">#DBE2EF</color>
+    <color name="zen_garden_icon_background">#00B894</color>
+    <color name="ocean_flare_icon_background">#1F4068</color>
+    <color name="canyon_dusk_icon_background">#FF9F43</color>
+    <color name="og_snapenhance_icon_background">#FFFC00</color>
+</resources>

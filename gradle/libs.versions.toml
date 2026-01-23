@@ -1,33 +1,42 @@
 [versions]
-agp = "8.4.2"
+agp = "8.13.2"
+capsule = "2.1.2"
 colorpicker-compose = "1.0.8"
 libsu = "5.2.2"
 guava = "33.2.1-jre"
 jsoup = "1.17.2"
-kotlin = "2.0.0"
-compose-compiler = "2.0.21"
+kotlin = "2.2.0" # Keep 2.2.0
+compose-compiler = "2.2.0" # Keep 2.2.0
 kotlinx-coroutines-android = "1.8.1"
 activity-ktx = "1.9.3"
-androidx-documentfile = "1.1.0-alpha01"
-coil-compose = "2.6.0"
-navigation-compose = "2.8.5"
+androidx-documentfile = "1.1.0"
+coil-compose = "2.7.0"
+navigation-compose = "2.9.6"
 osmdroid-android = "6.1.20"
 recyclerview = "1.3.2"
-compose-bom = "2024.12.01" # make sure all ui components are fully working after updating this
+compose-bom = "2025.02.00" # Test newer versions
 #noinspection GradleDependency
 bcprov-jdk18on = "1.78.1"
 dexlib2 = "3.0.9"
 gson = "2.11.0"
 junit = "5.10.2"
-material3 = "1.3.1"
-okhttp = "5.0.0-alpha.14"
+material3 = "1.5.0-alpha12" # https://developer.android.com/jetpack/androidx/releases/compose-material3#compose_material3_version_15_2
+okhttp = "5.3.2"
 rhino = "1.7.15"
 rhino-android = "1.6.0"
 rust-android = "0.9.6"
 hiddenapibypass = "4.3"
 smart-exception-java = "0.2.1"
+shizuku = "13.1.5"
+haze = "1.6.10"
+haze-materials = "1.6.10"
+androidliquidglass = "1.0.4"
+lifecycle = "2.9.0"
+activity = "1.12.2"
+foundation = "1.10.0"
 
 [libraries]
+androidliquidglass = { module = "io.github.kyant0:backdrop", version.ref = "androidliquidglass" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity-ktx" }
 androidx-documentfile = { group = "androidx.documentfile", name = "documentfile", version.ref = "androidx-documentfile" }
@@ -38,11 +47,16 @@ androidx-material-ripple = { module = "androidx.compose.material:material-ripple
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
 androidx-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 androidx-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+capsule = { module = "io.github.kyant0:capsule", version.ref = "capsule" }
+shizuku-provider = { module = "dev.rikka.shizuku:provider", version.ref = "shizuku" }
+shizuku-api = { module = "dev.rikka.shizuku:api", version.ref = "shizuku" }
 apksig = { module = "com.android.tools.build:apksig", version.ref = "agp" }
 bcprov-jdk18on = { module = "org.bouncycastle:bcprov-jdk18on", version.ref = "bcprov-jdk18on" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose" }
 coil-video = { module = "io.coil-kt:coil-video", version.ref = "coil-compose" }
 colorpicker-compose = { module = "com.github.skydoves:colorpicker-compose", version.ref = "colorpicker-compose" }
+haze = { module = "dev.chrisbanes.haze:haze", version.ref = "haze" }
+haze-materials = { module = "dev.chrisbanes.haze:haze-materials", version.ref = "haze-materials" }
 libsu = { module = "com.github.topjohnwu.libsu:core", version.ref = "libsu" }
 coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx-coroutines-android" }
 dexlib2 = { group = "com.android.tools.smali", name = "smali-dexlib2", version.ref = "dexlib2" }
@@ -57,6 +71,11 @@ recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version
 rhino = { module = "org.mozilla:rhino", version.ref = "rhino" }
 rhino-android = { group = "com.faendir.rhino", name = "rhino-android", version.ref = "rhino-android" }
 smart-exception-java = { module = "com.arthenica:smart-exception-java", version.ref = "smart-exception-java" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-savedstate = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-savedstate", version.ref = "lifecycle" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
+androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundation" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -64,5 +83,3 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "compose-compiler" }
 rust-android = { id = "org.mozilla.rust-android-gradle.rust-android", version.ref = "rust-android" }
-
-[bundles]

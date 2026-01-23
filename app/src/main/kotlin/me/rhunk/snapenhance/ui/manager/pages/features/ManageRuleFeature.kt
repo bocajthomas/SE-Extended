@@ -1,14 +1,24 @@
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 package me.rhunk.snapenhance.ui.manager.pages.features
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -17,48 +27,70 @@ import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.launch
 import me.rhunk.snapenhance.common.data.MessagingRuleType
 import me.rhunk.snapenhance.common.data.RuleState
-import me.rhunk.snapenhance.common.ui.rememberAsyncMutableState
-import me.rhunk.snapenhance.common.ui.rememberAsyncUpdateDispatcher
+import me.rhunk.snapenhance.common.ui.*
 import me.rhunk.snapenhance.storage.clearRuleIds
 import me.rhunk.snapenhance.storage.getRuleIds
 import me.rhunk.snapenhance.storage.setRule
+import me.rhunk.snapenhance.ui.components.LazyColumnBottomSheet
 import me.rhunk.snapenhance.ui.manager.Routes
-import me.rhunk.snapenhance.ui.manager.pages.social.AddFriendDialog
-import me.rhunk.snapenhance.ui.manager.pages.social.AddFriendDialog.Actions
-import me.rhunk.snapenhance.ui.util.AlertDialogs
-import me.rhunk.snapenhance.ui.util.Dialog
+import me.rhunk.snapenhance.ui.manager.pages.social.AddFriendBottomSheet
+import me.rhunk.snapenhance.ui.manager.pages.social.AddFriendBottomSheet.Actions
 
-class ManageRuleFeature : Routes.Route()  {
+class ManageRuleFeature : Routes.Route() {
     @Composable
-    fun SelectRuleTypeRadio(
+    fun SelectRuleTypeCard(
         checked: Boolean,
         text: String,
-        onStateChanged: (Boolean) -> Unit,
+        description: String,
+        onStateChanged: () -> Unit,
+        shape: RoundedCornerShape,
         selectedBlock: @Composable () -> Unit = {},
     ) {
-        Box(modifier = Modifier.clickable {
-            onStateChanged(!checked)
-        }) {
+        ElevatedCard(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(shape)
+                .clickable { if (!checked) onStateChanged() },
+            shape = shape,
+            colors = CardDefaults.elevatedCardColors(
+                containerColor = if (checked) MaterialTheme.colorScheme.surfaceContainerHigh else MaterialTheme.colorScheme.surfaceContainer,
+            )
+        ) {
             Column(
                 modifier = Modifier
+                    .fillMaxWidth()
                     .padding(10.dp),
-                verticalArrangement = Arrangement.spacedBy(4.dp),
+                verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
                 Row(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(4.dp),
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    RadioButton(selected = checked, onClick = null)
-                    Text(text)
+                    Column (
+                        modifier = Modifier.weight(1f)
+                    ) {
+                        Text(
+                            text = text,
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                        if (checked) {
+                            Text(
+                                text = description,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+
+                            )
+                        }
+                    }
+
+                    RadioButton(
+                        selected = checked,
+                        onClick = onStateChanged
+                    )
                 }
                 if (checked) {
-                    Column(modifier = Modifier
-                        .offset(x = 15.dp)
-                        .padding(4.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        selectedBlock()
-                    }
+                    selectedBlock()
                 }
             }
         }
@@ -90,16 +122,16 @@ class ManageRuleFeature : Routes.Route()  {
             }
         }
 
-        var addFriendDialog by remember { mutableStateOf(null as AddFriendDialog?) }
+        var addFriendBottomSheet by remember { mutableStateOf(null as AddFriendBottomSheet?) }
 
-        LaunchedEffect(addFriendDialog) {
-            if (addFriendDialog == null) {
+        LaunchedEffect(addFriendBottomSheet) {
+            if (addFriendBottomSheet == null) {
                 updateDispatcher.dispatch()
             }
         }
 
         fun showAddFriendDialog() {
-            addFriendDialog = AddFriendDialog(
+            addFriendBottomSheet = AddFriendBottomSheet(
                 context = context,
                 pinnedIds = currentRuleIds,
                 actionHandler = Actions(
@@ -129,14 +161,16 @@ class ManageRuleFeature : Routes.Route()  {
             )
         }
 
-        if (addFriendDialog != null) {
-            addFriendDialog?.Content {
-                addFriendDialog = null
+        if (addFriendBottomSheet != null) {
+            addFriendBottomSheet?.Content {
+                addFriendBottomSheet = null
             }
         }
 
         Column(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize()
+                .screenContentPadding(staticVertical = 10.dp),
         ) {
             Column(
                 modifier = Modifier.padding(10.dp),
@@ -158,55 +192,106 @@ class ManageRuleFeature : Routes.Route()  {
                 )
             }
 
-            SelectRuleTypeRadio(checked = ruleState == null, text = translation["disable_state_option"], onStateChanged = {
-                setRuleState(null)
-            }) {
-                Text(text = translation["disable_state_subtext"], fontWeight = FontWeight.Light, fontSize = 12.sp)
-            }
-            SelectRuleTypeRadio(checked = ruleState == RuleState.WHITELIST, text = translation["whitelist_state_option"], onStateChanged = {
-                setRuleState(RuleState.WHITELIST)
-            }) {
-                Text(text = translation.format("whitelist_state_subtext", "count" to currentRuleIds.size.toString()), fontWeight = FontWeight.Light, fontSize = 12.sp)
-                OutlinedButton(onClick = {
-                    showAddFriendDialog()
-                }) {
-                    Text(text = translation["whitelist_state_button"])
-                }
-            }
-            SelectRuleTypeRadio(checked = ruleState == RuleState.BLACKLIST, text = translation["blacklist_state_option"], onStateChanged = {
-                setRuleState(RuleState.BLACKLIST)
-            }) {
-                Text(text = translation.format("blacklist_state_subtext", "count" to currentRuleIds.size.toString()), fontWeight = FontWeight.Light, fontSize = 12.sp)
-                OutlinedButton(onClick = { showAddFriendDialog() }) {
-                    Text(text = translation["blacklist_state_button"])
-                }
-            }
+            Spacer(modifier = Modifier.height(10.dp))
 
-            Row(
-                modifier = Modifier.fillMaxWidth().padding(5.dp),
-                horizontalArrangement = Arrangement.SpaceEvenly
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(3.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                var confirmationDialog by remember { mutableStateOf(false) }
+                SelectRuleTypeCard(
+                    checked = ruleState == null,
+                    text = translation["disable_state_option"],
+                    description = translation["disable_state_subtext"],
+                    onStateChanged = { setRuleState(null) },
+                    shape = cardShapeGroupedTop as RoundedCornerShape
+                )
 
-                if (confirmationDialog) {
-                    Dialog(onDismissRequest = {
-                        confirmationDialog = false
-                    }) {
-                        remember { AlertDialogs(context.translation) }.ConfirmDialog(
-                            title = translation["dialog_clear_confirmation_text"],
-                            onDismiss = { confirmationDialog = false },
-                            onConfirm = {
-                                context.database.clearRuleIds(currentRuleType.key)
-                                context.coroutineScope.launch(context.database.executor.asCoroutineDispatcher()) {
-                                    updateDispatcher.dispatch()
-                                }
-                                confirmationDialog = false
-                            }
-                        )
+                SelectRuleTypeCard(
+                    checked = ruleState == RuleState.WHITELIST,
+                    text = translation["whitelist_state_option"],
+                    description = translation.format("whitelist_state_subtext", "count" to currentRuleIds.size.toString()),
+                    onStateChanged = { setRuleState(RuleState.WHITELIST) },
+                    shape = cardShapeGroupedMiddle as RoundedCornerShape
+                ) {
+                    OutlinedButton(
+                        onClick = { showAddFriendDialog() },
+                        modifier = Modifier.align(Alignment.CenterHorizontally),
+                        shapes = ButtonDefaults.shapes()
+                    ) {
+                        Text(text = translation["whitelist_state_button"])
                     }
                 }
 
-                Button(onClick = { confirmationDialog = true }) {
+                SelectRuleTypeCard(
+                    checked = ruleState == RuleState.BLACKLIST,
+                    text = translation["blacklist_state_option"],
+                    description = translation.format("blacklist_state_subtext", "count" to currentRuleIds.size.toString()),
+                    onStateChanged = { setRuleState(RuleState.BLACKLIST) },
+                    shape = cardShapeGroupedBottom as RoundedCornerShape
+                ) {
+                    OutlinedButton(
+                        onClick = { showAddFriendDialog() },
+                        modifier = Modifier.align(Alignment.CenterHorizontally),
+                        shapes = ButtonDefaults.shapes()
+                    ) {
+                        Text(text = translation["blacklist_state_button"])
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                var confirmationDialog by remember { mutableStateOf(false) }
+                if (confirmationDialog) {
+                    LazyColumnBottomSheet(
+                        onDismiss = { confirmationDialog = false },
+                    ) {
+                        Text(
+                            text = translation["clear_confirmation_text"],
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Medium,
+                            modifier = Modifier.padding(bottom = 10.dp)
+                        )
+
+                        HorizontalDivider(
+                            modifier = Modifier
+                                .padding(top = 15.dp, bottom = 10.dp)
+                                .fillMaxWidth()
+                        )
+
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End,
+                        ) {
+                            Button(
+                                onClick = { confirmationDialog = false },
+                                shapes = ButtonDefaults.shapes()
+                            ) {
+                                Text(text = translation["cancel_confirmation_button"])
+                            }
+                            Spacer(modifier = Modifier.width(10.dp))
+                            Button(
+                                onClick = {
+                                    context.database.clearRuleIds(currentRuleType.key)
+                                    context.coroutineScope.launch(context.database.executor.asCoroutineDispatcher()) {
+                                        updateDispatcher.dispatch()
+                                    }
+                                    confirmationDialog = false
+                                },
+                                shapes = ButtonDefaults.shapes()
+                            ) {
+                                Text(text = translation["confirm_confirmation_button"])
+                            }
+                        }
+                    }
+                }
+
+                Button(
+                    onClick = { confirmationDialog = true },
+                    modifier = Modifier.padding(vertical = 10.dp),
+                    shapes = ButtonDefaults.shapes()
+                ) {
                     Text(text = translation["clear_list_button"])
                 }
             }

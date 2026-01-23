@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.io.ByteArrayOutputStream
 
 plugins {
@@ -9,7 +10,7 @@ plugins {
 
 android {
     namespace = rootProject.ext["applicationId"].toString() + ".common"
-    compileSdk = 34
+    compileSdk = 36
 
     buildFeatures {
         aidl = true
@@ -38,8 +39,14 @@ android {
         targetCompatibility = JavaVersion.VERSION_21
     }
 
-    kotlinOptions {
-        jvmTarget = "21"
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_21)
+            freeCompilerArgs.addAll(
+                "-XXLanguage:+PropertyParamAnnotationDefaultTargetMode",
+                "-Xjvm-default=all"
+            )
+        }
     }
 }
 
@@ -49,9 +56,14 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.androidx.documentfile)
     implementation(libs.rhino)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.savedstate)
+    implementation(libs.androidx.activity.compose)
     implementation(libs.rhino.android) {
         exclude(group = "org.mozilla", module = "rhino-runtime")
     }
+    implementation(libs.androidx.compose.foundation)
 
     compileOnly(libs.androidx.activity.ktx)
     compileOnly(platform(libs.androidx.compose.bom))

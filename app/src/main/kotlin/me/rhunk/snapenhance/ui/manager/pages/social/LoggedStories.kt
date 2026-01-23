@@ -1,16 +1,22 @@
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 package me.rhunk.snapenhance.ui.manager.pages.social
 
 import android.content.Intent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.LocalOverscrollFactory
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,11 +33,12 @@ import me.rhunk.snapenhance.bridge.DownloadCallback
 import me.rhunk.snapenhance.common.data.FileType
 import me.rhunk.snapenhance.common.data.StoryData
 import me.rhunk.snapenhance.common.data.download.*
+import me.rhunk.snapenhance.common.ui.bottomSheetClipShape
+import me.rhunk.snapenhance.common.ui.bottomSheetShape
 import me.rhunk.snapenhance.common.util.ktx.longHashCode
 import me.rhunk.snapenhance.download.DownloadProcessor
 import me.rhunk.snapenhance.storage.getFriendInfo
 import me.rhunk.snapenhance.ui.manager.Routes
-import me.rhunk.snapenhance.ui.util.Dialog
 import me.rhunk.snapenhance.ui.util.coil.ImageRequestHelper
 import java.io.File
 import java.text.DateFormat
@@ -85,110 +92,121 @@ class LoggedStories : Routes.Route() {
                 ))
             }
 
-            Dialog(onDismissRequest = {
-                selectedStory = null
-            }) {
-                Card(
-                    modifier = Modifier
-                        .padding(4.dp)
-                ) {
-                    Column(
+            val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+
+            ModalBottomSheet(
+                onDismissRequest = { selectedStory = null  },
+                sheetState = sheetState,
+                sheetGesturesEnabled = false,
+                shape = bottomSheetShape
+            ) {
+                CompositionLocalProvider(LocalOverscrollFactory provides null) {
+                    LazyColumn(
                         modifier = Modifier
-                            .padding(16.dp)
-                            .fillMaxWidth(),
-                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                            .padding(10.dp)
+                            .clip(bottomSheetClipShape),
+                        verticalArrangement = Arrangement.spacedBy(3.dp)
                     ) {
-                        remember {
-                            story.postedAt.takeIf { it >= 0L }?.let {
-                                DateFormat.getDateTimeInstance().format(Date(it))
-                            }
-                        }?.let {
-                            Text(text = "Posted at $it")
-                        }
-                        remember {
-                            story.createdAt.takeIf { it >= 0L }?.let {
-                                DateFormat.getDateTimeInstance().format(Date(it))
-                            }
-                        }?.let {
-                            Text(text = "Created at $it")
-                        }
-
-                        FlowRow(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceEvenly,
-                        ) {
-                            Button(onClick = {
-                                context.androidContext.externalCacheDir?.let { cacheDir ->
-                                    context.imageLoader.diskCache?.openSnapshot(story.url)?.use { diskCacheSnapshot ->
-                                        val cacheFile = diskCacheSnapshot.data.toFile()
-                                        val targetFile = File(cacheDir, cacheFile.name).also {
-                                            it.deleteOnExit()
-                                        }
-
-                                        runCatching {
-                                            cacheFile.inputStream().let {
-                                                story.getEncryptionKeyPair()?.decryptInputStream(it) ?: it
-                                            }.use { inputStream ->
-                                                targetFile.outputStream().use { outputStream ->
-                                                    inputStream.copyTo(outputStream)
-                                                }
-                                            }
-
-                                            context.androidContext.startActivity(Intent().apply {
-                                                action = Intent.ACTION_VIEW
-                                                setDataAndType(
-                                                    FileProvider.getUriForFile(
-                                                        context.androidContext,
-                                                        "me.rhunk.snapenhance.fileprovider",
-                                                        targetFile
-                                                    ),
-                                                    FileType.fromFile(targetFile).mimeType
-                                                )
-                                                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_ACTIVITY_NEW_TASK)
-                                            })
-                                        }.onFailure {
-                                            context.shortToast("Failed to open file. Check logs for more info")
-                                            context.log.error("Failed to open file", it)
-                                        }
-                                    } ?: run {
-                                        context.shortToast("Failed to get file")
-                                        return@Button
+                        item {
+                            Column(
+                                modifier = Modifier
+                                    .padding(16.dp)
+                                    .fillMaxWidth(),
+                                verticalArrangement = Arrangement.spacedBy(8.dp)
+                            ) {
+                                remember {
+                                    story.postedAt.takeIf { it >= 0L }?.let {
+                                        DateFormat.getDateTimeInstance().format(Date(it))
                                     }
+                                }?.let {
+                                    Text(text = "Posted at $it")
                                 }
-                            }) {
-                                Text(text = context.translation["button.open"])
-                            }
+                                remember {
+                                    story.createdAt.takeIf { it >= 0L }?.let {
+                                        DateFormat.getDateTimeInstance().format(Date(it))
+                                    }
+                                }?.let {
+                                    Text(text = "Created at $it")
+                                }
 
-                            Button(onClick = {
-                                downloadSelectedStory(
-                                    InputMedia(
-                                        content = story.url,
-                                        type = DownloadMediaType.REMOTE_MEDIA,
-                                        encryption = story.getEncryptionKeyPair()
-                                    )
-                                )
-                            }) {
-                                Text(text = context.translation["button.download"])
-                            }
+                                FlowRow(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.SpaceEvenly
+                                ) {
+                                    Button(onClick = {
+                                        context.androidContext.externalCacheDir?.let { cacheDir ->
+                                            context.imageLoader.diskCache?.openSnapshot(story.url)?.use { diskCacheSnapshot ->
+                                                val cacheFile = diskCacheSnapshot.data.toFile()
+                                                val targetFile = File(cacheDir, cacheFile.name).also {
+                                                    it.deleteOnExit()
+                                                }
 
-                            if (remember {
-                                context.imageLoader.diskCache?.openSnapshot(story.url)?.also { it.close() } != null
-                            }) {
-                                Button(onClick = {
-                                    downloadSelectedStory(
-                                        InputMedia(
-                                            content = context.imageLoader.diskCache?.openSnapshot(story.url)?.use {
-                                                it.data.toFile().absolutePath
+                                                runCatching {
+                                                    cacheFile.inputStream().let {
+                                                        story.getEncryptionKeyPair()?.decryptInputStream(it) ?: it
+                                                    }.use { inputStream ->
+                                                        targetFile.outputStream().use { outputStream ->
+                                                            inputStream.copyTo(outputStream)
+                                                        }
+                                                    }
+
+                                                    context.androidContext.startActivity(Intent().apply {
+                                                        action = Intent.ACTION_VIEW
+                                                        setDataAndType(
+                                                            FileProvider.getUriForFile(
+                                                                context.androidContext,
+                                                                "me.rhunk.snapenhance.fileprovider",
+                                                                targetFile
+                                                            ),
+                                                            FileType.fromFile(targetFile).mimeType
+                                                        )
+                                                        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_ACTIVITY_NEW_TASK)
+                                                    })
+                                                }.onFailure {
+                                                    context.shortToast("Failed to open file. Check logs for more info")
+                                                    context.log.error("Failed to open file", it)
+                                                }
                                             } ?: run {
                                                 context.shortToast("Failed to get file")
                                                 return@Button
-                                            },
-                                            type = DownloadMediaType.LOCAL_MEDIA,
-                                            encryption = story.getEncryptionKeyPair()
+                                            }
+                                        }
+                                    }) {
+                                        Text(text = context.translation["button.open"])
+                                    }
+
+                                    Button(onClick = {
+                                        downloadSelectedStory(
+                                            InputMedia(
+                                                content = story.url,
+                                                type = DownloadMediaType.REMOTE_MEDIA,
+                                                encryption = story.getEncryptionKeyPair()
+                                            )
                                         )
-                                    )
-                                }) {
-                                    Text(text = translation["save_from_cache_button"])
+                                    }) {
+                                        Text(text = context.translation["button.download"])
+                                    }
+
+                                    if (remember {
+                                        context.imageLoader.diskCache?.openSnapshot(story.url)?.also { it.close() } != null
+                                    }) {
+                                        Button(onClick = {
+                                            downloadSelectedStory(
+                                                InputMedia(
+                                                    content = context.imageLoader.diskCache?.openSnapshot(story.url)?.use {
+                                                        it.data.toFile().absolutePath
+                                                    } ?: run {
+                                                        context.shortToast("Failed to get file")
+                                                        return@Button
+                                                    },
+                                                    type = DownloadMediaType.LOCAL_MEDIA,
+                                                    encryption = story.getEncryptionKeyPair()
+                                                )
+                                            )
+                                        }) {
+                                            Text(text = translation["save_from_cache_button"])
+                                        }
+                                    }
                                 }
                             }
                         }

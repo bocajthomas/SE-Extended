@@ -2,7 +2,7 @@ import com.android.build.gradle.internal.api.BaseVariantOutputImpl
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import org.gradle.configurationcache.extensions.capitalized
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.io.ByteArrayOutputStream
 import java.util.Locale
 
@@ -15,7 +15,7 @@ plugins {
 
 android {
     namespace = rootProject.ext["applicationId"].toString()
-    compileSdk = 34
+    compileSdk = 36
 
     buildFeatures {
         aidl = true
@@ -27,7 +27,7 @@ android {
         versionCode = rootProject.ext["appVersionCode"].toString().toInt()
         versionName = rootProject.ext["appVersionName"].toString()
         minSdk = 28
-        targetSdk = 34
+        targetSdk = 36
         multiDexEnabled = true
     }
 
@@ -108,8 +108,14 @@ android {
         targetCompatibility = JavaVersion.VERSION_21
     }
 
-    kotlinOptions {
-        jvmTarget = "21"
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_21)
+            freeCompilerArgs.addAll(
+                "-XXLanguage:+PropertyParamAnnotationDefaultTargetMode",
+                "-Xjvm-default=all"
+            )
+        }
     }
 }
 
@@ -139,6 +145,9 @@ dependencies {
     implementation(libs.osmdroid.android)
     implementation(libs.rhino)
     implementation(libs.androidx.activity.ktx)
+    implementation(libs.shizuku.api)
+    implementation(libs.shizuku.provider)
+    implementation(libs.capsule)
     fullImplementation(platform(libs.androidx.compose.bom))
     fullImplementation(libs.bcprov.jdk18on)
     fullImplementation(libs.androidx.navigation.compose)
@@ -150,6 +159,10 @@ dependencies {
     fullImplementation(libs.coil.video)
     fullImplementation(libs.colorpicker.compose)
     fullImplementation(libs.androidx.ui.tooling.preview)
+    fullImplementation(libs.haze)
+    fullImplementation(libs.haze.materials)
+    fullImplementation(libs.androidliquidglass)
+
     properties["debug_flavor"]?.let {
         debugImplementation(libs.androidx.ui.tooling)
     }

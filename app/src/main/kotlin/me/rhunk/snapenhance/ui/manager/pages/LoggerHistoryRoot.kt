@@ -1,20 +1,26 @@
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 package me.rhunk.snapenhance.ui.manager.pages
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.Download
 import androidx.compose.material.icons.rounded.Search
+import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -36,6 +42,9 @@ import me.rhunk.snapenhance.common.data.download.DownloadMetadata
 import me.rhunk.snapenhance.common.data.download.DownloadRequest
 import me.rhunk.snapenhance.common.data.download.MediaDownloadSource
 import me.rhunk.snapenhance.common.data.download.createNewFilePath
+import me.rhunk.snapenhance.common.ui.cardShape
+import me.rhunk.snapenhance.common.ui.cardShapeSingle
+import me.rhunk.snapenhance.common.ui.lazyColumnContentPadding
 import me.rhunk.snapenhance.common.ui.rememberAsyncMutableState
 import me.rhunk.snapenhance.common.ui.transparentTextFieldColors
 import me.rhunk.snapenhance.common.util.ktx.copyToClipboard
@@ -45,14 +54,14 @@ import me.rhunk.snapenhance.core.features.impl.downloader.decoder.DecodedAttachm
 import me.rhunk.snapenhance.core.features.impl.downloader.decoder.MessageDecoder
 import me.rhunk.snapenhance.download.DownloadProcessor
 import me.rhunk.snapenhance.storage.findFriend
+import me.rhunk.snapenhance.ui.components.LazyColumnBottomSheet
 import me.rhunk.snapenhance.ui.manager.Routes
 import java.text.DateFormat
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.math.absoluteValue
 
-
 class LoggerHistoryRoot : Routes.Route() {
-    private lateinit var loggerWrapper: LoggerWrapper
+    private var loggerWrapper: LoggerWrapper? by mutableStateOf(null)
     private var selectedConversation by mutableStateOf<String?>(null)
     private var stringFilter by mutableStateOf("")
     private var reverseOrder by mutableStateOf(true)
@@ -105,15 +114,15 @@ class LoggerHistoryRoot : Routes.Route() {
 
     @OptIn(ExperimentalLayoutApi::class)
     @Composable
-    private fun MessageView(message: LoggedMessage) {
+    private fun MessageView(message: LoggedMessage, shape: Shape) {
         var contentView by remember { mutableStateOf<@Composable () -> Unit>({
             Spacer(modifier = Modifier.height(30.dp))
         }) }
+        val currentWrapper = loggerWrapper
 
         OutlinedCard(
-            modifier = Modifier
-                .padding(2.dp)
-                .fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            shape = shape,
         ) {
             Row(
                 modifier = Modifier
@@ -144,7 +153,7 @@ class LoggerHistoryRoot : Routes.Route() {
                                             })
 
                                         val edits by rememberAsyncMutableState(defaultValue = emptyList()) {
-                                            loggerWrapper.getChatEdits(selectedConversation!!, message.messageId)
+                                            currentWrapper?.getChatEdits(selectedConversation!!, message.messageId) ?: emptyList()
                                         }
                                         edits.forEach { messageEdit ->
                                             val date = remember {
@@ -212,149 +221,191 @@ class LoggerHistoryRoot : Routes.Route() {
         }
     }
 
+    override val topBarSubActions: @Composable (RowScope.() -> Unit) = {
+        var expanded by remember { mutableStateOf(false) }
+        val conversationInfoCache = remember { ConcurrentHashMap<String, String>() }
+        val wrapper = loggerWrapper
+        var conversations by remember { mutableStateOf<List<String>>(emptyList()) }
+
+        LaunchedEffect(wrapper) {
+            if (wrapper != null) {
+                conversations = withContext(Dispatchers.IO) {
+                    wrapper.getAllConversations().toList()
+                }
+            }
+        }
+
+        ExposedDropdownMenuBox(
+            modifier = Modifier.padding(horizontal = 8.dp).fillMaxWidth(),
+            expanded = expanded,
+            onExpandedChange = { expanded = it && wrapper != null },
+        ) {
+            fun formatConversationInfo(conversationInfo: ConversationInfo?): String? {
+                if (conversationInfo == null) return null
+                return conversationInfo.groupTitle?.let {
+                    translation.format("list_group_format", "name" to it)
+                } ?: conversationInfo.usernames.takeIf { it.size > 1 }?.let {
+                    translation.format("list_friend_format", "name" to ("(" + it.joinToString(", ") + ")"))
+                } ?: context.database.findFriend(conversationInfo.conversationId)?.let {
+                    translation.format("list_friend_format", "name" to "(" + (conversationInfo.usernames + listOf(it.mutableUsername)).toSet().joinToString(", ") + ")")
+                } ?: conversationInfo.usernames.firstOrNull()?.let {
+                    translation.format("list_friend_format", "name" to "($it)")
+                }
+            }
+
+            val selectedConversationInfo by rememberAsyncMutableState(defaultValue = null, keys = arrayOf(selectedConversation)) {
+                selectedConversation?.let {
+                    conversationInfoCache.getOrPut(it) {
+                        wrapper?.getConversationInfo(it)?.let { info -> formatConversationInfo(info) }
+                    }
+                }
+            }
+
+            OutlinedTextField(
+                value = selectedConversationInfo ?: if (wrapper == null) translation["loading_conversations"] else translation["select_conversation"],
+                onValueChange = {},
+                readOnly = true,
+                singleLine = true,
+                modifier = Modifier
+                    .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable)
+                    .fillMaxWidth(),
+                shape = cardShapeSingle,
+                enabled = wrapper != null,
+                trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) }
+            )
+            ExposedDropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                DropdownMenuGroup(
+                    shapes = MenuDefaults.groupShape(0, 1)
+                ) {
+                    if (conversations.isEmpty()) {
+                        DropdownMenuItem(
+                            selected = false,
+                            onClick = { expanded = false },
+                            text = { Text(translation["no_conversations_found"]) },
+                            shapes = MenuDefaults.itemShape(0, 1)
+                        )
+                    }
+
+                    conversations.forEachIndexed { index, conversationId ->
+                        val isSelected = conversationId == selectedConversation
+
+                        DropdownMenuItem(
+                            selected = isSelected,
+                            onClick = {
+                                selectedConversation = conversationId
+                                expanded = false
+                            },
+                            text = {
+                                val conversationInfo by rememberAsyncMutableState(defaultValue = null, keys = arrayOf(conversationId)) {
+                                    wrapper?.getConversationInfo(conversationId)?.let { info -> formatConversationInfo(info) }
+                                }
+                                Text(
+                                    text = remember(conversationInfo) { conversationInfo ?: conversationId },
+                                    overflow = TextOverflow.Ellipsis
+                                )
+                            },
+                            shapes = MenuDefaults.itemShape(index, conversations.size),
+                            trailingIcon = {
+                                if (isSelected) {
+                                    Icon(Icons.Rounded.Check, contentDescription = null)
+                                }
+                            }
+                        )
+                    }
+                }
+            }
+        }
+    }
+
 
     @OptIn(ExperimentalMaterial3Api::class)
     override val content: @Composable (NavBackStackEntry) -> Unit = {
-        LaunchedEffect(Unit) {
-            loggerWrapper = LoggerWrapper(context.androidContext)
+        DisposableEffect(Unit) {
+            onDispose {
+                selectedConversation = null
+                stringFilter = ""
+                isSearchBarVisibleState.value = false
+                searchFilterState.value = ""
+            }
         }
+        var hasReachedEnd by remember(selectedConversation, stringFilter, reverseOrder) { mutableStateOf(false) }
+        var lastFetchMessageTimestamp by remember(selectedConversation, stringFilter, reverseOrder) { mutableLongStateOf(if (reverseOrder) Long.MAX_VALUE else Long.MIN_VALUE) }
+        val messages = remember(selectedConversation, stringFilter, reverseOrder) { mutableStateListOf<LoggedMessage>() }
+        LaunchedEffect(Unit) {
+            if (loggerWrapper == null) {
+                loggerWrapper = LoggerWrapper(context.androidContext)
+            }
+        }
+        val wrapper = loggerWrapper
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(3.dp),
+            contentPadding = lazyColumnContentPadding(staticVertical = 15.dp, hasSubAction = true)
+        ) {
+            itemsIndexed(messages) { index, message ->
+                MessageView(message, cardShape(messages.size, index))
+            }
 
-        val conversationInfoCache = remember { ConcurrentHashMap<String, String?>() }
-
-        Column {
-            var expanded by remember { mutableStateOf(false) }
-
-            ExposedDropdownMenuBox(
-                expanded = expanded,
-                onExpandedChange = { expanded = it },
-            ) {
-                fun formatConversationInfo(conversationInfo: ConversationInfo?): String? {
-                    if (conversationInfo == null) return null
-
-                    return conversationInfo.groupTitle?.let {
-                        translation.format("list_group_format", "name" to it)
-                    } ?: conversationInfo.usernames.takeIf { it.size > 1 }?.let {
-                        translation.format("list_friend_format", "name" to ("(" + it.joinToString(", ") + ")"))
-                    } ?: context.database.findFriend(conversationInfo.conversationId)?.let {
-                        translation.format("list_friend_format", "name" to "(" + (conversationInfo.usernames + listOf(it.mutableUsername)).toSet().joinToString(", ") + ")")
-                    } ?: conversationInfo.usernames.firstOrNull()?.let {
-                        translation.format("list_friend_format", "name" to "($it)")
-                    }
-                }
-
-                val selectedConversationInfo by rememberAsyncMutableState(defaultValue = null, keys = arrayOf(selectedConversation)) {
-                    selectedConversation?.let {
-                        conversationInfoCache.getOrPut(it) {
-                            formatConversationInfo(loggerWrapper.getConversationInfo(it))
-                        }
-                    }
-                }
-
-                OutlinedTextField(
-                    value = selectedConversationInfo ?: "Select a conversation",
-                    onValueChange = {},
-                    readOnly = true,
-                    modifier = Modifier
-                        .menuAnchor(MenuAnchorType.PrimaryNotEditable)
-                        .fillMaxWidth()
-                )
-
-                val conversations by rememberAsyncMutableState(defaultValue = emptyList()) {
-                    loggerWrapper.getAllConversations().toMutableList()
-                }
-
-                ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
-                    conversations.forEach { conversationId ->
-                        DropdownMenuItem(onClick = {
-                            selectedConversation = conversationId
-                            expanded = false
-                        }, text = {
-                            val conversationInfo by rememberAsyncMutableState(defaultValue = null, keys = arrayOf(conversationId)) {
-                                conversationInfoCache.getOrPut(conversationId) {
-                                    formatConversationInfo(loggerWrapper.getConversationInfo(conversationId))
-                                }
-                            }
-
-                            Text(
-                                text = remember(conversationInfo) { conversationInfo ?: conversationId },
-                                fontWeight = if (conversationId == selectedConversation) FontWeight.Bold else FontWeight.Normal,
-                                overflow = TextOverflow.Ellipsis
+            item {
+                if (selectedConversation != null) {
+                    if (wrapper == null) {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center,
+                            modifier = Modifier.fillMaxSize()
+                        ) {
+                            CircularWavyProgressIndicator(
+                                modifier = Modifier.size(50.dp),
+                                color = MaterialTheme.colorScheme.onPrimary
                             )
-                        })
-                    }
-                }
-            }
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(2.dp),
-                horizontalArrangement = Arrangement.End
-            ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(2.dp),
-                ) {
-                    Text(translation["reverse_order_checkbox"])
-                    Checkbox(checked = reverseOrder, onCheckedChange = {
-                        reverseOrder = it
-                    })
-                }
-            }
-
-            var hasReachedEnd by remember(selectedConversation, stringFilter, reverseOrder) { mutableStateOf(false) }
-            var lastFetchMessageTimestamp by remember(selectedConversation, stringFilter, reverseOrder) { mutableLongStateOf(if (reverseOrder) Long.MAX_VALUE else Long.MIN_VALUE) }
-            val messages = remember(selectedConversation, stringFilter, reverseOrder) { mutableStateListOf<LoggedMessage>() }
-
-            LazyColumn {
-                items(messages) { message ->
-                    MessageView(message)
-                }
-                item {
-                    if (selectedConversation != null) {
-                        if (hasReachedEnd) {
-                            Text(translation["no_more_messages"], modifier = Modifier
-                                .padding(8.dp)
-                                .fillMaxWidth(), textAlign = TextAlign.Center)
-                        } else {
-                            Row(
-                                horizontalArrangement = Arrangement.Center,
-                                modifier = Modifier.fillMaxWidth()
-                            ) {
-                                CircularProgressIndicator(
-                                    modifier = Modifier
-                                        .height(20.dp)
-                                        .padding(8.dp)
-                                )
-                            }
+                        }
+                    } else if (hasReachedEnd) {
+                        Text(translation["no_more_messages"], modifier = Modifier
+                            .padding(8.dp)
+                            .fillMaxWidth(), textAlign = TextAlign.Center)
+                    } else {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center,
+                            modifier = Modifier.fillMaxSize()
+                        ) {
+                            CircularWavyProgressIndicator(
+                                modifier = Modifier.size(50.dp),
+                                color = MaterialTheme.colorScheme.onPrimary
+                            )
                         }
                     }
-                    LaunchedEffect(Unit, selectedConversation, stringFilter, reverseOrder) {
-                        withContext(Dispatchers.IO) {
-                            val newMessages = loggerWrapper.fetchMessages(
-                                selectedConversation ?: return@withContext,
-                                lastFetchMessageTimestamp,
-                                30,
-                                reverseOrder
-                            ) { messageData ->
-                                if (stringFilter.isEmpty()) return@fetchMessages true
-                                var isMatch = false
-                                decodeMessage(messageData) { contentType, messageReader, _ ->
-                                    if (contentType == ContentType.CHAT) {
-                                        val content = messageReader.getString(2, 1) ?: return@decodeMessage
-                                        isMatch = content.contains(stringFilter, ignoreCase = true)
-                                    }
+                }
+                LaunchedEffect(wrapper, selectedConversation, stringFilter, reverseOrder) {
+                    val currentWrapper = wrapper ?: return@LaunchedEffect
+
+                    withContext(Dispatchers.IO) {
+                        val newMessages = currentWrapper.fetchMessages(
+                            selectedConversation ?: return@withContext,
+                            lastFetchMessageTimestamp,
+                            30,
+                            reverseOrder
+                        ) { messageData ->
+                            if (stringFilter.isEmpty()) return@fetchMessages true
+                            var isMatch = false
+                            decodeMessage(messageData) { contentType, messageReader, _ ->
+                                if (contentType == ContentType.CHAT) {
+                                    val content = messageReader.getString(2, 1) ?: return@decodeMessage
+                                    isMatch = content.contains(stringFilter, ignoreCase = true)
                                 }
-                                isMatch
                             }
-                            if (newMessages.isEmpty()) {
-                                hasReachedEnd = true
-                                return@withContext
-                            }
-                            lastFetchMessageTimestamp = newMessages.lastOrNull()?.sendTimestamp ?: return@withContext
-                            withContext(Dispatchers.Main) {
-                                messages.addAll(newMessages)
-                            }
+                            isMatch
+                        }
+                        if (newMessages.isEmpty()) {
+                            hasReachedEnd = true
+                            return@withContext
+                        }
+                        lastFetchMessageTimestamp = newMessages.lastOrNull()?.sendTimestamp ?: return@withContext
+                        withContext(Dispatchers.Main) {
+                            messages.addAll(newMessages)
                         }
                     }
                 }
@@ -362,12 +413,20 @@ class LoggerHistoryRoot : Routes.Route() {
         }
     }
 
+    private var isSearchBarVisibleState = mutableStateOf(false)
+    private val searchFilterState = mutableStateOf("")
+
+    override val isSearchBarVisible: @Composable () -> Boolean = {
+        isSearchBarVisibleState.value
+    }
+
     override val topBarActions: @Composable (RowScope.() -> Unit) = {
         val focusRequester = remember { FocusRequester() }
-        var showSearchTextField by remember { mutableStateOf(false) }
+        var showSearchTextField by isSearchBarVisibleState
+        var showLoggerHistorySettings by remember { mutableStateOf(false) }
 
         if (showSearchTextField) {
-            var searchValue by remember { mutableStateOf("") }
+            var searchValue by searchFilterState
 
             TextField(
                 value = searchValue,
@@ -379,21 +438,76 @@ class LoggerHistoryRoot : Routes.Route() {
                 modifier = Modifier
                     .focusRequester(focusRequester)
                     .weight(1f, fill = true)
-                    .padding(end = 10.dp)
-                    .height(70.dp),
+                    .padding(end = 10.dp),
                 singleLine = true,
+                placeholder = { Text(text = translation["search_message_placeholder"]) },
                 colors = transparentTextFieldColors()
             )
 
             LaunchedEffect(Unit) {
                 focusRequester.requestFocus()
             }
+
+            DisposableEffect(key1 = Unit) {
+                onDispose {
+                    isSearchBarVisibleState.value = false
+                    searchValue = ""
+                }
+            }
         }
 
-        IconButton(onClick = {
-            showSearchTextField = !showSearchTextField
-            stringFilter = ""
-        }) {
+        if (showLoggerHistorySettings) {
+            LazyColumnBottomSheet(
+                onDismiss = { showLoggerHistorySettings = false }
+            ) {
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalArrangement = Arrangement.spacedBy(3.dp)
+                ) {
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = cardShapeSingle
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable {
+                                    reverseOrder = !reverseOrder
+                                }
+                                .padding(5.dp, 5.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text(translation["reverse_order_checkbox"])
+                            Checkbox(checked = reverseOrder, onCheckedChange = {
+                                reverseOrder = it
+                            })
+                        }
+                    }
+                }
+            }
+        }
+
+        IconButton(
+            onClick = {
+                showLoggerHistorySettings = true
+            },
+            shapes = IconButtonDefaults.shapes()
+        ) {
+            Icon(
+                imageVector = Icons.Rounded.Settings,
+                contentDescription = null
+            )
+        }
+
+
+        IconButton(
+            onClick = {
+                showSearchTextField = !showSearchTextField
+                stringFilter = ""
+            },
+            shapes = IconButtonDefaults.shapes()
+        ) {
             Icon(
                 imageVector = if (showSearchTextField) Icons.Rounded.Close
                 else Icons.Rounded.Search,

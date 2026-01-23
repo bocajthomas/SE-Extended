@@ -107,3 +107,66 @@ fun ActivityLauncherHelper.openFile(type: String = "*/*", callback: (uri: String
         callback(value)
     }
 }
+fun ActivityLauncherHelper.createFile(
+    fileName: String,
+    mimeType: String = "*/*",
+    callback: (uri: String) -> Unit
+) {
+    launch(
+        Intent(Intent.ACTION_CREATE_DOCUMENT)
+            .addCategory(Intent.CATEGORY_OPENABLE)
+            .setType(mimeType)
+            .putExtra(Intent.EXTRA_TITLE, fileName)
+            .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            .addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+    ) { resultCode, intent ->
+        if (resultCode != Activity.RESULT_OK) {
+            return@launch
+        }
+        val uri = intent?.data ?: return@launch
+        val value = uri.toString()
+
+        this.activity.contentResolver.takePersistableUriPermission(
+            uri,
+            Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+        )
+        callback(value)
+    }
+}
+fun ActivityLauncherHelper.openMultipleFiles(type: String = "*/*", callback: (uris: List<String>) -> Unit) {
+    launch(
+        Intent(Intent.ACTION_OPEN_DOCUMENT)
+            .addCategory(Intent.CATEGORY_OPENABLE)
+            .setType(type)
+            .putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+            .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            .addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+    ) { resultCode, intent ->
+        if (resultCode != Activity.RESULT_OK) {
+            return@launch
+        }
+        val uris = mutableListOf<String>()
+        intent?.let {
+            val clipData = it.clipData
+            if (clipData != null) {
+                for (i in 0 until clipData.itemCount) {
+                    val uri = clipData.getItemAt(i).uri
+                    uris.add(uri.toString())
+                    this.activity.contentResolver.takePersistableUriPermission(
+                        uri,
+                        Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                    )
+                }
+            } else {
+                val uri = it.data ?: return@let
+                uris.add(uri.toString())
+                this.activity.contentResolver.takePersistableUriPermission(
+                    uri,
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                )
+            }
+        }
+        callback(uris)
+    }
+}
+

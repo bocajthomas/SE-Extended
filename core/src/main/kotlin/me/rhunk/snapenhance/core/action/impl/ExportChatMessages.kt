@@ -358,7 +358,7 @@ class ExportChatMessages : AbstractAction() {
 
         val conversationName = feedEntry.feedDisplayName ?: conversationParticipants.values.take(3).joinToString("_") { it.mutableUsername ?: "" }
 
-        val publicFolder = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "SnapEnhance").also { if (!it.exists()) it.mkdirs() }
+        val publicFolder = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "SE Extended").also { if (!it.exists()) it.mkdirs() }
         val outputFile = publicFolder.resolve("conversation_${conversationName}_${System.currentTimeMillis()}.${exportParams.exportFormat.extension}")
 
         logDialog(translation.format("exporting_message", "conversation" to conversationName))

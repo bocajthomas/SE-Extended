@@ -1,0 +1,231 @@
+{
+  "donators": [
+    {
+      "name": "Feet",
+      "avatar_url": "https://ko-fi.com/img/anon3.png"
+    },
+    {
+      "name": "Knox",
+      "avatar_url": "https://ko-fi.com/img/anon7.png"
+    },
+    {
+      "name": "Anonymous",
+      "avatar_url": "https://ko-fi.com/img/anon2.png"
+    },
+    {
+      "name": "Bourguy",
+      "avatar_url": "https://ko-fi.com/img/anon2.png"
+    },
+    {
+      "name": "ColdLemur (Jimjomjambo)",
+      "avatar_url": "https://storage.ko-fi.com/cdn/useruploads/post/d4f700d1-dfbb-4d2b-99a0-a3cddfcf0bff_97740c4c-c004-49b2-80f3-a37bdd8aa79a.png"
+    },
+    {
+      "name": "flipflop",
+      "avatar_url": "https://storage.ko-fi.com/cdn/useruploads/post/8ab728c3-dd74-4c9f-9b5c-498dab5b75bc_1199d560-2374-4b9c-9f76-ab204e4c7fd1.png"
+    },
+    {
+      "name": "Ko-fi Supporter",
+      "avatar_url": "https://ko-fi.com/img/anon2.png"
+    }
+  ],
+
+  "contributors": [
+    {
+      "name": "ΞTΞRNAL",
+      "commits_url": "https://github.com/bocajthomas/SE-Extended/commits?author=particle-box&since=2024-05-30&until=2026-01-16",
+      "avatar_url": "https://avatars.githubusercontent.com/u/137927782",
+      "contributions": "3"
+    },
+    {
+      "name": "Caner Karaca",
+      "commits_url": "https://github.com/bocajthomas/SE-Extended/commits?author=CanerKaraca23&since=2024-05-30&until=2026-01-16",
+      "avatar_url": "https://avatars.githubusercontent.com/u/37447503",
+      "contributions": "1"
+    },
+    {
+      "name": "Feet Licker",
+      "commits_url": "https://github.com/bocajthomas/SE-Extended/wiki/Common-Issues#fix-app-not-installed-conflicting-package-error",
+      "avatar_url": "https://i.pinimg.com/736x/2c/47/d5/2c47d5dd5b532f83bb55c4cd6f5bd1ef.jpg",
+      "contributions": "1"
+    }
+  ],
+
+  "translators": [
+    {
+      "name": "Adam Sokolik",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/RediN.png",
+      "language": "Polish"
+    },
+    {
+      "name": "Aditya Akolkar",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/schrodingerspet.png",
+      "language": "Hindi, Japanese"
+    },
+    {
+      "name": "Akuma",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/AkumaLLC.png",
+      "language": "Japanese"
+    },
+    {
+      "name": "Allan Nordhøy",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/kingu.png",
+      "language": "Danish, Norwegian Bokmål, Swedish"
+    },
+    {
+      "name": "appelmoesGG",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/appelmoesgg.png",
+      "language": "Dutch"
+    },
+    {
+      "name": "Balázs Sipos",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/Balu3060.png",
+      "language": "Hungarian"
+    },
+    {
+      "name": "Brokoli5191",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/Brokoli5191.png",
+      "language": "German"
+    },
+    {
+      "name": "BᴏᴛXᴄʀᴀᴄK",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/djsangam1311.png",
+      "language": "Bengali"
+    },
+    {
+      "name": "Crescent",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/casvay.png",
+      "language": "Chinese (Simplified)"
+    },
+    {
+      "name": "Dicing",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/Dicing3274.png",
+      "language": "Chinese (Simplified)"
+    },
+    {
+      "name": "dnlweijers",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/dnlweijers.png",
+      "language": "Dutch"
+    },
+    {
+      "name": "E. Ta.",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/austintx__.png",
+      "language": "Arabic (Saudi Arabia)"
+    },
+    {
+      "name": "Esat Tuna BECAN",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/esattunabecan4.png",
+      "language": "Turkish"
+    },
+    {
+      "name": "fa1seut0pia",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/fa1seut0pia.png",
+      "language": "Chinese (Simplified)"
+    },
+    {
+      "name": "Fajar Shiddiq",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/Fajar_Shiddiq.png",
+      "language": "Indonesian"
+    },
+    {
+      "name": "Harkan",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/Harkan.png",
+      "language": "French"
+    },
+    {
+      "name": "Joel Hyvönen",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/TarZan.png",
+      "language": "Finnish"
+    },
+    {
+      "name": "John Joseph A. Gatchalian",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/JJGatchalian.png",
+      "language": "English"
+    },
+    {
+      "name": "Len bal",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/H0chim.png",
+      "language": "Dutch"
+    },
+    {
+      "name": "Lorena Lopez",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/Llopez.png",
+      "language": "Spanish"
+    },
+    {
+      "name": "Luis Schliewe",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/Kera.png",
+      "language": "German"
+    },
+    {
+      "name": "mevius",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/Mevius_030.png",
+      "language": "Chinese (Simplified)"
+    },
+    {
+      "name": "Pavel",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/RockMelt.png",
+      "language": "Romanian"
+    },
+    {
+      "name": "Polhem Lund",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/PolhemLund.png",
+      "language": "Swedish"
+    },
+    {
+      "name": "pyr4",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/Pyr4.png",
+      "language": "French"
+    },
+    {
+      "name": "Ricky Tigg",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/tigg.png",
+      "language": "Finnish"
+    },
+    {
+      "name": "RWDai",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/RWDai.png",
+      "language": "Chinese (Simplified)"
+    },
+    {
+      "name": "Suryadip Sarkar",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/suryadip.2008.png",
+      "language": "Bengali"
+    },
+    {
+      "name": "tekken",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/tekkenkkk.png",
+      "language": "Polish"
+    },
+    {
+      "name": "vanapro1",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/vanapro1.png",
+      "language": "Russian"
+    },
+    {
+      "name": "wout van wynsbergh",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/vanwynsberghewou.png",
+      "language": "Dutch"
+    },
+    {
+      "name": "Zain Ali",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/Zainali.png",
+      "language": "Urdu"
+    },
+    {
+      "name": "Максим Горпиніч",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/maksimgorpinic4.png",
+      "language": "Ukrainian"
+    },
+    {
+      "name": "Н. А.",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/pancak._.y.png",
+      "language": "Russian"
+    },
+    {
+      "name": "灯笼",
+      "avatar_url": "https://hosted.weblate.org/avatar/128/204a0d23eb094696.png",
+      "language": "Chinese (Simplified)"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "third-party-libs": [
+    {
+      "name": "SnapEnhance",
+      "description": "Original Project",
+      "github_url": "https://github.com/rhunk/SnapEnhance"
+    },
+    {
+      "name": "Libxposed",
+      "description": " Xposed Framework API",
+      "github_url": "https://github.com/libxposed/api"
+    },
+    {
+      "name": "FFmpeg Kit Full GPL",
+      "description": "FFmpeg Wrapper",
+      "github_url": "https://github.com/arthenica/ffmpeg-kit"
+    },
+    {
+      "name": "Osmdroid",
+      "description": "Maps",
+      "github_url": "https://github.com/osmdroid/osmdroid"
+    },
+    {
+      "name": "Coil",
+      "description": "Image Loading",
+      "github_url": "https://github.com/coil-kt/coil"
+    },
+    {
+      "name": "Dobby",
+      "description": "Hooking",
+      "github_url": "https://github.com/jmpews/Dobby"
+    },
+    {
+      "name": "Rhino",
+      "description": "JavaScript Engine",
+      "github_url": "https://github.com/mozilla/rhino"
+    },
+    {
+      "name": "Rhino Android",
+      "description": "Android port of Rhino",
+      "github_url": "https://github.com/F43nd1r/rhino-android"
+    },
+    {
+      "name": "Libsu",
+      "description": "Root Access",
+      "github_url": "https://github.com/topjohnwu/libsu"
+    },
+    {
+      "name": "Color Picker Compose",
+      "description": "Color Picker",
+      "github_url": "https://github.com/skydoves/colorpicker-compose"
+    },
+    {
+      "name": "Haze",
+      "description": "Blur",
+      "github_url": "https://github.com/chrisbanes/haze"
+    },
+    {
+      "name": "AndroidLiquidGlass",
+      "description": "Liquid Glass",
+      "github_url": "https://github.com/Kyant0/AndroidLiquidGlass"
+    }
+  ]
+}

@@ -26,7 +26,7 @@ class NativeLib {
             }
         }.onFailure {
             initialized = false
-            Log.e("SnapEnhance", "NativeLib init failed", it)
+            Log.e("Native", "NativeLib init failed", it)
         }.getOrThrow()
     }
 
@@ -36,7 +36,7 @@ class NativeLib {
         runCatching {
             nativeUnaryCallCallback(nativeRequestData)
         }.onFailure {
-            Log.e("SnapEnhance", "nativeUnaryCallCallback failed", it)
+            Log.e("Native", "nativeUnaryCallCallback failed", it)
         }
         if (nativeRequestData.canceled || !nativeRequestData.buffer.contentEquals(buffer)) return nativeRequestData
         return null
@@ -53,7 +53,7 @@ class NativeLib {
             runCatching {
                 callback()
             }.onFailure {
-                Log.e("SnapEnhance", "lockNativeDatabase callback failed", it)
+                Log.e("Native", "lockNativeDatabase callback failed", it)
             }
         }
     }

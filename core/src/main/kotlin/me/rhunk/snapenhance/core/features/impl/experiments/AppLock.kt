@@ -27,7 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
 import me.rhunk.snapenhance.common.Constants
-import me.rhunk.snapenhance.common.ui.AppMaterialTheme
+import me.rhunk.snapenhance.common.ui.theme.AppMaterialTheme
 import me.rhunk.snapenhance.common.ui.createComposeView
 import me.rhunk.snapenhance.core.event.events.impl.ActivityResultEvent
 import me.rhunk.snapenhance.core.features.Feature
@@ -65,7 +65,7 @@ class AppLock : Feature("AppLock") {
         hideRootView()
 
         val lockedView = rootContentView.findViewWithTag<View>("locked_view") ?: createComposeView(rootContentView.context) {
-            AppMaterialTheme(isDarkTheme = true) {
+            AppMaterialTheme(preferences = context.androidContext.getSharedPreferences("selected_theme", 0)) {
                 Surface(
                     color = MaterialTheme.colorScheme.surface,
                 ) {

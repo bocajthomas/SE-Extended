@@ -11,7 +11,6 @@ import me.rhunk.snapenhance.common.logger.AbstractLogger
 import me.rhunk.snapenhance.common.util.LazyBridgeValue
 import java.util.Locale
 
-
 class LocaleWrapper(
     private val fileHandleManager: LazyBridgeValue<FileHandleManager>
 ) {

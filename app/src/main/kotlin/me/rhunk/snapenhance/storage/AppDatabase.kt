@@ -111,5 +111,6 @@ class AppDatabase(
                 "content TEXT",
             ),
         ))
+        initBuiltInRepos()
     }
 }

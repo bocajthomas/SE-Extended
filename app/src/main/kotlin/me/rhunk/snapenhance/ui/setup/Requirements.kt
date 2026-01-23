@@ -7,6 +7,5 @@ object Requirements {
     const val SAVE_FOLDER = 0b0001000
     const val GRANT_PERMISSIONS = 0b0010000
     const val DISCLAIMER = 0b0100000
-    const val SIF = 0b1000000
 }
 

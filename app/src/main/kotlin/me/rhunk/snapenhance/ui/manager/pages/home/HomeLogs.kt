@@ -1,13 +1,14 @@
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 package me.rhunk.snapenhance.ui.manager.pages.home
 
-import android.net.Uri
 import androidx.compose.foundation.ScrollState
-import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.KeyboardDoubleArrowDown
 import androidx.compose.material.icons.rounded.KeyboardDoubleArrowUp
@@ -24,7 +25,6 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavBackStackEntry
@@ -41,6 +41,8 @@ import me.rhunk.snapenhance.ui.util.ActivityLauncherHelper
 import me.rhunk.snapenhance.ui.util.pullrefresh.PullRefreshIndicator
 import me.rhunk.snapenhance.ui.util.pullrefresh.rememberPullRefreshState
 import me.rhunk.snapenhance.ui.util.saveFile
+import me.rhunk.snapenhance.common.ui.lazyColumnContentPadding
+import androidx.core.net.toUri
 
 class HomeLogs : Routes.Route() {
     private val logListState by lazy { LazyListState(0) }
@@ -53,9 +55,10 @@ class HomeLogs : Routes.Route() {
     override val topBarActions: @Composable (RowScope.() -> Unit) = {
         var showDropDown by remember { mutableStateOf(false) }
 
-        IconButton(onClick = {
-            showDropDown = true
-        }) {
+        IconButton(
+            onClick = { showDropDown = true },
+            shapes = IconButtonDefaults.shapes()
+        ) {
             Icon(Icons.Rounded.MoreVert, contentDescription = null)
         }
 
@@ -78,7 +81,7 @@ class HomeLogs : Routes.Route() {
                 activityLauncherHelper.saveFile("SE Extended-logs-${System.currentTimeMillis()}.zip", "application/zip") { uri ->
                     context.coroutineScope.launch {
                         context.shortToast(translation["saving_logs_toast"])
-                        context.androidContext.contentResolver.openOutputStream(Uri.parse(uri))?.use {
+                        context.androidContext.contentResolver.openOutputStream(uri.toUri())?.use {
                             runCatching {
                                 context.log.exportLogsToZip(it)
                                 context.longToast(translation["saved_logs_success_toast"])
@@ -129,15 +132,12 @@ class HomeLogs : Routes.Route() {
             isRefreshing = true
             refreshLogs()
         }
-
         Box(
-            modifier = Modifier
-                .fillMaxSize()
+            modifier = Modifier.fillMaxSize()
         ) {
             LazyColumn(
-                modifier = Modifier
-                    .background(MaterialTheme.colorScheme.surface)
-                    .horizontalScroll(ScrollState(0)),
+                modifier = Modifier.horizontalScroll(ScrollState(0)),
+                contentPadding = lazyColumnContentPadding(staticVertical = 10.dp),
                 state = logListState
             ) {
                 item {
@@ -240,6 +240,7 @@ class HomeLogs : Routes.Route() {
                         logListState.scrollToItem(0)
                     }
                 },
+                shapes = IconButtonDefaults.shapes(),
                 enabled = firstVisibleItem != 0
             ) {
                 Icon(Icons.Rounded.KeyboardDoubleArrowUp, contentDescription = null)
@@ -251,6 +252,7 @@ class HomeLogs : Routes.Route() {
                         logListState.scrollToItem((logListState.layoutInfo.totalItemsCount - 1).takeIf { it >= 0 } ?: return@launch)
                     }
                 },
+                shapes = IconButtonDefaults.shapes(),
                 enabled = layoutInfo.visibleItemsInfo.lastOrNull()?.index != layoutInfo.totalItemsCount - 1
             ) {
                 Icon(Icons.Rounded.KeyboardDoubleArrowDown, contentDescription = null)

@@ -1,9 +1,8 @@
 package me.rhunk.snapenhance.ui.manager.data
 
-
 data class SnapchatAppInfo(
     val packageName: String,
-    val version: String,
+    val version: String?,
     val versionCode: Long,
     val isLSPatched: Boolean,
     val isSplitApk: Boolean?

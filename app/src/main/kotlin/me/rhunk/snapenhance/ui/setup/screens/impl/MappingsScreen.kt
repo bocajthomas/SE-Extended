@@ -1,20 +1,29 @@
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 package me.rhunk.snapenhance.ui.setup.screens.impl
 
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.CircularWavyProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import me.rhunk.snapenhance.common.ui.columnPadding
+import me.rhunk.snapenhance.ui.components.LazyColumnBottomSheet
 import me.rhunk.snapenhance.ui.setup.screens.SetupScreen
-import me.rhunk.snapenhance.ui.util.AlertDialogs
+import me.rhunk.snapenhance.ui.util.BottomSheets
 
 class MappingsScreen : SetupScreen() {
+    override val shouldDisableBottomBar = true
+
     @Composable
     override fun Content() {
         val coroutineScope = rememberCoroutineScope()
@@ -27,8 +36,10 @@ class MappingsScreen : SetupScreen() {
                 goNext()
             }
 
-            Dialog(onDismissRequest = { dismiss() }) {
-                remember { AlertDialogs(context.translation) }.InfoDialog(title = infoText!!) {
+            LazyColumnBottomSheet(
+                onDismiss = { dismiss() },
+            ) {
+                remember { BottomSheets(context.translation) }.InfoBottomSheet(title = infoText!!) {
                     dismiss()
                 }
             }
@@ -64,14 +75,17 @@ class MappingsScreen : SetupScreen() {
         }
 
         if (isGenerating) {
-            DialogText(text = context.translation["setup.mappings.dialog"])
-            CircularProgressIndicator(
-                modifier = Modifier
-                    .padding()
-                    .size(50.dp),
-                strokeWidth = 3.dp,
-                color = MaterialTheme.colorScheme.onPrimary
-            )
+            Column(
+                modifier = Modifier.fillMaxSize().columnPadding(staticVertical = 10.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                DialogText(text = context.translation["setup.mappings.info"])
+                CircularWavyProgressIndicator(
+                    modifier = Modifier.size(50.dp),
+                    color = MaterialTheme.colorScheme.onPrimary
+                )
+            }
         }
     }
 }

@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.rust.android)
     alias(libs.plugins.androidLibrary)
@@ -8,8 +10,8 @@ val nativeName = rootProject.ext.get("buildHash")
 
 android {
     namespace = rootProject.ext["applicationId"].toString() + ".nativelib"
-    compileSdk = 34
-    buildToolsVersion = "34.0.0"
+    compileSdk = 36
+    buildToolsVersion = "36.0.0"
     ndkVersion = System.getenv("ANDROID_NDK_HOME")?.trimEnd('/')?.substringAfterLast("/") ?: "27.1.12297006"
 
     buildFeatures {
@@ -26,8 +28,14 @@ android {
         targetCompatibility = JavaVersion.VERSION_21
     }
 
-    kotlinOptions {
-        jvmTarget = "21"
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_21)
+            freeCompilerArgs.addAll(
+                "-XXLanguage:+PropertyParamAnnotationDefaultTargetMode",
+                "-Xjvm-default=all"
+            )
+        }
     }
 }
 

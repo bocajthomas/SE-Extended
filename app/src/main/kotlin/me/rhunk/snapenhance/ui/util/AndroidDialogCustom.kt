@@ -1,6 +1,5 @@
 package me.rhunk.snapenhance.ui.util
 
-
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context

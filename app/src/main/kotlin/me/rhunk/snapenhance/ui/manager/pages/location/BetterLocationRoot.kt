@@ -1,9 +1,13 @@
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 package me.rhunk.snapenhance.ui.manager.pages.location
 
 import android.os.Parcel
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.DeleteOutline
@@ -13,6 +17,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -31,7 +36,7 @@ import me.rhunk.snapenhance.storage.addOrUpdateLocationCoordinate
 import me.rhunk.snapenhance.storage.getLocationCoordinates
 import me.rhunk.snapenhance.storage.removeLocationCoordinate
 import me.rhunk.snapenhance.ui.manager.Routes
-import me.rhunk.snapenhance.ui.util.AlertDialogs
+import me.rhunk.snapenhance.ui.util.BottomSheets
 import me.rhunk.snapenhance.ui.util.DialogProperties
 import me.rhunk.snapenhance.ui.util.coil.BitmojiImage
 import org.osmdroid.util.GeoPoint
@@ -39,17 +44,19 @@ import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Marker
 
 class BetterLocationRoot : Routes.Route() {
-    private val alertDialogs by lazy { AlertDialogs(context.translation) }
+    private val bottomSheets by lazy { BottomSheets(context.translation) }
 
     @Composable
     private fun FriendLocationItem(
         friendLocation: FriendLocation,
         dismiss: () -> Unit
     ) {
-        ElevatedCard(onClick = {
-            context.config.root.global.betterLocation.coordinates.setAny(friendLocation.latitude to friendLocation.longitude)
-            dismiss()
-        }, modifier = Modifier.padding(4.dp)) {
+        ElevatedCard(
+            onClick = {
+                context.config.root.global.betterLocation.coordinates.setAny(friendLocation.latitude to friendLocation.longitude)
+                dismiss()
+                      },
+            modifier = Modifier.padding(4.dp)) {
             Row(
                 modifier = Modifier
                     .padding(8.dp)
@@ -189,7 +196,6 @@ class BetterLocationRoot : Routes.Route() {
                 }
             )
         }
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -213,7 +219,7 @@ class BetterLocationRoot : Routes.Route() {
                     onDismissRequest = { addSavedCoordinateDialog = false },
                     content = {
                         AddCoordinatesDialog(
-                            alertDialogs,
+                            bottomSheets,
                             translation,
                             LocationCoordinates().apply {
                                 this.latitude = marker.value?.position?.latitude ?: 0.0
@@ -235,7 +241,7 @@ class BetterLocationRoot : Routes.Route() {
                 me.rhunk.snapenhance.ui.util.Dialog(
                     onDismissRequest = { showMap = false },
                     content = {
-                        alertDialogs.ChooseLocationDialog(property = coordinatesProperty, marker, mapView, saveCoordinates = {
+                        bottomSheets.ChooseLocationBottomSheet(property = coordinatesProperty, marker, mapView, saveCoordinates = {
                             addSavedCoordinateDialog = true
                         }) {
                             showMap = false
@@ -299,10 +305,16 @@ class BetterLocationRoot : Routes.Route() {
                         horizontalArrangement = Arrangement.SpaceEvenly,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Button(onClick = { showMap = true }) {
+                        Button(
+                            onClick = { showMap = true },
+                            shapes = ButtonDefaults.shapes()
+                        ) {
                             Text(translation["choose_location_button"])
                         }
-                        Button(onClick = { showTeleportDialog = true }) {
+                        Button(
+                            onClick = { showTeleportDialog = true },
+                            shapes = ButtonDefaults.shapes()
+                        ) {
                             Text(translation["teleport_to_friend_button"])
                         }
                     }
@@ -322,9 +334,8 @@ class BetterLocationRoot : Routes.Route() {
                             lineHeight = 20.sp
                         )
                         IconButton(
-                            onClick = {
-                                addSavedCoordinateDialog = true
-                            }
+                            onClick = { addSavedCoordinateDialog = true },
+                            shapes = IconButtonDefaults.shapes()
                         ) {
                             Icon(Icons.Rounded.Add, contentDescription = "Add")
                         }
@@ -358,7 +369,7 @@ class BetterLocationRoot : Routes.Route() {
                         me.rhunk.snapenhance.ui.util.Dialog(
                             onDismissRequest = { showDeleteDialog = false },
                             content = {
-                                alertDialogs.ConfirmDialog(
+                                bottomSheets.ConfirmBottomSheet(
                                     title = translation["delete_dialog_title"],
                                     message = translation["delete_dialog_message"],
                                     onConfirm = {
@@ -379,7 +390,7 @@ class BetterLocationRoot : Routes.Route() {
                             onDismissRequest = { showEditDialog = false },
                             content = {
                                 AddCoordinatesDialog(
-                                    alertDialogs,
+                                    bottomSheets,
                                     translation,
                                     mutableCoordinates
                                 ) {
@@ -414,6 +425,7 @@ class BetterLocationRoot : Routes.Route() {
                                 }
                             }
                         },
+                        shape = RoundedCornerShape(15.dp),
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(5.dp),
@@ -444,15 +456,17 @@ class BetterLocationRoot : Routes.Route() {
                                     overflow = TextOverflow.Ellipsis
                                 )
                             }
-                            FilledIconButton(onClick = {
-                                showEditDialog = true
-                            }) {
+                            FilledIconButton(
+                                onClick = { showEditDialog = true },
+                                shapes = IconButtonDefaults.shapes()
+                            ) {
                                 Icon(Icons.Rounded.Edit, contentDescription = "Delete")
                             }
                             Spacer(modifier = Modifier.width(4.dp))
-                            FilledIconButton(onClick = {
-                                showDeleteDialog = true
-                            }) {
+                            FilledIconButton(
+                                onClick = { showDeleteDialog = true },
+                                shapes = IconButtonDefaults.shapes()
+                            ) {
                                 Icon(Icons.Rounded.DeleteOutline, contentDescription = "Delete")
                             }
                         }

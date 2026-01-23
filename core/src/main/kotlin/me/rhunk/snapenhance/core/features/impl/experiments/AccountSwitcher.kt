@@ -23,7 +23,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import me.rhunk.snapenhance.common.data.FileType
-import me.rhunk.snapenhance.common.ui.AppMaterialTheme
+import me.rhunk.snapenhance.common.ui.theme.AppMaterialTheme
 import me.rhunk.snapenhance.common.ui.createComposeAlertDialog
 import me.rhunk.snapenhance.common.util.ktx.toParcelFileDescriptor
 import me.rhunk.snapenhance.common.util.snap.MediaDownloaderHelper
@@ -239,7 +239,7 @@ class AccountSwitcher: Feature("Account Switcher") {
     private fun showManagementPopup() {
         context.runOnUiThread {
             createComposeAlertDialog(context.mainActivity!!) {
-                AppMaterialTheme(isDarkTheme = true) {
+                AppMaterialTheme(preferences = context.androidContext.getSharedPreferences("selected_theme", Activity.MODE_PRIVATE)) {
                     Surface(
                         modifier = Modifier.fillMaxWidth(),
                         color = MaterialTheme.colorScheme.surface

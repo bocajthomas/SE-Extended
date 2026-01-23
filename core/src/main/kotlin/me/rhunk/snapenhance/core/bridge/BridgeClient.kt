@@ -143,7 +143,7 @@ class BridgeClient(
         }
         cacheSnapEnhanceApkPath = this.service.applicationApkPath.also {
             if (cacheSnapEnhanceApkPath != null && cacheSnapEnhanceApkPath != it) {
-                context.log.verbose("Restarting Snapchat due to SnapEnhance update")
+                context.log.verbose("Restarting Snapchat due to SE Extended update")
                 context.softRestartApp()
                 return
             }

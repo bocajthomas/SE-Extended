@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = rootProject.ext["applicationId"].toString() + ".composer"
-    compileSdk = 34
+    compileSdk = 36
 
     sourceSets {
         getByName("main") {

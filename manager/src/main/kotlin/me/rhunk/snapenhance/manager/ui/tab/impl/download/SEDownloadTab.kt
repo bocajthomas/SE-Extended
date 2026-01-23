@@ -217,7 +217,7 @@ class SEDownloadTab : Tab("se_download") {
                         Button(
                             onClick = {
                                 navigation.navigateTo(RepackageTab::class, Bundle().apply {
-                                    putString("apkPath", snapEnhanceApp.applicationInfo.sourceDir)
+                                    putString("apkPath", snapEnhanceApp.applicationInfo?.sourceDir)
                                     putString("oldPackage", snapEnhanceApp.packageName)
                                 }, noHistory = true)
                             },

@@ -1,6 +1,6 @@
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 package me.rhunk.snapenhance.ui.manager.pages.tracker
 
-import android.net.Uri
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -8,13 +8,14 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.DeleteOutline
 import androidx.compose.material.icons.filled.FilterList
+import androidx.compose.material.icons.rounded.Palette
+import androidx.compose.material.icons.rounded.PersonSearch
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -29,15 +30,16 @@ import me.rhunk.snapenhance.RemoteSideContext
 import me.rhunk.snapenhance.common.bridge.wrapper.TrackerLog
 import me.rhunk.snapenhance.common.data.MessagingFriendInfo
 import me.rhunk.snapenhance.common.data.TrackerEventType
+import me.rhunk.snapenhance.common.ui.columnPadding
 import me.rhunk.snapenhance.common.util.snap.BitmojiSelfie
 import me.rhunk.snapenhance.storage.getFriendInfo
 import me.rhunk.snapenhance.ui.util.ActivityLauncherHelper
 import me.rhunk.snapenhance.ui.util.coil.BitmojiImage
 import me.rhunk.snapenhance.ui.util.saveFile
 import java.text.DateFormat
+import androidx.core.net.toUri
+import me.rhunk.snapenhance.ui.components.LazyColumnBottomSheet
 
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LogsTab(
     context: RemoteSideContext,
@@ -91,15 +93,15 @@ fun LogsTab(
         isLoading = false
     }
 
-    var showDeleteDialog by remember { mutableStateOf(false) }
-    var showExportSelectionDialog by remember { mutableStateOf(false) }
+    var showDeleteBottomSheet by remember { mutableStateOf(false) }
+    var showExportSelectionBottomSheet by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
-        deleteAction { showDeleteDialog = true }
-        exportAction { showExportSelectionDialog = true }
+        deleteAction { showDeleteBottomSheet = true }
+        exportAction { showExportSelectionBottomSheet = true }
     }
 
-    if (showDeleteDialog) {
+    if (showDeleteBottomSheet) {
         val deleteCoroutineScope = rememberCoroutineScope { Dispatchers.IO }
         var deleteLogsTask by remember { mutableStateOf<Job?>(null) }
         var deletedLogsCount by remember { mutableIntStateOf(0) }
@@ -122,7 +124,7 @@ fun LogsTab(
                     delay(500)
                     resetAndLoadLogs()
                     context.shortToast("Deleted $deletedLogsCount logs")
-                    showDeleteDialog = false
+                    showDeleteBottomSheet = false
                 }
             }
         }
@@ -133,22 +135,43 @@ fun LogsTab(
             }
         }
 
-        AlertDialog(
-            onDismissRequest = { showDeleteDialog = false },
-            title = { Text("Delete logs?") },
-            text = {
+        LazyColumnBottomSheet(
+            onDismiss = { showDeleteBottomSheet = false },
+        ) {
+            Text(context.translation["manager.dialogs.delete_logs.title"])
+
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
                 if (deleteLogsTask != null) {
-                    Text("Deleting $deletedLogsCount logs...")
+                    Text(context.translation.format("manager.dialogs.delete_logs.deleting_hint", "count" to deletedLogsCount.toString()))
                 } else {
-                    Text("This will delete logs based on the current filter and the search query. This action cannot be undone.")
+                    Text(context.translation["manager.dialogs.delete_logs.content"])
                 }
-            },
-            confirmButton = {
+            }
+            HorizontalDivider(
+                modifier = Modifier
+                    .padding(top = 15.dp, bottom = 10.dp)
+                    .fillMaxWidth()
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End,
+            ) {
+                Button(
+                    onClick = { showDeleteBottomSheet = false },
+                    shapes = ButtonDefaults.shapes()
+                ) {
+                    Text(context.translation["button.cancel"])
+                }
+                Spacer(modifier = Modifier.width(10.dp))
                 Button(
                     enabled = deleteLogsTask == null,
                     onClick = {
                         deleteLogs()
-                    }
+                    },
+                    shapes = ButtonDefaults.shapes()
                 ) {
                     if (deleteLogsTask != null) {
                         CircularProgressIndicator(modifier = Modifier
@@ -156,19 +179,14 @@ fun LogsTab(
                             strokeWidth = 3.dp
                         )
                     } else {
-                        Text("Delete")
+                        Text(context.translation["manager.dialogs.delete_logs.delete_button"])
                     }
                 }
-            },
-            dismissButton = {
-                Button(onClick = { showDeleteDialog = false }) {
-                    Text(context.translation["button.cancel"])
-                }
             }
-        )
+        }
     }
 
-    if (showExportSelectionDialog) {
+    if (showExportSelectionBottomSheet) {
         val exportCoroutineScope = rememberCoroutineScope { Dispatchers.IO }
         var exportTask by remember { mutableStateOf<Job?>(null) }
         var exportType by remember { mutableStateOf("json") }
@@ -176,7 +194,7 @@ fun LogsTab(
         fun exportLogs() {
             activityLauncherHelper.saveFile("tracker_logs_${System.currentTimeMillis()}.$exportType") { uri ->
                 exportTask = exportCoroutineScope.launch {
-                    context.androidContext.contentResolver.openOutputStream(Uri.parse(uri))?.use {
+                    context.androidContext.contentResolver.openOutputStream(uri.toUri())?.use {
                         val writer = it.writer()
                         val jsonWriter by lazy {
                             JsonWriter(writer).apply {
@@ -215,7 +233,7 @@ fun LogsTab(
                 }.apply {
                     invokeOnCompletion {
                         exportTask = null
-                        showExportSelectionDialog = false
+                        showExportSelectionBottomSheet = false
                         if (it == null) {
                             context.shortToast("Exported logs!")
                         } else {
@@ -227,53 +245,68 @@ fun LogsTab(
             }
         }
 
-        AlertDialog(
-            onDismissRequest = { showExportSelectionDialog = false },
-            title = { Text("Export logs?") },
-            text = {
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    if (exportTask != null) {
-                        Text("Exporting logs...")
-                    } else {
-                        Text("This will export logs based on the current filter and the search query.")
-                        Spacer(modifier = Modifier.height(10.dp))
-                        var expanded by remember { mutableStateOf(false) }
-                        ExposedDropdownMenuBox(
-                            expanded = expanded,
-                            onExpandedChange = { expanded = it },
+        LazyColumnBottomSheet(
+            onDismiss = { showExportSelectionBottomSheet = false },
+        ) {
+            Text(context.translation["manager.dialogs.export_logs.title"])
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                if (exportTask != null) {
+                    Text(context.translation["manager.dialogs.export_logs.export_hint"])
+                } else {
+                    Text(context.translation["manager.dialogs.export_logs.content"])
+                    Spacer(modifier = Modifier.height(10.dp))
+                    var expanded by remember { mutableStateOf(false) }
+                    ExposedDropdownMenuBox(
+                        expanded = expanded,
+                        onExpandedChange = { expanded = it },
+                    ) {
+                        Card(
+                            modifier = Modifier
+                                .menuAnchor(MenuAnchorType.PrimaryNotEditable)
+                                .padding(2.dp)
                         ) {
-                            Card(
-                                modifier = Modifier
-                                    .menuAnchor(MenuAnchorType.PrimaryNotEditable)
-                                    .padding(2.dp)
-                            ) {
-                                Text("Export as $exportType", modifier = Modifier.padding(8.dp))
-                            }
-                            DropdownMenu(expanded = expanded, onDismissRequest = {
-                                expanded = false
-                            }) {
-                                listOf("json", "csv").forEach { type ->
-                                    DropdownMenuItem(onClick = {
-                                        exportType = type
-                                        expanded = false
-                                    }, text = {
-                                        Text(type)
-                                    })
-                                }
+                            Text(context.translation["manager.dialogs.export_logs.export_as"] + " " + exportType, modifier = Modifier.padding(8.dp))
+                        }
+                        DropdownMenu(expanded = expanded, onDismissRequest = {
+                            expanded = false
+                        }) {
+                            listOf("json", "csv").forEach { type ->
+                                DropdownMenuItem(onClick = {
+                                    exportType = type
+                                    expanded = false
+                                }, text = {
+                                    Text(type)
+                                })
                             }
                         }
                     }
                 }
-            },
-            confirmButton = {
+            }
+            HorizontalDivider(
+                modifier = Modifier
+                    .padding(top = 15.dp, bottom = 10.dp)
+                    .fillMaxWidth()
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End,
+            ) {
+                Button(
+                    onClick = { showExportSelectionBottomSheet = false },
+                    shapes = ButtonDefaults.shapes()
+                ) {
+                    Text(context.translation["button.cancel"])
+                }
+                Spacer(modifier = Modifier.width(10.dp))
                 Button(
                     enabled = exportTask == null,
                     onClick = {
                         exportLogs()
-                    }
+                    },
+                    shapes = ButtonDefaults.shapes()
                 ) {
                     if (exportTask != null) {
                         CircularProgressIndicator(modifier = Modifier
@@ -281,16 +314,11 @@ fun LogsTab(
                             strokeWidth = 3.dp
                         )
                     } else {
-                        Text("Export")
+                        Text(context.translation["manager.dialogs.export_logs.export_button"])
                     }
                 }
-            },
-            dismissButton = {
-                Button(onClick = { showExportSelectionDialog = false }) {
-                    Text(context.translation["button.cancel"])
-                }
             }
-        )
+        }
     }
 
 
@@ -315,15 +343,21 @@ fun LogsTab(
                         .padding(8.dp),
                     horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
-                    Button(onClick = {
-                        showDatePicker = false
-                        sinceDatePickerState.selectedDateMillis = null
-                    }) {
+                    Button(
+                        onClick = {
+                            showDatePicker = false
+                            sinceDatePickerState.selectedDateMillis = null
+                        },
+                        shapes = ButtonDefaults.shapes()
+                    ) {
                         Text(context.translation["button.cancel"])
                     }
-                    Button(onClick = {
-                        showDatePicker = false
-                    }) {
+                    Button(
+                        onClick = {
+                            showDatePicker = false
+                        },
+                        shapes = ButtonDefaults.shapes()
+                    ) {
                         Text(context.translation["button.ok"])
                     }
                 }
@@ -393,9 +427,12 @@ fun LogsTab(
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(if (reverseSortOrder) "Since" else "Until")
-                    Button(onClick = {
-                        showDatePicker = true
-                    }) {
+                    Button(
+                        onClick = {
+                            showDatePicker = true
+                        },
+                        shapes = ButtonDefaults.shapes()
+                    ) {
                         Text(remember(showDatePicker) {
                             sinceDatePickerState.selectedDateMillis?.let {
                                 DateFormat.getDateInstance().format(it)
@@ -408,7 +445,7 @@ fun LogsTab(
     }
 
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize().columnPadding(staticVertical = 10.dp, hasFAB = true, hasSubAction = true)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -449,8 +486,8 @@ fun LogsTab(
                             onClick = {
                                 showFilterSelection.value = !showFilterSelection.value
                             },
-                            modifier = Modifier
-                                .padding(2.dp)
+                            modifier = Modifier.padding(2.dp),
+                            shapes = IconButtonDefaults.shapes()
                         ) {
                             Icon(Icons.Default.FilterList, contentDescription = "Filter")
                         }
@@ -467,12 +504,13 @@ fun LogsTab(
                     },
                     trailingIcon = {
                         if (filter != "") {
-                            IconButton(onClick = {
-                                filter = ""
-                                coroutineScope.launch {
-                                    resetAndLoadLogs()
-                                }
-                            }) {
+                            IconButton(
+                                onClick = {
+                                    filter = ""
+                                    coroutineScope.launch { resetAndLoadLogs() }
+                                },
+                                shapes = IconButtonDefaults.shapes()
+                            ) {
                                 Icon(Icons.Default.Clear, contentDescription = "Clear")
                             }
                         }
@@ -525,7 +563,43 @@ fun LogsTab(
                     horizontalArrangement = Arrangement.Center
                 ) {
                     if (logs.isEmpty() && !isLoading) {
-                        Text("No logs found", modifier = Modifier.padding(16.dp), fontWeight = FontWeight.Light, textAlign = TextAlign.Center)
+                        Box(
+                            modifier = Modifier.fillParentMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.Center
+                            ) {
+                                ElevatedCard(
+                                    modifier = Modifier
+                                        .padding(16.dp)
+                                        .size(200.dp),
+                                    shape = MaterialShapes.SoftBurst.toShape()
+                                ) {
+                                    Box(
+                                        modifier = Modifier.fillMaxSize(),
+                                        contentAlignment = Alignment.Center
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Rounded.PersonSearch,
+                                            contentDescription = null,
+                                            modifier = Modifier.size(100.dp)
+                                        )
+                                    }
+                                }
+                                Text(
+                                    text = context.translation["manager.sections.friend_tracker.logs_empty"],
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    modifier = Modifier.padding(8.dp)
+                                )
+                                Text(
+                                    text = context.translation["manager.sections.friend_tracker.logs_empty_desc"],
+                                    style = MaterialTheme.typography.bodySmall,
+                                    modifier = Modifier.padding(8.dp)
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -547,7 +621,6 @@ fun LogsTab(
                             .padding(4.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-
                         BitmojiImage(
                             modifier = Modifier.padding(5.dp),
                             size = 55,
@@ -577,7 +650,8 @@ fun LogsTab(
                             onClick = {
                                 context.messageLogger.deleteTrackerLog(log.id)
                                 logs.remove(log)
-                            }
+                            },
+                            shapes = IconButtonDefaults.shapes()
                         ) {
                             Icon(Icons.Default.DeleteOutline, contentDescription = "Delete")
                         }
@@ -585,15 +659,9 @@ fun LogsTab(
                 }
             }
             item {
-                Spacer(modifier = Modifier.height(16.dp))
-
                 LaunchedEffect(pageIndex) {
                     loadNewLogs()
                 }
-            }
-
-            item {
-                Spacer(modifier = Modifier.height(100.dp))
             }
         }
     }
