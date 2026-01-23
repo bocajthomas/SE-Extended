@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = rootProject.ext["applicationId"].toString() + ".composer"
+    namespace = rootProject.ext["applicationId"].toString() + ".valdi"
     compileSdk = 36
 
     sourceSets {
@@ -35,7 +35,7 @@ task("compileTypeScript") {
 
         project.copy {
             from("build/loader.js")
-            into("build/assets/composer")
+            into("build/assets/valdi")
         }
     }
 }

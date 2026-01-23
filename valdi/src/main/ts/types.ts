@@ -2,7 +2,7 @@ export interface Config {
     readonly operaDownloadButton: boolean
     readonly bypassCameraRollLimit: boolean
     readonly showFirstCreatedUsername: boolean
-    readonly composerLogs: boolean
+    readonly valdiLogs: boolean
     readonly customSelfDestructSnapDelay: boolean
 }
 

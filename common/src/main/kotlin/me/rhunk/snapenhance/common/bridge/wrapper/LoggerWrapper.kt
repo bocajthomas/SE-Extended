@@ -139,6 +139,13 @@ class LoggerWrapper(
 
     }
 
+    fun closeDatabase() {
+        synchronized(this) {
+            _database?.close()
+            _database = null
+        }
+    }
+
     override fun getLoggedIds(conversationId: Array<String>, limit: Int): LongArray {
         if (conversationId.any {
             runCatching { UUID.fromString(it) }.isFailure

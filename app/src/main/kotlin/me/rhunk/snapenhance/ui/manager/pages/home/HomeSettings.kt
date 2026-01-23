@@ -254,7 +254,7 @@ class HomeSettings : Routes.Route() {
                     Row(
                         modifier = Modifier
                             .padding(top = 10.dp).fillMaxWidth(),
-                            horizontalArrangement = Arrangement.End
+                        horizontalArrangement = Arrangement.End
                     ) {
                         Button(
                             onClick = {
@@ -495,7 +495,7 @@ class HomeSettings : Routes.Route() {
                                                             fileName = "message_logger_merged_${System.currentTimeMillis() / 1000}.db",
                                                             mimeType = "application/octet-stream"
                                                         ) { outputUriString ->
-                                                           // if (outputUriString == null) return@createFile
+                                                            // if (outputUriString == null) return@createFile
 
                                                             coroutineScope.launch(Dispatchers.IO) {
                                                                 val isSuccessful = context.messageLogger.mergeDatabases(

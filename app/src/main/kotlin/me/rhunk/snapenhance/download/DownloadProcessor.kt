@@ -5,35 +5,25 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.documentfile.provider.DocumentFile
 import com.google.gson.GsonBuilder
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.job
-import kotlinx.coroutines.joinAll
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 import me.rhunk.snapenhance.RemoteSideContext
 import me.rhunk.snapenhance.bridge.DownloadCallback
 import me.rhunk.snapenhance.common.Constants
 import me.rhunk.snapenhance.common.ReceiversConfig
 import me.rhunk.snapenhance.common.data.FileType
-import me.rhunk.snapenhance.common.data.download.DownloadMediaType
-import me.rhunk.snapenhance.common.data.download.DownloadMetadata
-import me.rhunk.snapenhance.common.data.download.DownloadRequest
-import me.rhunk.snapenhance.common.data.download.InputMedia
-import me.rhunk.snapenhance.common.data.download.SplitMediaAssetType
+import me.rhunk.snapenhance.common.data.download.*
 import me.rhunk.snapenhance.common.util.snap.MediaDownloaderHelper
 import me.rhunk.snapenhance.common.util.snap.RemoteMediaResolver
 import me.rhunk.snapenhance.core.features.impl.downloader.decoder.AttachmentType
-import me.rhunk.snapenhance.task.PendingTask
-import me.rhunk.snapenhance.task.PendingTaskListener
-import me.rhunk.snapenhance.task.Task
-import me.rhunk.snapenhance.task.TaskStatus
-import me.rhunk.snapenhance.task.TaskType
+import me.rhunk.snapenhance.task.*
 import java.io.File
 import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL
+import java.security.MessageDigest
 import java.util.concurrent.ConcurrentHashMap
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.transform.TransformerFactory
@@ -89,6 +79,20 @@ class DownloadProcessor (
 
     private fun newFFMpegProcessor(pendingTask: PendingTask) = FFMpegProcessor.newFFMpegProcessor(remoteSideContext, pendingTask)
 
+    private fun computeFileHash(inputStream: InputStream): ByteArray {
+        val digest = MessageDigest.getInstance("MD5")
+        val buffer = ByteArray(1024 * 1024)
+        var read: Int
+
+        inputStream.use {
+            while (it.read(buffer).also { r -> read = r } != -1) {
+                digest.update(buffer, 0, read)
+            }
+        }
+
+        return digest.digest()
+    }
+
     suspend fun saveMediaToGallery(pendingTask: PendingTask, inputFile: File, metadata: DownloadMetadata) {
         if (coroutineContext.job.isCancelled) return
 
@@ -115,7 +119,8 @@ class DownloadProcessor (
 
             val fileName = metadata.outputPath.substringAfterLast("/") + "." + fileType.fileExtension
 
-            val outputFolder = DocumentFile.fromTreeUri(remoteSideContext.androidContext, Uri.parse(remoteSideContext.config.root.downloader.saveFolder.get()))
+            val outputFolder = DocumentFile.fromTreeUri(remoteSideContext.androidContext,
+                remoteSideContext.config.root.downloader.saveFolder.get().toUri())
                 ?: throw Exception("Failed to open output folder")
 
             val outputFileFolder = metadata.outputPath.let {
@@ -128,31 +133,24 @@ class DownloadProcessor (
                 }
             }
 
-            // checks if the file already exists and if it does, compares its contents with the input file, if contents differ, deletes existing file.
-            outputFileFolder.findFile(fileName)?.let { existingFile ->
+            // checks if the file already exists, compares its contents with the input file, if contents differ, deletes existing file.
+            outputFileFolder.takeIf {
+                remoteSideContext.config.root.downloader.fileHashCheck.get()
+            }?.findFile(fileName)?.let { existingFile ->
                 pendingTask.updateProgress("Comparing existing media")
                 if (existingFile.length() != inputFile.length()) {
                     existingFile.delete()
                     return@let
                 }
 
-                remoteSideContext.androidContext.contentResolver.openInputStream(existingFile.uri)?.use { existingInputStream ->
-                    val buffer1 = ByteArray(1024 * 1024)
-                    val buffer2 = ByteArray(1024 * 1024)
-                    var read1: Int
-                    var read2: Int
+                val existingFileHash = remoteSideContext.androidContext.contentResolver.openInputStream(existingFile.uri)?.let {
+                    computeFileHash(it)
+                }
+                val inputFileHash = computeFileHash(inputFile.inputStream())
 
-                    inputFile.inputStream().use { inputStream ->
-                        while (true) {
-                            read1 = inputStream.read(buffer1)
-                            read2 = existingInputStream.read(buffer2)
-                            if (read1 != read2 || !buffer1.contentEquals(buffer2)) {
-                                existingFile.delete()
-                                return@let
-                            }
-                            if (read1 == -1) break
-                        }
-                    }
+                if (existingFileHash == null || !existingFileHash.contentEquals(inputFileHash)) {
+                    existingFile.delete()
+                    return@let
                 }
 
                 pendingTask.task.extra = existingFile.uri.toString()

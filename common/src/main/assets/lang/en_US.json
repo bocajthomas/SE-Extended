@@ -760,6 +760,18 @@
                     "custom_path_format": {
                         "name": "Custom Path Format",
                         "description": "Specify a custom path format for downloaded media\n\nAvailable variables:\n - %username%\n - %source%\n - %hash%\n - %date_time%"
+                    },
+                    "file_hash_check": {
+                        "name": "File Hash Check",
+                        "description": "Checks the hash of existing files to prevent duplicate downloads. It may slow down the downloading process"
+                    },
+                    "call_recorder": {
+                        "name": "Call Recorder",
+                        "description": "Automatically records audio calls"
+                    },
+                    "chat_wallpaper_downloader": {
+                        "name": "Chat Wallpaper Downloader",
+                        "description": "Allows you to download chat wallpapers from the profile page"
                     }
                 }
             },
@@ -1373,10 +1385,6 @@
                         "name": "Story Logger",
                         "description": "Provides a history of friends stories"
                     },
-                    "call_recorder": {
-                        "name": "Call Recorder",
-                        "description": "Automatically records audio calls"
-                    },
                     "account_switcher": {
                         "name": "Account Switcher",
                         "description": "Allows you to switch between accounts without logging out\nLong press on the search icon next to your Bitmoji profile to open the menu\nNote: This feature is experimental and will likely change in the future",
@@ -1783,6 +1791,11 @@
             "startup_default_camera": {
                 "front": "Front Camera",
                 "back": "Back Camera"
+            },
+            "call_recorder": {
+                "only_record_self": "Only Record Self",
+                "only_record_others": "Only Record Others",
+                "record_both": "Record Both Sides"
             }
         }
     },
@@ -1832,7 +1845,8 @@
         "story_logger": "Story Logger",
         "message_logger": "Message Logger",
         "merged": "Merged",
-        "voice_call": "Voice Call"
+        "voice_call": "Voice Call",
+        "chat_wallpaper": "Chat Wallpaper"
     },
 
     "chat_action_menu": {
@@ -2160,5 +2174,9 @@
         "duration": "Duration: {duration}",
         "saveable_snap_hint": "Make Snap saveable in the chat",
         "unlimited_duration": "Unlimited"
+    },
+
+    "chat_wallpaper_downloader": {
+        "download_button": "Download Chat Wallpaper"
     }
 }

@@ -3,17 +3,20 @@ extern crate log;
 
 mod common;
 
-mod hook;
-mod util;
-mod mapped_lib;
 mod config;
+mod hook;
+mod mapped_lib;
 mod sig;
+mod util;
 
 mod modules;
 
 use android_logger::Config;
 use log::LevelFilter;
-use modules::{composer_hook, custom_font_hook, duplex_hook, fstat_hook, linker_hook, sqlite_hook, unary_call_hook};
+use modules::{
+    custom_font_hook, duplex_hook, fstat_hook, linker_hook, sqlite_hook, unary_call_hook,
+    valdi_hook,
+};
 
 use jni::objects::{JObject, JString};
 use jni::sys::{jint, jstring, JNI_VERSION_1_6};
@@ -36,10 +39,11 @@ fn init(mut env: JNIEnv, _class: JObject, signature_cache: JString) -> jstring {
     let start_time = std::time::Instant::now();
 
     // load signature cache
-    
+
     if !signature_cache.is_null() {
-        let sig_cache_str = get_jni_string(&mut env, signature_cache).expect("Failed to convert mappings to string");
-        
+        let sig_cache_str = get_jni_string(&mut env, signature_cache)
+            .expect("Failed to convert mappings to string");
+
         if let Ok(signature_cache) = serde_json::from_str(sig_cache_str.as_str()) {
             sig::add_signatures(signature_cache);
         } else {
@@ -47,7 +51,11 @@ fn init(mut env: JNIEnv, _class: JObject, signature_cache: JString) -> jstring {
         }
     }
 
-    common::set_native_lib_instance(env.new_global_ref(_class).ok().expect("Failed to create global ref"));
+    common::set_native_lib_instance(
+        env.new_global_ref(_class)
+            .ok()
+            .expect("Failed to create global ref"),
+    );
 
     let _ = common::CLIENT_MODULE;
 
@@ -68,32 +76,34 @@ fn init(mut env: JNIEnv, _class: JObject, signature_cache: JString) -> jstring {
     async_init!(
         duplex_hook::init(),
         unary_call_hook::init(),
-        composer_hook::init(),
+        valdi_hook::init(),
         sqlite_hook::init()
     );
-    
+
     threads.into_iter().for_each(|t| t.join().unwrap());
 
     info!("native init took {:?}", start_time.elapsed());
 
     // send back the signature cache
     if let Ok(signature_cache) = serde_json::to_string(&sig::get_signatures()) {
-        env.new_string(signature_cache).ok().expect("Failed to create new string").into_raw()
+        env.new_string(signature_cache)
+            .ok()
+            .expect("Failed to create new string")
+            .into_raw()
     } else {
         std::ptr::null_mut()
     }
 }
-
 
 #[allow(non_snake_case)]
 #[no_mangle]
 pub extern "system" fn JNI_OnLoad(_vm: JavaVM, _: *mut c_void) -> jint {
     android_logger::init_once(
         Config::default()
-        .with_max_level(LevelFilter::Debug)
-        .with_tag("SnapEnhanceNative")
+            .with_max_level(LevelFilter::Debug)
+            .with_tag("SnapEnhanceNative"),
     );
-    
+
     info!("JNI_OnLoad called");
 
     std::panic::set_hook(Box::new(|panic_info| {
@@ -104,7 +114,9 @@ pub extern "system" fn JNI_OnLoad(_vm: JavaVM, _: *mut c_void) -> jint {
 
     let mut env = _vm.get_env().expect("Failed to get JNIEnv");
 
-    let native_lib_class = env.find_class("me/rhunk/snapenhance/nativelib/NativeLib").expect("NativeLib class not found");
+    let native_lib_class = env
+        .find_class("me/rhunk/snapenhance/nativelib/NativeLib")
+        .expect("NativeLib class not found");
 
     env.register_native_methods(
         native_lib_class,
@@ -135,17 +147,13 @@ pub extern "system" fn JNI_OnLoad(_vm: JavaVM, _: *mut c_void) -> jint {
                 fn_ptr: sqlite_hook::lock_database as *mut c_void,
             },
             NativeMethod {
-                name: "setComposerLoader".into(),
+                name: "setValdiLoader".into(),
                 sig: "(Ljava/lang/String;)V".into(),
-                fn_ptr: composer_hook::set_composer_loader as *mut c_void,
+                fn_ptr: valdi_hook::set_valdi_loader as *mut c_void,
             },
-            NativeMethod {
-                name: "composerEval".into(),
-                sig: "(Ljava/lang/String;)Ljava/lang/String;".into(),
-                fn_ptr: composer_hook::composer_eval as *mut c_void,
-            }
-        ]
-    ).expect("Failed to register native methods");
+        ],
+    )
+    .expect("Failed to register native methods");
 
     JNI_VERSION_1_6
 }

@@ -1,4 +1,4 @@
-import { assetCatalog, jsx, style } from "../composer"
+import { assetCatalog, jsx, style } from "../valdi"
 import { defineModule } from "../types"
 import { downloadLastOperaMedia } from "../imports"
 import { interceptComponent } from "../utils"

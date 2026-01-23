@@ -1,4 +1,4 @@
-import { getConfig, log } from "./imports";
+import { getConfig, log, setEvalFunction } from "./imports";
 import { modules } from "./types";
 
 import "./modules/operaDownloadButton";
@@ -10,7 +10,7 @@ import "./modules/selfDestructSnapDelay";
 try {
     const config = getConfig();
 
-    if (config.composerLogs) {
+    if (config.valdiLogs) {
         ["log", "error", "warn", "info", "debug"].forEach(method => {
             console[method] = (...args: any) => log(method, Array.from(args).join(" "));
         })
@@ -28,7 +28,15 @@ try {
         }
     });
 
+    setEvalFunction((code, callback) => {
+        try {
+            callback(eval(code)?.toString());
+        } catch (e) {
+            callback(e)
+        }
+    })
+
     console.debug("modules loaded!");
 } catch (e) {
-    log("error", "Failed to load composer modules\n" + e + "\n" + e.stack)
+    log("error", "Failed to load valdi modules\n" + e + "\n" + e.stack)
 }

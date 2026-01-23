@@ -12,6 +12,7 @@ import me.rhunk.snapenhance.bridge.snapclient.MessagingBridge;
 import me.rhunk.snapenhance.bridge.AccountStorage;
 import me.rhunk.snapenhance.bridge.storage.FileHandleManager;
 import me.rhunk.snapenhance.bridge.location.LocationManager;
+import me.rhunk.snapenhance.bridge.call.CallDownloadSession;
 
 interface BridgeInterface {
     /**
@@ -98,4 +99,6 @@ interface BridgeInterface {
     oneway void registerConfigStateListener(in ConfigStateListener listener);
 
     @nullable String getDebugProp(String key, @nullable String defaultValue);
+
+    CallDownloadSession startCallDownload(long startTimestamp, String author);
 }

@@ -161,7 +161,7 @@ class ModContext(
             NativeConfig(
                 disableBitmoji = config.experimental.nativeHooks.disableBitmoji.get(),
                 disableMetrics = config.global.disableMetrics.get(),
-                composerHooks = config.experimental.nativeHooks.composerHooks.globalState == true,
+                valdiHooks = config.experimental.nativeHooks.valdiHooks.globalState == true,
                 customEmojiFontPath = getCustomEmojiFontPath(this)
             )
         )

@@ -6,7 +6,7 @@ data class NativeConfig(
     @JvmField
     val disableMetrics: Boolean = false,
     @JvmField
-    val composerHooks: Boolean = false,
+    val valdiHooks: Boolean = false,
     @JvmField
     val customEmojiFontPath: String? = null,
 )

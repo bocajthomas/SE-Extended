@@ -97,6 +97,8 @@
                 "message_logger_summary": "{messageCount} Nachrichten\n{storyCount} Stories",
                 "success_toast": "Erledigt!",
                 "export_button": "Exportieren",
+                "import_button": "Importieren",
+                "import_success_toast": "Datenbank erfolgreich importiert",
                 "clear_button": "Löschen",
                 "view_logger_history_button": "Historie des Nachrichtenaufzeichners ansehen"
             },

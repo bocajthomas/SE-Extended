@@ -3,18 +3,18 @@ package me.rhunk.snapenhance.core.features.impl.tweaks
 import android.view.ViewGroup
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import me.rhunk.snapenhance.common.data.ContentType
 import me.rhunk.snapenhance.core.SnapEnhance
 import me.rhunk.snapenhance.core.event.events.impl.BindViewEvent
 import me.rhunk.snapenhance.core.features.Feature
 import me.rhunk.snapenhance.core.features.impl.downloader.MediaDownloader
 import me.rhunk.snapenhance.core.features.impl.messaging.Messaging
-import me.rhunk.snapenhance.core.ui.getComposerContext
+import me.rhunk.snapenhance.core.ui.getValdiContext
 import me.rhunk.snapenhance.core.util.dataBuilder
 import me.rhunk.snapenhance.core.util.hook.HookStage
 import me.rhunk.snapenhance.core.util.hook.hook
 import me.rhunk.snapenhance.core.util.ktx.getId
 import me.rhunk.snapenhance.core.util.ktx.getObjectField
+import me.rhunk.snapenhance.core.util.ktx.getObjectFieldOrNull
 import me.rhunk.snapenhance.core.util.makeFunctionProxy
 
 class VoiceNoteOverride: Feature("Voice Note Override") {
@@ -24,7 +24,7 @@ class VoiceNoteOverride: Feature("Voice Note Override") {
 
         if (!autoDownloadVoiceNotes && !voiceNoteAutoPlay) return
 
-        val playbackMap = sortedMapOf<Long, MutableList<Any>>()
+        val playbackMap = sortedMapOf<Long, Any>()
 
         fun setPlaybackState(componentContext: Any, state: String): Boolean {
             val seek = componentContext.getObjectField("_seek") ?: return false
@@ -42,7 +42,7 @@ class VoiceNoteOverride: Feature("Voice Note Override") {
 
         fun getCurrentContextMessageId(currentContext: Any): Long? {
             return synchronized(playbackMap) {
-                playbackMap.entries.firstOrNull { entry -> entry.value.any { it.hashCode() == currentContext.hashCode() } }?.key
+                playbackMap.entries.lastOrNull { entry -> entry.value.hashCode() == currentContext.hashCode() }?.key
             }
         }
 
@@ -59,7 +59,8 @@ class VoiceNoteOverride: Feature("Voice Note Override") {
                 context.log.verbose("No more voice notes to play")
                 return
             }
-            nextPlayback.value.toList().forEach { setPlaybackState(it, "PLAYING") }
+
+            setPlaybackState(nextPlayback.value, "PLAYING")
         }
 
         context.classCache.conversationManager.apply {
@@ -138,15 +139,17 @@ class VoiceNoteOverride: Feature("Voice Note Override") {
                     val messagePluginContentHolder = event.view.findViewById<ViewGroup>(context.resources.getId("plugin_content_holder")) ?: return@subscribe
                     val composerRootView = messagePluginContentHolder.getChildAt(0) ?: return@subscribe
 
-                    val composerContext = composerRootView.getComposerContext() ?: return@subscribe
-                    val playbackViewComponentContext = composerContext.componentContext?.get() ?: return@subscribe
+                    composerRootView.post {
+                        val composerContext = composerRootView.getValdiContext() ?: return@post
+                        val playbackViewComponentContext = composerContext.componentContext?.get() ?: return@post
 
-                    if (event.databaseMessage?.contentType != ContentType.NOTE.id) return@subscribe
+                        if (event.databaseMessage?.serverMessageId == 0 || playbackViewComponentContext.getObjectFieldOrNull("_getSamples") == null) return@post
 
-                    val serverMessageId = event.databaseMessage?.serverMessageId?.toLong() ?: return@subscribe
+                        val serverMessageId = event.databaseMessage?.serverMessageId?.toLong() ?: return@post
 
-                    synchronized(playbackMap) {
-                        playbackMap.computeIfAbsent(serverMessageId) { mutableListOf() }.add(playbackViewComponentContext)
+                        synchronized(playbackMap) {
+                            playbackMap[serverMessageId] = playbackViewComponentContext
+                        }
                     }
                 }
             }

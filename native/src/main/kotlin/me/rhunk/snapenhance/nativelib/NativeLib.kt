@@ -70,7 +70,6 @@ class NativeLib {
     private external fun init(signatureCache: String?): String?
     private external fun loadConfig(config: NativeConfig)
     private external fun lockDatabase(name: String, callback: Runnable)
-    external fun setComposerLoader(code: String)
-    external fun composerEval(code: String): String?
+    external fun setValdiLoader(code: String)
     private external fun addLinkerSharedLibrary(path: String, content: ByteArray)
 }
