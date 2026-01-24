@@ -902,6 +902,10 @@
                     "edit_text_override": {
                         "name": "Edit Text Override",
                         "description": "Overrides text field behavior"
+                    },
+                    "prevent_forced_keyboard": {
+                        "name": "Prevent Forced Keyboard",
+                        "description": "Prevents Snapchat from automatically popping up the keyboard when you open a conversation"
                     }
                 }
             },
@@ -1522,6 +1526,10 @@
                     "disable_log_anonymization": {
                         "name": "Disable Log Anonymization",
                         "description": "Disables the anonymization of logs"
+                    },
+                    "disable_optimization": {
+                        "name": "Disable Optimization",
+                        "description": "Disables the optimization of scripts. This may cause performance issues."
                     }
                 }
             },
@@ -1637,7 +1645,8 @@
                 "initiate_audio": "Incoming Audio Call",
                 "abandon_audio": "Missed Audio Call",
                 "initiate_video": "Incoming Video Call",
-                "abandon_video": "Missed Video Call"
+                "abandon_video": "Missed Video Call",
+                "map_live_location": "Map Live Location"
             },
             "gallery_media_send_override": {
                 "always_ask": "Always Ask",
@@ -1760,7 +1769,8 @@
             },
             "auto_mark_as_read": {
                 "conversation_read": "Mark conversation as read when sending a message",
-                "snap_reply": "Mark snaps as read when replying to them"
+                "snap_reply": "Mark snaps as read when replying to them",
+                "save_snap_in_chat": "Mark snaps as read when saving them in chat while in Stealth Mode"
             },
             "friend_mutation_notifier": {
                 "remove_friend": "Notify when someone removes you as a friend",
