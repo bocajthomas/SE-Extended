@@ -25,9 +25,3 @@ procfs = "0.17.0"
 rand = "0.8.5"
 serde_json = "1.0.135"
 zstd = "0.13.2"
-
-[profile.release]
-strip = true
-opt-level = "z"
-lto = true
-codegen-units = 1
