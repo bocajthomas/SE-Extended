@@ -9,6 +9,10 @@
             "battery_optimization": "تحسين أداء البطارية",
             "display_over_other_apps": "العرض فوق التطبيقات الأخرى",
             "request_button": "طلب"
+        },
+        "save_folder": {
+            "description": "يتطلب SE Extended أذونات تخزين لتنزيل الوسائط وحفظها من Snapchat.\nيرجى اختيار الموقع الذي يجب تنزيل الوسائط إليه.",
+            "select_folder_button": "حدد المجلد"
         }
     },
     "scopes": {
