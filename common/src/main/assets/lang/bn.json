@@ -84,21 +84,10 @@
     },
     "setup": {
         "mappings": {
-            "dialog": "ম্যাপিংগুলি তৈরি করতে এটি কিছুটা সময় নিতে পারে ..।",
             "generate_failure": "ম্যাপিং তৈরি করার চেষ্টা করতে গিয়ে একটি ত্রুটি ঘটেছে, অনুগ্রহ করে আবার চেষ্টা করুন।",
             "generate_failure_no_snapchat": "স্ন্যাপএনহান্স স্ন্যাপচ্যাট সনাক্ত করতে অক্ষম ছিল, অনুগ্রহ করে স্ন্যাপচ্যাট পুনরায় ইনস্টল করার চেষ্টা করুন।"
         },
-        "dialogs": {
-            "select_language": "নির্বাচন ভাষা",
-            "save_folder": "SE Extended প্রয়োজন স্টোরেজ অনুমতি Snapchat থেকে মিডিয়া ডাউনলোড এবং সংরক্ষণ করতে\nঅনুগ্রহ করে সেই স্থানটি বেছে নিন যেখানে মিডিয়া ডাউনলোড করা হবে।",
-            "select_save_folder_button": "ফোল্ডার নির্বাচন করুন",
-            "disclaimer": {
-                "statement": "স্বাগতম SE Extended মডিউল.\nদাবিত্যাগ: \n- এই মডিউল ব্যবহারের সাথে সম্পর্কিত যেকোনো ঝুঁকির জন্য ব্যবহারকারীদের সম্পূর্ণ দায়িত্ব নিতে হবে।\n- দ্য SE Extended মডিউলটি এর আচরণ পরিবর্তন করতে পারে Snapchat অ্যাপ। ব্যবহারকারীদের মডিউলটির কার্যক্রম সাবধানতার সাথে পর্যালোচনা করা উচিত এবং এর ব্যবহার সম্পর্কে নিজস্ব সিদ্ধান্ত নেওয়া উচিত।\n- আপনার উপর যে কোনও সতর্কতা বা নিষেধাজ্ঞার জন্য ডেভেলপার কোনও দায় স্বীকার করে না snapchat অ্যাকাউন্ট যা ব্যবহারের ফলে উদ্ভূত হতে পারে SE Extended, মডিউল, এবং সমস্ত পরিণতি ব্যবহারকারীদের নিজেরাই বহন করতে হবে।",
-                "agree_button": "আমি রাজি"
-            }
-        },
         "permissions": {
-            "dialog": "চালিয়ে যেতে আপনাকে নিম্নলিখিত শর্তগুলি মেনে চলতে হবে:",
             "notification_access": "বিজ্ঞপ্তি অ্যাক্সেস",
             "battery_optimization": "ব্যাটারি অপটিমাইজেশন",
             "display_over_other_apps": "অন্যান্য অ্যাপের উপরে প্রদর্শন করুন",
@@ -139,17 +128,14 @@
                 "config_import_failure_toast": "কনফিগ আমদানি করতে ব্যর্থ হয়েছে {error}",
                 "config_export_failure_toast": "কনফিগ রপ্তানি করতে ব্যর্থ {error}",
                 "newer_required": "এই বৈশিষ্ট্যটি সঠিকভাবে কাজ করার জন্য Snapchat v{version} বা তার নতুন সংস্করণ প্রয়োজন",
-                "older_required": "এই বৈশিষ্ট্যটি সঠিকভাবে কাজ করার জন্য Snapchat v{version} বা তার বেশি পুরনো সংস্করণ প্রয়োজন",
-                "search_button": "খুজুন"
+                "older_required": "এই বৈশিষ্ট্যটি সঠিকভাবে কাজ করার জন্য Snapchat v{version} বা তার বেশি পুরনো সংস্করণ প্রয়োজন"
             },
             "social": {
                 "streaks_expiration_short": "{hours}h",
                 "friends_tab": "বন্ধুরা",
-                "groups_tab": "গোষ্ঠীগুলি",
-                "empty_hint": "(খালি)"
+                "groups_tab": "গোষ্ঠীগুলি"
             },
             "tasks": {
-                "no_tasks": "কোন কাজ নেই",
                 "delete_files_option": "ফাইলগুলিও মুছে ফেলুন",
                 "remove_selected_tasks_confirm": "{count} কাজ সরান?",
                 "remove_selected_tasks_title": "নিশ্চিত আপনি নির্বাচিত কাজগুলি সরাতে চান?",
@@ -160,8 +146,6 @@
                 "merge_button": "একত্রিত করা"
             },
             "home_settings": {
-                "export_button": "রপ্তানি",
-                "message_logger_summary": "{messageCount} বার্তা\n{storyCount} গল্পগুলি",
                 "actions_title": "অ্যাকশন",
                 "message_logger_title": "বার্তা লগার",
                 "debug_title": "ডিবাগ",
@@ -233,7 +217,6 @@
             },
             "file_imports": {
                 "file_imported": "ফাইল সফলভাবে আমদানি করা হয়েছে",
-                "no_files_hint": "এখানে আপনি স্ন্যাপচ্যাটে ব্যবহারের জন্য ফাইল আমদানি করতে পারেন। ফাইল আমদানি করতে নীচের বোতামটি চাপুন।",
                 "import_file_button": "ফাইল আমদানি করুন",
                 "file_not_found": "ফাইল পাওয়া যায়নি",
                 "file_import_failed": "ফাইল আমদানি ব্যর্থ হয়েছে: {error}",
@@ -259,16 +242,12 @@
                 "no_friends_map": "মানচিত্রে কোনো বন্ধু নেই",
                 "no_friends_found": "কোনো বন্ধু পাওয়া যায়নি"
             },
-            "theming": {
-                "no_themes_hint": "কোনো থিম পাওয়া যায়নি"
-            },
             "manage_rule_feature": {
                 "disable_state_option": "অক্ষম",
                 "whitelist_state_option": "",
                 "disable_state_subtext": "কোনও বন্ধু/গ্রুপ প্রভাবিত হবে না",
                 "blacklist_state_option": "",
                 "blacklist_state_button": "",
-                "dialog_clear_confirmation_text": "",
                 "whitelist_state_subtext": "এই নিয়মের দ্বারা শুধুমাত্র {count} জন বন্ধু/গ্রুপ প্রভাবিত হবে",
                 "blacklist_state_subtext": "",
                 "whitelist_state_button": "অনুমোদিত বন্ধু/গ্রুপ নির্বাচন করুন",
@@ -295,10 +274,6 @@
             "messaging_action": {
                 "title": "প্রক্রিয়া করতে সামগ্রীর ধরণগুলি চয়ন করুন",
                 "select_all_button": "সব নির্বাচন করুন"
-            },
-            "file_imports": {
-                "no_files_settings_hint": "কোনো ফাইল পাওয়া যায়নি। নিশ্চিত করুন যে আপনি ফাইল আমদানি বিভাগে প্রয়োজনীয় ফাইলগুলি আমদানি করেছেন",
-                "settings_select_file_hint": "আমদানি করা একটি ফাইল নির্বাচন করুন"
             },
             "export_config": {
                 "title": "সংবেদনশীল তথ্য রপ্তানি করুন?",
@@ -1084,10 +1059,6 @@
                     "convert_message_locally": {
                         "name": "স্থানীয়ভাবে বার্তা রূপান্তর করুন",
                         "description": "স্থানীয়ভাবে স্ন্যাপগুলিকে চ্যাট বাহ্যিক মিডিয়ায় রূপান্তর করে | এটি চ্যাট ডাউনলোড কনটেক্সট মেনুতে প্রদর্শিত হয়"
-                    },
-                    "call_recorder": {
-                        "description": "স্বয়ংক্রিয়ভাবে অডিও কল রেকর্ড করে",
-                        "name": "কল রেকর্ডার"
                     },
                     "infinite_story_boost": {
                         "name": "অনন্ত গল্প বৃদ্ধি",

@@ -1,17 +1,10 @@
 {
     "setup": {
-        "dialogs": {
-            "select_language": "زبان کا انتخاب کریں",
-            "save_folder": "SE Extended کو Snapchat سے میڈیا کو ڈاؤن لوڈ اور محفوظ کرنے کے لیے سٹوریج کی اجازت درکار ہے۔\nبراہ کرم وہ مقام منتخب کریں جہاں میڈیا کو ڈاؤن لوڈ کیا جانا چاہیے۔",
-            "select_save_folder_button": "فولڈر منتخب کریں"
-        },
         "mappings": {
-            "dialog": "میپنگ تیار ہو رہی ہے، اس میں کچھ وقت لگ سکتا ہے...",
             "generate_failure_no_snapchat": "SE Extended Snapchat کا پتہ لگانے سے قاصر تھا، براہ کرم Snapchat کو دوبارہ انسٹال کرنے کی کوشش کریں۔",
             "generate_failure": "میپنگ بنانے کی کوشش کے دوران ایک خرابی پیش آگئی، براہ کرم دوبارہ کوشش کریں۔"
         },
         "permissions": {
-            "dialog": "جاری رکھنے کے لیے آپ کو درج ذیل تقاضوں کو پورا کرنا ہوگا:",
             "notification_access": "اطلاع تک رسائی",
             "battery_optimization": "بیٹری کی اصلاح",
             "display_over_other_apps": "دیگر ایپس پر ڈسپلے کریں",
@@ -68,13 +61,10 @@
                 "message_logger_title": "میسیج لوگر",
                 "debug_title": "ڈیبگ",
                 "success_toast": "ہو گیا!!",
-                "message_logger_summary": "{messageCount} پیغامات\n{storyCount} کہانیاں",
-                "export_button": "ایکسپورٹ",
                 "clear_button": "کلیئر",
                 "view_logger_history_button": "ویو لوگر ہسٹری"
             },
             "tasks": {
-                "no_tasks": "کوئی ٹاسک نہیں",
                 "failed_to_open_file": "فائل کھولنے میں ناکام",
                 "merge_files_toast": "{count} فائلوں کو ضم کرنا",
                 "remove_selected_tasks_title": "کیا آپ واقعی منتخب کردہ کاموں کو ہٹانا چاہتے ہیں؟",
@@ -99,7 +89,6 @@
             "social": {
                 "friends_tab": "فرینڈز",
                 "groups_tab": "گروپس",
-                "empty_hint": "(خالی)",
                 "streaks_expiration_short": "{hours}h"
             },
             "manage_scope": {
@@ -151,8 +140,7 @@
                 "file_not_found": "فائل نہیں ملی",
                 "file_import_failed": "فائل درآمد کرنے میں ناکام: {error}",
                 "file_imported": "فائل کامیابی کے ساتھ امپورٹ ہوگئی",
-                "file_delete_failed": "فائل کو حذف کرنے میں ناکام",
-                "no_files_hint": "یہاں آپ Snapchat میں استعمال کے لیے فائلیں درآمد کر سکتے ہیں۔ فائل درآمد کرنے کے لیے نیچے دیا گیا بٹن دبائیں۔"
+                "file_delete_failed": "فائل کو حذف کرنے میں ناکام"
             },
             "better_location": {
                 "spoofed_coordinates_title": "لات{latitude}, ایل این جی {longitude}",
@@ -176,7 +164,6 @@
             },
             "manage_rule_feature": {
                 "disable_state_option": "معذور",
-                "dialog_clear_confirmation_text": "",
                 "whitelist_state_option": "",
                 "clear_list_button": "",
                 "whitelist_state_button": "",
@@ -185,9 +172,6 @@
                 "blacklist_state_option": "",
                 "whitelist_state_subtext": "",
                 "blacklist_state_button": ""
-            },
-            "theming": {
-                "no_themes_hint": ""
             }
         },
         "dialogs": {
@@ -214,10 +198,6 @@
             "messaging_action": {
                 "title": "عمل کرنے کے لیے مواد کی اقسام کا انتخاب کریں",
                 "select_all_button": "تمام منتخب کریں"
-            },
-            "file_imports": {
-                "no_files_settings_hint": "کوئی فائل نہیں ملی۔ یقینی بنائیں کہ آپ نے فائل امپورٹس سیکشن میں مطلوبہ فائلیں درآمد کی ہیں",
-                "settings_select_file_hint": "ایک امپورٹ شدا فائل منتخب کریں"
             }
         }
     },
@@ -1026,10 +1006,6 @@
                     "story_logger": {
                         "name": "سٹوری لاگر",
                         "description": "دوستوں کی کہانیوں کی تاریخ فراہم کرتا ہے"
-                    },
-                    "call_recorder": {
-                        "name": "کال ریکارڈر",
-                        "description": "‬خودکار طور پر آڈیو کالز ریکارڈ کرتا ہے"
                     },
                     "account_switcher": {
                         "name": "اکاؤنٹ سوئچر",

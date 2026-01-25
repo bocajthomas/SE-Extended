@@ -1,17 +1,10 @@
 {
     "setup": {
-        "dialogs": {
-            "select_language": "Vælg sprog",
-            "save_folder": "SE Extended kræver Lagringstilladelser til at downloade og gemme medier fra Snapchat.\nVælg venligst det sted, hvor medierne skal downloades til.",
-            "select_save_folder_button": "Vælg Mappe"
-        },
         "mappings": {
-            "dialog": "Generering af maps, dette kan tage et stykke tid, overvej at bruge tiden fornuftigt, drik noget eller lav en toast...",
             "generate_failure_no_snapchat": "SE Extended kunne ikke detektere Snapchat, prøv at geninstallere Snapchat.",
             "generate_failure": "Der opstod en fejl under forsøget på at generere mappings, prøv venligst igen."
         },
         "permissions": {
-            "dialog": "For at fortsætte skal du passe til følgende krav:",
             "notification_access": "Adgang til notifikationer",
             "battery_optimization": "Batterioptimering",
             "display_over_other_apps": "Vis over andre apps",
@@ -57,11 +50,9 @@
             "social": {
                 "streaks_expiration_short": "{hours} timer",
                 "friends_tab": "Venner",
-                "groups_tab": "Grupper",
-                "empty_hint": "(tom)"
+                "groups_tab": "Grupper"
             },
             "tasks": {
-                "no_tasks": "Ingen opgaver",
                 "remove_all_tasks_confirm": "Vil du fjerne alle opgaver?",
                 "merge_files_toast": "Fletter {count} filer",
                 "remove_selected_tasks_title": "Er du sikker på, at du vil fjerne valgte opgaver?",
@@ -137,8 +128,6 @@
                 "message_logger_title": "Meddelelses logger",
                 "debug_title": "Fejlfinde",
                 "success_toast": "Færdig!",
-                "message_logger_summary": "{messageCount} beskeder\n{storyCount} historier",
-                "export_button": "Eksport",
                 "clear_button": "Ryd",
                 "view_logger_history_button": "Se logger historik"
             },
@@ -147,8 +136,7 @@
                 "file_not_found": "Fil ikke fundet",
                 "file_import_failed": "Kunne ikke importere fil: {error}",
                 "file_imported": "Filen blev importeret",
-                "file_delete_failed": "Filen kunne ikke slettes",
-                "no_files_hint": "Her kan du importere filer til brug i Snapchat. Tryk på knappen nedenfor for at importere en fil."
+                "file_delete_failed": "Filen kunne ikke slettes"
             },
             "better_location": {
                 "save_coordinates_dialog_title": "Gem koordinater",
@@ -170,12 +158,8 @@
                 "no_friends_map": "Ingen venner på kortet",
                 "spoofed_coordinates_title": ""
             },
-            "theming": {
-                "no_themes_hint": ""
-            },
             "manage_rule_feature": {
                 "whitelist_state_button": "",
-                "dialog_clear_confirmation_text": "",
                 "whitelist_state_subtext": "",
                 "disable_state_option": "",
                 "whitelist_state_option": "",
@@ -210,10 +194,6 @@
             "export_config": {
                 "title": "Eksportere følsomme data?",
                 "content": "Vil du eksportere konfigurationen med følsomme data? (Såsom placeringskoordinater osv.)"
-            },
-            "file_imports": {
-                "settings_select_file_hint": "Vælg en importeret fil",
-                "no_files_settings_hint": "Ingen filer fundet. Sørg for, at du har importeret de nødvendige filer i afsnittet Fil import"
             }
         }
     },
@@ -1002,10 +982,6 @@
                     "convert_message_locally": {
                         "name": "Konverter besked lokalt",
                         "description": "Konverterer snaps til at chatte eksterne medier lokalt. Dette vises i chat download kontekstmenu"
-                    },
-                    "call_recorder": {
-                        "name": "Opkaldsoptager",
-                        "description": "Optager automatisk lydopkald"
                     },
                     "account_switcher": {
                         "properties": {

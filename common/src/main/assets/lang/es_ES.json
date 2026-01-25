@@ -1,17 +1,10 @@
 {
     "setup": {
         "mappings": {
-            "dialog": "Generando mapeos, esto puede tardar un rato ...",
             "generate_failure_no_snapchat": "SnapEnhance no pudo detectar Snapchat, por favor intenta reinstalar Snapchat.",
             "generate_failure": "Ocurrió un error al intentar generar mapeos, por favor intenta de nuevo."
         },
-        "dialogs": {
-            "select_save_folder_button": "Elige la carpeta",
-            "select_language": "Elige un idioma",
-            "save_folder": "Snapenhance necesita permisos de almacenamiento para descargar y guardar medios desde Snapchat.\nPor favor elige la ubicación dónde se deben descargar los medios."
-        },
         "permissions": {
-            "dialog": "Para continuar hay que cumplir los siguientes requisitos:",
             "request_button": "Solicitar",
             "notification_access": "Acceso a notificaciones",
             "battery_optimization": "Optimización de la Batería",
@@ -64,9 +57,6 @@
                 "message_logger_title": "Registrador de mensajes",
                 "debug_title": "Depurar",
                 "success_toast": "¡Hecho!",
-                "message_logger_summary": "{messageCount} mensajes\n{storyCount} historias",
-                "export_button": "Exportar",
-                "import_button": "Importar",
                 "import_success_toast": "Base de datos importada exitosamente",
                 "clear_button": "Borrar",
                 "view_logger_history_button": "Ver historial del registrador"
@@ -78,7 +68,6 @@
                 "remove_selected_tasks_confirm": "¿Borrar {count} tareas?",
                 "remove_all_tasks_confirm": "¿Borrar todas las tareas?",
                 "merge_files_toast": "Incorporando {count} archivos",
-                "no_tasks": "Sin tareas",
                 "failed_to_open_file": "Error al abrir el archivo"
             },
             "features": {
@@ -96,7 +85,6 @@
             },
             "social": {
                 "friends_tab": "Amigxs",
-                "empty_hint": "(Vacío)",
                 "streaks_expiration_short": "{hours}h",
                 "groups_tab": "Grupos"
             },
@@ -149,8 +137,7 @@
                 "file_delete_failed": "No se pudo eliminar el archivo",
                 "import_file_button": "Importar archivo",
                 "file_not_found": "Archivo no encontrado",
-                "file_imported": "Archivo importado exitosamente",
-                "no_files_hint": "Aquí puedes importar los archivos para usarlos en Snapchat. Presiona el botón a continuación para importar un archivo."
+                "file_imported": "Archivo importado exitosamente"
             },
             "better_location": {
                 "save_dialog_button": "Guardar",
@@ -172,9 +159,6 @@
                 "longitude_dialog_hint": "Longitud",
                 "suspend_location_updates": "Suspender las actualizaciones de ubicación"
             },
-            "theming": {
-                "no_themes_hint": "Ningún tema encontrado"
-            },
             "manage_rule_feature": {
                 "disable_state_option": "Desactivado",
                 "disable_state_subtext": "Ningún amigo/grupo se verá afectado",
@@ -184,8 +168,7 @@
                 "blacklist_state_option": "Todo el mundo excepto ...",
                 "blacklist_state_subtext": "Todos excepto {count} amigos/grupos se verán afectados por esta regla",
                 "blacklist_state_button": "Seleccionar amigos/grupos excluidos",
-                "clear_list_button": "Borrar lista de amigos/grupos",
-                "dialog_clear_confirmation_text": "¿Seguro que quieres borrar la lista?"
+                "clear_list_button": "Borrar lista de amigos/grupos"
             }
         },
         "dialogs": {
@@ -208,10 +191,6 @@
             "messaging_action": {
                 "select_all_button": "Seleccionar todo",
                 "title": "Elige el tipo de contenido para procesarlo"
-            },
-            "file_imports": {
-                "no_files_settings_hint": "No se encontraron archivos. Asegúrate de haber importado los archivos requeridos en la sección Importaciones de archivos",
-                "settings_select_file_hint": "Selecciona un archivo importado"
             },
             "export_config": {
                 "title": "¿Exportar datos confidenciales?",
@@ -1036,10 +1015,6 @@
                                 "description": "Añade el emoji 🔒 al lado de mensajes cifrados"
                             }
                         }
-                    },
-                    "call_recorder": {
-                        "name": "Grabador de llamadas",
-                        "description": "Grabar llamadas de audio automáticamente"
                     },
                     "account_switcher": {
                         "name": "Cambiar cuenta",

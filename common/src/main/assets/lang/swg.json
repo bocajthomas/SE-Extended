@@ -443,10 +443,6 @@
                         "name": "",
                         "description": ""
                     },
-                    "call_recorder": {
-                        "name": "",
-                        "description": ""
-                    },
                     "story_logger": {
                         "name": "",
                         "description": ""
@@ -1181,21 +1177,14 @@
         "snapchat_plus": ""
     },
     "setup": {
-        "dialogs": {
-            "select_save_folder_button": "",
-            "select_language": "",
-            "save_folder": ""
-        },
         "permissions": {
             "request_button": "",
             "display_over_other_apps": "",
-            "dialog": "",
             "notification_access": "",
             "battery_optimization": ""
         },
         "mappings": {
             "generate_failure_no_snapchat": "",
-            "dialog": "",
             "generate_failure": ""
         }
     },
@@ -1239,7 +1228,6 @@
                 "newer_required": ""
             },
             "tasks": {
-                "no_tasks": "",
                 "failed_to_open_file": "",
                 "merge_files_toast": "",
                 "remove_selected_tasks_confirm": "",
@@ -1251,8 +1239,7 @@
             "social": {
                 "streaks_expiration_short": "",
                 "groups_tab": "",
-                "friends_tab": "",
-                "empty_hint": ""
+                "friends_tab": ""
             },
             "home_logs": {
                 "no_logs_hint": "",
@@ -1265,11 +1252,9 @@
             "home_settings": {
                 "message_logger_title": "",
                 "debug_title": "",
-                "message_logger_summary": "",
                 "success_toast": "",
                 "clear_button": "",
                 "view_logger_history_button": "",
-                "export_button": "",
                 "actions_title": ""
             },
             "manage_scope": {
@@ -1301,7 +1286,6 @@
                 "file_not_found": "",
                 "file_import_failed": "",
                 "import_file_button": "",
-                "no_files_hint": "",
                 "file_imported": "",
                 "file_delete_failed": ""
             },
@@ -1329,7 +1313,6 @@
                 "blacklist_state_subtext": "",
                 "disable_state_subtext": "",
                 "blacklist_state_option": "",
-                "dialog_clear_confirmation_text": "",
                 "clear_list_button": "",
                 "blacklist_state_button": "",
                 "whitelist_state_option": "",
@@ -1341,9 +1324,6 @@
                 "save_from_cache_button": "",
                 "story_failed_to_load": "",
                 "no_stories": ""
-            },
-            "theming": {
-                "no_themes_hint": ""
             }
         },
         "dialogs": {
@@ -1370,10 +1350,6 @@
             "messaging_action": {
                 "select_all_button": "",
                 "title": ""
-            },
-            "file_imports": {
-                "no_files_settings_hint": "",
-                "settings_select_file_hint": ""
             }
         },
         "routes": {

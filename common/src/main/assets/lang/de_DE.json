@@ -1,17 +1,10 @@
 {
     "setup": {
-        "dialogs": {
-            "select_language": "Sprache auswählen",
-            "save_folder": "SE Extended benötigt Zugriff auf den Gerätespeicher, um Medien von Snapchat herunterzuladen und zu sichern.\nBitte wähle einen Ziel-Ordner für die Downloads aus.",
-            "select_save_folder_button": "Ordner auswählen"
-        },
         "mappings": {
-            "dialog": "Mappings werden generiert, dies könnte eine Weile dauern ...",
             "generate_failure_no_snapchat": "SE Extended konnte Snapchat nicht finden, bitte versuche Snapchat neu zu installieren.",
             "generate_failure": "Beim Versuch, Zuordnungen zu generieren, ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
         },
         "permissions": {
-            "dialog": "Um fortfahren zu können, musst du diese Anforderungen erfüllen:",
             "notification_access": "Benachrichtigungszugriff",
             "battery_optimization": "Batterieoptimierung",
             "display_over_other_apps": "Über anderen Apps anzeigen",
@@ -56,12 +49,10 @@
             },
             "social": {
                 "streaks_expiration_short": "{hours}h",
-                "empty_hint": "(leer)",
                 "friends_tab": "Freunde",
                 "groups_tab": "Gruppen"
             },
             "tasks": {
-                "no_tasks": "Keine Aufgaben",
                 "merge_files_toast": "Zusammenführen von {count} Dateien",
                 "remove_selected_tasks_title": "Sind Sie sicher, dass Sie die ausgewählten Aufgaben entfernen möchten?",
                 "remove_all_tasks_title": "Sind Sie sicher, dass Sie alle Aufgaben entfernen möchten?",
@@ -93,10 +84,7 @@
                 "actions_title": "Aktionen",
                 "message_logger_title": "Nachrichtenaufzeichner",
                 "debug_title": "Debuggen",
-                "message_logger_summary": "{messageCount} Nachrichten\n{storyCount} Stories",
                 "success_toast": "Erledigt!",
-                "export_button": "Exportieren",
-                "import_button": "Importieren",
                 "import_success_toast": "Datenbank erfolgreich importiert",
                 "clear_button": "Löschen",
                 "view_logger_history_button": "Historie des Nachrichtenaufzeichners ansehen"
@@ -150,8 +138,7 @@
                 "file_not_found": "Datei nicht gefunden",
                 "file_import_failed": "Datei konnte nicht importiert werden: {error}",
                 "file_imported": "Datei erfolgreich importiert",
-                "file_delete_failed": "Datei konnte nicht gelöscht werden",
-                "no_files_hint": "Hier können Sie Dateien zur Verwendung in Snapchat importieren. Klicken Sie auf die Schaltfläche unten, um eine Datei zu importieren."
+                "file_delete_failed": "Datei konnte nicht gelöscht werden"
             },
             "better_location": {
                 "spoofed_coordinates_title": "Lati {latitude}, Long {longitude}",
@@ -173,14 +160,10 @@
                 "teleport_to_friend_title": "Zum Freund teleportieren",
                 "no_friends_found": "Keine Freunde gefunden"
             },
-            "theming": {
-                "no_themes_hint": "Keine Designs gefunden"
-            },
             "manage_rule_feature": {
                 "disable_state_option": "Deaktiviert",
                 "whitelist_state_subtext": "Nur {count} Freude/Gruppen werden von dieser Regel betroffen sein",
                 "whitelist_state_option": "Niemand, außer ...",
-                "dialog_clear_confirmation_text": "Möchtest du die Liste wirklich löschen?",
                 "blacklist_state_subtext": "Jeder außer {count} Freunde/Gruppen werden von dieser Regel betroffen sein",
                 "disable_state_subtext": "Freunde/Gruppen sind nicht betroffen",
                 "blacklist_state_option": "Jeder außer...",
@@ -210,10 +193,6 @@
             "messaging_action": {
                 "title": "Wählen Sie die zu verarbeitenden Inhaltstypen um fortzufahren",
                 "select_all_button": "Alle auswählen"
-            },
-            "file_imports": {
-                "no_files_settings_hint": "Keine Dateien gefunden. Stellen Sie sicher, dass Sie die erforderlichen Dateien im Abschnitt „Dateiimporte“ importiert haben",
-                "settings_select_file_hint": "Wählen Sie eine importierte Datei aus"
             },
             "export_config": {
                 "content": "Möchten Sie die Konfiguration mit sensiblen Daten exportieren? (Zum Beispiel Standortkoordinaten usw.)",
@@ -1014,10 +993,6 @@
                     "story_logger": {
                         "description": "Liefert eine Historie der Stories von Freund:innen",
                         "name": "Geschichtenprotokollierer"
-                    },
-                    "call_recorder": {
-                        "name": "Anrufaufzeichner",
-                        "description": "Zeichnet automatisch Audioanrufe auf"
                     },
                     "media_file_picker": {
                         "name": "Mediendatei-Auswahl",

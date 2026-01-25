@@ -1,17 +1,10 @@
 {
     "setup": {
-        "dialogs": {
-            "save_folder": "SnapEnhance ને Snapchat માંથી મીડિયા ડાઉનલોડ કરવા અને સાચવવા માટે સ્ટોરેજ પરવાનગીની જરૂર છે. કૃપા કરીને તે સ્થાન પસંદ કરો જ્યાં મીડિયા ડાઉનલોડ કરવું જોઈએ.",
-            "select_save_folder_button": "ફોલ્ડર પસંદ કરો",
-            "select_language": ""
-        },
         "mappings": {
             "generate_failure": "મેપિંગ જનરેટ કરવાનો પ્રયાસ કરતી વખતે એક ભૂલ આવી, કૃપા કરીને ફરી પ્રયાસ કરો.",
-            "generate_failure_no_snapchat": "SnapEnhance Snapchat શોધવામાં અસમર્થ હતું, કૃપા કરીને Snapchat પુનઃસ્થાપિત કરવાનો પ્રયાસ કરો.",
-            "dialog": "Snapchat સંસ્કરણોની વિશાળ શ્રેણીને ગતિશીલ રીતે સમર્થન આપવા માટે, SnapEnhance યોગ્ય રીતે કાર્ય કરવા માટે મેપિંગ જરૂરી છે, આમાં 5 સેકન્ડથી વધુ સમય લાગવો જોઈએ નહીં."
+            "generate_failure_no_snapchat": "SnapEnhance Snapchat શોધવામાં અસમર્થ હતું, કૃપા કરીને Snapchat પુનઃસ્થાપિત કરવાનો પ્રયાસ કરો."
         },
         "permissions": {
-            "dialog": "ચાલુ રાખવા માટે તમારે નીચેની આવશ્યકતાઓને ફિટ કરવાની જરૂર છે:",
             "battery_optimization": "",
             "display_over_other_apps": "",
             "request_button": "",
@@ -197,10 +190,6 @@
                     "prevent_forced_logout": {
                         "name": "",
                         "description": ""
-                    },
-                    "call_recorder": {
-                        "description": "",
-                        "name": ""
                     },
                     "story_logger": {
                         "name": "",
@@ -1188,10 +1177,8 @@
     "manager": {
         "sections": {
             "home_settings": {
-                "export_button": "",
                 "success_toast": "",
                 "debug_title": "",
-                "message_logger_summary": "",
                 "actions_title": "",
                 "clear_button": "",
                 "message_logger_title": "",
@@ -1227,7 +1214,6 @@
             },
             "tasks": {
                 "merge_files_toast": "",
-                "no_tasks": "",
                 "delete_files_option": "",
                 "remove_all_tasks_title": "",
                 "remove_selected_tasks_confirm": "",
@@ -1262,16 +1248,14 @@
                 "blacklist_state_button": "",
                 "disable_state_option": "",
                 "blacklist_state_option": "",
-                "disable_state_subtext": "",
-                "dialog_clear_confirmation_text": ""
+                "disable_state_subtext": ""
             },
             "file_imports": {
                 "file_imported": "",
                 "import_file_button": "",
                 "file_import_failed": "",
                 "file_not_found": "",
-                "file_delete_failed": "",
-                "no_files_hint": ""
+                "file_delete_failed": ""
             },
             "better_location": {
                 "spoofed_coordinates_title": "",
@@ -1292,9 +1276,6 @@
                 "choose_location_button": "",
                 "longitude_dialog_hint": "",
                 "saved_coordinates_title": ""
-            },
-            "theming": {
-                "no_themes_hint": ""
             },
             "home": {
                 "version_title": "",
@@ -1317,7 +1298,6 @@
             "social": {
                 "friends_tab": "",
                 "groups_tab": "",
-                "empty_hint": "",
                 "streaks_expiration_short": ""
             },
             "logger_history": {
@@ -1356,10 +1336,6 @@
             "messaging_action": {
                 "title": "",
                 "select_all_button": ""
-            },
-            "file_imports": {
-                "no_files_settings_hint": "",
-                "settings_select_file_hint": ""
             }
         },
         "routes": {

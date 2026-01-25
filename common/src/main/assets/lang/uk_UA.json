@@ -1,21 +1,10 @@
 {
     "setup": {
-        "dialogs": {
-            "select_language": "Оберіть мову",
-            "save_folder": "SE Extended вимагає дозволів на зберігання для завантаження та збереження медіафайлів із Snapchat.\nБудь ласка, виберіть місце, куди потрібно завантажити медіа.",
-            "select_save_folder_button": "Виберіть папку",
-            "disclaimer": {
-                "statement": "Ласкаво просимо до розширеного модуля SE.\nЗастереження:\n- Користувачі несуть повну відповідальність за будь-які ризики, пов'язані з використанням цього модуля.\n- Розширений модуль SE може змінювати поведінку додатка Snapchat. Користувачі повинні уважно ознайомитися з роботою модуля та самостійно прийняти рішення щодо його використання. \n- Розробник не несе відповідальності за будь-які попередження або заборони, які можуть виникнути у вашому обліковому записі Snapchat внаслідок використання розширеного модуля SE, і всі наслідки несуть самі користувачі.",
-                "agree_button": "Я погоджуюся"
-            }
-        },
         "mappings": {
-            "dialog": "Створення зіставлень, це може зайняти деякий час...",
             "generate_failure_no_snapchat": "SE Extended не вдалося виявити Snapchat, спробуйте перевстановити Snapchat.",
             "generate_failure": "Під час створення зіставлення сталася помилка. Повторіть спробу."
         },
         "permissions": {
-            "dialog": "Щоб продовжити, потрібно відповідати наступним вимогам:",
             "notification_access": "Доступ до сповіщень",
             "battery_optimization": "Оптимізація батареї",
             "display_over_other_apps": "Відображення поверх інших програм",
@@ -56,8 +45,7 @@
                 "config_import_success_toast": "Конфігурацію успішно імпортовано",
                 "config_import_failure_toast": "Не вдалося імпортувати конфігурацію {error}",
                 "older_required": "Для правильної роботи цієї функції потрібен Snapchat v{version} або старішої версії",
-                "newer_required": "Для правильної роботи цієї функції потрібен Snapchat v{version} або новішої версії",
-                "search_button": "Пошук"
+                "newer_required": "Для правильної роботи цієї функції потрібен Snapchat v{version} або новішої версії"
             },
             "manage_scope": {
                 "rules_title": "Правила",
@@ -85,11 +73,9 @@
             },
             "home_settings": {
                 "actions_title": "Дії",
-                "export_button": "Експорт",
                 "clear_button": "Очистити",
                 "success_toast": "Готово!",
                 "message_logger_title": "Реєстратор повідомлень",
-                "message_logger_summary": "{messageCount} повідомлень\n{storyCount} історій",
                 "view_logger_history_button": "Переглянути історію реєстратора",
                 "debug_title": "Налагодження"
             },
@@ -97,7 +83,6 @@
                 "remove_selected_tasks_title": "Ви впевнені, що бажаєте видалити вибрані завдання?",
                 "remove_all_tasks_title": "Ви впевнені, що хочете видалити всі завдання?",
                 "delete_files_option": "Також видалити файли",
-                "no_tasks": "Завдань немає",
                 "failed_to_open_file": "Не вдалося відкрити файл",
                 "merge_files_toast": "Об’єднання {count} файлів",
                 "remove_selected_tasks_confirm": "Видалити {count} завдань?",
@@ -107,8 +92,7 @@
             "social": {
                 "friends_tab": "Друзі",
                 "groups_tab": "Групи",
-                "streaks_expiration_short": "{hours} год",
-                "empty_hint": "(порожній)"
+                "streaks_expiration_short": "{hours} год"
             },
             "messaging_preview": {
                 "unsave_all_option": "Скасувати збереження всіх",
@@ -129,8 +113,7 @@
                 "file_imported": "Файл успішно імпортовано",
                 "file_delete_failed": "Не вдалося видалити файл",
                 "import_file_button": "Імпорт файлу",
-                "file_not_found": "Файл не знайдено",
-                "no_files_hint": "Тут ви можете імпортувати файли для використання в Snapchat. Натисніть кнопку нижче, щоб імпортувати файл."
+                "file_not_found": "Файл не знайдено"
             },
             "better_location": {
                 "spoofed_coordinates_title": "Широта {latitude}, Висота {longitude}",
@@ -166,7 +149,6 @@
                 "whitelist_state_subtext": "Це правило стосуватиметься лише {count} друзів/груп",
                 "whitelist_state_button": "Виберіть дозволених друзів/групи",
                 "blacklist_state_subtext": "Це правило стосуватиметься всіх, крім {count} друзів/груп",
-                "dialog_clear_confirmation_text": "Ви впевнені, що бажаєте очистити список?",
                 "blacklist_state_button": "Виберіть виключених друзів/групи",
                 "clear_list_button": "Очистити список друзів/груп",
                 "disable_state_option": "Вимкнено",
@@ -189,14 +171,11 @@
                 "unknown_sender": "Невідомий відправник"
             },
             "theming": {
-                "no_themes_hint": "Теми не знайдено",
                 "search_theme_placeholder": "Пошук тем",
                 "new_theme_button": "Нова тема",
                 "import_from_file_button": "Імпорт з файлу",
                 "import_from_url_button": "Імпорт з URL-адреси",
-                "manage_repositories_button": "Керування Репозиторіями",
-                "installed_themes_title": "Встановлені теми",
-                "theme_catalog_title": "Каталог тем"
+                "manage_repositories_button": "Керування Репозиторіями"
             }
         },
         "dialogs": {
@@ -211,10 +190,6 @@
             "scripting_warning": {
                 "title": "Увага",
                 "content": "SnapEnhance містить інструмент створення сценаріїв, що дозволяє виконувати визначений користувачем код на вашому пристрої. Будьте вкрай обережні та встановлюйте модулі лише з відомих надійних джерел. Неавторизовані або неперевірені модулі можуть становити загрозу безпеці вашої системи."
-            },
-            "file_imports": {
-                "no_files_settings_hint": "Файли не знайдено. Переконайтеся, що ви імпортували необхідні файли в розділ «Імпорт файлів»",
-                "settings_select_file_hint": "Виберіть імпортований файл"
             },
             "reset_config": {
                 "content": "Ви впевнені, що бажаєте скинути конфігурацію?",
@@ -1099,10 +1074,6 @@
                         "name": "Реєстратор історій",
                         "description": "Надає історію історій друзів"
                     },
-                    "call_recorder": {
-                        "name": "Запис дзвінків",
-                        "description": "Автоматично записує аудіодзвінки"
-                    },
                     "prevent_forced_logout": {
                         "description": "Запобігає виходу Snapchat під час входу на іншому пристрої",
                         "name": "Запобігання примусового виходу з системи"
@@ -1708,9 +1679,7 @@
         "send": "Надіслати",
         "download": "Завантажити",
         "positive": "Так",
-        "open": "Відкрити",
-        "restore_original": "Відновити оригінал",
-        "convert_external_media": "Конвертувати зовнішні носії"
+        "open": "Відкрити"
     },
     "profile_picture_downloader": {
         "button": "Завантажити зображення профілю",

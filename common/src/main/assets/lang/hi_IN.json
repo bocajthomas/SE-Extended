@@ -1,17 +1,10 @@
 {
     "setup": {
-        "dialogs": {
-            "select_language": "भाषा चुनें",
-            "select_save_folder_button": "फोल्डर चुनें",
-            "save_folder": "SnapEnhance को स्नैपचैट से मीडिया को डाउनलोड करने और सेव करने के लिए स्टोरेज अनुमति की आवश्यकता होती है।\n कृपया वह स्थान चुनें जहां से मीडिया डाउनलोड किया जाना चाहिए।"
-        },
         "mappings": {
             "generate_failure_no_snapchat": "स्नैपएन्हांस के द्वारा स्नैपचैट को डिटेक्ट नहीं किया गया, कृपया स्नैपचैट दुबारा इंस्टॉल करें।",
-            "generate_failure": "मैपिंग बनाते समय एक त्रुटि पाई गई है, कृपया दुबारा कोसिस करें।",
-            "dialog": "स्नैपचैट संस्करणों की एक विस्तृत श्रृंखला को गतिशील रूप से समर्थन देने के लिए, SnapEnhance के ठीक से काम करने के लिए मैपिंग आवश्यक है, इसमें 5 सेकंड से अधिक समय नहीं लगना चाहिए।"
+            "generate_failure": "मैपिंग बनाते समय एक त्रुटि पाई गई है, कृपया दुबारा कोसिस करें।"
         },
         "permissions": {
-            "dialog": "आगे बढ़ने के लिए आपको निम्नलिखित मांगो को पूरा करना पड़ेगा।:",
             "notification_access": "नोटिफिकेशन अनुमति",
             "battery_optimization": "बैटरी ऑप्टिमाइजेशन",
             "display_over_other_apps": "दूसरे ऐप्लिकेशन के ऊपर दिखाए जाने का ऐक्सेस",
@@ -57,11 +50,9 @@
             "social": {
                 "streaks_expiration_short": "{hours}h",
                 "friends_tab": "दोस्त",
-                "groups_tab": "समूह",
-                "empty_hint": "(empty)"
+                "groups_tab": "समूह"
             },
             "tasks": {
-                "no_tasks": "कोई कार्य नहीं",
                 "merge_files_toast": "{संख्या} फाईल जुड़ रही है",
                 "delete_files_option": "files भी हटाएं",
                 "remove_selected_tasks_confirm": "{संख्या} कार्य हटाएं?",
@@ -90,9 +81,7 @@
             },
             "home_settings": {
                 "actions_title": "प्रत्क्रिया",
-                "message_logger_summary": "{मैसेज संख्या} मैसेज\n{स्टोरी संख्या} स्टोरीज",
                 "view_logger_history_button": "logger हिस्ट्री देखे",
-                "export_button": "निर्यात करें",
                 "clear_button": "साफ करें",
                 "message_logger_title": "मेसेज को डिलीट होने से बचाएं",
                 "debug_title": "दोष मुक्त",
@@ -147,8 +136,7 @@
                 "file_import_failed": "फ़ाइल आयात करने में विफल",
                 "file_imported": "फ़ाइल सफलतापूर्वक आयात की गई",
                 "file_delete_failed": "फ़ाइल हटाने में विफल",
-                "import_file_button": "फ़ाइल आयात करें",
-                "no_files_hint": "यहां आप स्नैपचैट में उपयोग के लिए फ़ाइलें आयात कर सकते हैं। फ़ाइल आयात करने के लिए नीचे दिया गया बटन दबाएँ।"
+                "import_file_button": "फ़ाइल आयात करें"
             },
             "better_location": {
                 "spoofed_coordinates_title": "अक्षांश {latitude}, देशांतर {longitude}",
@@ -179,11 +167,7 @@
                 "blacklist_state_subtext": "",
                 "whitelist_state_option": "",
                 "disable_state_option": "",
-                "disable_state_subtext": "",
-                "dialog_clear_confirmation_text": ""
-            },
-            "theming": {
-                "no_themes_hint": ""
+                "disable_state_subtext": ""
             }
         },
         "dialogs": {
@@ -210,10 +194,6 @@
             "export_config": {
                 "title": "संवेदनशील डेटा निर्यात करें?",
                 "content": "क्या आप संवेदनशील डेटा के साथ कॉन्फ़िगरेशन निर्यात करना चाहते हैं? (जैसे स्थान निर्देशांक, आदि)"
-            },
-            "file_imports": {
-                "settings_select_file_hint": "एक आयातित फ़ाइल का चयन करें",
-                "no_files_settings_hint": "कोई फाईल नहीं मिली। सुनिश्चित करें कि आपने फ़ाइल आयात अनुभाग में आवश्यक फ़ाइलें आयात कर ली हैं"
             }
         }
     },
@@ -1059,10 +1039,6 @@
                                 "description": ""
                             }
                         },
-                        "description": "",
-                        "name": ""
-                    },
-                    "call_recorder": {
                         "description": "",
                         "name": ""
                     },

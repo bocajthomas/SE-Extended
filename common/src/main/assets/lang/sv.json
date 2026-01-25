@@ -1,17 +1,10 @@
 {
     "setup": {
-        "dialogs": {
-            "select_save_folder_button": "Välj Mapp",
-            "select_language": "Välj språk",
-            "save_folder": "SnapEnhance kräver lagringsbehörigheter för att ladda ner och spara media från Snapchat.\nVälj var media ska laddas ner till."
-        },
         "mappings": {
-            "dialog": "För att dynamiskt stödja ett brett utbud av Snapchat Versioner, mappningar är nödvändiga för att SnapEnhance ska fungera korrekt, detta bör inte ta mer än 5 sekunder.",
             "generate_failure_no_snapchat": "SnapEnhance kunde inte upptäcka Snapchat, försök att installera om Snapchat.",
             "generate_failure": "Ett fel inträffade vid försök att generera mappningar, försök igen."
         },
         "permissions": {
-            "dialog": "För att fortsätta måste du uppfylla följande krav:",
             "notification_access": "Åtkomst till aviseringar",
             "battery_optimization": "Batterioptimering",
             "display_over_other_apps": "Visa över andra appar",
@@ -57,11 +50,9 @@
             "social": {
                 "streaks_expiration_short": "{timmar}t",
                 "groups_tab": "",
-                "friends_tab": "",
-                "empty_hint": ""
+                "friends_tab": ""
             },
             "tasks": {
-                "no_tasks": "Inga uppgifter",
                 "merge_files_toast": "Slår samman {count} filer",
                 "remove_selected_tasks_confirm": "Ta bort {count} uppgifter?",
                 "remove_all_tasks_confirm": "Ta bort alla upgifter?",
@@ -120,13 +111,11 @@
             },
             "home_settings": {
                 "debug_title": "Felsökning",
-                "export_button": "Exportera",
                 "clear_button": "Rensa",
                 "view_logger_history_button": "Visa Logger Historik",
                 "actions_title": "Handlingar",
                 "success_toast": "Klart!",
-                "message_logger_title": "",
-                "message_logger_summary": ""
+                "message_logger_title": ""
             },
             "manage_scope": {
                 "rules_title": "Regler",
@@ -162,11 +151,7 @@
                 "spoof_location_toggle": "",
                 "delete_dialog_title": ""
             },
-            "theming": {
-                "no_themes_hint": ""
-            },
             "file_imports": {
-                "no_files_hint": "",
                 "import_file_button": "",
                 "file_delete_failed": "",
                 "file_imported": "",
@@ -177,7 +162,6 @@
                 "whitelist_state_option": "",
                 "whitelist_state_button": "",
                 "whitelist_state_subtext": "",
-                "dialog_clear_confirmation_text": "",
                 "disable_state_subtext": "",
                 "blacklist_state_subtext": "",
                 "clear_list_button": "",
@@ -210,10 +194,6 @@
             "messaging_action": {
                 "select_all_button": "",
                 "title": ""
-            },
-            "file_imports": {
-                "no_files_settings_hint": "",
-                "settings_select_file_hint": ""
             }
         }
     },
@@ -1024,10 +1004,6 @@
                     "story_logger": {
                         "name": "Berättelselogger",
                         "description": "Ger en historia av vänners berättelser"
-                    },
-                    "call_recorder": {
-                        "name": "Samtalsinspelning",
-                        "description": "Spelar automatiskt in ljudsamtal"
                     },
                     "hidden_snapchat_plus_features": {
                         "description": "Aktiverar outgivna/beta Snapchat Plus-funktioner\nKanske inte fungerar på äldre Snapchat-versioner",

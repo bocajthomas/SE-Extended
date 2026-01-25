@@ -25,8 +25,7 @@
             "social": {
                 "streaks_expiration_short": "{hours} timer",
                 "friends_tab": "Venner",
-                "groups_tab": "Grupper",
-                "empty_hint": "(tom)"
+                "groups_tab": "Grupper"
             },
             "features": {
                 "disabled": "Avskrudd",
@@ -42,7 +41,6 @@
                 "older_required": ""
             },
             "tasks": {
-                "no_tasks": "Ingen gjøremål",
                 "remove_all_tasks_title": "Fjern alle gjøremål?",
                 "failed_to_open_file": "Kunne ikke åpne fil",
                 "merge_files_toast": "Slår sammen {count} filer …",
@@ -72,9 +70,7 @@
             "home_settings": {
                 "actions_title": "Handlinger",
                 "success_toast": "Ferdig!",
-                "message_logger_summary": "{messageCount} meldinger\n{storyCount} historier",
                 "message_logger_title": "Meldingsloggføring",
-                "export_button": "Eksporter",
                 "clear_button": "Tøm",
                 "view_logger_history_button": "Vis loggføringshistorikk",
                 "debug_title": "Avlusing"
@@ -114,8 +110,7 @@
                 "import_file_button": "Importer fil",
                 "file_not_found": "Fant ikke filen",
                 "file_delete_failed": "Klarte ikke å slette fil",
-                "file_import_failed": "Klarte ikke å importere fil: {index}",
-                "no_files_hint": "Her kan du importere filer for bruk i Snapchat. Trykk knappen nedenfor for å importere en fil."
+                "file_import_failed": "Klarte ikke å importere fil: {index}"
             },
             "better_location": {
                 "save_coordinates_dialog_title": "Lagre koordinater",
@@ -158,13 +153,9 @@
                 "blacklist_state_subtext": "",
                 "clear_list_button": "",
                 "blacklist_state_button": "",
-                "dialog_clear_confirmation_text": "",
                 "whitelist_state_button": "",
                 "blacklist_state_option": "",
                 "whitelist_state_option": ""
-            },
-            "theming": {
-                "no_themes_hint": ""
             }
         },
         "dialogs": {
@@ -191,30 +182,19 @@
             "messaging_action": {
                 "select_all_button": "Velg alt",
                 "title": "Velg innholdstyper å behandle"
-            },
-            "file_imports": {
-                "settings_select_file_hint": "Velg en importert fil",
-                "no_files_settings_hint": "Fant ingen filer. Sørg for at du har importert påkrevde filer i filimporteringsdelen."
             }
         }
     },
     "setup": {
         "mappings": {
-            "dialog": "For å dynamisk støtte et bredt spekter av Snapchat-versjoner, er kartlegging nødvendig for at SnapEnhance skal fungere ordentlig, dette bør ikke ta mer enn 5 sekunder.",
             "generate_failure_no_snapchat": "SE Extended kunne ikke oppdage Snapchat. Prøv å installere Snapchat på nytt.",
             "generate_failure": "Det oppstod en feil under forsøk på å generere kartlegginger. Prøv igjen."
-        },
-        "dialogs": {
-            "select_save_folder_button": "Velg mappe",
-            "select_language": "Velg språk",
-            "save_folder": "SE Extended krever lagringstillatelser for og laste ned og lagre media fra Snapchat.\nVelg hvor filene skal lagres."
         },
         "permissions": {
             "battery_optimization": "Batterioptimalisering",
             "display_over_other_apps": "Visning over andre programmer",
             "notification_access": "Merknadstilgang",
-            "request_button": "Forespør",
-            "dialog": "For å fortsette må du oppfylle følgende krav:"
+            "request_button": "Forespør"
         }
     },
     "rules": {
@@ -865,10 +845,6 @@
                         },
                         "description": "",
                         "name": ""
-                    },
-                    "call_recorder": {
-                        "name": "",
-                        "description": ""
                     },
                     "story_logger": {
                         "description": "",

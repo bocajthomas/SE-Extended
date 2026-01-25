@@ -64,19 +64,12 @@
         "download": ""
     },
     "setup": {
-        "dialogs": {
-            "select_save_folder_button": "Selecione a pasta",
-            "select_language": "Selecione o idioma",
-            "save_folder": "SnapEnhance requer permissões de armazenamento para baixar e salvar mídia do Snapchat.\nEscolha o local para onde a mídia deve ser baixada."
-        },
         "mappings": {
-            "dialog": "Para suportar dinamicamente uma ampla variedade de versões do Snapchat, os mapeamentos são necessários para que o SnapEnhance funcione corretamente. Isso não deve levar mais de 5 segundos.",
             "generate_failure_no_snapchat": "O SnapEnhance não conseguiu detectar o Snapchat. Tente reinstalar o Snapchat.",
             "generate_failure": "Ocorreu um erro ao tentar gerar mapeamentos, tente novamente."
         },
         "permissions": {
             "notification_access": "Acesso a notificações",
-            "dialog": "Para continuar, é necessário preencher os seguintes requisitos:",
             "battery_optimization": "",
             "request_button": "",
             "display_over_other_apps": ""
@@ -106,9 +99,7 @@
                 "actions_title": "",
                 "success_toast": "",
                 "view_logger_history_button": "",
-                "debug_title": "",
-                "message_logger_summary": "",
-                "export_button": ""
+                "debug_title": ""
             },
             "messaging_preview": {
                 "delete_selection_option": "",
@@ -127,7 +118,6 @@
             "file_imports": {
                 "file_imported": "",
                 "file_not_found": "",
-                "no_files_hint": "",
                 "file_import_failed": "",
                 "file_delete_failed": "",
                 "import_file_button": ""
@@ -175,7 +165,6 @@
                 "whitelist_state_button": "",
                 "blacklist_state_option": "",
                 "blacklist_state_subtext": "",
-                "dialog_clear_confirmation_text": "",
                 "whitelist_state_option": ""
             },
             "home_logs": {
@@ -191,7 +180,6 @@
                 "remove_selected_tasks_title": "",
                 "failed_to_open_file": "",
                 "remove_all_tasks_confirm": "",
-                "no_tasks": "",
                 "remove_selected_tasks_confirm": "",
                 "delete_files_option": "",
                 "remove_all_tasks_title": ""
@@ -220,9 +208,6 @@
                 "no_more_messages": "",
                 "unknown_sender": ""
             },
-            "theming": {
-                "no_themes_hint": ""
-            },
             "logged_stories": {
                 "story_failed_to_load": "",
                 "save_from_cache_button": "",
@@ -230,7 +215,6 @@
             },
             "social": {
                 "friends_tab": "",
-                "empty_hint": "",
                 "groups_tab": "",
                 "streaks_expiration_short": ""
             }
@@ -272,10 +256,6 @@
             "messaging_action": {
                 "title": "",
                 "select_all_button": ""
-            },
-            "file_imports": {
-                "no_files_settings_hint": "",
-                "settings_select_file_hint": ""
             },
             "export_config": {
                 "title": "",
@@ -760,10 +740,6 @@
                         "description": ""
                     },
                     "prevent_forced_logout": {
-                        "description": "",
-                        "name": ""
-                    },
-                    "call_recorder": {
                         "description": "",
                         "name": ""
                     },

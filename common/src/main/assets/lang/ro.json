@@ -100,20 +100,13 @@
     "setup": {
         "mappings": {
             "generate_failure_no_snapchat": "SnapEnhance nu a putut detecta Snapchat, încercați să reinstalați Snapchat.",
-            "dialog": "Pentru a suporta dinamic o mai multe versiuni de Snapchat, mapările sunt necesare pentru SnapEnhance pentru a funcționa corect, nu ar trebui să dureze mai mult de 5 secunde.",
             "generate_failure": "A apărut o eroare în timpul generării mapărilor, te rog încearcă din nou."
         },
         "permissions": {
-            "dialog": "Pentru a continua trebuie să îndeplinești următoarele condiții:",
             "notification_access": "Acces Notificări",
             "battery_optimization": "Optimizare Baterie",
             "display_over_other_apps": "Afișează Peste Alte Aplicații",
             "request_button": "Cerere"
-        },
-        "dialogs": {
-            "select_language": "Selectează Limba",
-            "save_folder": "SnapEnhance necesită acces la Stocare pentru a descărca si salva media din Snapchat.\nTe rog selectează locația unde ar trebui să fie descărcate.",
-            "select_save_folder_button": "Alege Dosarul"
         }
     },
     "manager": {
@@ -142,11 +135,9 @@
             "social": {
                 "streaks_expiration_short": "{hours}h",
                 "friends_tab": "Prieteni",
-                "groups_tab": "Grupuri",
-                "empty_hint": "(gol)"
+                "groups_tab": "Grupuri"
             },
             "tasks": {
-                "no_tasks": "Fără actiuni",
                 "merge_files_toast": "Îmbinând {count} fișiere",
                 "remove_selected_tasks_title": "Ești sigur că vrei sa ștergi actiunile selectate?",
                 "delete_files_option": "De asemenea șterge fișierele",
@@ -180,11 +171,9 @@
                 "download_attachment_failed_toast": "Atașamentul nu a putut fi descărcat"
             },
             "home_settings": {
-                "export_button": "Exportă",
                 "actions_title": "Acțiuni",
                 "debug_title": "Depanare",
                 "success_toast": "Gata!",
-                "message_logger_summary": "{messageCount} mesaje\n{storyCount} povești",
                 "message_logger_title": "Salvator de mesaje",
                 "view_logger_history_button": "Vedeți istoricul înregistratorului",
                 "clear_button": "Curăță"
@@ -244,7 +233,6 @@
                 "import_file_button": "Importă fișierul",
                 "file_not_found": "Fișier negăsit",
                 "file_delete_failed": "Nu s-a șters fișierul",
-                "no_files_hint": "Aici puteți importa fișiere pentru utilizare în Snapchat. Apăsați butonul de mai jos pentru a importa un fișier.",
                 "file_import_failed": "Nu s-a putut importa fișierul: {error}",
                 "file_imported": "Fișier importat cu succes"
             },
@@ -274,14 +262,10 @@
                 "blacklist_state_subtext": "Toți, cu excepția {count} prieteni/grupuri, vor fi afectați de această regulă",
                 "whitelist_state_subtext": "Numai {count} prieteni/grupuri vor fi afectate de această regulă",
                 "whitelist_state_button": "Selectează prietenii/grupurile permise",
-                "dialog_clear_confirmation_text": "Sigur doriți să ștergeți lista?",
                 "disable_state_option": "Dezactivat",
                 "whitelist_state_option": "Nimeni în afară de...",
                 "clear_list_button": "Șterge lista de prieteni/grupuri",
                 "blacklist_state_button": "Selectează prietenii/grupurile excluse"
-            },
-            "theming": {
-                "no_themes_hint": "Nu s-au găsit teme"
             }
         },
         "dialogs": {
@@ -308,10 +292,6 @@
             "export_config": {
                 "title": "Exportați date sensibile?",
                 "content": "Doriți să exportați configurația cu date sensibile? (cum ar fi coordonatele locației etc.)"
-            },
-            "file_imports": {
-                "no_files_settings_hint": "Nu s-au găsit fișiere. Asigurați-vă că ați importat fișierele necesare în secțiunea Importuri de fișiere",
-                "settings_select_file_hint": "Selectați un fișier importat"
             }
         }
     },
@@ -1121,10 +1101,6 @@
                     "prevent_forced_logout": {
                         "name": "Preveniți deconectarea forțată",
                         "description": "Împiedică Snapchat să vă deconecteze atunci când vă conectați pe alt dispozitiv"
-                    },
-                    "call_recorder": {
-                        "name": "Înregistrare Apeluri",
-                        "description": "Înregistrează automat apelurile audio"
                     },
                     "custom_streaks_expiration_format": {
                         "name": "Format personalizat de expirare a liniilor fierbinți",

@@ -1,17 +1,10 @@
 {
     "setup": {
-        "dialogs": {
-            "select_language": "Nyelv kiválasztása",
-            "save_folder": "A SnapEnhance-nek tárhelyhozzáférésre van szüksége média mentéséhez és letöltéséhez. \nKérem válassza ki a média mentési helyét.",
-            "select_save_folder_button": "Mappa kiválasztása"
-        },
         "mappings": {
-            "dialog": "Hozzárendelések generálása, ez eltarthat egy darabig ...",
             "generate_failure_no_snapchat": "A SnapEnhance nem találja a Snapchatet, próbálja meg újra telepíteni a Snapchatet.",
             "generate_failure": "Hiba történt a beállítások mentése során, kérjük próbálja meg újra."
         },
         "permissions": {
-            "dialog": "A folytatáshoz a következőkre van szükség:",
             "notification_access": "Értesítési hozzáférés",
             "battery_optimization": "Akkumulátor optimalizálás",
             "display_over_other_apps": "Megjelenítés a többi alkalmazás fölött",
@@ -57,11 +50,9 @@
             "social": {
                 "streaks_expiration_short": "{hours} óra",
                 "groups_tab": "Csoportok",
-                "empty_hint": "(üres)",
                 "friends_tab": "Barátok"
             },
             "tasks": {
-                "no_tasks": "Nincsenek feladatok",
                 "merge_files_toast": "{count} fájl egybevonása",
                 "remove_selected_tasks_title": "Biztosan törölni szeretnéd a kiválasztott feladatokat?",
                 "remove_all_tasks_title": "Biztosan törölni szeretnéd az összes feladatot?",
@@ -86,8 +77,6 @@
                 "message_logger_title": "Üzenet naplózó",
                 "debug_title": "Hibakeresés",
                 "success_toast": "Kész!",
-                "message_logger_summary": "{messageCount} üzenet(ek)\n{storyCount} történet(ek)",
-                "export_button": "Exportálás",
                 "clear_button": "Töröl"
             },
             "home_logs": {
@@ -146,7 +135,6 @@
                 "file_imported": "A fájl sikeresen importálva",
                 "file_delete_failed": "Nem sikerült törölni a fájlt",
                 "file_import_failed": "Nem sikerült a fájlt importálni: {error}",
-                "no_files_hint": "Itt tudsz fájlokat importálni, hogy a Snapchatben használd. Nyomd meg a gombot egy fájl importálásához.",
                 "import_file_button": "Fájl importálása",
                 "file_not_found": "Fájl nem található"
             },
@@ -175,15 +163,11 @@
                 "disable_state_subtext": "Egyetlen barátot vagy csoportot sem érint",
                 "whitelist_state_option": "Senki, kivéve ...",
                 "whitelist_state_subtext": "Csak {count} barátot/csoportot érint ez a szabály",
-                "dialog_clear_confirmation_text": "Biztos vagy benne, hogy törölni akarod a listát?",
                 "blacklist_state_subtext": "Mindenkit érint ez a szabály, kivéve {count} barátot/csoportot",
                 "blacklist_state_button": "Válassza ki a kizárt barátokat/csoportokat",
                 "clear_list_button": "Törölje a barátok/csoportok listáját",
                 "blacklist_state_option": "Mindenki kivéve ...",
                 "whitelist_state_button": "Válassza ki az engedélyezett barátokat/csoportokat"
-            },
-            "theming": {
-                "no_themes_hint": "Nem található téma"
             }
         },
         "dialogs": {
@@ -206,10 +190,6 @@
             "messaging_action": {
                 "title": "Válassza ki a feldolgozni kívánt tartalomtípusokat",
                 "select_all_button": "Összes keresése"
-            },
-            "file_imports": {
-                "no_files_settings_hint": "Nincsenek fájlok. Ellenőrizd, hogy minden szükséges fájl benne van-e a Fájl importálás részben",
-                "settings_select_file_hint": "Válassz egy importált fájlt"
             },
             "export_config": {
                 "title": "Exportálod az érzékeny adatokat?",
@@ -994,10 +974,6 @@
                     "no_friend_score_delay": {
                         "name": "Nincs Friend Score késleltetés",
                         "description": "Eltávolítja a késleltetést a Friends Score megtekintésekor"
-                    },
-                    "call_recorder": {
-                        "name": "Hívásrögzítő",
-                        "description": "Automatikusan rögzíti a hanghívásokat"
                     },
                     "media_file_picker": {
                         "name": "Média fájlválasztó",

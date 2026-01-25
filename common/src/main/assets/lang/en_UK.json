@@ -1,23 +1,12 @@
 {
     "setup": {
-        "dialogs": {
-            "select_language": "Select Language",
-            "select_save_folder_button": "Select Folder",
-            "save_folder": "SE Extended requires Storage permissions to download and Save Media from Snapchat.\nPlease choose the location where media should be downloaded to.",
-            "disclaimer": {
-                "statement": "Welcome to the SE Extended Module.\nDisclaimer:\n- Users must take full Responsibility for any risks associated with using this module.\n- The SE Extended Module can modify the behaviour of the Snapchat app. Users should carefully review the module's operations and make their own decisions regarding its usage.\n- The developer accepts no responsibility for any warnings or bans that may occur on your snapchat account that may arise from the use of the SE Extended module, and all consequences are to be borne by the users themselves.",
-                "agree_button": "I Agree"
-            }
-        },
         "mappings": {
             "generate_failure_no_snapchat": "SE Extended was unable to detect Snapchat, please try reinstalling Snapchat.",
-            "generate_failure": "An error occurred while trying to generate mappings, please try again.",
-            "dialog": "Generating Mappings, this may take a while, please be patient..."
+            "generate_failure": "An error occurred while trying to generate mappings, please try again."
         },
         "permissions": {
             "notification_access": "Notification Access",
             "request_button": "Request",
-            "dialog": "To continue you need to fit the following requirements:",
             "battery_optimization": "Battery Optimization",
             "display_over_other_apps": "Display Over Other Apps"
         }
@@ -56,11 +45,9 @@
                 "saved_config_snackbar": "Config saved",
                 "config_export_failure_toast": "Failed to export config {error}",
                 "older_required": "This feature requires Snapchat v{version} or older to work correctly",
-                "newer_required": "This feature requires Snapchat v{version} or newer to work correctly",
-                "search_button": "Search"
+                "newer_required": "This feature requires Snapchat v{version} or newer to work correctly"
             },
             "tasks": {
-                "no_tasks": "No Tasks",
                 "merge_files_toast": "Merging {count} Files",
                 "remove_selected_tasks_title": "Are you sure you want to remove selected tasks?",
                 "remove_all_tasks_title": "Are you sure you want to remove all tasks?",
@@ -73,8 +60,7 @@
             "social": {
                 "streaks_expiration_short": "{hours}h",
                 "friends_tab": "Friends",
-                "groups_tab": "Groups",
-                "empty_hint": "(blank)"
+                "groups_tab": "Groups"
             },
             "home": {
                 "update_title": "SE Extended Update",
@@ -97,8 +83,6 @@
             "home_settings": {
                 "debug_title": "Debug",
                 "success_toast": "Done!",
-                "message_logger_summary": "{messageCount} Messages\n{storyCount} Stories",
-                "export_button": "Export",
                 "clear_button": "Clear",
                 "view_logger_history_button": "View Logger History",
                 "actions_title": "Actions",
@@ -153,8 +137,7 @@
                 "import_file_button": "Import File",
                 "file_not_found": "File not found",
                 "file_imported": "File imported successfully",
-                "file_delete_failed": "Failed to delete file",
-                "no_files_hint": "Here you can import files for use in Snapchat. Press the button below to import a file."
+                "file_delete_failed": "Failed to delete file"
             },
             "better_location": {
                 "spoofed_coordinates_title": "Lat {latitude}, Long {longitude}",
@@ -177,14 +160,11 @@
                 "suspend_location_updates": "Suspend Location Updates"
             },
             "theming": {
-                "no_themes_hint": "No themes found",
                 "search_theme_placeholder": "Search themes",
                 "new_theme_button": "New theme",
                 "import_from_file_button": "Import from file",
                 "import_from_url_button": "Import from URL",
-                "manage_repositories_button": "Manage repositories",
-                "installed_themes_title": "Installed Themes",
-                "theme_catalog_title": "Theme Catalog"
+                "manage_repositories_button": "Manage repositories"
             },
             "manage_rule_feature": {
                 "disable_state_option": "Disabled",
@@ -195,8 +175,7 @@
                 "whitelist_state_button": "Select allowed friends/groups",
                 "blacklist_state_option": "Everyone except ...",
                 "blacklist_state_button": "Select excluded friends/groups",
-                "clear_list_button": "Clear friends/groups list",
-                "dialog_clear_confirmation_text": "Are you sure you want to clear the list?"
+                "clear_list_button": "Clear friends/groups list"
             }
         },
         "dialogs": {
@@ -224,10 +203,6 @@
             "export_config": {
                 "content": "Do you want to export the config with sensitive data? (Such as location coordinates, etc.)",
                 "title": "Export Sensitive Data?"
-            },
-            "file_imports": {
-                "settings_select_file_hint": "Select an imported file",
-                "no_files_settings_hint": "No files found. Make sure you have imported the required files in the File Imports section"
             },
             "import_theme_url": {
                 "title": "Import Theme from URL",
@@ -1088,10 +1063,6 @@
                             }
                         }
                     },
-                    "call_recorder": {
-                        "name": "Call Recorder",
-                        "description": "Automatically records audio calls"
-                    },
                     "convert_message_locally": {
                         "name": "Convert Message Locally",
                         "description": "Converts snaps to chat external media locally. This appears in chat download context menu"
@@ -1711,9 +1682,7 @@
         "cancel": "Cancel",
         "open": "Open",
         "download": "Download",
-        "send": "Send",
-        "restore_original": "Restore Original",
-        "convert_external_media": "Convert External Media"
+        "send": "Send"
     },
     "half_swipe_notifier": {
         "notification_channel_name": "Half Swipe",

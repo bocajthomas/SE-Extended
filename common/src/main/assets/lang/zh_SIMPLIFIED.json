@@ -1,21 +1,10 @@
 {
     "setup": {
-        "dialogs": {
-            "select_language": "选择语言",
-            "save_folder": "SE Extended 需要存储权限才能从 Snapchat 下载和保存媒体。\n请选择媒体下载的位置。",
-            "select_save_folder_button": "选择文件夹",
-            "disclaimer": {
-                "statement": "欢迎来到 SE Extended 模块.\n• 免责声明:\n- 用户必须对使用本模块所涉及的任何风险承担全部责任.\n- 该 SE Extended 模块 可以修改行为的 Snapchat 应用程序. 用户应仔细审查该模块的操作,并自行决定其使用方式\n- 开发商对您可能遭遇的任何警告或封禁概不负责 snapchat 因使用该账户可能产生的账户 SE Extended 模块 所有后果均由用户自行承担.",
-                "agree_button": "我同意"
-            }
-        },
         "mappings": {
-            "dialog": "生成映射，这可能需要一段时间......",
             "generate_failure_no_snapchat": "SE Extended 无法检测到 Snapchat，请尝试重新安装 Snapchat.",
             "generate_failure": "尝试生成映射时出错，请重试。"
         },
         "permissions": {
-            "dialog": "要继续，您需要满足以下要求:",
             "notification_access": "通知访问",
             "battery_optimization": "电池优化",
             "display_over_other_apps": "显示在其他应用程序之上",
@@ -101,9 +90,7 @@
         "cancel": "取消",
         "open": "打开",
         "download": "下载",
-        "send": "发送",
-        "restore_original": "恢复原始状态",
-        "convert_external_media": "转换外部媒体"
+        "send": "发送"
     },
     "scopes": {
         "friend": "朋友",
@@ -156,9 +143,7 @@
                 "success_toast": "完毕!",
                 "clear_button": "清除",
                 "view_logger_history_button": "查看记录器历史记录",
-                "actions_title": "行动",
-                "message_logger_summary": "{messageCount} 条消息\n{storyCount} 个故事",
-                "export_button": "出口"
+                "actions_title": "行动"
             },
             "features": {
                 "config_export_success_toast": "配置导出成功",
@@ -171,11 +156,9 @@
                 "reset_option": "重置",
                 "config_export_failure_toast": "导出配置失败 {error}",
                 "older_required": "此功能需要 Snapchat v{version} 或更早版本才能正常工作",
-                "newer_required": "此功能要求Snapchat v{version}或更新版本才能正确工作",
-                "search_button": "搜索"
+                "newer_required": "此功能要求Snapchat v{version}或更新版本才能正确工作"
             },
             "tasks": {
-                "no_tasks": "没有任务",
                 "merge_files_toast": "合并 {count} 个文件",
                 "remove_all_tasks_title": "您确定要删除所有任务吗？",
                 "remove_selected_tasks_title": "您确定要删除选定的任务吗?",
@@ -188,8 +171,7 @@
             "social": {
                 "streaks_expiration_short": "{hours}小时",
                 "friends_tab": "朋友们",
-                "groups_tab": "团体",
-                "empty_hint": "(空的)"
+                "groups_tab": "团体"
             },
             "manage_scope": {
                 "streaks_expiration_text": "过期日期在 {eta}",
@@ -239,7 +221,6 @@
                 "file_import_failed": "导入文件失败: {error}",
                 "file_delete_failed": "删除文件失败",
                 "file_not_found": "文件未找到",
-                "no_files_hint": "您可以在此处导入文件以在 Snapchat 中使用。按下面的按钮导入文件.",
                 "import_file_button": "导入文件",
                 "file_imported": "文件导入成功"
             },
@@ -264,18 +245,14 @@
                 "no_friends_found": "没有找到好友"
             },
             "theming": {
-                "no_themes_hint": "没有找到主题",
                 "search_theme_placeholder": "搜索主题",
                 "new_theme_button": "新主题",
                 "import_from_file_button": "从文件导入",
                 "import_from_url_button": "从URL导入",
-                "manage_repositories_button": "管理存储库",
-                "installed_themes_title": "已安装主题",
-                "theme_catalog_title": "主题目录"
+                "manage_repositories_button": "管理存储库"
             },
             "manage_rule_feature": {
                 "disable_state_option": "残疾人",
-                "dialog_clear_confirmation_text": "您确实要清除列表吗？",
                 "disable_state_subtext": "任何好友/群组均不会受到影响",
                 "whitelist_state_option": "没有人除了...",
                 "whitelist_state_subtext": "仅 {count} 个好友/群组会受到此规则的影响",
@@ -311,10 +288,6 @@
             "export_config": {
                 "title": "导出敏感数据?",
                 "content": "您想导出包含敏感数据的配置吗?（如位置坐标等）"
-            },
-            "file_imports": {
-                "no_files_settings_hint": "没有找到文件. 确保您已在文件导入部分导入所需的文件",
-                "settings_select_file_hint": "选择导入的文件"
             },
             "import_theme_url": {
                 "title": "从URL导入主题",
@@ -1168,10 +1141,6 @@
                     "story_logger": {
                         "name": "故事记录器",
                         "description": "提供好友故事的历史记录"
-                    },
-                    "call_recorder": {
-                        "name": "电话录音器",
-                        "description": "自动录制音频通话"
                     },
                     "account_switcher": {
                         "name": "账户切换器",

@@ -1,20 +1,10 @@
 {
     "setup": {
-        "dialogs": {
-            "select_language": "Dil Seçin",
-            "save_folder": "SnapEnhance, Snapchat'ten Medya indirmek ve Kaydetmek için Depolama izinleri gerektirir.\nLütfen medyanın indirileceği konumu seçin.",
-            "select_save_folder_button": "Klasör Seç",
-            "disclaimer": {
-                "statement": "SE Extended Modülüne hoş geldiniz.\n\nUyarı:\n\nKullanıcılar, bu modülü kullanmanın beraberinde getirdiği tüm risklerin sorumluluğunu tamamen kendileri üstlenir.\n\nSE Extended Modülü, Snapchat uygulamasının davranışını değiştirebilir. Kullanıcılar modülün işleyişini dikkatlice incelemeli ve kullanımıyla ilgili kendi kararlarını vermelidir.\n\nGeliştirici, SE Extended modülünün kullanımından kaynaklanabilecek uyarı veya hesap banlarından hiçbir şekilde sorumlu değildir; tüm sonuçlardan kullanıcılar sorumludur."
-            }
-        },
         "mappings": {
-            "dialog": "Eşlemeler oluşturuluyor, bu biraz zaman alabilir ...",
             "generate_failure_no_snapchat": "SnapEnhance Snapchat'i algılayamadı, lütfen Snapchat'i yeniden yüklemeyi deneyin.",
             "generate_failure": "Eşlemeleri oluşturmaya çalışırken bir hata oluştu, lütfen tekrar deneyin."
         },
         "permissions": {
-            "dialog": "Devam etmek için aşağıdaki gerekliliklere uymanız gerekir:",
             "notification_access": "Bildirim Erişimi",
             "battery_optimization": "Pil Optimizasyonu",
             "display_over_other_apps": "Diğer Uygulamaların Üzerinde Göster",
@@ -60,11 +50,9 @@
             "social": {
                 "streaks_expiration_short": "{hours} saat",
                 "friends_tab": "Arkadaşlar",
-                "empty_hint": "(boş)",
                 "groups_tab": "Gruplar"
             },
             "tasks": {
-                "no_tasks": "Görev yok",
                 "remove_selected_tasks_title": "Seçili görevleri kaldırmak istediğinizden emin misiniz?",
                 "remove_all_tasks_title": "Tüm görevleri kaldırmak istediğinizden emin misiniz?",
                 "delete_files_option": "Ayrıca dosyaları sil",
@@ -96,8 +84,6 @@
                 "message_logger_title": "Mesaj Kaydedici",
                 "debug_title": "Hata Ayıklama",
                 "success_toast": "Tamam!",
-                "message_logger_summary": "{messageCount} mesajlar\n{storyCount} hikayeler",
-                "export_button": "Dışa Aktar",
                 "clear_button": "Temizle",
                 "view_logger_history_button": "Günlük Geçmişini Görüntüle"
             },
@@ -150,8 +136,7 @@
                 "file_not_found": "Dosya bulunamadı",
                 "file_import_failed": "Dosya içe aktarılamadı: {error}",
                 "file_imported": "Dosya başarıyla içe aktarıldı",
-                "file_delete_failed": "Dosya silinemedi",
-                "no_files_hint": "Burada Snapchat'te kullanmak için dosyaları içe aktarabilirsiniz. Bir dosyayı içe aktarmak için aşağıdaki düğmeye basın."
+                "file_delete_failed": "Dosya silinemedi"
             },
             "better_location": {
                 "save_coordinates_dialog_title": "Koordinatları Kaydet",
@@ -173,9 +158,6 @@
                 "latitude_dialog_hint": "Enlem",
                 "suspend_location_updates": "Konum Güncellemelerini Askıya Al"
             },
-            "theming": {
-                "no_themes_hint": "Tema bulunamadı"
-            },
             "manage_rule_feature": {
                 "disable_state_subtext": "Hiçbir arkadaş/grup etkilenmeyecektir",
                 "whitelist_state_option": "Kimse hariç ...",
@@ -185,7 +167,6 @@
                 "blacklist_state_subtext": "Bu kuraldan {count} arkadaş/grup dışındaki herkes etkilenecektir",
                 "blacklist_state_button": "Hariç tutulan arkadaşları/grupları seçin",
                 "clear_list_button": "Arkadaş/grup listesini temizle",
-                "dialog_clear_confirmation_text": "Listeyi temizlemek istediğinizden emin misiniz?",
                 "disable_state_option": "Devre dışı"
             }
         },
@@ -209,10 +190,6 @@
             "messaging_action": {
                 "title": "İşlenecek içerik türlerini seçin",
                 "select_all_button": "Tümünü Seç"
-            },
-            "file_imports": {
-                "no_files_settings_hint": "Dosya bulunamadı. Dosya İçe Aktarma bölümünde gerekli dosyaları içe aktardığınızdan emin olun",
-                "settings_select_file_hint": "İçe aktarılan bir dosya seçin"
             },
             "export_config": {
                 "title": "Hassas Verileri Dışa Aktar?",
@@ -1013,10 +990,6 @@
                     "media_file_picker": {
                         "name": "Medya Dosyası Seçici",
                         "description": "Galeriden herhangi bir video/ses dosyası seçmenizi sağlar"
-                    },
-                    "call_recorder": {
-                        "description": "Sesli aramaları otomatik olarak kaydeder",
-                        "name": "Arama Kaydedici"
                     },
                     "account_switcher": {
                         "name": "Hesap Değiştirici",

@@ -2,16 +2,9 @@
     "setup": {
         "mappings": {
             "generate_failure_no_snapchat": "SnapEnhance nespēja atrast Snapchat, lūdzu, mēģiniet atkārtoti instalēt Snapchat.",
-            "dialog": "Lai dinamiski atbalstītu plašu Snapchat versiju klāstu, lai SnapEnhance darbotos pareizi, ir nepieciešamas kartēšanas, un tas neaizņems vairāk par 5 sekundēm.",
             "generate_failure": "Mēģinot ģenerēt kartēšanu, radās kļūda, lūdzu, mēģiniet vēlreiz."
         },
-        "dialogs": {
-            "select_save_folder_button": "Atlasiet mapi",
-            "select_language": "Atlasiet valodu",
-            "save_folder": "SnapEnhance ir nepieciešamas glabāšanas atļaujas, lai lejupielādētu un saglabātu multivides no Snapchat.\nLūdzu, izvēlieties atrašanās vietu, kur multivides līdzekļi jālejupielādē."
-        },
         "permissions": {
-            "dialog": "Lai turpinātu, jums ir jāatbilst šādām prasībām:",
             "notification_access": "Paziņojuma piekļuve",
             "battery_optimization": "Akumulatora optimizācija",
             "display_over_other_apps": "Displejs virs citām lietotnēm",
@@ -110,7 +103,6 @@
                 "remove_selected_tasks_title": "",
                 "remove_selected_tasks_confirm": "",
                 "remove_all_tasks_confirm": "",
-                "no_tasks": "",
                 "delete_files_option": "",
                 "failed_to_open_file": ""
             },
@@ -129,7 +121,6 @@
             },
             "social": {
                 "groups_tab": "",
-                "empty_hint": "",
                 "friends_tab": "",
                 "streaks_expiration_short": ""
             },
@@ -152,17 +143,12 @@
                 "file_import_failed": "",
                 "file_delete_failed": "",
                 "file_imported": "",
-                "import_file_button": "",
-                "no_files_hint": ""
-            },
-            "theming": {
-                "no_themes_hint": ""
+                "import_file_button": ""
             },
             "manage_rule_feature": {
                 "whitelist_state_subtext": "",
                 "whitelist_state_option": "",
                 "clear_list_button": "",
-                "dialog_clear_confirmation_text": "",
                 "blacklist_state_button": "",
                 "blacklist_state_subtext": "",
                 "disable_state_subtext": "",
@@ -177,10 +163,8 @@
             },
             "home_settings": {
                 "debug_title": "",
-                "message_logger_summary": "",
                 "actions_title": "",
                 "view_logger_history_button": "",
-                "export_button": "",
                 "message_logger_title": "",
                 "clear_button": "",
                 "success_toast": ""
@@ -201,10 +185,6 @@
             "messaging_action": {
                 "title": "",
                 "select_all_button": ""
-            },
-            "file_imports": {
-                "settings_select_file_hint": "",
-                "no_files_settings_hint": ""
             },
             "reset_config": {
                 "content": "",
@@ -973,10 +953,6 @@
                     "media_file_picker": {
                         "name": "",
                         "description": ""
-                    },
-                    "call_recorder": {
-                        "description": "",
-                        "name": ""
                     },
                     "story_logger": {
                         "description": "",

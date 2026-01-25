@@ -1,23 +1,12 @@
 {
     "setup": {
-        "dialogs": {
-            "select_language": "Выберите язык",
-            "save_folder": "SE Extended требует разрешения хранилища для загрузки и сохранения медиафайлов из Snapchat.\nВыберите место, куда следует загружать медиафайлы.",
-            "select_save_folder_button": "Выберите папку",
-            "disclaimer": {
-                "statement": "Добро пожаловать в расширенный модуль SE.\n Отказ от ответственности: \n- Пользователи должны нести полную ответственность за любые риски, связанные с использованием этого модуля. \n- Расширенный модуль SE может изменять поведение приложения Snapchat. Пользователям следует внимательно изучить работу модуля и самостоятельно принимать решения относительно его использования. \n- Разработчик не несет ответственности за любые предупреждения или запреты, которые могут возникнуть на вашем аккаунте в Snapchat в результате использования модуля SE Extended, и все последствия должны нести сами пользователи.",
-                "agree_button": "Я согласен"
-            }
-        },
         "mappings": {
-            "dialog": "Составление карт, это может занять некоторое время ...",
             "generate_failure_no_snapchat": "SnapEnhance не удалось обнаружить Snapchat, попробуйте переустановить Snapchat.",
             "generate_failure": "Произошла ошибка при генерации сопоставлений, пожалуйста, попробуйте еще раз."
         },
         "permissions": {
             "notification_access": "Доступ к уведомлениям",
             "display_over_other_apps": "Отображение поверх других приложений",
-            "dialog": "Для продолжения вам необходимо соответствовать следующим требованиям:",
             "battery_optimization": "Оптимизация батареи",
             "request_button": "Запрос"
         }
@@ -25,7 +14,6 @@
     "manager": {
         "sections": {
             "tasks": {
-                "no_tasks": "Нет задач",
                 "remove_selected_tasks_title": "Вы уверены, что хотите удалить выбранные задачи?",
                 "remove_all_tasks_title": "Вы уверены, что хотите удалить все задачи?",
                 "delete_files_option": "Также удалить файлы",
@@ -44,14 +32,11 @@
                 "saved_logs_success_toast": "Логи успешно сохранены"
             },
             "home_settings": {
-                "export_button": "Экспорт",
-                "import_button": "Импорт",
                 "import_success_toast": "База данных успешно импортирована",
                 "clear_button": "Очистить",
                 "view_logger_history_button": "Посмотреть логгер историй",
                 "message_logger_title": "Логгер сообщений",
                 "success_toast": "Сделанно!",
-                "message_logger_summary": "{messageCount} сообщений\n{storyCount} историй",
                 "actions_title": "Действия",
                 "debug_title": "Режим отладки"
             },
@@ -76,8 +61,7 @@
                 "reset_option": "Сброс",
                 "config_export_failure_toast": "Не удалось экспортировать конфигурацию {ошибка}",
                 "newer_required": "Для корректной работы этой функции требуется Snapchat версии v{version} или новее",
-                "older_required": "Для корректной работы этой функции требуется Snapchat версии v{version} или старше",
-                "search_button": "Поиск"
+                "older_required": "Для корректной работы этой функции требуется Snapchat версии v{version} или старше"
             },
             "manage_scope": {
                 "logged_stories_button": "Показать сохранённые истории",
@@ -96,8 +80,7 @@
             "social": {
                 "streaks_expiration_short": "{hours} ч",
                 "friends_tab": "Друзья",
-                "groups_tab": "Группы",
-                "empty_hint": "(пусто)"
+                "groups_tab": "Группы"
             },
             "logged_stories": {
                 "story_failed_to_load": "Ошибка загрузки",
@@ -137,14 +120,12 @@
                 "blacklist_state_option": "Все, кроме ...",
                 "clear_list_button": "Очистить список друзей/групп",
                 "whitelist_state_button": "Выберите разрешенных друзей/группы",
-                "dialog_clear_confirmation_text": "Вы уверены, что хотите очистить список?",
                 "blacklist_state_subtext": "Все, кроме {count} друзей/групп, будут затронуты этим правилом",
                 "blacklist_state_button": "Выберите исключенных друзей/группы"
             },
             "file_imports": {
                 "file_imported": "Файл успешно импортирован",
                 "import_file_button": "Импортный файл",
-                "no_files_hint": "Здесь вы можете импортировать файлы для использования в Snapchat. Нажмите кнопку ниже, чтобы импортировать файл.",
                 "file_delete_failed": "Не удалось удалить файл",
                 "file_not_found": "Файл не найден",
                 "file_import_failed": "Не удалось импортировать файл: {error}"
@@ -170,14 +151,11 @@
                 "delete_dialog_title": "Удалить сохраненную координату"
             },
             "theming": {
-                "no_themes_hint": "Темы не найдены",
                 "search_theme_placeholder": "Темы для поиска",
                 "new_theme_button": "Новая тема",
                 "import_from_file_button": "Импорт из файла",
                 "import_from_url_button": "Импорт из URL",
-                "manage_repositories_button": "Управление репозиториями",
-                "installed_themes_title": "Установленные темы",
-                "theme_catalog_title": "Тематический каталог"
+                "manage_repositories_button": "Управление репозиториями"
             }
         },
         "routes": {
@@ -222,10 +200,6 @@
                 "category_groups": "Группы",
                 "category_friends": "Друзья",
                 "participants_text": "{count} участников"
-            },
-            "file_imports": {
-                "settings_select_file_hint": "Выберите импортированный файл",
-                "no_files_settings_hint": "Файлы не найдены. Убедитесь, что вы импортировали необходимые файлы в разделе „Импорт файлов“"
             },
             "export_config": {
                 "content": "Вы хотите экспортировать конфигурацию с конфиденциальными данными? (Например, координаты местоположения и т. д.)",
@@ -704,10 +678,6 @@
                     "media_file_picker": {
                         "name": "Выбор медиафайла",
                         "description": "Позволяет выбирать любой видео/аудиофайл из галереи"
-                    },
-                    "call_recorder": {
-                        "name": "Запись вызова",
-                        "description": "Автоматически записывает аудиовызовы"
                     },
                     "account_switcher": {
                         "name": "Переключатель аккаунтов",

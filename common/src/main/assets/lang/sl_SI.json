@@ -2,20 +2,13 @@
     "setup": {
         "mappings": {
             "generate_failure": "Pri ustvarjanju preslikav je prišlo do napake, prosimo poskusite znova.",
-            "generate_failure_no_snapchat": "SnapEnhance ne zaznava Snapchata. Poizkusite ga znova naložiti.",
-            "dialog": "Da bi dinamično podpiral širok razpon Snapchat verzij, so preslikave potrebne za pravilno delovanje Snapenhance-a; to ne bi smelo vzeti več kot 5 sekund."
+            "generate_failure_no_snapchat": "SnapEnhance ne zaznava Snapchata. Poizkusite ga znova naložiti."
         },
         "permissions": {
-            "dialog": "Za nadaljevanje morate izpolnjevati naslednje zahteve:",
             "notification_access": "Dostop do potisnih obvestil",
             "display_over_other_apps": "Prikaz čez druge aplikacije",
             "request_button": "Zahtevaj",
             "battery_optimization": "Optimizacija baterije"
-        },
-        "dialogs": {
-            "select_language": "Izberi jezik",
-            "select_save_folder_button": "Izberite mapo",
-            "save_folder": "SnapEnhance potrebuje dovoljenje za Dostop do datotek, da lahko nalaga in shranjuje datoteke iz Snapchata.\nIzberite mapo, v katero se bodo nalagale datoteke."
         }
     },
     "manager": {
@@ -40,7 +33,6 @@
         },
         "sections": {
             "tasks": {
-                "no_tasks": "Ni nalog",
                 "merge_button": "Združi",
                 "failed_to_open_file": "Napaka pri odpiranju datoteke"
             },
@@ -60,8 +52,7 @@
             "social": {
                 "streaks_expiration_short": "{hours} ur",
                 "friends_tab": "",
-                "groups_tab": "",
-                "empty_hint": ""
+                "groups_tab": ""
             },
             "home": {
                 "update_title": "SnapEnhance nadgradnja",
@@ -83,8 +74,6 @@
             },
             "home_settings": {
                 "success_toast": "Končano!",
-                "message_logger_summary": "{messageCount} sporočil\n{storyCount} zgodb",
-                "export_button": "Izvozi",
                 "clear_button": "Počisti",
                 "actions_title": "Dejanja",
                 "message_logger_title": "Zapisovalnik sporočil",
@@ -780,10 +769,6 @@
                         "description": ""
                     },
                     "voice_note_auto_play": {
-                        "name": "",
-                        "description": ""
-                    },
-                    "call_recorder": {
                         "name": "",
                         "description": ""
                     },

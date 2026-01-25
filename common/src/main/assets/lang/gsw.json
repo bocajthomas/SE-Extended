@@ -605,10 +605,6 @@
                         "description": "",
                         "name": ""
                     },
-                    "call_recorder": {
-                        "description": "",
-                        "name": ""
-                    },
                     "add_friend_source_spoof": {
                         "name": "",
                         "description": ""
@@ -1137,22 +1133,11 @@
         "date_range_input_invalid_range_input": ""
     },
     "setup": {
-        "dialogs": {
-            "select_language": "Sprach uswähle",
-            "save_folder": "SE Extended benötigt Speicherberächtigunge zum Abelade und Speichere vo Medie vo Snapchat.\nBitte wähl de Ort us wo d Medie sölled abeglade werde.",
-            "select_save_folder_button": "Ordner uswähle",
-            "disclaimer": {
-                "statement": "Willkomme im SE Extended Modul.\n• Haftig:\n- D'Benutzer müesse d'volli Verantwortig für all Risike träge, wo mit de Benutzig vo däm Modul verbunde sind.\n- D' SE Extended Modul chönne s'Verhalte vo däm verändere Snapchat app. D'Benutzer sötted d'Funktionswiis vom Modul gnau überprüefe und dänn selber entscheide, öb si's wänd bruuche.\n- Dr Entwickler isch nit verantwortlich für Warnige oder Banns, wo uf dynem Account chönne passiere snapchat account wo vom Gebruch vom SE Extended Modul, und alli Folge müesse d'Benutzer sälber trääge.",
-                "agree_button": "I verstah"
-            }
-        },
         "mappings": {
-            "dialog": "S generiere vo mappings chan es wiili duure ...",
             "generate_failure_no_snapchat": "SE Extended hät Snapchat nöd chöne erkenne, bitte versueched Sie Snapchat neu z installiere.",
             "generate_failure": "Bim Versuech mappings generiere isch en fehler ufträtte, bitte versueched Sies erneut."
         },
         "permissions": {
-            "dialog": "Zum wiitermache müend Sie folgendi Aforderige erfülle:",
             "notification_access": "Benachrichtigung Zugang",
             "battery_optimization": "Batterieoptimierig",
             "display_over_other_apps": "Ahzeig über anderi Apps",
@@ -1171,7 +1156,6 @@
             },
             "tasks": {
                 "remove_selected_tasks_confirm": "{count}-Ufgabe entferne?",
-                "no_tasks": "Kei Ufgabe",
                 "merge_files_toast": "Zämeführe vo {count}-Dateien",
                 "remove_selected_tasks_title": "Sind Sie sicher, dass Sie usegwählti Ufgabe lösche wönd?",
                 "remove_all_tasks_title": "Sind Sie sicher, dass Sie alli Ufgabe möchted lösche?",
@@ -1191,8 +1175,7 @@
                 "saved_config_snackbar": "Konfiguration gspeicheret",
                 "config_export_failure_toast": "Nit klappt zue usfüehre Konfig {error}",
                 "newer_required": "Für das bruuchsch Snapchat v{version} oder nöier, dass'es richtig lauft",
-                "older_required": "Für das bruuchsch Snapchat v{version} oder älter go richtig funktioniere",
-                "search_button": "Suechi"
+                "older_required": "Für das bruuchsch Snapchat v{version} oder älter go richtig funktioniere"
             },
             "manage_scope": {
                 "streaks_expiration_text_expired": "Abglaufe",
@@ -1242,15 +1225,12 @@
                 "message_logger_title": "Nachrichtelogger",
                 "debug_title": "Debugge",
                 "success_toast": "Fertig!",
-                "message_logger_summary": "{messageCount} Nachrichtä\n{storyCount} Stories",
-                "export_button": "Exportierä",
                 "clear_button": "Löschä",
                 "view_logger_history_button": "Logger-Verlauf azeige"
             },
             "social": {
                 "friends_tab": "Fründe",
                 "groups_tab": "Gruppe",
-                "empty_hint": "(leer)",
                 "streaks_expiration_short": "{hours} Stündli"
             },
             "logger_history": {
@@ -1288,7 +1268,6 @@
                 "whitelist_state_option": "Niemert ussert...",
                 "disable_state_subtext": "Keini Fründ/Gruppe sind betroffe",
                 "whitelist_state_button": "Wähl Fründ/Gruppe wo erlaubt sind",
-                "dialog_clear_confirmation_text": "Bisch sicher, dass d' Lischt wetsch leere?",
                 "blacklist_state_button": "Uusgschlosseni Fründe/Gruppe uuswähle",
                 "clear_list_button": "Eifachi Fründ-/Gruppe-Lischt",
                 "blacklist_state_option": "All usser ...",
@@ -1297,21 +1276,17 @@
                 "whitelist_state_subtext": "Betrifft nume {count} Fründe/Gruppe wäge däre Regle"
             },
             "theming": {
-                "no_themes_hint": "Keini Theme gfunde",
                 "search_theme_placeholder": "Themes sueche",
                 "new_theme_button": "Nöis Theme",
                 "import_from_file_button": "Importiere vo Datei",
                 "import_from_url_button": "Importiere vo URL",
-                "manage_repositories_button": "Repos verwautä",
-                "installed_themes_title": "Installierti Themes",
-                "theme_catalog_title": "Theme-Lischt"
+                "manage_repositories_button": "Repos verwautä"
             },
             "file_imports": {
                 "import_file_button": "Datei importiere",
                 "file_not_found": "Datei nit gfunde",
                 "file_delete_failed": "Datei isch nit glöscht worde",
                 "file_imported": "Datei erfolgrych importiert",
-                "no_files_hint": "Do chasch Dateie für d' Benutzig in Snapchat importiere. Drück uf de Knopf unte zum e Datei importiere.",
                 "file_import_failed": "S'Importiere vo de Datei isch fählgschlage: {error}"
             }
         },
@@ -1357,10 +1332,6 @@
             "messaging_action": {
                 "title": "Zu verarbeitende Inhaltstype uswähle",
                 "select_all_button": "Aui uswähle"
-            },
-            "file_imports": {
-                "no_files_settings_hint": "Kei Dateie gfunde. Lueg, dass d' die benötigte Dateie im Abschnitt 'Datei-Import' importiert hesch",
-                "settings_select_file_hint": "Wähl en importierti Datei us"
             },
             "export_config": {
                 "title": "Heikli Date uusfiere?",

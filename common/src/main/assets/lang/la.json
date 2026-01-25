@@ -45,13 +45,10 @@
                 "message_logger_title": "Nuntius Logger",
                 "debug_title": "Debugere",
                 "success_toast": "Finis!",
-                "message_logger_summary": "{messageCount} nuntia\n{storyCount} fabulas",
-                "export_button": "Exportare",
                 "clear_button": "Patet",
                 "view_logger_history_button": "View Logger History"
             },
             "tasks": {
-                "no_tasks": "Non opus",
                 "merge_files_toast": "Bus {numerare} imagini",
                 "remove_selected_tasks_title": "Certus esne munus electum tollere?",
                 "delete_files_option": "Etiam delete lima",
@@ -76,7 +73,6 @@
             "social": {
                 "friends_tab": "amici",
                 "groups_tab": "Groups",
-                "empty_hint": "(vacuus)",
                 "streaks_expiration_short": "{horas} h"
             },
             "manage_scope": {
@@ -128,7 +124,6 @@
                 "file_import_failed": "",
                 "file_imported": "",
                 "file_delete_failed": "",
-                "no_files_hint": "",
                 "import_file_button": ""
             },
             "better_location": {
@@ -151,13 +146,9 @@
                 "no_friends_found": "",
                 "no_saved_coordinates_hint": ""
             },
-            "theming": {
-                "no_themes_hint": ""
-            },
             "manage_rule_feature": {
                 "blacklist_state_subtext": "",
                 "blacklist_state_button": "",
-                "dialog_clear_confirmation_text": "",
                 "disable_state_option": "",
                 "disable_state_subtext": "",
                 "whitelist_state_option": "",
@@ -183,10 +174,6 @@
                 "content": "",
                 "title": ""
             },
-            "file_imports": {
-                "no_files_settings_hint": "",
-                "settings_select_file_hint": ""
-            },
             "reset_config": {
                 "success_toast": "",
                 "title": "",
@@ -199,20 +186,13 @@
         }
     },
     "setup": {
-        "dialogs": {
-            "select_language": "Lingua cupere",
-            "select_save_folder_button": "Ordnerus cupere",
-            "save_folder": "SnapEnhance requirit PRAECLUSIO permissiones ut download et salvum Media ex Snapchat.\nElige locum ubi instrumentorum communicationis socialis debet esse recepta."
-        },
         "permissions": {
             "notification_access": "Nervus alloware",
             "battery_optimization": "Akkutis perfectio",
             "display_over_other_apps": "Druber cuper",
-            "request_button": "Voluntas",
-            "dialog": "Pergere debes aptare sequentia requisita:"
+            "request_button": "Voluntas"
         },
         "mappings": {
-            "dialog": "Generating Mappings, hoc modicum tempus capere potest.",
             "generate_failure_no_snapchat": "SnapEnhance Snapchat deprehendere potuit, Aliquam Snapchat reinstalling.",
             "generate_failure": "Error occurrit dum mappings generare conatur, iterum conare."
         }
@@ -586,10 +566,6 @@
                         "name": ""
                     },
                     "story_logger": {
-                        "name": "",
-                        "description": ""
-                    },
-                    "call_recorder": {
                         "name": "",
                         "description": ""
                     },

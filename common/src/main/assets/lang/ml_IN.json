@@ -86,8 +86,7 @@
             "social": {
                 "streaks_expiration_short": "{hours}h",
                 "friends_tab": "",
-                "groups_tab": "",
-                "empty_hint": ""
+                "groups_tab": ""
             },
             "features": {
                 "disabled": "അപ്രാപ്തമാക്കി",
@@ -103,7 +102,6 @@
                 "reset_option": ""
             },
             "tasks": {
-                "no_tasks": "ജോലികളൊന്നുമില്ല",
                 "failed_to_open_file": "",
                 "remove_selected_tasks_title": "",
                 "remove_all_tasks_title": "",
@@ -136,9 +134,7 @@
                 "message_logger_title": "",
                 "success_toast": "",
                 "clear_button": "",
-                "view_logger_history_button": "",
-                "message_logger_summary": "",
-                "export_button": ""
+                "view_logger_history_button": ""
             },
             "manage_scope": {
                 "rules_title": "",
@@ -187,7 +183,6 @@
             "file_imports": {
                 "file_imported": "",
                 "file_delete_failed": "",
-                "no_files_hint": "",
                 "file_not_found": "",
                 "import_file_button": "",
                 "file_import_failed": ""
@@ -215,7 +210,6 @@
             "manage_rule_feature": {
                 "disable_state_subtext": "",
                 "whitelist_state_option": "",
-                "dialog_clear_confirmation_text": "",
                 "disable_state_option": "",
                 "blacklist_state_button": "",
                 "clear_list_button": "",
@@ -223,9 +217,6 @@
                 "blacklist_state_option": "",
                 "whitelist_state_button": "",
                 "whitelist_state_subtext": ""
-            },
-            "theming": {
-                "no_themes_hint": ""
             }
         },
         "dialogs": {
@@ -249,10 +240,6 @@
                 "title": "",
                 "content": ""
             },
-            "file_imports": {
-                "settings_select_file_hint": "",
-                "no_files_settings_hint": ""
-            },
             "messaging_action": {
                 "title": "",
                 "select_all_button": ""
@@ -261,20 +248,13 @@
     },
     "setup": {
         "mappings": {
-            "dialog": "വൈവിധ്യമാർന്ന Snapchat പതിപ്പുകളെ ചലനാത്മകമായി പിന്തുണയ്ക്കുന്നതിന്, SnapEnhance ശരിയായി പ്രവർത്തിക്കുന്നതിന് മാപ്പിംഗുകൾ ആവശ്യമാണ്, ഇതിന് 5 സെക്കൻഡിൽ കൂടുതൽ എടുക്കരുത്.",
             "generate_failure_no_snapchat": "SnapEnhance-ന് Snapchat കണ്ടെത്താനായില്ല, Snapchat വീണ്ടും ഇൻസ്റ്റാൾ ചെയ്യാൻ ശ്രമിക്കുക.",
             "generate_failure": "മാപ്പിംഗുകൾ സൃഷ്ടിക്കാൻ ശ്രമിക്കുമ്പോൾ ഒരു പിശക് സംഭവിച്ചു, ദയവായി വീണ്ടും ശ്രമിക്കുക."
-        },
-        "dialogs": {
-            "select_save_folder_button": "ഫോൾഡർ തിരഞ്ഞെടുക്കുക",
-            "save_folder": "സ്നാപ്ചാറ്റിൽ നിന്ന് മീഡിയ ഡൗൺലോഡ് ചെയ്യാനും സംരക്ഷിക്കാനും SnapEnhance-ന് സ്റ്റോറേജ് അനുമതികൾ ആവശ്യമാണ്\nമീഡിയ ഡൗൺലോഡ് ചെയ്യേണ്ട സ്ഥലം തിരഞ്ഞെടുക്കുക.",
-            "select_language": "ഭാഷ തിരഞ്ഞെടുക്കുക"
         },
         "permissions": {
             "battery_optimization": "ബാറ്ററി ഒപ്റ്റിമൈസേഷൻ",
             "display_over_other_apps": "മറ്റ് ആപ്പുകളിൽ പ്രദർശിപ്പിക്കുക",
             "notification_access": "അറിയിപ്പ് ആക്സസ്",
-            "dialog": "തുടരുന്നതിന് നിങ്ങൾ ഇനിപ്പറയുന്ന ആവശ്യകതകൾ പാലിക്കേണ്ടതുണ്ട്:",
             "request_button": "അഭ്യർത്ഥിക്കുക"
         }
     },
@@ -822,10 +802,6 @@
                                 "description": ""
                             }
                         }
-                    },
-                    "call_recorder": {
-                        "description": "",
-                        "name": ""
                     },
                     "cof_experiments": {
                         "description": "",

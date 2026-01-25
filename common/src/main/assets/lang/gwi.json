@@ -117,18 +117,11 @@
         "date_input_invalid_for_pattern": "Invalides Datum"
     },
     "setup": {
-        "dialogs": {
-            "select_language": "Sprache auswählen",
-            "save_folder": "SnapEnhance benötigt Zugriff auf den Gerätespeicher, um Medien von Snapchat herunterzuladen und zu sichern.\nBitte wähle einen Ziel-Ordner für die Downloads aus.",
-            "select_save_folder_button": "Ordner wählen"
-        },
         "mappings": {
-            "dialog": "Mappings werden generiert, dies könnte ein bisschen dauern ...",
             "generate_failure_no_snapchat": "SnapEnhance konnte Snapchat nicht finden, bitte versuchen Sie Snapchat neu zu installieren.",
             "generate_failure": "Beim Generieren der Zuordnungen ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
         },
         "permissions": {
-            "dialog": "Um fortfahren zu können, müssen Sie diese Anforderungen erfüllen:",
             "notification_access": "Zugriff auf Benachrichtigungen",
             "battery_optimization": "Batterieoptimierung",
             "display_over_other_apps": "Über anderen Apps einblenden",
@@ -173,7 +166,6 @@
                 "debug_build_summary_content": ""
             },
             "social": {
-                "empty_hint": "(leer)",
                 "friends_tab": "Freunde",
                 "groups_tab": "Gruppen",
                 "streaks_expiration_short": "{hours}h"
@@ -183,8 +175,6 @@
                 "actions_title": "Aktionen",
                 "message_logger_title": "Nachrichtenaufzeichner",
                 "debug_title": "Debuggen",
-                "message_logger_summary": "{messageCount} Nachrichten\n{storyCount} Stories",
-                "export_button": "Exportieren",
                 "clear_button": "Löschen",
                 "view_logger_history_button": "Historie des Nachrichtenaufzeichners ansehen"
             },
@@ -197,7 +187,6 @@
                 "saved_logs_failure_toast": "Speichern von Protokollen fehlgeschlagen"
             },
             "tasks": {
-                "no_tasks": "Keine Aufgaben",
                 "merge_files_toast": "Zusammenführen von {count} Dateien",
                 "remove_selected_tasks_title": "Sind Sie sicher, dass Sie die ausgewählten Aufgaben entfernen möchten?",
                 "remove_all_tasks_title": "Sind Sie sicher, dass Sie alle Aufgaben entfernen möchten?",
@@ -283,15 +272,11 @@
                 "choose_location_button": "",
                 "teleport_to_friend_button": ""
             },
-            "theming": {
-                "no_themes_hint": ""
-            },
             "manage_rule_feature": {
                 "whitelist_state_button": "",
                 "whitelist_state_subtext": "",
                 "blacklist_state_option": "",
                 "clear_list_button": "",
-                "dialog_clear_confirmation_text": "",
                 "whitelist_state_option": "",
                 "disable_state_option": "",
                 "blacklist_state_button": "",
@@ -303,7 +288,6 @@
                 "file_imported": "",
                 "file_delete_failed": "",
                 "file_not_found": "",
-                "no_files_hint": "",
                 "import_file_button": ""
             }
         },
@@ -331,10 +315,6 @@
             "export_config": {
                 "title": "",
                 "content": ""
-            },
-            "file_imports": {
-                "no_files_settings_hint": "",
-                "settings_select_file_hint": ""
             }
         }
     },
@@ -1158,10 +1138,6 @@
                     "story_logger": {
                         "name": "Geschichtenprotokollierer",
                         "description": "Liefert eine Historie der Stories von Freund:innen"
-                    },
-                    "call_recorder": {
-                        "name": "Anrufaufzeichner",
-                        "description": "Zeichnet automatisch Audioanrufe auf"
                     },
                     "app_lock": {
                         "name": "App-Sperre",

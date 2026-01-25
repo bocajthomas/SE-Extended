@@ -1,17 +1,10 @@
 {
     "setup": {
-        "dialogs": {
-            "select_language": "Selecteer Taal",
-            "save_folder": "SnapEnhance vereist opslagrechten om media van Snapchat te downloaden en op te slaan.\nKies de downloadlocatie.",
-            "select_save_folder_button": "Selecteer Map"
-        },
         "mappings": {
-            "dialog": "Mappings genereren, dit kan een tijdje duren ...",
             "generate_failure_no_snapchat": "SnapEnhance kon Snapchat niet detecteren, probeer alstublieft Snapchat opnieuw te installeren.",
             "generate_failure": "Er is een fout opgetreden tijdens het genereren van mappings, probeer het opnieuw."
         },
         "permissions": {
-            "dialog": "Om door te gaan moet je voldoen aan de volgende vereisten:",
             "notification_access": "Toegang tot meldingen",
             "battery_optimization": "Batterijoptimalisatie",
             "display_over_other_apps": "Weergeven vóór andere apps",
@@ -57,11 +50,9 @@
             "social": {
                 "streaks_expiration_short": "{hours}u",
                 "friends_tab": "Vrienden",
-                "groups_tab": "Groepen",
-                "empty_hint": "(leeg)"
+                "groups_tab": "Groepen"
             },
             "tasks": {
-                "no_tasks": "Geen taken",
                 "remove_all_tasks_confirm": "Verwijder alle taken?",
                 "remove_selected_tasks_title": "Weet je zeker dat je de geselecteerde taak wilt verwijderen?",
                 "remove_all_tasks_title": "Weet je zeker dat je alle taken wilt verwijderen?",
@@ -92,10 +83,8 @@
                 "actions_title": "Acties",
                 "message_logger_title": "Berichten logger",
                 "success_toast": "Klaar!",
-                "export_button": "Exporteren",
                 "debug_title": "Debug",
                 "view_logger_history_button": "Bekijk Logs Geschiedenis",
-                "message_logger_summary": "{messageCount} berichten\n{storyCount} verhalen",
                 "clear_button": "Wissen"
             },
             "manage_scope": {
@@ -146,7 +135,6 @@
                 "file_not_found": "Bestand niet gevonden",
                 "file_import_failed": "Kan bestand niet importeren: {error}",
                 "file_imported": "Fike is succesvol geïmporteerd",
-                "no_files_hint": "Hier kun je bestanden importeren voor gebruik in Snapchat. Druk op onderstaande knop om een bestand te importeren.",
                 "file_delete_failed": "Verwijderen van bestsnd mislukt",
                 "import_file_button": "Importeer Bestand"
             },
@@ -170,13 +158,9 @@
                 "no_friends_map": "Geen vrienden op de map",
                 "no_friends_found": "Geen vrienden gevonden"
             },
-            "theming": {
-                "no_themes_hint": "Geen themas gevonden"
-            },
             "manage_rule_feature": {
                 "disable_state_subtext": "Geen vrienden/groepen zullen worden beïnvloed",
                 "disable_state_option": "Uitgeschakeld",
-                "dialog_clear_confirmation_text": "Weet je zeker dat je de lijst wilt opruimen?",
                 "whitelist_state_option": "Niemand behalve ...",
                 "whitelist_state_button": "Selecteer toegestane vrienden/groepen",
                 "blacklist_state_option": "Iedereen behalve ...",
@@ -210,10 +194,6 @@
             "export_config": {
                 "title": "Exporteer gevoelige data?",
                 "content": "Wilt u de configuratie met gevoelige gegevens exporteren? (Zoals locatiecoördinaten, enz.)"
-            },
-            "file_imports": {
-                "settings_select_file_hint": "Selecteer een geïmporteerd bestand",
-                "no_files_settings_hint": "Geen bestanden gevonden. Zorg ervoor dat u de vereiste bestanden hebt geïmporteerd in de sectie Bestand importeren"
             }
         }
     },
@@ -986,10 +966,6 @@
                         },
                         "name": "Account Wisselaar",
                         "description": "Zorgt ervoor dat je kunt wisselen van account zonder uit te loggen\nLang drukken op het zoekicoontje naast je Bitmojiprofiel om het menu te openen\nDeze functie is experimenteel en zal waarschijnlijk veranderen in de toekomst"
-                    },
-                    "call_recorder": {
-                        "name": "Gesprekken Opnemen",
-                        "description": "Neemt automatisch alle audiogesprekken op"
                     },
                     "best_friend_pinning": {
                         "description": "Hiermee kun je een vriend vastzetten als je nummer één beste vriend. Alleen jij kunt de vastgezette beste vriend zien.",

@@ -1,12 +1,6 @@
 {
     "setup": {
-        "dialogs": {
-            "save_folder": "SE Extendedは、Snapchatからメディアをダウンロードして保存するためにストレージ許可が必要です。\nメディアをダウンロードする場所を選択してください。",
-            "select_save_folder_button": "フォルダを選択",
-            "select_language": "言語を選択する"
-        },
         "mappings": {
-            "dialog": "マッピングを生成しています。これには時間がかかる場合があります...",
             "generate_failure": "マッピングを生成中にエラーが発生しました。もう一度お試しください。",
             "generate_failure_no_snapchat": "SE Extended が Snapchat を検出できませんでした。Snapchat を再インストールしてみてください。"
         },
@@ -14,7 +8,6 @@
             "notification_access": "通知へのアクセス",
             "battery_optimization": "バッテリーの最適化",
             "request_button": "リクエスト",
-            "dialog": "続行するには、次の要件を満たす必要があります。",
             "display_over_other_apps": "他のアプリの上に重ねて表示"
         }
     },
@@ -39,10 +32,6 @@
             "messaging_action": {
                 "title": "処理するコンテンツ タイプの選択",
                 "select_all_button": "すべて選択"
-            },
-            "file_imports": {
-                "settings_select_file_hint": "インポートされたファイルを選択します",
-                "no_files_settings_hint": "ファイルが見つかりません。 「ファイルのインポート」セクションで必要なファイルがインポートされていることを確認してください"
             },
             "export_config": {
                 "title": "機密データをエクスポートしますか?",
@@ -91,16 +80,13 @@
             },
             "home_settings": {
                 "debug_title": "デバッグ",
-                "message_logger_summary": "{messageCount} メッセージ\n{storyCount} ストーリー",
                 "clear_button": "クリア",
                 "actions_title": "行動",
                 "message_logger_title": "メッセージロガー",
                 "success_toast": "終わり！",
-                "export_button": "輸出",
                 "view_logger_history_button": "ロガー履歴の表示"
             },
             "tasks": {
-                "no_tasks": "タスクがありません",
                 "failed_to_open_file": "ファイルを開けませんでした",
                 "merge_files_toast": "{count} ファイルを結合しています",
                 "delete_files_option": "ファイルも削除",
@@ -168,7 +154,6 @@
             },
             "social": {
                 "friends_tab": "友達",
-                "empty_hint": "（空の）",
                 "groups_tab": "グループ",
                 "streaks_expiration_short": "{hours}h"
             },
@@ -177,8 +162,7 @@
                 "file_not_found": "ファイルが見つかりません",
                 "file_import_failed": "ファイルのインポートに失敗しました: {error}",
                 "file_imported": "ファイルは正常にインポートされました",
-                "file_delete_failed": "ファイルの削除に失敗しました",
-                "no_files_hint": "ここでは、Snapchat で使用するファイルをインポートできます。ファイルをインポートするには、下のボタンを押してください。"
+                "file_delete_failed": "ファイルの削除に失敗しました"
             },
             "better_location": {
                 "spoofed_coordinates_title": "緯度 {latitude}, ロング {longitude}",
@@ -209,11 +193,7 @@
                 "blacklist_state_button": "除外された友達/グループを選択してください",
                 "blacklist_state_subtext": "除く全員{count}友達/グループはこのルールの影響を受けます",
                 "clear_list_button": "友達/グループリストをクリアする",
-                "dialog_clear_confirmation_text": "リストをクリアしてもよろしいですか?",
                 "blacklist_state_option": "を除く全員..."
-            },
-            "theming": {
-                "no_themes_hint": "テーマが見つかりませんでした"
             }
         }
     },
@@ -292,10 +272,6 @@
                     "story_logger": {
                         "name": "ストーリーロガー",
                         "description": "友達のストーリーの履歴を提供します"
-                    },
-                    "call_recorder": {
-                        "name": "電話の録音器",
-                        "description": "音声通話を自動的に録音します"
                     },
                     "better_transcript": {
                         "name": "より良いトランスクリプト",

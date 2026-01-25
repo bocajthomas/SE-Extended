@@ -1,17 +1,10 @@
 {
     "setup": {
-        "dialogs": {
-            "select_language": "Choisir la langue",
-            "select_save_folder_button": "Sélectionner un dossier",
-            "save_folder": "SE Extended requiert des autorisations de stockage pour télécharger et enregistrer des médias depuis Snapchat.\nVeuillez choisir l'emplacement où les médias doivent être téléchargés."
-        },
         "mappings": {
-            "dialog": "Génération des mappings, cela peut prendre un certain temps...",
             "generate_failure_no_snapchat": "SE Extended n'a pas pu détecter Snapchat, essayez de réinstaller Snapchat.",
             "generate_failure": "Une erreur s'est produite lors de la génération des mappings, veuillez réessayer."
         },
         "permissions": {
-            "dialog": "Pour continuer, vous devez remplir les conditions suivantes :",
             "notification_access": "Accès aux notifications",
             "battery_optimization": "Optimisation de la batterie",
             "display_over_other_apps": "Superposer aux autres applis",
@@ -52,17 +45,14 @@
                 "saved_config_snackbar": "Configuration enregistrée",
                 "config_export_failure_toast": "Échec de l'exportation de la configuration {error}",
                 "older_required": "Cette fonctionnalité nécessite Snapchat v{version} ou une version antérieure pour fonctionner correctement",
-                "newer_required": "Cette fonctionnalité nécessite Snapchat v{version} ou une version plus récente pour fonctionner correctement",
-                "search_button": "Recherche"
+                "newer_required": "Cette fonctionnalité nécessite Snapchat v{version} ou une version plus récente pour fonctionner correctement"
             },
             "social": {
                 "streaks_expiration_short": "{hours}h",
                 "groups_tab": "Groupes",
-                "empty_hint": "(vide)",
                 "friends_tab": "Amis"
             },
             "tasks": {
-                "no_tasks": "Aucune tâche",
                 "merge_files_toast": "Fusion de {count} fichiers",
                 "remove_selected_tasks_title": "Êtes-vous sûr de vouloir supprimer les tâches sélectionnées ?",
                 "remove_all_tasks_title": "Êtes-vous sûr de vouloir supprimer toutes les tâches ?",
@@ -109,9 +99,6 @@
                 "message_logger_title": "Loggeur de messages",
                 "debug_title": "Déboguer",
                 "success_toast": "Succès !",
-                "message_logger_summary": "{messageCount} message(s)\n{storyCount} stories",
-                "export_button": "Exporter",
-                "import_button": "Importer",
                 "import_success_toast": "Base de données importée avec succès",
                 "clear_button": "Vider",
                 "view_logger_history_button": "Afficher l'historique de l'enregistreur"
@@ -147,7 +134,6 @@
                 "download_attachment_failed_toast": "Échec du téléchargement de la pièce jointe"
             },
             "file_imports": {
-                "no_files_hint": "Ici, vous pouvez importer des fichiers à utiliser dans Snapchat. Appuyez sur le bouton ci-dessous pour importer un fichier.",
                 "import_file_button": "Importer un fichier",
                 "file_not_found": "Fichier introuvable",
                 "file_import_failed": "Échec de l'importation du fichier : {error}",
@@ -174,9 +160,6 @@
                 "longitude_dialog_hint": "Longitude",
                 "suspend_location_updates": "Suspendre les mises à jour de localisation"
             },
-            "theming": {
-                "no_themes_hint": "Aucun thème trouvé"
-            },
             "manage_rule_feature": {
                 "disable_state_subtext": "",
                 "blacklist_state_option": "",
@@ -184,7 +167,6 @@
                 "disable_state_option": "",
                 "whitelist_state_subtext": "",
                 "blacklist_state_button": "",
-                "dialog_clear_confirmation_text": "",
                 "blacklist_state_subtext": "",
                 "whitelist_state_button": "",
                 "whitelist_state_option": ""
@@ -211,10 +193,6 @@
                 "title": "Réinitialiser la configuration",
                 "content": "Êtes-vous sûr de vouloir réinitialiser la configuration ?",
                 "success_toast": "La configuration a été réinitialisée avec succès"
-            },
-            "file_imports": {
-                "no_files_settings_hint": "Aucun fichier trouvé. Assurez-vous d'avoir importé les fichiers requis dans la section Importations de fichiers",
-                "settings_select_file_hint": "Sélectionnez un fichier importé"
             },
             "export_config": {
                 "title": "Exporter des données sensibles ?",
@@ -1018,10 +996,6 @@
                     "media_file_picker": {
                         "name": "Sélecteur de fichiers multimédias",
                         "description": "Vous permet de choisir n'importe quel fichier vidéo/audio dans la galerie"
-                    },
-                    "call_recorder": {
-                        "name": "Enregistreur d'appel",
-                        "description": "Enregistre automatiquement les appels audio"
                     },
                     "account_switcher": {
                         "name": "Changeur de compte",

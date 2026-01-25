@@ -1,17 +1,10 @@
 {
     "setup": {
-        "dialogs": {
-            "select_save_folder_button": "폴더 선택",
-            "select_language": "언어 선택",
-            "save_folder": "SnapEnhance에는 Snapchat에서 미디어를 다운로드하고 저장하려면 저장소 권한이 필요합니다.\n미디어를 다운로드할 위치를 선택하세요."
-        },
         "mappings": {
-            "dialog": "매핑을 생성하는 중입니다. 다소 시간이 걸릴 수 있습니다...",
             "generate_failure_no_snapchat": "SnapEnhance가 Snapchat을 감지할 수 없습니다. Snapchat을 다시 설치해 보십시오.",
             "generate_failure": "매핑을 생성하는 중에 오류가 발생했습니다. 다시 시도해 주세요."
         },
         "permissions": {
-            "dialog": "계속하려면 다음 요구 사항을 충족해야 합니다.",
             "notification_access": "알림 액세스",
             "battery_optimization": "배터리 최적화",
             "display_over_other_apps": "다른 앱 위에 표시",
@@ -248,10 +241,6 @@
                         "description": ""
                     },
                     "media_file_picker": {
-                        "name": "",
-                        "description": ""
-                    },
-                    "call_recorder": {
                         "name": "",
                         "description": ""
                     },
@@ -1367,8 +1356,7 @@
                 "remove_all_tasks_confirm": "",
                 "failed_to_open_file": "",
                 "remove_all_tasks_title": "",
-                "remove_selected_tasks_confirm": "",
-                "no_tasks": ""
+                "remove_selected_tasks_confirm": ""
             },
             "messaging_preview": {
                 "no_message_hint": "",
@@ -1434,7 +1422,6 @@
                 "whitelist_state_subtext": "",
                 "blacklist_state_button": "",
                 "clear_list_button": "",
-                "dialog_clear_confirmation_text": "",
                 "disable_state_subtext": "",
                 "whitelist_state_option": "",
                 "disable_state_option": "",
@@ -1445,12 +1432,10 @@
                 "file_import_failed": "",
                 "file_imported": "",
                 "file_not_found": "",
-                "no_files_hint": "",
                 "import_file_button": "",
                 "file_delete_failed": ""
             },
             "social": {
-                "empty_hint": "",
                 "groups_tab": "",
                 "friends_tab": "",
                 "streaks_expiration_short": ""
@@ -1464,11 +1449,9 @@
                 "actions_title": "",
                 "view_logger_history_button": "",
                 "success_toast": "",
-                "export_button": "",
                 "debug_title": "",
                 "clear_button": "",
-                "message_logger_title": "",
-                "message_logger_summary": ""
+                "message_logger_title": ""
             },
             "home_logs": {
                 "saved_logs_failure_toast": "",
@@ -1477,9 +1460,6 @@
                 "export_logs_button": "",
                 "clear_logs_button": "",
                 "saved_logs_success_toast": ""
-            },
-            "theming": {
-                "no_themes_hint": ""
             }
         },
         "dialogs": {
@@ -1506,10 +1486,6 @@
             "messaging_action": {
                 "select_all_button": "",
                 "title": ""
-            },
-            "file_imports": {
-                "no_files_settings_hint": "",
-                "settings_select_file_hint": ""
             }
         }
     },

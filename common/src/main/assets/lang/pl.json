@@ -1,17 +1,10 @@
 {
     "setup": {
-        "dialogs": {
-            "select_language": "Wybierz język",
-            "save_folder": "SE Extended wymaga uprawnień do przechowywania danych w celu pobierania i zapisywania mediów ze Snapchata.\nProszę wybrać lokalizację, do której powinny być pobierane media.",
-            "select_save_folder_button": "Wybierz Folder"
-        },
         "mappings": {
-            "dialog": "Generowanie mapowań może chwilę potrwać...",
             "generate_failure_no_snapchat": "SE Extended nie mógł wykryć Snapchata. Spróbuj ponownie zainstalować Snapchata.",
             "generate_failure": "Wystąpił błąd podczas próby wygenerowania mapowań. Spróbuj ponownie."
         },
         "permissions": {
-            "dialog": "Aby kontynuować, musisz spełnić poniższe wymagania:",
             "notification_access": "Dostęp do powiadomień",
             "battery_optimization": "Optymalizacja baterii",
             "display_over_other_apps": "Wyświetlanie nad innymi aplikacjami",
@@ -73,9 +66,7 @@
                 "saving_logs_toast": "Zapisywanie logów, To może chwilę potrwać ..."
             },
             "home_settings": {
-                "message_logger_summary": "{messageCount} wiadomości\n{storyCount} stories",
                 "success_toast": "Gotowe!",
-                "export_button": "Eksportuj",
                 "actions_title": "Akcje",
                 "clear_button": "Wyczyść",
                 "message_logger_title": "Zapisywanie Wiadomości",
@@ -86,7 +77,6 @@
                 "remove_selected_tasks_title": "Czy na pewno chcesz usunąć wybrane zadania?",
                 "failed_to_open_file": "Nie udało się otworzyć pliku",
                 "merge_files_toast": "Łączenie {count} plików",
-                "no_tasks": "Brak zadań",
                 "remove_all_tasks_title": "Czy na pewno chcesz usunąć wszystkie zadania?",
                 "delete_files_option": "Usuń też pliki",
                 "remove_selected_tasks_confirm": "Usunąć {count} zadań?",
@@ -142,12 +132,8 @@
                 "suspend_location_updates": "Przerwij aktualizacje lokalizacji",
                 "saved_coordinates_title": "Zapisane Lokalizacje"
             },
-            "theming": {
-                "no_themes_hint": "Nie znaleziono motywów"
-            },
             "social": {
                 "groups_tab": "Grupy",
-                "empty_hint": "(puste)",
                 "friends_tab": "Znajomi",
                 "streaks_expiration_short": "{hours}g"
             },
@@ -155,7 +141,6 @@
                 "blacklist_state_button": "Wybierz wykluczonych znajomych/grupy",
                 "clear_list_button": "Wyczyść listę znajomych/grup",
                 "blacklist_state_subtext": "Każdy oprócz {count} znajomych/grup będzie objęty tą zasadą",
-                "dialog_clear_confirmation_text": "Jesteś pewien że chcesz wyczyścić tą listę?",
                 "disable_state_option": "Wyłączone",
                 "whitelist_state_option": "Nikt oprócz ...",
                 "whitelist_state_subtext": "Tylko {count} znajomi/grupy będą objęte tą zasadą",
@@ -179,7 +164,6 @@
             },
             "file_imports": {
                 "file_delete_failed": "Nie udało się usunąć pliku",
-                "no_files_hint": "Tutaj możesz importować pliki do użycia w Snapchacie. Kliknij poniżej żeby importować plik.",
                 "import_file_button": "Importuj plik",
                 "file_imported": "Pomyślnie impotowano plik",
                 "file_not_found": "Nie znaleziono pliku",
@@ -190,10 +174,6 @@
             "export_config": {
                 "title": "Eksportować wrażliwe dane?",
                 "content": "Czy chcesz wyeksportować konfigurację z wrażliwymi danymi? (Takie jak współrzędne lokalizacji itp.)"
-            },
-            "file_imports": {
-                "settings_select_file_hint": "Wybierz zaimportowany plik",
-                "no_files_settings_hint": "Nie znaleziono plików. Upewnij się, że zaimportowałeś wymagane pliki w sekcji \"Importy plików\""
             },
             "scripting_warning": {
                 "title": "Ostrzeżenie",
@@ -969,10 +949,6 @@
                         "description": ""
                     },
                     "hidden_snapchat_plus_features": {
-                        "name": "",
-                        "description": ""
-                    },
-                    "call_recorder": {
                         "name": "",
                         "description": ""
                     },

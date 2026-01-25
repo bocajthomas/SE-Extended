@@ -1,21 +1,10 @@
 {
     "setup": {
-        "dialogs": {
-            "select_language": "اختر اللغة",
-            "save_folder": "SE Extended يتطلب أذونات التخزين لتنزيل وحفظ وسائط من سناب شات.\nرجاءً اختر الموقع الذي تُريد تنزيل الوسائط إليه.",
-            "select_save_folder_button": "حدّد المجلد",
-            "disclaimer": {
-                "statement": "مرحبًا بكم في وحدة SE Extended.\nإخلاء المسؤولية:\n- يتحمّل المُستخدمون المسؤولية الكاملة عن أي مخاطر مُرتبطة باستخدام هذه الوحدة.\n- يُمكن لوحدة SE Extended تعديل أداء تطبيق سناب شات. يجب على المُستخدمين مُراجعة عمليات الوحدة بعناية واتّخاذ قراراتهم الخاصة بشأن استخدامها.\n- لا يتحمّل المطوّر أي مسؤولية عن أي تحذيرات أو عمليات حظر قد تظهر على حساب سناب شات الخاص بك نتيجة استخدام وحدة SE Extended ويتحمّل المُستخدمون جميع العواقب.",
-                "agree_button": "أوافق"
-            }
-        },
         "mappings": {
-            "dialog": "يجري إنشاء المخطّطات، قد يستغرق هذا بعض الوقت…",
             "generate_failure_no_snapchat": "لم يتمكّن SE Extended اكتشاف سناب شات، رجاءً أعد تثبيت سناب شات.",
             "generate_failure": "حدث خطأ أثناء محاولة إنشاء المخطّطات، رجاءً حاول مرّة أخرى."
         },
         "permissions": {
-            "dialog": "للمتابعة، يجب عليك تلبية المتطلبات التالية:",
             "notification_access": "الوصول إلى الإشعارات",
             "battery_optimization": "تحسين أداء البطارية",
             "display_over_other_apps": "العرض فوق التطبيقات الأخرى",
@@ -72,13 +61,10 @@
                 "message_logger_title": "مسجّل الرسائل",
                 "debug_title": "تصحيح الأخطاء",
                 "success_toast": "انتهى!",
-                "message_logger_summary": "{messageCount} من الرسائل\n{storyCount} من القصص",
-                "export_button": "تصدير",
                 "clear_button": "مسح",
                 "view_logger_history_button": "إظهار تاريخ المسجّل"
             },
             "tasks": {
-                "no_tasks": "لا توجد مهام",
                 "merge_button": "دمج",
                 "failed_to_open_file": "فشل فتح الملف",
                 "merge_files_toast": "دمج {count} من الملفات",
@@ -99,8 +85,7 @@
                 "config_export_failure_toast": "فشل تصدير الإعداد {error}",
                 "saved_config_snackbar": "تم حفظ الإعداد",
                 "older_required": "تتطلب هذه الميزة سناب شات بالإصدار {version} أو أقدم ليعمل بشكلٍ صحيح",
-                "newer_required": "تتطلب هذه الميزة سناب شات بالإصدار {version} أو أحدث ليعمل بشكلٍ صحيح",
-                "search_button": "بحث"
+                "newer_required": "تتطلب هذه الميزة سناب شات بالإصدار {version} أو أحدث ليعمل بشكلٍ صحيح"
             },
             "manage_rule_feature": {
                 "disable_state_option": "معطّل",
@@ -111,13 +96,11 @@
                 "blacklist_state_option": "الجميع سوى…",
                 "blacklist_state_subtext": "الجميع سوى {count} من الأصدقاء/المجموعات سيتأثّرون بهذه القاعدة",
                 "blacklist_state_button": "حدد الأصدقاء/المجموعات المُستبعَدة",
-                "clear_list_button": "مسح قائمة الأصدقاء/المجموعات",
-                "dialog_clear_confirmation_text": "هل أنت متأكد من أنك تريد مسح القائمة؟"
+                "clear_list_button": "مسح قائمة الأصدقاء/المجموعات"
             },
             "social": {
                 "friends_tab": "أصدقاء",
                 "groups_tab": "مجموعات",
-                "empty_hint": "(فارغ)",
                 "streaks_expiration_short": "{hours} من الساعات"
             },
             "manage_scope": {
@@ -169,8 +152,7 @@
                 "file_not_found": "لم يتم العثور على الملف",
                 "file_import_failed": "فشل استيراد الملف: {error}",
                 "file_imported": "تم استيراد الملف بنجاح",
-                "file_delete_failed": "فشل مسح الملف",
-                "no_files_hint": "هنا يمكنك استيراد الملفات لاستخدامها في سناب شات. اضغط على الزر أدناه لاستيراد ملف."
+                "file_delete_failed": "فشل مسح الملف"
             },
             "better_location": {
                 "spoofed_coordinates_title": "عرض {latitude}، طول {longitude}",
@@ -193,14 +175,11 @@
                 "no_friends_found": "لم يتم العثور على أصدقاء"
             },
             "theming": {
-                "no_themes_hint": "لم يتم العثور على سمّات",
                 "search_theme_placeholder": "البحث عن سمّات",
                 "new_theme_button": "سمّة جديدة",
                 "import_from_file_button": "الاستيراد من ملف",
                 "import_from_url_button": "الاستيراد من عنوان URL",
-                "manage_repositories_button": "إدارة التخزينات",
-                "installed_themes_title": "السمات المثبَّتة",
-                "theme_catalog_title": "كتالوج السمّات"
+                "manage_repositories_button": "إدارة التخزينات"
             }
         },
         "dialogs": {
@@ -228,10 +207,6 @@
             "messaging_action": {
                 "title": "اختر أنواع المحتوى المراد معالجتها",
                 "select_all_button": "تحديد الكل"
-            },
-            "file_imports": {
-                "no_files_settings_hint": "لم يتم العثور على أي ملفات. تأكَّد من استيراد الملفات المطلوبة في قسم استيراد الملفات",
-                "settings_select_file_hint": "حدّد ملفًا مستوردًا"
             },
             "import_theme_url": {
                 "title": "استيراد سمّة من عنوان URL",
@@ -1086,10 +1061,6 @@
                         "name": "مسجّل القصص",
                         "description": "يقدّم تاريخًا لقصص الأصدقاء"
                     },
-                    "call_recorder": {
-                        "name": "مسجّل المكالمات",
-                        "description": "يسجّل المكالمات الصوتية تلقائيًا"
-                    },
                     "account_switcher": {
                         "name": "مبدّل الحسابات",
                         "description": "يُتيح لك التبديل بين الحسابات دون تسجيل الخروج\nاضغط مطولاً على أيقونة البحث بجوار ملف تعريف بتموجي الخاص بك لفتح القائمة\nملاحظة: هذه الميزة تجريبية ومن المرجّح أن تتغيّر في المستقبل",
@@ -1645,9 +1616,7 @@
         "cancel": "ألغِ",
         "open": "فتح",
         "download": "تحميل",
-        "send": "إرسال",
-        "restore_original": "استعادة الأصليّ",
-        "convert_external_media": "تحويل الوسائط الخارجية"
+        "send": "إرسال"
     },
     "tracker_events": {
         "conversation_enter": "دخول المحادثة",
