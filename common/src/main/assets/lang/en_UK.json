@@ -2,13 +2,24 @@
     "setup": {
         "mappings": {
             "generate_failure_no_snapchat": "SE Extended was unable to detect Snapchat, please try reinstalling Snapchat.",
-            "generate_failure": "An error occurred while trying to generate mappings, please try again."
+            "generate_failure": "An error occurred while trying to generate mappings, please try again.",
+            "info": "Generating Mappings, this may take a while ..."
         },
         "permissions": {
             "notification_access": "Notification Access",
             "request_button": "Request",
             "battery_optimization": "Battery Optimization",
-            "display_over_other_apps": "Display Over Other Apps"
+            "display_over_other_apps": "Display Over Other Apps",
+            "description": "To continue you need to fit the following requirements:",
+            "install_unknown_apps": "Install Unknown Apps"
+        },
+        "save_folder": {
+            "description": "SE Extended requires Storage permissions to download and Save Media from Snapchat.\nPlease choose the location where media should be downloaded to.",
+            "select_folder_button": "Select Folder"
+        },
+        "disclaimer": {
+            "title": "Welcome to the SE Extended Module.",
+            "subtitle": "Disclaimer Statement:"
         }
     },
     "manager": {
