@@ -14,6 +14,7 @@ import kotlinx.coroutines.sync.Semaphore
 import kotlinx.coroutines.sync.withPermit
 import kotlinx.coroutines.withTimeoutOrNull
 import me.rhunk.snapenhance.bridge.*
+import me.rhunk.snapenhance.bridge.call.CallDownloadSession
 import me.rhunk.snapenhance.bridge.e2ee.E2eeInterface
 import me.rhunk.snapenhance.bridge.location.LocationManager
 import me.rhunk.snapenhance.bridge.logger.LoggerInterface
@@ -143,7 +144,7 @@ class BridgeClient(
         }
         cacheSnapEnhanceApkPath = this.service.applicationApkPath.also {
             if (cacheSnapEnhanceApkPath != null && cacheSnapEnhanceApkPath != it) {
-                context.log.verbose("Restarting Snapchat due to SnapEnhance update")
+                context.log.verbose("Restarting Snapchat due to SE Extended update")
                 context.softRestartApp()
                 return
             }
@@ -277,4 +278,12 @@ class BridgeClient(
     fun registerConfigStateListener(listener: ConfigStateListener) = safeServiceCall { service.registerConfigStateListener(listener) }
 
     fun getDebugProp(name: String, defaultValue: String? = null): String? = safeServiceCall { service.getDebugProp(name, defaultValue) }
+
+    fun startCallDownload(
+        startTimestamp: Long,
+        author: String,
+    ): CallDownloadSession {
+        return safeServiceCall { service.startCallDownload( startTimestamp, author) }
+    }
 }
+

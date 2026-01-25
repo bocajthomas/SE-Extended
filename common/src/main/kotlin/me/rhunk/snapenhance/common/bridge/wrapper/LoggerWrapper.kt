@@ -3,6 +3,7 @@ package me.rhunk.snapenhance.common.bridge.wrapper
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import android.net.Uri
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
 import kotlinx.coroutines.*
@@ -138,6 +139,13 @@ class LoggerWrapper(
 
     }
 
+    fun closeDatabase() {
+        synchronized(this) {
+            _database?.close()
+            _database = null
+        }
+    }
+
     override fun getLoggedIds(conversationId: Array<String>, limit: Int): LongArray {
         if (conversationId.any {
             runCatching { UUID.fromString(it) }.isFailure
@@ -240,6 +248,74 @@ class LoggerWrapper(
                 database.execSQL("DELETE FROM chat_edits")
                 database.execSQL("DELETE FROM stories")
             }
+        }
+    }
+
+    fun mergeDatabases(
+        context: Context,
+        inputUris: List<Uri>,
+        outputUri: Uri,
+        onProgress: (percent: Int, status: String) -> Unit
+    ): Boolean {
+        val tempFile = File(context.cacheDir, "temp_merging_${System.currentTimeMillis()}.db")
+        val tableColumns = mapOf(
+            "messages" to "message_id, conversation_id, user_id, username, send_timestamp, added_timestamp, group_title, message_data",
+            "chat_edits" to "edit_number, added_timestamp, conversation_id, message_id, message_text",
+            "stories" to "added_timestamp, user_id, posted_timestamp, created_timestamp, url, encryption_key, encryption_iv",
+            "tracker_events" to "timestamp, conversation_id, conversation_title, is_group, username, user_id, event_type, data"
+        )
+
+        return try {
+            val resolver = context.contentResolver
+            val totalSteps = inputUris.size + 1
+            onProgress(0, "Initializing base database...")
+            resolver.openInputStream(inputUris[0])?.use { input ->
+                tempFile.outputStream().use { output -> input.copyTo(output) }
+            } ?: return false
+
+            val db = SQLiteDatabase.openOrCreateDatabase(tempFile, null)
+            for (i in 1 until inputUris.size) {
+                val progress = (i * 100) / totalSteps
+                onProgress(progress, "Merging file $i of ${inputUris.size}...")
+
+                val otherTemp = File(context.cacheDir, "other_db_$i.db")
+                resolver.openInputStream(inputUris[i])?.use { input ->
+                    otherTemp.outputStream().use { output -> input.copyTo(output) }
+                }
+
+                db.execSQL("ATTACH DATABASE '${otherTemp.absolutePath}' AS to_merge")
+
+                tableColumns.forEach { (tableName, columns) ->
+                    val uniqueKey = when(tableName) {
+                        "messages" -> "message_id"
+                        "chat_edits" -> "message_id"
+                        "stories" -> "url"
+                        "tracker_events" -> "timestamp"
+                        else -> "id"
+                    }
+
+                    db.execSQL("""
+                        INSERT INTO $tableName ($columns) 
+                        SELECT $columns FROM to_merge.$tableName 
+                        WHERE $uniqueKey NOT IN (SELECT $uniqueKey FROM $tableName)
+                    """.trimIndent())
+                }
+
+                db.execSQL("DETACH DATABASE to_merge")
+                otherTemp.delete()
+            }
+            db.close()
+            onProgress(90, "Finalizing merged file...")
+            resolver.openOutputStream(outputUri)?.use { output ->
+                tempFile.inputStream().use { input -> input.copyTo(output) }
+            }
+
+            tempFile.delete()
+            onProgress(100, "Done!")
+            true
+        } catch (e: Exception) {
+            tempFile.delete()
+            false
         }
     }
 
@@ -458,7 +534,6 @@ class LoggerWrapper(
                 }
             }
         }
-
         return edits
     }
 

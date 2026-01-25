@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
-import me.rhunk.snapenhance.common.ui.AppMaterialTheme
+import me.rhunk.snapenhance.common.ui.theme.AppMaterialTheme
 import me.rhunk.snapenhance.common.ui.createComposeView
 import me.rhunk.snapenhance.common.util.ktx.copyToClipboard
 import me.rhunk.snapenhance.core.ModContext
@@ -65,7 +65,7 @@ class InAppOverlay(
                 val contentView = param.thisObject<Activity>().findViewById<FrameLayout>(android.R.id.content)
                 contentView.children().forEach { it.visibility = View.GONE }
                 val screenView = createComposeView(param.thisObject()) {
-                    AppMaterialTheme(isDarkTheme = true) {
+                    AppMaterialTheme(preferences = contentView.context.getSharedPreferences("selected_theme", 0)) {
                         Surface(
                             color = MaterialTheme.colorScheme.surface
                         ) {
@@ -208,7 +208,7 @@ class InAppOverlay(
         activity.runOnUiThread {
             if (root.findViewWithTag<View>(overlayTag) != null) return@runOnUiThread
             root.addView(createComposeView(activity) {
-                AppMaterialTheme(isDarkTheme = remember { activity.isDarkTheme() }) {
+                AppMaterialTheme(preferences = context.androidContext.getSharedPreferences("selected_theme", 0)) {
                     OverlayContent()
                 }
             }.apply {

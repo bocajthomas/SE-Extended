@@ -1,24 +1,26 @@
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 package me.rhunk.snapenhance.ui.manager.pages.social
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.RemoveRedEye
 import androidx.compose.material.icons.rounded.Add
+import androidx.compose.material.icons.rounded.Group
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavBackStackEntry
@@ -27,16 +29,19 @@ import me.rhunk.snapenhance.R
 import me.rhunk.snapenhance.common.data.MessagingFriendInfo
 import me.rhunk.snapenhance.common.data.MessagingGroupInfo
 import me.rhunk.snapenhance.common.data.SocialScope
-import me.rhunk.snapenhance.common.ui.rememberAsyncMutableState
+import me.rhunk.snapenhance.common.ui.*
 import me.rhunk.snapenhance.common.util.snap.BitmojiSelfie
 import me.rhunk.snapenhance.storage.*
 import me.rhunk.snapenhance.ui.manager.Routes
 import me.rhunk.snapenhance.ui.util.coil.BitmojiImage
-import me.rhunk.snapenhance.ui.util.pagerTabIndicatorOffset
 
 class SocialRootSection : Routes.Route() {
     private var friendList: List<MessagingFriendInfo> by mutableStateOf(emptyList())
     private var groupList: List<MessagingGroupInfo> by mutableStateOf(emptyList())
+    private var selectedIndex by mutableIntStateOf(0)
+    private val socialOptions by lazy {
+        listOf(translation["friends_tab"], translation["groups_tab"])
+    }
 
     private fun updateScopeLists() {
         context.coroutineScope.launch {
@@ -50,12 +55,11 @@ class SocialRootSection : Routes.Route() {
         val remainingHours = remember { context.config.root.streaksReminder.remainingHours.get() }
 
         LazyColumn(
-            modifier = Modifier
-                .fillMaxSize(),
-            contentPadding = PaddingValues(top = 10.dp, bottom = 110.dp, start = 8.dp, end = 8.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = lazyColumnContentPadding(staticVertical = 10.dp, hasSubAction = true, hasFAB = true),
+            verticalArrangement = Arrangement.spacedBy(3.dp)
+
         ) {
-            //check if scope list is empty
             val listSize = when (scope) {
                 SocialScope.GROUP -> groupList.size
                 SocialScope.FRIEND -> friendList.size
@@ -63,11 +67,43 @@ class SocialRootSection : Routes.Route() {
 
             if (listSize == 0) {
                 item {
-                    Text(
-                        text = translation["empty_hint"], modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(10.dp), textAlign = TextAlign.Center
-                    )
+                    Box(
+                        modifier = Modifier.fillParentMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center
+                        ) {
+                            ElevatedCard(
+                                modifier = Modifier
+                                    .padding(16.dp)
+                                    .size(200.dp),
+                                shape = MaterialShapes.Arch.toShape()
+                            ) {
+                                Box(
+                                    modifier = Modifier.fillMaxSize(),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Rounded.Group,
+                                        contentDescription = null,
+                                        modifier = Modifier.size(100.dp)
+                                    )
+                                }
+                            }
+                            Text(
+                                text = if(scope == SocialScope.FRIEND) translation["friends_empty"] else translation["groups_empty"],
+                                style = MaterialTheme.typography.bodyMedium,
+                                modifier = Modifier.padding(8.dp)
+                            )
+                            Text(
+                                text = if(scope == SocialScope.FRIEND) translation["friends_empty_desc"] else translation["groups_empty_desc"],
+                                style = MaterialTheme.typography.bodySmall,
+                                modifier = Modifier.padding(8.dp)
+                            )
+                        }
+                    }
                 }
             }
 
@@ -86,7 +122,8 @@ class SocialRootSection : Routes.Route() {
                             put("id", id)
                             put("scope", scope.key)
                         }
-                    }
+                    },
+                    shape = cardShape(listSize, index)
                 ) {
                     Row(
                         modifier = Modifier
@@ -144,7 +181,9 @@ class SocialRootSection : Routes.Route() {
                                         fontWeight = FontWeight.Light
                                     )
                                 }
-                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
                                     streaks?.takeIf { it.notify }?.let { streaks ->
                                         Icon(
                                             imageVector = ImageVector.vectorResource(id = R.drawable.streak_icon),
@@ -168,12 +207,15 @@ class SocialRootSection : Routes.Route() {
                             }
                         }
 
-                        FilledIconButton(onClick = {
-                            routes.messagingPreview.navigate {
-                                put("id", id)
-                                put("scope", scope.key)
-                            }
-                        }) {
+                        FilledIconButton(
+                            onClick = {
+                                routes.messagingPreview.navigate {
+                                    put("id", id)
+                                    put("scope", scope.key)
+                                }
+                            },
+                            shapes = IconButtonDefaults.shapes()
+                        ) {
                             Icon(imageVector = Icons.Rounded.RemoveRedEye, contentDescription = null)
                         }
                     }
@@ -182,18 +224,12 @@ class SocialRootSection : Routes.Route() {
         }
     }
 
-    @OptIn(ExperimentalFoundationApi::class)
-    override val content: @Composable (NavBackStackEntry) -> Unit = {
-        val titles = remember {
-            listOf(translation["friends_tab"], translation["groups_tab"])
-        }
-        val coroutineScope = rememberCoroutineScope()
-        val pagerState = rememberPagerState { titles.size }
-        var addFriendDialog by remember { mutableStateOf(null as AddFriendDialog?) }
+    override val floatingActionButton: @Composable () -> Unit = {
+        var addFriendBottomSheet by remember { mutableStateOf(null as AddFriendBottomSheet?) }
 
-        if (addFriendDialog != null) {
-            addFriendDialog?.Content {
-                addFriendDialog = null
+        if (addFriendBottomSheet != null) {
+            addFriendBottomSheet?.Content {
+                addFriendBottomSheet = null
             }
             DisposableEffect(Unit) {
                 onDispose {
@@ -206,82 +242,98 @@ class SocialRootSection : Routes.Route() {
             updateScopeLists()
         }
 
-        Scaffold(
-            floatingActionButton = {
-                FloatingActionButton(
-                    onClick = {
-                        addFriendDialog = AddFriendDialog(
-                            context,
-                            AddFriendDialog.Actions(
-                                onFriendState = { friend, state ->
-                                    if (state) {
-                                        context.bridgeService?.triggerScopeSync(SocialScope.FRIEND, friend.userId)
-                                    } else {
-                                        context.database.deleteFriend(friend.userId)
-                                    }
-                                },
-                                onGroupState = { group, state ->
-                                    if (state) {
-                                        context.bridgeService?.triggerScopeSync(SocialScope.GROUP, group.conversationId)
-                                    } else {
-                                        context.database.deleteGroup(group.conversationId)
-                                    }
-                                },
-                                getFriendState = { friend -> context.database.getFriendInfo(friend.userId) != null },
-                                getGroupState = { group -> context.database.getGroupInfo(group.conversationId) != null }
-                            ),
-                            pinnedIds = (friendList.map { it.userId } + groupList.map { it.conversationId }).reversed(),
-                        )
-                    },
-                    modifier = Modifier.padding(10.dp),
-                    containerColor = MaterialTheme.colorScheme.primary,
-                    contentColor = MaterialTheme.colorScheme.onPrimary,
-                    shape = RoundedCornerShape(16.dp),
+        ExtendedFloatingActionButton(
+            onClick = {
+                addFriendBottomSheet = AddFriendBottomSheet(
+                    context,
+                    AddFriendBottomSheet.Actions(
+                        onFriendState = { friend, state ->
+                            if (state) {
+                                context.bridgeService?.triggerScopeSync(SocialScope.FRIEND, friend.userId)
+                            } else {
+                                context.database.deleteFriend(friend.userId)
+                            }
+                        },
+                        onGroupState = { group, state ->
+                            if (state) {
+                                context.bridgeService?.triggerScopeSync(SocialScope.GROUP, group.conversationId)
+                            } else {
+                                context.database.deleteGroup(group.conversationId)
+                            }
+                        },
+                        getFriendState = { friend -> context.database.getFriendInfo(friend.userId) != null },
+                        getGroupState = { group -> context.database.getGroupInfo(group.conversationId) != null }
+                    ),
+                    pinnedIds = (friendList.map { it.userId } + groupList.map { it.conversationId }).reversed(),
+                )
+            },
+            modifier = Modifier.offset(x = 2.dp, y = 2.dp),
+            containerColor = MaterialTheme.colorScheme.primary,
+            contentColor = MaterialTheme.colorScheme.onPrimary,
+            icon = { Icon(Icons.Rounded.Add, contentDescription = null) },
+            text = { Text(text = translation["add_friend_group_button"]) },
+        )
+    }
+
+    override val topBarSubActions: @Composable (RowScope.() -> Unit) = {
+        val getSelectedIndex = selectedIndex
+
+        FlowRow(
+            Modifier.padding(horizontal = 8.dp).fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(ButtonGroupDefaults.ConnectedSpaceBetween),
+            verticalArrangement = Arrangement.spacedBy(2.dp),
+        ) {
+            socialOptions.forEachIndexed { index, label ->
+                ToggleButton(
+                    checked = getSelectedIndex == index,
+                    onCheckedChange = { selectedIndex = index },
+                    shapes =
+                        when (index) {
+                            0 -> ButtonGroupDefaults.connectedLeadingButtonShapes()
+                            socialOptions.lastIndex -> ButtonGroupDefaults.connectedTrailingButtonShapes()
+                            else -> ButtonGroupDefaults.connectedMiddleButtonShapes()
+                        },
+                    modifier = Modifier.semantics { role = Role.RadioButton }
+                        .weight(1f),
                 ) {
-                    Icon(
-                        imageVector = Icons.Rounded.Add,
-                        contentDescription = null
-                    )
+                    Text(label)
                 }
             }
-        ) { paddingValues ->
-            Column(modifier = Modifier.padding(paddingValues)) {
-                TabRow(selectedTabIndex = pagerState.currentPage, indicator = { tabPositions ->
-                    TabRowDefaults.SecondaryIndicator(
-                        Modifier.pagerTabIndicatorOffset(
-                            pagerState = pagerState,
-                            tabPositions = tabPositions
-                        )
-                    )
-                }) {
-                    titles.forEachIndexed { index, title ->
-                        Tab(
-                            selected = pagerState.currentPage == index,
-                            onClick = {
-                                coroutineScope.launch {
-                                    pagerState.animateScrollToPage(index)
-                                }
-                            },
-                            text = {
-                                Text(
-                                    text = title,
-                                    maxLines = 2,
-                                    overflow = TextOverflow.Ellipsis
-                                )
-                            }
-                        )
-                    }
-                }
+        }
+    }
 
-                HorizontalPager(
-                    modifier = Modifier.padding(paddingValues),
-                    state = pagerState
-                ) { page ->
-                    when (page) {
-                        0 -> ScopeList(SocialScope.FRIEND)
-                        1 -> ScopeList(SocialScope.GROUP)
-                    }
-                }
+    @OptIn(ExperimentalFoundationApi::class)
+    override val content: @Composable (NavBackStackEntry) -> Unit = {
+        val getCurrentSelectedIndex = selectedIndex
+
+        val pagerState = rememberPagerState(
+            initialPage = getCurrentSelectedIndex,
+            pageCount = { socialOptions.size }
+        )
+
+        LaunchedEffect(getCurrentSelectedIndex) {
+            if (getCurrentSelectedIndex != pagerState.currentPage) {
+                pagerState.animateScrollToPage(getCurrentSelectedIndex)
+            }
+        }
+
+        LaunchedEffect(pagerState.currentPage) {
+            if (selectedIndex != pagerState.currentPage) {
+                selectedIndex = pagerState.currentPage
+            }
+        }
+
+        LaunchedEffect(Unit) {
+            updateScopeLists()
+        }
+
+        HorizontalPager(
+            state = pagerState,
+            modifier = Modifier.fillMaxSize()
+        ) { page ->
+            when (page) {
+                0 -> ScopeList(scope = SocialScope.FRIEND)
+                1 -> ScopeList(scope = SocialScope.GROUP)
             }
         }
     }

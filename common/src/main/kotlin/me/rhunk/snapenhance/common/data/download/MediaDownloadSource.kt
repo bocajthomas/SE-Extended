@@ -17,7 +17,8 @@ enum class MediaDownloadSource(
     STORY_LOGGER("story_logger", "story_logger"),
     MESSAGE_LOGGER("message_logger", "message_logger"),
     MERGED("merged", "merged"),
-    VOICE_CALL("voice_call", "voice_call");
+    VOICE_CALL("voice_call", "voice_call"),
+    CHAT_WALLPAPER("chat_wallpaper", "chat_wallpaper");
 
     fun matches(source: String?): Boolean {
         if (source == null) return false

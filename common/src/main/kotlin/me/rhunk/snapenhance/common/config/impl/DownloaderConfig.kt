@@ -56,4 +56,7 @@ class DownloaderConfig : ConfigContainer() {
     val ffmpegOptions = container("ffmpeg_options", FFMpegOptions()) { addNotices(FeatureNotice.UNSTABLE) }
     val loggingOptions = container("logging_options", LoggingOptions())
     val customPathFormat = string("custom_path_format") { addNotices(FeatureNotice.UNSTABLE) }
+    val fileHashCheck = boolean("file_hash_check")
+    val callRecorder = unique("call_recorder", "only_record_self", "only_record_others", "record_both") { requireRestart(); addNotices(FeatureNotice.UNSTABLE); }
+    val chatWallpaperDownloader = boolean("chat_wallpaper_downloader") { requireRestart() }
 }

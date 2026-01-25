@@ -58,7 +58,8 @@ class CallButtonsOverride : Feature("CallButtonsOverride") {
 
         onNextActivityCreate {
             if (callStartConfirmation) {
-                findClass("com.snap.composer.views.ComposerRootView").hook("dispatchTouchEvent", HookStage.BEFORE) { param ->
+                (runCatching { findClass("com.snap.valdi.views.ValdiRootView") }.getOrNull() ?: findClass("com.snap.composer.views.ComposerRootView"))
+                    .hook("dispatchTouchEvent", HookStage.BEFORE) { param ->
                     val view = param.thisObject() as? ViewGroup ?: return@hook
                     if (!view.javaClass.name.endsWith("CallButtonsView")) return@hook
                     val childComposerView = view.getChildAt(0) as? ViewGroup ?: return@hook

@@ -13,8 +13,8 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import me.rhunk.snapenhance.core.SnapEnhance
-import me.rhunk.snapenhance.core.wrapper.impl.composer.ComposerContext
-import me.rhunk.snapenhance.core.wrapper.impl.composer.ComposerViewNode
+import me.rhunk.snapenhance.core.wrapper.impl.valdi.ValdiContext
+import me.rhunk.snapenhance.core.wrapper.impl.valdi.ValdiViewNode
 
 private val foregroundDrawableListTag = randomTag()
 
@@ -136,21 +136,21 @@ fun View.hideViewCompletely() {
     onLayoutChange { hide() }
 }
 
-fun View.getComposerViewNode(): ComposerViewNode? {
-    if (!SnapEnhance.classCache.composerView.isInstance(this)) return null
+fun View.getValdiViewNode(): ValdiViewNode? {
+    if (!SnapEnhance.classCache.valdiView.isInstance(this)) return null
 
-    val composerViewNode = this::class.java.methods.firstOrNull {
-        it.name == "getComposerViewNode"
+    val viewNode = this::class.java.methods.firstOrNull {
+        it.name == "getComposerViewNode" || it.name == "getValdiViewNode"
     }?.invoke(this) ?: return null
 
-    return ComposerViewNode.fromNode(composerViewNode)
+    return ValdiViewNode.fromNode(viewNode)
 }
 
-fun View.getComposerContext(): ComposerContext? {
-    if (!SnapEnhance.classCache.composerView.isInstance(this)) return null
+fun View.getValdiContext(): ValdiContext? {
+    if (!SnapEnhance.classCache.valdiView.isInstance(this)) return null
 
-    return ComposerContext(this::class.java.methods.firstOrNull {
-        it.name == "getComposerContext"
+    return ValdiContext(this::class.java.methods.firstOrNull {
+        it.name == "getComposerContext" || it.name == "getValdiContext"
     }?.invoke(this) ?: return null)
 }
 

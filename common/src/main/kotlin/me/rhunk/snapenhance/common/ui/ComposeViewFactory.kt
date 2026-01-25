@@ -2,6 +2,7 @@ package me.rhunk.snapenhance.common.ui
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnAttachStateChangeListener
@@ -29,6 +30,7 @@ import androidx.savedstate.SavedStateRegistryOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import me.rhunk.snapenhance.common.ui.theme.AppMaterialTheme
 
 // https://github.com/tberghuis/FloatingCountdownTimer/blob/master/app/src/main/java/xyz/tberghuis/floatingtimer/service/overlayViewFactory.kt
 fun createComposeView(
@@ -45,18 +47,22 @@ fun createComposeView(
     setViewTreeSavedStateRegistryOwner(lifecycleOwner)
 
     val viewModelStore = ViewModelStore()
-    setViewTreeViewModelStoreOwner(object : ViewModelStoreOwner {
-        override val viewModelStore: ViewModelStore
-            get() = viewModelStore
-    })
+    setViewTreeViewModelStoreOwner(
+        object : ViewModelStoreOwner {
+            override val viewModelStore: ViewModelStore
+                get() = viewModelStore
+        }
+    )
 
     val backPressedDispatcherOwner = OnBackPressedDispatcher()
-    setViewTreeOnBackPressedDispatcherOwner(object: OnBackPressedDispatcherOwner {
-        override val lifecycle: Lifecycle
-            get() = lifecycleOwner.lifecycle
-        override val onBackPressedDispatcher: OnBackPressedDispatcher
-            get() = backPressedDispatcherOwner
-    })
+    setViewTreeOnBackPressedDispatcherOwner(
+        object: OnBackPressedDispatcherOwner {
+            override val lifecycle: Lifecycle
+                get() = lifecycleOwner.lifecycle
+            override val onBackPressedDispatcher: OnBackPressedDispatcher
+                get() = backPressedDispatcherOwner
+        }
+    )
 
     val coroutineContext = AndroidUiDispatcher.CurrentThread
     val runRecomposeScope = CoroutineScope(coroutineContext)
@@ -67,7 +73,7 @@ fun createComposeView(
     }
 
     setContent {
-        AppMaterialTheme {
+        AppMaterialTheme(preferences = context.getSharedPreferences("selected_theme", MODE_PRIVATE)) {
             content()
         }
     }

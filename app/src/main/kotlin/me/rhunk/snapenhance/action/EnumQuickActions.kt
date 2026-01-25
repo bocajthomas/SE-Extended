@@ -14,15 +14,15 @@ enum class EnumQuickActions(
     val action: Routes.() -> Unit
 ) {
     FILE_IMPORTS("file_imports", Icons.Rounded.FolderOpen, {
-        fileImports.navigateReset()
+        fileImports.navigate()
     }),
     FRIEND_TRACKER("friend_tracker", Icons.Rounded.PersonSearch, {
-        friendTracker.navigateReset()
+        friendTracker.navigate()
     }),
     LOGGER_HISTORY("logger_history", Icons.Rounded.History, {
-        loggerHistory.navigateReset()
+        loggerHistory.navigate()
     }),
     THEMING("theming", Icons.Rounded.Palette, {
-        theming.navigateReset()
+        theming.navigate()
     })
 }

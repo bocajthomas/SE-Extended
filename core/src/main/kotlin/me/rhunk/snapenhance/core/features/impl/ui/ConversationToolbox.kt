@@ -39,7 +39,6 @@ import me.rhunk.snapenhance.core.features.Feature
 import me.rhunk.snapenhance.core.features.impl.messaging.Messaging
 import me.rhunk.snapenhance.core.util.ktx.getId
 
-
 data class ComposableMenu(
     val title: String,
     val filter: (conversationId: String) -> Boolean,
@@ -59,6 +58,7 @@ class ConversationToolbox : Feature("Conversation Toolbox") {
     @SuppressLint("SetTextI18n")
     override fun init() {
         onNextActivityCreate {
+            // TODO: add version check
             val oldToolBoxAddView = context.config.scripting.oldToolBoxAddView.get()
 
             if (oldToolBoxAddView) {

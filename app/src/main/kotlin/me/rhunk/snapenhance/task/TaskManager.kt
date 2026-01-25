@@ -100,12 +100,14 @@ class TaskManager(
 
     fun removeTask(task: Task) {
         runBlocking {
-            activeTasks.entries.find { it.value.task == task }?.let {
-                activeTasks.remove(it.key)
-                runCatching {
-                    it.value.cancel()
-                }.onFailure {
-                    remoteSideContext.log.warn("Failed to cancel task ${task.hash}")
+            synchronized(activeTasks) {
+                activeTasks.entries.find { it.value.task == task }?.let {
+                    activeTasks.remove(it.key)
+                    runCatching {
+                        it.value.cancel()
+                    }.onFailure {
+                        remoteSideContext.log.warn("Failed to cancel task ${task.hash}")
+                    }
                 }
             }
             launch(queueExecutor.asCoroutineDispatcher()) {
@@ -135,7 +137,15 @@ class TaskManager(
         return null
     }
 
-    fun getActiveTasks() = activeTasks
+    fun getActiveTasks() = synchronized(activeTasks) {
+        activeTasks.toMap()
+    }
+
+    fun clearActiveTasks() {
+        synchronized(activeTasks) {
+            activeTasks.clear()
+        }
+    }
 
     fun fetchStoredTasks(lastId: Long = Long.MAX_VALUE, limit: Int = 10): Map<Long, Task> {
         val tasks = mutableMapOf<Long, Task>()

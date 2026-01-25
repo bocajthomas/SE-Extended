@@ -1,4 +1,5 @@
 import com.android.build.gradle.internal.api.BaseVariantOutputImpl
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.androidApplication)
@@ -9,7 +10,7 @@ plugins {
 
 android {
     namespace = rootProject.ext["applicationId"].toString() + ".manager"
-    compileSdk = 34
+    compileSdk = 36
 
     androidResources {
         noCompress += ".so"
@@ -26,7 +27,7 @@ android {
         versionCode = 1
         versionName = "1.0.0"
         minSdk = 28
-        targetSdk = 34
+        targetSdk = 36
         multiDexEnabled = true
     }
 
@@ -56,8 +57,14 @@ android {
         targetCompatibility = JavaVersion.VERSION_21
     }
 
-    kotlinOptions {
-        jvmTarget = "21"
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_21)
+            freeCompilerArgs.addAll(
+                "-XXLanguage:+PropertyParamAnnotationDefaultTargetMode",
+                "-Xjvm-default=all"
+            )
+        }
     }
 }
 

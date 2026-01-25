@@ -3,14 +3,10 @@ package me.rhunk.snapenhance.core.ui.menu.impl
 import android.content.DialogInterface
 import android.content.res.Resources
 import android.graphics.BitmapFactory
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
-import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.LinearLayout
-import android.widget.ScrollView
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
@@ -41,6 +37,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.graphics.drawable.toDrawable
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -63,7 +60,6 @@ import me.rhunk.snapenhance.core.features.impl.spying.MessageLogger
 import me.rhunk.snapenhance.core.ui.ViewAppearanceHelper
 import me.rhunk.snapenhance.core.ui.children
 import me.rhunk.snapenhance.core.ui.menu.AbstractMenu
-import me.rhunk.snapenhance.core.ui.randomTag
 import me.rhunk.snapenhance.core.ui.triggerRootCloseTouchEvent
 import me.rhunk.snapenhance.core.util.ktx.isDarkTheme
 import java.net.HttpURLConnection
@@ -79,7 +75,7 @@ class FriendFeedInfoMenu : AbstractMenu() {
         val connection = URL(url).openConnection() as HttpURLConnection
         connection.connect()
         val input = connection.inputStream
-        return BitmapDrawable(Resources.getSystem(), BitmapFactory.decodeStream(input))
+        return BitmapFactory.decodeStream(input).toDrawable(Resources.getSystem())
     }
 
     private fun formatDate(timestamp: Long): String? {
@@ -446,7 +442,6 @@ class FriendFeedInfoMenu : AbstractMenu() {
         }
     }
 
-    private val recyclerViewTag = randomTag()
     private val messaging by lazy { context.feature(Messaging::class)}
 
     override fun onViewAdded(event: AddViewEvent) {
@@ -455,57 +450,31 @@ class FriendFeedInfoMenu : AbstractMenu() {
             return constraintLayout.children().firstOrNull { it.javaClass.name.endsWith("AvatarView") } != null
         }
 
-        if (event.parent is FrameLayout && messaging.lastFocusedConversationType == 1 && event.view.javaClass.name.endsWith("RecyclerView")) {
-            event.view.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
-                if (event.view.tag == recyclerViewTag || !hasAvatarHeader(event.view as ViewGroup)) return@addOnLayoutChangeListener
-                event.view.tag = recyclerViewTag
-
-                // remove recycler view
-                event.parent.removeView(event.view)
-
-                val newLayout = LinearLayout(event.view.context).apply {
-                    orientation = LinearLayout.VERTICAL
-                    gravity = Gravity.BOTTOM
-                    layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-                    addView(event.view)
-                }
-
-                newLayout.addView(ScrollView(newLayout.context).apply {
-                    layoutParams = LinearLayout.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT
-                    ).apply {
-                        weight = 1f;
-                        setMargins(0, 100, 0, 0)
-                    }
-
-                    addView(LinearLayout(context).apply {
-                        orientation = LinearLayout.VERTICAL
-                        injectIntoActionSheetItems(newLayout) {
-                            it.layoutParams = LinearLayout.LayoutParams(
-                                ViewGroup.LayoutParams.MATCH_PARENT,
-                                ViewGroup.LayoutParams.WRAP_CONTENT
-                            ).apply {
-                                setMargins(0, 5, 0, 5)
-                            }
-                            addView(it)
-                        }
-                    })
-                }, 0)
-
-                event.parent.addView(newLayout)
+        if (messaging.lastFocusedConversationType == 1 && event.view.javaClass.name.endsWith("ConstraintLayout") && event.parent.javaClass.name.endsWith("RecyclerView")) {
+            val linearLayout = LinearLayout(event.view.context).apply {
+                orientation = LinearLayout.VERTICAL
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
             }
+
+            injectIntoActionSheetItems(linearLayout, isGroupMenu = true) {
+                linearLayout.addView(it, 0)
+            }
+
+            (event.view as ViewGroup).addView(linearLayout, 0)
         }
 
         if (event.parent is LinearLayout && event.viewClassName.endsWith("SnapCardView") && hasAvatarHeader(event.parent)) {
             val actionSheetItemsContainerLayout = (event.view as ViewGroup).getChildAt(0) as? ViewGroup ?: throw IllegalStateException("ActionSheetItemsContainerLayout not found")
-            injectIntoActionSheetItems(actionSheetItemsContainerLayout) {
+            injectIntoActionSheetItems(actionSheetItemsContainerLayout, isGroupMenu = false) {
                 actionSheetItemsContainerLayout.addView(it, 0)
             }
         }
     }
 
-    private fun injectIntoActionSheetItems(actionSheetItemsContainer: View, viewConsumer: ((View) -> Unit)) {
+    private fun injectIntoActionSheetItems(contextView: View, isGroupMenu: Boolean = false, viewConsumer: ((View) -> Unit)) {
         val friendFeedMenuOptions by context.config.userInterface.friendFeedMenuButtons
         val getIconStyle = context.config.userInterface.iconStyle.getNullable()
         if (friendFeedMenuOptions.isEmpty()) return
@@ -602,7 +571,7 @@ class FriendFeedInfoMenu : AbstractMenu() {
             Column(
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                var elementIndex by remember { mutableIntStateOf(0) }
+                var elementIndex by remember { mutableIntStateOf(if (isGroupMenu) 1 else 0) }
 
                 if (friendFeedMenuOptions.contains("conversation_info")) {
                     MenuElement(
@@ -685,7 +654,7 @@ class FriendFeedInfoMenu : AbstractMenu() {
                             }
                         },
                         onLongClick = {
-                            actionSheetItemsContainer.post {
+                            contextView.post {
                                 context.apply {
                                     closeMenu()
                                     inAppOverlay.showStatusToast(
@@ -703,7 +672,7 @@ class FriendFeedInfoMenu : AbstractMenu() {
         }
 
         viewConsumer(
-            createComposeView(actionSheetItemsContainer.context) {
+            createComposeView(contextView.context) {
                 CompositionLocalProvider(
                     LocalTextStyle provides LocalTextStyle.current.merge(TextStyle(fontFamily = FontFamily(
                         Font(context.userInterface.avenirNextFontId, FontWeight.Medium)
@@ -726,14 +695,14 @@ class FriendFeedInfoMenu : AbstractMenu() {
                         it.hasInterface(EnumScriptInterface.FRIEND_FEED_CONTEXT_MENU)
                     } ?: return@eachModule
 
-                viewConsumer(LinearLayout(actionSheetItemsContainer.context).apply {
+                viewConsumer(LinearLayout(contextView.context).apply {
                     layoutParams = ViewGroup.LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT
                     )
 
                     orientation = LinearLayout.VERTICAL
-                    addView(createComposeView(actionSheetItemsContainer.context) {
+                    addView(createComposeView(contextView.context) {
                         Surface(
                             modifier = Modifier.fillMaxWidth(),
                             color = MaterialTheme.colorScheme.surface
@@ -748,6 +717,14 @@ class FriendFeedInfoMenu : AbstractMenu() {
                     })
                 })
             }
+        }
+
+        if (isGroupMenu) {
+            viewConsumer(
+                createComposeView(contextView.context) {
+                    Spacer(modifier = Modifier.height(64.dp))
+                }
+            )
         }
     }
 }

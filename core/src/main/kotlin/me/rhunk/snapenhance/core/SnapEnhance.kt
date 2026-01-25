@@ -33,10 +33,8 @@ import me.rhunk.snapenhance.core.util.hook.HookStage
 import me.rhunk.snapenhance.core.util.hook.findRestrictedMethod
 import me.rhunk.snapenhance.core.util.hook.hook
 import me.rhunk.snapenhance.mapper.impl.PlatformClientAttestationMapper
-import kotlin.reflect.KClass
 import kotlin.system.exitProcess
 import kotlin.system.measureTimeMillis
-
 
 class SnapEnhance {
     companion object {
@@ -382,18 +380,45 @@ class SnapEnhance {
     }
 
     private fun jetpackComposeResourceHook() {
-        fun strings(vararg classes: KClass<*>): Map<Int, String> {
-            return classes.fold(mapOf()) { map, clazz ->
-                map + clazz.java.fields.filter {
-                    java.lang.reflect.Modifier.isStatic(it.modifiers) && it.type == Int::class.javaPrimitiveType
-                }.associate { it.getInt(null) to it.name }
+        fun strings(vararg classNames: String): Map<Int, String> {
+            val resultMap = mutableMapOf<Int, String>()
+            classNames.forEach { className ->
+                runCatching {
+                    val clazz = Class.forName(className)
+                    clazz.fields.filter {
+                        java.lang.reflect.Modifier.isStatic(it.modifiers) &&
+                                it.type == Int::class.javaPrimitiveType
+                    }.forEach { field ->
+                        resultMap[field.getInt(null)] = field.name
+                    }
+                }
             }
+            return resultMap
         }
-        val stringResources = strings(androidx.compose.material3.R.string::class, androidx.compose.ui.R.string::class)
-        Resources::class.java.getMethod("getString", Int::class.javaPrimitiveType).hook(HookStage.BEFORE) { param ->
-            val key = param.arg<Int>(0)
-            val name = stringResources[key]?.replaceFirst("m3c_", "") ?: return@hook
-            param.setResult(appContext.translation.getOrNull("material3_strings.${name}") ?: "")
+        val stringResources = strings(
+            "androidx.compose.material3.R\$string",
+            "androidx.compose.ui.R\$string"
+        )
+        val resClass = Resources::class.java
+        val methodsToHook = listOf(
+            resClass.getMethod("getString", Int::class.javaPrimitiveType),
+            resClass.getMethod("getText", Int::class.javaPrimitiveType)
+        )
+
+        methodsToHook.forEach { method ->
+            method.hook(HookStage.BEFORE) { param ->
+                val key = param.arg<Int>(0)
+
+                val resourceName = stringResources[key]
+                if (resourceName != null) {
+                    val cleanName = resourceName.replaceFirst("m3c_", "")
+                    val translated = appContext.translation.getOrNull("material3_strings.$cleanName")
+
+                    if (translated != null) {
+                        param.setResult(translated)
+                    }
+                }
+            }
         }
     }
 }

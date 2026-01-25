@@ -18,9 +18,9 @@ class SnapClassCache (
     val conversation by lazy { findClass("com.snapchat.client.messaging.Conversation") }
     val feedManager by lazy { findClass("com.snapchat.client.messaging.FeedManager\$CppProxy") }
     val nativeBridge by lazy { runCatching { findClass("com.snapchat.client.valdi.NativeBridge") }.getOrNull() ?: findClass("com.snapchat.client.composer.NativeBridge") }
-    val composerView by lazy { findClass("com.snap.composer.views.ComposerView") }
-    val composerAction by lazy { findClass("com.snap.composer.actions.ComposerAction") }
-    val composerFunctionActionAdapter by lazy { findClass("com.snap.composer.callable.ComposerFunctionActionAdapter") }
+    val valdiView by lazy { runCatching { findClass("com.snap.valdi.views.ValdiView") }.getOrNull() ?: findClass("com.snap.composer.views.ComposerView") }
+    val valdiFunction by lazy { runCatching { findClass("com.snap.valdi.callable.ValdiFunction") }.getOrNull() ?: findClass("com.snap.composer.callable.ComposerFunction") }
+    val valdiMarshaller by lazy { runCatching { findClass("com.snap.valdi.utils.ValdiMarshaller") }.getOrNull() ?: findClass("com.snap.composer.utils.ComposerMarshaller") }
 
     private fun findClass(className: String): Class<*> {
         return try {

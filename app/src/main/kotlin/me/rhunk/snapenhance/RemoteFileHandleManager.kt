@@ -109,10 +109,10 @@ class RemoteFileHandleManager(
                     File(userImportFolder, name.substringAfterLast("/"))
                 )
             }
-            FileHandleScope.COMPOSER -> {
+            FileHandleScope.VALDI -> {
                 return AssetFileHandle(
                     context,
-                    "composer/${name.substringAfterLast("/")}"
+                    "valdi/${name.substringAfterLast("/")}"
                 )
             }
             FileHandleScope.THEME -> {

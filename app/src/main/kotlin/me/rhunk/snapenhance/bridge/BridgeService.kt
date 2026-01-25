@@ -7,6 +7,7 @@ import android.os.ParcelFileDescriptor
 import kotlinx.coroutines.runBlocking
 import me.rhunk.snapenhance.RemoteSideContext
 import me.rhunk.snapenhance.SharedContextHolder
+import me.rhunk.snapenhance.bridge.call.CallDownloadSession
 import me.rhunk.snapenhance.bridge.snapclient.MessagingBridge
 import me.rhunk.snapenhance.common.data.MessagingFriendInfo
 import me.rhunk.snapenhance.common.data.MessagingGroupInfo
@@ -16,6 +17,7 @@ import me.rhunk.snapenhance.common.ui.OverlayType
 import me.rhunk.snapenhance.common.util.toParcelable
 import me.rhunk.snapenhance.download.DownloadProcessor
 import me.rhunk.snapenhance.download.FFMpegProcessor
+import me.rhunk.snapenhance.download.call.CallDownloadSessionImpl
 import me.rhunk.snapenhance.storage.*
 import me.rhunk.snapenhance.task.Task
 import me.rhunk.snapenhance.task.TaskType
@@ -244,6 +246,17 @@ class BridgeService : Service() {
 
         override fun getDebugProp(key: String, defaultValue: String?): String? {
             return remoteSideContext.sharedPreferences.all["debug_$key"]?.toString() ?: defaultValue
+        }
+
+        override fun startCallDownload(
+            startTimestamp: Long,
+            author: String
+        ): CallDownloadSession {
+            return CallDownloadSessionImpl(
+                context = remoteSideContext,
+                callStartTimestamp = startTimestamp,
+                author = author
+            )
         }
     }
 }

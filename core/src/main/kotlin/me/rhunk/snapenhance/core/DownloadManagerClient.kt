@@ -75,22 +75,4 @@ class DownloadManagerClient (
             )
         )
     }
-
-    fun downloadStream(
-        streamUrl: String,
-        audioStreamFormat: AudioStreamFormat
-    ) {
-        enqueueDownloadRequest(
-            DownloadRequest(
-                inputMedias = arrayOf(
-                    InputMedia(
-                        content = streamUrl,
-                        type = DownloadMediaType.REMOTE_MEDIA
-                    )
-                ),
-                flags = DownloadRequest.Flags.AUDIO_STREAM,
-                audioStreamFormat = audioStreamFormat
-            )
-        )
-    }
 }

@@ -1,8 +1,11 @@
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 package me.rhunk.snapenhance.ui.manager
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.*
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavBackStackEntry
@@ -11,8 +14,10 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavGraphBuilder
 import me.rhunk.snapenhance.RemoteSideContext
+import me.rhunk.snapenhance.ui.manager.pages.EasterEgg
 import me.rhunk.snapenhance.ui.manager.pages.location.BetterLocationRoot
 import me.rhunk.snapenhance.ui.manager.pages.FileImportsRoot
+import me.rhunk.snapenhance.ui.manager.pages.LiquidGlassSettingsRoot
 import me.rhunk.snapenhance.ui.manager.pages.LoggerHistoryRoot
 import me.rhunk.snapenhance.ui.manager.pages.TasksRootSection
 import me.rhunk.snapenhance.ui.manager.pages.features.FeaturesRootSection
@@ -26,11 +31,17 @@ import me.rhunk.snapenhance.ui.manager.pages.social.MessagingPreview
 import me.rhunk.snapenhance.ui.manager.pages.social.SocialRootSection
 import me.rhunk.snapenhance.ui.manager.pages.theming.EditThemeSection
 import me.rhunk.snapenhance.ui.manager.pages.ManageReposSection
+import me.rhunk.snapenhance.ui.manager.pages.home.HomeAppTheme
+import me.rhunk.snapenhance.ui.manager.pages.home.HomeAppearance
 import me.rhunk.snapenhance.ui.manager.pages.features.ManageRuleFeature
+import me.rhunk.snapenhance.ui.manager.pages.home.HomeAbout
+import me.rhunk.snapenhance.ui.manager.pages.home.HomeAdvancedDebugSettings
+import me.rhunk.snapenhance.ui.manager.pages.home.HomeCredits
+import me.rhunk.snapenhance.ui.manager.pages.home.HomeThirdPartyLibraries
+import me.rhunk.snapenhance.ui.manager.pages.home.HomeUpdating
 import me.rhunk.snapenhance.ui.manager.pages.theming.ThemingRoot
 import me.rhunk.snapenhance.ui.manager.pages.tracker.EditRule
 import me.rhunk.snapenhance.ui.manager.pages.tracker.FriendTrackerManagerRoot
-
 
 data class RouteInfo(
     val id: String,
@@ -56,8 +67,18 @@ class Routes(
     val manageRuleFeature = route(RouteInfo("manage_rule_feature/?rule_type={rule_type}"), ManageRuleFeature()).parent(features)
 
     val home = route(RouteInfo("home", icon = Icons.Rounded.Home, primary = true), HomeRootSection())
-    val settings = route(RouteInfo("home_settings"), HomeSettings()).parent(home)
     val homeLogs = route(RouteInfo("home_logs"), HomeLogs()).parent(home)
+    val homeSettings = route(RouteInfo("home_settings"), HomeSettings()).parent(home)
+    val homeCredits = route(RouteInfo("home_credits"), HomeCredits()).parent(home)
+    val homeThirdPartyLibraries = route(RouteInfo("home_third_party_libraries"), HomeThirdPartyLibraries()).parent(home)
+    val homeAdvancedDebugSettings = route(RouteInfo("home_advanced_debug_settings"), HomeAdvancedDebugSettings())
+    val homeAbout = route(RouteInfo("home_about"), HomeAbout()).parent(home)
+    val homeUpdating = route(RouteInfo("home_updating"), HomeUpdating()).parent(home)
+    val homeAppearance = route(RouteInfo("home_appearance"), HomeAppearance()).parent(home)
+    val homeAppTheme = route(RouteInfo("home_app_theme"), HomeAppTheme())
+
+    val liquidGlassSettingsRoot = route(RouteInfo("liquid_glass_settings"), LiquidGlassSettingsRoot())
+
     val loggerHistory = route(RouteInfo("logger_history"), LoggerHistoryRoot()).parent(home)
     val friendTracker = route(RouteInfo("friend_tracker"), FriendTrackerManagerRoot()).parent(home)
     val editRule = route(RouteInfo("edit_rule/?rule_id={rule_id}"), EditRule())
@@ -76,10 +97,14 @@ class Routes(
 
     val betterLocation = route(RouteInfo("better_location", showInNavBar = false, primary = true), BetterLocationRoot())
 
+    val easterEgg = route(RouteInfo("easter_egg"), EasterEgg())
+
     open class Route {
         open val init: () -> Unit = { }
         open val title: @Composable (() -> Unit)? = null
+        open val isSearchBarVisible: @Composable () -> Boolean = { false }
         open val topBarActions: @Composable RowScope.() -> Unit = {}
+        open val topBarSubActions: @Composable RowScope.() -> Unit = {}
         open val floatingActionButton: @Composable () -> Unit = {}
         open val content: @Composable (NavBackStackEntry) -> Unit = {}
         open val customComposables: NavGraphBuilder.() -> Unit = {}
@@ -110,12 +135,18 @@ class Routes(
         }
 
         fun navigateReset(args: MutableMap<String, String>.() -> Unit = {}) {
-            routes.navController.navigate(replaceArguments(routeInfo.id, HashMap<String, String>().apply { args() })) {
+            val destinationId = replaceArguments(routeInfo.id, HashMap<String, String>().apply { args() })
+            val currentDestId = routes.navController.currentBackStackEntry?.destination?.route
+            if (currentDestId == destinationId || currentDestId == "main_$destinationId") {
+                return
+            }
+            routes.navController.navigate(destinationId) {
                 popUpTo(routes.navController.graph.findStartDestination().id) {
-                    saveState = true
+                    saveState = false
+                    inclusive = false
                 }
                 launchSingleTop = true
-                restoreState = true
+                restoreState = false
             }
         }
 
@@ -124,6 +155,20 @@ class Routes(
             parentRoute = route
             return this
         }
+    }
+
+    fun isRootRoute(route: Route?): Boolean {
+        if (route == null) return false
+        return route.parentRoute == null
+    }
+
+    fun isChildRoute(route: Route?): Boolean {
+        if (route == null) return false
+        return route.parentRoute != null
+    }
+
+    fun isPrimaryRoute(route: Route?): Boolean {
+        return route?.routeInfo?.primary == true
     }
 
     val currentRoute: Route?

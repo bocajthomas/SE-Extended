@@ -1,31 +1,45 @@
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 package me.rhunk.snapenhance.ui.manager.pages.features
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.LocalOverscrollFactory
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.OpenInNew
+import androidx.compose.material.icons.filled.FileDownload
+import androidx.compose.material.icons.filled.FileUpload
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.filled.RestartAlt
 import androidx.compose.material.icons.rounded.*
 import androidx.compose.material3.*
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.util.fastForEachIndexed
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -37,21 +51,22 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import me.rhunk.snapenhance.common.config.*
-import me.rhunk.snapenhance.common.ui.rememberAsyncMutableStateList
-import me.rhunk.snapenhance.common.ui.transparentTextFieldColors
+import me.rhunk.snapenhance.common.ui.*
+import me.rhunk.snapenhance.ui.components.*
 import me.rhunk.snapenhance.ui.manager.MainActivity
 import me.rhunk.snapenhance.ui.manager.Routes
 import me.rhunk.snapenhance.ui.util.*
 
 class FeaturesRootSection : Routes.Route() {
-    private val alertDialogs by lazy { AlertDialogs(context.translation) }
+    private val bottomSheets by lazy { BottomSheets(context.translation) }
 
     companion object {
         const val FEATURE_CONTAINER_ROUTE = "feature_container/{name}"
         const val SEARCH_FEATURE_ROUTE = "search_feature/{keyword}"
     }
-
     private var activityLauncherHelper: ActivityLauncherHelper? = null
+    private var isSearchBarVisibleState = mutableStateOf(false)
+    private val searchFilterState = mutableStateOf("")
 
     private val allContainers by lazy {
         val containers = mutableMapOf<String, PropertyPair<*>>()
@@ -92,12 +107,15 @@ class FeaturesRootSection : Routes.Route() {
 
     private fun activityLauncher(block: ActivityLauncherHelper.() -> Unit) {
         activityLauncherHelper?.let(block) ?: run {
-            //open manager if activity launcher is null
             val intent = Intent(context.androidContext, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             intent.putExtra("route", routeInfo.id)
             context.androidContext.startActivity(intent)
         }
+    }
+
+    override val isSearchBarVisible: @Composable () -> Boolean = {
+        isSearchBarVisibleState.value
     }
 
     override val content: @Composable (NavBackStackEntry) -> Unit = {
@@ -132,26 +150,27 @@ class FeaturesRootSection : Routes.Route() {
         }
     }
 
+
+    @OptIn(ExperimentalFoundationApi::class)
+    @SuppressLint("ConfigurationScreenWidthHeight")
     @Composable
     private fun PropertyAction(property: PropertyPair<*>, registerClickCallback: RegisterClickCallback) {
-        var showDialog by remember { mutableStateOf(false) }
+        var showBottomSheet by remember { mutableStateOf(false) }
         var dialogComposable by remember { mutableStateOf<@Composable () -> Unit>({}) }
+        fun registerDialogOnClickCallback() = registerClickCallback { showBottomSheet = true }
+        val versionCheck = remember { property.key.params.versionCheck }
+        val versionCheckPair = remember(property) { versionCheck?.checkVersion(context.installationSummary.snapchatInfo?.versionCode ?: return@remember null)}
+        val isComponentDisabled = remember { versionCheckPair != null && versionCheck?.isDisabled == true }
 
-        fun registerDialogOnClickCallback() = registerClickCallback { showDialog = true }
-
-        if (showDialog) {
-            Dialog(
-                properties = DialogProperties(
-                    usePlatformDefaultWidth = false
-                ),
-                onDismissRequest = { showDialog = false },
+        if (showBottomSheet) {
+            DefaultBottomSheet(
+                onDismiss = { showBottomSheet = false },
             ) {
                 dialogComposable()
             }
         }
 
         val propertyValue = property.value
-
         if (property.key.params.flags.contains(ConfigFlag.USER_IMPORT)) {
             registerDialogOnClickCallback()
             dialogComposable = {
@@ -166,42 +185,73 @@ class FeaturesRootSection : Routes.Route() {
                         }
                     }
                 }
-                var selectedFile by remember(files.size) { mutableStateOf(files.firstOrNull { it.name == propertyValue.getNullable() }.also {
-                    if (files.isNotEmpty() && it == null) propertyValue.setAny(null)
-                }?.name) }
+                var selectedFile by remember(files.size) {
+                    mutableStateOf(files.firstOrNull { it.name == propertyValue.getNullable() }
+                        .also {
+                            if (files.isNotEmpty() && it == null) propertyValue.setAny(null)
+                        }?.name
+                    )
+                }
+                Text(
+                    text = context.translation["manager.dialogs.file_imports.title"],
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.fillMaxWidth(),
+                    textAlign = TextAlign.Center
+                )
 
-                Card(
-                    shape = MaterialTheme.shapes.large,
-                    modifier = Modifier
-                        .fillMaxWidth(),
+                LazyColumn(
+                    modifier = Modifier.fillMaxWidth().padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(3.dp)
                 ) {
-                    LazyColumn(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(4.dp),
-                    ) {
-                        item {
-                            Column(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(16.dp),
-                                horizontalAlignment = Alignment.CenterHorizontally
+                    item {
+                        if (isEmpty) {
+                            Box(
+                                modifier = Modifier.fillParentMaxSize(),
+                                contentAlignment = Alignment.Center
                             ) {
-                                Text(
-                                    text = context.translation["manager.dialogs.file_imports.settings_select_file_hint"],
-                                    fontSize = 18.sp,
-                                    fontWeight = FontWeight.Bold,
-                                )
-                                if (isEmpty) {
+                                Column(
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    verticalArrangement = Arrangement.Center
+                                ) {
+                                    Card(
+                                        modifier = Modifier
+                                            .padding(16.dp)
+                                            .size(200.dp),
+                                        shape = MaterialShapes.Gem.toShape()
+                                    ) {
+                                        Box(
+                                            modifier = Modifier.fillMaxSize(),
+                                            contentAlignment = Alignment.Center
+                                        ) {
+                                            Icon(
+                                                imageVector = Icons.Rounded.FolderOpen,
+                                                contentDescription = null,
+                                                modifier = Modifier.size(100.dp)
+                                            )
+                                        }
+                                    }
                                     Text(
-                                        text = context.translation["manager.dialogs.file_imports.no_files_settings_hint"],
-                                        fontSize = 16.sp,
-                                        modifier = Modifier.padding(top = 10.dp),
+                                        text = context.translation["manager.dialogs.file_imports.files_empty"],
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        modifier = Modifier.padding(8.dp)
+                                    )
+                                    Text(
+                                        text = context.translation["manager.dialogs.file_imports.files_empty_desc"],
+                                        style = MaterialTheme.typography.bodySmall,
+                                        modifier = Modifier.padding(8.dp)
                                     )
                                 }
                             }
                         }
-                        items(files, key = { it.name }) { file ->
+                    }
+
+                    itemsIndexed(files) { index, file ->
+                        Card(
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = cardShape(files.size, index)
+                        ) {
                             Row(
                                 modifier = Modifier
                                     .clickable {
@@ -212,7 +262,11 @@ class FeaturesRootSection : Routes.Route() {
                                     .padding(5.dp),
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
-                                Icon(Icons.Rounded.AttachFile, contentDescription = null, modifier = Modifier.padding(5.dp))
+                                Icon(
+                                    Icons.Rounded.AttachFile,
+                                    contentDescription = null,
+                                    modifier = Modifier.padding(5.dp)
+                                )
                                 Text(
                                     text = file.name,
                                     modifier = Modifier
@@ -222,26 +276,34 @@ class FeaturesRootSection : Routes.Route() {
                                     lineHeight = 16.sp
                                 )
                                 if (selectedFile == file.name) {
-                                    Icon(Icons.Rounded.Check, contentDescription = null, modifier = Modifier.padding(5.dp))
+                                    Icon(
+                                        Icons.Rounded.Check,
+                                        contentDescription = null,
+                                        modifier = Modifier.padding(5.dp)
+                                    )
                                 }
                             }
                         }
                     }
                 }
             }
-
             Icon(Icons.Rounded.AttachFile, contentDescription = null)
             return
         }
 
         if (property.key.params.flags.contains(ConfigFlag.FOLDER)) {
-            IconButton(onClick = registerClickCallback {
-                activityLauncher {
-                    chooseFolder { uri ->
-                        propertyValue.setAny(uri)
+            IconButton(
+                onClick = registerClickCallback {
+                    activityLauncher {
+                        chooseFolder { uri ->
+                            propertyValue.setAny(uri)
+                        }
                     }
-                }
-            }.let { { it.invoke(true) } }) {
+                }.let {
+                    { it.invoke(true) }
+                },
+                shapes = IconButtonDefaults.shapes()
+            ) {
                 Icon(Icons.Rounded.FolderOpen, contentDescription = null)
             }
             return
@@ -251,6 +313,7 @@ class FeaturesRootSection : Routes.Route() {
             DataProcessors.Type.BOOLEAN -> {
                 var state by remember { mutableStateOf(propertyValue.get() as Boolean) }
                 Switch(
+                    enabled = !isComponentDisabled,
                     checked = state,
                     onCheckedChange = registerClickCallback {
                         state = state.not()
@@ -262,8 +325,8 @@ class FeaturesRootSection : Routes.Route() {
             DataProcessors.Type.MAP_COORDINATES -> {
                 registerDialogOnClickCallback()
                 dialogComposable = {
-                    alertDialogs.ChooseLocationDialog(property) {
-                        showDialog = false
+                    bottomSheets.ChooseLocationBottomSheet(property) {
+                        showBottomSheet = false
                     }
                 }
 
@@ -281,7 +344,9 @@ class FeaturesRootSection : Routes.Route() {
                 registerDialogOnClickCallback()
 
                 dialogComposable = {
-                    alertDialogs.UniqueSelectionDialog(property)
+                    if (!isComponentDisabled) {
+                        bottomSheets.UniqueSelectionBottomSheet(property)
+                    }
                 }
 
                 Text(
@@ -298,10 +363,14 @@ class FeaturesRootSection : Routes.Route() {
                 dialogComposable = {
                     when (dataType) {
                         DataProcessors.Type.STRING_MULTIPLE_SELECTION -> {
-                            alertDialogs.MultipleSelectionDialog(property)
+                            if (!isComponentDisabled) {
+                                bottomSheets.MultipleSelectionBottomSheet(property)
+                            }
                         }
                         DataProcessors.Type.STRING, DataProcessors.Type.INTEGER, DataProcessors.Type.FLOAT -> {
-                            alertDialogs.KeyboardInputDialog(property) { showDialog = false }
+                            if (!isComponentDisabled) {
+                                bottomSheets.KeyboardInputBottomSheet(property) { showBottomSheet = false }
+                            }
                         }
                         else -> {}
                     }
@@ -310,7 +379,10 @@ class FeaturesRootSection : Routes.Route() {
                 registerDialogOnClickCallback().let { { it.invoke(true) } }.also {
                     if (dataType == DataProcessors.Type.INTEGER ||
                         dataType == DataProcessors.Type.FLOAT) {
-                        FilledIconButton(onClick = it) {
+                        FilledIconButton(
+                            onClick = it,
+                            shapes = IconButtonDefaults.shapes()
+                        ) {
                             Text(
                                 text = propertyValue.get().toString(),
                                 modifier = Modifier.wrapContentWidth(),
@@ -318,7 +390,10 @@ class FeaturesRootSection : Routes.Route() {
                             )
                         }
                     } else {
-                        IconButton(onClick = it) {
+                        IconButton(
+                            onClick = it,
+                            shapes = IconButtonDefaults.shapes()
+                        ) {
                             Icon(Icons.AutoMirrored.Rounded.OpenInNew, contentDescription = null)
                         }
                     }
@@ -327,8 +402,8 @@ class FeaturesRootSection : Routes.Route() {
 
             DataProcessors.Type.INT_COLOR -> {
                 dialogComposable = {
-                    alertDialogs.ColorPickerPropertyDialog(property) {
-                        showDialog = false
+                    bottomSheets.ColorPickerPropertyBottomSheet(property) {
+                        showBottomSheet = false
                     }
                 }
 
@@ -341,28 +416,31 @@ class FeaturesRootSection : Routes.Route() {
                 val container = propertyValue.get() as ConfigContainer
 
                 registerClickCallback {
-                    routes.navController.navigate(FEATURE_CONTAINER_ROUTE.replace("{name}", property.name))
+                    routes.navController.navigate(
+                        FEATURE_CONTAINER_ROUTE.replace(
+                            "{name}",
+                            property.name
+                        )
+                    )
                 }
-
                 if (!container.hasGlobalState) return
-
                 var state by remember { mutableStateOf(container.globalState ?: false) }
-
                 Box(
-                    modifier = Modifier
-                        .padding(end = 15.dp),
+                    modifier = Modifier.padding(end = 15.dp)
                 ) {
-
-                    Box(modifier = Modifier
-                        .height(50.dp)
-                        .width(1.dp)
-                        .background(
-                            color = MaterialTheme.colorScheme.primary.copy(alpha = 0.12f),
-                            shape = RoundedCornerShape(5.dp)
-                        ))
+                    Box(
+                        modifier = Modifier
+                            .height(50.dp)
+                            .width(1.dp)
+                            .background(
+                                color = MaterialTheme.colorScheme.primary.copy(alpha = 0.12f),
+                                shape = RoundedCornerShape(5.dp)
+                            )
+                    )
                 }
 
                 Switch(
+                    enabled = !isComponentDisabled,
                     checked = state,
                     onCheckedChange = {
                         state = state.not()
@@ -371,11 +449,10 @@ class FeaturesRootSection : Routes.Route() {
                 )
             }
         }
-
     }
 
     @Composable
-    private fun PropertyCard(property: PropertyPair<*>) {
+    private fun PropertyCard(property: PropertyPair<*>, shape: RoundedCornerShape) {
         var clickCallback by remember { mutableStateOf<ClickCallback?>(null) }
         val noticeColorMap = mapOf(
             FeatureNotice.UNSTABLE.key to Color(0xFFFFFB87),
@@ -393,16 +470,18 @@ class FeaturesRootSection : Routes.Route() {
                 .then(
                     if (isComponentDisabled) Modifier.graphicsLayer(alpha = 0.5f)
                     else Modifier
-                )
-                .padding(start = 10.dp, end = 10.dp, top = 5.dp, bottom = 5.dp)
+                ),
+            shape = shape
         ) {
             Row(
                 modifier = Modifier
                     .fillMaxSize()
                     .clickable {
-                        clickCallback?.invoke(true)
+                        if (!isComponentDisabled) {
+                            clickCallback?.invoke(true)
+                        }
                     }
-                    .padding(all = 4.dp),
+                    .padding(all = 9.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 property.key.params.icon?.let { icon ->
@@ -479,9 +558,14 @@ class FeaturesRootSection : Routes.Route() {
         }
     }
 
+    // TODO: Redesign
     @Composable
-    private fun FeatureSearchBar(rowScope: RowScope, focusRequester: FocusRequester) {
-        var searchValue by remember { mutableStateOf("") }
+    private fun FeatureSearchBar(
+        rowScope: RowScope,
+        focusRequester: FocusRequester,
+        searchValueState: MutableState<String>
+    ) {
+        var searchValue by searchValueState
         val scope = rememberCoroutineScope()
         var currentSearchJob by remember { mutableStateOf<Job?>(null) }
 
@@ -504,84 +588,89 @@ class FeaturesRootSection : Routes.Route() {
                         )
                     }.also { currentSearchJob = it }
                 },
-
+                placeholder = { Text(text = translation["search_feature_placeholder"]) },
                 keyboardActions = KeyboardActions(onDone = {
                     focusRequester.freeFocus()
                 }),
                 modifier = Modifier
                     .focusRequester(focusRequester)
                     .weight(1f, fill = true)
-                    .padding(end = 10.dp)
-                    .height(70.dp),
+                    .padding(end = 10.dp),
                 singleLine = true,
                 colors = transparentTextFieldColors()
             )
         }
+
+        DisposableEffect(key1 = Unit) {
+            onDispose {
+                isSearchBarVisibleState.value = false
+                searchValueState.value = ""
+            }
+        }
     }
 
     override val topBarActions: @Composable (RowScope.() -> Unit) = topBarActions@{
-        var showSearchBar by remember { mutableStateOf(false) }
+        var showSearchBar by isSearchBarVisibleState
         val focusRequester = remember { FocusRequester() }
 
         if (showSearchBar) {
-            FeatureSearchBar(this, focusRequester)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                FeatureSearchBar(this, focusRequester, searchFilterState)
+                IconButton(
+                    onClick = {
+                        showSearchBar = false
+                        navigateToMainRoot()
+                    },
+                    shapes = IconButtonDefaults.shapes()
+                ) {
+                    Icon(Icons.Rounded.Close, contentDescription = null)
+                }
+            }
             LaunchedEffect(true) {
                 focusRequester.requestFocus()
             }
-        }
-
-        IconButton(onClick = {
-            showSearchBar = showSearchBar.not()
-            if (!showSearchBar && routes.currentDestination == SEARCH_FEATURE_ROUTE) {
-                navigateToMainRoot()
+        } else {
+            IconButton(
+                onClick = { showSearchBar = true },
+                shapes = IconButtonDefaults.shapes()
+            ) {
+                Icon(Icons.Rounded.Search, contentDescription = null)
             }
-        }) {
-            Icon(
-                imageVector = if (showSearchBar) Icons.Rounded.Close
-                else Icons.Rounded.Search,
-                contentDescription = null
-            )
         }
 
         if (showSearchBar) return@topBarActions
 
         var showExportDropdownMenu by remember { mutableStateOf(false) }
-        var showResetConfirmationDialog by remember { mutableStateOf(false) }
-        var showExportDialog by remember { mutableStateOf(false) }
+        var showResetConfirmationBottomSheet by remember { mutableStateOf(false) }
+        var showExportBottomSheet by remember { mutableStateOf(false) }
 
-        if (showResetConfirmationDialog) {
-            AlertDialog(
-                title = { Text(text = context.translation["manager.dialogs.reset_config.title"]) },
-                text = { Text(text = context.translation["manager.dialogs.reset_config.content"]) },
-                onDismissRequest = { showResetConfirmationDialog = false },
-                confirmButton = {
-                    Button(
-                        onClick = {
-                            context.config.reset()
-                            context.shortToast(context.translation["manager.dialogs.reset_config.success_toast"])
-                            showResetConfirmationDialog = false
-                        }
-                    ) {
-                        Text(text = context.translation["button.positive"])
-                    }
-                },
-                dismissButton = {
-                    Button(
-                        onClick = {
-                            showResetConfirmationDialog = false
-                        }
-                    ) {
-                        Text(text = context.translation["button.negative"])
-                    }
-                }
-            )
+        if (showResetConfirmationBottomSheet) {
+            LazyColumnBottomSheet(
+                onDismiss = { showResetConfirmationBottomSheet = false }
+            ) {
+                bottomSheets.ConfirmBottomSheet(
+                    type = ConfirmBottomSheetType.CHOICE,
+                    title = context.translation["manager.dialogs.reset_config.title"],
+                    message = context.translation["manager.dialogs.reset_config.content"],
+                    onConfirm = {
+                        context.config.reset()
+                        context.shortToast(context.translation["manager.dialogs.reset_config.success_toast"])
+                        navigateToMainRoot()
+                        showResetConfirmationBottomSheet = false
+                    },
+                    onDismiss = { showResetConfirmationBottomSheet = false }
+                )
+            }
         }
 
-        if (showExportDialog) {
+        if (showExportBottomSheet) {
             fun exportConfig(
                 exportSensitiveData: Boolean
             ) {
-                showExportDialog = false
+                showExportBottomSheet = false
                 activityLauncher {
                     saveFile("config.json", "application/json") { uri ->
                         runCatching {
@@ -597,30 +686,21 @@ class FeaturesRootSection : Routes.Route() {
                 }
             }
 
-            AlertDialog(
-                title = { Text(text = context.translation["manager.dialogs.export_config.title"]) },
-                text = { Text(text = context.translation["manager.dialogs.export_config.content"]) },
-                onDismissRequest = { showExportDialog = false },
-                confirmButton = {
-                    Button(
-                        onClick = { exportConfig(true) }
-                    ) {
-                        Text(text = context.translation["button.positive"])
-                    }
-                },
-                dismissButton = {
-                    Button(
-                        onClick = { exportConfig(false) }
-                    ) {
-                        Text(text = context.translation["button.negative"])
-                    }
-                }
-            )
+            DefaultBottomSheet(
+                onDismiss = { showExportBottomSheet = false }
+            ) {
+                bottomSheets.ConfirmBottomSheet(
+                    type = ConfirmBottomSheetType.CHOICE,
+                    title = context.translation["manager.dialogs.export_config.title"],
+                    message = context.translation["manager.dialogs.export_config.content"],
+                    onConfirm = { exportConfig(true) },
+                    onDismiss = { showExportBottomSheet = false }
+                )
+            }
         }
 
         val actions = remember {
             mapOf(
-                translation["export_option"] to { showExportDialog = true },
                 translation["import_option"] to {
                     activityLauncher {
                         openFile("application/json") { uri ->
@@ -639,12 +719,16 @@ class FeaturesRootSection : Routes.Route() {
                         }
                     }
                 },
-                translation["reset_option"] to { showResetConfirmationDialog = true }
+                translation["export_option"] to { showExportBottomSheet = true },
+                translation["reset_option"] to { showResetConfirmationBottomSheet = true }
             )
         }
 
         if (context.activity != null) {
-            IconButton(onClick = { showExportDropdownMenu = !showExportDropdownMenu}) {
+            IconButton(
+                onClick = { showExportDropdownMenu = !showExportDropdownMenu},
+                shapes = IconButtonDefaults.shapes()
+            ) {
                 Icon(
                     imageVector = Icons.Rounded.MoreVert,
                     contentDescription = null
@@ -653,17 +737,34 @@ class FeaturesRootSection : Routes.Route() {
         }
 
         if (showExportDropdownMenu) {
-            DropdownMenu(expanded = true, onDismissRequest = { showExportDropdownMenu = false }) {
-                actions.forEach { (name, action) ->
-                    DropdownMenuItem(
-                        text = {
-                            Text(text = name)
-                        },
-                        onClick = {
-                            action()
-                            showExportDropdownMenu = false
-                        }
-                    )
+            DropdownMenuPopup(
+                expanded = true,
+                onDismissRequest = { showExportDropdownMenu = false }
+            ) {
+                val actionEntries = actions.toList()
+
+                DropdownMenuGroup(
+                    shapes = MenuDefaults.groupShape(0, 1)
+                ) {
+                    actionEntries.fastForEachIndexed { index, (name, action) ->
+                        DropdownMenuItem(
+                            selected = false,
+                            onClick = {
+                                action()
+                                showExportDropdownMenu = false
+                            },
+                            text = { Text(text = name) },
+                            shapes = MenuDefaults.itemShape(index, actionEntries.size),
+                            leadingIcon = {
+                                val icon = when {
+                                    name.contains("export", true) -> Icons.Rounded.FileUpload
+                                    name.contains("import", true) -> Icons.Rounded.FileDownload
+                                    else -> Icons.Default.RestartAlt
+                                }
+                                Icon(icon, contentDescription = null)
+                            }
+                        )
+                    }
                 }
             }
         }
@@ -671,25 +772,18 @@ class FeaturesRootSection : Routes.Route() {
 
     @Composable
     private fun PropertiesView(
-        properties: List<PropertyPair<*>>
+        properties: List<PropertyPair<*>>,
     ) {
-        Scaffold(
+        LazyColumn(
             modifier = Modifier.fillMaxSize(),
-            content = { innerPadding ->
-                LazyColumn(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .padding(innerPadding),
-                    //save button space
-                    contentPadding = PaddingValues(top = 10.dp, bottom = 110.dp),
-                    verticalArrangement = Arrangement.Top
-                ) {
-                    items(properties, key = { it.key.propertyName() }) {
-                        PropertyCard(it)
-                    }
-                }
+            verticalArrangement = Arrangement.spacedBy(3.dp),
+            contentPadding = lazyColumnContentPadding(staticVertical = 10.dp)
+        ) {
+            itemsIndexed(properties, key = { _, item -> item.key.propertyName() }) { index, property ->
+                val cardShape = cardShape(properties.size, index) as RoundedCornerShape
+                PropertyCard(property, cardShape)
             }
-        )
+        }
     }
 
     override val floatingActionButton: @Composable () -> Unit = {

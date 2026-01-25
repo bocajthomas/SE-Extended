@@ -1,7 +1,11 @@
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 package me.rhunk.snapenhance.ui.manager.pages.location
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -16,12 +20,11 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 import me.rhunk.snapenhance.bridge.location.LocationCoordinates
 import me.rhunk.snapenhance.common.bridge.wrapper.LocaleWrapper
-import me.rhunk.snapenhance.ui.util.AlertDialogs
-
+import me.rhunk.snapenhance.ui.util.BottomSheets
 
 @Composable
 fun AddCoordinatesDialog(
-    alertDialogs: AlertDialogs,
+    bottomSheets: BottomSheets,
     translation: LocaleWrapper,
     locationCoordinates: LocationCoordinates,
     confirm: (locationCoordinates: LocationCoordinates) -> Unit
@@ -36,7 +39,7 @@ fun AddCoordinatesDialog(
     var savedLatitude by remember { mutableStateOf(locationCoordinates.latitude.toFloat().toString()) }
     var savedLongitude by remember { mutableStateOf(locationCoordinates.longitude.toFloat().toString()) }
 
-    alertDialogs.DefaultDialogCard {
+    bottomSheets.DefaultCard {
         val focusRequester = remember { FocusRequester() }
         Column(
             modifier = Modifier.padding(16.dp),
@@ -81,6 +84,7 @@ fun AddCoordinatesDialog(
                             this.longitude = savedLongitude.toDoubleOrNull() ?: 0.0
                         })
                     },
+                    shapes = ButtonDefaults.shapes(),
                     enabled = savedName.text.isNotBlank() && savedLatitude.isNotBlank() && savedLongitude.isNotBlank()
                 ) {
                     Text(translation["save_dialog_button"])

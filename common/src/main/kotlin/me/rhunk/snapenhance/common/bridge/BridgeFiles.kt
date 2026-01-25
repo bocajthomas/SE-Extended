@@ -5,8 +5,6 @@ import android.os.ParcelFileDescriptor
 import android.os.ParcelFileDescriptor.AutoCloseInputStream
 import android.os.ParcelFileDescriptor.AutoCloseOutputStream
 import me.rhunk.snapenhance.bridge.storage.FileHandle
-import me.rhunk.snapenhance.common.bridge.FileHandleScope.entries
-import me.rhunk.snapenhance.common.bridge.InternalFileHandleType.entries
 import me.rhunk.snapenhance.common.util.LazyBridgeValue
 import me.rhunk.snapenhance.common.util.lazyBridge
 import java.io.File
@@ -18,8 +16,8 @@ enum class FileHandleScope(
     INTERNAL("internal"),
     LOCALE("locale"),
     USER_IMPORT("user_import"),
-    COMPOSER("composer"),
-    THEME("theme");
+    THEME("theme"),
+    VALDI("valdi");
 
     companion object {
         fun fromValue(name: String): FileHandleScope? = entries.find { it.key == name }
@@ -34,6 +32,7 @@ enum class InternalFileHandleType(
     CONFIG("config", "config.json"),
     MAPPINGS("mappings", "mappings.json"),
     MESSAGE_LOGGER("message_logger", "message_logger.db", isDatabase = true),
+    MAINDATABASE("main", "main.db", isDatabase = true),
     PINNED_BEST_FRIEND("pinned_best_friend", "pinned_best_friend.txt"),
     NATIVE_SIG_CACHE("native_sig_cache", "native_sig_cache.txt");
 

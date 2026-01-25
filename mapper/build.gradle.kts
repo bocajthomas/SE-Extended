@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
@@ -5,15 +7,21 @@ plugins {
 
 android {
     namespace = rootProject.ext["applicationId"].toString() + ".mapper"
-    compileSdk = 34
+    compileSdk = 36
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
 
-    kotlinOptions {
-        jvmTarget = "21"
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_21)
+            freeCompilerArgs.addAll(
+                "-XXLanguage:+PropertyParamAnnotationDefaultTargetMode",
+                "-Xjvm-default=all"
+            )
+        }
     }
 
     defaultConfig {

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 package me.rhunk.snapenhance.ui.util.pullrefresh
 
 import androidx.compose.animation.Crossfade
@@ -26,6 +26,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
+import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.contentColorFor
@@ -99,13 +102,9 @@ fun PullRefreshIndicator(
                 val spinnerSize = (ArcRadius + StrokeWidth).times(2)
 
                 if (refreshing) {
-                    CircularProgressIndicator(
-                        color = contentColor,
-                        strokeWidth = StrokeWidth,
-                        modifier = Modifier.size(spinnerSize),
-                    )
+                    LoadingIndicator()
                 } else {
-                    CircularArrowIndicator(state, contentColor, Modifier.size(spinnerSize))
+                    LoadingIndicator()
                 }
             }
         }

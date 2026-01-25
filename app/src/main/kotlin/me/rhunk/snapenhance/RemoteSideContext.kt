@@ -49,7 +49,6 @@ import java.lang.ref.WeakReference
 import java.security.cert.CertificateFactory
 import java.security.cert.X509Certificate
 
-
 class RemoteSideContext(
     val androidContext: Context
 ) {
@@ -79,7 +78,7 @@ class RemoteSideContext(
     val accountStorage = RemoteAccountStorage(this)
     val locationManager = RemoteLocationManager(this)
 
-    //used to load bitmoji selfies and download previews
+    // used to load bitmoji selfies and download previews
     val imageLoader by lazy {
         ImageLoader.Builder(androidContext)
             .dispatcher(Dispatchers.IO)
@@ -149,7 +148,7 @@ class RemoteSideContext(
                     packageName = it.packageName,
                     version = it.versionName,
                     versionCode = it.longVersionCode,
-                    isLSPatched = it.applicationInfo.appComponentFactory != CoreComponentFactory::class.java.name,
+                    isLSPatched = it.applicationInfo?.appComponentFactory != CoreComponentFactory::class.java.name,
                     isSplitApk = it.splitNames?.isNotEmpty() ?: false
                 )
             },
@@ -172,7 +171,7 @@ class RemoteSideContext(
             platformInfo = PlatformInfo(
                 device = Build.DEVICE,
                 androidVersion = Build.VERSION.RELEASE,
-                systemAbi = Build.SUPPORTED_ABIS.firstOrNull() ?: "unknown"
+                systemAbi = Build.SUPPORTED_ABIS.firstOrNull() ?: "unknown",
             )
         )
     }

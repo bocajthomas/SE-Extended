@@ -20,7 +20,7 @@ dependencyResolutionManagement {
 rootProject.name = "SnapEnhance"
 include(":common")
 include(":core")
-include(":composer")
+include(":valdi")
 include(":app")
 include(":mapper")
 include(":native")

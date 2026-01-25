@@ -1,6 +1,10 @@
 -dontwarn de.robv.android.xposed.**
 -dontwarn org.mozilla.javascript.**
 
+-dontwarn androidx.window.extensions.**
+-dontwarn androidx.window.sidecar.**
+-dontwarn androidx.window.reflection.**
+
 -keep enum * { *; }
 
 -keep class com.android.tools.smali.dexlib2.** { *; }

@@ -22,13 +22,17 @@ pub static CLIENT_MODULE: Lazy<MappedLib> = Lazy::new(|| {
     client_module
 });
 
-
 pub fn set_native_lib_instance(instance: GlobalRef) {
-    NATIVE_LIB_INSTANCE.set(instance).expect("NativeLib instance already set");
+    NATIVE_LIB_INSTANCE
+        .set(instance)
+        .expect("NativeLib instance already set");
 }
 
 pub fn native_lib_instance() -> GlobalRef {
-    NATIVE_LIB_INSTANCE.get().expect("NativeLib instance not set").clone()
+    NATIVE_LIB_INSTANCE
+        .get()
+        .expect("NativeLib instance not set")
+        .clone()
 }
 
 pub fn set_java_vm(vm: *mut jni::sys::JavaVM) {
@@ -37,13 +41,16 @@ pub fn set_java_vm(vm: *mut jni::sys::JavaVM) {
 
 pub fn java_vm() -> JavaVM {
     unsafe {
-        JavaVM::from_raw(*JAVA_VM.get().expect("JavaVM not set") as *mut jni::sys::JavaVM).expect("Failed to get JavaVM")
+        JavaVM::from_raw(*JAVA_VM.get().expect("JavaVM not set") as *mut jni::sys::JavaVM)
+            .expect("Failed to get JavaVM")
     }
 }
 
 pub fn attach_jni_env(block: impl FnOnce(&mut jni::JNIEnv)) {
     let jvm = java_vm();
-    let mut env: jni::AttachGuard = jvm.attach_current_thread().expect("Failed to attach to current thread");
+    let mut env: jni::AttachGuard = jvm
+        .attach_current_thread()
+        .expect("Failed to attach to current thread");
 
     block(&mut env);
 }

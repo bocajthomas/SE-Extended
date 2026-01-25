@@ -59,6 +59,12 @@ class FFMpegProcessor(
                 pendingTask.updateProgress("Processing (frames=${it.videoFrameNumber}, fps=${it.videoFps}, time=${it.time}, bitrate=${it.bitrate}, speed=${it.speed})")
             }
         )
+
+        fun newFFMpegProcessor(context: RemoteSideContext, onStatistics: (Statistics) -> Unit = {}) = FFMpegProcessor(
+            logManager = context.log,
+            ffmpegOptions = context.config.root.downloader.ffmpegOptions,
+            onStatistics = onStatistics
+        )
     }
     enum class Action {
         DOWNLOAD_DASH,
@@ -66,6 +72,7 @@ class FFMpegProcessor(
         CONVERSION,
         MERGE_MEDIA,
         DOWNLOAD_AUDIO_STREAM,
+        MERGE_AUDIO_STREAMS,
     }
 
     data class Request(
@@ -76,6 +83,7 @@ class FFMpegProcessor(
         val startTime: Long? = null, //only for DOWNLOAD_DASH
         val duration: Long? = null, //only for DOWNLOAD_DASH
         val audioStreamFormat: AudioStreamFormat? = null, //only for DOWNLOAD_AUDIO_STREAM
+        val inputDelayOffsets: Map<String, Long>? = null, // only for MERGE_AUDIO_STREAMS
 
         var videoCodec: String? = null,
         var audioCodec: String? = null,
@@ -219,6 +227,26 @@ class FFMpegProcessor(
                 }
                 globalArguments += "-ar" to args.audioStreamFormat.sampleRate.toString()
                 globalArguments += "-ac" to args.audioStreamFormat.channels.toString()
+            }
+            Action.MERGE_AUDIO_STREAMS -> {
+                inputArguments.clear()
+                outputArguments.clear()
+                val filterParts = StringBuilder()
+                args.inputs.forEachIndexed { index, input ->
+                    inputArguments += "-i" to input
+                    val offset = args.inputDelayOffsets?.get(input) ?: 0L
+                    if (offset > 0) {
+                        filterParts.append("[$index:a]adelay=$offset|$offset[a$index];")
+                    } else {
+                        filterParts.append("[$index:a]acopy[a$index];")
+                    }
+                }
+                args.inputs.indices.forEach { index ->
+                    filterParts.append("[a$index]")
+                }
+                filterParts.append("amix=inputs=${args.inputs.size}:duration=longest:normalize=0[aout]")
+                outputArguments += "-filter_complex" to "\"$filterParts\""
+                outputArguments += "-map" to "\"[aout]\""
             }
         }
         outputArguments += args.output.absolutePath

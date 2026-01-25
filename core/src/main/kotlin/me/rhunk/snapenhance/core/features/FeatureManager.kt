@@ -6,6 +6,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import me.rhunk.snapenhance.core.ModContext
 import me.rhunk.snapenhance.core.features.impl.*
+import me.rhunk.snapenhance.core.features.impl.downloader.CallRecorder
+import me.rhunk.snapenhance.core.features.impl.downloader.ChatWallpaperDownloader
 import me.rhunk.snapenhance.core.features.impl.downloader.MediaDownloader
 import me.rhunk.snapenhance.core.features.impl.downloader.ProfilePictureDownloader
 import me.rhunk.snapenhance.core.features.impl.experiments.*
@@ -133,7 +135,7 @@ class FeatureManager(
             HideActiveMusic(),
             AutoOpenSnaps(),
             CustomStreaksExpirationFormat(),
-            ComposerHooks(),
+            ValdiHooks(),
             DisableCustomTabs(),
             BestFriendPinning(),
             ContextMenuFix(),
@@ -145,6 +147,7 @@ class FeatureManager(
             SnapScoreChanges(),
             DisableSnapModeRestrictions(),
             PreventForcedKeyboard(),
+            ChatWallpaperDownloader(),
         )
 
         features.values.toList().forEach { feature ->

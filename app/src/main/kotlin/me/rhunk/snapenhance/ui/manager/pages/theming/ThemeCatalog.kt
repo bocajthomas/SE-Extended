@@ -1,9 +1,10 @@
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 package me.rhunk.snapenhance.ui.manager.pages.theming
 
 import android.net.Uri
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Palette
 import androidx.compose.material3.*
@@ -11,7 +12,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -19,9 +19,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import kotlinx.coroutines.*
 import me.rhunk.snapenhance.common.data.RepositoryIndex
-import me.rhunk.snapenhance.common.ui.AsyncUpdateDispatcher
-import me.rhunk.snapenhance.common.ui.rememberAsyncMutableState
-import me.rhunk.snapenhance.common.ui.rememberAsyncMutableStateList
+import me.rhunk.snapenhance.common.ui.*
 import me.rhunk.snapenhance.storage.getThemeList
 import me.rhunk.snapenhance.storage.getRepositories
 import me.rhunk.snapenhance.storage.getThemeIdByUpdateUrl
@@ -29,7 +27,6 @@ import me.rhunk.snapenhance.ui.util.pullrefresh.PullRefreshIndicator
 import me.rhunk.snapenhance.ui.util.pullrefresh.pullRefresh
 import me.rhunk.snapenhance.ui.util.pullrefresh.rememberPullRefreshState
 import okhttp3.Request
-
 
 private val cachedRepoIndexes = mutableStateMapOf<String, RepositoryIndex>()
 private val cacheReloadDispatcher = AsyncUpdateDispatcher()
@@ -67,7 +64,6 @@ fun ThemeCatalog(root: ThemingRoot) {
                 context.shortToast("Failed to fetch index of $indexUri")
             }
         }
-
         return indexes
     }
 
@@ -147,23 +143,51 @@ fun ThemeCatalog(root: ThemingRoot) {
             modifier = Modifier
                 .fillMaxSize()
                 .pullRefresh(pullRefreshState),
-            contentPadding = PaddingValues(8.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            contentPadding = lazyColumnContentPadding(staticVertical = 10.dp, hasSubAction = true, hasFAB = true),
+            verticalArrangement = Arrangement.spacedBy(3.dp),
         ) {
             item {
                 if (remoteThemes.isEmpty()) {
-                    Text(
-                        text = "No themes available",
-                        modifier = Modifier
-                            .padding(16.dp)
-                            .fillMaxWidth(),
-                        textAlign = TextAlign.Center,
-                        fontSize = 15.sp,
-                        fontWeight = FontWeight.Light
-                    )
+                    Box(
+                        modifier = Modifier.fillParentMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center
+                        ) {
+                            ElevatedCard(
+                                modifier = Modifier
+                                    .padding(16.dp)
+                                    .size(200.dp),
+                                shape = MaterialShapes.Cookie4Sided.toShape()
+                            ) {
+                                Box(
+                                    modifier = Modifier.fillMaxSize(),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Rounded.Palette,
+                                        contentDescription = null,
+                                        modifier = Modifier.size(100.dp)
+                                    )
+                                }
+                            }
+                            Text(
+                                text = context.translation["manager.sections.theming.themes_catalog_empty"],
+                                style = MaterialTheme.typography.bodyMedium,
+                                modifier = Modifier.padding(8.dp)
+                            )
+                            Text(
+                                text = context.translation["manager.sections.theming.themes_catalog_empty_desc"],
+                                style = MaterialTheme.typography.bodySmall,
+                                modifier = Modifier.padding(8.dp)
+                            )
+                        }
+                    }
                 }
             }
-            items(remoteThemes, key = { it.first + it.second.hashCode() }) { (_, themeManifest) ->
+            itemsIndexed(remoteThemes, key = { _, item -> item.first + item.second.hashCode() }) { index, (_, themeManifest) ->
                 val themeUri = remember {
                     cachedRepoIndexes.entries.find { it.value.themes.contains(themeManifest) }?.key?.toUri()?.buildUpon()?.appendPath(themeManifest.filepath)?.build()
                 }
@@ -182,9 +206,10 @@ fun ThemeCatalog(root: ThemingRoot) {
                     context.database.getThemeIdByUpdateUrl(themeUri.toString()) != null
                 }
 
-                ElevatedCard(onClick = {
-                    //TODO: Show theme details
-                }) {
+                ElevatedCard(
+                    onClick = { /*TODO: Show theme details*/ },
+                    shape = cardShape(remoteThemes.size, index)
+                ) {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -234,7 +259,9 @@ fun ThemeCatalog(root: ThemingRoot) {
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             if (isInstalling) {
-                                CircularProgressIndicator(modifier = Modifier.size(24.dp), strokeWidth = 2.dp)
+                                CircularWavyProgressIndicator(
+                                    modifier = Modifier.size(24.dp)
+                                )
                             } else {
                                 Button(
                                     enabled = !isInstalled || hasUpdate,
@@ -250,12 +277,13 @@ fun ThemeCatalog(root: ThemingRoot) {
                                             }
                                             isInstalling = false
                                         }
-                                    }
+                                    },
+                                    shapes = ButtonDefaults.shapes()
                                 ) {
                                     if (hasUpdate) {
-                                        Text("Update")
+                                        Text(context.translation["manager.sections.theming.update_theme_button"])
                                     } else {
-                                        Text(if (isInstalled) "Installed" else "Install")
+                                        Text(if (isInstalled) context.translation["manager.sections.theming.installed_theme_button"] else context.translation["manager.sections.theming.install_theme_button"])
                                     }
                                 }
                             }
@@ -263,15 +291,12 @@ fun ThemeCatalog(root: ThemingRoot) {
                     }
                 }
             }
-            item {
-                Spacer(modifier = Modifier.height(80.dp))
-            }
         }
 
         PullRefreshIndicator(
             refreshing = isRefreshing,
             state = pullRefreshState,
-            modifier = Modifier.align(Alignment.TopCenter)
+            modifier = Modifier.align(Alignment.TopCenter).componentPadding(staticVertical = 0.dp, staticHorizontal = 0.dp, hasSubAction = true)
         )
     }
 }

@@ -15,8 +15,6 @@ abstract class AbstractClassMapper(
 
     private fun findClassSafe(className: String?) = runCatching {
         classLoader.loadClass(className)
-    }.onFailure {
-        Log.e("Mapper", it.stackTraceToString())
     }.getOrNull()
 
     @Suppress("UNCHECKED_CAST")
@@ -52,6 +50,10 @@ abstract class AbstractClassMapper(
 
         fun getAsString(): String? {
             return getter(values[key])?.toString()
+        }
+
+        fun getAsMap(): Map<String, String?>? {
+            return getter(values[key]) as? Map<String, String?>
         }
 
         fun getClass(key: String): Class<*>? {
