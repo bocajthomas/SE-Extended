@@ -33,7 +33,7 @@
 ## Introduction
 SE Extended is a fork of the original [SnapEnhance](https://github.com/rhunk/SnapEnhance) project that aims to provide extended features that power users want the most. <br/>
 While other forks today are shipping lazy AI-generated code, over cluttered UI, lying about their 'bypasses' to get user attention and locking builds behind paywalls, SE Extended does it differently, we actually respect the license, write our code by hand, keep everything 100% free, and offer a clean and modern UI thanks to Material 3 Expressive.
-SE Extended does what's others can't, by building a powerful Xposed module driven by user needs, not by profit or 'hype'.
+SE Extended does what others can't, by building a powerful Xposed module driven by user needs, not by profit or 'hype'.
 
 ## Screenshots
 <div align="center">
