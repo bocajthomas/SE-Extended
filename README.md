@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/bocajthomas/SE-Extended/dev/images/logo/SE%20Extended%20Logo.png" height="240" />
 
 # SE Extended
-**An Xposed module designed to extend snapchat with power user features.**
+**An Xposed module designed to extend Snapchat with power user features.**
 <br/>
 **Supporting both `rooted` and `unrooted` devices**
 <!-- Uncomment when v1.0.0 is released
@@ -33,7 +33,7 @@
 ## Introduction
 SE Extended is a fork of the original [SnapEnhance](https://github.com/rhunk/SnapEnhance) project that aims to provide extended features that power users want the most. <br/>
 While other forks today are shipping lazy AI-generated code, over cluttered UI, lying about their 'bypasses' to get user attention and locking builds behind paywalls, SE Extended does it differently, we actually respect the license, write our code by hand, keep everything 100% free, and offer a clean and modern UI thanks to Material 3 Expressive.
-SE Extended does whats others cant by building a powerful xposed module driven by user needs, not by profit or "hype".
+SE Extended does what others can't, by building a powerful Xposed module driven by user needs, not by profit or 'hype'.
 
 ## Screenshots
 <div align="center">
@@ -248,7 +248,7 @@ Donors who join our Telegram discussion group will also receive a distinguished 
 
 ## Contributing
 Contributions are welcome!<br/>
-Thanks to everyone involved
+Thanks to everyone involved <br/>
 **Pull Requests:**
 - [ΞTΞRNAL](https://github.com/particle-box)
     - feat(core/ui_tweaks): multiple hide ui components [#106](https://github.com/bocajthomas/SE-Extended/pull/106)
@@ -308,7 +308,7 @@ We do not collect any user information. However, Please be aware that third-part
 </details>
 
 ## Credits
-SE Extended uses some third-party libraries, These Include
+SE Extended uses some third-party libraries, these include:
 - [SnapEnhance](https://github.com/rhunk/SnapEnhance) - Original Project
 - [libxposed](https://github.com/libxposed/api) - Xposed Framework API
 - [ffmpeg-kit-full-gpl](https://github.com/arthenica/ffmpeg-kit) - FFmpeg Wrapper
