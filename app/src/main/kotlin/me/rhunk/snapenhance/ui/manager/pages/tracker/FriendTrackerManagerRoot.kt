@@ -68,7 +68,8 @@ class FriendTrackerManagerRoot : Routes.Route() {
     }
 
     override val floatingActionButton: @Composable () -> Unit = {
-        val fabContainerColor = MaterialTheme.colorScheme.primary
+        val primaryColor = MaterialTheme.colorScheme.primary
+        val onPrimaryColor = MaterialTheme.colorScheme.onPrimary
         var fabMenuExpanded by rememberSaveable { mutableStateOf(false) }
 
         when (selectedIndex) {
@@ -85,7 +86,7 @@ class FriendTrackerManagerRoot : Routes.Route() {
                             },
                             checked = fabMenuExpanded,
                             onCheckedChange = { fabMenuExpanded = !fabMenuExpanded },
-                            containerColor = { fabContainerColor },
+                            containerColor = { primaryColor },
                         ) {
                             val imageVector by remember {
                                 derivedStateOf {
@@ -95,8 +96,10 @@ class FriendTrackerManagerRoot : Routes.Route() {
                             Icon(
                                 painter = rememberVectorPainter(imageVector),
                                 contentDescription = null,
-                                modifier = Modifier.animateIcon({ checkedProgress }),
-                                tint = MaterialTheme.colorScheme.onPrimary
+                                modifier = Modifier.animateIcon(
+                                    checkedProgress = { checkedProgress },
+                                    color = { onPrimaryColor }
+                                )
                             )
                         }
                     },
@@ -108,8 +111,8 @@ class FriendTrackerManagerRoot : Routes.Route() {
                         },
                         icon = { Icon(Icons.Rounded.SaveAlt, contentDescription = "Export") },
                         text = { Text(translation["export_button"]) },
-                        containerColor = fabContainerColor,
-                        contentColor = MaterialTheme.colorScheme.onPrimary
+                        containerColor = primaryColor,
+                        contentColor = onPrimaryColor
                     )
 
                     FloatingActionButtonMenuItem(
@@ -119,8 +122,8 @@ class FriendTrackerManagerRoot : Routes.Route() {
                         },
                         icon = { Icon(Icons.Rounded.DeleteOutline, contentDescription = "Delete") },
                         text = { Text(translation["delete_button"]) },
-                        containerColor = fabContainerColor,
-                        contentColor = MaterialTheme.colorScheme.onPrimary
+                        containerColor = primaryColor,
+                        contentColor = onPrimaryColor
                     )
                 }
             }
@@ -130,8 +133,8 @@ class FriendTrackerManagerRoot : Routes.Route() {
                     onClick = { routes.editRule.navigate() },
                     icon = { Icon(Icons.Rounded.Add, contentDescription = "Add Rule") },
                     text = { Text(translation["add_rule_button"]) },
-                    containerColor = fabContainerColor,
-                    contentColor = MaterialTheme.colorScheme.onPrimary
+                    containerColor = primaryColor,
+                    contentColor = onPrimaryColor
                 )
             }
         }

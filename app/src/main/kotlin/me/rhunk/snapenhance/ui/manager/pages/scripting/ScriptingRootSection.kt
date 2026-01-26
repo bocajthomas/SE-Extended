@@ -606,7 +606,9 @@ class ScriptingRootSection : Routes.Route() {
             context.scriptManager.getScriptsFolder()
         }
 
-        val fabContainerColor = MaterialTheme.colorScheme.primary
+        val primaryColor = MaterialTheme.colorScheme.primary
+        val onPrimaryColor = MaterialTheme.colorScheme.onPrimary
+
         var fabMenuExpanded by rememberSaveable { mutableStateOf(false) }
 
         if (scriptingFolder != null) {
@@ -622,7 +624,7 @@ class ScriptingRootSection : Routes.Route() {
                         },
                         checked = fabMenuExpanded,
                         onCheckedChange = { fabMenuExpanded = !fabMenuExpanded },
-                        containerColor = { fabContainerColor },
+                        containerColor = { primaryColor },
                     ) {
                         val imageVector by remember {
                             derivedStateOf {
@@ -632,8 +634,10 @@ class ScriptingRootSection : Routes.Route() {
                         Icon(
                             painter = rememberVectorPainter(imageVector),
                             contentDescription = null,
-                            modifier = Modifier.animateIcon({ checkedProgress }),
-                            tint = MaterialTheme.colorScheme.onPrimary
+                            modifier = Modifier.animateIcon(
+                                checkedProgress = { checkedProgress },
+                                color = { onPrimaryColor }
+                            )
                         )
                     }
                 },
@@ -647,8 +651,8 @@ class ScriptingRootSection : Routes.Route() {
                     },
                     icon = { Icon(Icons.Rounded.FolderOpen, contentDescription = "Folder") },
                     text = { Text(text = translation["open_scripts_folder_button"]) },
-                    containerColor = fabContainerColor,
-                    contentColor = MaterialTheme.colorScheme.onPrimary
+                    containerColor = primaryColor,
+                    contentColor = onPrimaryColor
                 )
 
                 FloatingActionButtonMenuItem(
@@ -660,8 +664,8 @@ class ScriptingRootSection : Routes.Route() {
                     },
                     icon = { Icon(Icons.Rounded.Link, contentDescription = "Link") },
                     text = { Text(text = translation["import_from_url_button"]) },
-                    containerColor = fabContainerColor,
-                    contentColor = MaterialTheme.colorScheme.onPrimary
+                    containerColor = primaryColor,
+                    contentColor = onPrimaryColor
                 )
             }
         }
