@@ -235,7 +235,8 @@ class ThemingRoot: Routes.Route() {
 
     override val floatingActionButton: @Composable () -> Unit = {
         var showImportFromUrlDialog by remember { mutableStateOf(false) }
-        val fabContainerColor = MaterialTheme.colorScheme.primary
+        val primaryColor = MaterialTheme.colorScheme.primary
+        val onPrimaryColor = MaterialTheme.colorScheme.onPrimary
         var fabMenuExpanded by rememberSaveable { mutableStateOf(false) }
 
         if (showImportFromUrlDialog) {
@@ -318,7 +319,7 @@ class ThemingRoot: Routes.Route() {
                             },
                             checked = fabMenuExpanded,
                             onCheckedChange = { fabMenuExpanded = !fabMenuExpanded },
-                            containerColor = { fabContainerColor },
+                            containerColor = { primaryColor },
                         ) {
                             val imageVector by remember {
                                 derivedStateOf {
@@ -328,8 +329,10 @@ class ThemingRoot: Routes.Route() {
                             Icon(
                                 painter = rememberVectorPainter(imageVector),
                                 contentDescription = null,
-                                modifier = Modifier.animateIcon({ checkedProgress }),
-                                tint = MaterialTheme.colorScheme.onPrimary
+                                modifier = Modifier.animateIcon(
+                                    checkedProgress = { checkedProgress },
+                                    color = { onPrimaryColor }
+                                )
                             )
                         }
                     },
@@ -338,24 +341,24 @@ class ThemingRoot: Routes.Route() {
                         onClick = { importTheme() },
                         icon = { Icon(Icons.Rounded.Upload, contentDescription = null) },
                         text = { Text(translation["import_from_file_button"]) },
-                        containerColor = fabContainerColor,
-                        contentColor = MaterialTheme.colorScheme.onPrimary
+                        containerColor = primaryColor,
+                        contentColor = onPrimaryColor
                     )
 
                     FloatingActionButtonMenuItem(
                         onClick = { showImportFromUrlDialog = true },
                         icon = { Icon(Icons.Rounded.Link, contentDescription = null) },
                         text = { Text(translation["import_from_url_button"]) },
-                        containerColor = fabContainerColor,
-                        contentColor = MaterialTheme.colorScheme.onPrimary
+                        containerColor = primaryColor,
+                        contentColor = onPrimaryColor
                     )
 
                     FloatingActionButtonMenuItem(
                         onClick = { routes.editTheme.navigate() },
                         icon = { Icon(Icons.Rounded.Add, contentDescription = null) },
                         text = { Text(translation["new_theme_button"]) },
-                        containerColor = fabContainerColor,
-                        contentColor = MaterialTheme.colorScheme.onPrimary
+                        containerColor = primaryColor,
+                        contentColor = onPrimaryColor
                     )
                 }
             }
@@ -365,8 +368,8 @@ class ThemingRoot: Routes.Route() {
                     onClick = { routes.manageRepos.navigate() },
                     icon = { Icon(Icons.Rounded.Public, contentDescription = null) },
                     text = { Text(translation["manage_repositories_button"]) },
-                    containerColor = fabContainerColor,
-                    contentColor = MaterialTheme.colorScheme.onPrimary
+                    containerColor = primaryColor,
+                    contentColor = onPrimaryColor
                 )
             }
         }
