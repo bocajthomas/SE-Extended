@@ -160,7 +160,6 @@ class EditRule : Routes.Route() {
     @OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
     override val content: @Composable (NavBackStackEntry) -> Unit = { navBackStackEntry ->
         val currentRuleId = navBackStackEntry.arguments?.getString("rule_id")?.toIntOrNull()
-
         val events = rememberAsyncMutableStateList(defaultValue = emptyList()) {
             currentRuleId?.let { ruleId ->
                 context.database.getTrackerEvents(ruleId)
@@ -183,9 +182,9 @@ class EditRule : Routes.Route() {
                 context.database.getTrackerRule(ruleId)?.name ?: translation["default_rule_name"]
             } ?: translation["default_rule_name"]
         }
-
         var fabMenuExpanded by rememberSaveable { mutableStateOf(false) }
-        val fabContainerColor = MaterialTheme.colorScheme.primary
+        val primaryColor = MaterialTheme.colorScheme.primary
+        val onPrimaryColor = MaterialTheme.colorScheme.onPrimary
 
         LaunchedEffect(Unit) {
             fab.value = {
@@ -245,7 +244,7 @@ class EditRule : Routes.Route() {
                             },
                             checked = fabMenuExpanded,
                             onCheckedChange = { fabMenuExpanded = !fabMenuExpanded },
-                            containerColor = { fabContainerColor },
+                            containerColor = { primaryColor },
                         ) {
                             val imageVector by remember {
                                 derivedStateOf {
@@ -255,8 +254,10 @@ class EditRule : Routes.Route() {
                             Icon(
                                 painter = rememberVectorPainter(imageVector),
                                 contentDescription = null,
-                                modifier = Modifier.animateIcon({ checkedProgress }),
-                                tint = MaterialTheme.colorScheme.onPrimary
+                                modifier = Modifier.animateIcon(
+                                    checkedProgress = { checkedProgress },
+                                    color = { onPrimaryColor }
+                                )
                             )
                         }
                     },
@@ -279,8 +280,8 @@ class EditRule : Routes.Route() {
                         },
                         icon = { Icon(Icons.Rounded.Save, contentDescription = null) },
                         text = { Text(translation["save_rule_button"]) },
-                        containerColor =  MaterialTheme.colorScheme.primary,
-                        contentColor = MaterialTheme.colorScheme.onPrimary
+                        containerColor = primaryColor,
+                        contentColor = onPrimaryColor
                     )
                     if (currentRuleId != null) {
                         FloatingActionButtonMenuItem(

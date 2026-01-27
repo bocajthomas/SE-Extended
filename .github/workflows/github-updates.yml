@@ -4,39 +4,37 @@ on:
     branches:
       - dev
   watch:
+    types: [started]
 
 jobs:
   build:
     name: Sending Update Message
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Trigger checker
-        id: checker
+      - uses: actions/checkout@v4
+      - name: Extract Commit Info
+        id: info
         run: |
           if [[ "${{ github.event_name }}" == "push" ]]; then
-            echo "::set-output name=trigger::push"
+            echo "trigger=push" >> $GITHUB_OUTPUT
+            COUNT=$(jq '.commits | length' $GITHUB_EVENT_PATH)
+            if [ "$COUNT" -eq 1 ]; then
+              echo "header=New commit has been pushed to the ${{ github.ref_name }} branch!" >> $GITHUB_OUTPUT
+            else
+              echo "header=New commits have been pushed to the ${{ github.ref_name }} branch!" >> $GITHUB_OUTPUT
+            fi
+            {
+              echo 'commit_list<<EOF'
+              jq -r --arg repo "${{ github.repository }}" '.commits | reverse | .[] | "[#\(.id | .[0:7])](https://github.com/\($repo)/commit/\(.id)) - \(.message | split("\n")[0] | split(" - ")[0])"' $GITHUB_EVENT_PATH
+              echo 'EOF'
+            } >> $GITHUB_OUTPUT
+
           elif [[ "${{ github.event_name }}" == "watch" ]]; then
-            echo "::set-output name=trigger::watch"
+            echo "trigger=watch" >> $GITHUB_OUTPUT
           fi
 
-      - name: Extract short SHA
-        if: steps.checker.outputs.trigger == 'push'
-        id: extract_sha
-        run: |
-          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
-          echo "::set-output name=short_sha::$SHORT_SHA"
-
-      - name: Extract main commit message
-        if: steps.checker.outputs.trigger == 'push'
-        id: extract_message
-        run: |
-          # Extract the main commit message (everything before the first newline or dash)
-          MAIN_MESSAGE=$(echo "${{ github.event.head_commit.message }}" | awk -F' - ' '{print $1}')
-          echo "::set-output name=main_message::$MAIN_MESSAGE"
-
       - name: Sending Message for Push
-        if: steps.checker.outputs.trigger == 'push'
+        if: steps.info.outputs.trigger == 'push'
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -46,11 +44,11 @@ jobs:
           message: |
             [${{ github.repository }}](https://github.com/${{ github.repository }})
 
-            New commit has been pushed to the ${{ github.ref_name }} branch!
-            [#${{ steps.extract_sha.outputs.short_sha }}](https://github.com/${{ github.repository }}/commit/${{ steps.extract_sha.outputs.short_sha }}) - ${{ steps.extract_message.outputs.main_message }}
+            ${{ steps.info.outputs.header }}
+            ${{ steps.info.outputs.commit_list }}
 
       - name: Sending Message for Watch
-        if: steps.checker.outputs.trigger == 'watch'
+        if: steps.info.outputs.trigger == 'watch'
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -58,43 +56,25 @@ jobs:
           disable_web_page_preview: true
           format: markdown
           message: |
-            ⭐ [@${{ github.actor }}](https://github.com/${{ github.actor }}) Starred [${{ github.repository }}](https://github.com/${{ github.repository }}).
+            ⭐ [@${{ github.actor }}](https://github.com/${{ github.actor }}) starred [${{ github.repository }}](https://github.com/${{ github.repository }}).
 
       - name: Delete previous workflow runs
         if: always()
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-          # Get the current workflow run ID and workflow name
           CURRENT_RUN_ID=${{ github.run_id }}
           WORKFLOW_NAME="${{ github.workflow }}"
-
-          # Fetch the list of workflow runs for this workflow
-          echo "Fetching workflow runs for workflow: $WORKFLOW_NAME"
           WORKFLOW_RUNS=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
             -H "Accept: application/vnd.github.v3+json" \
             "https://api.github.com/repos/${{ github.repository }}/actions/runs?status=completed")
 
-          # Debug: Print the API response
-          echo "API Response:"
-          echo "$WORKFLOW_RUNS"
-
-          # Check if the API response is valid and contains workflow runs
           if [[ $(echo "$WORKFLOW_RUNS" | jq -e '.workflow_runs != null') == "true" ]]; then
-            # Extract the IDs of previous runs for this workflow (excluding the current run)
             PREVIOUS_RUN_IDS=$(echo "$WORKFLOW_RUNS" | jq -r ".workflow_runs[] | select(.id != $CURRENT_RUN_ID and .name == \"$WORKFLOW_NAME\") | .id")
-
-            # Debug: Print the list of previous run IDs
-            echo "Previous Run IDs for workflow '$WORKFLOW_NAME':"
-            echo "$PREVIOUS_RUN_IDS"
-
-            # Delete previous runs
             for RUN_ID in $PREVIOUS_RUN_IDS; do
               echo "Deleting run ID: $RUN_ID"
               curl -s -X DELETE -H "Authorization: Bearer $GITHUB_TOKEN" \
                 -H "Accept: application/vnd.github.v3+json" \
                 "https://api.github.com/repos/${{ github.repository }}/actions/runs/$RUN_ID"
             done
-          else
-            echo "No previous workflow runs found or API request failed."
           fi
