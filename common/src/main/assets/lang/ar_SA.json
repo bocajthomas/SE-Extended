@@ -2,17 +2,26 @@
     "setup": {
         "mappings": {
             "generate_failure_no_snapchat": "لم يتمكّن SE Extended اكتشاف سناب شات، رجاءً أعد تثبيت سناب شات.",
-            "generate_failure": "حدث خطأ أثناء محاولة إنشاء المخطّطات، رجاءً حاول مرّة أخرى."
+            "generate_failure": "حدث خطأ أثناء محاولة إنشاء المخطّطات، رجاءً حاول مرّة أخرى.",
+            "info": "يتمّ إنشاء المخطّطات، قد يستغرق هذا بعض الوقت…"
         },
         "permissions": {
             "notification_access": "الوصول إلى الإشعارات",
             "battery_optimization": "تحسين أداء البطارية",
             "display_over_other_apps": "العرض فوق التطبيقات الأخرى",
-            "request_button": "طلب"
+            "request_button": "طلب",
+            "description": "للمتابعة، يجب أن تستوفي المتطلبات التالية:",
+            "install_unknown_apps": "تثبيت تطبيقات غير معروفة"
         },
         "save_folder": {
             "description": "يتطلب SE Extended أذونات تخزين لتنزيل الوسائط وحفظها من Snapchat.\nيرجى اختيار الموقع الذي يجب تنزيل الوسائط إليه.",
             "select_folder_button": "حدد المجلد"
+        },
+        "disclaimer": {
+            "title": "أهلاً بك في وحدة SE Extended.",
+            "subtitle": "بيان إخلاء المسؤولية:",
+            "statement": "- يجب على المستخدمين تحمُّل المسؤولية الكاملة عن أي مخاطر مرتبطة باستخدام هذه الوحدة.\n\n- يمكن لوحدة SE Extended تعديل سلوك تطبيق سناب شات. يجب على المستخدمين مراجعة عمليات الوحدة بعناية واتّخاذ قراراتهم الخاصة بشأن استخدامها. \n- لا يتحمّل المطور أي مسؤولية عن أي تحذيرات أو حظر قد يحدث على حساب Snapchat الخاص بك نتيجةً لاستخدام وحدة SE Extended، ويتحمّل المستخدمون أنفسهم جميع العواقب.",
+            "agree_button": "أوافق وأتابِع"
         }
     },
     "scopes": {
@@ -39,7 +48,10 @@
             "manage_scope": "إدارة الحيّز",
             "messaging_preview": "معاينة",
             "scripts": "نصوص",
-            "better_location": "موقع أفضل"
+            "better_location": "موقع أفضل",
+            "home_credits": "اعتمادات",
+            "home_about": "عن",
+            "home_third_party_libraries": "مكاتب من أطراف ثالثة"
         },
         "sections": {
             "home": {
