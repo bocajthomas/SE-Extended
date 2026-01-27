@@ -258,6 +258,9 @@ Thanks to everyone involved <br/>
 - [CanerKaraca23](https://github.com/CanerKaraca23)
     - chore: update dependencies [#127](https://github.com/bocajthomas/SE-Extended/pull/127)
 
+- [Gabriel Longshaw](https://github.com/gabriellongshaw)
+    - chore(readme): capitalisation and grammar [#182](https://github.com/bocajthomas/SE-Extended/pull/182)
+
 **WIKI:**
 - [Feet Licker](https://github.com/jizzmaster420)
   - Fix "App Not Installed" (Conflicting Package Error) [here](https://github.com/bocajthomas/SE-Extended/wiki/Common-Issues#fix-app-not-installed-conflicting-package-error)
